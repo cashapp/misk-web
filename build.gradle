@@ -1,0 +1,23 @@
+ext {
+  isCi = "true".equals(System.getenv('CI'))
+}
+apply from: new File("./dependencies.gradle")
+
+subprojects {
+  buildscript {
+    repositories {
+      mavenCentral()
+      jcenter()
+    }
+
+    dependencies {
+      classpath dep.kotlinGradlePlugin
+      classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.2'
+      classpath 'com.vanniktech:gradle-maven-publish-plugin:0.4.0'
+    }
+  }
+  repositories {
+    mavenCentral()
+    jcenter()
+  }
+}
