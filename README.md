@@ -4,7 +4,7 @@
 
 [Misk](https://github.com/square/misk) is a new open source application container from Square.
 
-**Misk-Web** is a new micro-frontends Typescript + React web framework from Square. It happens to work seamlessly with [Misk](https://github.com/square/misk) but is also a robust stand alone web framework.
+**Misk-Web** is a new [micro-frontends](https://micro-frontends.org) Typescript + React + Redux web framework from Square. It happens to work seamlessly with [Misk](https://github.com/square/misk) but is also a robust stand alone web framework.
 
 Misk-Web is not ready for use. The API is not stable.
 

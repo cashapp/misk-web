@@ -1,0 +1,1 @@
+apply(from = rootProject.file("../upload.gradle"))
