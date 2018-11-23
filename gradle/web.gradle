@@ -1,6 +1,6 @@
 import groovy.json.JsonSlurper
 
-def dockerMiskWebVersion = "0.0.8"
+def dockerMiskWebVersion = "0.0.9"
 
 task web(type: Exec) {
   // -Pcmd='-d': pass in argument to misk-web shell script in Docker container
@@ -23,7 +23,11 @@ task web(type: Exec) {
 
   def generateDockerContainerName = { task ->
     def slug = slugify(task)
-    return "${new Date().format("YMD-HMS")}-${projectName}-${subProjectName}-${slug}"
+    if (slug == "") {
+      return "${new Date().format("YMD-HMS")}-${projectName}-${subProjectName}"
+    } else {
+      return "${new Date().format("YMD-HMS")}-${projectName}-${subProjectName}-${slug}"
+    }
   }
 
   def getPackageJsonPort = { path ->
@@ -85,6 +89,11 @@ task web(type: Exec) {
     dockerd = "-d"
   }
 
+  def single = false
+  if (project.hasProperty("single")) {
+    single = true
+  }
+
   def runCommand = ""
 
   if (project.hasProperty("tabs")) {
@@ -99,6 +108,8 @@ task web(type: Exec) {
       }
       runCommand += command
     }
+  } else if (single) {
+    runCommand += generateDockerRunCommand(project.projectDir, "", "/bin/misk-web ${cmd}", dockerd)
   } else {
     // Spin up parallel images for all @misk/ packages and tabs
     def paths = []

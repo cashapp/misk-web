@@ -1,0 +1,34 @@
+{
+  "name": "static-dashboard",
+  "version": "0.0.3",
+  "license": "SEE LICENSE IN https://github.com/square/misk",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "npm run-script lint && npm run-script lib",
+    "clean": "rm -rf lib",
+    "ci-build": "npm run-script clean && npm run-script lib",
+    "lib": "cross-env NODE_ENV=production webpack",
+    "lint": "prettier --write --config prettier.config.js \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
+    "reinstall": "rm -rf node_modules && npm run-script install",
+    "start": "npm run-script lint && cross-env NODE_ENV=development webpack-dev-server",
+    "test": "echo no test"
+  },
+  "dependencies": {
+    "@misk/common": "^0.1.0-alpha-0.1",
+    "@misk/components": "^0.1.0-alpha-0.1"
+  },
+  "devDependencies": {
+    "@misk/dev": "^0.0.69",
+    "@misk/tslint": "^0.0.10"
+  },
+  "miskTab": {
+    "name": "Static Dashboard",
+    "output_path": "/demo",
+    "port": "4040",
+    "slug": "static-dashboard",
+    "version": "0.0.7"
+  },
+  "engines": {
+    "yarn": "YARN NO LONGER USED - use npm instead."
+  }
+}

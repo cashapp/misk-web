@@ -21,11 +21,11 @@ interface IDashboardTab extends IWebTab {
 interface IAdminDashboardTab extends IDashboardTab {}
 
 interface IServiceMetadata {
+  admin_dashboard_url: string
   app_name: string
   environment: Environment
-  admin_dashboard_url: string
-  navbar_items: Array<string | Element | JSX.Element>
-  navbar_status: string | Element | JSX.Element
+  navbar_items?: Array<string | Element | JSX.Element>
+  navbar_status?: string | Element | JSX.Element
 }
 
 /**
