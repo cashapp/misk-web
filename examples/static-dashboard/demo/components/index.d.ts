@@ -1,2 +1,1 @@
-export * from "./MountingDivComponent";
-export * from "./ScriptComponent";
+export * from "./TestComponent";

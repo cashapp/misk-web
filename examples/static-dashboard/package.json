@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "npm run-script lint && npm run-script lib",
-    "clean": "rm -rf lib",
+    "clean": "rm -rf demo",
     "ci-build": "npm run-script clean && npm run-script lib",
     "lib": "cross-env NODE_ENV=production webpack",
     "lint": "prettier --write --config prettier.config.js \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
@@ -14,19 +14,19 @@
     "test": "echo no test"
   },
   "dependencies": {
-    "@misk/common": "^0.1.0-alpha-0.1",
-    "@misk/components": "^0.1.0-alpha-0.1"
+    "@misk/common": "^0.1.0-alpha-0.2",
+    "@misk/components": "^0.1.0-alpha-0.7"
   },
   "devDependencies": {
-    "@misk/dev": "^0.0.69",
-    "@misk/tslint": "^0.0.10"
+    "@misk/dev": "^0.1.0-alpha-0.1",
+    "@misk/tslint": "^0.1.0-alpha-0.1"
   },
   "miskTab": {
     "name": "Static Dashboard",
     "output_path": "/demo",
     "port": "4040",
     "slug": "static-dashboard",
-    "version": "0.0.7"
+    "version": "0.0.9"
   },
   "engines": {
     "yarn": "YARN NO LONGER USED - use npm instead."
