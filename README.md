@@ -11,28 +11,26 @@ Misk-Web is not ready for use. The API is not stable.
 1. Add `"miskWeb": "com.squareup.misk-web:misk-web:2018.11.20-06a2d00",` to your `dependencies.gradle`
 1. Add `classpath dep.miskWeb` to your `build.gradle`
 
-  ```Groovy
+```Groovy
 
-  subprojects {
-    buildscript {
-      repositories {
-        mavenCentral()
-        jcenter()
-      }
+subprojects {
+  buildscript {
+    repositories {
+      mavenCentral()
+      jcenter()
+    }
 
-      dependencies {
-        ...
-
-        classpath dep.miskWeb
-        ...
-
-      }
-
+    dependencies {
       ...
 
-  ```
+      classpath dep.miskWeb
+      ...
 
+    }
 
+    ...
+
+```
 
 ## [Recommended Workflow](https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/)
 
@@ -42,3 +40,5 @@ Misk-Web is not ready for use. The API is not stable.
 1. Pull any new changes with `git pull square master`
 1. Push any new changes to a new branch in your personal fork
 1. Open PR from personal fork -> square/master
+
+## [Example Projects](/examples)

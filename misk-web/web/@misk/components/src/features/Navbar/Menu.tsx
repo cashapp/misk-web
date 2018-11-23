@@ -136,12 +136,12 @@ export class Menu extends React.Component<IMenuProps, {}> {
     categoryName: string,
     categoryLinks: IDashboardTab[]
   ) {
-    const sortedCategoryLinks = sortBy(categoryLinks, "name").filter(
-      (link: IDashboardTab) => link.category !== ""
-    )
+    const sortedCategoryLinks = sortBy(categoryLinks, "name")
     return (
       <div>
-        <MiskMenuCategory>{categoryName}</MiskMenuCategory>
+        <MiskMenuCategory>
+          {categoryName === "undefined" ? "" : categoryName}
+        </MiskMenuCategory>
         <MiskMenuDivider />
         <MiskMenuLinks>
           {sortedCategoryLinks.map((link: IDashboardTab) => (

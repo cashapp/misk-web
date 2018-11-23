@@ -29,11 +29,15 @@ const renderEnvironmentLink = (
 const renderNavbarItems = (
   navbarItems?: Array<string | Element | JSX.Element>
 ) => {
-  return navbarItems.map(item => (
-    <MiskNavbarHeading>
-      <TextHTMLOrElementComponent>{item}</TextHTMLOrElementComponent>
-    </MiskNavbarHeading>
-  ))
+  if (navbarItems) {
+    return navbarItems.map(item => (
+      <MiskNavbarHeading>
+        <TextHTMLOrElementComponent>{item}</TextHTMLOrElementComponent>
+      </MiskNavbarHeading>
+    ))
+  } else {
+    return <span />
+  }
 }
 
 export const processNavbarItems = (
