@@ -11,4 +11,4 @@ These projects will let you test `misk-web` without a full `misk` server.
 
 ## Projects
 
-- `static-dashboard` [Live Demo](./static-dashboard/demo/) testing of Dashboard UI with the ability to set mock data for menu links, environment, service name, and other fields
+- `static-dashboard` [[Live Demo](https://square.github.io/misk-web/examples/static-dashboard/demo/)]: Dashboard UI with the ability to set mock data for menu links, environment, service name, and other fields

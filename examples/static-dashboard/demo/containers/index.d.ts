@@ -1,1 +1,1 @@
-export { default as TabContainer } from "./TabContainer";
+export { default as LoaderContainer } from "./LoaderContainer";

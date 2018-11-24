@@ -1,4 +1,6 @@
-![](https://raw.githubusercontent.com/square/misk/master/misk.png)
+<img src="https://raw.githubusercontent.com/square/misk/master/misk.png" width="300">
+
+[![Build Status](https://travis-ci.com/square/misk-web.svg?branch=master)](https://travis-ci.org/square/misk-web)
 
 [Misk](https://github.com/square/misk) is a new open source application container from Square.
 
@@ -6,29 +8,25 @@
 
 Misk-Web is not ready for use. The API is not stable.
 
+## NPM Libraries
+
+- [![npm](https://img.shields.io/npm/v/@misk/common.svg?label=@misk/common)](https://www.npmjs.com/package/@misk/common) &ndash; Common interfaces, colors
+- [![npm](https://img.shields.io/npm/v/@misk/components.svg?label=@misk/components)](https://www.npmjs.com/package/@misk/components) &ndash; React + Typescript components and utilities
+- [![npm](https://img.shields.io/npm/v/@misk/dev.svg?label=@misk/dev)](https://www.npmjs.com/package/@misk/dev) &ndash; Webpack config builder, Typescript compiler config, Prettier linting, and other shared developer build tools
+- [![npm](https://img.shields.io/npm/v/@misk/tslint.svg?label=@misk/tslint)](https://www.npmjs.com/package/@misk/tslint) &ndash; Standard TSLint configuration and rules
+
 ## Migrating from Misk
 
-1. Add `"miskWeb": "com.squareup.misk-web:misk-web:2018.11.20-06a2d00",` to your `dependencies.gradle`
-1. Add `classpath dep.miskWeb` to your `build.gradle`
+1. Add `"miskWeb": "com.squareup.misk-web:misk-web:2018.11.23-00fdf9e",` to your `dependencies.gradle`
+1. Add `compile dep.miskWeb` to your `service/build.gradle`
 
 ```Groovy
 
-subprojects {
-  buildscript {
-    repositories {
-      mavenCentral()
-      jcenter()
-    }
-
-    dependencies {
-      ...
-
-      classpath dep.miskWeb
-      ...
-
-    }
-
-    ...
+dependencies {
+  ...
+  compile dep.miskWeb
+  ...
+}
 
 ```
 
@@ -41,4 +39,4 @@ subprojects {
 1. Push any new changes to a new branch in your personal fork
 1. Open PR from personal fork -> square/master
 
-## [Example Projects](/examples)
+## [Example Projects](examples/)
