@@ -39,6 +39,22 @@ enum Environment {
 }
 
 /**
+ * Time
+ */
+
+enum DateFormat {
+  year = "YYYY",
+  month = "YYYY-MM",
+  day = "YYYY-MM-DD",
+  minute = "YYYY-MM-DD HH:mm",
+  second = "YYYY-MM-DD HH:mm:ss",
+  millisecond = "YYYY-MM-DD HH:mm:ss:SSS",
+  minuteAMPM = "YYYY-MM-DD hh:mm A",
+  secondAMPM = "YYYY-MM-DD hh:mm:ss A",
+  millisecondAMPM = "YYYY-MM-DD hh:mm:ss:SSS A"
+}
+
+/**
  * Ducks
  */
 interface IDefaultState {
@@ -87,12 +103,13 @@ interface IWindow extends Window {
 }
 
 export {
+  DateFormat,
+  defaultState,
+  Environment,
   IWebTab,
   IDashboardTab,
   IAdminDashboardTab,
   IServiceMetadata,
-  defaultState,
-  Environment,
   IDefaultState,
   IBinder,
   IBinderKeys,
