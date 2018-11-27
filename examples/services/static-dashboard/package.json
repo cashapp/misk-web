@@ -1,8 +1,11 @@
 {
   "name": "static-dashboard",
   "version": "0.0.3",
-  "license": "SEE LICENSE IN https://github.com/square/misk",
+  "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "main": "src/index.ts",
+  "engines": {
+    "yarn": "YARN NO LONGER USED - use npm instead."
+  },
   "scripts": {
     "build": "npm run-script lint && npm run-script lib",
     "clean": "rm -rf demo",
@@ -27,8 +30,5 @@
     "port": "4040",
     "slug": "static-dashboard",
     "version": "0.0.9"
-  },
-  "engines": {
-    "yarn": "YARN NO LONGER USED - use npm instead."
   }
 }
