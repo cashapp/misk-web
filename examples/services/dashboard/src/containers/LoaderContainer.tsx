@@ -1,11 +1,11 @@
 import {
-  // get,
+  get,
+  initialResponseState,
   Navbar,
   OfflineComponent,
   ResponsiveContainer,
   TabLoaderComponent
 } from "@misk/components"
-import axios, { AxiosRequestConfig } from "axios"
 import * as React from "react"
 import { connect } from "react-redux"
 import styled from "styled-components"
@@ -19,23 +19,6 @@ const TabContainer = styled(ResponsiveContainer)`
   padding-left: 5px;
 `
 
-export const get = async (url: string, config: AxiosRequestConfig = {}) => {
-  console.log("get test")
-  try {
-    const { data } = await axios.get(url, config)
-    return { data, error: null as any }
-  } catch (error) {
-    return { data: null as any, error }
-  }
-}
-
-export const initialRequestState = () => {
-  return {
-    data: null as any,
-    error: null as any
-  }
-}
-
 const adminDashboardTabsUrl =
   "https://square.github.io/misk-web/examples/data/demo/adminDashboardTabs.json"
 const serviceMetadataUrl =
@@ -43,9 +26,9 @@ const serviceMetadataUrl =
 
 class LoaderContainer extends React.Component<ILoaderProps> {
   state = {
-    adminDashboardTabs: initialRequestState(),
+    adminDashboardTabs: initialResponseState(),
     error: null as any,
-    serviceMetadata: initialRequestState()
+    serviceMetadata: initialResponseState()
   }
 
   async componentDidMount() {
@@ -54,7 +37,6 @@ class LoaderContainer extends React.Component<ILoaderProps> {
       adminDashboardTabs: await get(adminDashboardTabsUrl),
       serviceMetadata: await get(serviceMetadataUrl)
     })
-    console.log(this.state)
   }
 
   render() {
