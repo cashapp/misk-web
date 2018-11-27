@@ -1,15 +1,12 @@
-import * as React from "react";
-export interface IComponentProps {
-    data: IData;
+/// <reference types="react" />
+export interface IUrlTokenMetadata {
+    created_at: string;
+    long_url: string;
+    short_url: string;
+    token: string;
+    updated_at: string;
 }
-interface IData {
-    userId: number;
-    id: number;
-    title: string;
-    body: string;
-}
-export default class TabComponent extends React.PureComponent<IComponentProps> {
-    renderExample(data: IData): JSX.Element;
-    render(): JSX.Element;
-}
-export {};
+export declare const Table: (props: {
+    data: IUrlTokenMetadata[];
+}) => JSX.Element;
+export default Table;

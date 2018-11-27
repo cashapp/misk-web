@@ -1,4 +1,13 @@
-import { IAction, IDefaultState } from "@misk/common";
+import {
+  createAction,
+  defaultState,
+  IAction,
+  IDefaultState
+} from "@misk/common"
+import axios from "axios"
+import { fromJS } from "immutable"
+import { all, call, put, takeLatest } from "redux-saga/effects"
+
 /**
  * This is a Ducks module
  *
@@ -64,61 +73,223 @@ import { IAction, IDefaultState } from "@misk/common";
  * and it will always have a mounted function from your Dispatcher object so you can trigger a given action
  * to kick off a Ducks flow to retrieve data or do other asynchronous computation.
  */
+
 /**
  * Actions
  * string enum of the defined actions that is used as type enforcement for Reducer and Sagas arguments
  */
-export declare enum EXAMPLE {
-    GET = "EXAMPLE_GET",
-    GET_ONE = "EXAMPLE_GET_ONE",
-    SAVE = "EXAMPLE_SAVE",
-    PUT = "EXAMPLE_PUT",
-    PATCH = "EXAMPLE_PATCH",
-    DELETE = "EXAMPLE_DELETE",
-    SUCCESS = "EXAMPLE_SUCCESS",
-    FAILURE = "EXAMPLE_FAILURE"
+export enum PALETTE {
+  GET = "PALETTE_GET",
+  GET_ONE = "PALETTE_GET_ONE",
+  SAVE = "PALETTE_SAVE",
+  PUT = "PALETTE_PUT",
+  PATCH = "PALETTE_PATCH",
+  DELETE = "PALETTE_DELETE",
+  SUCCESS = "PALETTE_SUCCESS",
+  FAILURE = "PALETTE_FAILURE"
 }
+
 /**
  * Dispatch Object
  * Object of functions that dispatch Actions with standard defaults and any required passed in input
  * dispatch Object is used within containers to initiate any saga provided functionality
  */
-export declare const dispatchExample: {
-    delete: (id: number) => IAction<EXAMPLE.DELETE, {
-        id: number;
-        loading: boolean;
-        success: boolean;
-        error: any;
-    }>;
-    failure: (error: any) => IAction<EXAMPLE.FAILURE, any>;
-    patch: (id: number, data: any) => IAction<EXAMPLE.PATCH, any>;
-    put: (id: number, data: any) => IAction<EXAMPLE.PUT, any>;
-    request: () => IAction<EXAMPLE.GET, {
-        loading: boolean;
-        success: boolean;
-        error: any;
-    }>;
-    requestOne: (id: number) => IAction<EXAMPLE.GET_ONE, {
-        id: number;
-        loading: boolean;
-        success: boolean;
-        error: any;
-    }>;
-    save: (data: any) => IAction<EXAMPLE.SAVE, any>;
-    success: (data: any) => IAction<EXAMPLE.SUCCESS, any>;
-};
-export declare function watchExampleSagas(): IterableIterator<import("redux-saga/effects").AllEffect>;
+export const dispatchPalette = {
+  delete: (id: number) =>
+    createAction(PALETTE.DELETE, {
+      id,
+      loading: true,
+      success: false,
+      error: null
+    }),
+  failure: (error: any) =>
+    createAction(PALETTE.FAILURE, { ...error, loading: false, success: false }),
+  patch: (id: number, data: any) =>
+    createAction(PALETTE.PATCH, {
+      id,
+      ...data,
+      loading: true,
+      success: false,
+      error: null
+    }),
+  put: (id: number, data: any) =>
+    createAction(PALETTE.PUT, {
+      id,
+      ...data,
+      loading: true,
+      success: false,
+      error: null
+    }),
+  request: () =>
+    createAction(PALETTE.GET, { loading: true, success: false, error: null }),
+  requestOne: (id: number) =>
+    createAction(PALETTE.GET_ONE, {
+      id,
+      loading: true,
+      success: false,
+      error: null
+    }),
+  save: (data: any) =>
+    createAction(PALETTE.SAVE, {
+      ...data,
+      loading: true,
+      success: false,
+      error: null
+    }),
+  success: (data: any) =>
+    createAction(PALETTE.SUCCESS, {
+      ...data,
+      loading: false,
+      success: true,
+      error: null
+    })
+}
+
+/**
+ * Sagas are generating functions that consume actions and
+ * pass either latest (takeLatest) or every (takeEvery) action
+ * to a handling generating function.
+ *
+ * Handling function is where obtaining web resources is done
+ * Web requests are done within try/catch so that
+ *  if request fails: a failure action is dispatched
+ *  if request succeeds: a success action with the data is dispatched
+ * Further processing of the data should be minimized within the handling
+ *  function to prevent unhelpful errors. Ie. a failed request error is
+ *  returned but it actually was just a parsing error within the try/catch.
+ */
+function* handleGet() {
+  try {
+    const { data } = yield call(
+      axios.get,
+      "https://jsonplaceholder.typicode.com/posts/"
+    )
+    yield put(dispatchPalette.success({ data }))
+  } catch (e) {
+    yield put(dispatchPalette.failure({ error: { ...e } }))
+  }
+}
+
+function* handleGetOne(action: IAction<PALETTE, { id: number }>) {
+  try {
+    const { id } = action.payload
+    const { data } = yield call(
+      axios.get,
+      `https://jsonplaceholder.typicode.com/posts/${id}`
+    )
+    yield put(dispatchPalette.success({ data }))
+  } catch (e) {
+    yield put(dispatchPalette.failure({ error: { ...e } }))
+  }
+}
+
+function* handlePost(action: IAction<PALETTE, { saveData: string }>) {
+  try {
+    const { saveData } = action.payload
+    const { data } = yield call(
+      axios.post,
+      "https://jsonplaceholder.typicode.com/posts/",
+      { saveData }
+    )
+    yield put(dispatchPalette.success({ data }))
+  } catch (e) {
+    yield put(dispatchPalette.failure({ error: { ...e } }))
+  }
+}
+
+function* handlePut(
+  action: IAction<PALETTE, { id: number; updateData: string }>
+) {
+  try {
+    const { id, updateData } = action.payload
+    const { data } = yield call(
+      axios.put,
+      `https://jsonplaceholder.typicode.com/posts/${id}`,
+      { updateData }
+    )
+    yield put(dispatchPalette.success({ data }))
+  } catch (e) {
+    yield put(dispatchPalette.failure({ error: { ...e } }))
+  }
+}
+
+function* handlePatch(
+  action: IAction<PALETTE, { id: number; updateData: string }>
+) {
+  try {
+    const { id, updateData } = action.payload
+    const { data } = yield call(
+      axios.patch,
+      `https://jsonplaceholder.typicode.com/posts/${id}`,
+      { updateData }
+    )
+    yield put(dispatchPalette.success({ data }))
+  } catch (e) {
+    yield put(dispatchPalette.failure({ error: { ...e } }))
+  }
+}
+
+function* handleDelete(action: IAction<PALETTE, { id: number }>) {
+  try {
+    const { id } = action.payload
+    const { data } = yield call(
+      axios.delete,
+      `https://jsonplaceholder.typicode.com/posts/${id}`
+    )
+    yield put(dispatchPalette.success({ data }))
+  } catch (e) {
+    yield put(dispatchPalette.failure({ error: { ...e } }))
+  }
+}
+
+export function* watchExampleSagas() {
+  yield all([
+    takeLatest(PALETTE.GET, handleGet),
+    takeLatest(PALETTE.GET_ONE, handleGetOne),
+    takeLatest(PALETTE.SAVE, handlePost),
+    takeLatest(PALETTE.PUT, handlePut),
+    takeLatest(PALETTE.PATCH, handlePatch),
+    takeLatest(PALETTE.DELETE, handleDelete)
+  ])
+}
+
+/**
+ * Initial State
+ * Reducer merges all changes from dispatched action objects on to this initial state
+ */
+const initialState = fromJS({
+  query: "",
+  urlTokenMetadata: [],
+  ...defaultState.toJS()
+})
+
 /**
  * Duck Reducer
  * Merges dispatched action objects on to the existing (or initial) state to generate new state
  */
-export default function ExampleReducer(state: any, action: IAction<string, {}>): any;
+export default function ExampleReducer(
+  state = initialState,
+  action: IAction<string, {}>
+) {
+  switch (action.type) {
+    case PALETTE.GET:
+    case PALETTE.GET_ONE:
+    case PALETTE.SAVE:
+    case PALETTE.DELETE:
+    case PALETTE.SUCCESS:
+    case PALETTE.FAILURE:
+      return state.merge(action.payload)
+    default:
+      return state
+  }
+}
+
 /**
  * State Interface
  * Provides a complete Typescript interface for the object on state that this duck manages
  * Consumed by the root reducer in ./ducks index to update global state
  * Duck state is attached at the root level of global state
  */
-export interface IExampleState extends IDefaultState {
-    [key: string]: any;
+export interface IPalleteState extends IDefaultState {
+  [key: string]: any
 }

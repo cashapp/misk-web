@@ -1,41 +1,53 @@
+import { HTMLTable, H1 } from "@blueprintjs/core"
 import * as React from "react"
-import styled from "styled-components"
 
-export interface IComponentProps {
-  data: IData
+export interface IUrlTokenMetadata {
+  created_at: string
+  long_url: string
+  short_url: string
+  token: string
+  updated_at: string
 }
 
-interface IData {
-  userId: number
-  id: number
-  title: string
-  body: string
+const Row = (props: { data: IUrlTokenMetadata }) => {
+  const { data } = props
+  return (
+    <tr>
+      <td>{data.created_at}</td>
+      <td>
+        <a href={data.long_url}>{data.long_url}</a>
+      </td>
+      <td>
+        <a href={data.short_url}>{data.short_url}</a>
+      </td>
+      <td>{data.token}</td>
+      <td>{data.updated_at}</td>
+    </tr>
+  )
 }
 
-const Container = styled.div``
-
-export default class TabComponent extends React.PureComponent<IComponentProps> {
-  renderExample(data: IData) {
-    return (
-      <div>
-        <h5>Title: {data.title}</h5>
-        <p>Post ID: {data.id}</p>
-        <p>Author ID: {data.userId}</p>
-        <p>{data.body}</p>
-        <hr />
-      </div>
-    )
-  }
-
-  render() {
-    const { data } = this.props
-    return (
-      <Container>
-        <h1>Example</h1>
-        <p>{status}</p>
-        {data &&
-          Object.entries(data).map(([, value]) => this.renderExample(value))}
-      </Container>
-    )
-  }
+export const Table = (props: { data: IUrlTokenMetadata[] }) => {
+  const { data } = props
+  return (
+    <div>
+      <H1>Table</H1>
+      <HTMLTable bordered={true} striped={true}>
+        <thead>
+          <tr>
+            <th>Created At</th>
+            <th>Long Url</th>
+            <th>Short Url</th>
+            <th>Token</th>
+            <th>Updated At</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data &&
+            data.map((urlmeta: IUrlTokenMetadata) => <Row data={urlmeta} />)}
+        </tbody>
+      </HTMLTable>
+    </div>
+  )
 }
+
+export default Table

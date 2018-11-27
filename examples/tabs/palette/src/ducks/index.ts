@@ -7,17 +7,17 @@ import { History } from "history"
 import { combineReducers, Reducer } from "redux"
 import { all, fork } from "redux-saga/effects"
 import {
-  default as ExampleReducer,
-  IExampleState,
+  default as PaletteReducer,
+  IPalleteState,
   watchExampleSagas
-} from "./example"
-export * from "./example"
+} from "./palette"
+export * from "./palette"
 
 /**
  * Redux Store State
  */
 export interface IState {
-  example: IExampleState
+  palette: IPalleteState
   router: Reducer<RouterState, LocationChangeAction>
 }
 
@@ -26,7 +26,7 @@ export interface IState {
  */
 export const rootReducer = (history: History) =>
   combineReducers({
-    example: ExampleReducer,
+    palette: PaletteReducer,
     router: connectRouter(history)
   })
 

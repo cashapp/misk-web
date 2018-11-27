@@ -1,20 +1,20 @@
 import { LocationChangeAction, RouterState } from "connected-react-router";
 import { History } from "history";
 import { Reducer } from "redux";
-import { IExampleState } from "./example";
-export * from "./example";
+import { IPalleteState } from "./palette";
+export * from "./palette";
 /**
  * Redux Store State
  */
 export interface IState {
-    example: IExampleState;
+    palette: IPalleteState;
     router: Reducer<RouterState, LocationChangeAction>;
 }
 /**
  * Reducers
  */
 export declare const rootReducer: (history: History<any>) => Reducer<{
-    example: any;
+    palette: any;
     router: RouterState;
 }, import("redux").AnyAction>;
 /**
