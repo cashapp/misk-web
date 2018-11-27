@@ -1,0 +1,26 @@
+{
+  "name": "misk-web-data",
+  "version": "0.0.1",
+  "license": "SEE LICENSE IN https://github.com/square/misk-web",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "node dist/index.js",
+    "watch": "tsc -w",
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint --ext .ts --ext .js src tests",
+    "prepublish": "yarn build",
+    "smooth-release": "smooth-release",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "write-json": "^3.0.1"
+  },
+  "devDependencies": {
+    "@misk/dev": "^0.1.0-alpha-0.1",
+    "@misk/tslint": "^0.1.0-alpha-0.1"
+  },
+  "engines": {
+    "yarn": "YARN NO LONGER USED - use npm instead."
+  }
+}
