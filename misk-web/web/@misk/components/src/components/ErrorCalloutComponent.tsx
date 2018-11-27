@@ -23,19 +23,33 @@ const RawError = styled.pre`
 `
 
 const generateStatus = (props: IErrorCalloutProps) => {
-  return `[${props.error.response.status || "Error"}]`
+  try {
+    return `[${props.error.response.status}] `
+  } catch (error) {
+    return "[Error]"
+  }
 }
 
 const generateDescription = (props: IErrorCalloutProps) => {
-  const statusText = props.error.response.statusText
-    ? `${props.error.response.statusText}. `
-    : ""
-  const data = props.error.response.data ? `${props.error.response.data}. ` : ""
-  return statusText + data
+  try {
+    const statusText = props.error.response.statusText
+      ? `${props.error.response.statusText}. `
+      : ""
+    const data = props.error.response.data
+      ? `${props.error.response.data}. `
+      : ""
+    return statusText + data
+  } catch (error) {
+    return ""
+  }
 }
 
 const generateUrl = (props: IErrorCalloutProps) => {
-  return `[URL] ${props.error.config.url || ""}`
+  try {
+    return `[URL] ${props.error.config.url}`
+  } catch (error) {
+    return ""
+  }
 }
 
 export const ErrorCalloutComponent = (props: IErrorCalloutProps) => (
