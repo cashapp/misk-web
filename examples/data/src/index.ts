@@ -4,8 +4,13 @@ import * as data from "./data"
 
 const output = "./demo"
 
-Object.entries(data).map(([key, set]) =>
-  writeJson(`${output}/${key}.json`, set, (err: any) =>
-    console.log(`[misk-web-examples-demo] Failed to write: ${key}.\n${err}`)
-  )
-)
+Object.entries(data).map(([key, set]) => {
+  const file = `${output}/${key}.json`
+  writeJson(file, set, (err: any) => {
+    if (err) {
+      console.log(`[misk-web-examples-demo] [error] ${file}.\n${err}`)
+    } else {
+      console.log(`[misk-web-examples-demo] [success] ${file}`)
+    }
+  })
+})

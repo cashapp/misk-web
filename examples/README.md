@@ -11,7 +11,7 @@ These projects will let you test `misk-web` without a full `misk` server.
 
 ## Data
 
-Test data for use in example services and tabs. Find all current data sets in [/examples/data/demo/](https://square.github.io/misk-web/examples/data/demo/).
+Test data for use in example services and tabs. Find all current data sets in [/examples/data/](https://square.github.io/misk-web/examples/data/).
 
 ## Services
 
