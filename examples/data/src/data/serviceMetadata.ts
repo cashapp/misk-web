@@ -1,7 +1,9 @@
-export const serviceMetadata = {
+import { Environment, IServiceMetadata } from "@misk/common"
+
+export const serviceMetadata: { serviceMetadata: IServiceMetadata } = {
   serviceMetadata: {
     admin_dashboard_url: "/_admin/",
-    app_name: "cash-urlshortener",
-    environment: "DEVELOPMENT"
+    app_name: "service-dashboard",
+    environment: Environment.DEVELOPMENT
   }
 }

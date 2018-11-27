@@ -15,7 +15,7 @@ Test data for use in example services and tabs. Find all current data sets in [/
 
 ## Services
 
-- `static-dashboard` [[Live Demo](https://square.github.io/misk-web/examples/services/static-dashboard/demo/)]: Dashboard UI with the ability to set mock data for menu links, environment, service name, and other fields
+- `dashboard` [[Live Demo](https://square.github.io/misk-web/examples/services/dashboard/demo/)]: Dashboard UI with the ability to set mock data for menu links, environment, service name, and other fields
 
 ## Tabs
 
