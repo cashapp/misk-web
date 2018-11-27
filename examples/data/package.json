@@ -7,9 +7,10 @@
     "start": "node dist/index.js",
     "watch": "tsc -w",
     "build": "tsc",
+    "ci-build": "npm install && npm run-script build && npm run-script start",
     "test": "jest",
     "lint": "eslint --ext .ts --ext .js src tests",
-    "prepublish": "yarn build",
+    "prepublish": "npm run-script build",
     "smooth-release": "smooth-release",
     "precommit": "lint-staged"
   },
