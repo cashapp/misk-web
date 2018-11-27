@@ -1,14 +1,12 @@
 import * as React from "react";
-import { IComponentProps } from "../components/Table";
-interface IContainerProps {
-    example: IComponentProps;
-    request: () => void;
-}
-declare class TabContainer extends React.Component<IContainerProps, {
-    children: any;
-}> {
-    componentDidMount(): void;
+declare class TabContainer extends React.PureComponent<any> {
+    state: {
+        shortUrls: {
+            data: any;
+            error: any;
+        };
+    };
+    componentDidMount(): Promise<void>;
     render(): JSX.Element;
 }
-declare const _default: import("react-redux").ConnectedComponentClass<typeof TabContainer, Pick<IContainerProps, never>>;
-export default _default;
+export default TabContainer;

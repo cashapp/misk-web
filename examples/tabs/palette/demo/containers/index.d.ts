@@ -1,2 +1,2 @@
-import TabContainer from "./TabContainer";
-export { TabContainer };
+export * from "./DashboardContainer";
+export { default as TabContainer } from "./TabContainer";
