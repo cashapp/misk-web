@@ -2,8 +2,8 @@ import { Environment, IServiceMetadata } from "@misk/common"
 
 export const serviceMetadata: { serviceMetadata: IServiceMetadata } = {
   serviceMetadata: {
-    admin_dashboard_url: "/_admin/",
-    app_name: "service-dashboard",
+    admin_dashboard_url: "/misk-web/examples/services/dashboard/demo/",
+    app_name: "Dino-Service",
     environment: Environment.DEVELOPMENT
   }
 }
