@@ -11,7 +11,7 @@ export interface IError {
 }
 
 export interface IErrorCalloutProps {
-  error: IError
+  error?: IError
 }
 
 const ErrorCallout = styled(Callout)`
@@ -52,12 +52,18 @@ const generateUrl = (props: IErrorCalloutProps) => {
   }
 }
 
-export const ErrorCalloutComponent = (props: IErrorCalloutProps) => (
-  <ErrorCallout
-    title={`${generateStatus(props)} ${generateDescription(props)}`}
-    intent="danger"
-  >
-    {generateUrl(props)}
-    <RawError>{JSON.stringify(props.error, null, 2)}</RawError>
-  </ErrorCallout>
-)
+export const ErrorCalloutComponent = (props: IErrorCalloutProps) => {
+  if (props.error) {
+    return (
+      <ErrorCallout
+        title={`${generateStatus(props)} ${generateDescription(props)}`}
+        intent="danger"
+      >
+        {generateUrl(props)}
+        <RawError>{JSON.stringify(props.error, null, 2)}</RawError>
+      </ErrorCallout>
+    )
+  } else {
+    return <span />
+  }
+}
