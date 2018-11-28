@@ -15,7 +15,9 @@ Misk-Web is not ready for use. The API is not stable.
 - [![npm](https://img.shields.io/npm/v/@misk/dev.svg?label=@misk/dev)](https://www.npmjs.com/package/@misk/dev) &ndash; Shared developer build tools
 - [![npm](https://img.shields.io/npm/v/@misk/tslint.svg?label=@misk/tslint)](https://www.npmjs.com/package/@misk/tslint) &ndash; Standard TSLint configuration and rules
 
-## [Examples](examples/)
+## [Examples](examples/) Data sets, Services, and Tabs
+
+## [How To](HOWTO.md) Build a new Tab
 
 ## Migrating from Misk
 
