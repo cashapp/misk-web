@@ -1,6 +1,6 @@
 {
   "name": "@misk/common",
-  "version": "0.1.0-alpha-0.3",
+  "version": "0.1.0-alpha-0.5",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "description": "Microservice Kontainer Common Libraries, Externals, Styles",
   "author": "Square/Misk Authors (https://github.com/square/misk-web/graphs/contributors)",
@@ -32,10 +32,10 @@
     "test": "echo no tests"
   },
   "dependencies": {
-    "@blueprintjs/core": "^3.8.0",
-    "@blueprintjs/datetime": "^3.3.1",
+    "@blueprintjs/core": "^3.9.0",
+    "@blueprintjs/datetime": "^3.4.0",
     "@blueprintjs/icons": "^3.3.0",
-    "@blueprintjs/select": "^3.2.1",
+    "@blueprintjs/select": "^3.3.0",
     "@blueprintjs/table": "^3.3.0",
     "@blueprintjs/timezone": "^3.1.0",
     "axios": "^0.18.0",
@@ -54,11 +54,12 @@
     "react-transition-group": "^2.5.0",
     "redux": "^4.0.1",
     "redux-saga": "^0.16.2",
+    "reselect": "^4.0.0",
     "skeleton-css": "^2.0.4",
     "styled-components": "^4.1.1"
   },
   "devDependencies": {
-    "@misk/dev": "^0.1.0-alpha-0.1",
+    "@misk/dev": "^0.1.0-alpha-0.2",
     "@misk/tslint": "^0.1.0-alpha-0.1"
   },
   "miskCachedUrls": {
@@ -96,6 +97,6 @@
     }
   },
   "miskTab": {
-    "version": "0.0.10"
+    "version": "0.0.11"
   }
 }

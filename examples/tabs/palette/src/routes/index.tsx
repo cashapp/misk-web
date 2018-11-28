@@ -8,7 +8,10 @@ const routes = (
       <Route path="/dashboard/palette/" component={DashboardContainer} />
       <Route path="/palette/" component={TabContainer} />
       <Route path="/_tab/palette/" component={TabContainer} />
-      <Route path="/misk-web/examples/services/dashboard/demo/palette/" component={TabContainer} />
+      <Route
+        path="/misk-web/examples/services/dashboard/demo/palette/"
+        component={TabContainer}
+      />
       {/* Do not include a Route without a path or it will display during on all tabs */}
     </Switch>
   </div>
