@@ -1,4 +1,11 @@
 import {
+  IDispatchSimpleNetworkProps,
+  ISimpleNetworkState,
+  SimpleNetworkReducer,
+  watchSimpleNetworkSagas
+} from "@misk/components"
+export { dispatchSimpleNetwork } from "@misk/components"
+import {
   connectRouter,
   LocationChangeAction,
   RouterState
@@ -9,7 +16,7 @@ import { all, fork } from "redux-saga/effects"
 import {
   default as PaletteReducer,
   IPalleteState,
-  watchExampleSagas
+  watchPaletteSagas
 } from "./palette"
 export * from "./palette"
 
@@ -19,6 +26,11 @@ export * from "./palette"
 export interface IState {
   palette: IPalleteState
   router: Reducer<RouterState, LocationChangeAction>
+  simpleNetwork: ISimpleNetworkState
+}
+
+export interface IDispatchPaletteDucksProps extends IDispatchSimpleNetworkProps {
+
 }
 
 /**
@@ -27,12 +39,13 @@ export interface IState {
 export const rootReducer = (history: History) =>
   combineReducers({
     palette: PaletteReducer,
-    router: connectRouter(history)
+    router: connectRouter(history),
+    simpleNetwork: SimpleNetworkReducer
   })
 
 /**
  * Sagas
  */
 export function* rootSaga() {
-  yield all([fork(watchExampleSagas)])
+  yield all([fork(watchPaletteSagas), fork(watchSimpleNetworkSagas)])
 }

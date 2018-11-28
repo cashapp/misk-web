@@ -31,7 +31,8 @@ $ yarn add @misk/components
 
 ## Ducks
 
-- `networkDucks`: a standardized set of Axios based request Redux-Sagas parts (actions, dispatcher, handlers, sagas, reducers, state interface)
+- `routerDucks`: router management Redux-Sagas parts (actions, dispatcher, handlers, sagas, reducers, state interface)
+- `simpleNetworkDucks`: a standardized set of Axios based request Redux-Sagas parts (actions, dispatcher, handlers, sagas, reducers, state interface)
 
 ## Features
 
