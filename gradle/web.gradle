@@ -7,7 +7,7 @@ task web(type: Exec) {
   // -Ptabs='tabs/config, tabs/example': spins up parallel Docker containers with the following paths as volumes
   // -Pdockerd: boolean to run Docker container as daemon in background
   // -Psingle: force run the command in a single non-parallelized Docker container
-  // -Pdv: docker version override to force the tab to be built with the `web.gradle` shipped default version, not the one in the tab's package.json
+  // -Pdv: use docker version from tab's package.json instead of the default one in `web.gradle`
   // Running webpack-dev-servers for various tabs: ./gradlew web -Pcmd='-d' -Ptabs='tabs/config, tabs/example'
   // Build all tabs: ./gradlew web
   // See other misk-web options: ./gradlew web -Pcmd='-h'
@@ -34,14 +34,24 @@ task web(type: Exec) {
 
   def getPackageJsonPort = { path ->
     def packageFile = file("$path/package.json")
-    def packageJson = new JsonSlurper().parseText(packageFile.text)
-    return packageJson.miskTab.port
+    try {
+      def packageJson = new JsonSlurper().parseText(packageFile.text)
+      return packageJson.miskTab.port
+    } catch (error) {
+      println error
+      return null
+    }
   }
 
   def getPackageVersion = { path ->
     def packageFile = new File("$path/package.json")
-    def packageJson = new JsonSlurper().parseText(packageFile.text)
-    return packageJson.miskTab.version
+    try {
+      def packageJson = new JsonSlurper().parseText(packageFile.text)
+      return packageJson.miskTab.version
+    } catch (error) {
+      println error
+      return null
+    }
   }
 
   def generateDockerRunCommand = {
@@ -54,14 +64,12 @@ task web(type: Exec) {
           port = "-p ${rawPort}:${rawPort}"
         }
         def versionWarningLog = ""
-        def imageVersion = getPackageVersion("${projectPath}/web/${path}")
-        if (imageVersion < dockerMiskWebVersion) {
-          def versionWarning = "\n[WARN] Upgrade miskTab.version ${imageVersion} -> ${dockerMiskWebVersion} in ${path}/package.json\nCheck for breaking changes and upgrade to latest @misk/ packages: https://github.com/square/misk/tree/master/docker/misk-web\n"
+        def imageVersion = dockerMiskWebVersion
+        def packageVersion = getPackageVersion("${projectPath}/web/${path}")
+        if (project.hasProperty("dv") && packageVersion < dockerMiskWebVersion) {
+          def versionWarning = "\n[WARN] Upgrade miskTab.version ${packageVersion} -> ${dockerMiskWebVersion} in ${path}/package.json\nCheck for breaking changes and upgrade to latest @misk/ packages: https://github.com/square/misk/tree/master/docker/misk-web\n"
           versionWarningLog = "; echo '$versionWarning'"
           println versionWarning
-        }
-        if (project.hasProperty("dv")) {
-          imageVersion = dockerMiskWebVersion
         }
         def command = "docker run ${daemon} --rm --name ${containerName} -v ${projectPath}/web${path}:/web${path} ${port} ${image}:${imageVersion} ${cmd}"
         def logsDir = "${projectPath}/web/logs/"
