@@ -1,4 +1,5 @@
 import {
+  dispatchSimpleNetwork,
   IDispatchSimpleNetworkProps,
   ISimpleNetworkState,
   SimpleNetworkReducer,
@@ -25,12 +26,18 @@ export * from "./palette"
  */
 export interface IState {
   palette: IPalleteState
-  router: Reducer<RouterState, LocationChangeAction>
+  router?: Reducer<RouterState, LocationChangeAction>
   simpleNetwork: ISimpleNetworkState
 }
 
-export interface IDispatchPaletteDucksProps
-  extends IDispatchSimpleNetworkProps {}
+/**
+ * Dispatcher
+ */
+export interface IPaletteDispatchProps extends IDispatchSimpleNetworkProps {}
+
+export const rootDispatcher: IPaletteDispatchProps = {
+  ...dispatchSimpleNetwork
+}
 
 /**
  * Reducers

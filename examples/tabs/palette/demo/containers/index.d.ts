@@ -1,2 +1,3 @@
 export * from "./DashboardContainer";
-export { default as TabContainer } from "./TabContainer";
+export { default as DucksTabContainer } from "./DucksTabContainer";
+export { default as NoDucksTabContainer } from "./NoDucksTabContainer";

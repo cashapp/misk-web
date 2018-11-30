@@ -4,24 +4,19 @@ import { connect } from "react-redux"
 import { createStructuredSelector } from "reselect"
 import { Table } from "../components"
 import {
-  dispatchPalette,
-  dispatchSimpleNetwork,
-  IDispatchPaletteDucksProps,
-  IPalleteState,
+  IPaletteDispatchProps,
   IState,
-  paletteSelector
+  paletteSelector,
+  rootDispatcher
 } from "../ducks"
 
-interface IContainerProps extends IState, IDispatchPaletteDucksProps {
-  palette: IPalleteState
-  request: () => void
-}
+interface IContainerProps extends IPaletteDispatchProps, IState {}
 
 class DucksTabContainer extends React.Component<IContainerProps> {
   componentDidMount() {
     this.props.get(
-      "shortUrls",
-      "https://square.github.io/misk-web/examples/data/demo/shortUrls.json"
+      "cars",
+      "https://square.github.io/misk-web/examples/data/demo/cars.json"
     )
   }
 
@@ -42,12 +37,11 @@ class DucksTabContainer extends React.Component<IContainerProps> {
 const mapStateToProps = (state: IState) =>
   createStructuredSelector({
     palette: paletteSelector(),
-    simpleNetwork: state.simpleNetwork.toJS()
+    simpleNetwork: () => state.simpleNetwork.toJS()
   })
 
 const mapDispatchToProps = {
-  ...dispatchPalette,
-  ...dispatchSimpleNetwork
+  ...rootDispatcher
 }
 
 export default connect(
