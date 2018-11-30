@@ -1,4 +1,4 @@
-import { get, initialResponseState, OfflineComponent } from "@misk/components"
+import { get, initialResponseState, OfflineComponent } from "@misk/core"
 import * as React from "react"
 import { Table } from "../components"
 

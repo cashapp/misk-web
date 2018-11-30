@@ -19,23 +19,23 @@ This outlines the steps necessary to release a new NPM package version for any o
 - Release packages in the following order given that each are dependent or peer dependent differently on each other:
   - `@Misk/Dev` || `@Misk/TsLint`
   - `@Misk/Common`
-  - `@Misk/Components`
+  - `@misk/Core`
 - Update the `package.json` for each further package with the newest version of the immedietely previous updated package
 
 ## Example Release Flow
 
-- Assume following starting versions for the `@Misk/` packages and consider equivalent in order any package listed above alongside `@Misk/Components`
+- Assume following starting versions for the `@Misk/` packages and consider equivalent in order any package listed above alongside `@misk/Core`
   - `@Misk/Dev`: 0.0.6
   - `@Misk/Common`: 0.0.12
-  - `@Misk/Components`: 0.0.2
+  - `@misk/Core`: 0.0.2
 - Update all minor versions of `@Misk/` packages in `package.json`
 - Publish new version 0.0.7 for `@Misk/Dev`
-- Update `package.json` in `@Misk/Common` and `@Misk/Components` to bump `@Misk/Dev` to version 0.0.7
+- Update `package.json` in `@Misk/Common` and `@misk/core` to bump `@Misk/Dev` to version 0.0.7
 - Reinstall node modules and test that they work with the new `@Misk/Dev` package version `rm -rf node_modules/; yarn install`
 - Publish new version 0.0.13 for `@Misk/Common`
-- Update `package.json` in `@Misk/Components` to bump `@Misk/Common` to version 0.0.13
+- Update `package.json` in `@misk/core` to bump `@Misk/Common` to version 0.0.13
 - Reinstall node modules and test that they work with the new `@Misk/Dev` and `@Misk/Common` package version `rm -rf node_modules/; yarn install`
-- Publish new version 0.0.3 for `@Misk/Components`
+- Publish new version 0.0.3 for `@misk/core`
 - Update all related tabs to the newest `@Misk/` packages
 
 ## Deprecating

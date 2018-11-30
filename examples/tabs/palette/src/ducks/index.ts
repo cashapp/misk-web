@@ -3,8 +3,8 @@ import {
   ISimpleNetworkState,
   SimpleNetworkReducer,
   watchSimpleNetworkSagas
-} from "@misk/components"
-export { dispatchSimpleNetwork } from "@misk/components"
+} from "@misk/core"
+export { dispatchSimpleNetwork } from "@misk/core"
 import {
   connectRouter,
   LocationChangeAction,
@@ -29,9 +29,8 @@ export interface IState {
   simpleNetwork: ISimpleNetworkState
 }
 
-export interface IDispatchPaletteDucksProps extends IDispatchSimpleNetworkProps {
-
-}
+export interface IDispatchPaletteDucksProps
+  extends IDispatchSimpleNetworkProps {}
 
 /**
  * Reducers
