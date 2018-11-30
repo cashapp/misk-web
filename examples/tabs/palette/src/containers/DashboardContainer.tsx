@@ -1,4 +1,4 @@
-import { Navbar, ResponsiveContainer } from "@misk/components"
+import { Navbar, ResponsiveContainer } from "@misk/core"
 import * as React from "react"
 import styled from "styled-components"
 import { TabContainer as Pallete } from "../containers"

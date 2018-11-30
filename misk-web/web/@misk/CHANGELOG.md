@@ -1,6 +1,7 @@
 ## Breaking Changes in @misk packages
 
-- 2018-11-08: `@misk/common@0.0.61`, `@misk/components@0.0.77`, `@misk/dev@0.0.64`. Import styles as a css file instead of JS. New version required parameter in package.json:miskTab.
+- 2018-11-30: `@misk/components` renamed to `@misk/core`. All versions and Docker at `0.1.0`.
+- 2018-11-08: `@misk/common@0.0.61`, `@misk/core@0.0.77`, `@misk/dev@0.0.64`. Import styles as a css file instead of JS. New version required parameter in package.json:miskTab.
 
   Update `src/index.html` to include the following
 
@@ -9,10 +10,10 @@
     <link rel="stylesheet" type="text/css" href="/@misk/common/styles.css" />
     <script type="text/javascript" src="/@misk/common/vendors.js" preload></script>
     <script type="text/javascript" src="/@misk/common/common.js" preload></script>
-    <script type="text/javascript" src="/@misk/components/components.js" preload></script>
+    <script type="text/javascript" src="/@misk/core/components.js" preload></script>
   ```
 
-- 2018-11-05: `@misk/common@^0.0.59`, `@misk/components@^0.0.76`, `@misk/dev@^0.0.60`, `@misk/tslint^@0.0.10`. Revert back to StyledComponents because of difficulties in downstream migrations. Upgrade to `connected-react-router@^5.0.0`.
+- 2018-11-05: `@misk/common@^0.0.59`, `@misk/core@^0.0.76`, `@misk/dev@^0.0.60`, `@misk/tslint^@0.0.10`. Revert back to StyledComponents because of difficulties in downstream migrations. Upgrade to `connected-react-router@^5.0.0`.
 
   Replace all imports of `react-emotion` with `styled-components`.
 
@@ -64,7 +65,7 @@
       <script type="text/javascript" src="/@misk/common/styles.js" async></script>
       <script type="text/javascript" src="/@misk/common/vendors.js" preload></script>
       <script type="text/javascript" src="/@misk/common/common.js" preload></script>
-      <script type="text/javascript" src="/@misk/components/components.js" preload></script>
+      <script type="text/javascript" src="/@misk/core/components.js" preload></script>
   </body>
 
   </html>
@@ -94,7 +95,7 @@
   Replace `src/index.tsx` with the following:
 
   ```Typescript
-  import { createApp, createIndex } from "@misk/components"
+  import { createApp, createIndex } from "@misk/core"
   import * as Ducks from "./ducks"
   import routes from "./routes"
   export * from "./components"

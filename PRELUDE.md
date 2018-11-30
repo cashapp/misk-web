@@ -26,7 +26,7 @@ class DinoServiceModule : KAbstractModule() {
 
 - `@misk`: all npm packages
   - `@misk/common`: common dependencies
-  - `@misk/components`: reusable React components
+  - `@misk/core`: reusable React components
   - `@misk/dev`: common devDependencies, TsConfig, Webpack build configs, Webpack externals
   - `@misk/tslint`: common TsLint configs
 - `tabs`: all modular parts of the dashboard

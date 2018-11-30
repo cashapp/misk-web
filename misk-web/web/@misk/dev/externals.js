@@ -43,7 +43,7 @@ const vendorExternals = createExternals({
 
 const miskExternals = createExternals({
   "@misk/common": ["Misk", "Common"],
-  "@misk/components": ["Misk", "Components"]
+  "@misk/core": ["Misk", "Components"]
 })
 
 module.exports = { createExternals, vendorExternals, miskExternals }

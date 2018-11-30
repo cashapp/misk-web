@@ -1,3 +1,5 @@
+import { IDispatchSimpleNetworkProps, ISimpleNetworkState } from "@misk/core";
+export { dispatchSimpleNetwork } from "@misk/core";
 import { LocationChangeAction, RouterState } from "connected-react-router";
 import { History } from "history";
 import { Reducer } from "redux";
@@ -9,6 +11,9 @@ export * from "./palette";
 export interface IState {
     palette: IPalleteState;
     router: Reducer<RouterState, LocationChangeAction>;
+    simpleNetwork: ISimpleNetworkState;
+}
+export interface IDispatchPaletteDucksProps extends IDispatchSimpleNetworkProps {
 }
 /**
  * Reducers
@@ -16,6 +21,7 @@ export interface IState {
 export declare const rootReducer: (history: History<any>) => Reducer<{
     palette: any;
     router: RouterState;
+    simpleNetwork: any;
 }, import("redux").AnyAction>;
 /**
  * Sagas

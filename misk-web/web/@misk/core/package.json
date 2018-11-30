@@ -1,0 +1,43 @@
+{
+  "name": "@misk/core",
+  "version": "0.1.1-alpha-0.2",
+  "license": "SEE LICENSE IN https://github.com/square/misk-web",
+  "description": "Misk-Web Core",
+  "author": "Square/Misk Authors (https://github.com/square/misk-web/graphs/contributors)",
+  "main": "lib/web/@misk/core/components.js",
+  "module": "lib/web/@misk/core/components.js",
+  "typings": "lib/web/@misk/core/index.d.ts",
+  "engines": {
+    "node": ">=7.8.0"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:square/misk-web.git"
+  },
+  "scripts": {
+    "build": "yarn run lint && yarn run lib",
+    "clean": "rm -rf lib",
+    "dev": "yarn run build; yarn run updateDevCache",
+    "ci-build": "yarn run clean && yarn run lib",
+    "lib": "webpack",
+    "lint": "prettier --write --config prettier.config.js \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
+    "prepare": "cd ../../../../ && ./gradlew web -Pcmd='-a' -Ptabs='@misk/core'",
+    "reinstall": "rm -rf node_modules && yarn install",
+    "start": "yarn run lint && cross-env NODE_ENV=development webpack-dev-server",
+    "test": "echo no tests",
+    "updateDevCache": "cd ..; ./updateLocalCache.sh"
+  },
+  "dependencies": {
+    "@misk/common": "^0.1.1-alpha-0.1"
+  },
+  "devDependencies": {
+    "@misk/dev": "^0.1.1-alpha-0.1",
+    "@misk/tslint": "^0.1.1-alpha-0.1"
+  },
+  "miskTab": {
+    "version": "0.0.12"
+  }
+}
