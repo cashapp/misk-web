@@ -17,7 +17,7 @@ This outlines the steps necessary to release a new NPM package version for any o
 ## Package Release Order
 
 - Release packages in the following order given that each are dependent or peer dependent differently on each other:
-  - `@Misk/Dev`
+  - `@Misk/Dev` || `@Misk/TsLint`
   - `@Misk/Common`
   - `@Misk/Components`
 - Update the `package.json` for each further package with the newest version of the immedietely previous updated package

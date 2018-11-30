@@ -1,11 +1,7 @@
 FROM node:alpine
 
-RUN apk add --no-cache tini
-
-WORKDIR /tmp/web/
-
-# Populate yarn cache by installing all @misk/ packages
-RUN yarn add \
+RUN apk add --no-cache tini \
+  && yarn add \
   --pure-lockfile \
   --non-interactive \
   --modules-folder /node_modules \
