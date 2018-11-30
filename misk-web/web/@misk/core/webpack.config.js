@@ -12,7 +12,7 @@ const StyledComponentsTransformer = createStyledComponentsTransformer()
 module.exports = {
   mode: "production",
   entry: {
-    components: path.resolve(__dirname, "src/index.ts")
+    core: path.resolve(__dirname, "src/index.ts")
   },
   devtool: "source-map",
   output: {
