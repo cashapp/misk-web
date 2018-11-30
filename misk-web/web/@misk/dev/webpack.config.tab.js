@@ -120,7 +120,7 @@ module.exports = (env, argv, otherConfigFields = {}) => {
         {
           test: /\.(tsx|ts)$/,
           exclude: /node_modules/,
-          loader: "awesome-typescript-loader",
+          loader: "ts-loader",
           options: {
             getCustomTransformers: () => ({
               before: [StyledComponentsTransformer]

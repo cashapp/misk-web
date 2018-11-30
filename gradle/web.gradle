@@ -1,6 +1,6 @@
 import groovy.json.JsonSlurper
 
-def dockerMiskWebVersion = "0.0.11"
+def dockerMiskWebVersion = "0.0.12"
 
 task web(type: Exec) {
   // -Pcmd='-d': pass in argument to misk-web shell script in Docker container
@@ -70,6 +70,7 @@ task web(type: Exec) {
           def versionWarning = "\n[WARN] Upgrade miskTab.version ${packageVersion} -> ${dockerMiskWebVersion} in ${path}/package.json\nCheck for breaking changes and upgrade to latest @misk/ packages: https://github.com/square/misk/tree/master/docker/misk-web\n"
           versionWarningLog = "; echo '$versionWarning'"
           println versionWarning
+          imageVersion = packageVersion
         }
         def command = "docker run ${daemon} --rm --name ${containerName} -v ${projectPath}/web${path}:/web${path} ${port} ${image}:${imageVersion} ${cmd}"
         def logsDir = "${projectPath}/web/logs/"
