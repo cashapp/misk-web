@@ -8,19 +8,17 @@
     "watch": "tsc -w",
     "build": "tsc",
     "ci-build": "npm install && npm run-script build && npm run-script start",
-    "test": "jest",
-    "lint": "eslint --ext .ts --ext .js src tests",
-    "prepublish": "npm run-script build",
-    "smooth-release": "smooth-release",
-    "precommit": "lint-staged"
+    "test": "echo 'no tests'",
+    "lint": "prettier --write --config prettier.config.js \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
+    "prepublish": "npm run-script build"
   },
   "dependencies": {
-    "@misk/common": "^0.1.0-alpha-0.3",
+    "@misk/common": "^0.1.1-alpha-0.1",
     "write-json": "^3.0.1"
   },
   "devDependencies": {
-    "@misk/dev": "^0.1.0-alpha-0.1",
-    "@misk/tslint": "^0.1.0-alpha-0.1"
+    "@misk/dev": "^0.1.1-alpha-0.1",
+    "@misk/tslint": "^0.1.1-alpha-0.1"
   },
   "engines": {
     "yarn": "YARN NO LONGER USED - use npm instead."
