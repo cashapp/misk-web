@@ -112,10 +112,9 @@ export interface IPalleteState extends IDefaultState {
  * Selector
  * A memoized, efficient way to compute and return the latest domain of the state
  */
-export const paletteState = (state: IState) => state.palette
+export const paletteState = (state: IState) => state.palette.toJS()
 
-export const paletteSelector = () =>
-  createSelector(
-    paletteState,
-    state => state.toJS()
-  )
+export const paletteSelector = createSelector(
+  paletteState,
+  state => state
+)

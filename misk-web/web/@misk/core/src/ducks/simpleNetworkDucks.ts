@@ -6,7 +6,9 @@ import {
 } from "@misk/common"
 import axios, { AxiosRequestConfig } from "axios"
 import { fromJS } from "immutable"
+import createCachedSelector from "re-reselect"
 import { all, call, put, takeEvery } from "redux-saga/effects"
+import { createSelector } from "reselect"
 
 /**
  * Actions
@@ -36,7 +38,7 @@ export interface ISimpleNetworkPayload {
   url: string
 }
 
-export interface IDispatchSimpleNetworkProps {
+export interface IDispatchSimpleNetwork {
   delete: (
     tag: string,
     url: string,
@@ -69,7 +71,7 @@ export interface IDispatchSimpleNetworkProps {
   success: (data: any) => IAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkPayload>
 }
 
-export const dispatchSimpleNetwork: IDispatchSimpleNetworkProps = {
+export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
   delete: (
     tag: string = "latest",
     url: string,
@@ -193,10 +195,14 @@ function* handleDelete(
   try {
     const { tag, url, requestConfig } = action.payload
     const { data } = yield call(axios.delete, url, requestConfig)
-    yield put(dispatchSimpleNetwork.success({ [tag]: data }))
+    yield put(
+      dispatchSimpleNetwork.success({ tags: { [tag]: { data: { ...data } } } })
+    )
   } catch (e) {
     const { tag } = action.payload
-    yield put(dispatchSimpleNetwork.failure({ [tag]: { error: { ...e } } }))
+    yield put(
+      dispatchSimpleNetwork.failure({ tags: { [tag]: { error: { ...e } } } })
+    )
   }
 }
 
@@ -209,10 +215,14 @@ function* handleGet(
   try {
     const { tag, url, requestConfig } = action.payload
     const { data } = yield call(axios.get, url, requestConfig)
-    yield put(dispatchSimpleNetwork.success({ [tag]: data }))
+    yield put(
+      dispatchSimpleNetwork.success({ tags: { [tag]: { data: { ...data } } } })
+    )
   } catch (e) {
     const { tag } = action.payload
-    yield put(dispatchSimpleNetwork.failure({ [tag]: { error: { ...e } } }))
+    yield put(
+      dispatchSimpleNetwork.failure({ tags: { [tag]: { error: { ...e } } } })
+    )
   }
 }
 
@@ -230,10 +240,14 @@ function* handlePatch(
   try {
     const { tag, url, updateData, requestConfig } = action.payload
     const { data } = yield call(axios.patch, url, { updateData }, requestConfig)
-    yield put(dispatchSimpleNetwork.success({ [tag]: data }))
+    yield put(
+      dispatchSimpleNetwork.success({ tags: { [tag]: { data: { ...data } } } })
+    )
   } catch (e) {
     const { tag } = action.payload
-    yield put(dispatchSimpleNetwork.failure({ [tag]: { error: { ...e } } }))
+    yield put(
+      dispatchSimpleNetwork.failure({ tags: { [tag]: { error: { ...e } } } })
+    )
   }
 }
 
@@ -251,10 +265,14 @@ function* handlePost(
   try {
     const { tag, url, saveData, requestConfig } = action.payload
     const { data } = yield call(axios.post, url, { saveData }, requestConfig)
-    yield put(dispatchSimpleNetwork.success({ [tag]: data }))
+    yield put(
+      dispatchSimpleNetwork.success({ tags: { [tag]: { data: { ...data } } } })
+    )
   } catch (e) {
     const { tag } = action.payload
-    yield put(dispatchSimpleNetwork.failure({ [tag]: { error: { ...e } } }))
+    yield put(
+      dispatchSimpleNetwork.failure({ tags: { [tag]: { error: { ...e } } } })
+    )
   }
 }
 
@@ -272,10 +290,14 @@ function* handlePut(
   try {
     const { tag, url, updateData, requestConfig } = action.payload
     const { data } = yield call(axios.put, url, { updateData }, requestConfig)
-    yield put(dispatchSimpleNetwork.success({ [tag]: data }))
+    yield put(
+      dispatchSimpleNetwork.success({ tags: { [tag]: { data: { ...data } } } })
+    )
   } catch (e) {
     const { tag } = action.payload
-    yield put(dispatchSimpleNetwork.failure({ [tag]: { error: { ...e } } }))
+    yield put(
+      dispatchSimpleNetwork.failure({ tags: { [tag]: { error: { ...e } } } })
+    )
   }
 }
 
@@ -294,6 +316,7 @@ export function* watchSimpleNetworkSagas() {
  * Reducer merges all changes from dispatched action objects on to this initial state
  */
 const initialState = fromJS({
+  tags: {},
   ...defaultState.toJS()
 })
 
@@ -325,12 +348,14 @@ export function SimpleNetworkReducer(
  * Consumed by the root reducer in ./ducks index to update global state
  * Duck state is attached at the root level of global state
  */
+export interface ISimpleNetworkTagResponse {
+  data: any | null
+  error: any | null
+}
+
 export interface ISimpleNetworkState extends IDefaultState {
   tags: {
-    [tag: string]: {
-      data: any | null
-      error: any | null
-    }
+    [tag: string]: ISimpleNetworkTagResponse
   }
 }
 
@@ -338,10 +363,23 @@ export interface ISimpleNetworkState extends IDefaultState {
  * Selector
  * A memoized, efficient way to compute and return the latest domain of the state
  */
-// export const paletteState = (state: IState) => state.palette
+export const simpleNetworkState = <
+  T extends { simpleNetwork: ISimpleNetworkState }
+>(
+  state: T
+) => state.simpleNetwork
 
-// export const paletteSelector = () =>
-//   createSelector(
-//     paletteState,
-//     state => state.toJS()
-//   )
+export const simpleNetworkSelector = createSelector(
+  simpleNetworkState,
+  state => state.toJS()
+)
+
+export const response = createCachedSelector(
+  simpleNetworkState,
+  (simpleNetwork: ISimpleNetworkState, tag: string) =>
+    simpleNetwork.tags[tag]
+      ? simpleNetwork.tags[tag]
+      : { data: null, error: null },
+  (state: ISimpleNetworkState, tagResponse: ISimpleNetworkTagResponse) =>
+    tagResponse
+)((state, tag) => tag)

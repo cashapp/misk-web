@@ -1,6 +1,6 @@
 import { get, initialResponseState, OfflineComponent } from "@misk/core"
 import * as React from "react"
-import { Table } from "../components"
+import { SampleTableComponent } from "../components"
 
 const shortUrlsUrl =
   "https://square.github.io/misk-web/examples/data/demo/shortUrls.json"
@@ -19,7 +19,11 @@ class TabContainer extends React.PureComponent<any> {
 
   render() {
     if (this.state.shortUrls.data) {
-      return <Table data={this.state.shortUrls.data.urlTokenMetadata} />
+      return (
+        <SampleTableComponent
+          data={this.state.shortUrls.data.urlTokenMetadata}
+        />
+      )
     } else {
       return (
         <OfflineComponent

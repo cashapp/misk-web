@@ -42,5 +42,5 @@ export interface IPalleteState extends IDefaultState {
  * Selector
  * A memoized, efficient way to compute and return the latest domain of the state
  */
-export declare const paletteState: (state: IState) => IPalleteState;
-export declare const paletteSelector: () => import("reselect").OutputSelector<IState, any, (res: IPalleteState) => any>;
+export declare const paletteState: (state: IState) => any;
+export declare const paletteSelector: import("reselect").OutputSelector<IState, any, (res: any) => any>;

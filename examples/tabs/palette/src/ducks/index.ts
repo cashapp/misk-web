@@ -1,8 +1,9 @@
 import {
   dispatchSimpleNetwork,
-  IDispatchSimpleNetworkProps,
+  IDispatchSimpleNetwork,
   ISimpleNetworkState,
   SimpleNetworkReducer,
+  simpleNetworkSelector,
   watchSimpleNetworkSagas
 } from "@misk/core"
 export { dispatchSimpleNetwork } from "@misk/core"
@@ -17,6 +18,7 @@ import { all, fork } from "redux-saga/effects"
 import {
   default as PaletteReducer,
   IPalleteState,
+  paletteSelector,
   watchPaletteSagas
 } from "./palette"
 export * from "./palette"
@@ -26,18 +28,26 @@ export * from "./palette"
  */
 export interface IState {
   palette: IPalleteState
-  router?: Reducer<RouterState, LocationChangeAction>
+  router: Reducer<RouterState, LocationChangeAction>
   simpleNetwork: ISimpleNetworkState
 }
 
 /**
  * Dispatcher
  */
-export interface IPaletteDispatchProps extends IDispatchSimpleNetworkProps {}
+export interface IDispatchProps extends IDispatchSimpleNetwork {}
 
-export const rootDispatcher: IPaletteDispatchProps = {
+export const rootDispatcher: IDispatchProps = {
   ...dispatchSimpleNetwork
 }
+
+/**
+ * State Selectors
+ */
+export const rootSelectors = (state: IState) => ({
+  palette: paletteSelector(state),
+  simpleNetwork: simpleNetworkSelector(state)
+})
 
 /**
  * Reducers

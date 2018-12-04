@@ -1,8 +1,8 @@
 import * as React from "react";
-import { IPaletteDispatchProps, IState } from "../ducks";
-interface IContainerProps extends IPaletteDispatchProps, IState {
+import { IDispatchProps, IState } from "../ducks";
+interface IContainerProps extends IState, IDispatchProps {
 }
-declare class DucksTabContainer extends React.Component<IContainerProps> {
+declare class DucksTabContainer extends React.Component<IContainerProps, IState> {
     componentDidMount(): void;
     render(): JSX.Element;
 }

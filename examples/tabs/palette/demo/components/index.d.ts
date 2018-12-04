@@ -1,2 +1,2 @@
-import Table from "./Table";
-export { Table };
+import SampleTableComponent from "./SampleTableComponent";
+export { SampleTableComponent };

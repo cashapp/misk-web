@@ -1,4 +1,4 @@
-import { IDispatchSimpleNetworkProps, ISimpleNetworkState } from "@misk/core";
+import { IDispatchSimpleNetwork, ISimpleNetworkState } from "@misk/core";
 export { dispatchSimpleNetwork } from "@misk/core";
 import { LocationChangeAction, RouterState } from "connected-react-router";
 import { History } from "history";
@@ -10,15 +10,22 @@ export * from "./palette";
  */
 export interface IState {
     palette: IPalleteState;
-    router?: Reducer<RouterState, LocationChangeAction>;
+    router: Reducer<RouterState, LocationChangeAction>;
     simpleNetwork: ISimpleNetworkState;
 }
 /**
  * Dispatcher
  */
-export interface IPaletteDispatchProps extends IDispatchSimpleNetworkProps {
+export interface IDispatchProps extends IDispatchSimpleNetwork {
 }
-export declare const rootDispatcher: IPaletteDispatchProps;
+export declare const rootDispatcher: IDispatchProps;
+/**
+ * State Selectors
+ */
+export declare const rootSelectors: (state: IState) => {
+    palette: any;
+    simpleNetwork: any;
+};
 /**
  * Reducers
  */

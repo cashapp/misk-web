@@ -26,7 +26,7 @@ export interface ISimpleNetworkPayload {
     tag: string;
     url: string;
 }
-export interface IDispatchSimpleNetworkProps {
+export interface IDispatchSimpleNetwork {
     delete: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.DELETE, ISimpleNetworkPayload>;
     failure: (error: any) => IAction<SIMPLENETWORK.FAILURE, ISimpleNetworkPayload>;
     get: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.GET, ISimpleNetworkPayload>;
@@ -35,7 +35,7 @@ export interface IDispatchSimpleNetworkProps {
     put: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.PUT, ISimpleNetworkPayload>;
     success: (data: any) => IAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkPayload>;
 }
-export declare const dispatchSimpleNetwork: IDispatchSimpleNetworkProps;
+export declare const dispatchSimpleNetwork: IDispatchSimpleNetwork;
 export declare function watchSimpleNetworkSagas(): IterableIterator<import("redux-saga/effects").AllEffect>;
 /**
  * Duck Reducer
@@ -48,15 +48,31 @@ export declare function SimpleNetworkReducer(state: any, action: IAction<SIMPLEN
  * Consumed by the root reducer in ./ducks index to update global state
  * Duck state is attached at the root level of global state
  */
+export interface ISimpleNetworkTagResponse {
+    data: any | null;
+    error: any | null;
+}
 export interface ISimpleNetworkState extends IDefaultState {
     tags: {
-        [tag: string]: {
-            data: any | null;
-            error: any | null;
-        };
+        [tag: string]: ISimpleNetworkTagResponse;
     };
 }
 /**
  * Selector
  * A memoized, efficient way to compute and return the latest domain of the state
  */
+export declare const simpleNetworkState: <T extends {
+    simpleNetwork: ISimpleNetworkState;
+}>(state: T) => ISimpleNetworkState;
+export declare const simpleNetworkSelector: import("reselect").OutputSelector<{}, any, (res: ISimpleNetworkState) => any>;
+export declare const response: import("re-reselect").ParametricSelector<{}, string, ISimpleNetworkTagResponse> & {
+    resultFunc: (res1: ISimpleNetworkState, res2: ISimpleNetworkTagResponse) => ISimpleNetworkTagResponse;
+    recomputations: () => number;
+    resetRecomputations: () => number;
+} & {
+    getMatchingSelector: (state: {}, props: string, ...args: any[]) => import("re-reselect").OutputParametricSelector<{}, string, ISimpleNetworkTagResponse, (res1: ISimpleNetworkState, res2: ISimpleNetworkTagResponse) => ISimpleNetworkTagResponse>;
+    removeMatchingSelector: (state: {}, props: string, ...args: any[]) => void;
+    clearCache: () => void;
+    resultFunc: (res1: ISimpleNetworkState, res2: ISimpleNetworkTagResponse) => ISimpleNetworkTagResponse;
+    cache: import("re-reselect").ICacheObject;
+};

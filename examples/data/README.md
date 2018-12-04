@@ -16,3 +16,7 @@
 2. Add any new data sets to a new file in `src/data/`
 3. Rebuild the JSON writer executable with `npm run-script build`
 4. Regenerate the `demo/*.JSON` with `node dist/index.js`
+
+## Resources
+
+- Batch test data generated with [Mockaroo](https://mockaroo.com/)
