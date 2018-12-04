@@ -30,27 +30,23 @@ const generateDescription = (props: IOfflineProps) => {
 }
 
 export const OfflineComponent = (props: IOfflineProps) => {
-  if (props.error) {
-    return (
-      <div>
-        <NonIdealState
-          icon={props.icon ? props.icon : IconNames.OFFLINE}
-          title={props.title ? props.title : "Loading Error"}
-          description={generateDescription(props)}
-        >
-          <Card>
-            <h5 className={Classes.SKELETON}>Your head is not an artifact!</h5>
-            <p className={Classes.SKELETON}>
-              Maybe we better talk out here; the observation lounge has turned
-              into a swamp. Some days you get the bear, and some days the bear
-              gets you.
-            </p>
-          </Card>
-        </NonIdealState>
-        <ErrorCalloutComponent error={props.error} />
-      </div>
-    )
-  } else {
-    return <span />
-  }
+  return (
+    <div>
+      <NonIdealState
+        icon={props.icon ? props.icon : IconNames.OFFLINE}
+        title={props.title ? props.title : "Loading Error"}
+        description={generateDescription(props)}
+      >
+        <Card>
+          <h5 className={Classes.SKELETON}>Your head is not an artifact!</h5>
+          <p className={Classes.SKELETON}>
+            Maybe we better talk out here; the observation lounge has turned
+            into a swamp. Some days you get the bear, and some days the bear
+            gets you.
+          </p>
+        </Card>
+      </NonIdealState>
+      <ErrorCalloutComponent error={props.error} />
+    </div>
+  )
 }

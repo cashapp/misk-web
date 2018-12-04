@@ -38,6 +38,7 @@ const vendorExternals = createExternals({
   "redux-saga": "ReduxSaga",
   "redux-saga/effects": "ReduxSagaEffects",
   reselect: "Reselect",
+  "re-reselect": "ReReselect",
   "styled-components": "StyledComponents"
 })
 

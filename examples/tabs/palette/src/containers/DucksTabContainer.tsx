@@ -1,44 +1,34 @@
-import { OfflineComponent } from "@misk/core"
+import { response } from "@misk/core"
 import * as React from "react"
 import { connect } from "react-redux"
-import { createStructuredSelector } from "reselect"
-import { Table } from "../components"
-import {
-  IPaletteDispatchProps,
-  IState,
-  paletteSelector,
-  rootDispatcher
-} from "../ducks"
+import { SampleTableComponent } from "../components"
+import { IDispatchProps, IState, rootDispatcher, rootSelectors } from "../ducks"
 
-interface IContainerProps extends IPaletteDispatchProps, IState {}
+interface IContainerProps extends IState, IDispatchProps {}
 
-class DucksTabContainer extends React.Component<IContainerProps> {
+class DucksTabContainer extends React.Component<IContainerProps, IState> {
   componentDidMount() {
     this.props.get(
       "cars",
       "https://square.github.io/misk-web/examples/data/demo/cars.json"
     )
+    this.props.get(
+      "dinos",
+      "https://square.github.io/misk-web/examples/data/demo/dinos.json"
+    )
   }
 
   render() {
-    if (this.props.simpleNetwork) {
-      return <Table data={[]} />
-    } else {
-      return (
-        <OfflineComponent
-          title={"Error Loading Palette Short Urls"}
-          error={this.props.palette.error}
-        />
-      )
-    }
+    const { simpleNetwork } = this.props
+    return (
+      <div>
+        <SampleTableComponent data={response(simpleNetwork, "cars")} />
+      </div>
+    )
   }
 }
 
-const mapStateToProps = (state: IState) =>
-  createStructuredSelector({
-    palette: paletteSelector(),
-    simpleNetwork: () => state.simpleNetwork.toJS()
-  })
+const mapStateToProps = (state: IState) => rootSelectors(state)
 
 const mapDispatchToProps = {
   ...rootDispatcher
