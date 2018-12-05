@@ -20,6 +20,12 @@ Misk-Web is not ready for use. The API is not stable.
 
 ## [How To](HOWTO.md): Build a new Tab
 
+```Bash
+$ curl -s https://raw.githubusercontent.com/square/misk-web/master/new-tab.sh | bash -s
+```
+
+## [Included Docker Build Image](docker/)
+
 ## Migrating from Misk
 
 1. Add `"miskWeb": "com.squareup.misk-web:misk-web:2018.11.23-00fdf9e",` to your `dependencies.gradle`. Make sure to replace `2018.11.23-00fdf9e` with the latest `YYYY.MM.DD-githash` artifact available.
