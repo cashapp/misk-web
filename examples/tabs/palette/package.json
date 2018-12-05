@@ -7,8 +7,8 @@
     "yarn": "YARN NO LONGER USED - use npm instead."
   },
   "scripts": {
-    "build": "npm run-script lint && npm run-script lib && npm run-script zip",
-    "clean": "rm -rf demo",
+    "build": "npm run-script lint && npm run-script ci-build && npm run-script zip",
+    "clean": "rm -rf demo lib",
     "ci-build": "npm run-script clean && npm run-script lib",
     "lib": "cross-env NODE_ENV=production webpack",
     "lint": "prettier --write --config prettier.config.js \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
@@ -30,6 +30,6 @@
     "port": "3150",
     "relative_path_prefix": "_admin/",
     "slug": "palette",
-    "version": "0.1.0-alpha-0.5"
+    "version": "0.1.1-alpha-0.5"
   }
 }

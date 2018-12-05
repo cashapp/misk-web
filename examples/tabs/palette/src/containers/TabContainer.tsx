@@ -6,15 +6,11 @@ import { IDispatchProps, IState, rootDispatcher, rootSelectors } from "../ducks"
 
 interface IContainerProps extends IState, IDispatchProps {}
 
-class DucksTabContainer extends React.Component<IContainerProps, IState> {
+class TabContainer extends React.Component<IContainerProps, IState> {
   componentDidMount() {
     this.props.get(
       "cars",
       "https://square.github.io/misk-web/examples/data/demo/cars.json"
-    )
-    this.props.get(
-      "dinos",
-      "https://square.github.io/misk-web/examples/data/demo/dinos.json"
     )
   }
 
@@ -37,4 +33,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(DucksTabContainer)
+)(TabContainer)
