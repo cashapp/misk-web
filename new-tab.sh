@@ -41,22 +41,37 @@ tar -xzvf ./palette.tgz -C ./${NEW_SLUG_CASE}
 
 echo "Recursively updating code from ${OLD_ALL_CAP_CASE} => ${NEW_ALL_CAP_CASE}"
 SED_ALL_CAP_CASE="'s/${OLD_ALL_CAP_CASE}/${NEW_ALL_CAP_CASE}/g'"
-echo ${SED_ALL_CAP_CASE}
 CMD_ALL_CAP_CASE="find ./${NEW_SLUG_CASE} -type f -exec sed -i '' -e ${SED_ALL_CAP_CASE} {} \\;"
-echo "${CMD_ALL_CAP_CASE}"
 sh -c "$CMD_ALL_CAP_CASE"
+
 echo "Recursively updating code from ${OLD_TITLE_CASE} => ${NEW_TITLE_CASE}"
 SED_TITLE_CASE="'s/${OLD_TITLE_CASE}/${NEW_TITLE_CASE}/g'"
-echo ${SED_TITLE_CASE}
 CMD_TITLE_CASE="find ./${NEW_SLUG_CASE} -type f -exec sed -i '' -e ${SED_TITLE_CASE} {} \\;"
-echo "${CMD_TITLE_CASE}"
 sh -c "$CMD_TITLE_CASE"
+
 echo "Recursively updating code from ${OLD_CAMEL_CASE} => ${NEW_CAMEL_CASE}"
 SED_CAMEL_CASE="'s/${OLD_CAMEL_CASE}/${NEW_CAMEL_CASE}/g'"
-echo ${SED_CAMEL_CASE}
 CMD_CAMEL_CASE="find ./${NEW_SLUG_CASE} -type f -exec sed -i '' -e ${SED_CAMEL_CASE} {} \\;"
-echo "${CMD_CAMEL_CASE}"
 sh -c "$CMD_CAMEL_CASE"
 # echo "Recursively updating code from ${OLD_SLUG_CASE} => ${NEW_SLUG_CASE}"
+
+echo "Rename files with Palette in name"
+mv ./${NEW_SLUG_CASE}/src/ducks/${OLD_CAMEL_CASE}.ts ./${NEW_SLUG_CASE}/src/ducks/${NEW_CAMEL_CASE}.ts
+
+# echo "Recursively updating file names from ${OLD_ALL_CAP_CASE} => ${NEW_ALL_CAP_CASE}"
+# MV_CMD_ALL_CAP_CASE="find ./${NEW_SLUG_CASE} -name '*${OLD_ALL_CAP_CASE}*' -type f -exec bash -c 'mv \"\$1\" \"\${1/$OLD_ALL_CAP_CASE/$NEW_ALL_CAP_CASE/}\"' {} \\;"
+# echo "${MV_CMD_ALL_CAP_CASE}"
+# sh -c "$MV_CMD_ALL_CAP_CASE"
+
+# echo "Recursively updating file names from ${OLD_TITLE_CASE} => ${NEW_TITLE_CASE}"
+# MV_CMD_TITLE_CASE="find ./${NEW_SLUG_CASE} -name '*${OLD_TITLE_CASE}*' -type f -exec bash -c 'mv \"\$1\" \"\${1/$OLD_TITLE_CASE/$NEW_TITLE_CASE/}\"' {} \\;"
+# echo "${MV_CMD_TITLE_CASE}"
+# sh -c "$MV_CMD_TITLE_CASE"
+
+# echo "Recursively updating file names from ${OLD_CAMEL_CASE} => ${NEW_CAMEL_CASE}"
+# MV_CMD_CAMEL_CASE="find ./${NEW_SLUG_CASE} -name '*${OLD_CAMEL_CASE}*' -type f -exec bash -c 'mv \"\$1\" \"\${1/$OLD_CAMEL_CASE/$NEW_CAMEL_CASE/}\"' {} \\;"
+# echo "${MV_CMD_CAMEL_CASE}"
+# sh -c "$MV_CMD_CAMEL_CASE"
+
 
 echo "Done!"
