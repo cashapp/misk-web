@@ -1,4 +1,5 @@
 import { Classes, H1, HTMLTable } from "@blueprintjs/core"
+import { ErrorCalloutComponent } from "@misk/core"
 import * as React from "react"
 
 export interface ITableProps {
@@ -32,19 +33,14 @@ const Heading = (props: ITableProps) => {
 }
 
 export const SampleTableComponent = (props: ITableProps) => {
+  /**
+   * Destructure props for easier usage: data instead of props.data
+   */
   const { data, rows = 5 } = props
-  if (data.data != null) {
-    const tableData = data.data.cars
-    return (
-      <div>
-        <H1>Table</H1>
-        <HTMLTable bordered={true} striped={true}>
-          <Heading data={tableData[0]} />
-          <Rows data={tableData} rows={rows} />
-        </HTMLTable>
-      </div>
-    )
-  } else {
+  /**
+   * Have a nice failure mode while your data is loading or doesn't load
+   */
+  if (!data.data || data.data === null) {
     const FakeCell = <p className={Classes.SKELETON}>lorem ipsum 1234 5678</p>
     return (
       <div>
@@ -68,6 +64,21 @@ export const SampleTableComponent = (props: ITableProps) => {
               <td>{FakeCell}</td>
             </tr>
           </tbody>
+        </HTMLTable>
+        <ErrorCalloutComponent error={data.error} />
+      </div>
+    )
+  } else {
+    /**
+     * Data is loaded and ready to be rendered
+     */
+    const tableData = data.data.cars
+    return (
+      <div>
+        <H1>Table</H1>
+        <HTMLTable bordered={true} striped={true}>
+          <Heading data={tableData[0]} />
+          <Rows data={tableData} rows={rows} />
         </HTMLTable>
       </div>
     )

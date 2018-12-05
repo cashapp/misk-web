@@ -17,7 +17,7 @@ import { combineReducers, Reducer } from "redux"
 import { all, fork } from "redux-saga/effects"
 import {
   default as PaletteReducer,
-  IPalleteState,
+  IPaletteState,
   paletteSelector,
   watchPaletteSagas
 } from "./palette"
@@ -27,7 +27,7 @@ export * from "./palette"
  * Redux Store State
  */
 export interface IState {
-  palette: IPalleteState
+  palette: IPaletteState
   router: Reducer<RouterState, LocationChangeAction>
   simpleNetwork: ISimpleNetworkState
 }

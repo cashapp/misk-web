@@ -104,7 +104,7 @@ export default function PaletteReducer(
  * Consumed by the root reducer in ./ducks index to update global state
  * Duck state is attached at the root level of global state
  */
-export interface IPalleteState extends IDefaultState {
+export interface IPaletteState extends IDefaultState {
   [key: string]: any
 }
 
