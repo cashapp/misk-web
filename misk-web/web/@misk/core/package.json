@@ -1,6 +1,6 @@
 {
   "name": "@misk/core",
-  "version": "0.1.1-alpha-0.9",
+  "version": "0.1.1-alpha-0.17",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "description": "Misk-Web Core",
   "author": "Square/Misk Authors (https://github.com/square/misk-web/graphs/contributors)",
@@ -24,7 +24,7 @@
     "ci-build": "yarn run clean && yarn run lib",
     "lib": "webpack",
     "lint": "prettier --write --config prettier.config.js \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
-    "prepare": "cd ../../../../ && ./gradlew web -Pcmd='-a' -Ptabs='@misk/core'",
+    "prepare": "cd ../../../../ && ./gradlew web -Pcmd='-ca' -Ptabs='@misk/core'",
     "reinstall": "rm -rf node_modules && yarn install",
     "start": "yarn run lint && cross-env NODE_ENV=development webpack-dev-server",
     "test": "echo no tests",
@@ -38,6 +38,6 @@
     "@misk/tslint": "^0.1.1-alpha-0.1"
   },
   "miskTab": {
-    "version": "0.1.1-alpha-0.3"
+    "version": "0.1.1-alpha-0.5"
   }
 }

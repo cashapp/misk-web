@@ -25,7 +25,7 @@
     "ci-build": "yarn run clean && yarn run lib",
     "lib": "yarn run refresh; webpack --config webpack.config.js && webpack --config webpack.config.static.js && webpack --config webpack.config.vendors.js",
     "lint": "prettier --write --config prettier.config.js \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
-    "prepare": "cd ../../../../ && ./gradlew web -Pcmd='-a' -Ptabs='@misk/common'",
+    "prepare": "cd ../../../../ && ./gradlew web -Pcmd='-ca' -Ptabs='@misk/common'",
     "refresh": "node refreshCachedUrls.js",
     "reinstall": "rm -rf node_modules && yarn install",
     "updateDevCache": "cd ..; ./updateLocalCache.sh",
