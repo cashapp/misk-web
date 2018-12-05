@@ -1,3 +1,4 @@
+export * from "./defaults";
 export * from "./routerDucks";
 export * from "./simpleNetworkDucks";
 export interface IAction<T, P> {

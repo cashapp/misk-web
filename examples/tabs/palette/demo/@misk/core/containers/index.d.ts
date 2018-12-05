@@ -1,3 +1,4 @@
+export * from "./DashboardTabContainer";
 export * from "./DesktopWideOnlyContainer";
 export * from "./FlexContainer";
 export * from "./MobileNeverContainer";

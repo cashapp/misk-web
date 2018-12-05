@@ -1,19 +1,14 @@
 import {
-  dispatchSimpleNetwork,
-  IDispatchSimpleNetwork,
-  ISimpleNetworkState,
-  SimpleNetworkReducer,
-  simpleNetworkSelector,
-  watchSimpleNetworkSagas
+  defaultDispatcher,
+  defaultReducers,
+  defaultSagas,
+  defaultSelectors,
+  IDefaultDispatch,
+  IDefaultGlobalState
 } from "@misk/core"
 export { dispatchSimpleNetwork } from "@misk/core"
-import {
-  connectRouter,
-  LocationChangeAction,
-  RouterState
-} from "connected-react-router"
 import { History } from "history"
-import { combineReducers, Reducer } from "redux"
+import { combineReducers } from "redux"
 import { all, fork } from "redux-saga/effects"
 import {
   default as PaletteReducer,
@@ -26,19 +21,17 @@ export * from "./palette"
 /**
  * Redux Store State
  */
-export interface IState {
+export interface IState extends IDefaultGlobalState {
   palette: IPalleteState
-  router: Reducer<RouterState, LocationChangeAction>
-  simpleNetwork: ISimpleNetworkState
 }
 
 /**
  * Dispatcher
  */
-export interface IDispatchProps extends IDispatchSimpleNetwork {}
+export interface IDispatchProps extends IDefaultDispatch {}
 
 export const rootDispatcher: IDispatchProps = {
-  ...dispatchSimpleNetwork
+  ...defaultDispatcher
 }
 
 /**
@@ -46,7 +39,7 @@ export const rootDispatcher: IDispatchProps = {
  */
 export const rootSelectors = (state: IState) => ({
   palette: paletteSelector(state),
-  simpleNetwork: simpleNetworkSelector(state)
+  ...defaultSelectors(state)
 })
 
 /**
@@ -55,13 +48,12 @@ export const rootSelectors = (state: IState) => ({
 export const rootReducer = (history: History) =>
   combineReducers({
     palette: PaletteReducer,
-    router: connectRouter(history),
-    simpleNetwork: SimpleNetworkReducer
+    ...defaultReducers(history)
   })
 
 /**
  * Sagas
  */
 export function* rootSaga() {
-  yield all([fork(watchPaletteSagas), fork(watchSimpleNetworkSagas)])
+  yield all([fork(watchPaletteSagas)].concat(defaultSagas))
 }

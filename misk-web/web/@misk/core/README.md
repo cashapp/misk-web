@@ -31,6 +31,7 @@ $ yarn add @misk/core
 
 ## Ducks
 
+- `defaults`: Default Redux-Sagas parts to be used in composition of rootReducers, rootSagas, rootDispatchers... that include all of the below Ducks libraries.
 - `routerDucks`: router management Redux-Sagas parts (actions, dispatcher, handlers, sagas, reducers, state interface)
 - `simpleNetworkDucks`: a standardized set of Axios based request Redux-Sagas parts (actions, dispatcher, handlers, sagas, reducers, state interface)
 

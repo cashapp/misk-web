@@ -1,38 +1,52 @@
 import {
-  connectRouter,
-  LocationChangeAction,
-  RouterState
-} from "connected-react-router"
+  defaultDispatcher,
+  defaultReducers,
+  defaultSagas,
+  defaultSelectors,
+  IDefaultDispatch,
+  IDefaultGlobalState,
+  watchSimpleNetworkSagas
+} from "@misk/core"
+export { dispatchSimpleNetwork } from "@misk/core"
 import { History } from "history"
-import { combineReducers, Reducer } from "redux"
+import { combineReducers } from "redux"
 import { all, fork } from "redux-saga/effects"
-import {
-  default as LoaderReducer,
-  ILoaderState,
-  watchLoaderSagas
-} from "./loader"
-export * from "./loader"
 
 /**
  * Redux Store State
  */
-export interface IState {
-  loader: ILoaderState
-  router: Reducer<RouterState, LocationChangeAction>
+export interface IState extends IDefaultGlobalState {}
+
+/**
+ * Dispatcher
+ */
+export interface IDispatchProps extends IDefaultDispatch {}
+
+console.log("dispa", defaultDispatcher)
+export const rootDispatcher: IDispatchProps = {
+  ...defaultDispatcher
 }
+
+/**
+ * State Selectors
+ */
+export const rootSelectors = (state: IState) => ({
+  ...defaultSelectors(state)
+})
 
 /**
  * Reducers
  */
 export const rootReducer = (history: History) =>
   combineReducers({
-    loader: LoaderReducer,
-    router: connectRouter(history)
+    ...defaultReducers(history)
   })
 
 /**
  * Sagas
  */
+const ds = [watchSimpleNetworkSagas]
+console.log(defaultSagas, ds)
 export function* rootSaga() {
-  yield all([fork(watchLoaderSagas)])
+  yield all([].concat(ds.map(saga => fork(saga))))
 }

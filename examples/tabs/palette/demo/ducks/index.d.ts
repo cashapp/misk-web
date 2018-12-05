@@ -1,38 +1,34 @@
-import { IDispatchSimpleNetwork, ISimpleNetworkState } from "@misk/core";
+import { IDefaultDispatch, IDefaultGlobalState } from "@misk/core";
 export { dispatchSimpleNetwork } from "@misk/core";
-import { LocationChangeAction, RouterState } from "connected-react-router";
 import { History } from "history";
-import { Reducer } from "redux";
 import { IPalleteState } from "./palette";
 export * from "./palette";
 /**
  * Redux Store State
  */
-export interface IState {
+export interface IState extends IDefaultGlobalState {
     palette: IPalleteState;
-    router: Reducer<RouterState, LocationChangeAction>;
-    simpleNetwork: ISimpleNetworkState;
 }
 /**
  * Dispatcher
  */
-export interface IDispatchProps extends IDispatchSimpleNetwork {
+export interface IDispatchProps extends IDefaultDispatch {
 }
 export declare const rootDispatcher: IDispatchProps;
 /**
  * State Selectors
  */
 export declare const rootSelectors: (state: IState) => {
-    palette: any;
     simpleNetwork: any;
+    palette: any;
 };
 /**
  * Reducers
  */
-export declare const rootReducer: (history: History<any>) => Reducer<{
-    palette: any;
-    router: RouterState;
+export declare const rootReducer: (history: History<any>) => import("redux").Reducer<{
+    router: import("connected-react-router").RouterState;
     simpleNetwork: any;
+    palette: any;
 }, import("redux").AnyAction>;
 /**
  * Sagas
