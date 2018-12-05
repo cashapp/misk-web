@@ -21,7 +21,8 @@ Misk-Web is not ready for use. The API is not stable.
 ## [How To](HOWTO.md): Build a new Tab
 
 ```Bash
-$ curl -s https://raw.githubusercontent.com/square/misk-web/master/new-tab/new-tab.sh | bash -s
+$ curl -s https://raw.githubusercontent.com/square/misk-web/master/new-tab/get-new-tab.sh
+$ ./new-tab.sh
 ```
 
 ## [Included Docker Build Image](docker/)
