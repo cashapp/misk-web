@@ -15,7 +15,7 @@
     "reinstall": "rm -rf node_modules && npm run-script install",
     "start": "npm run-script lint && cross-env NODE_ENV=development webpack-dev-server",
     "test": "echo no test",
-    "zip": "tar --exclude='demo' --exclude='node_modules' --exclude='package-lock.json' --exclude='palette.tgz' -czvf palette.tgz ./"
+    "zip": "tar --exclude='demo' --exclude='node_modules' --exclude='package-lock.json' --exclude='palette.tgz' -cvf palette.tar ./"
   },
   "dependencies": {
     "@misk/common": "^0.1.1-alpha-0.3",
