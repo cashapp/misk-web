@@ -28,15 +28,14 @@ echo "Registered NEW_SLUG_CASE      ${NEW_SLUG_CASE}"
 # 1. Download .zip of palette src code from github
 echo "Downloading fresh Palette tab"
 rm ./palette.tar
-curl -s0 https://github.com/square/misk-web/raw/master/examples/tabs/palette/palette.tar -o ./palette.tar
+wget -O palette.tgz https://github.com/square/misk-web/raw/master/examples/tabs/palette/palette.tgz
 
+# 1. Make new tab folder `foo-bar`
+
+mkdir -p ./${NEW_SLUG_CASE}
 # 1. Unzips to pwd
-echo "Unzip compressed Palette Tab"
-tar -xvf ./palette.tar
-
-# 1. Renames folder to `foo-bar
-echo "Moving Palette source into new tab directory: ${NEW_SLUG_CASE}"
-mv ${OLD_SLUG_CASE} ${NEW_SLUG_CASE}
+echo "Unzip compressed Palette Tab to ./${NEW_SLUG_CASE}"
+tar -xzvf ./palette.tgz -C ./${NEW_SLUG_CASE}
 
 # 1. [Recursive find/replace](https://stackoverflow.com/questions/11392478/how-to-replace-a-string-in-multiple-files-in-linux-command-line) in directory of `palette` -> `fooBar`, `Palette` -> `FooBar`
 
