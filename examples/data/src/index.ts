@@ -1,16 +1,17 @@
 // tslint:disable-next-line:no-var-requires
-const writeJson = require("write-json")
+const jsonfile = require("jsonfile")
 import * as data from "./data"
 
 const output = "./demo"
 
-Object.entries(data).map(([key, set]) => {
+Object.entries(data).map(([key, jsonDataSet]) => {
   const file = `${output}/${key}.json`
-  writeJson(file, set, (err: any) => {
-    if (err) {
-      console.log(`[misk-web-examples-demo] [error] ${file}.\n${err}`)
-    } else {
+  jsonfile
+    .writeFile(file, jsonDataSet)
+    .then(() => {
       console.log(`[misk-web-examples-demo] [success] ${file}`)
-    }
-  })
+    })
+    .catch((error: any) =>
+      console.log(`[misk-web-examples-demo] [error] ${file}.\n${error}`)
+    )
 })
