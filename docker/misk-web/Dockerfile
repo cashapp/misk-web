@@ -5,6 +5,7 @@ RUN apk add --no-cache tini \
   --pure-lockfile \
   --non-interactive \
   --modules-folder /node_modules \
+  @misk/cli \
   @misk/common \
   @misk/components \
   @misk/core \

@@ -126,6 +126,6 @@ From `package.json`:
 - `webpack.static.config.js`: Exports common styles file
 - `webpack.vendor.config.js`: Exports common vendors library file
 
-## [Releasing](https://github.com/square/misk/blob/master/misk/web/%40misk/RELEASING.md)
+## [Releasing](https://github.com/square/misk-web/blob/master/RELEASING.md)
 
-## [Changelog (and Breaking Changes)](https://github.com/square/misk/blob/master/misk/web/%40misk/CHANGELOG.md)
+## [Changelog (and Breaking Changes)](https://github.com/square/misk-web/blob/master/CHANGELOG.md)
