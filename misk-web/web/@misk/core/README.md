@@ -43,6 +43,6 @@ $ yarn add @misk/core
 - `environment`: various utilities helpful in environment (color, default visibilities...)
 - `network`: wrapped functions around Axios requests to allow simplified syntax that with `async await` returns an object of `{ data, error }`.
 
-## [Releasing](https://github.com/square/misk/blob/master/misk/web/%40misk/RELEASING.md)
+## [Releasing](https://github.com/square/misk-web/blob/master/RELEASING.md)
 
-## [Changelog (and Breaking Changes)](https://github.com/square/misk/blob/master/misk/web/%40misk/CHANGELOG.md)
+## [Changelog (and Breaking Changes)](https://github.com/square/misk-web/blob/master/CHANGELOG.md)

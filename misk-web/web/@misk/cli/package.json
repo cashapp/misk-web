@@ -1,0 +1,65 @@
+{
+  "name": "@misk/cli",
+  "version": "0.0.1",
+  "license": "SEE LICENSE IN https://github.com/square/misk-web",
+  "description": "Misk-Web CLI Build Tool",
+  "author": "Square/Misk Authors (https://github.com/square/misk-web/graphs/contributors)",
+  "main": "lib/web/@misk/cli/index.js",
+  "bin": {
+    "misk-web": "lib/web/@misk/cli/index.js"
+  },
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": ">= 0.2.0"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.18.0",
+    "dayjs": "^1.7.7",
+    "inquirer": "^6.2.0",
+    "node-emoji": "^1.8.1",
+    "yargs": "^12.0.4"
+  },
+  "devDependencies": {
+    "@misk/dev": "^0.0.69",
+    "@misk/tslint": "^0.0.10",
+    "@types/inquirer": "0.0.43",
+    "@types/node-emoji": "^1.8.0",
+    "@types/yargs": "^12.0.1",
+    "jest": "^23.6.0"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "clean": "rm -rf lib",
+    "start": "node lib/web/@misk/cli/index.js",
+    "watch": "tsc -w",
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint --ext .ts --ext .js src tests",
+    "prepublish": "npm run-script build",
+    "prepare": "cd ../../../../ && ./gradlew web -Pcmd='-ca' -Ptabs='@misk/cli'",
+    "precommit": "lint-staged",
+    "smooth-release": "smooth-release",
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --config prettier.config.js --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "jsx"
+    ]
+  }
+}

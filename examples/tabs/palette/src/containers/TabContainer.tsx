@@ -18,7 +18,7 @@ class TabContainer extends React.Component<IContainerProps, IState> {
     const { simpleNetwork } = this.props
     return (
       <div>
-        <SampleTableComponent data={response(simpleNetwork, "cars")} />
+        <SampleTableComponent data={response(simpleNetwork, "cars")} rows={5}/>
       </div>
     )
   }
