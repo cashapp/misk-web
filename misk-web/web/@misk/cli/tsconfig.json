@@ -1,15 +1,7 @@
 {
+  "extends": "./node_modules/@misk/dev/tsconfig.base",
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es6",
-    "noImplicitAny": true,
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "outDir": "lib/web/@misk/cli",
-    "baseUrl": ".",
-    "paths": {
-      "*": ["node_modules/*", "src/types/*"]
-    }
+    "outDir": "lib/web/@misk/cli"
   },
   "include": ["src/**/*"]
 }

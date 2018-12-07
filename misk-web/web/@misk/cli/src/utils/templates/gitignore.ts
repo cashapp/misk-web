@@ -1,4 +1,4 @@
-.git
+export const gitignore = `.git
 .DS_Store
 **/@misk/web
 cachedUrls
@@ -13,3 +13,4 @@ dist
 lib
 .hash
 .old_build_files
+`
