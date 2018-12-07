@@ -1,6 +1,6 @@
 {
   "name": "@misk/cli",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "description": "Misk-Web CLI Build Tool",
   "author": "Square/Misk Authors (https://github.com/square/misk-web/graphs/contributors)",
@@ -20,28 +20,32 @@
     "dayjs": "^1.7.7",
     "inquirer": "^6.2.0",
     "node-emoji": "^1.8.1",
-    "yargs": "^12.0.4"
-  },
-  "devDependencies": {
-    "@misk/dev": "^0.0.69",
-    "@misk/tslint": "^0.0.10",
+    "jsonfile": "^5.0.0",
+    "yargs": "^12.0.4",
     "@types/inquirer": "0.0.43",
+    "@types/jsonfile": "^4.0.1",
     "@types/node-emoji": "^1.8.0",
     "@types/yargs": "^12.0.1",
     "jest": "^23.6.0"
   },
+  "devDependencies": {
+    "@misk/dev": "^0.1.1-alpha-0.4",
+    "@misk/tslint": "^0.1.1-alpha-0.1"
+  },
   "preferGlobal": true,
   "scripts": {
     "clean": "rm -rf lib",
+    "ci-build": "yarn run clean && yarn run lib",
     "start": "node lib/web/@misk/cli/index.js",
     "watch": "tsc -w",
     "build": "tsc",
+    "buildrun": "npm run-script build && npm run-script start",
     "test": "jest",
     "lint": "eslint --ext .ts --ext .js src tests",
-    "prepublish": "npm run-script build",
     "prepare": "cd ../../../../ && ./gradlew web -Pcmd='-ca' -Ptabs='@misk/cli'",
+    "prepublish": "npm run-script build",
     "precommit": "lint-staged",
-    "smooth-release": "smooth-release",
+    "smooth-release": "smooth-release"
   },
   "lint-staged": {
     "*.ts": [
@@ -49,6 +53,7 @@
       "git add"
     ]
   },
+  "miskTab": "boom",
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"

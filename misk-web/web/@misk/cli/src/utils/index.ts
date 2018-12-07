@@ -3,6 +3,21 @@ import chalk from "chalk"
 import { execSync } from "child_process"
 import yargs = require("yargs")
 
+export * from "./fs"
+export * from "./migrate"
+
+export enum MiskVersion {
+  "v0_1_1_alpha_0_5" = "0.1.1-alpha-0.5"
+}
+
+export interface IMiskTabJSON {
+  name: string
+  port: number
+  relative_path_prefix: string
+  slug: string
+  version: MiskVersion
+}
+
 export const log = console.log
 export const logError = (s: string) => log(emoji.emojify(chalk.bold.red(s)))
 export const logInfo = (s: string) => log(emoji.emojify(chalk.bold(s)))

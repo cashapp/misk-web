@@ -7,6 +7,7 @@
     "start": "node dist/index.js",
     "watch": "tsc -w",
     "build": "tsc",
+    "buildrun": "npm run-script build && npm run-script start",
     "ci-build": "npm install && npm run-script build && npm run-script start",
     "test": "echo 'no tests'",
     "lint": "prettier --write --config prettier.config.js \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
@@ -14,11 +15,12 @@
   },
   "dependencies": {
     "@misk/common": "^0.1.1-alpha-0.1",
-    "write-json": "^3.0.1"
+    "jsonfile": "^5.0.0"
   },
   "devDependencies": {
     "@misk/dev": "^0.1.1-alpha-0.1",
-    "@misk/tslint": "^0.1.1-alpha-0.1"
+    "@misk/tslint": "^0.1.1-alpha-0.1",
+    "@types/jsonfile": "^4.0.1"
   },
   "engines": {
     "yarn": "YARN NO LONGER USED - use npm instead."
