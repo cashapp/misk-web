@@ -6,10 +6,14 @@ This package provides the Misk CLI tool that generates build files for Misk Tabs
 ## Getting Started
 
 ```bash
-$ npm install @misk/cli
+$ npm install -g @misk/cli
 ```
 
 ## Commands
+
+```bash
+$ miskweb <cmd>
+```
 
 - prebuild: consume miskTab.json and write necessary build files
 
