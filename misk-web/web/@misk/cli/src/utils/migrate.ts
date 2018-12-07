@@ -9,6 +9,11 @@ export const migrate = async () => {
   let pkgMiskTab
   if (await fs.existsSync(Files.package)) {
     const pkg = await fs.readJson(Files.package)
+    if (pkg.name.startsWith("@misk/")) {
+      throw Error(
+        "misk-web CLI should not be used on @misk/ packages which have custom build tools."
+      )
+    }
     pkgMiskTab = pkg.miskTab ? pkg.miskTab : null
   } else {
     pkgMiskTab = null
@@ -27,8 +32,10 @@ export const migrate = async () => {
     // move all build files to an .old-build-files folder
     console.log(`[MIGRATE] Stashing old build files in ./${Files.old}`)
     await fs.mkdirp(Files.old)
-    // Don't move `package.json` use some of the keys to populate the new one
-    // fs.move(Files.package, `${Files.old}/${Files.package}`)
+    fs.copy(Files.package, `${Files.old}/${Files.package}`)
+    if (await fs.existsSync(Files.gitignore)) {
+      fs.move(Files.gitignore, `${Files.old}/${Files.gitignore}`)
+    }
     if (await fs.existsSync(Files.prettier)) {
       fs.move(Files.prettier, `${Files.old}/${Files.prettier}`)
     }
@@ -37,6 +44,15 @@ export const migrate = async () => {
     }
     if (await fs.existsSync(Files.tslint)) {
       fs.move(Files.tslint, `${Files.old}/${Files.tslint}`)
+    }
+    if (await fs.existsSync(Files.webpack)) {
+      fs.move(Files.webpack, `${Files.old}/${Files.webpack}`)
+    }
+    if (await fs.existsSync(Files.packageLock)) {
+      fs.remove(Files.packageLock)
+    }
+    if (await fs.existsSync(Files.yarnLock)) {
+      fs.remove(Files.yarnLock)
     }
   } else if (!pkgMiskTab && !(await fs.existsSync(Files.miskTab))) {
     throw Error("[MIGRATE] No miskTab block found in existing package.json.")
