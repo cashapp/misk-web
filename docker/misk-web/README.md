@@ -32,4 +32,4 @@ Includes `misk-web` script and `@misk/` packages. `misk-web` handles running var
 
 - See `misk-web -h` for more usage options
 
-# [Changelog](https://square.github.io/misk-web/misk-web/web/@misk/cli/src/index.ts)
+# [Changelog](https://github.com/square/misk-web/blob/master/misk-web/web/%40misk/cli/src/utils/changelog.ts)
