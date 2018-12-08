@@ -1,5 +1,5 @@
 import * as fs from "fs-extra"
-import { Files, JsonOptions } from "../utils"
+import { Files, IMiskTabJSON, JsonOptions } from "../utils"
 import {
   createPackage,
   createTsconfig,
@@ -11,15 +11,13 @@ import {
 
 export const generateBuildFiles = async () => {
   const pkg = await fs.readJson(Files.package)
-  const miskTab = await fs.readJson(Files.miskTab)
+  const miskTab: IMiskTabJSON = await fs.readJson(Files.miskTab)
   // Write out fresh files
   fs.writeFile(Files.gitignore, gitignore)
-  fs.writeJson(Files.package, createPackage(miskTab.slug, pkg), JsonOptions)
+  fs.writeJson(Files.package, createPackage(miskTab, pkg), JsonOptions)
   fs.writeJson(
     Files.tsconfig,
-    createTsconfig(
-      miskTab.outDir ? miskTab.outDir : `lib/web/_tab/${miskTab.slug}`
-    ),
+    createTsconfig(miskTab),
     JsonOptions
   )
   fs.writeJson(Files.tslint, tslint, JsonOptions)

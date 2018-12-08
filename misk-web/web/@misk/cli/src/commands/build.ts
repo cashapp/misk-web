@@ -6,6 +6,6 @@ export const desc = "run webpack production build"
 
 export async function handler() {
   console.log("[BUILD]")
-  prebuild()
-  runCmd("cross-env NODE_ENV=production webpack")
+  await prebuild()
+  runCmd("sh -c 'npm run-script build'")
 }
