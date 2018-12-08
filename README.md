@@ -16,15 +16,30 @@ Misk-Web is not ready for use. The API is not stable.
 - [![npm](https://img.shields.io/npm/v/@misk/tslint.svg?label=@misk/tslint)](https://www.npmjs.com/package/@misk/tslint) &ndash; Standard TSLint configuration and rules
 - [![npm](https://img.shields.io/npm/v/@misk/components.svg?label=@misk/components)](https://www.npmjs.com/package/@misk/components) &ndash; Deprecated, migrated to `@misk/core`
 
-## [Examples](examples/): Data sets, Services, and Tabs
+## Getting Started
+
+```Bash
+$ npm install -g @misk/cli
+$ miskweb -h
+```
 
 ## [How To](HOWTO.md): Build a new Tab
+
+Use the Misk-Web CLI
+
+```Bash
+$ miskweb new
+```
+
+or
 
 ```Bash
 $ curl -s https://raw.githubusercontent.com/square/misk-web/master/new-tab/get-new-tab.sh | bash -s && ./new-tab.sh
 ```
 
 ## [Included Docker Build Image](docker/)
+
+## [Examples](examples/): Data sets, Services, and Tabs
 
 ## Migrating from Misk
 
