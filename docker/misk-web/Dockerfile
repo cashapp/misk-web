@@ -11,7 +11,7 @@ RUN apk add --no-cache tini \
   @misk/core \
   @misk/dev \
   @misk/tslint \
-  && yarn global add cross-env prettier webpack webpack-cli webpack-dev-server
+  && yarn global add @misk/cli cross-env prettier webpack webpack-cli webpack-dev-server
 
 ENV NODE_PATH='/node_modules'
 COPY misk-web /bin/

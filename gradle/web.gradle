@@ -66,7 +66,7 @@ task web(type: Exec) {
         def versionWarningLog = ""
         def imageVersion = dockerMiskWebVersion
         def packageVersion = getPackageVersion("${projectPath}/web/${path}")
-        if (project.hasProperty("dv") && packageVersion < dockerMiskWebVersion) {
+        if (project.hasProperty("dv")) {
           def versionWarning = "\n[WARN] Upgrade miskTab.version ${packageVersion} -> ${dockerMiskWebVersion} in ${path}/package.json\nCheck for breaking changes and upgrade to latest @misk/ packages: https://github.com/square/misk/tree/master/docker/misk-web\n"
           versionWarningLog = "; echo '$versionWarning'"
           println versionWarning
