@@ -46,17 +46,8 @@ export interface IMiskTabVersions {
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
-  [MiskVersion.v012alpha01]: {
-    [MiskPkg.cli]: "0.0.5",
-    [MiskPkg.common]: "0.1.1",
-    [MiskPkg.core]: "0.1.1",
-    [MiskPkg.dev]: "0.1.1",
-    [MiskPkg.tslint]: "0.1.1",
-    date: "2018-12-7  ",
-    notes: "CLI adoption."
-  },
   [MiskVersion.v011]: {
-    [MiskPkg.cli]: "0.0.5",
+    [MiskPkg.cli]: "0.0.20",
     [MiskPkg.common]: "0.1.1",
     [MiskPkg.core]: "0.1.1",
     [MiskPkg.dev]: "0.1.1",
