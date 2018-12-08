@@ -43,11 +43,33 @@ task web(type: Exec) {
     }
   }
 
+   def getJsonPort = { path ->
+    def packageFile = file("$path/miskTab.json")
+    try {
+      def miskTab = new JsonSlurper().parseText(packageFile.text)
+      return miskTab.port
+    } catch (error) {
+      println error
+      return null
+    }
+  }
+
   def getPackageVersion = { path ->
     def packageFile = new File("$path/package.json")
     try {
       def packageJson = new JsonSlurper().parseText(packageFile.text)
       return packageJson.miskTab.version
+    } catch (error) {
+      println error
+      return null
+    }
+  }
+
+    def getVersion = { path ->
+    def packageFile = new File("$path/miskTab.json")
+    try {
+      def miskTab = new JsonSlurper().parseText(packageFile.text)
+      return miskTab.version
     } catch (error) {
       println error
       return null
@@ -60,16 +82,19 @@ task web(type: Exec) {
         def containerName = "${generateDockerContainerName(path)}"
         def port = ""
         def rawPort = getPackageJsonPort("${projectPath}/web/${path}")
-        if (rawPort != null) {
+        def miskTabPort = getJsonPort("${projectPath}/web/${path}")
+        if (miskTabPort != null) {
+          port = "-p ${miskTabPort}:${miskTabPort}"
+        } else if (rawPort != null) {
           port = "-p ${rawPort}:${rawPort}"
         }
         def versionWarningLog = ""
         def imageVersion = dockerMiskWebVersion
         def packageVersion = getPackageVersion("${projectPath}/web/${path}")
-        if (project.hasProperty("dv")) {
-          def versionWarning = "\n[WARN] Upgrade miskTab.version ${packageVersion} -> ${dockerMiskWebVersion} in ${path}/package.json\nCheck for breaking changes and upgrade to latest @misk/ packages: https://github.com/square/misk/tree/master/docker/misk-web\n"
-          versionWarningLog = "; echo '$versionWarning'"
-          println versionWarning
+        def miskTabVersion = getVersion("${projectPath}/web/${path}")
+        if (project.hasProperty("dv") && miskTabVersion != null) {
+          imageVersion = miskTabVersion
+        } else if (project.hasProperty("dv") && packageVersion != null) {
           imageVersion = packageVersion
         }
         def command = "docker run ${daemon} --rm --name ${containerName} -v ${projectPath}/web${path}:/web${path} ${port} ${image}:${imageVersion} ${cmd}"
