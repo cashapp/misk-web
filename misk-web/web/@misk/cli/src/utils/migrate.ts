@@ -3,10 +3,26 @@
  */
 
 import * as fs from "fs-extra"
-import { Files, JsonOptions } from "../utils"
+import { Files, IMiskTabJSON, JsonOptions } from "../utils"
+import { MiskVersion } from "./changelog"
+
+const moveOldBuildFile = async (filename: Files) => {
+  if (await fs.existsSync(filename)) {
+    fs.move(filename, `${Files.old}/${filename}`)
+  }
+}
+
+const removeOldBuildFile = async (filename: Files) => {
+  if (await fs.existsSync(filename)) {
+    fs.remove(filename)
+  }
+}
 
 export const migrate = async () => {
-  let pkgMiskTab
+  console.log(
+    "[MIGRATE] Migrate if necessary old build files to new generated build files"
+  )
+  let pkgMiskTab: IMiskTabJSON
   if (await fs.existsSync(Files.package)) {
     const pkg = await fs.readJson(Files.package)
     if (pkg.name.startsWith("@misk/")) {
@@ -28,32 +44,25 @@ export const migrate = async () => {
     console.log("[MIGRATE] miskTab.json exists. No migration required.")
   } else if (pkgMiskTab && !(await fs.existsSync(Files.miskTab))) {
     // TODO Add type enforcement that it is valid IMiskTabJSON
-    fs.writeJson(Files.miskTab, pkgMiskTab, JsonOptions)
+    const normalizedMiskTab: IMiskTabJSON = {
+      output_path: `lib/web/_tab/${pkgMiskTab.slug}`,
+      port: 4242,
+      version: MiskVersion.latest,
+      zipOnBuild: false,
+      ...pkgMiskTab
+    }
+    fs.writeJson(Files.miskTab, normalizedMiskTab, JsonOptions)
     // move all build files to an .old-build-files folder
     console.log(`[MIGRATE] Stashing old build files in ./${Files.old}`)
     await fs.mkdirp(Files.old)
     fs.copy(Files.package, `${Files.old}/${Files.package}`)
-    if (await fs.existsSync(Files.gitignore)) {
-      fs.move(Files.gitignore, `${Files.old}/${Files.gitignore}`)
-    }
-    if (await fs.existsSync(Files.prettier)) {
-      fs.move(Files.prettier, `${Files.old}/${Files.prettier}`)
-    }
-    if (await fs.existsSync(Files.tsconfig)) {
-      fs.move(Files.tsconfig, `${Files.old}/${Files.tsconfig}`)
-    }
-    if (await fs.existsSync(Files.tslint)) {
-      fs.move(Files.tslint, `${Files.old}/${Files.tslint}`)
-    }
-    if (await fs.existsSync(Files.webpack)) {
-      fs.move(Files.webpack, `${Files.old}/${Files.webpack}`)
-    }
-    if (await fs.existsSync(Files.packageLock)) {
-      fs.remove(Files.packageLock)
-    }
-    if (await fs.existsSync(Files.yarnLock)) {
-      fs.remove(Files.yarnLock)
-    }
+    moveOldBuildFile(Files.gitignore)
+    moveOldBuildFile(Files.prettier)
+    moveOldBuildFile(Files.tsconfig)
+    moveOldBuildFile(Files.tslint)
+    moveOldBuildFile(Files.webpack)
+    removeOldBuildFile(Files.packageLock)
+    removeOldBuildFile(Files.yarnLock)
   } else if (!pkgMiskTab && !(await fs.existsSync(Files.miskTab))) {
     throw Error("[MIGRATE] No miskTab block found in existing package.json.")
   }

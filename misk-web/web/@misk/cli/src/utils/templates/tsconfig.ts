@@ -1,7 +1,6 @@
-export const createTsconfig = (
-  outDir: string,
-  otherCompilerOptions: object = {}
-) => ({
+import { IMiskTabJSON } from "../index"
+
+export const createTsconfig = (miskTab: IMiskTabJSON) => ({
   compileOnSave: true,
   compilerOptions: {
     allowSyntheticDefaultImports: true,
@@ -26,7 +25,7 @@ export const createTsconfig = (
     noImplicitAny: true,
     noImplicitReturns: true,
     noUnusedLocals: true,
-    outDir,
+    outDir: miskTab.output_path,
     pretty: true,
     removeComments: false,
     sourceMap: true,
@@ -34,6 +33,6 @@ export const createTsconfig = (
     target: "es5",
     typeRoots: ["../node_modules/@types"],
     types: ["node"],
-    ...otherCompilerOptions
+    ...miskTab.tsconfigCompilerOptions
   }
 })

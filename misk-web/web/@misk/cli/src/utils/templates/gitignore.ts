@@ -17,6 +17,9 @@ dist
 lib
 .hash
 .old_build_files
-
+prettier.config.js
+tsconfig.json
+tslint.json
+webpack.config.js
 ${generatedByCLI}
 `
