@@ -24,10 +24,12 @@ export enum Files {
   "miskTab" = "miskTab.json",
   "old" = ".old_build_files",
   "package" = "package.json",
+  "packageLock" = "package-lock.json",
   "prettier" = "prettier.config.js",
   "tsconfig" = "tsconfig.json",
   "tslint" = "tslint.json",
-  "webpack" = "webpack.config.js"
+  "webpack" = "webpack.config.js",
+  "yarnLock" = "yarn.lock"
 }
 
 export interface IMiskTabVersion {
