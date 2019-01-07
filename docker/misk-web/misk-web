@@ -56,6 +56,7 @@ LABEL=""
 CMD=""
 WEB="/web"
 HD="false"
+REFRESH="true"
 
 hashDir() {
     tar --exclude="cachedUrls" --exclude="lib" --exclude="node_modules" --exclude=".DS_Store" --exclude=".hash" --exclude="yarn.lock" -cf - . | md5sum 2>&1
@@ -122,7 +123,7 @@ restoreNodeModules() {
 runCmd() {
     echo "[RUNCMD]: ${WEB}/*/* $LABEL HD: '$HD' CMD: '$CMD'"
     
-    refreshNodeModules
+    [ $REFRESH = "true" ] && refreshNodeModules
     
     for dir in ${WEB}/*/* ; do
         dir=${dir%*/}
@@ -131,17 +132,17 @@ runCmd() {
             if [ "$HD" = "true" ]; then
                 diffResult=$(hashDiff)
                 echo "[HASH DIFF] $dir $diffResult"
-                stashNodeModules
+                [ $REFRESH = "true" ] && stashNodeModules
                 # Run command if hashdiff is different
                 echo "$LABEL $dir" && echo "$diffResult" | grep -Fq "true" && $CMD
                 # Run command anyways if there is no lib directory
                 [ ! -d $dir/lib ] && echo "$LABEL $dir" && $CMD
             else
-                stashNodeModules
+                [ $REFRESH = "true" ] && stashNodeModules
                 # Run command if no hashdiff check required
                 echo "$LABEL $dir" && $CMD
             fi
-            restoreNodeModules
+            [ $REFRESH = "true" ] && restoreNodeModules
             # Update hash after every command
             hashDir | tee .hash
             echo "[DONE]" && echo ""
@@ -153,9 +154,10 @@ reset() {
     LABEL=""
     CMD=""
     HD="false"
+    REFRESH="true"
 }
 
-while getopts "h?abcdglmrwxz:" opt; do
+while getopts "h?abcdglmnrwxz:" opt; do
     case "$opt" in
         h|\?)   usage && exit 0   ;;
         a)      LABEL="[BUILD ALL]" && CMD='miskweb build' && runCmd && reset   ;;
@@ -165,6 +167,7 @@ while getopts "h?abcdglmrwxz:" opt; do
         g)      LABEL="[CI-BUILD]" && HD="true" && CMD='miskweb ci-build' && runCmd && reset   ;;
         l)      LABEL="[LINT]" && CMD='miskweb lint' && runCmd && reset  ;;
         m)      hashDir | tee .hash   ;;
+        n)      LABEL="[NO REFRESH]" && REFRESH="false" ;;
         r)      refreshNodeModules && restoreNodeModules && reset    ;;
         w)      LABEL="[ALT WEB LOCATION]" && WEB="${OPTARG}" && reset    ;;
         x)      LABEL="[HD=\"true\"]" && HD="true"    ;;
