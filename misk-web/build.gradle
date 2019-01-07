@@ -5,7 +5,7 @@ apply from: rootProject.file("gradle/web.gradle")
 sourceSets {
   main.resources {
     srcDirs += [
-      'web/@misk/common/lib',
+      'web/packages/@misk/common/lib',
       'web/@misk/core/lib',
       'web/packages/@misk/dev/lib',
       'web/packages/@misk/tslint/lib',
