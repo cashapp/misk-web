@@ -1,5 +1,5 @@
 {
-  "name": "misk-web-data",
+  "name": "misk-web-examples-data",
   "version": "0.0.1",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "main": "src/index.ts",
@@ -14,12 +14,17 @@
     "prepublish": "npm run-script build"
   },
   "dependencies": {
-    "@misk/common": "^0.1.1-alpha-0.1",
+    "@misk/common": "^0.1.3-1",
     "jsonfile": "^5.0.0"
   },
   "devDependencies": {
-    "@misk/dev": "^0.1.1-alpha-0.1",
-    "@misk/tslint": "^0.1.1-alpha-0.1",
+    "@misk/dev": "^0.1.3-1",
+    "@misk/tslint": "^0.1.3-1",
+    "@types/node": "^10.12.18",
+    "@types/react": "^16.7.18",
+    "prettier": "^1.15.3",
+    "tslib": "^1.9.3",
+    "typescript": "^3.2.2",
     "@types/jsonfile": "^4.0.1"
   },
   "engines": {

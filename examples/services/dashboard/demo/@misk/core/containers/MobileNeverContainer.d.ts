@@ -3,4 +3,4 @@
  *    <span>Stuff</span>
  * </MobileNeverContainer>
  */
-export declare const MobileNeverContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const MobileNeverContainer: any;
