@@ -6,7 +6,7 @@ import styled from "styled-components"
  * </MobileNeverContainer>
  */
 
-export const MobileNeverContainer = styled.div`
+export const MobileNeverContainer: any = styled.div`
   @media (max-width: 768px) {
     display: none;
   }

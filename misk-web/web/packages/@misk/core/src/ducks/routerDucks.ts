@@ -6,15 +6,26 @@ import {
 } from "@misk/common"
 import axios, { AxiosRequestConfig } from "axios"
 import { fromJS } from "immutable"
-import createCachedSelector from "re-reselect"
-import { all, call, put, takeEvery } from "redux-saga/effects"
-import { createSelector } from "reselect"
+import { all, AllEffect, call, put, takeEvery } from "redux-saga/effects"
+
+/**
+ *   TODO: ROUTER SAGA
+ *
+ * from: React-Redux-Saga-Advanced-Starter / src/exampleSagas
+ * In case you need to use a selector
+ * import also select from redux-saga/effects
+ * and then simplie yield select(yourSelector())
+ * In case you need to redirect to whatever route
+ * import { push } from react-router-redux and then
+ * yield put(push('/next-page'))
+ *
+ */
 
 /**
  * Actions
  * string enum of the defined actions that is used as type enforcement for Reducer and Sagas arguments
  */
-export enum SIMPLENETWORK {
+export enum ROUTER {
   DELETE = "SIMPLENETWORK_DELETE",
   FAILURE = "SIMPLENETWORK_FAILURE",
   GET = "SIMPLENETWORK_GET",
@@ -29,7 +40,7 @@ export enum SIMPLENETWORK {
  * Object of functions that dispatch Actions with standard defaults and any required passed in input
  * dispatch Object is used within containers to initiate any saga provided functionality
  */
-export interface ISimpleNetworkPayload {
+export interface IRouterPayload {
   error: any
   loading: boolean
   requestConfig: AxiosRequestConfig
@@ -38,71 +49,65 @@ export interface ISimpleNetworkPayload {
   url: string
 }
 
-export interface IDispatchSimpleNetwork {
+export interface IDispatchRouterProps {
   delete: (
     tag: string,
     url: string,
     requestConfig?: AxiosRequestConfig
-  ) => IAction<SIMPLENETWORK.DELETE, ISimpleNetworkPayload>
-  failure: (error: any) => IAction<SIMPLENETWORK.FAILURE, ISimpleNetworkPayload>
+  ) => IAction<ROUTER.DELETE, IRouterPayload>
+  failure: (error: any) => IAction<ROUTER.FAILURE, IRouterPayload>
   get: (
     tag: string,
     url: string,
     requestConfig?: AxiosRequestConfig
-  ) => IAction<SIMPLENETWORK.GET, ISimpleNetworkPayload>
+  ) => IAction<ROUTER.GET, IRouterPayload>
   patch: (
     tag: string,
     url: string,
     data: any,
     requestConfig?: AxiosRequestConfig
-  ) => IAction<SIMPLENETWORK.PATCH, ISimpleNetworkPayload>
+  ) => IAction<ROUTER.PATCH, IRouterPayload>
   post: (
     tag: string,
     url: string,
     data: any,
     requestConfig?: AxiosRequestConfig
-  ) => IAction<SIMPLENETWORK.POST, ISimpleNetworkPayload>
+  ) => IAction<ROUTER.POST, IRouterPayload>
   put: (
     tag: string,
     url: string,
     data: any,
     requestConfig?: AxiosRequestConfig
-  ) => IAction<SIMPLENETWORK.PUT, ISimpleNetworkPayload>
-  success: (data: any) => IAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkPayload>
+  ) => IAction<ROUTER.PUT, IRouterPayload>
+  success: (data: any) => IAction<ROUTER.SUCCESS, IRouterPayload>
 }
 
-export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
+export const dispatchRouter: IDispatchRouterProps = {
   delete: (
     tag: string = "latest",
     url: string,
     requestConfig: AxiosRequestConfig = {}
   ) =>
-    createAction<SIMPLENETWORK.DELETE, ISimpleNetworkPayload>(
-      SIMPLENETWORK.DELETE,
-      {
-        error: null,
-        loading: true,
-        requestConfig,
-        success: false,
-        tag,
-        url
-      }
-    ),
+    createAction<ROUTER.DELETE, IRouterPayload>(ROUTER.DELETE, {
+      error: null,
+      loading: true,
+      requestConfig,
+      success: false,
+      tag,
+      url
+    }),
   failure: (error: any) =>
-    createAction<SIMPLENETWORK.FAILURE, ISimpleNetworkPayload>(
-      SIMPLENETWORK.FAILURE,
-      {
-        ...error,
-        loading: false,
-        success: false
-      }
-    ),
+    createAction<ROUTER.FAILURE, IRouterPayload>(ROUTER.FAILURE, {
+      ...error,
+      loading: false,
+      success: false
+    }),
   get: (
     tag: string = "latest",
     url: string,
     requestConfig: AxiosRequestConfig = {}
   ) =>
-    createAction<SIMPLENETWORK.GET, ISimpleNetworkPayload>(SIMPLENETWORK.GET, {
+    createAction<ROUTER.GET, IRouterPayload>(ROUTER.GET, {
       error: null,
       loading: true,
       requestConfig,
@@ -116,43 +121,37 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     data: any = {},
     requestConfig: AxiosRequestConfig = {}
   ) =>
-    createAction<SIMPLENETWORK.PATCH, ISimpleNetworkPayload>(
-      SIMPLENETWORK.PATCH,
-      {
-        ...data,
-        error: null,
-        loading: true,
-        requestConfig,
-        success: false,
-        tag,
-        url
-      }
-    ),
+    createAction<ROUTER.PATCH, IRouterPayload>(ROUTER.PATCH, {
+      ...data,
+      error: null,
+      loading: true,
+      requestConfig,
+      success: false,
+      tag,
+      url
+    }),
   post: (
     tag: string = "latest",
     url: string,
     data: any = {},
     requestConfig: AxiosRequestConfig = {}
   ) =>
-    createAction<SIMPLENETWORK.POST, ISimpleNetworkPayload>(
-      SIMPLENETWORK.POST,
-      {
-        ...data,
-        error: null,
-        loading: true,
-        requestConfig,
-        success: false,
-        tag,
-        url
-      }
-    ),
+    createAction<ROUTER.POST, IRouterPayload>(ROUTER.POST, {
+      ...data,
+      error: null,
+      loading: true,
+      requestConfig,
+      success: false,
+      tag,
+      url
+    }),
   put: (
     tag: string = "latest",
     url: string,
     data: any = {},
     requestConfig: AxiosRequestConfig = {}
   ) =>
-    createAction<SIMPLENETWORK.PUT, ISimpleNetworkPayload>(SIMPLENETWORK.PUT, {
+    createAction<ROUTER.PUT, IRouterPayload>(ROUTER.PUT, {
       ...data,
       error: null,
       loading: true,
@@ -162,15 +161,12 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
       url
     }),
   success: (data: any) =>
-    createAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkPayload>(
-      SIMPLENETWORK.SUCCESS,
-      {
-        ...data,
-        error: null,
-        loading: false,
-        success: true
-      }
-    )
+    createAction<ROUTER.SUCCESS, IRouterPayload>(ROUTER.SUCCESS, {
+      ...data,
+      error: null,
+      loading: false,
+      success: true
+    })
 }
 
 /**
@@ -188,47 +184,39 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
  */
 function* handleDelete(
   action: IAction<
-    SIMPLENETWORK,
+    ROUTER,
     { tag: string; url: string; requestConfig: AxiosRequestConfig }
   >
 ) {
   try {
     const { tag, url, requestConfig } = action.payload
     const { data } = yield call(axios.delete, url, requestConfig)
-    yield put(
-      dispatchSimpleNetwork.success({ tags: { [tag]: { data: { ...data } } } })
-    )
+    yield put(dispatchRouter.success({ [tag]: data }))
   } catch (e) {
     const { tag } = action.payload
-    yield put(
-      dispatchSimpleNetwork.failure({ tags: { [tag]: { error: { ...e } } } })
-    )
+    yield put(dispatchRouter.failure({ [tag]: { error: { ...e } } }))
   }
 }
 
 function* handleGet(
   action: IAction<
-    SIMPLENETWORK,
+    ROUTER,
     { tag: string; url: string; requestConfig: AxiosRequestConfig }
   >
 ) {
   try {
     const { tag, url, requestConfig } = action.payload
     const { data } = yield call(axios.get, url, requestConfig)
-    yield put(
-      dispatchSimpleNetwork.success({ tags: { [tag]: { data: { ...data } } } })
-    )
+    yield put(dispatchRouter.success({ [tag]: data }))
   } catch (e) {
     const { tag } = action.payload
-    yield put(
-      dispatchSimpleNetwork.failure({ tags: { [tag]: { error: { ...e } } } })
-    )
+    yield put(dispatchRouter.failure({ [tag]: { error: { ...e } } }))
   }
 }
 
 function* handlePatch(
   action: IAction<
-    SIMPLENETWORK,
+    ROUTER,
     {
       tag: string
       url: string
@@ -240,20 +228,16 @@ function* handlePatch(
   try {
     const { tag, url, updateData, requestConfig } = action.payload
     const { data } = yield call(axios.patch, url, { updateData }, requestConfig)
-    yield put(
-      dispatchSimpleNetwork.success({ tags: { [tag]: { data: { ...data } } } })
-    )
+    yield put(dispatchRouter.success({ [tag]: data }))
   } catch (e) {
     const { tag } = action.payload
-    yield put(
-      dispatchSimpleNetwork.failure({ tags: { [tag]: { error: { ...e } } } })
-    )
+    yield put(dispatchRouter.failure({ [tag]: { error: { ...e } } }))
   }
 }
 
 function* handlePost(
   action: IAction<
-    SIMPLENETWORK,
+    ROUTER,
     {
       tag: string
       url: string
@@ -265,20 +249,16 @@ function* handlePost(
   try {
     const { tag, url, saveData, requestConfig } = action.payload
     const { data } = yield call(axios.post, url, { saveData }, requestConfig)
-    yield put(
-      dispatchSimpleNetwork.success({ tags: { [tag]: { data: { ...data } } } })
-    )
+    yield put(dispatchRouter.success({ [tag]: data }))
   } catch (e) {
     const { tag } = action.payload
-    yield put(
-      dispatchSimpleNetwork.failure({ tags: { [tag]: { error: { ...e } } } })
-    )
+    yield put(dispatchRouter.failure({ [tag]: { error: { ...e } } }))
   }
 }
 
 function* handlePut(
   action: IAction<
-    SIMPLENETWORK,
+    ROUTER,
     {
       tag: string
       url: string
@@ -290,24 +270,20 @@ function* handlePut(
   try {
     const { tag, url, updateData, requestConfig } = action.payload
     const { data } = yield call(axios.put, url, { updateData }, requestConfig)
-    yield put(
-      dispatchSimpleNetwork.success({ tags: { [tag]: { data: { ...data } } } })
-    )
+    yield put(dispatchRouter.success({ [tag]: data }))
   } catch (e) {
     const { tag } = action.payload
-    yield put(
-      dispatchSimpleNetwork.failure({ tags: { [tag]: { error: { ...e } } } })
-    )
+    yield put(dispatchRouter.failure({ [tag]: { error: { ...e } } }))
   }
 }
 
-export function* watchSimpleNetworkSagas() {
+export function* watchRouterSagas(): IterableIterator<AllEffect> {
   yield all([
-    takeEvery(SIMPLENETWORK.DELETE, handleDelete),
-    takeEvery(SIMPLENETWORK.GET, handleGet),
-    takeEvery(SIMPLENETWORK.PATCH, handlePatch),
-    takeEvery(SIMPLENETWORK.POST, handlePost),
-    takeEvery(SIMPLENETWORK.PUT, handlePut)
+    takeEvery(ROUTER.DELETE, handleDelete),
+    takeEvery(ROUTER.GET, handleGet),
+    takeEvery(ROUTER.PATCH, handlePatch),
+    takeEvery(ROUTER.POST, handlePost),
+    takeEvery(ROUTER.PUT, handlePut)
   ])
 }
 
@@ -316,7 +292,6 @@ export function* watchSimpleNetworkSagas() {
  * Reducer merges all changes from dispatched action objects on to this initial state
  */
 const initialState = fromJS({
-  tags: {},
   ...defaultState.toJS()
 })
 
@@ -324,18 +299,18 @@ const initialState = fromJS({
  * Duck Reducer
  * Merges dispatched action objects on to the existing (or initial) state to generate new state
  */
-export function SimpleNetworkReducer(
+export function RouterReducer(
   state = initialState,
-  action: IAction<SIMPLENETWORK, {}>
+  action: IAction<ROUTER, {}>
 ) {
   switch (action.type) {
-    case SIMPLENETWORK.DELETE:
-    case SIMPLENETWORK.FAILURE:
-    case SIMPLENETWORK.GET:
-    case SIMPLENETWORK.PATCH:
-    case SIMPLENETWORK.POST:
-    case SIMPLENETWORK.PUT:
-    case SIMPLENETWORK.SUCCESS:
+    case ROUTER.DELETE:
+    case ROUTER.FAILURE:
+    case ROUTER.GET:
+    case ROUTER.PATCH:
+    case ROUTER.POST:
+    case ROUTER.PUT:
+    case ROUTER.SUCCESS:
       return state.mergeDeep(action.payload)
     default:
       return state
@@ -348,14 +323,12 @@ export function SimpleNetworkReducer(
  * Consumed by the root reducer in ./ducks index to update global state
  * Duck state is attached at the root level of global state
  */
-export interface ISimpleNetworkTagResponse {
-  data: any | null
-  error: any | null
-}
-
-export interface ISimpleNetworkState extends IDefaultState {
+export interface IRouterState extends IDefaultState {
   tags: {
-    [tag: string]: ISimpleNetworkTagResponse
+    [tag: string]: {
+      data: any | null
+      error: any | null
+    }
   }
 }
 
@@ -363,23 +336,10 @@ export interface ISimpleNetworkState extends IDefaultState {
  * Selector
  * A memoized, efficient way to compute and return the latest domain of the state
  */
-export const simpleNetworkState = <
-  T extends { simpleNetwork: ISimpleNetworkState }
->(
-  state: T
-) => state.simpleNetwork
+// export const paletteState = (state: IState) => state.palette
 
-export const simpleNetworkSelector = createSelector(
-  simpleNetworkState,
-  state => state.toJS()
-)
-
-export const response = createCachedSelector(
-  simpleNetworkState,
-  (simpleNetwork: ISimpleNetworkState, tag: string) =>
-    simpleNetwork.tags[tag]
-      ? simpleNetwork.tags[tag]
-      : { data: null, error: null },
-  (state: ISimpleNetworkState, tagResponse: ISimpleNetworkTagResponse) =>
-    tagResponse
-)((state, tag) => tag)
+// export const paletteSelector = () =>
+//   createSelector(
+//     paletteState,
+//     state => state.toJS()
+//   )

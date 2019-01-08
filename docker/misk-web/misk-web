@@ -127,7 +127,8 @@ runCmd() {
     
     for dir in ${WEB}/*/* ; do
         dir=${dir%*/}
-        if [ -d $dir ] && [ "$dir" = "${dir%"node_modules"*}" ]; then
+        # Run cmd if directory has package.json
+        if [ -d $dir ] && [ "$dir" = "${dir%"node_modules"*}" ] && [ -f "$dir/package.json" ]; then
             cd $dir || continue
             if [ "$HD" = "true" ]; then
                 diffResult=$(hashDiff)

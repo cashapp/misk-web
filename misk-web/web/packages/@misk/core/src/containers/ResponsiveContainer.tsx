@@ -6,7 +6,7 @@ import styled from "styled-components"
  * </ResponsiveContainer>
  */
 
-export const ResponsiveContainer = styled.div`
+export const ResponsiveContainer: any = styled.div`
   margin: 0 auto;
   @media (min-width: 768px) {
     width: 750px;
