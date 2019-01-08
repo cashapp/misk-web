@@ -6,7 +6,7 @@ import styled from "styled-components"
  * </MobileOnlyContainer>
  */
 
-export const MobileOnlyContainer = styled.div`
+export const MobileOnlyContainer: any = styled.div`
   @media (min-width: 768px) {
     display: none;
   }

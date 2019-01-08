@@ -1,8 +1,13 @@
 import { color } from "@misk/common"
 import { Link } from "react-router-dom"
-import styled from "styled-components"
+import styled, { StyledComponent } from "styled-components"
 
-export const MiskNavbarHeading = styled.span`
+export const MiskNavbarHeading: StyledComponent<
+  "span",
+  any,
+  {},
+  never
+> = styled.span`
   font-size: 24px !important;
   text-decoration: none;
   text-transform: uppercase;

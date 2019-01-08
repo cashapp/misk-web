@@ -6,7 +6,7 @@ import styled from "styled-components"
  * </FlexContainer>
  */
 
-export const FlexContainer = styled.div`
+export const FlexContainer: any = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

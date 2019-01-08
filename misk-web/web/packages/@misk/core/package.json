@@ -1,23 +1,67 @@
 {
-  "name": "@misk/dev",
+  "name": "@misk/core",
   "version": "0.1.1",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
-  "description": "Misk-Web Build and Dev Tools",
+  "description": "Misk-Web Core",
   "author": "Square/Misk Authors (https://github.com/square/misk-web/graphs/contributors)",
-  "main": "lib/web/@misk/dev/index.js",
+  "main": "lib/web/@misk/core/core.js",
+  "module": "lib/web/@misk/core/core.js",
+  "typings": "lib/web/@misk/core/index.d.ts",
+  "engines": {
+    "node": ">=7.8.0"
+  },
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:square/misk-web.git"
   },
   "scripts": {
     "build": "yarn run lint && yarn run lib",
-    "clean": "rm -rf lib node_modules package-lock.json yarn.lock",
+    "clean": "rm -rf lib",
+    "dev": "yarn run build; yarn run updateDevCache",
     "ci-build": "yarn run clean && yarn run lib",
-    "lib": "mkdir -p lib/web/@misk/dev && cp *.json *.js *.md lib/web/@misk/dev",
+    "lib": "webpack",
     "lint": "prettier --write --config prettier.config.js \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
-    "prepare": "yarn run ci-build"
+    "prepare": "cd ../../../../ && ./gradlew web -Pcmd='-ca' -Ptabs='@misk/core'",
+    "reinstall": "rm -rf node_modules && yarn install",
+    "start": "yarn run lint && cross-env NODE_ENV=development webpack-dev-server",
+    "test": "echo no tests",
+    "updateDevCache": "cd ..; ./updateLocalCache.sh"
   },
   "dependencies": {
+    "@misk/common": "^0.1.1",
+    "@blueprintjs/core": "^3.9.0",
+    "@blueprintjs/datetime": "^3.4.0",
+    "@blueprintjs/icons": "^3.3.0",
+    "@blueprintjs/select": "^3.3.0",
+    "@blueprintjs/table": "^3.3.0",
+    "@blueprintjs/timezone": "^3.1.0",
+    "axios": "^0.18.0",
+    "connected-react-router": "^5.0.1",
+    "dayjs": "^1.7.7",
+    "history": "^4.7.2",
+    "immutable": "^4.0.0-rc.12",
+    "lodash-es": "^4.17.11",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-helmet": "^5.2.0",
+    "react-hot-loader": "^4.3.12",
+    "react-redux": "^5.1.1",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-transition-group": "^2.5.0",
+    "redux": "^4.0.1",
+    "redux-saga": "^0.16.2",
+    "reselect": "^4.0.0",
+    "re-reselect": "2.2.0",
+    "skeleton-css": "^2.0.4",
+    "styled-components": "^4.1.2"
+  },
+  "devDependencies": {
+    "@misk/dev": "^0.1.1",
+    "@misk/tslint": "^0.1.1",
     "@types/history": "^4.7.2",
     "@types/lodash-es": "^4.17.1",
     "@types/node": "^10.12.18",
@@ -53,5 +97,8 @@
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.2.1"
+  },
+  "miskTab": {
+    "version": "0.1.1"
   }
 }

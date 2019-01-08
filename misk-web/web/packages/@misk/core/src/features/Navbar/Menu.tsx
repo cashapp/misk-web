@@ -1,7 +1,7 @@
 import { Button, Collapse, Icon } from "@blueprintjs/core"
 import { IconNames } from "@blueprintjs/icons"
 import { color, IDashboardTab } from "@misk/common"
-import { groupBy, sortBy } from "lodash"
+import { groupBy, sortBy } from "lodash-es"
 import * as React from "react"
 import styled from "styled-components"
 import { ErrorCalloutComponent } from "../../components"
