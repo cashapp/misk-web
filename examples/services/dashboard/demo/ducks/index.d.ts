@@ -1,6 +1,7 @@
 import { LocationChangeAction, RouterState } from "connected-react-router";
 import { History } from "history";
-import { Reducer } from "redux";
+import { AnyAction, Reducer } from "redux";
+import { AllEffect } from "redux-saga/effects";
 import { ILoaderState } from "./loader";
 export * from "./loader";
 /**
@@ -16,8 +17,8 @@ export interface IState {
 export declare const rootReducer: (history: History<any>) => Reducer<{
     loader: any;
     router: RouterState;
-}, import("redux").AnyAction>;
+}, AnyAction>;
 /**
  * Sagas
  */
-export declare function rootSaga(): IterableIterator<import("redux-saga/effects").AllEffect>;
+export declare function rootSaga(): IterableIterator<AllEffect>;

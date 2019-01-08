@@ -1,5 +1,6 @@
 import { IAction, IDefaultState } from "@misk/common";
 import { AxiosRequestConfig } from "axios";
+import { AllEffect } from "redux-saga/effects";
 /**
  *   TODO: ROUTER SAGA
  *
@@ -48,7 +49,7 @@ export interface IDispatchRouterProps {
     success: (data: any) => IAction<ROUTER.SUCCESS, IRouterPayload>;
 }
 export declare const dispatchRouter: IDispatchRouterProps;
-export declare function watchRouterSagas(): IterableIterator<import("redux-saga/effects").AllEffect>;
+export declare function watchRouterSagas(): IterableIterator<AllEffect>;
 /**
  * Duck Reducer
  * Merges dispatched action objects on to the existing (or initial) state to generate new state

@@ -8,7 +8,14 @@ import {
 } from "@misk/common"
 import axios from "axios"
 import { fromJS } from "immutable"
-import { all, call, put, takeEvery, takeLatest } from "redux-saga/effects"
+import {
+  all,
+  AllEffect,
+  call,
+  put,
+  takeEvery,
+  takeLatest
+} from "redux-saga/effects"
 
 /**
  * Actions
@@ -137,7 +144,7 @@ function* handleGetServiceMetadata(
   }
 }
 
-export function* watchLoaderSagas() {
+export function* watchLoaderSagas(): IterableIterator<AllEffect> {
   yield all([
     takeEvery(LOADER.GET_ONE_COMPONENT, handleGetOneComponent),
     takeLatest(LOADER.GET_ALL_TABS, handleGetAllTabs),

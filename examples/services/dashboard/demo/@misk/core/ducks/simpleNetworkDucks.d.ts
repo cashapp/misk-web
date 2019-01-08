@@ -1,5 +1,7 @@
 import { IAction, IDefaultState } from "@misk/common";
 import { AxiosRequestConfig } from "axios";
+import { AllEffect } from "redux-saga/effects";
+import { OutputSelector, ParametricSelector } from "reselect";
 /**
  * Actions
  * string enum of the defined actions that is used as type enforcement for Reducer and Sagas arguments
@@ -36,7 +38,7 @@ export interface IDispatchSimpleNetwork {
     success: (data: any) => IAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkPayload>;
 }
 export declare const dispatchSimpleNetwork: IDispatchSimpleNetwork;
-export declare function watchSimpleNetworkSagas(): IterableIterator<import("redux-saga/effects").AllEffect>;
+export declare function watchSimpleNetworkSagas(): IterableIterator<AllEffect>;
 /**
  * Duck Reducer
  * Merges dispatched action objects on to the existing (or initial) state to generate new state
@@ -64,15 +66,5 @@ export interface ISimpleNetworkState extends IDefaultState {
 export declare const simpleNetworkState: <T extends {
     simpleNetwork: ISimpleNetworkState;
 }>(state: T) => ISimpleNetworkState;
-export declare const simpleNetworkSelector: import("reselect").OutputSelector<{}, any, (res: ISimpleNetworkState) => any>;
-export declare const response: import("re-reselect").ParametricSelector<{}, string, ISimpleNetworkTagResponse> & {
-    resultFunc: (res1: ISimpleNetworkState, res2: ISimpleNetworkTagResponse) => ISimpleNetworkTagResponse;
-    recomputations: () => number;
-    resetRecomputations: () => number;
-} & {
-    getMatchingSelector: (state: {}, props: string, ...args: any[]) => import("re-reselect").OutputParametricSelector<{}, string, ISimpleNetworkTagResponse, (res1: ISimpleNetworkState, res2: ISimpleNetworkTagResponse) => ISimpleNetworkTagResponse>;
-    removeMatchingSelector: (state: {}, props: string, ...args: any[]) => void;
-    clearCache: () => void;
-    resultFunc: (res1: ISimpleNetworkState, res2: ISimpleNetworkTagResponse) => ISimpleNetworkTagResponse;
-    cache: import("re-reselect").ICacheObject;
-};
+export declare const simpleNetworkSelector: OutputSelector<{}, any, (res: ISimpleNetworkState) => any>;
+export declare const response: ParametricSelector<{}, string, ISimpleNetworkTagResponse>;

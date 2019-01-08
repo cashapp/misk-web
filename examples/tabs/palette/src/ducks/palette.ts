@@ -6,8 +6,8 @@ import {
 } from "@misk/common"
 import axios from "axios"
 import { fromJS } from "immutable"
-import { all, call, put, takeLatest } from "redux-saga/effects"
-import { createSelector } from "reselect"
+import { all, AllEffect, call, put, takeLatest } from "redux-saga/effects"
+import { createSelector, OutputSelector } from "reselect"
 import { IState } from "../ducks"
 
 /**
@@ -68,7 +68,7 @@ function* handleDinosaur() {
   }
 }
 
-export function* watchPaletteSagas() {
+export function* watchPaletteSagas(): IterableIterator<AllEffect> {
   yield all([takeLatest(PALETTE.DINOSAUR, handleDinosaur)])
 }
 
@@ -114,7 +114,11 @@ export interface IPaletteState extends IDefaultState {
  */
 export const paletteState = (state: IState) => state.palette.toJS()
 
-export const paletteSelector = createSelector(
+export const paletteSelector: OutputSelector<
+  IState,
+  any,
+  (res: any) => any
+> = createSelector(
   paletteState,
   state => state
 )

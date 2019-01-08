@@ -13,8 +13,8 @@ import {
   RouterState
 } from "connected-react-router"
 import { History } from "history"
-import { combineReducers, Reducer } from "redux"
-import { all, fork } from "redux-saga/effects"
+import { AnyAction, combineReducers, Reducer } from "redux"
+import { all, AllEffect, fork } from "redux-saga/effects"
 import {
   default as PaletteReducer,
   IPaletteState,
@@ -52,7 +52,16 @@ export const rootSelectors = (state: IState) => ({
 /**
  * Reducers
  */
-export const rootReducer = (history: History) =>
+export const rootReducer = (
+  history: History
+): Reducer<
+  {
+    palette: any
+    router: RouterState
+    simpleNetwork: any
+  },
+  AnyAction
+> =>
   combineReducers({
     palette: PaletteReducer,
     router: connectRouter(history),
@@ -62,6 +71,6 @@ export const rootReducer = (history: History) =>
 /**
  * Sagas
  */
-export function* rootSaga() {
+export function* rootSaga(): IterableIterator<AllEffect> {
   yield all([fork(watchPaletteSagas), fork(watchSimpleNetworkSagas)])
 }

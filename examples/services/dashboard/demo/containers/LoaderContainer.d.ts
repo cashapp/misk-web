@@ -17,5 +17,5 @@ declare class LoaderContainer extends React.Component<ILoaderProps> {
     componentDidMount(): Promise<void>;
     render(): JSX.Element;
 }
-declare const _default: import("react-redux").ConnectedComponentClass<typeof LoaderContainer, Pick<ILoaderProps, never>>;
+declare const _default;
 export default _default;
