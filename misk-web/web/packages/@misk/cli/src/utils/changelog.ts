@@ -1,6 +1,7 @@
 export enum MiskVersion {
   "latest" = "0.1.1",
-  "alpha" = "0.1.2-alpha-0.2",
+  "alpha" = "0.1.3-1",
+  "v013_1" = "0.1.3-1",
   "v012alpha02" = "0.1.2-alpha-0.2",
   "v012alpha01" = "0.1.2-alpha-0.1",
   "v011" = "0.1.1",
@@ -47,6 +48,15 @@ export interface IMiskTabVersions {
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v013_1]: {
+    [MiskPkg.cli]: "0.1.3-1",
+    [MiskPkg.common]: "0.1.3-1",
+    [MiskPkg.core]: "0.1.3-1",
+    [MiskPkg.dev]: "0.1.3-1",
+    [MiskPkg.tslint]: "0.1.3-1",
+    date: "2019-01-08",
+    notes: "Fresh release of all using Rush"
+  },
   [MiskVersion.v012alpha01]: {
     [MiskPkg.cli]: "0.0.24",
     [MiskPkg.common]: "0.1.1",
@@ -54,7 +64,8 @@ export const MiskTabVersions: IMiskTabVersions = {
     [MiskPkg.dev]: "0.1.1",
     [MiskPkg.tslint]: "0.1.1",
     date: "2019-01-07",
-    notes: "Change Docker base image to use 10-alpine for Microsoft Rush support"
+    notes:
+      "Change Docker base image to use 10-alpine for Microsoft Rush support"
   },
   [MiskVersion.v012alpha01]: {
     [MiskPkg.cli]: "0.0.24",
