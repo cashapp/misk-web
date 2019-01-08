@@ -1,6 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.3-1",
-  "alpha" = "0.1.3-2",
+  "latest" = "0.1.3-3",
+  "alpha" = "0.1.3-3",
+  "v013_3" = "0.1.3-3",
   "v013_2" = "0.1.3-2",
   "v013_1" = "0.1.3-1",
   "v012alpha02" = "0.1.2-alpha-0.2",
@@ -48,7 +49,44 @@ export interface IMiskTabVersions {
   [key: string]: IMiskTabVersion
 }
 
+export const getPackageVersion = (pkg: MiskPkg, miskWebVersion: string) => {
+  let version = miskWebVersion
+  if (miskWebVersion == "latest") {
+    version = MiskVersion.latest
+  } else if (miskWebVersion == "alpha") {
+    version = MiskVersion.alpha
+  }
+  if (version in MiskTabVersions) {
+    if (pkg in MiskTabVersions[version]) {
+      return MiskTabVersions[version][pkg]
+    } else {
+      throw new Error(
+        `No ${pkg} version found in Misk-Web@${version}, ${Object.values(
+          MiskPkg
+        ).toString()}`
+      )
+    }
+  } else {
+    throw new Error(
+      `Invalid Misk-Web version in miskTab.json. Recommended version: latest or ${
+        MiskVersion.latest
+      }. \nChoose a valid version: latest, alpha, ${Object.values(
+        MiskVersion
+      ).toString()}`
+    )
+  }
+}
+
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v013_3]: {
+    [MiskPkg.cli]: "0.1.3-2",
+    [MiskPkg.common]: "0.1.3-2",
+    [MiskPkg.core]: "0.1.3-2",
+    [MiskPkg.dev]: "0.1.3-2",
+    [MiskPkg.tslint]: "0.1.3-2",
+    date: "2019-01-08",
+    notes: "Better error handling in CLI for miskTab.json:version"
+  },
   [MiskVersion.v013_2]: {
     [MiskPkg.cli]: "0.1.3-2",
     [MiskPkg.common]: "0.1.3-2",
@@ -56,7 +94,7 @@ export const MiskTabVersions: IMiskTabVersions = {
     [MiskPkg.dev]: "0.1.3-2",
     [MiskPkg.tslint]: "0.1.3-2",
     date: "2019-01-08",
-    notes: "Fresh release of all using Rush"
+    notes: "Updated CLI"
   },
   [MiskVersion.v013_1]: {
     [MiskPkg.cli]: "0.1.3-1",
