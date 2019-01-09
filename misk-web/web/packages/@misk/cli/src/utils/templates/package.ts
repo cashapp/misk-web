@@ -1,5 +1,6 @@
-import { IMiskTabJSON, MiskTabVersions } from "../../utils"
+import { IMiskTabJSON } from "../../utils"
 import { generatedByCLI, prettier } from "../templates"
+import { getPackageVersion, MiskPkg } from "../changelog"
 
 const header = {
   license: "SEE LICENSE IN https://github.com/square/misk-web",
@@ -33,16 +34,16 @@ const scripts = (miskTab: IMiskTabJSON) => ({
 const dependencies = (miskTab: IMiskTabJSON, pkg: any) => ({
   dependencies: {
     ...pkg.dependencies,
-    "@misk/common": `^${MiskTabVersions[miskTab.version]["@misk/common"]}`,
-    "@misk/core": `^${MiskTabVersions[miskTab.version]["@misk/core"]}`
+    [MiskPkg.common]: `^${getPackageVersion(MiskPkg.common, miskTab.version)}`,
+    [MiskPkg.core]: `^${getPackageVersion(MiskPkg.core, miskTab.version)}`
   }
 })
 
 const devDependencies = (miskTab: IMiskTabJSON, pkg: any) => ({
   devDependencies: {
     ...pkg.devDependencies,
-    "@misk/dev": `^${MiskTabVersions[miskTab.version]["@misk/dev"]}`,
-    "@misk/tslint": `^${MiskTabVersions[miskTab.version]["@misk/tslint"]}`
+    [MiskPkg.dev]: `^${getPackageVersion(MiskPkg.dev, miskTab.version)}`,
+    [MiskPkg.tslint]: `^${getPackageVersion(MiskPkg.tslint, miskTab.version)}`
   }
 })
 
