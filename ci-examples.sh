@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for dir in "$(pwd)/"/examples/*/*/src/
+for dir in "$(pwd)/"examples/*/*/src/
 do
     dir=${dir%*/src/}
     slug=$(basename $dir)
