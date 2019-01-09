@@ -20,14 +20,14 @@ const removeOldBuildFile = async (filename: Files) => {
 
 export const migrate = async () => {
   console.log(
-    "[MIGRATE] Migrate if necessary old build files to new generated build files"
+    "[MIGRATE] Verify valid build files or migrate old build files to new miskweb generated build files"
   )
   let pkgMiskTab: IMiskTabJSON
   if (await fs.existsSync(Files.package)) {
     const pkg = await fs.readJson(Files.package)
     if (pkg.name.startsWith("@misk/")) {
       throw Error(
-        "misk-web CLI should not be used on @misk/ packages which have custom build tools."
+        "miskweb CLI build file generation will not be done on @misk/ packages which have custom build tools."
       )
     }
     pkgMiskTab = pkg.miskTab ? pkg.miskTab : null
@@ -64,6 +64,8 @@ export const migrate = async () => {
     removeOldBuildFile(Files.packageLock)
     removeOldBuildFile(Files.yarnLock)
   } else if (!pkgMiskTab && !(await fs.existsSync(Files.miskTab))) {
-    throw Error("[MIGRATE] No miskTab block found in existing package.json.")
+    throw Error(
+      "[MIGRATE] No miskTab.json present and no miskTab block in existing package.json. miskweb CLI build file generation will not be attempted."
+    )
   }
 }

@@ -1,6 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.3-3",
-  "alpha" = "0.1.3-3",
+  "latest" = "0.1.3-5",
+  "alpha" = "0.1.3-5",
+  "v013_5" = "0.1.3-5",
   "v013_4" = "0.1.3-4",
   "v013_3" = "0.1.3-3",
   "v013_2" = "0.1.3-2",
@@ -50,19 +51,27 @@ export interface IMiskTabVersions {
   [key: string]: IMiskTabVersion
 }
 
-export const getPackageVersion = (pkg: MiskPkg, miskWebVersion: string) => {
-  let version = miskWebVersion
-  if (miskWebVersion == "latest") {
-    version = MiskVersion.latest
-  } else if (miskWebVersion == "alpha") {
-    version = MiskVersion.alpha
+export const getVersion = (version: string) => {
+  if (version == "latest") {
+    return MiskVersion.latest
+  } else if (version == "alpha") {
+    return MiskVersion.alpha
+  } else {
+    return version
   }
+}
+
+export const getPackageVersion = (
+  miskWebPackage: MiskPkg,
+  miskWebVersion: string
+) => {
+  let version = getVersion(miskWebVersion)
   if (version in MiskTabVersions) {
-    if (pkg in MiskTabVersions[version]) {
-      return MiskTabVersions[version][pkg]
+    if (miskWebPackage in MiskTabVersions[version]) {
+      return MiskTabVersions[version][miskWebPackage]
     } else {
       throw new Error(
-        `No ${pkg} version found in Misk-Web@${version}, ${Object.values(
+        `No ${miskWebPackage} version found in Misk-Web@${version}, ${Object.values(
           MiskPkg
         ).toString()}`
       )
@@ -79,6 +88,16 @@ export const getPackageVersion = (pkg: MiskPkg, miskWebVersion: string) => {
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v013_5]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013_5]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_5]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_5]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_5]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_5]}`,
+    date: "2019-01-09",
+    notes:
+      "Added prebuild with better error handling back into critical path for all CLI commands."
+  },
   [MiskVersion.v013_4]: {
     [MiskPkg.cli]: `${[MiskVersion.v013_4]}`,
     [MiskPkg.common]: `${[MiskVersion.v013_4]}`,

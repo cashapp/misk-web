@@ -8,6 +8,7 @@ import {
   tslint,
   webpack
 } from "./templates"
+import { getVersion } from "./changelog"
 
 export const generateBuildFiles = async () => {
   const pkg = await fs.readJson(Files.package)
@@ -25,8 +26,8 @@ export const generateBuildFiles = async () => {
   await fs.writeFile(Files.tsconfig, generatedByCLI, { flag: "a" })
   await fs.writeFile(Files.tslint, generatedByCLI, { flag: "a" })
   console.log(
-    `[GENERATE] Up to date build files generated using Misk Web version ${
+    `[GENERATE] Up to date build files generated using Misk Web version ${getVersion(
       miskTab.version
-    }`
+    )}`
   )
 }
