@@ -1,6 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.1",
-  "alpha" = "0.1.3-1",
+  "latest" = "0.1.3-1",
+  "alpha" = "0.1.3-2",
+  "v013_2" = "0.1.3-2",
   "v013_1" = "0.1.3-1",
   "v012alpha02" = "0.1.2-alpha-0.2",
   "v012alpha01" = "0.1.2-alpha-0.1",
@@ -48,6 +49,15 @@ export interface IMiskTabVersions {
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v013_2]: {
+    [MiskPkg.cli]: "0.1.3-2",
+    [MiskPkg.common]: "0.1.3-2",
+    [MiskPkg.core]: "0.1.3-2",
+    [MiskPkg.dev]: "0.1.3-2",
+    [MiskPkg.tslint]: "0.1.3-2",
+    date: "2019-01-08",
+    notes: "Fresh release of all using Rush"
+  },
   [MiskVersion.v013_1]: {
     [MiskPkg.cli]: "0.1.3-1",
     [MiskPkg.common]: "0.1.3-1",
