@@ -1,6 +1,7 @@
 export enum MiskVersion {
   "latest" = "0.1.3-3",
   "alpha" = "0.1.3-3",
+  "v013_4" = "0.1.3-4",
   "v013_3" = "0.1.3-3",
   "v013_2" = "0.1.3-2",
   "v013_1" = "0.1.3-1",
@@ -78,30 +79,39 @@ export const getPackageVersion = (pkg: MiskPkg, miskWebVersion: string) => {
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v013_4]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013_4]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_4]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_4]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_4]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_4]}`,
+    date: "2019-01-09",
+    notes: "Updated releasing documentation and changelog object in CLI."
+  },
   [MiskVersion.v013_3]: {
-    [MiskPkg.cli]: "0.1.3-2",
-    [MiskPkg.common]: "0.1.3-2",
-    [MiskPkg.core]: "0.1.3-2",
-    [MiskPkg.dev]: "0.1.3-2",
-    [MiskPkg.tslint]: "0.1.3-2",
-    date: "2019-01-08",
+    [MiskPkg.cli]: `${[MiskVersion.v013_3]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_3]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_3]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_3]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_3]}`,
+    date: "2019-01-09",
     notes: "Better error handling in CLI for miskTab.json:version"
   },
   [MiskVersion.v013_2]: {
-    [MiskPkg.cli]: "0.1.3-2",
-    [MiskPkg.common]: "0.1.3-2",
-    [MiskPkg.core]: "0.1.3-2",
-    [MiskPkg.dev]: "0.1.3-2",
-    [MiskPkg.tslint]: "0.1.3-2",
+    [MiskPkg.cli]: `${[MiskVersion.v013_2]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_2]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_2]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_2]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_2]}`,
     date: "2019-01-08",
     notes: "Updated CLI"
   },
   [MiskVersion.v013_1]: {
-    [MiskPkg.cli]: "0.1.3-1",
-    [MiskPkg.common]: "0.1.3-1",
-    [MiskPkg.core]: "0.1.3-1",
-    [MiskPkg.dev]: "0.1.3-1",
-    [MiskPkg.tslint]: "0.1.3-1",
+    [MiskPkg.cli]: `${[MiskVersion.v013_1]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_1]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_1]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_1]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_1]}`,
     date: "2019-01-08",
     notes: "Fresh release of all using Rush"
   },
