@@ -2,7 +2,7 @@ import { prebuild } from "./"
 import { runCmd } from "../utils"
 
 export const command = "new"
-export const desc = "create a new tan"
+export const desc = "create a new tab in the current directory"
 
 export async function handler() {
   await prebuild()

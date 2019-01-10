@@ -1,6 +1,6 @@
 {
   "name": "@misk/common",
-  "version": "0.1.3-5",
+  "version": "0.1.3-11",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "description": "Misk-Web Common Libraries, Styles",
   "author": "Square/Misk Authors (https://github.com/square/misk-web/graphs/contributors)",
@@ -24,7 +24,7 @@
     "dev": "yarn run build; yarn run updateDevCache",
     "ci-build": "yarn run clean && yarn run lib",
     "lib": "yarn run refresh; webpack --config webpack.config.js && webpack --config webpack.config.static.js && webpack --config webpack.config.vendors.js",
-    "lint": "prettier --write --config prettier.config.js \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
+    "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
     "gradle": "cd ../../../../../ && ./gradlew web -Pcmd='-ca' -Ptabs='@misk/common'",
     "refresh": "node refreshCachedUrls.js",
     "reinstall": "rm -rf node_modules && yarn install",
@@ -60,8 +60,8 @@
     "styled-components": "^4.1.2"
   },
   "devDependencies": {
-    "@misk/dev": "^0.1.3-5",
-    "@misk/tslint": "^0.1.3-5",
+    "@misk/dev": "^0.1.3-11",
+    "@misk/tslint": "^0.1.3-11",
     "@types/history": "^4.7.2",
     "@types/lodash-es": "^4.17.1",
     "@types/node": "^10.12.18",
@@ -131,5 +131,16 @@
       "filepath": "skeleton.css",
       "url": "https://unpkg.com/skeleton-css/css/skeleton.css"
     }
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "useTabs": false
   }
 }
