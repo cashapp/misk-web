@@ -1,6 +1,12 @@
 export enum MiskVersion {
-  "latest" = "0.1.3-5",
-  "alpha" = "0.1.3-5",
+  "latest" = "0.1.3-11",
+  "alpha" = "0.1.3-11",
+  "v013_11" = "0.1.3-11",
+  "v013_10" = "0.1.3-10",
+  "v013_9" = "0.1.3-9",
+  "v013_8" = "0.1.3-8",
+  "v013_7" = "0.1.3-7",
+  "v013_6" = "0.1.3-6",
   "v013_5" = "0.1.3-5",
   "v013_4" = "0.1.3-4",
   "v013_3" = "0.1.3-3",
@@ -88,6 +94,65 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v013_11]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013_11]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_11]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_11]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_11]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_11]}`,
+    date: "2019-01-11",
+    notes:
+      "Move Prettier to package.json instead of in Prettier.config.js for @misk/ packages."
+  },
+  [MiskVersion.v013_10]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013_10]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_10]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_10]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_10]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_10]}`,
+    date: "2019-01-11",
+    notes:
+      "Move Prettier to package.json instead of in Prettier.config.js for @misk/ packages."
+  },
+  [MiskVersion.v013_9]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013_9]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_9]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_9]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_9]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_9]}`,
+    date: "2019-01-11",
+    notes:
+      "Output to binary executable for all OSs using pkg for Homebrew installation."
+  },
+  [MiskVersion.v013_8]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013_8]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_8]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_8]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_8]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_8]}`,
+    date: "2019-01-11",
+    notes: "Output to binary executable using pkg for Homebrew installation."
+  },
+  [MiskVersion.v013_7]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013_7]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_7]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_7]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_7]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_7]}`,
+    date: "2019-01-11",
+    notes:
+      "[DEPRECATED] Output to binary executable using nexe for Homebrew installation."
+  },
+  [MiskVersion.v013_6]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013_6]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_6]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_6]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_6]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_6]}`,
+    date: "2019-01-10",
+    notes:
+      "[DEPRECATED] Output to binary executable using nexe for Homebrew installation."
+  },
   [MiskVersion.v013_5]: {
     [MiskPkg.cli]: `${[MiskVersion.v013_5]}`,
     [MiskPkg.common]: `${[MiskVersion.v013_5]}`,

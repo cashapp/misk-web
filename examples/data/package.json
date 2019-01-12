@@ -11,7 +11,7 @@
     "ci-build": "npm install && npm run-script build && npm run-script start",
     "test": "echo 'no tests'",
     "lint": "prettier --write --config prettier.config.js \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
-    "prepublish": "npm run-script build"
+    "prepare": "npm run-script build"
   },
   "dependencies": {
     "@misk/common": "^0.1.3-1",
