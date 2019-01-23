@@ -1,6 +1,4 @@
-import chalk from "chalk"
 import { execSync } from "child_process"
-import * as emoji from "node-emoji"
 import yargs = require("yargs")
 import { MiskVersion } from "./changelog"
 
@@ -34,11 +32,6 @@ export enum Files {
 
 export const JsonOptions = { spaces: 2 }
 
-export const log = console.log
-export const logError = (s: string) => log(emoji.emojify(chalk.bold.red(s)))
-export const logInfo = (s: string) => log(emoji.emojify(chalk.bold(s)))
-export const logDetail = (s: string) => log(emoji.emojify(chalk.dim(s)))
-
 export const cmdFromArgs = (exec: string) => {
   const args = process.argv
   args.splice(0, 1)
@@ -58,6 +51,6 @@ export const runCmd = (cmd: string) => {
 export const handleFail = (): void => {
   console.log(yargs.help().version())
   // const cmd = cmdFromArgs("npm")
-  // logInfo("Now running: $ ${cmd}")
+  // console.log("Now running: $ ${cmd}")
   // runCmd(cmd)
 }

@@ -24,6 +24,8 @@ usage() {
   -m    compute a md5 hash over the current directory and stores in .hash file
         exclude patterns: cachedUrls, lib, node_modules, .hash
 
+  -n    no 'refresh' of local web/node_modules from Docker image /node_modules
+
   -r    'refresh' local web/node_modules from Docker image /node_modules
 
   -w    overide location for web mount point
