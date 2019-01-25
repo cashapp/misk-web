@@ -1,5 +1,5 @@
 pluginManagement {
     repositories {
-        maven { url = uri("../../../misk-web-plugin/build/repository") }
+        // Add Artifactory repository here
     }
 }

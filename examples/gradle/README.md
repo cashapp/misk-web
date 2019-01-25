@@ -1,12 +1,17 @@
-# gradle-plugin
+# Gradle Examples
 
-A multi-build sample with:
+```
+./gradlew example
+```
 
- 1. [plugin](./plugin) a Gradle plugin implemented in Kotlin and taking advantage of the `kotlin-dsl` plugin,
- 2. [consumer](./consumer) a build that uses the Gradle plugin above.
+- `misk-web-plugin-groovy`: Integration example using `misk-web-plugin` in a Groovy language Gradle build script
+- `misk-web-plugin-kotlin-dsl`: Integration example using `misk-web-plugin` in a Kotlin DSL language Gradle build script
 
-Run with:
+# Gradle Tests
 
-    ./gradlew consumer
+```
+./gradlew test
+```
 
-This will build and publish the Gradle `plugin` locally ; and then run the task contributed by this plugin in the `consumer` build. 
+- `misk-web-plugin-groovy-test`: Integration test using repo's `misk-web-plugin` (not pulling from remote repository like Artifactory or MavenCentral...)
+- `misk-web-plugin-kotlin-dsl-test`: Integration test using repo's `misk-web-plugin` (not pulling from remote repository like Artifactory or MavenCentral...)
