@@ -9,6 +9,7 @@ install:
 
 script:
   - ./gradlew jar
+  - ./gradlew test
   - ./ci-examples.sh
 
 # Gradle caching - as per https://docs.travis-ci.com/user/languages/java/#Projects-Using-Gradle

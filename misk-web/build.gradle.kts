@@ -1,5 +1,5 @@
 plugins {
-  id("misk-web-plugin") version "1.0"
+  id("misk-web-plugin") version "0.1.3"
   `kotlin-dsl`
   `maven-publish`
 }

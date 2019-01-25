@@ -39,7 +39,7 @@ $ curl -s https://raw.githubusercontent.com/square/misk-web/master/new-tab/get-n
 
 ## [Included Docker Build Image](docker/)
 
-## [Examples](examples/): Data sets, Services, and Tabs
+## [Examples](examples/): Data sets, Gradle examples for `misk-web-plugin`, Services, and Tabs
 
 ## Migrating from Misk
 
