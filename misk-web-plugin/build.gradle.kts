@@ -3,14 +3,14 @@ plugins {
     `maven-publish`
 }
 
-group = "misk-web"
-version = "1.0"
+group = "misk-web-plugin"
+version = "0.1.3"
 
 gradlePlugin {
     plugins {
         register("MiskWebPlugin") {
             id = "misk-web-plugin"
-            implementationClass = "misk-web.MiskWebPlugin"
+            implementationClass = "misk-web-plugin.MiskWebPlugin"
         }
     }
 }

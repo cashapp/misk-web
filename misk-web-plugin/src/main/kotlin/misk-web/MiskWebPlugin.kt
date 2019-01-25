@@ -1,4 +1,4 @@
-package `misk-web`
+package `misk-web-plugin`
 
 import java.io.File
 import java.io.IOException
@@ -39,7 +39,7 @@ open class MiskWebPlugin : Plugin<Project> {
     val found = mutableListOf<String>()
     val projectDir: String = project.projectDir.toString()
     File(projectDir).walk().maxDepth(depth).filter {
-      it.relPath(projectDir).startsWith(prefix)
+      it.relPath(projectDir).startsWith(prefix) && !it.relPath(projectDir).endsWith(".DS_Store")
     }.forEach {
       found += it.relPath(projectDir)
     }
@@ -73,22 +73,22 @@ open class MiskWebPlugin : Plugin<Project> {
     return jsonMap
   }
 
-//  fun hashDir(project: Project, relPath: String) {
-//    val uname = "uname".runCommand()
-//    println(uname)
-//    var hashBinary = if ("${uname}".contains("Darwin")) {
-//      "md5"
-//    } else {
-//      "md5sum"
-//    }
-//    println("${hashBinary} ${project.projectDir}${relPath}")
-//    val hashCmd =
-//        "tar --exclude=\"cachedUrls\" --exclude=\"lib\" --exclude=\"node_modules\" --exclude=\".DS_Store\" --exclude=\".hash\" --exclude=\"yarn.lock\" -cf - ${project.projectDir}${relPath} | ${hashBinary} 2>&1"
-//    println(hashCmd)
-//    println("\n\n")
-//    val hash = hashCmd.runCommand()
-//    println("\n\n${hash}")
-//  }
+  fun hashDir(project: Project, relPath: String) {
+    val uname = "uname".runCommand()
+    println(uname)
+    var hashBinary = if ("${uname}".contains("Darwin")) {
+      "md5"
+    } else {
+      "md5sum"
+    }
+    println("${hashBinary} ${project.projectDir}${relPath}")
+    val hashCmd =
+        "tar --exclude=\"cachedUrls\" --exclude=\"lib\" --exclude=\"node_modules\" --exclude=\".DS_Store\" --exclude=\".hash\" --exclude=\"yarn.lock\" -cf - ${project.projectDir}${relPath} | ${hashBinary} 2>&1"
+    println(hashCmd)
+    println("\n\n")
+    val hash = hashCmd.runCommand()
+    println("\n\n${hash}")
+  }
 
   fun String.slugify(): String {
     return this.replace("/", "-").replace(":", "-").replace(".", "-")
@@ -109,7 +109,7 @@ open class MiskWebPlugin : Plugin<Project> {
     relPath: String,
     mountPath: String = relPath,
     name: String = dockerBuildContainerName(relPath),
-    runtime: String = "/bin/misk-web -g"
+    runtime: String = "/bin/misk-web -n -g"
   ): String {
     val volume = "${project.projectDir}${relPath}:${mountPath}"
 
@@ -152,22 +152,6 @@ open class MiskWebPlugin : Plugin<Project> {
           tabPaths.forEach {
             val dockerName = dockerBuildContainerName(it)
             val dockerCmd = dockerBuildContainer(project, it, name = dockerName)
-            println(dockerInformation(dockerName, dockerCmd))
-            println(dockerCmd.runCommand())
-          }
-        }
-        register("webLocalBuild", Task::class) {
-          val packagesPaths = recursiveFind(project, "/web/packages", 2)
-          packagesPaths.forEach {
-            val dockerName = dockerBuildContainerName(it)
-            val dockerCmd = dockerBuildContainer(project, it, mountPath = "/web", name = dockerName, runtime = "/bin/misk-web -n -g")
-            println(dockerInformation(dockerName, dockerCmd))
-            println(dockerCmd.runCommand())
-          }
-          val tabPaths = recursiveFind(project, "/web/tabs/", 3)
-          tabPaths.forEach {
-            val dockerName = dockerBuildContainerName(it)
-            val dockerCmd = dockerBuildContainer(project, it, name = dockerName, runtime = "/bin/misk-web -n -g")
             println(dockerInformation(dockerName, dockerCmd))
             println(dockerCmd.runCommand())
           }
