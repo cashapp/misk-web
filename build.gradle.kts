@@ -15,6 +15,15 @@ tasks {
     dependsOn(plugin)
   }
 
+  val example by registering(GradleBuild::class) {
+    dir = file("examples/gradle")
+    tasks = listOf("example")
+  }
+
+  example {
+    dependsOn(plugin)
+  }
+
   val test by registering(GradleBuild::class) {
     dir = file("examples/gradle")
     tasks = listOf("test")
