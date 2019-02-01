@@ -30,9 +30,7 @@
           package.json
 ```
 
-1. Wiring up a New Tab
-
----
+### 1. Wiring up a New Tab
 
 - Copy the `tabs/example` tab in the [misk/misk/web repo](https://github.com/square/misk/tree/master/misk/web/tabs/example) to your service's `web/tabs` directory.
 - Open `package.json` and update the following fields using your new tab name, slug, port...etc.
@@ -72,23 +70,17 @@
   <Route path="/_tab/trexfoodlog/" component={TabContainer}/>
   ```
 
-2. Components: The User Interface
-
----
+### 2. Components: The User Interface
 
 - The UI for your tab lives in `src/components/`
 
-3. Sagas: Loading Data into your Misk Tab
-
----
+### 3. Sagas: Loading Data into your Misk Tab
 
 - All data retrieval and processing is done within a Ducks module in `src/ducks`.
 - `src/ducks/example.ts` contains detailed documentation on the purpose of a Ducks module and is used throughout the Example Tab to show example functionality.
 - Best practice is to create a new Ducks module and copy necessary elements and wiring up techniques in from the `example` Ducks module. You can delete the `example.ts` file when it is no longer necessary.
 
-4. TabContainer: Connect Ducks to Components
-
----
+### 4. TabContainer: Connect Ducks to Components
 
 - Full guide coming soon...
 
@@ -138,7 +130,7 @@ Adjust the template below to fit your service's file structure and to use the mo
 ```Gradle
   import groovy.json.JsonSlurper
 
-  apply from: "https://raw.githubusercontent.com/square/misk/91372d3c46e8b12061356b10ae6dd8a4c3c019a4/gradle/web.gradle"
+  apply from: "https://raw.githubusercontent.com/square/misk-web/54512dfe2d2ff4d5ccae66d6841ed0f65ba5bf8c/gradle/web.gradle"
 
   ...
 
