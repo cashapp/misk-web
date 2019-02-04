@@ -16,16 +16,16 @@ Misk-Web is not ready for use. The API is not stable.
 - [![npm](https://img.shields.io/npm/v/@misk/tslint.svg?label=@misk/tslint)](https://www.npmjs.com/package/@misk/tslint) &ndash; Standard TSLint configuration and rules
 - [![npm](https://img.shields.io/npm/v/@misk/components.svg?label=@misk/components)](https://www.npmjs.com/package/@misk/components) &ndash; Deprecated, migrated to `@misk/core`
 
-## Getting Started
+## [Getting Started](HOWTO.md): Build a new Tab
+
+Install the Misk-Web CLI. You may need to edit your `~/.npmrc` and comment out any custom `registry` configurations.
 
 ```Bash
 $ npm install -g @misk/cli
 $ miskweb -h
 ```
 
-## [How To](HOWTO.md): Build a new Tab
-
-Use the Misk-Web CLI
+Use the Misk-Web CLI to create a new tab. If it's in a Misk service, that should be in `{service name}/web/tabs/{new tab}` where `web` is at the same level as your Kotlin `src` directory.
 
 ```Bash
 $ miskweb new
@@ -37,30 +37,19 @@ or
 $ curl -s https://raw.githubusercontent.com/square/misk-web/master/new-tab/get-new-tab.sh | bash -s && ./new-tab.sh
 ```
 
-## [Included Docker Build Image](docker/)
+Read more instructions in [HOWTO](HOWTO.md)
 
-## [Examples](examples/): Data sets, Gradle examples for `misk-web-plugin`, Services, and Tabs
+## More
 
-## Migrating from Misk
+- [Included Docker Build Image](docker/)
 
-1. Add `"miskWeb": "com.squareup.misk-web:misk-web:2018.11.23-00fdf9e",` to your `dependencies.gradle`. Make sure to replace `2018.11.23-00fdf9e` with the latest `YYYY.MM.DD-githash` artifact available.
-1. Add `compile dep.miskWeb` to your `service/build.gradle`
+- [Examples](examples/): Data sets, Gradle examples for `misk-web-plugin`, Services, and Tabs
 
-```Groovy
+- [Recommended Workflow](https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/)
 
-dependencies {
-  ...
-  compile dep.miskWeb
-  ...
-}
-
-```
-
-## [Recommended Workflow](https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/)
-
-1. Fork into your personal Github account
-1. Clone repo from your fork
-1. Add square as a remote with `git remote add square git@github.com:square/misk-web.git`
-1. Pull any new changes with `git pull square master`
-1. Push any new changes to a new branch in your personal fork
-1. Open PR from personal fork -> square/master
+  1. Fork into your personal Github account
+  1. Clone repo from your fork
+  1. Add square as a remote with `git remote add square git@github.com:square/misk-web.git`
+  1. Pull any new changes with `git pull square master`
+  1. Push any new changes to a new branch in your personal fork
+  1. Open PR from personal fork -> square/master
