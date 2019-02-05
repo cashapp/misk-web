@@ -2,7 +2,10 @@ import * as fs from "fs-extra"
 import * as data from "./data"
 
 const output = "./demo"
-const JsonOptions = { spaces: 2 }
+fs.ensureDir(output)
+const JsonOptions = {
+  // spaces: 2 // not pretty output because files become bigger for large JSON >1000 records
+}
 
 Object.entries(data).map(([key, jsonDataSet]) => {
   const file = `${output}/${key}.json`
