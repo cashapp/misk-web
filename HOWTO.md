@@ -83,16 +83,16 @@
   - Else, install it in your main service module.
 
   ```Kotlin
-  // Tab API Endpoints
+  // Tab API Endpoints (not necessary to get your tab working, only serves as an example of an associated WebAction endpoint)
   multibind<WebActionEntry>().toInstance(WebActionEntry<TRexFoodAction>())
-  // Show tab in menu
+  // Add tab to the AdminDashboard in Misk. It will now know to look for it and show up in the dashboard menu.
   multibind<DashboardTab, AdminDashboardTab>().toInstance(DashboardTab(
         name = "T-Rex Food Log",
         slug = "trexfoodlog",
         url_path_prefix = "/_admin/trexfoodlog/",
         category = "Dinosaurs"
         ))
-  // Wire up tab resources (static and web proxy dev-server)
+  // Wire up tab resources: slug is used to find the tab compiled code in {service}/web/tab/{slug} and the web_proxy_url is used when developing the tab using Webpack Dev Server so that requests forward to the server and not to the filesystem)
   install(WebTabResourceModule(
         environment = environment,
         slug = "trexfoodlog",
