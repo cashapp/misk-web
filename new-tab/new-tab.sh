@@ -10,7 +10,7 @@ OLD_SLUG_CASE="palette-exemplar"
 
 # 1. Download .zip of palette src code from github
 echo "Downloading fresh Palette Exemplar tab"
-rm ./palette.tgz
+rm ./palette-exemplar.tgz
 curl -sL0 https://github.com/square/misk-web/raw/master/examples/tabs/palette-exemplar/palette-exemplar.tgz -o palette-exemplar.tgz
 
 # 1. Prompt for new name in formats: `foo-bar`, `fooBar`, `FooBar`
@@ -22,7 +22,7 @@ echo "New Tab Name"
 echo "You'll now be asked how you want your tab name written in different formats (ALLCAPCASE, TitleCase, Title With Space Case, camelCase, slug-case)."
 read -p "Tab Name in ALLCAPCASE: " -r NEW_ALL_CAP_CASE
 read -p "Tab Name in TitleCase: " -r NEW_TITLE_CASE
-read -p "Tab Name in TitleCase: " -r NEW_TITLE_SPACE_CASE
+read -p "Tab Name in Title Space Case: " -r NEW_TITLE_SPACE_CASE
 read -p "Tab Name in camelCase: " -r NEW_CAMEL_CASE
 read -p "Tab Name in slug-case: " -r NEW_SLUG_CASE
 echo ""
@@ -34,12 +34,12 @@ echo "Registered NEW_SLUG_CASE        ${NEW_SLUG_CASE}"
 
 # 1. Make new tab folder `palette-exemplar`
 
-mkdir -p ./${NEW_SLUG_CASE}
+mkdir -p "./${NEW_SLUG_CASE}"
 # 1. Unzips to pwd
 echo "Unzip compressed Palette Tab to ./${NEW_SLUG_CASE}"
-tar -xzvf ./palette.tgz -C ./${NEW_SLUG_CASE}
+tar -xzvf ./palette-exemplar.tgz -C "./${NEW_SLUG_CASE}"
 
-# 1. [Recursive find/replace](https://stackoverflow.com/questions/11392478/how-to-replace-a-string-in-multiple-files-in-linux-command-line) in directory of `palette` -> `fooBar`, `Palette` -> `FooBar`
+# 1. [Recursive find/replace](https://stackoverflow.com/questions/11392478/how-to-replace-a-string-in-multiple-files-in-linux-command-line) in directory of `paletteExemplar` -> `fooBar`, `PaletteExemplar` -> `FooBar`...
 
 echo "Recursively updating code from ${OLD_ALL_CAP_CASE} => ${NEW_ALL_CAP_CASE}"
 SED_ALL_CAP_CASE="'s/${OLD_ALL_CAP_CASE}/${NEW_ALL_CAP_CASE}/g'"
