@@ -6,7 +6,7 @@
 
 **Misk-Web** is a new micro-frontends Typescript + React web framework from Square. It happens to work seamlessly with [Misk](https://github.com/square/misk) but is also a robust stand alone web framework.
 
-Misk-Web is not ready for use. The API is not stable.
+Misk-Web is still bleeding edge and may have breaking changes up until version `1.0.0`.
 
 ## NPM Libraries
 
