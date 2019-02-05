@@ -21,4 +21,5 @@ Test data for use in example services and tabs. Find all current data sets in [/
 
 ## Tabs
 
-- `palette` [[Live Demo](https://square.github.io/misk-web/examples/tabs/palette/demo/)]: UI exemplar
+- `palette` [[Live Demo](https://square.github.io/misk-web/examples/tabs/palette-exemplar/demo/)]: UI exemplar demo (identical to `palette-exemplar` except for the build config)
+- `palette-exemplar`: UI template for new tabs
