@@ -5,12 +5,17 @@ export const adminDashboardTabs: { adminDashboardTabs: IDashboardTab[] } = {
     {
       name: "First Tab",
       slug: "first-tab",
-      url_path_prefix: "/_admin/first-tab/"
+      url_path_prefix: "/first-tab/"
     },
     {
       name: "Second Tab",
       slug: "second-tab",
-      url_path_prefix: "/_admin/second-tab/"
+      url_path_prefix: "/second-tab/"
+    },
+    {
+      name: "Palette",
+      slug: "palette",
+      url_path_prefix: "/palette/"
     }
   ]
 }

@@ -5,12 +5,13 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "node dist/index.js",
-    "watch": "tsc -w",
-    "build": "tsc",
-    "buildrun": "npm run-script build && npm run-script start",
-    "ci-build": "npm install && npm run-script build && npm run-script start",
+    "watch": "./node_modules/.bin/tsc -w",
+    "buildonly": "./node_modules/.bin/tsc",
+    "build": "npm run-script buildonly && npm run-script start",
+    "ci-build": "npm install && npm run-script build",
+    "clean": "rm -rf demo dist",
     "test": "echo 'no tests'",
-    "lint": "prettier --write --config prettier.config.js \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
+    "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
     "prepare": "npm run-script build"
   },
   "dependencies": {
@@ -29,5 +30,16 @@
   },
   "engines": {
     "yarn": "YARN NO LONGER USED - use npm instead."
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "useTabs": false
   }
 }
