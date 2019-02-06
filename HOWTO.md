@@ -69,12 +69,15 @@
 
 ## Local Development
 
-- Use `miskweb` CLI to kick off builds. The CLI will re-generate your build files using the latest `.gitignore`, `package.json`, `tsconfig.json`, `tslint.json`, `webpack.config.js` templates shipped with `Misk-Web`. This ensures that your build system is always up-to-date with the framework.
-- For local developments, you'll need to install local requirements with `$ npm install`. Run this periodically to get latest versions of Misk-Web libraries.
-- To run a build, use `$ miskweb build`.
-- To start a local dev server, use `$ miskweb start`.
+- Use `miskweb` CLI to kick off builds (ie. `miskweb build` in your tab directory). The CLI will re-generate your build files using the latest `.gitignore`, `package.json`, `tsconfig.json`, `tslint.json`, `webpack.config.js` templates shipped with `Misk-Web`. This ensures that your build system is always up-to-date with the framework.
+  - For local developments, you'll need to install local requirements with `$ npm install`. Run this periodically to get latest versions of Misk-Web libraries.
+  - To run a build, use `$ miskweb build`.
+  - To start a local dev server, use `$ miskweb start`.
+- If you have issues with your local development, the following tasks are included with the Gradle Misk-Web tasks and run builds and dev-server inside of a Docker container.
+  - `$ ./gradlew web -Ptabs='tabs/trexfoodlog'` to build the tab
+  - `$ ./gradlew web -Pcmd='-d' -Ptabs='tabs/trexfoodlog'` for a dev-server to do live editing on your tab
 
-## Configuring the Misk Service
+## Configuring with a Misk Service
 
 - Add the following multibindings to a KAbstractModule that will not be included with Testing Modules.
 
@@ -101,13 +104,16 @@
   ```
 
   - The following explains why each multibinding is used:
-    - WebActionEntry: Installs and configures a WebAction with optional prefix, for binding any API endpoints used in the Tab.
-    - DashboardTab: Metadata of the tab that is used to generate dashbaord menus and other views.
-    - WebTabResourcesModule: Binds the location of the compiled web code and dev-server so the tab code can be served through the service.
+    - WebActionEntry: Installs and configures a WebAction with optional prefix, for binding any API endpoints used in the Tab. This is not necessary to get your tab working, and only serves as an example of an associated WebAction endpoint.
+    - DashboardTab: Metadata of the tab that is used to generate dashbaord menu and other views. This adds the tab to the AdminDashboard in Misk. It will now know to look for it and show up in the dashboard menu.
+    - WebTabResourcesModule: Binds the location of the compiled web code and dev-server so the tab code can be served through the service. The slug is used to find the tab compiled code in {service}/web/tab/{slug} and the web_proxy_url is used when developing the tab using Webpack Dev Server so that requests forward to the server and not to the filesystem)
+
+  - **Tab not loading?** Make sure you have done an initial build before running your service or building a jar. The compiled JS code needs to already be in the filesystem before a jar is created. If you've already added `jar.dependsOn web` then you can re-run the jar task, and it should now include the web tab code.
+
   - WebTabResourceModule Environment Differences
-    - Live Editing a Tab: Use `./gradlew web -Pcmd='-d' -Ptabs='tabs/trexfoodlog'` to start a Webpack-Dev-Server for the specific tab you're editing to see edits live in the browser. This will only work in Development environment. If requests to the dev-server fail, service returns any matching static resources from `classpath` or jar.
-    - In Development Mode but not Editing: Use `./gradlew web -Ptabs='tabs/trexfoodlog'` to do a tab build. Proxy web server will still be attempted to be reached but failed requests will return the most recently built tab code from `classpath` or jar.
-    - In Production: All web assets are served from jar.
+    - Live Editing a Tab: Use `$miskweb start` in `tabs/trexfoodlog` directory (or `./gradlew web -Pcmd='-d' -Ptabs='tabs/trexfoodlog'`) to start a Webpack-Dev-Server for the specific tab you're editing to see edits live in the browser. This will only work in Development environment. If requests to the dev-server fail, service returns any matching static compiled code for that tab from `classpath` or jar.
+    - In Development Mode but not Editing: Use `miskweb build` in `tabs/trexfoodlog` (or `./gradlew web -Ptabs='tabs/trexfoodlog'`) to do a tab build. Proxy web server will still be attempted to be reached but failed requests will return the most recently built tab code from `classpath` or jar.
+    - In Production: All web assets are served from the most recently `miskweb build` compiled code that was bundled in the jar.
 
 ## Adding your Tab Webpack Build to Gradle
 
@@ -118,8 +124,6 @@ In your service's project `build.gradle` file you will need to add the following
 Adjust the template below to fit your service's file structure and to use the most up to date [Docker image version](https://hub.docker.com/r/squareup/) and [Misk-Web commit hash](https://github.com/square/misk-web/blob/master/gradle/web.gradle).
 
 ```Gradle
-  import groovy.json.JsonSlurper
-
   apply from: "https://raw.githubusercontent.com/square/misk-web/54512dfe2d2ff4d5ccae66d6841ed0f65ba5bf8c/gradle/web.gradle"
 
   ...
@@ -147,23 +151,23 @@ To confirm that your tab is shipping in the jar, you can run the following comma
   $ jar -tf misk/build/libs/{your jar location found above}.jar | grep _tab/trexfoodlog/
 ```
 
-## Gradle: Building your Tab
+## Building your Tab
 
-1. Kick off an initial build with Gradle `$ ./gradlew clean jar` or `$ ./gradlew web`.
+1. Kick off an initial build
+    - CLI: (from your tab directory) `$ miskweb build`
+    - OR Gradle: (from your project root directory) `$ ./gradlew clean jar` or `$ ./gradlew web`.
 1. Start your primary Misk service in IntelliJ.
 1. Open up [`http://localhost:8080/_admin/`](http://localhost:8080/_admin/) in the browser.
 
-## Gradle: Developing your Tab
+## Developing your Tab
 
 1. Follow the steps above to build all local tabs and start your service.
 1. Run the following commands to spin up a Webpack-Dev-Server in Docker instance to serve live edits to your service.
-
-```Bash
-$ ./gradlew web -Pcmd='-d' -Ptabs='tabs/trexfoodlog,tabs/healthcheck'
-```
-
-1. This will start separate docker containers with webpack-dev-servers for each of the tabs you pass in to `tabs`.
+    - CLI: (from each tab directory in separate terminal windows) `$ miskweb start`
+    - OR Gradle: (from your project root directory) `$ ./gradlew web -Pcmd='-d' -Ptabs='tabs/trexfoodlog,tabs/healthcheck'`. This will start separate docker containers with webpack-dev-servers for each of the tabs you pass in to `tabs`.
+1. This will start webpack-dev-servers for each of your tabs.
 1. Your service will now automatically route traffic (when in development mode) to the dev servers and you should see any changes you make appearing live.
+1. Restart your service after your webpack-dev-servers are running to take effect.
 
 ## Visual Studio Code
 
