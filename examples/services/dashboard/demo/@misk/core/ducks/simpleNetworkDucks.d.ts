@@ -46,4 +46,4 @@ export declare const simpleNetworkState: <T extends {
     simpleNetwork: ISimpleNetworkState;
 }>(state: T) => ISimpleNetworkState;
 export declare const simpleNetworkSelector: OutputSelector<{}, any, (res: ISimpleNetworkState) => any>;
-export declare const response: ParametricSelector<{}, string, ISimpleNetworkTagResponse>;
+export declare const simpleNetworkResponse: ParametricSelector<{}, string, ISimpleNetworkTagResponse>;

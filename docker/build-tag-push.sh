@@ -19,4 +19,4 @@ echo "[PUSH] ${org}${name}:latest"
 docker push "${org}${name}:latest"
 
 echo "[INSPECT] ${org}${name}:${version} shipped with following @misk/ NPM packages"
-docker run -it --rm ${org}${name}:${version} yarn cache list --pattern @misk
+docker run -it --rm ${org}${name}:${version} npm list -g --depth=0

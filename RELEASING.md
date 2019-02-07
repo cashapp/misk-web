@@ -140,18 +140,13 @@ $ rush build
 
   ```
   [INSPECT] squareup/misk-web:0.1.3-4 shipped with following @misk/ NPM packages
-  yarn cache v1.12.3
-  warning package.json: No license field
-  Name             Version Registry Resolved
-
-  @misk/cli        0.1.3-4 npm      https://registry.yarnpkg.com/@misk/cli/-/cli-0.1.3-4.tgz#6bcd14450af9300d43140822982d47a4da62fe95
-  @misk/common     0.1.1   npm      https://registry.yarnpkg.com/@misk/common/-/common-0.1.1.tgz#bbe2b1e4849e92886d8a6accbe66b66441b1720b
-  @misk/common     0.1.3-4 npm      https://registry.yarnpkg.com/@misk/common/-/common-0.1.3-4.tgz#21fe1a5ce9bcf788bbc22b7cd8c83a1d1c42e679
-  @misk/components 0.1.0   npm      https://registry.yarnpkg.com/@misk/components/-/components-0.1.0.tgz#5c33aadb6d31a79e623265d07bf8d825707e6a80
-  @misk/core       0.1.3-4 npm      https://registry.yarnpkg.com/@misk/core/-/core-0.1.3-4.tgz#4979d11c212d19582dbf3ef50a85fb2a613a03d0
-  @misk/dev        0.1.3-4 npm      https://registry.yarnpkg.com/@misk/dev/-/dev-0.1.3-4.tgz#e86340668759a24cdf2b862cf83f1af69b461ccf
-  @misk/tslint     0.1.3-4 npm      https://registry.yarnpkg.com/@misk/tslint/-/tslint-0.1.3-4.tgz#051a96872f329b97ddddaac11e3c4032f58d71fc
-  Done in 1.12s.
+  /usr/local/lib
+  +-- @misk/cli@0.1.3-4
+  +-- @misk/components@0.1.0
+  +-- @misk/core@0.1.3-4
+  +-- @misk/dev@0.1.3-4
+  +-- @misk/tslint@0.1.3-4
+  `-- npm@6.4.1
   ```
 
 - Update the latest Docker image in `misk-web/gradle/web.gradle`

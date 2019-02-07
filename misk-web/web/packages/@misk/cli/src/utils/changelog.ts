@@ -1,6 +1,11 @@
 export enum MiskVersion {
-  "latest" = "0.1.3-15",
-  "alpha" = "0.1.3-15",
+  "latest" = "0.1.3",
+  "alpha" = "0.1.4-1",
+  "v014_1" = "0.1.4-1",
+  "v013" = "0.1.3",
+  "v013_19" = "0.1.3-19",
+  "v013_18" = "0.1.3-18",
+  "v013_16" = "0.1.3-16",
   "v013_15" = "0.1.3-15",
   "v013_14" = "0.1.3-14",
   "v013_13" = "0.1.3-13",
@@ -98,6 +103,51 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v014_1]: {
+    [MiskPkg.cli]: `${[MiskVersion.v014_1]}`,
+    [MiskPkg.common]: `${[MiskVersion.v014_1]}`,
+    [MiskPkg.core]: `${[MiskVersion.v014_1]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v014_1]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v014_1]}`,
+    date: "2019-02-07",
+    notes: "Release 0.1.3-19 as first 0.1.4 pre-release version."
+  },
+  [MiskVersion.v013]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013]}`,
+    date: "2019-02-07",
+    notes: "Release 0.1.3-19 as stable 0.1.3 version."
+  },
+  [MiskVersion.v013_19]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013_19]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_19]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_19]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_19]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_19]}`,
+    date: "2019-02-07",
+    notes: "Fix broken MiskCollapse builds in @misk/core."
+  },
+  [MiskVersion.v013_18]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013_18]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_18]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_18]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_18]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_18]}`,
+    date: "2019-02-07",
+    notes: "Change simplnetwork response() to simpleNetworkResponse()."
+  },
+  [MiskVersion.v013_16]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013_16]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_16]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_16]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_16]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_16]}`,
+    date: "2019-02-07",
+    notes: "Deprecated."
+  },
   [MiskVersion.v013_15]: {
     [MiskPkg.cli]: `${[MiskVersion.v013_15]}`,
     [MiskPkg.common]: `${[MiskVersion.v013_15]}`,

@@ -39,7 +39,7 @@ const MiskNavbarIcon = styled(Icon)`
   }
 `
 
-const MiskCollapse = styled(Collapse)`
+const MiskCollapse = styled.div`
   color: ${color.white};
   background-color: ${color.cadet};
   display: block;
@@ -99,25 +99,27 @@ export class Menu extends React.Component<IMenuProps, {}> {
             icon={isOpen ? IconNames.CROSS : IconNames.MENU}
           />
         </MiskNavbarButton>
-        <MiskCollapse isOpen={isOpen} keepChildrenMounted={true}>
-          <MiskMenu>
-            <ResponsiveContainer>
-              <MiskMenuNavbarItems>
-                <FlexContainer>
-                  {processedNavbarItems.map(item => (
-                    <span key={item.key} onClick={this.handleClick}>
-                      {item}
-                    </span>
-                  ))}
-                </FlexContainer>
-              </MiskMenuNavbarItems>
-              {links ? (
-                this.renderMenuCategories(links)
-              ) : (
-                <ErrorCalloutComponent error={error} />
-              )}
-            </ResponsiveContainer>
-          </MiskMenu>
+        <MiskCollapse>
+          <Collapse isOpen={isOpen} keepChildrenMounted={true}>
+            <MiskMenu>
+              <ResponsiveContainer>
+                <MiskMenuNavbarItems>
+                  <FlexContainer>
+                    {processedNavbarItems.map(item => (
+                      <span key={item.key} onClick={this.handleClick}>
+                        {item}
+                      </span>
+                    ))}
+                  </FlexContainer>
+                </MiskMenuNavbarItems>
+                {links ? (
+                  this.renderMenuCategories(links)
+                ) : (
+                  <ErrorCalloutComponent error={error} />
+                )}
+              </ResponsiveContainer>
+            </MiskMenu>
+          </Collapse>
         </MiskCollapse>
       </div>
     )

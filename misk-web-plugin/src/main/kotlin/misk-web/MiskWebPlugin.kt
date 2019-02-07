@@ -123,7 +123,7 @@ open class MiskWebPlugin : Plugin<Project> {
     val image =
         simpleFlatJsonToMap("${project.projectDir}${relPath}").get("image") ?: "squareup/misk-web"
     val imageVersion =
-        simpleFlatJsonToMap("${project.projectDir}${relPath}").get("version") ?: "0.1.3-11"
+        simpleFlatJsonToMap("${project.projectDir}${relPath}").get("version") ?: "0.1.3"
     val command =
         "docker run --rm --name ${name} -v ${volume}${portStmt} ${image}:${imageVersion} ${runtime}"
     return command
