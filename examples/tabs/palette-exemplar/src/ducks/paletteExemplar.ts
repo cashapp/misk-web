@@ -33,7 +33,11 @@ export const dispatchPaletteExemplar = {
       success: false
     }),
   failure: (error: any) =>
-    createAction(PALETTEEXEMPLAR.FAILURE, { ...error, loading: false, success: false }),
+    createAction(PALETTEEXEMPLAR.FAILURE, {
+      ...error,
+      loading: false,
+      success: false
+    }),
   success: (data: any) =>
     createAction(PALETTEEXEMPLAR.SUCCESS, {
       ...data,
@@ -112,7 +116,8 @@ export interface IPaletteExemplarState extends IDefaultState {
  * Selector
  * A memoized, efficient way to compute and return the latest domain of the state
  */
-export const paletteExemplarState = (state: IState) => state.paletteExemplar.toJS()
+export const paletteExemplarState = (state: IState) =>
+  state.paletteExemplar.toJS()
 
 export const paletteExemplarSelector: OutputSelector<
   IState,

@@ -1,6 +1,10 @@
 export enum MiskVersion {
-  "latest" = "0.1.3-11",
-  "alpha" = "0.1.3-11",
+  "latest" = "0.1.3-15",
+  "alpha" = "0.1.3-15",
+  "v013_15" = "0.1.3-15",
+  "v013_14" = "0.1.3-14",
+  "v013_13" = "0.1.3-13",
+  "v013_12" = "0.1.3-12",
   "v013_11" = "0.1.3-11",
   "v013_10" = "0.1.3-10",
   "v013_9" = "0.1.3-9",
@@ -94,6 +98,44 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v013_15]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013_15]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_15]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_15]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_15]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_15]}`,
+    date: "2019-02-07",
+    notes:
+      "Change SimpleNetwork to new dispatch function name idiom of {state domain}{action name}()."
+  },
+  [MiskVersion.v013_14]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013_14]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_14]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_14]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_14]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_14]}`,
+    date: "2019-02-07",
+    notes: "Deprecated."
+  },
+  [MiskVersion.v013_13]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013_13]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_13]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_13]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_13]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_13]}`,
+    date: "2019-02-06",
+    notes: "Deprecated."
+  },
+  [MiskVersion.v013_12]: {
+    [MiskPkg.cli]: `${[MiskVersion.v013_12]}`,
+    [MiskPkg.common]: `${[MiskVersion.v013_12]}`,
+    [MiskPkg.core]: `${[MiskVersion.v013_12]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v013_12]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v013_12]}`,
+    date: "2019-02-06",
+    notes:
+      "Add HEAD method to SimpleNetwork, prepare it for full use in Palette."
+  },
   [MiskVersion.v013_11]: {
     [MiskPkg.cli]: `${[MiskVersion.v013_11]}`,
     [MiskPkg.common]: `${[MiskVersion.v013_11]}`,

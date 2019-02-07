@@ -8,7 +8,7 @@ interface IContainerProps extends IState, IDispatchProps {}
 
 class TabContainer extends React.Component<IContainerProps, IState> {
   componentDidMount() {
-    this.props.get(
+    this.props.simpleNetworkGet(
       "cars",
       "https://square.github.io/misk-web/examples/data/demo/cars.json"
     )
