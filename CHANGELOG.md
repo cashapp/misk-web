@@ -1,5 +1,8 @@
-## Breaking Changes in @misk packages
+## Changelog
 
+_Note: extensive changelog is in `@misk/cli/src/utils/changelog.ts`. This is primarily only for breaking changes._
+
+- 2019-02-07: `simpleNetwork` library functions in props are now all prefixed such that `this.props.get` is now `this.props.simpleNetworkGet` to prevent collisions with other dispatcher objects. Effective as of `@misk/core@0.1.3-15^`.
 - 2018-11-30: `@misk/components` renamed to `@misk/core`. All versions and Docker at `0.1.0`.
 - 2018-11-08: `@misk/common@0.0.61`, `@misk/core@0.0.77`, `@misk/dev@0.0.64`. Import styles as a css file instead of JS. New version required parameter in package.json:miskTab.
 
