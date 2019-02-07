@@ -435,7 +435,7 @@ export const simpleNetworkSelector: OutputSelector<
   state => state.toJS()
 )
 
-export const response: ParametricSelector<
+export const simpleNetworkResponse: ParametricSelector<
   {},
   string,
   ISimpleNetworkTagResponse
