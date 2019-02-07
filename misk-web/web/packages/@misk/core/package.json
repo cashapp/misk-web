@@ -1,6 +1,6 @@
 {
   "name": "@misk/core",
-  "version": "0.1.3-15",
+  "version": "0.1.4-1",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "description": "Misk-Web Core",
   "author": "Square/Misk Authors (https://github.com/square/misk-web/graphs/contributors)",
@@ -8,7 +8,8 @@
   "module": "lib/web/@misk/core/core.js",
   "typings": "lib/web/@misk/core/index.d.ts",
   "engines": {
-    "node": ">=7.8.0"
+    "node": ">=7.8.0",
+    "yarn": "YARN NO LONGER USED - use npm instead."
   },
   "files": [
     "lib"
@@ -18,20 +19,21 @@
     "url": "git@github.com:square/misk-web.git"
   },
   "scripts": {
-    "build": "yarn run lint && yarn run lib",
+    "build": "npm run-script lint && npm run-script lib",
     "clean": "rm -rf lib",
-    "dev": "yarn run build; yarn run updateDevCache",
-    "ci-build": "yarn run clean && yarn run lib",
+    "dev": "npm run-script build; npm run-script updateDevCache",
+    "ci-build": "npm run-script clean && npm run-script lib",
     "lib": "webpack",
     "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
     "gradle": "cd ../../../../../ && ./gradlew web -Pcmd='-ca' -Ptabs='@misk/core'",
-    "reinstall": "rm -rf node_modules && yarn install",
-    "start": "yarn run lint && cross-env NODE_ENV=development webpack-dev-server",
+    "prepare": "npm run-script ci-build",
+    "reinstall": "rm -rf node_modules && npm install",
+    "start": "npm run-script lint && cross-env NODE_ENV=development webpack-dev-server",
     "test": "echo no tests",
     "updateDevCache": "cd ..; ./updateLocalCache.sh"
   },
   "dependencies": {
-    "@misk/common": "^0.1.3-15",
+    "@misk/common": "^0.1.4-1",
     "@blueprintjs/core": "^3.9.0",
     "@blueprintjs/datetime": "^3.4.0",
     "@blueprintjs/icons": "^3.3.0",
@@ -60,8 +62,8 @@
     "styled-components": "^4.1.2"
   },
   "devDependencies": {
-    "@misk/dev": "^0.1.3-15",
-    "@misk/tslint": "^0.1.3-15",
+    "@misk/dev": "^0.1.4-1",
+    "@misk/tslint": "^0.1.4-1",
     "@types/history": "^4.7.2",
     "@types/lodash-es": "^4.17.1",
     "@types/node": "^10.12.18",

@@ -6,7 +6,7 @@ dependencies:
   '@blueprintjs/table': 3.4.1
   '@blueprintjs/timezone': 3.3.0
   '@rush-temp/misk-web-examples-data': 'file:projects/misk-web-examples-data.tgz'
-  '@rush-temp/misk-web-examples-services-dashboard': 'file:projects/misk-web-examples-services-dashboard.tgz'
+  '@rush-temp/misk-web-tab-dashboard': 'file:projects/misk-web-tab-dashboard.tgz'
   '@rush-temp/misk-web-tab-palette': 'file:projects/misk-web-tab-palette.tgz'
   '@rush-temp/misk-web-tab-palette-exemplar': 'file:projects/misk-web-tab-palette-exemplar.tgz'
   '@types/fs-extra': 5.0.4
@@ -58,7 +58,7 @@ dependencies:
   styled-components: 4.1.3
   ts-loader: 5.3.3
   tslib: 1.9.3
-  typescript: 3.3.1
+  typescript: 3.3.3
   typescript-plugin-styled-components: 1.2.0
   webpack: 4.29.3
   webpack-bundle-analyzer: 3.0.3
@@ -191,14 +191,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-4zAPlpDEh2VwXswwr/t8xGNDGg8RQiPxtxZ3qQEXyQsBV39ptTdESCjuBvGze1nLMVrxmTIKmnO/nAV8Tqjjzg==
-  /@fimbul/bifrost/0.17.0/tslint@5.12.1+typescript@3.3.1:
+  /@fimbul/bifrost/0.17.0/tslint@5.12.1+typescript@3.3.3:
     dependencies:
-      '@fimbul/ymir': /@fimbul/ymir/0.17.0/tsutils@3.8.0+typescript@3.3.1
+      '@fimbul/ymir': /@fimbul/ymir/0.17.0/tsutils@3.8.0+typescript@3.3.3
       get-caller-file: 2.0.1
       tslib: 1.9.3
-      tslint: /tslint/5.12.1/typescript@3.3.1
-      tsutils: /tsutils/3.8.0/typescript@3.3.1
-      typescript: 3.3.1
+      tslint: /tslint/5.12.1/typescript@3.3.3
+      tsutils: /tsutils/3.8.0/typescript@3.3.3
+      typescript: 3.3.3
     dev: false
     id: registry.npmjs.org/@fimbul/bifrost/0.17.0
     peerDependencies:
@@ -206,13 +206,13 @@ packages:
       typescript: '>= 3.0.1 || >= 3.3.0-dev || >= 3.4.0-dev'
     resolution:
       integrity: sha512-gVTkJAOef5HtN6LPmrtt5fAUmBywwlgmObsU3FBhPoNeXPLaIl2zywXkJEtvvVLQnaFmtff3x+wIj5lHRCDE3Q==
-  /@fimbul/ymir/0.17.0/tsutils@3.8.0+typescript@3.3.1:
+  /@fimbul/ymir/0.17.0/tsutils@3.8.0+typescript@3.3.3:
     dependencies:
       inversify: 5.0.1
       reflect-metadata: 0.1.13
       tslib: 1.9.3
-      tsutils: /tsutils/3.8.0/typescript@3.3.1
-      typescript: 3.3.1
+      tsutils: /tsutils/3.8.0/typescript@3.3.3
+      typescript: 3.3.3
     dev: false
     id: registry.npmjs.org/@fimbul/ymir/0.17.0
     peerDependencies:
@@ -220,7 +220,7 @@ packages:
       typescript: '>= 3.0.1 || >= 3.3.0-dev || >= 3.4.0-dev'
     resolution:
       integrity: sha512-xMXM9KTXRLHLVS6dnX1JhHNEkmWHcAVCQ/4+DA1KKwC/AFnGHzu/7QfQttEPgw3xplT+ILf9e3i64jrFwB3JtA==
-  /@misk/common/0.1.3-15:
+  /@misk/common/0.1.3:
     dependencies:
       '@blueprintjs/core': /@blueprintjs/core/3.12.0/react-dom@16.8.1+react@16.8.1
       '@blueprintjs/datetime': 3.7.0
@@ -251,9 +251,10 @@ packages:
     dev: false
     engines:
       node: '>=7.8.0'
+      yarn: YARN NO LONGER USED - use npm instead.
     resolution:
-      integrity: sha512-wNkI2Srcqaz2fhfu3+wGlex6X9hoykkosD8YZbE/36PmKsLi5S/ksfF3j/TTfiBPnCNNp3FpIZFjhem2ccdP/A==
-  /@misk/core/0.1.3-15:
+      integrity: sha512-RnNrrvitYXXW3QdXKqvxMJYHDGIKB0VBhxutJYDLJKFP6CWArxe+BWvQX1VeDnIbTTKKWCQ8YE4uJNRP6KyuTA==
+  /@misk/common/0.1.4-1:
     dependencies:
       '@blueprintjs/core': /@blueprintjs/core/3.12.0/react-dom@16.8.1+react@16.8.1
       '@blueprintjs/datetime': 3.7.0
@@ -261,7 +262,6 @@ packages:
       '@blueprintjs/select': 3.6.0
       '@blueprintjs/table': 3.4.1
       '@blueprintjs/timezone': 3.3.0
-      '@misk/common': 0.1.3-15
       axios: 0.18.0
       connected-react-router: /connected-react-router/5.0.1/1a3e401fdfe0381c9e52069202eb214e
       dayjs: 1.8.5
@@ -285,9 +285,80 @@ packages:
     dev: false
     engines:
       node: '>=7.8.0'
+      yarn: YARN NO LONGER USED - use npm instead.
     resolution:
-      integrity: sha512-tPIeZAy71V9h4vaCiOX1cQWOHRuJ24EU6rAZ7lPQHO5VES0uJvurufOO9MnMVTZbVFy/uDs480AqQWlMzbjehQ==
-  /@misk/dev/0.1.3-15:
+      integrity: sha512-QFknnG0h8kmkTSuXnM4lOd7VHwQR9tdeY0/k0BM8MMegStMEjkBrRhoIrjPJ7/1ZUtoGg7ip6THEHwMr6CEEfA==
+  /@misk/core/0.1.3:
+    dependencies:
+      '@blueprintjs/core': /@blueprintjs/core/3.12.0/react-dom@16.8.1+react@16.8.1
+      '@blueprintjs/datetime': 3.7.0
+      '@blueprintjs/icons': 3.5.1
+      '@blueprintjs/select': 3.6.0
+      '@blueprintjs/table': 3.4.1
+      '@blueprintjs/timezone': 3.3.0
+      '@misk/common': 0.1.3
+      axios: 0.18.0
+      connected-react-router: /connected-react-router/5.0.1/1a3e401fdfe0381c9e52069202eb214e
+      dayjs: 1.8.5
+      history: 4.7.2
+      immutable: 4.0.0-rc.12
+      lodash-es: 4.17.11
+      re-reselect: /re-reselect/2.2.0/reselect@4.0.0
+      react: 16.8.1
+      react-dom: /react-dom/16.8.1/react@16.8.1
+      react-helmet: /react-helmet/5.2.0/react@16.8.1
+      react-hot-loader: /react-hot-loader/4.6.5/react-dom@16.8.1+react@16.8.1
+      react-redux: /react-redux/5.1.1/react@16.8.1+redux@4.0.1
+      react-router: /react-router/4.3.1/react@16.8.1
+      react-router-dom: /react-router-dom/4.3.1/react@16.8.1
+      react-transition-group: /react-transition-group/2.5.3/react-dom@16.8.1+react@16.8.1
+      redux: 4.0.1
+      redux-saga: 0.16.2
+      reselect: 4.0.0
+      skeleton-css: 2.0.4
+      styled-components: /styled-components/4.1.3/21f21743178843fe74c6c0d0430b10da
+    dev: false
+    engines:
+      node: '>=7.8.0'
+      yarn: YARN NO LONGER USED - use npm instead.
+    resolution:
+      integrity: sha512-m2UTcjjSgSZylzN8AGb5K5vHFtxrIOnosNGYxNVQMo7zM9Aary3zyBJP8cx9LKZ69JC0NmkeiQhQKkBZKvRzig==
+  /@misk/core/0.1.4-1:
+    dependencies:
+      '@blueprintjs/core': /@blueprintjs/core/3.12.0/react-dom@16.8.1+react@16.8.1
+      '@blueprintjs/datetime': 3.7.0
+      '@blueprintjs/icons': 3.5.1
+      '@blueprintjs/select': 3.6.0
+      '@blueprintjs/table': 3.4.1
+      '@blueprintjs/timezone': 3.3.0
+      '@misk/common': 0.1.4-1
+      axios: 0.18.0
+      connected-react-router: /connected-react-router/5.0.1/1a3e401fdfe0381c9e52069202eb214e
+      dayjs: 1.8.5
+      history: 4.7.2
+      immutable: 4.0.0-rc.12
+      lodash-es: 4.17.11
+      re-reselect: /re-reselect/2.2.0/reselect@4.0.0
+      react: 16.8.1
+      react-dom: /react-dom/16.8.1/react@16.8.1
+      react-helmet: /react-helmet/5.2.0/react@16.8.1
+      react-hot-loader: /react-hot-loader/4.6.5/react-dom@16.8.1+react@16.8.1
+      react-redux: /react-redux/5.1.1/react@16.8.1+redux@4.0.1
+      react-router: /react-router/4.3.1/react@16.8.1
+      react-router-dom: /react-router-dom/4.3.1/react@16.8.1
+      react-transition-group: /react-transition-group/2.5.3/react-dom@16.8.1+react@16.8.1
+      redux: 4.0.1
+      redux-saga: 0.16.2
+      reselect: 4.0.0
+      skeleton-css: 2.0.4
+      styled-components: /styled-components/4.1.3/21f21743178843fe74c6c0d0430b10da
+    dev: false
+    engines:
+      node: '>=7.8.0'
+      yarn: YARN NO LONGER USED - use npm instead.
+    resolution:
+      integrity: sha512-qFnop1zoWcsuGmzWGoCXjABkZnSCCD6nFpU6vJxg15glZiYLA/DrGwFG851QQtNGCU4Ob/n3WjQ2HCMZ+sH4DA==
+  /@misk/dev/0.1.3:
     dependencies:
       '@types/history': 4.7.2
       '@types/lodash-es': 4.17.1
@@ -315,33 +386,96 @@ packages:
       sass-loader: /sass-loader/7.1.0/webpack@4.29.3
       source-map-loader: 0.2.4
       style-loader: 0.23.1
-      ts-loader: /ts-loader/5.3.3/typescript@3.3.1
+      ts-loader: /ts-loader/5.3.3/typescript@3.3.3
       tslib: 1.9.3
-      typescript: 3.3.1
-      typescript-plugin-styled-components: /typescript-plugin-styled-components/1.2.0/typescript@3.3.1
+      typescript: 3.3.3
+      typescript-plugin-styled-components: /typescript-plugin-styled-components/1.2.0/typescript@3.3.3
       webpack: 4.29.3
       webpack-bundle-analyzer: 3.0.3
       webpack-cli: /webpack-cli/3.2.3/webpack@4.29.3
       webpack-dev-server: /webpack-dev-server/3.1.14/webpack@4.29.3
       webpack-merge: 4.2.1
     dev: false
+    engines:
+      yarn: YARN NO LONGER USED - use npm instead.
     resolution:
-      integrity: sha512-lFCYE9HiVAjKw8z+MsDWsy4HHQhXrIX5SipSskZSkfhfDAifdl8n7qLtcsvSCnWWqn6ekeM0gHMyQcrIzWlrRA==
-  /@misk/tslint/0.1.3-15:
+      integrity: sha512-XnnOFMov3Bck6St8GfH0xwm7dxb939Fc8w9CinlPPK4gzsoDBC1GL2MvShhFk2wvS2S8Vuy5j5o6aQ5ch2Srwg==
+  /@misk/dev/0.1.4-1:
     dependencies:
-      tslint: /tslint/5.12.1/typescript@3.3.1
-      tslint-blueprint: 0.1.0
-      tslint-clean-code: /tslint-clean-code/0.2.9/tslint@5.12.1+typescript@3.3.1
-      tslint-config-prettier: 1.18.0
-      tslint-consistent-codestyle: /tslint-consistent-codestyle/1.15.0/tslint@5.12.1+typescript@3.3.1
-      tslint-eslint-rules: /tslint-eslint-rules/5.4.0/tslint@5.12.1+typescript@3.3.1
-      tslint-immutable: /tslint-immutable/5.1.2/tslint@5.12.1+typescript@3.3.1
-      tslint-react: /tslint-react/3.6.0/tslint@5.12.1+typescript@3.3.1
-      tslint-sonarts: /tslint-sonarts/1.9.0/tslint@5.12.1+typescript@3.3.1
-      typescript: 3.3.1
+      '@types/history': 4.7.2
+      '@types/lodash-es': 4.17.1
+      '@types/node': 10.12.21
+      '@types/react': 16.8.2
+      '@types/react-dom': 16.8.0
+      '@types/react-helmet': 5.0.8
+      '@types/react-hot-loader': 4.1.0
+      '@types/react-redux': 6.0.13
+      '@types/react-router': 4.4.3
+      '@types/react-router-dom': 4.3.1
+      '@types/styled-components': 4.1.8
+      '@types/webpack': 4.4.24
+      '@types/webpack-env': 1.13.7
+      copy-webpack-plugin: 4.6.0
+      cross-env: 5.2.0
+      css-loader: /css-loader/2.1.0/webpack@4.29.3
+      file-loader: /file-loader/3.0.1/webpack@4.29.3
+      html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/0639708bc9db801fb9a579ae777a9c55
+      html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.29.3
+      mini-css-extract-plugin: /mini-css-extract-plugin/0.5.0/webpack@4.29.3
+      optimize-css-assets-webpack-plugin: /optimize-css-assets-webpack-plugin/5.0.1/webpack@4.29.3
+      prettier: 1.16.4
+      prop-types: 15.6.2
+      sass-loader: /sass-loader/7.1.0/webpack@4.29.3
+      source-map-loader: 0.2.4
+      style-loader: 0.23.1
+      ts-loader: /ts-loader/5.3.3/typescript@3.3.3
+      tslib: 1.9.3
+      typescript: 3.3.3
+      typescript-plugin-styled-components: /typescript-plugin-styled-components/1.2.0/typescript@3.3.3
+      webpack: 4.29.3
+      webpack-bundle-analyzer: 3.0.3
+      webpack-cli: /webpack-cli/3.2.3/webpack@4.29.3
+      webpack-dev-server: /webpack-dev-server/3.1.14/webpack@4.29.3
+      webpack-merge: 4.2.1
     dev: false
+    engines:
+      yarn: YARN NO LONGER USED - use npm instead.
     resolution:
-      integrity: sha512-okFEVH888use/WgylhhWsi1PaXgCcnTaXlEtmD31fONfy5mDMXStp5q37kZHUX8SlQHTY698XA9vaRJpx0zfcQ==
+      integrity: sha512-nbXK+HLW+FKvNMLJxNSPILcuOileocezw37gYYwjfAsKJ9462jZT3+4j1yCL79fpeun4XH+WBdugIovpzGY5WA==
+  /@misk/tslint/0.1.3:
+    dependencies:
+      tslint: /tslint/5.12.1/typescript@3.3.3
+      tslint-blueprint: 0.1.0
+      tslint-clean-code: /tslint-clean-code/0.2.9/tslint@5.12.1+typescript@3.3.3
+      tslint-config-prettier: 1.18.0
+      tslint-consistent-codestyle: /tslint-consistent-codestyle/1.15.0/tslint@5.12.1+typescript@3.3.3
+      tslint-eslint-rules: /tslint-eslint-rules/5.4.0/tslint@5.12.1+typescript@3.3.3
+      tslint-immutable: /tslint-immutable/5.1.2/tslint@5.12.1+typescript@3.3.3
+      tslint-react: /tslint-react/3.6.0/tslint@5.12.1+typescript@3.3.3
+      tslint-sonarts: /tslint-sonarts/1.9.0/tslint@5.12.1+typescript@3.3.3
+      typescript: 3.3.3
+    dev: false
+    engines:
+      yarn: YARN NO LONGER USED - use npm instead.
+    resolution:
+      integrity: sha512-6743KqX1sYcT6daoU5ErMWFlPUWtjtN9wCC3G3nqPu2wMyg9oqy50Vb3BqifrkEAUVLmDPBxZUXIi+a+B6T6Og==
+  /@misk/tslint/0.1.4-1:
+    dependencies:
+      tslint: /tslint/5.12.1/typescript@3.3.3
+      tslint-blueprint: 0.1.0
+      tslint-clean-code: /tslint-clean-code/0.2.9/tslint@5.12.1+typescript@3.3.3
+      tslint-config-prettier: 1.18.0
+      tslint-consistent-codestyle: /tslint-consistent-codestyle/1.15.0/tslint@5.12.1+typescript@3.3.3
+      tslint-eslint-rules: /tslint-eslint-rules/5.4.0/tslint@5.12.1+typescript@3.3.3
+      tslint-immutable: /tslint-immutable/5.1.2/tslint@5.12.1+typescript@3.3.3
+      tslint-react: /tslint-react/3.6.0/tslint@5.12.1+typescript@3.3.3
+      tslint-sonarts: /tslint-sonarts/1.9.0/tslint@5.12.1+typescript@3.3.3
+      typescript: 3.3.3
+    dev: false
+    engines:
+      yarn: YARN NO LONGER USED - use npm instead.
+    resolution:
+      integrity: sha512-S7nhMxXwMOvt6atFWjaxUI519IqYfkGrYrOxIfBSlog71pCezjRbjBiVZs3jj/Nf2hojynHx7q4BdeHZzYYK1A==
   /@types/anymatch/1.3.0:
     dev: false
     resolution:
@@ -1163,6 +1297,10 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-faqwZqnWxbxn+F1d399ygeamQNy3lPp/H9H6rNrqYh4FSVCtcY+3cub1MxA8o9mDd55mM8Aghuu/kuyYA6VTsA==
+  /camelize/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha1-FkpUg+Yw+kMh5a8HAg5TGDGyYJs=
   /caniuse-api/3.0.0:
     dependencies:
       browserslist: 4.4.1
@@ -1694,14 +1832,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-xYL0AMZJ4gFzJQsHUKa5jiWWi2vH77WVNg7JYRyewwj6oPh4yb/y6Y9ZCw9dsj/9UauMhtuxR+ogQd//EdEVNA==
-  /css-to-react-native/2.2.2:
+  /css-to-react-native/2.3.0:
     dependencies:
+      camelize: 1.0.0
       css-color-keywords: 1.0.0
-      fbjs: 0.8.17
       postcss-value-parser: 3.3.1
     dev: false
     resolution:
-      integrity: sha512-w99Fzop1FO8XKm0VpbQp3y5mnTnaS+rtCvS+ylSEOK76YXO5zoHQx/QMB1N54Cp+Ya9jB9922EHrh14ld4xmmw==
+      integrity: sha512-IhR7bNIrCFwbJbKZOAjNDZdwpsbjTN6f1agXeELHDqg1wHPA8c2QLruttKOW7hgMGetkfraRJCIEMrptifBfVw==
   /css-tree/1.0.0-alpha.28:
     dependencies:
       mdn-data: 1.1.4
@@ -6049,7 +6187,7 @@ packages:
       '@emotion/is-prop-valid': 0.7.3
       '@emotion/unitless': 0.7.3
       babel-plugin-styled-components: 1.10.0
-      css-to-react-native: 2.2.2
+      css-to-react-native: 2.3.0
       memoize-one: 4.0.3
       prop-types: 15.6.2
       react-is: 16.8.1
@@ -6069,7 +6207,7 @@ packages:
       '@emotion/is-prop-valid': 0.7.3
       '@emotion/unitless': 0.7.3
       babel-plugin-styled-components: /babel-plugin-styled-components/1.10.0/styled-components@4.1.3
-      css-to-react-native: 2.2.2
+      css-to-react-native: 2.3.0
       memoize-one: 4.0.3
       prop-types: 15.6.2
       react: 16.8.1
@@ -6276,14 +6414,14 @@ packages:
       typescript: '*'
     resolution:
       integrity: sha512-KwF1SplmOJepnoZ4eRIloH/zXL195F51skt7reEsS6jvDqzgc/YSbz9b8E07GxIUwLXdcD4ssrJu6v8CwaTafA==
-  /ts-loader/5.3.3/typescript@3.3.1:
+  /ts-loader/5.3.3/typescript@3.3.3:
     dependencies:
       chalk: 2.4.2
       enhanced-resolve: 4.1.0
       loader-utils: 1.2.3
       micromatch: 3.1.10
       semver: 5.6.0
-      typescript: 3.3.1
+      typescript: 3.3.3
     dev: false
     engines:
       node: '>=6.11.5'
@@ -6304,11 +6442,11 @@ packages:
     dev: false
     resolution:
       integrity: sha1-tbbhyLGNulpFT6eQWsdRFecoSv0=
-  /tslint-clean-code/0.2.9/tslint@5.12.1+typescript@3.3.1:
+  /tslint-clean-code/0.2.9/tslint@5.12.1+typescript@3.3.3:
     dependencies:
       memoize-decorator: 1.0.2
-      tslint: /tslint/5.12.1/typescript@3.3.1
-      tsutils: /tsutils/2.7.1/typescript@3.3.1
+      tslint: /tslint/5.12.1/typescript@3.3.3
+      tsutils: /tsutils/2.7.1/typescript@3.3.3
     dev: false
     id: registry.npmjs.org/tslint-clean-code/0.2.9
     peerDependencies:
@@ -6322,13 +6460,13 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-xPw9PgNPLG3iKRxmK7DWr+Ea/SzrvfHtjFt5LBl61gk2UBG/DB9kCXRjv+xyIU1rUtnayLeMUVJBcMX8Z17nDg==
-  /tslint-consistent-codestyle/1.15.0/tslint@5.12.1+typescript@3.3.1:
+  /tslint-consistent-codestyle/1.15.0/tslint@5.12.1+typescript@3.3.3:
     dependencies:
-      '@fimbul/bifrost': /@fimbul/bifrost/0.17.0/tslint@5.12.1+typescript@3.3.1
+      '@fimbul/bifrost': /@fimbul/bifrost/0.17.0/tslint@5.12.1+typescript@3.3.3
       tslib: 1.9.3
-      tslint: /tslint/5.12.1/typescript@3.3.1
-      tsutils: /tsutils/2.29.0/typescript@3.3.1
-      typescript: 3.3.1
+      tslint: /tslint/5.12.1/typescript@3.3.3
+      tsutils: /tsutils/2.29.0/typescript@3.3.3
+      typescript: 3.3.3
     dev: false
     id: registry.npmjs.org/tslint-consistent-codestyle/1.15.0
     peerDependencies:
@@ -6336,13 +6474,13 @@ packages:
       typescript: '>=2.1.4 || >=2.1.0-dev || >=2.2.0-dev || >=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >=3.0.0-dev || >=3.1.0-dev || >=3.2.0-dev || >=3.3.0-dev || >=3.4.0-dev'
     resolution:
       integrity: sha512-6BNDBbZh2K0ibRXe70Mkl9gfVttxQ3t3hqV1BRDfpIcjrUoOgD946iH4SrXp+IggDgeMs3dJORjD5tqL5j4jXg==
-  /tslint-eslint-rules/5.4.0/tslint@5.12.1+typescript@3.3.1:
+  /tslint-eslint-rules/5.4.0/tslint@5.12.1+typescript@3.3.3:
     dependencies:
       doctrine: 0.7.2
       tslib: 1.9.0
-      tslint: /tslint/5.12.1/typescript@3.3.1
-      tsutils: /tsutils/3.8.0/typescript@3.3.1
-      typescript: 3.3.1
+      tslint: /tslint/5.12.1/typescript@3.3.3
+      tsutils: /tsutils/3.8.0/typescript@3.3.3
+      typescript: 3.3.3
     dev: false
     id: registry.npmjs.org/tslint-eslint-rules/5.4.0
     peerDependencies:
@@ -6350,11 +6488,11 @@ packages:
       typescript: ^2.2.0 || ^3.0.0
     resolution:
       integrity: sha512-WlSXE+J2vY/VPgIcqQuijMQiel+UtmXS+4nvK4ZzlDiqBfXse8FAvkNnTcYhnQyOTW5KFM+uRRGXxYhFpuBc6w==
-  /tslint-immutable/5.1.2/tslint@5.12.1+typescript@3.3.1:
+  /tslint-immutable/5.1.2/tslint@5.12.1+typescript@3.3.3:
     dependencies:
-      tslint: /tslint/5.12.1/typescript@3.3.1
-      tsutils: /tsutils/3.8.0/typescript@3.3.1
-      typescript: 3.3.1
+      tslint: /tslint/5.12.1/typescript@3.3.3
+      tsutils: /tsutils/3.8.0/typescript@3.3.3
+      typescript: 3.3.3
     dev: false
     id: registry.npmjs.org/tslint-immutable/5.1.2
     peerDependencies:
@@ -6362,11 +6500,11 @@ packages:
       typescript: ^2.8.0 || ^3.0.0
     resolution:
       integrity: sha512-MVxtN0E90q3EJvBrA/B9ojsA2KNYiRqZA/8vQeSjAHgzbwGgx9kpNHssDel+Bi6DmqSGC8J+0Jy1fCNPJxEdZw==
-  /tslint-react/3.6.0/tslint@5.12.1+typescript@3.3.1:
+  /tslint-react/3.6.0/tslint@5.12.1+typescript@3.3.3:
     dependencies:
-      tslint: /tslint/5.12.1/typescript@3.3.1
-      tsutils: /tsutils/2.29.0/typescript@3.3.1
-      typescript: 3.3.1
+      tslint: /tslint/5.12.1/typescript@3.3.3
+      tsutils: /tsutils/2.29.0/typescript@3.3.3
+      typescript: 3.3.3
     dev: false
     id: registry.npmjs.org/tslint-react/3.6.0
     peerDependencies:
@@ -6374,11 +6512,11 @@ packages:
       typescript: '>=2.1.0 || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev'
     resolution:
       integrity: sha512-AIv1QcsSnj7e9pFir6cJ6vIncTqxfqeFF3Lzh8SuuBljueYzEAtByuB6zMaD27BL0xhMEqsZ9s5eHuCONydjBw==
-  /tslint-sonarts/1.9.0/tslint@5.12.1+typescript@3.3.1:
+  /tslint-sonarts/1.9.0/tslint@5.12.1+typescript@3.3.3:
     dependencies:
       immutable: 3.8.2
-      tslint: /tslint/5.12.1/typescript@3.3.1
-      typescript: 3.3.1
+      tslint: /tslint/5.12.1/typescript@3.3.3
+      typescript: 3.3.3
     dev: false
     engines:
       node: '>=6'
@@ -6389,7 +6527,7 @@ packages:
       typescript: ^2.2 || ^3.0
     resolution:
       integrity: sha512-CJWt+IiYI8qggb2O/JPkS6CkC5DY1IcqRsm9EHJ+AxoWK70lvtP7jguochyNDMP2vIz/giGdWCfEM39x/I/Vnw==
-  /tslint/5.12.1/typescript@3.3.1:
+  /tslint/5.12.1/typescript@3.3.3:
     dependencies:
       babel-code-frame: 6.26.0
       builtin-modules: 1.1.1
@@ -6402,8 +6540,8 @@ packages:
       resolve: 1.10.0
       semver: 5.6.0
       tslib: 1.9.3
-      tsutils: /tsutils/2.29.0/typescript@3.3.1
-      typescript: 3.3.1
+      tsutils: /tsutils/2.29.0/typescript@3.3.3
+      typescript: 3.3.3
     dev: false
     engines:
       node: '>=4.8.0'
@@ -6413,30 +6551,30 @@ packages:
       typescript: '>=2.1.0 || >=2.1.0-dev || >=2.2.0-dev || >=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev'
     resolution:
       integrity: sha512-sfodBHOucFg6egff8d1BvuofoOQ/nOeYNfbp7LDlKBcLNrL3lmS5zoiDGyOMdT7YsEXAwWpTdAHwOGOc8eRZAw==
-  /tsutils/2.29.0/typescript@3.3.1:
+  /tsutils/2.29.0/typescript@3.3.3:
     dependencies:
       tslib: 1.9.3
-      typescript: 3.3.1
+      typescript: 3.3.3
     dev: false
     id: registry.npmjs.org/tsutils/2.29.0
     peerDependencies:
       typescript: '>=2.1.0 || >=2.1.0-dev || >=2.2.0-dev || >=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >= 3.0.0-dev || >= 3.1.0-dev'
     resolution:
       integrity: sha512-g5JVHCIJwzfISaXpXE1qvNalca5Jwob6FjI4AoPlqMusJ6ftFE7IkkFoMhVLRgK+4Kx3gkzb8UZK5t5yTTvEmA==
-  /tsutils/2.7.1/typescript@3.3.1:
+  /tsutils/2.7.1/typescript@3.3.3:
     dependencies:
       tslib: 1.9.3
-      typescript: 3.3.1
+      typescript: 3.3.3
     dev: false
     id: registry.npmjs.org/tsutils/2.7.1
     peerDependencies:
       typescript: '>=2.1.0 || >=2.1.0-dev || >=2.2.0-dev || >=2.3.0-dev || >= 2.4.0-dev || >= 2.5.0-dev || >= 2.6.0-dev'
     resolution:
       integrity: sha1-QRoOlGZSWisoaSYKVWINcpIVXiQ=
-  /tsutils/3.8.0/typescript@3.3.1:
+  /tsutils/3.8.0/typescript@3.3.3:
     dependencies:
       tslib: 1.9.3
-      typescript: 3.3.1
+      typescript: 3.3.3
     dev: false
     engines:
       node: '>= 6'
@@ -6472,22 +6610,22 @@ packages:
       typescript: ^2.5.2 || ^3.0
     resolution:
       integrity: sha512-nJco2kUnOyiwK+MTkQ05uhrRBxmJPmdjztYKuHYxqntEI6E4S5jMItVv7Dsapq4WGdDgN49/j9bIAx/+s1vHBA==
-  /typescript-plugin-styled-components/1.2.0/typescript@3.3.1:
+  /typescript-plugin-styled-components/1.2.0/typescript@3.3.3:
     dependencies:
-      typescript: 3.3.1
+      typescript: 3.3.3
     dev: false
     id: registry.npmjs.org/typescript-plugin-styled-components/1.2.0
     peerDependencies:
       typescript: ^2.5.2 || ^3.0
     resolution:
       integrity: sha512-nJco2kUnOyiwK+MTkQ05uhrRBxmJPmdjztYKuHYxqntEI6E4S5jMItVv7Dsapq4WGdDgN49/j9bIAx/+s1vHBA==
-  /typescript/3.3.1:
+  /typescript/3.3.3:
     dev: false
     engines:
       node: '>=4.2.0'
     hasBin: true
     resolution:
-      integrity: sha512-cTmIDFW7O0IHbn1DPYjkiebHxwtCMU+eTy30ZtJNBPF9j2O1ITu5XH2YnBeVRKWHqF+3JQwWJv0Q0aUgX8W7IA==
+      integrity: sha512-Y21Xqe54TBVp+VDSNbuDYdGw0BpoR/Q6wo/+35M8PAU0vipahnyduJWirxxdxjsAkS7hue53x2zp8gz7F05u0A==
   /ua-parser-js/0.7.19:
     dev: false
     resolution:
@@ -7040,23 +7178,23 @@ packages:
       integrity: sha512-Lhz8TLaYnxq/2ObqHDql8dX8CJi97oHxrjUcYtzKbbykPtVW9WB+poxI+NM2UIzsMgNCZTIf0AQwsjK5yMAqZw==
   'file:projects/misk-web-examples-data.tgz':
     dependencies:
-      '@misk/common': 0.1.3-15
-      '@misk/dev': 0.1.3-15
-      '@misk/tslint': 0.1.3-15
+      '@misk/common': 0.1.3
+      '@misk/dev': 0.1.3
+      '@misk/tslint': 0.1.3
       '@types/fs-extra': 5.0.4
       '@types/node': 10.12.21
       '@types/react': 16.8.2
       fs-extra: 7.0.1
       prettier: 1.16.4
       tslib: 1.9.3
-      typescript: 3.3.1
+      typescript: 3.3.3
     dev: false
     name: '@rush-temp/misk-web-examples-data'
     resolution:
       integrity: sha512-CZI8j/AiK05i7jKcwPiFGt/mEwcLpJQgorv5mCV1O6r1DKk9IcjLe0f9VVL+dE2xESguuAQrPaEbS0nftBMOFg==
       tarball: 'file:projects/misk-web-examples-data.tgz'
     version: 0.0.0
-  'file:projects/misk-web-examples-services-dashboard.tgz':
+  'file:projects/misk-web-tab-dashboard.tgz':
     dependencies:
       '@blueprintjs/core': /@blueprintjs/core/3.12.0/react-dom@16.8.1+react@16.8.1
       '@blueprintjs/datetime': 3.7.0
@@ -7064,10 +7202,10 @@ packages:
       '@blueprintjs/select': 3.6.0
       '@blueprintjs/table': 3.4.1
       '@blueprintjs/timezone': 3.3.0
-      '@misk/common': 0.1.3-15
-      '@misk/core': 0.1.3-15
-      '@misk/dev': 0.1.3-15
-      '@misk/tslint': 0.1.3-15
+      '@misk/common': 0.1.3
+      '@misk/core': 0.1.3
+      '@misk/dev': 0.1.3
+      '@misk/tslint': 0.1.3
       '@types/history': 4.7.2
       '@types/lodash-es': 4.17.1
       '@types/node': 10.12.21
@@ -7114,20 +7252,20 @@ packages:
       source-map-loader: 0.2.4
       style-loader: 0.23.1
       styled-components: /styled-components/4.1.3/21f21743178843fe74c6c0d0430b10da
-      ts-loader: /ts-loader/5.3.3/typescript@3.3.1
+      ts-loader: /ts-loader/5.3.3/typescript@3.3.3
       tslib: 1.9.3
-      typescript: 3.3.1
-      typescript-plugin-styled-components: /typescript-plugin-styled-components/1.2.0/typescript@3.3.1
+      typescript: 3.3.3
+      typescript-plugin-styled-components: /typescript-plugin-styled-components/1.2.0/typescript@3.3.3
       webpack: 4.29.3
       webpack-bundle-analyzer: 3.0.3
       webpack-cli: /webpack-cli/3.2.3/webpack@4.29.3
       webpack-dev-server: /webpack-dev-server/3.1.14/webpack@4.29.3
       webpack-merge: 4.2.1
     dev: false
-    name: '@rush-temp/misk-web-examples-services-dashboard'
+    name: '@rush-temp/misk-web-tab-dashboard'
     resolution:
-      integrity: sha512-5WtqhETMoMS6fNSyDpXR0vc9cYpfwU3ejRIsdwBxSp+vo4CUbYjzvWIUHLHN/w0zZseMLtvAjvpFCg3AAFLVNA==
-      tarball: 'file:projects/misk-web-examples-services-dashboard.tgz'
+      integrity: sha512-Exhh/x27UXbbUbt4p+aBn8S/n6NW2IC397hbXKWP2bRZh+m77QlEVn41+FNQwfi5wfT2InHxNpDL4qSZkIDBQw==
+      tarball: 'file:projects/misk-web-tab-dashboard.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette-exemplar.tgz':
     dependencies:
@@ -7137,10 +7275,10 @@ packages:
       '@blueprintjs/select': 3.6.0
       '@blueprintjs/table': 3.4.1
       '@blueprintjs/timezone': 3.3.0
-      '@misk/common': 0.1.3-15
-      '@misk/core': 0.1.3-15
-      '@misk/dev': 0.1.3-15
-      '@misk/tslint': 0.1.3-15
+      '@misk/common': 0.1.3
+      '@misk/core': 0.1.3
+      '@misk/dev': 0.1.3
+      '@misk/tslint': 0.1.3
       '@types/history': 4.7.2
       '@types/lodash-es': 4.17.1
       '@types/node': 10.12.21
@@ -7187,10 +7325,10 @@ packages:
       source-map-loader: 0.2.4
       style-loader: 0.23.1
       styled-components: /styled-components/4.1.3/21f21743178843fe74c6c0d0430b10da
-      ts-loader: /ts-loader/5.3.3/typescript@3.3.1
+      ts-loader: /ts-loader/5.3.3/typescript@3.3.3
       tslib: 1.9.3
-      typescript: 3.3.1
-      typescript-plugin-styled-components: /typescript-plugin-styled-components/1.2.0/typescript@3.3.1
+      typescript: 3.3.3
+      typescript-plugin-styled-components: /typescript-plugin-styled-components/1.2.0/typescript@3.3.3
       webpack: 4.29.3
       webpack-bundle-analyzer: 3.0.3
       webpack-cli: /webpack-cli/3.2.3/webpack@4.29.3
@@ -7199,7 +7337,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-JCHlnofB3JPD5D8oIr9KjhhfiZmd6ffK1LxmoOnTvVwZaJ2Nwuu2ExqGQ4+eOzJq/+KgBuIUNL1XESbBZEirQg==
+      integrity: sha512-XBpyDyMrRUZGfnqQoXNrgov/3bCf4XOpMCrR3KUKyfa6ukGpxsbWTsvxLGPO0mOYgkK1bHTm0CIxmeT9/rqH6g==
       tarball: 'file:projects/misk-web-tab-palette-exemplar.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette.tgz':
@@ -7210,10 +7348,10 @@ packages:
       '@blueprintjs/select': 3.6.0
       '@blueprintjs/table': 3.4.1
       '@blueprintjs/timezone': 3.3.0
-      '@misk/common': 0.1.3-15
-      '@misk/core': 0.1.3-15
-      '@misk/dev': 0.1.3-15
-      '@misk/tslint': 0.1.3-15
+      '@misk/common': 0.1.4-1
+      '@misk/core': 0.1.4-1
+      '@misk/dev': 0.1.4-1
+      '@misk/tslint': 0.1.4-1
       '@types/history': 4.7.2
       '@types/lodash-es': 4.17.1
       '@types/node': 10.12.21
@@ -7260,10 +7398,10 @@ packages:
       source-map-loader: 0.2.4
       style-loader: 0.23.1
       styled-components: /styled-components/4.1.3/21f21743178843fe74c6c0d0430b10da
-      ts-loader: /ts-loader/5.3.3/typescript@3.3.1
+      ts-loader: /ts-loader/5.3.3/typescript@3.3.3
       tslib: 1.9.3
-      typescript: 3.3.1
-      typescript-plugin-styled-components: /typescript-plugin-styled-components/1.2.0/typescript@3.3.1
+      typescript: 3.3.3
+      typescript-plugin-styled-components: /typescript-plugin-styled-components/1.2.0/typescript@3.3.3
       webpack: 4.29.3
       webpack-bundle-analyzer: 3.0.3
       webpack-cli: /webpack-cli/3.2.3/webpack@4.29.3
@@ -7272,7 +7410,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette'
     resolution:
-      integrity: sha512-P/fNG695MiLAhH3Sjfjt3/8OjaMa5ECco9yZOsOEFGMSmi8goq+HB5oET2N4dEIDQIgf47F2fkyTXYIdqmg/Pw==
+      integrity: sha512-K1zZmd0S2lOecRVR58PNOnJZehFY0kaiwik4bLdZIiEfnwQlmCMW50Kp3NFhqc13oyXcDvVF7ZJn7ruKGY2dZA==
       tarball: 'file:projects/misk-web-tab-palette.tgz'
     version: 0.0.0
 registry: 'https://registry.npmjs.org/'
@@ -7286,7 +7424,7 @@ specifiers:
   '@blueprintjs/table': ^3.3.0
   '@blueprintjs/timezone': ^3.1.0
   '@rush-temp/misk-web-examples-data': 'file:./projects/misk-web-examples-data.tgz'
-  '@rush-temp/misk-web-examples-services-dashboard': 'file:./projects/misk-web-examples-services-dashboard.tgz'
+  '@rush-temp/misk-web-tab-dashboard': 'file:./projects/misk-web-tab-dashboard.tgz'
   '@rush-temp/misk-web-tab-palette': 'file:./projects/misk-web-tab-palette.tgz'
   '@rush-temp/misk-web-tab-palette-exemplar': 'file:./projects/misk-web-tab-palette-exemplar.tgz'
   '@types/fs-extra': ^5.0.4

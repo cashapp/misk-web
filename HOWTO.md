@@ -33,6 +33,7 @@
 ## Getting Started with a New Tab
 
 - Install the Misk-Web CLI
+
   ```Bash
   $ npm install -g @misk/cli
   $ miskweb -h
@@ -51,21 +52,35 @@
   ```
 
 - The new tab script will help initialize a tab prompting for the name of your new tab.
-- Your new tab will include a `miskTab.json` file that has all of the core metadata that your tab requires. It will be prefilled but you should consider changing the port number to one that doesn't conflict with other tabs that you'll be developing. 
-- `miskTab.json` includes the following fields:
-  - name: `misktab-trexfoodlog`. Package name must only have lowercase letters.
-  - miskTab:
-    - name: `T-Rex Food Log`. Titlecase tab name.
-    - output_path: optional override field. By default it will be `lib/web/_tab/{slug}`.
-    - port: `30420`. port number for Webpack Dev Server.
-      - Todo(adrw): Find a way to centrally reserve a port number. Otherwise there will be the risk that while working in development mode on your tab and another tab, the other tab may fail to serve because of port conflict.
-      - `3100-3199`: Misk infrastructure (ex. Loader tab).
-      - `3200-3499`: Shipped with Misk tabs (ex. Config).
-      - `3500-9000`: Square reserved ports.
-      - `30000-39999`: Open ports for all other tabs built on Misk.
-    - relative_path_prefix: optional override field. By default, it will be tab slug prefixed by `_tab/`.
-    - slug: lowercase, no symbols name to be used in determining URL domain space. Should be the same as the `package.json::name` without the prefix `misktab-`.
-    - version: [`squareup/misk-web`](https://hub.docker.com/r/squareup/misk-web/) Docker image version for the build and packages Misk Web environment to be used for the tab. Upgrade this periodically to get latest `@misk/` packages and build environment. By default it is on `latest` which is the latest stable Misk Web version. `alpha` is another short hand that will always include the latest version.
+- Your new tab will include a `miskTab.json` file that has all of the core metadata that your tab requires. It will be prefilled but you should consider changing the port number to one that doesn't conflict with other tabs that you'll be developing.
+- `miskTab.json` has the following interface (descriptions below)
+
+  ```Typescript
+  export interface IMiskTabJSON {
+    name: string
+    output_path: string
+    port: number
+    relative_path_prefix: string
+    slug: string
+    tsconfigCompilerOptions: any
+    version: MiskVersion
+    zipOnBuild: boolean
+  }
+  ```
+
+  - name: `T-Rex Food Log`. Titlecase tab name.
+  - output_path: optional override field. By default it will be `lib/web/_tab/{slug}`.
+  - port: `30420`. port number for Webpack Dev Server.
+    - Todo(adrw): Find a way to centrally reserve a port number. Otherwise there will be the risk that while working in development mode on your tab and another tab, the other tab may fail to serve because of port conflict.
+    - `3100-3199`: Misk infrastructure (ex. Loader tab).
+    - `3200-3499`: Shipped with Misk tabs (ex. Config).
+    - `3500-9000`: Square reserved ports.
+    - `30000-39999`: Open ports for all other tabs built on Misk.
+  - relative_path_prefix: optional override field. By default, it will be tab slug prefixed by `_tab/`.
+  - slug: lowercase, no symbols name to be used in determining URL domain space. Should be the same as the `package.json::name` without the prefix `misktab-`.
+  - tsconfigCompilerOptions: any additional or Typescript compiler options that should be overridden for your tab. Usually should be unnecessary. File bugs if you're finding issues building your tab with the shipped default compiler options.
+  - version: [`squareup/misk-web`](https://hub.docker.com/r/squareup/misk-web/) Docker image version for the build and packages Misk Web environment to be used for the tab. Upgrade this periodically to get latest `@misk/` packages and build environment. By default it is on `latest` which is the latest stable Misk Web version. `alpha` is another short hand that will always include the latest version.
+  - zipOnBuild: will zip contents of tab into a `.tgz` file in the tab directory.
 
 ## Local Development
 
@@ -104,6 +119,7 @@
   ```
 
   - The following explains why each multibinding is used:
+
     - WebActionEntry: Installs and configures a WebAction with optional prefix, for binding any API endpoints used in the Tab. This is not necessary to get your tab working, and only serves as an example of an associated WebAction endpoint.
     - DashboardTab: Metadata of the tab that is used to generate dashbaord menu and other views. This adds the tab to the AdminDashboard in Misk. It will now know to look for it and show up in the dashboard menu.
     - WebTabResourcesModule: Binds the location of the compiled web code and dev-server so the tab code can be served through the service. The slug is used to find the tab compiled code in {service}/web/tab/{slug} and the web_proxy_url is used when developing the tab using Webpack Dev Server so that requests forward to the server and not to the filesystem)
@@ -154,8 +170,8 @@ To confirm that your tab is shipping in the jar, you can run the following comma
 ## Building your Tab
 
 1. Kick off an initial build
-    - CLI: (from your tab directory) `$ miskweb build`
-    - OR Gradle: (from your project root directory) `$ ./gradlew clean jar` or `$ ./gradlew web`.
+   - CLI: (from your tab directory) `$ miskweb build`
+   - OR Gradle: (from your project root directory) `$ ./gradlew clean jar` or `$ ./gradlew web`.
 1. Start your primary Misk service in IntelliJ.
 1. Open up [`http://localhost:8080/_admin/`](http://localhost:8080/_admin/) in the browser.
 
@@ -163,8 +179,8 @@ To confirm that your tab is shipping in the jar, you can run the following comma
 
 1. Follow the steps above to build all local tabs and start your service.
 1. Run the following commands to spin up a Webpack-Dev-Server in Docker instance to serve live edits to your service.
-    - CLI: (from each tab directory in separate terminal windows) `$ miskweb start`
-    - OR Gradle: (from your project root directory) `$ ./gradlew web -Pcmd='-d' -Ptabs='tabs/trexfoodlog,tabs/healthcheck'`. This will start separate docker containers with webpack-dev-servers for each of the tabs you pass in to `tabs`.
+   - CLI: (from each tab directory in separate terminal windows) `$ miskweb start`
+   - OR Gradle: (from your project root directory) `$ ./gradlew web -Pcmd='-d' -Ptabs='tabs/trexfoodlog,tabs/healthcheck'`. This will start separate docker containers with webpack-dev-servers for each of the tabs you pass in to `tabs`.
 1. This will start webpack-dev-servers for each of your tabs.
 1. Your service will now automatically route traffic (when in development mode) to the dev servers and you should see any changes you make appearing live.
 1. Restart your service after your webpack-dev-servers are running to take effect.
@@ -181,4 +197,3 @@ Add settings by copying the JSON from the file into `.vscode/settings.json` in y
 - Notice in the Misk multibindings that the AdminTabAction url had the prefix `_admin/` but all other multibindings had the prefix `_tab/`. This allows you to develop your tab without any of the surrounding Admin dashboard UI or overhead. Use the respective link below to open your tab in the browser.
   - [`http://localhost:8080/_admin/trexfoodlog/`](http://localhost:8080/_admin/trexfoodlog/): full dashboard UI with menu, other tabs...etc. Before the tab is pushed in production, extensive testing should be done here to ensure there are no bugs when the tab is loaded into the dashboard.
   - [`http://localhost:8080/_tab/trexfoodlog/`](http://localhost:8080/_tab/trexfoodlog/): develop your tab in the full browser window without dashboard nav bar or other UI. All functionality and styling should end up being identical to when the tab is loaded in the dashboard.
-  

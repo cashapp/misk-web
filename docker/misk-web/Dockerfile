@@ -1,17 +1,15 @@
 FROM node:10-alpine
 
 RUN apk add --no-cache tini git \
-  && yarn add \
-  --pure-lockfile \
-  --non-interactive \
-  --modules-folder /node_modules \
+  && mkdir -p /node_modules \
+  && npm install --prefix / \
   @misk/cli \
   @misk/common \
   @misk/components \
   @misk/core \
   @misk/dev \
   @misk/tslint \
-  && yarn global add @misk/cli cross-env prettier webpack webpack-cli webpack-dev-server
+  && npm install -g @misk/cli @misk/common @misk/components @misk/core @misk/dev @misk/tslint cross-env prettier webpack webpack-cli webpack-dev-server
 
 ENV NODE_PATH='/node_modules'
 COPY misk-web /bin/

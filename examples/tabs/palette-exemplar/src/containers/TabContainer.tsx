@@ -1,4 +1,4 @@
-import { response } from "@misk/core"
+import { simpleNetworkResponse } from "@misk/core"
 import * as React from "react"
 import { connect } from "react-redux"
 import { SampleTableComponent } from "../components"
@@ -18,7 +18,10 @@ class TabContainer extends React.Component<IContainerProps, IState> {
     const { simpleNetwork } = this.props
     return (
       <div>
-        <SampleTableComponent data={response(simpleNetwork, "cars")} rows={5} />
+        <SampleTableComponent
+          data={simpleNetworkResponse(simpleNetwork, "cars")}
+          rows={5}
+        />
       </div>
     )
   }
