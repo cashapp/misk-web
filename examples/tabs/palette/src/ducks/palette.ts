@@ -25,16 +25,33 @@ export enum PALETTE {
  * Object of functions that dispatch Actions with standard defaults and any required passed in input
  * dispatch Object is used within containers to initiate any saga provided functionality
  */
-export const dispatchPalette = {
-  dinosaur: () =>
+export interface IPalettePayload {
+  data?: any
+  error: any
+  loading: boolean
+  success: boolean
+}
+
+export interface IDispatchPalette {
+  paletteDinosaur: (
+    data: any,
+    fieldTag: string,
+    formTag: string
+  ) => IAction<PALETTE.DINOSAUR, IPalettePayload>
+  paletteFailure: (error: any) => IAction<PALETTE.FAILURE, IPalettePayload>
+  paletteSuccess: (data: any) => IAction<PALETTE.SUCCESS, IPalettePayload>
+}
+
+export const dispatchPalette: IDispatchPalette = {
+  paletteDinosaur: () =>
     createAction(PALETTE.DINOSAUR, {
       error: null,
       loading: true,
       success: false
     }),
-  failure: (error: any) =>
+  paletteFailure: (error: any) =>
     createAction(PALETTE.FAILURE, { ...error, loading: false, success: false }),
-  success: (data: any) =>
+  paletteSuccess: (data: any) =>
     createAction(PALETTE.SUCCESS, {
       ...data,
       error: null,
@@ -62,9 +79,9 @@ function* handleDinosaur() {
       axios.get,
       "https://jsonplaceholder.typicode.com/posts/"
     )
-    yield put(dispatchPalette.success({ data }))
+    yield put(dispatchPalette.paletteSuccess({ data }))
   } catch (e) {
-    yield put(dispatchPalette.failure({ error: { ...e } }))
+    yield put(dispatchPalette.paletteFailure({ error: { ...e } }))
   }
 }
 
@@ -84,10 +101,10 @@ const initialState = fromJS({
  * Duck Reducer
  * Merges dispatched action objects on to the existing (or initial) state to generate new state
  */
-export default function PaletteReducer(
+export const PaletteReducer = (
   state = initialState,
   action: IAction<string, {}>
-) {
+) => {
   switch (action.type) {
     case PALETTE.DINOSAUR:
     case PALETTE.FAILURE:
