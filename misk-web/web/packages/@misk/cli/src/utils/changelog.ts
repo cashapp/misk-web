@@ -1,6 +1,7 @@
 export enum MiskVersion {
   "latest" = "0.1.3",
   "alpha" = "0.1.4-2",
+  "v014_3" = "0.1.4-3",
   "v014_2" = "0.1.4-2",
   "v014_1" = "0.1.4-1",
   "v013" = "0.1.3",
@@ -104,6 +105,15 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v014_3]: {
+    [MiskPkg.cli]: `${[MiskVersion.v014_3]}`,
+    [MiskPkg.common]: `${[MiskVersion.v014_3]}`,
+    [MiskPkg.core]: `${[MiskVersion.v014_3]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v014_3]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v014_3]}`,
+    date: "2019-02-14",
+    notes: "Restore removeComments: true to TsConfig in @misk/ packages."
+  },
   [MiskVersion.v014_2]: {
     [MiskPkg.cli]: `${[MiskVersion.v014_2]}`,
     [MiskPkg.common]: `${[MiskVersion.v014_2]}`,
