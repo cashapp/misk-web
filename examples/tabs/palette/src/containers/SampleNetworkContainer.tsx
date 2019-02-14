@@ -14,7 +14,7 @@ import {
   querySimpleNetwork,
   onClickFnCall,
   onChangeFnCall
-} from "@misk/core"
+} from "../ducks"
 import * as React from "react"
 import { connect } from "react-redux"
 import { IDispatchProps, IState, rootDispatcher, rootSelectors } from "../ducks"

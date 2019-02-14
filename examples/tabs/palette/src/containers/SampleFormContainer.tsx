@@ -15,8 +15,8 @@ import {
   TextArea
 } from "@blueprintjs/core"
 import { IconNames } from "@blueprintjs/icons"
+import { FlexContainer } from "@misk/core"
 import {
-  FlexContainer,
   querySimpleForm,
   querySimpleFormData,
   onChangeFnCall,
@@ -27,7 +27,7 @@ import {
   onChangeToggleFnCall,
   onClickFnCall,
   getSimpleNetwork
-} from "@misk/core"
+} from "../ducks"
 import * as React from "react"
 import { connect } from "react-redux"
 import { IState, rootDispatcher, rootSelectors, IDispatchProps } from "../ducks"

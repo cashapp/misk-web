@@ -1,4 +1,4 @@
-import { getSimpleNetwork } from "@misk/core"
+import { getSimpleNetwork } from "../ducks"
 import * as React from "react"
 import { connect } from "react-redux"
 import { HowToComponent, SampleTableComponent } from "../components"

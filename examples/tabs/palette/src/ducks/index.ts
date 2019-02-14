@@ -1,14 +1,16 @@
+import { stateSelector } from "./simpleDucksUtilities"
+export * from "./simpleDucksUtilities"
+export * from "./simpleFormDucks"
+export * from "./simpleNetworkDucks"
 import {
   dispatchSimpleNetwork,
   IDispatchSimpleNetwork,
   ISimpleNetworkState,
   SimpleNetworkReducer,
-  simpleNetworkSelector,
   watchSimpleNetworkSagas,
   ISimpleFormState,
   IDispatchSimpleForm,
   dispatchSimpleForm,
-  simpleFormSelector,
   SimpleFormReducer,
   watchSimpleFormSagas
 } from "@misk/core"
@@ -59,8 +61,10 @@ export const rootDispatcher: IDispatchProps = {
  */
 export const rootSelectors = (state: IState) => ({
   palette: paletteSelector(state),
-  simpleForm: simpleFormSelector(state),
-  simpleNetwork: simpleNetworkSelector(state)
+  simpleForm: stateSelector<ISimpleFormState, IState>("simpleForm")(state),
+  simpleNetwork: stateSelector<ISimpleNetworkState, IState>("simpleNetwork")(
+    state
+  )
 })
 
 /**
