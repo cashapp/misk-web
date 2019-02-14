@@ -2,6 +2,7 @@
 
 _Note: extensive changelog is in `@misk/cli/src/utils/changelog.ts`. This is primarily only for breaking changes._
 
+- 2019-02-14: `simpleNetworkResponse` renamed to `getSimpleNetwork`. Many other potential breaking changes in refactor and release of `SimpleNetworkDucks` and `SimpleFormDucks`. API not stable and may be changed in upcoming releases for simplicity. Effective as of `@misk/core@0.1.4-2^`.
 - 2019-02-07: `response` in `simpleNetwork` library renamed to `simpleNetworkResponse` for less ambiguity when devs call it and to match prefixed function idiom established in `0.1.3-15`. Effective as of `@misk/core@0.1.3-18^`.
 - 2019-02-07: `simpleNetwork` library functions in props are now all prefixed such that `this.props.get` is now `this.props.simpleNetworkGet` to prevent collisions with other dispatcher objects. Effective as of `@misk/core@0.1.3-15^`.
 - 2018-11-30: `@misk/components` renamed to `@misk/core`. All versions and Docker at `0.1.0`.
