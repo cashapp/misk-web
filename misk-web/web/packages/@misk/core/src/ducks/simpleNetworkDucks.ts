@@ -6,9 +6,11 @@ import {
 } from "@misk/common"
 import axios, { AxiosRequestConfig } from "axios"
 import { fromJS } from "immutable"
+import { partition } from "lodash-es"
 import createCachedSelector from "re-reselect"
 import { all, AllEffect, call, put, takeEvery } from "redux-saga/effects"
 import { createSelector, OutputSelector, ParametricSelector } from "reselect"
+import { getPayloadTag, jsonOrString } from "."
 
 /**
  * Actions
@@ -30,11 +32,8 @@ export enum SIMPLENETWORK {
  * Object of functions that dispatch Actions with standard defaults and any required passed in input
  * dispatch Object is used within containers to initiate any saga provided functionality
  */
-export interface ISimpleNetworkPayload {
-  error: any
-  loading: boolean
+export interface ISimpleNetworkPayload extends IDefaultState {
   requestConfig: AxiosRequestConfig
-  success: boolean
   tag: string
   url: string
 }
@@ -44,51 +43,59 @@ export interface IDispatchSimpleNetwork {
     tag: string,
     url: string,
     requestConfig?: AxiosRequestConfig
-  ) => IAction<SIMPLENETWORK.DELETE, ISimpleNetworkPayload>
+  ) => IAction<SIMPLENETWORK.DELETE, ISimpleNetworkState>
   simpleNetworkFailure: (
-    error: any
-  ) => IAction<SIMPLENETWORK.FAILURE, ISimpleNetworkPayload>
+    tag: string,
+    url: string,
+    error: any,
+    requestConfig?: AxiosRequestConfig
+  ) => IAction<SIMPLENETWORK.FAILURE, ISimpleNetworkState>
   simpleNetworkGet: (
     tag: string,
     url: string,
     requestConfig?: AxiosRequestConfig
-  ) => IAction<SIMPLENETWORK.GET, ISimpleNetworkPayload>
+  ) => IAction<SIMPLENETWORK.GET, ISimpleNetworkState>
   simpleNetworkHead: (
     tag: string,
     url: string,
     requestConfig?: AxiosRequestConfig
-  ) => IAction<SIMPLENETWORK.HEAD, ISimpleNetworkPayload>
+  ) => IAction<SIMPLENETWORK.HEAD, ISimpleNetworkState>
   simpleNetworkPatch: (
     tag: string,
     url: string,
     data: any,
     requestConfig?: AxiosRequestConfig
-  ) => IAction<SIMPLENETWORK.PATCH, ISimpleNetworkPayload>
+  ) => IAction<SIMPLENETWORK.PATCH, ISimpleNetworkState>
   simpleNetworkPost: (
     tag: string,
     url: string,
     data: any,
     requestConfig?: AxiosRequestConfig
-  ) => IAction<SIMPLENETWORK.POST, ISimpleNetworkPayload>
+  ) => IAction<SIMPLENETWORK.POST, ISimpleNetworkState>
   simpleNetworkPut: (
     tag: string,
     url: string,
     data: any,
     requestConfig?: AxiosRequestConfig
-  ) => IAction<SIMPLENETWORK.PUT, ISimpleNetworkPayload>
+  ) => IAction<SIMPLENETWORK.PUT, ISimpleNetworkState>
   simpleNetworkSuccess: (
-    data: any
-  ) => IAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkPayload>
+    tag: string,
+    url: string,
+    error: any,
+    requestConfig?: AxiosRequestConfig
+  ) => IAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkState>
 }
 
 interface IDispatchDefault {
   data: any
+  error: any
   requestConfig: AxiosRequestConfig
   tag: string
 }
 
 const dispatchDefault: IDispatchDefault = {
   data: {},
+  error: {},
   requestConfig: {},
   tag: "latest"
 }
@@ -99,24 +106,36 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     url: string,
     requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
   ) =>
-    createAction<SIMPLENETWORK.DELETE, ISimpleNetworkPayload>(
+    createAction<SIMPLENETWORK.DELETE, ISimpleNetworkState>(
       SIMPLENETWORK.DELETE,
       {
-        error: null,
-        loading: true,
-        requestConfig,
-        success: false,
-        tag,
-        url
+        [tag]: {
+          error: null,
+          loading: true,
+          requestConfig,
+          success: false,
+          tag,
+          url
+        }
       }
     ),
-  simpleNetworkFailure: (error: any) =>
-    createAction<SIMPLENETWORK.FAILURE, ISimpleNetworkPayload>(
+  simpleNetworkFailure: (
+    tag: string = dispatchDefault.tag,
+    url: string,
+    error: any = dispatchDefault.error,
+    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+  ) =>
+    createAction<SIMPLENETWORK.FAILURE, ISimpleNetworkState>(
       SIMPLENETWORK.FAILURE,
       {
-        ...error,
-        loading: false,
-        success: false
+        [tag]: {
+          ...error,
+          loading: false,
+          requestConfig,
+          success: false,
+          tag,
+          url
+        }
       }
     ),
   simpleNetworkGet: (
@@ -124,22 +143,8 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     url: string,
     requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
   ) =>
-    createAction<SIMPLENETWORK.GET, ISimpleNetworkPayload>(SIMPLENETWORK.GET, {
-      error: null,
-      loading: true,
-      requestConfig,
-      success: false,
-      tag,
-      url
-    }),
-  simpleNetworkHead: (
-    tag: string = dispatchDefault.tag,
-    url: string,
-    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
-  ) =>
-    createAction<SIMPLENETWORK.HEAD, ISimpleNetworkPayload>(
-      SIMPLENETWORK.HEAD,
-      {
+    createAction<SIMPLENETWORK.GET, ISimpleNetworkState>(SIMPLENETWORK.GET, {
+      [tag]: {
         error: null,
         loading: true,
         requestConfig,
@@ -147,23 +152,40 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
         tag,
         url
       }
-    ),
-  simpleNetworkPatch: (
+    }),
+  simpleNetworkHead: (
     tag: string = dispatchDefault.tag,
     url: string,
-    data: any = dispatchDefault.data,
     requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
   ) =>
-    createAction<SIMPLENETWORK.PATCH, ISimpleNetworkPayload>(
-      SIMPLENETWORK.PATCH,
-      {
-        ...data,
+    createAction<SIMPLENETWORK.HEAD, ISimpleNetworkState>(SIMPLENETWORK.HEAD, {
+      [tag]: {
         error: null,
         loading: true,
         requestConfig,
         success: false,
         tag,
         url
+      }
+    }),
+  simpleNetworkPatch: (
+    tag: string = dispatchDefault.tag,
+    url: string,
+    data: any = dispatchDefault.data,
+    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+  ) =>
+    createAction<SIMPLENETWORK.PATCH, ISimpleNetworkState>(
+      SIMPLENETWORK.PATCH,
+      {
+        [tag]: {
+          data,
+          error: null,
+          loading: true,
+          requestConfig,
+          success: false,
+          tag,
+          url
+        }
       }
     ),
   simpleNetworkPost: (
@@ -172,10 +194,9 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     data: any = dispatchDefault.data,
     requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
   ) =>
-    createAction<SIMPLENETWORK.POST, ISimpleNetworkPayload>(
-      SIMPLENETWORK.POST,
-      {
-        ...data,
+    createAction<SIMPLENETWORK.POST, ISimpleNetworkState>(SIMPLENETWORK.POST, {
+      [tag]: {
+        data,
         error: null,
         loading: true,
         requestConfig,
@@ -183,30 +204,42 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
         tag,
         url
       }
-    ),
+    }),
   simpleNetworkPut: (
     tag: string = dispatchDefault.tag,
     url: string,
     data: any = dispatchDefault.data,
     requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
   ) =>
-    createAction<SIMPLENETWORK.PUT, ISimpleNetworkPayload>(SIMPLENETWORK.PUT, {
-      ...data,
-      error: null,
-      loading: true,
-      requestConfig,
-      success: false,
-      tag,
-      url
+    createAction<SIMPLENETWORK.PUT, ISimpleNetworkState>(SIMPLENETWORK.PUT, {
+      [tag]: {
+        data,
+        error: null,
+        loading: true,
+        requestConfig,
+        success: false,
+        tag,
+        url
+      }
     }),
-  simpleNetworkSuccess: (data: any) =>
-    createAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkPayload>(
+  simpleNetworkSuccess: (
+    tag: string = dispatchDefault.tag,
+    url: string,
+    data: any = dispatchDefault.data,
+    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+  ) =>
+    createAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkState>(
       SIMPLENETWORK.SUCCESS,
       {
-        ...data,
-        error: null,
-        loading: false,
-        success: true
+        [tag]: {
+          ...data,
+          error: null,
+          loading: false,
+          requestConfig,
+          success: true,
+          tag,
+          url
+        }
       }
     )
 }
@@ -242,117 +275,55 @@ const ActionTypeToAxiosCall: { [key: string]: any } = {
  * - HEAD
  */
 function* handleBasicRequest(
-  action: IAction<
-    SIMPLENETWORK,
-    { tag: string; url: string; requestConfig: AxiosRequestConfig }
-  >
+  action: IAction<SIMPLENETWORK, ISimpleNetworkState>
 ) {
   try {
-    const { tag, url, requestConfig } = action.payload
+    const { tag, url, requestConfig } = getPayloadTag(action.payload)
     const { data } = yield call(
       ActionTypeToAxiosCall[action.type],
       url,
       requestConfig
     )
-    yield put(
-      dispatchSimpleNetwork.simpleNetworkSuccess({
-        tags: { [tag]: { data: { ...data } } }
-      })
-    )
+    yield put(dispatchSimpleNetwork.simpleNetworkSuccess(tag, url, { ...data }))
   } catch (e) {
-    const { tag } = action.payload
-    yield put(
-      dispatchSimpleNetwork.simpleNetworkFailure({
-        tags: { [tag]: { error: { ...e } } }
-      })
-    )
+    const { tag, url } = getPayloadTag(action.payload)
+    yield put(dispatchSimpleNetwork.simpleNetworkFailure(tag, url, { ...e }))
   }
 }
 
-function* handlePatch(
-  action: IAction<
-    SIMPLENETWORK,
-    {
-      tag: string
-      url: string
-      updateData: any
-      requestConfig: AxiosRequestConfig
-    }
-  >
-) {
+function* handlePatch(action: IAction<SIMPLENETWORK, ISimpleNetworkState>) {
   try {
-    const { tag, url, updateData, requestConfig } = action.payload
-    const { data } = yield call(axios.patch, url, { updateData }, requestConfig)
-    yield put(
-      dispatchSimpleNetwork.simpleNetworkSuccess({
-        tags: { [tag]: { data: { ...data } } }
-      })
-    )
+    const updateData = jsonOrString(getPayloadTag(action.payload).data)
+    const { tag, url, requestConfig } = getPayloadTag(action.payload)
+    const { data } = yield call(axios.patch, url, updateData, requestConfig)
+    yield put(dispatchSimpleNetwork.simpleNetworkSuccess(tag, url, { ...data }))
   } catch (e) {
-    const { tag } = action.payload
-    yield put(
-      dispatchSimpleNetwork.simpleNetworkFailure({
-        tags: { [tag]: { error: { ...e } } }
-      })
-    )
+    const { tag, url } = getPayloadTag(action.payload)
+    yield put(dispatchSimpleNetwork.simpleNetworkFailure(tag, url, { ...e }))
   }
 }
 
-function* handlePost(
-  action: IAction<
-    SIMPLENETWORK,
-    {
-      tag: string
-      url: string
-      saveData: any
-      requestConfig: AxiosRequestConfig
-    }
-  >
-) {
+function* handlePost(action: IAction<SIMPLENETWORK, ISimpleNetworkState>) {
   try {
-    const { tag, url, saveData, requestConfig } = action.payload
-    const { data } = yield call(axios.post, url, { saveData }, requestConfig)
-    yield put(
-      dispatchSimpleNetwork.simpleNetworkSuccess({
-        tags: { [tag]: { data: { ...data } } }
-      })
-    )
+    const saveData = jsonOrString(getPayloadTag(action.payload).data)
+    const { tag, url, requestConfig } = getPayloadTag(action.payload)
+    const { data } = yield call(axios.post, url, saveData, requestConfig)
+    yield put(dispatchSimpleNetwork.simpleNetworkSuccess(tag, url, { ...data }))
   } catch (e) {
-    const { tag } = action.payload
-    yield put(
-      dispatchSimpleNetwork.simpleNetworkFailure({
-        tags: { [tag]: { error: { ...e } } }
-      })
-    )
+    const { tag, url } = getPayloadTag(action.payload)
+    yield put(dispatchSimpleNetwork.simpleNetworkFailure(tag, url, { ...e }))
   }
 }
 
-function* handlePut(
-  action: IAction<
-    SIMPLENETWORK,
-    {
-      tag: string
-      url: string
-      updateData: any
-      requestConfig: AxiosRequestConfig
-    }
-  >
-) {
+function* handlePut(action: IAction<SIMPLENETWORK, ISimpleNetworkState>) {
   try {
-    const { tag, url, updateData, requestConfig } = action.payload
-    const { data } = yield call(axios.put, url, { updateData }, requestConfig)
-    yield put(
-      dispatchSimpleNetwork.simpleNetworkSuccess({
-        tags: { [tag]: { data: { ...data } } }
-      })
-    )
+    const updateData = jsonOrString(getPayloadTag(action.payload).data)
+    const { tag, url, requestConfig } = getPayloadTag(action.payload)
+    const { data } = yield call(axios.put, url, updateData, requestConfig)
+    yield put(dispatchSimpleNetwork.simpleNetworkSuccess(tag, url, { ...data }))
   } catch (e) {
-    const { tag } = action.payload
-    yield put(
-      dispatchSimpleNetwork.simpleNetworkFailure({
-        tags: { [tag]: { error: { ...e } } }
-      })
-    )
+    const { tag, url } = getPayloadTag(action.payload)
+    yield put(dispatchSimpleNetwork.simpleNetworkFailure(tag, url, { ...e }))
   }
 }
 
@@ -372,7 +343,6 @@ export function* watchSimpleNetworkSagas(): IterableIterator<AllEffect> {
  * Reducer merges all changes from dispatched action objects on to this initial state
  */
 const initialState = fromJS({
-  tags: {},
   ...defaultState.toJS()
 })
 
@@ -393,7 +363,7 @@ export function SimpleNetworkReducer(
     case SIMPLENETWORK.POST:
     case SIMPLENETWORK.PUT:
     case SIMPLENETWORK.SUCCESS:
-      return state.mergeDeep(action.payload)
+      return state.merge(action.payload)
     default:
       return state
   }
@@ -405,15 +375,9 @@ export function SimpleNetworkReducer(
  * Consumed by the root reducer in ./ducks index to update global state
  * Duck state is attached at the root level of global state
  */
-export interface ISimpleNetworkTagResponse {
-  data: any | null
-  error: any | null
-}
 
 export interface ISimpleNetworkState extends IDefaultState {
-  tags: {
-    [tag: string]: ISimpleNetworkTagResponse
-  }
+  [tag: string]: any | ISimpleNetworkPayload
 }
 
 /**
@@ -435,16 +399,32 @@ export const simpleNetworkSelector: OutputSelector<
   state => state.toJS()
 )
 
-export const simpleNetworkResponse: ParametricSelector<
+export const getSimpleNetwork: ParametricSelector<
   {},
   string,
-  ISimpleNetworkTagResponse
+  ISimpleNetworkPayload
 > = createCachedSelector(
   simpleNetworkState,
   (simpleNetwork: ISimpleNetworkState, tag: string) =>
-    simpleNetwork.tags[tag]
-      ? simpleNetwork.tags[tag]
-      : { data: null, error: null },
-  (state: ISimpleNetworkState, tagResponse: ISimpleNetworkTagResponse) =>
+    simpleNetwork[tag] ? simpleNetwork[tag] : defaultState,
+  (state: ISimpleNetworkState, tagResponse: ISimpleNetworkPayload) =>
+    tagResponse
+)((state, tag) => tag)
+
+export const querySimpleNetwork: ParametricSelector<
+  {},
+  string,
+  ISimpleNetworkPayload
+> = createCachedSelector(
+  simpleNetworkState,
+  (simpleNetwork: ISimpleNetworkState, tag: string) => {
+    return partition(Object.keys(simpleNetwork), k => k.startsWith(tag))[0]
+      .length > 0
+      ? partition(Object.keys(simpleNetwork), k => k.startsWith(tag))[0].map(
+          k => simpleNetwork[k]
+        )
+      : defaultState
+  },
+  (state: ISimpleNetworkState, tagResponse: ISimpleNetworkPayload) =>
     tagResponse
 )((state, tag) => tag)
