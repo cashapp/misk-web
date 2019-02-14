@@ -1,21 +1,6 @@
 import { Environment, IDashboardTab } from "@misk/common";
 import * as React from "react";
 import { IDimensionAwareProps } from "../Navbar";
-/**
- * <DimensionAwareComponent
- *    height={this.state.height}
- *    width={this.state.width}
- *    environment={this.props.environment}
- *    environmentBannerVisible={this.props.environmentBannerVisible}
- *    environmentNavbarVisible={this.props.environmentBannerVisible}
- *    error={this.props.error}
- *    homeName={this.props.homeName}
- *    homeUrl={this.props.homeUrl}
- *    links={this.props.links}
- *    navbarItems={this.props.navbarItems}
- *    status={this.props.status}
- *  />
- */
 export interface INavbarProps {
     environment?: Environment;
     environmentBannerVisible?: Environment[];
