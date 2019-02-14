@@ -1,4 +1,7 @@
 /// <reference types="react" />
+/**
+ * Common Interfaces
+ */
 interface IWebTab {
     slug: string;
     url_path_prefix: string;
@@ -18,12 +21,18 @@ interface IServiceMetadata {
     navbar_items?: Array<string | Element | JSX.Element>;
     navbar_status?: string | Element | JSX.Element;
 }
+/**
+ * Environment
+ */
 declare enum Environment {
     TESTING = "TESTING",
     DEVELOPMENT = "DEVELOPMENT",
     STAGING = "STAGING",
     PRODUCTION = "PRODUCTION"
 }
+/**
+ * Time
+ */
 declare enum DateFormat {
     year = "YYYY",
     month = "YYYY-MM",
@@ -35,6 +44,9 @@ declare enum DateFormat {
     secondAMPM = "YYYY-MM-DD hh:mm:ss A",
     millisecondAMPM = "YYYY-MM-DD hh:mm:ss:SSS A"
 }
+/**
+ * Ducks
+ */
 interface IDefaultState {
     data?: any;
     error?: any;
@@ -43,6 +55,9 @@ interface IDefaultState {
     toJS?: () => any;
 }
 declare const defaultState: IDefaultState;
+/**
+ * Binder
+ */
 declare enum IBinderKeys {
     NavNavbarMenu = "NavNavbarMenu",
     TabEntry = "TabEntry"
@@ -50,6 +65,9 @@ declare enum IBinderKeys {
 interface IBinder {
     multibind: (binder: IBinderKeys, key: string, value: any) => any;
 }
+/**
+ * Window
+ */
 interface IWindow extends Window {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
     Misk: {

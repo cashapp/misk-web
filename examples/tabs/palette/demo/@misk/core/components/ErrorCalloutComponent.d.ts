@@ -1,4 +1,7 @@
 /// <reference types="react" />
+/**
+ * <ErrorCalloutComponent error={props.error}/>
+ */
 export interface IError {
     [key: string]: any;
 }

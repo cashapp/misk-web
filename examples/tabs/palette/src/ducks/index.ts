@@ -4,9 +4,14 @@ import {
   ISimpleNetworkState,
   SimpleNetworkReducer,
   simpleNetworkSelector,
-  watchSimpleNetworkSagas
+  watchSimpleNetworkSagas,
+  ISimpleFormState,
+  IDispatchSimpleForm,
+  dispatchSimpleForm,
+  simpleFormSelector,
+  SimpleFormReducer,
+  watchSimpleFormSagas
 } from "@misk/core"
-export { dispatchSimpleNetwork } from "@misk/core"
 import {
   connectRouter,
   LocationChangeAction,
@@ -16,10 +21,12 @@ import { History } from "history"
 import { AnyAction, combineReducers, Reducer } from "redux"
 import { all, AllEffect, fork } from "redux-saga/effects"
 import {
-  default as PaletteReducer,
+  PaletteReducer,
   IPaletteState,
   paletteSelector,
-  watchPaletteSagas
+  watchPaletteSagas,
+  IDispatchPalette,
+  dispatchPalette
 } from "./palette"
 export * from "./palette"
 
@@ -29,16 +36,22 @@ export * from "./palette"
 export interface IState {
   palette: IPaletteState
   router: Reducer<RouterState, LocationChangeAction>
+  simpleForm: ISimpleFormState
   simpleNetwork: ISimpleNetworkState
 }
 
 /**
  * Dispatcher
  */
-export interface IDispatchProps extends IDispatchSimpleNetwork {}
+export interface IDispatchProps
+  extends IDispatchSimpleForm,
+    IDispatchSimpleNetwork,
+    IDispatchPalette {}
 
 export const rootDispatcher: IDispatchProps = {
-  ...dispatchSimpleNetwork
+  ...dispatchSimpleForm,
+  ...dispatchSimpleNetwork,
+  ...dispatchPalette
 }
 
 /**
@@ -46,6 +59,7 @@ export const rootDispatcher: IDispatchProps = {
  */
 export const rootSelectors = (state: IState) => ({
   palette: paletteSelector(state),
+  simpleForm: simpleFormSelector(state),
   simpleNetwork: simpleNetworkSelector(state)
 })
 
@@ -58,6 +72,7 @@ export const rootReducer = (
   {
     palette: any
     router: RouterState
+    simpleForm: any
     simpleNetwork: any
   },
   AnyAction
@@ -65,6 +80,7 @@ export const rootReducer = (
   combineReducers({
     palette: PaletteReducer,
     router: connectRouter(history),
+    simpleForm: SimpleFormReducer,
     simpleNetwork: SimpleNetworkReducer
   })
 
@@ -72,5 +88,9 @@ export const rootReducer = (
  * Sagas
  */
 export function* rootSaga(): IterableIterator<AllEffect> {
-  yield all([fork(watchPaletteSagas), fork(watchSimpleNetworkSagas)])
+  yield all([
+    fork(watchPaletteSagas),
+    fork(watchSimpleFormSagas),
+    fork(watchSimpleNetworkSagas)
+  ])
 }
