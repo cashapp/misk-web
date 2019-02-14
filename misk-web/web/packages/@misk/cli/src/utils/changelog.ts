@@ -1,6 +1,7 @@
 export enum MiskVersion {
   "latest" = "0.1.3",
-  "alpha" = "0.1.4-1",
+  "alpha" = "0.1.4-2",
+  "v014_2" = "0.1.4-2",
   "v014_1" = "0.1.4-1",
   "v013" = "0.1.3",
   "v013_19" = "0.1.3-19",
@@ -103,6 +104,16 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v014_2]: {
+    [MiskPkg.cli]: `${[MiskVersion.v014_2]}`,
+    [MiskPkg.common]: `${[MiskVersion.v014_2]}`,
+    [MiskPkg.core]: `${[MiskVersion.v014_2]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v014_2]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v014_2]}`,
+    date: "2019-02-14",
+    notes:
+      "Refactored SimpleNetworkDucks and SimpleFormDucks libraries in @misk/core."
+  },
   [MiskVersion.v014_1]: {
     [MiskPkg.cli]: `${[MiskVersion.v014_1]}`,
     [MiskPkg.common]: `${[MiskVersion.v014_1]}`,
