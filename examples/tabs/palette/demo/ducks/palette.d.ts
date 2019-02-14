@@ -16,21 +16,24 @@ export declare enum PALETTE {
  * Object of functions that dispatch Actions with standard defaults and any required passed in input
  * dispatch Object is used within containers to initiate any saga provided functionality
  */
-export declare const dispatchPalette: {
-    dinosaur: () => IAction<PALETTE.DINOSAUR, {
-        error: any;
-        loading: boolean;
-        success: boolean;
-    }>;
-    failure: (error: any) => IAction<PALETTE.FAILURE, any>;
-    success: (data: any) => IAction<PALETTE.SUCCESS, any>;
-};
+export interface IPalettePayload {
+    data?: any;
+    error: any;
+    loading: boolean;
+    success: boolean;
+}
+export interface IDispatchPalette {
+    paletteDinosaur: (data: any, fieldTag: string, formTag: string) => IAction<PALETTE.DINOSAUR, IPalettePayload>;
+    paletteFailure: (error: any) => IAction<PALETTE.FAILURE, IPalettePayload>;
+    paletteSuccess: (data: any) => IAction<PALETTE.SUCCESS, IPalettePayload>;
+}
+export declare const dispatchPalette: IDispatchPalette;
 export declare function watchPaletteSagas(): IterableIterator<AllEffect>;
 /**
  * Duck Reducer
  * Merges dispatched action objects on to the existing (or initial) state to generate new state
  */
-export default function PaletteReducer(state: any, action: IAction<string, {}>): any;
+export declare const PaletteReducer: (state: any, action: IAction<string, {}>) => any;
 /**
  * State Interface
  * Provides a complete Typescript interface for the object on state that this duck manages

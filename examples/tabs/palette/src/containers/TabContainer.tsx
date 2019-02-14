@@ -1,26 +1,26 @@
-import { simpleNetworkResponse } from "@misk/core"
+import { getSimpleNetwork } from "@misk/core"
 import * as React from "react"
 import { connect } from "react-redux"
 import { SampleTableComponent } from "../components"
 import { IDispatchProps, IState, rootDispatcher, rootSelectors } from "../ducks"
 
-interface IContainerProps extends IState, IDispatchProps {}
+class TabContainer extends React.Component<IState & IDispatchProps, IState> {
+  private tableTag = "Cars"
+  private tableUrl =
+    "https://square.github.io/misk-web/examples/data/demo/cars.json"
 
-class TabContainer extends React.Component<IContainerProps, IState> {
   componentDidMount() {
-    this.props.simpleNetworkGet(
-      "cars",
-      "https://square.github.io/misk-web/examples/data/demo/cars.json"
-    )
+    this.props.simpleNetworkGet(this.tableTag, this.tableUrl)
   }
 
   render() {
-    const { simpleNetwork } = this.props
     return (
       <div>
         <SampleTableComponent
-          data={simpleNetworkResponse(simpleNetwork, "cars")}
+          data={getSimpleNetwork(this.props.simpleNetwork, this.tableTag)}
           rows={5}
+          url={this.tableUrl}
+          tag={this.tableTag}
         />
       </div>
     )
