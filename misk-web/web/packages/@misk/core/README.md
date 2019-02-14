@@ -32,6 +32,7 @@ $ yarn add @misk/core
 ## Ducks
 
 - `routerDucks`: router management Redux-Sagas parts (actions, dispatcher, handlers, sagas, reducers, state interface)
+- `simpleFormDucks`: a standardized set of form and input handler Redux-Sagas parts (actions, dispatcher, handlers, sagas, reducers, state interface)
 - `simpleNetworkDucks`: a standardized set of Axios based request Redux-Sagas parts (actions, dispatcher, handlers, sagas, reducers, state interface)
 
 ## Features
