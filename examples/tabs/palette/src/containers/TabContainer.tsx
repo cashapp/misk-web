@@ -1,7 +1,7 @@
 import { getSimpleNetwork } from "@misk/core"
 import * as React from "react"
 import { connect } from "react-redux"
-import { SampleTableComponent } from "../components"
+import { HowToComponent, SampleTableComponent } from "../components"
 import { SampleFormContainer, SampleNetworkContainer } from "../containers"
 import { IDispatchProps, IState, rootDispatcher, rootSelectors } from "../ducks"
 
@@ -23,6 +23,7 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
           url={this.tableUrl}
           tag={this.tableTag}
         />
+        <HowToComponent />
         <SampleNetworkContainer {...this.props} />
         <SampleFormContainer {...this.props} />
       </div>
