@@ -7,14 +7,7 @@ import {
   Intent,
   Pre
 } from "@blueprintjs/core"
-import {
-  getSimpleNetwork,
-  querySimpleForm,
-  valueSimpleForm,
-  querySimpleNetwork,
-  onClickFnCall,
-  onChangeFnCall
-} from "../ducks"
+import { onClickFnCall, onChangeFnCall, simpleSelect } from "../ducks"
 import * as React from "react"
 import { connect } from "react-redux"
 import { IDispatchProps, IState, rootDispatcher, rootSelectors } from "../ducks"
@@ -26,7 +19,7 @@ export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
       <Pre>
         sampleNetwork:
         {JSON.stringify(
-          querySimpleNetwork(props.simpleNetwork, "SampleNetwork"),
+          simpleSelect("simpleNetwork", props.simpleNetwork, "SampleNetwork"),
           null,
           2
         )}
@@ -34,94 +27,167 @@ export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
       <Pre>
         simpleForm:
         {JSON.stringify(
-          querySimpleForm(props.simpleForm, "SampleNetwork"),
+          simpleSelect("simpleForm", props.simpleForm, "SampleNetwork"),
           null,
           2
         )}
       </Pre>
-      <Pre>url: {valueSimpleForm(props.simpleForm, "SampleNetwork::url")}</Pre>
+      <Pre>
+        url:{" "}
+        {simpleSelect(
+          "simpleForm",
+          props.simpleForm,
+          "SampleNetwork::url",
+          "data"
+        )}
+      </Pre>
       <InputGroup
         placeholder={"Request URL: http://your.url.com/to/send/a/request/to/"}
-        onChange={onChangeFnCall(props.simpleFormInput, ["SampleNetwork::url"])}
+        onChange={onChangeFnCall(props.simpleFormInput, "SampleNetwork::url")}
         type={"url"}
       />
       <TextArea
         fill={true}
-        onChange={onChangeFnCall(props.simpleFormInput, [
-          "SampleNetwork::data"
-        ])}
+        onChange={onChangeFnCall(props.simpleFormInput, "SampleNetwork::data")}
         placeholder={"Request Body (JSON or Text)"}
       />
       <ButtonGroup>
         <Button
-          onClick={onClickFnCall(props.simpleNetworkGet, [
+          onClick={onClickFnCall(
+            props.simpleNetworkGet,
             "SampleNetwork::DELETE",
-            valueSimpleForm(props.simpleForm, "SampleNetwork::url")
-          ])}
+            simpleSelect(
+              "simpleForm",
+              props.simpleForm,
+              "SampleNetwork::url",
+              "data"
+            )
+          )}
           intent={Intent.DANGER}
-          loading={
-            getSimpleNetwork(props.simpleNetwork, "SampleNetwork::DELETE")
-              .loading
-          }
+          loading={simpleSelect(
+            "simpleNetwork",
+            props.simpleNetwork,
+            "SampleNetwork::DELETE",
+            "loading"
+          )}
           text={"DELETE"}
         />
         <Button
-          onClick={onClickFnCall(props.simpleNetworkGet, [
+          onClick={onClickFnCall(
+            props.simpleNetworkGet,
             "SampleNetwork::GET",
-            valueSimpleForm(props.simpleForm, "SampleNetwork::url")
-          ])}
+            simpleSelect(
+              "simpleForm",
+              props.simpleForm,
+              "SampleNetwork::url",
+              "data"
+            )
+          )}
           intent={Intent.SUCCESS}
-          loading={
-            getSimpleNetwork(props.simpleNetwork, "SampleNetwork::GET").loading
-          }
+          loading={simpleSelect(
+            "simpleNetwork",
+            props.simpleNetwork,
+            "SampleNetwork::GET",
+            "loading"
+          )}
           text={"GET"}
         />
         <Button
-          onClick={onClickFnCall(props.simpleNetworkHead, [
+          onClick={onClickFnCall(
+            props.simpleNetworkHead,
             "SampleNetwork::HEAD",
-            valueSimpleForm(props.simpleForm, "SampleNetwork::url")
-          ])}
+            simpleSelect(
+              "simpleForm",
+              props.simpleForm,
+              "SampleNetwork::url",
+              "data"
+            )
+          )}
           intent={Intent.NONE}
-          loading={
-            getSimpleNetwork(props.simpleNetwork, "SampleNetwork::HEAD").loading
-          }
+          loading={simpleSelect(
+            "simpleNetwork",
+            props.simpleNetwork,
+            "SampleNetwork::HEAD",
+            "loading"
+          )}
           text={"HEAD"}
         />
         <Button
-          onClick={onClickFnCall(props.simpleNetworkPatch, [
+          onClick={onClickFnCall(
+            props.simpleNetworkPatch,
             "SampleNetwork::PATCH",
-            valueSimpleForm(props.simpleForm, "SampleNetwork::url"),
-            valueSimpleForm(props.simpleForm, "SampleNetwork::data")
-          ])}
+            simpleSelect(
+              "simpleForm",
+              props.simpleForm,
+              "SampleNetwork::url",
+              "data"
+            ),
+            simpleSelect(
+              "simpleForm",
+              props.simpleForm,
+              "SampleNetwork::data",
+              "data"
+            )
+          )}
           intent={Intent.PRIMARY}
-          loading={
-            getSimpleNetwork(props.simpleNetwork, "SampleNetwork::PATCH")
-              .loading
-          }
+          loading={simpleSelect(
+            "simpleNetwork",
+            props.simpleNetwork,
+            "SampleNetwork::PATCH",
+            "loading"
+          )}
           text={"PATCH"}
         />
         <Button
-          onClick={onClickFnCall(props.simpleNetworkPost, [
+          onClick={onClickFnCall(
+            props.simpleNetworkPost,
             "SampleNetwork::POST",
-            valueSimpleForm(props.simpleForm, "SampleNetwork::url"),
-            valueSimpleForm(props.simpleForm, "SampleNetwork::data")
-          ])}
+            simpleSelect(
+              "simpleForm",
+              props.simpleForm,
+              "SampleNetwork::url",
+              "data"
+            ),
+            simpleSelect(
+              "simpleForm",
+              props.simpleForm,
+              "SampleNetwork::data",
+              "data"
+            )
+          )}
           intent={Intent.PRIMARY}
-          loading={
-            getSimpleNetwork(props.simpleNetwork, "SampleNetwork::POST").loading
-          }
+          loading={simpleSelect(
+            "simpleNetwork",
+            props.simpleNetwork,
+            "SampleNetwork::POST",
+            "loading"
+          )}
           text={"POST"}
         />
         <Button
-          onClick={onClickFnCall(props.simpleNetworkPut, [
+          onClick={onClickFnCall(
+            props.simpleNetworkPut,
             "SampleNetwork::PUT",
-            valueSimpleForm(props.simpleForm, "SampleNetwork::url"),
-            valueSimpleForm(props.simpleForm, "SampleNetwork::data")
-          ])}
+            simpleSelect(
+              "simpleForm",
+              props.simpleForm,
+              "SampleNetwork::url",
+              "data"
+            ),
+            simpleSelect(
+              "simpleForm",
+              props.simpleForm,
+              "SampleNetwork::data",
+              "data"
+            )
+          )}
           intent={Intent.WARNING}
-          loading={
-            getSimpleNetwork(props.simpleNetwork, "SampleNetwork::PUT").loading
-          }
+          loading={simpleSelect(
+            "simpleNetwork",
+            props.simpleNetwork,
+            "SampleNetwork::PUT",
+            "loading"
+          )}
           text={"PUT"}
         />
       </ButtonGroup>

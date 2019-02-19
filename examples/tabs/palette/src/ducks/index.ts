@@ -1,4 +1,4 @@
-import { stateSelector } from "./simpleDucksUtilities"
+import { simpleRootSelector } from "./simpleDucksUtilities"
 export * from "./simpleDucksUtilities"
 export * from "./simpleFormDucks"
 export * from "./simpleNetworkDucks"
@@ -25,7 +25,6 @@ import { all, AllEffect, fork } from "redux-saga/effects"
 import {
   PaletteReducer,
   IPaletteState,
-  paletteSelector,
   watchPaletteSagas,
   IDispatchPalette,
   dispatchPalette
@@ -60,9 +59,10 @@ export const rootDispatcher: IDispatchProps = {
  * State Selectors
  */
 export const rootSelectors = (state: IState) => ({
-  palette: paletteSelector(state),
-  simpleForm: stateSelector<ISimpleFormState, IState>("simpleForm")(state),
-  simpleNetwork: stateSelector<ISimpleNetworkState, IState>("simpleNetwork")(
+  palette: simpleRootSelector<IState, IPaletteState>("palette", state),
+  simpleForm: simpleRootSelector<IState, ISimpleFormState>("simpleForm", state),
+  simpleNetwork: simpleRootSelector<IState, ISimpleNetworkState>(
+    "simpleNetwork",
     state
   )
 })
@@ -70,17 +70,7 @@ export const rootSelectors = (state: IState) => ({
 /**
  * Reducers
  */
-export const rootReducer = (
-  history: History
-): Reducer<
-  {
-    palette: any
-    router: RouterState
-    simpleForm: any
-    simpleNetwork: any
-  },
-  AnyAction
-> =>
+export const rootReducer = (history: History): Reducer<any, AnyAction> =>
   combineReducers({
     palette: PaletteReducer,
     router: connectRouter(history),

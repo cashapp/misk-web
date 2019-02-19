@@ -7,8 +7,6 @@ import {
 import axios from "axios"
 import { fromJS } from "immutable"
 import { all, AllEffect, call, put, takeLatest } from "redux-saga/effects"
-import { createSelector, OutputSelector } from "reselect"
-import { IState } from "../ducks"
 
 /**
  * Actions
@@ -125,17 +123,17 @@ export interface IPaletteState extends IDefaultState {
   [key: string]: any
 }
 
-/**
- * Selector
- * A memoized, efficient way to compute and return the latest domain of the state
- */
-export const paletteState = (state: IState) => state.palette.toJS()
+// /**
+//  * Selector
+//  * A memoized, efficient way to compute and return the latest domain of the state
+//  */
+// export const paletteState = (state: IState) => state.palette.toJS()
 
-export const paletteSelector: OutputSelector<
-  IState,
-  any,
-  (res: any) => any
-> = createSelector(
-  paletteState,
-  state => state
-)
+// export const paletteSelector: OutputSelector<
+//   IState,
+//   any,
+//   (res: any) => any
+// > = createSelector(
+//   paletteState,
+//   state => state
+// )

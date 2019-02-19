@@ -1,111 +1,185 @@
 // import { fromJS } from "immutable"
+import { escapeRegExp, filter, flatMap, isEmpty, isRegExp } from "lodash-es"
 // import { all, AllEffect, put, takeEvery } from "redux-saga/effects"
-import { partition } from "lodash-es"
+// import { partition } from "lodash-es"
+
+import { defaultState } from "@misk/core"
 import createCachedSelector from "re-reselect"
-// import { createSelector, OutputSelector, ParametricSelector } from "reselect"
-import { createSelector, OutputSelector } from "reselect"
+import { createSelector, OutputSelector, ParametricSelector } from "reselect"
 
 /**
  * simple*Ducks libraries common code
  */
 /**
  * State Selectors
+ * A memoized, efficient way to compute and return the latest domain of the state
  */
-export const selectState = <
-  SubStateInterface,
-  StateInterface extends { [domain: string]: SubStateInterface }
+const selectSubState: <
+  IState extends { [key: string]: ISubState | any },
+  ISubState extends { toJS?: () => any }
 >(
   domain: string
-) => (state: StateInterface) => state[domain]
+) => (state: IState) => ISubState = <
+  IState extends { [key: string]: ISubState },
+  ISubState extends { toJS?: () => any }
+>(
+  domain: string
+) => (state: IState) => {
+  return state[domain]
+}
 
-export const stateSelector: <
-  SubStateInterface extends { toJS?: () => any },
-  StateInterface extends { [key: string]: any }
+const subStateSelector: <
+  IState extends { [key: string]: ISubState & any },
+  ISubState extends { toJS?: () => any }
 >(
   domain: string
-) => OutputSelector<StateInterface, any, (res: SubStateInterface) => any> = <
-  SubStateInterface extends { toJS?: () => any },
-  StateInterface extends { [key: string]: any }
+) => OutputSelector<IState, any, (res: ISubState) => any> = <
+  IState extends { [key: string]: ISubState },
+  ISubState extends { toJS?: () => any }
 >(
   domain: string
 ) =>
   createSelector(
-    selectState<SubStateInterface, StateInterface>(domain),
+    selectSubState<IState, ISubState>(domain),
     state => state.toJS()
   )
 
-/**
- * Selector
- * A memoized, efficient way to compute and return the latest domain of the state
- */
+export const simpleRootSelector = <
+  IState extends { [key: string]: ISubState & any },
+  ISubState extends { toJS?: () => any }
+>(
+  domain: string,
+  state: IState
+) => subStateSelector<IState, ISubState>(domain)(state)
 
-export const getSimpleForm: ParametricSelector<
-  {},
-  string,
-  ISimpleFormPayload
-> = createCachedSelector(
-  simpleFormState,
-  (simpleForm: ISimpleFormState, tag: string) =>
-    simpleForm[tag] ? simpleForm[tag] : defaultState,
-  (state: ISimpleFormState, tagResponse: ISimpleFormPayload) => tagResponse
-)((state, tag) => tag)
+const flatFilterObject = (object: any, filterFn: (key: any) => boolean) =>
+  flatMap(filter(Object.keys(object), filterFn), key => object[key])
 
-export const querySimpleForm: ParametricSelector<
-  {},
-  string,
-  ISimpleFormPayload
-> = createCachedSelector(
-  simpleFormState,
-  (simpleForm: ISimpleFormState, tag: string) => {
-    return partition(Object.keys(simpleForm), k => k.startsWith(tag))[0]
-      .length > 0
-      ? partition(Object.keys(simpleForm), k => k.startsWith(tag))[0].map(
-          k => simpleForm[k]
-        )
-      : defaultState
-  },
-  (state: ISimpleFormState, tagResponse: ISimpleFormPayload) => tagResponse
-)((state, tag) => tag)
-
-export const querySimpleFormData: ParametricSelector<
-  {},
-  string,
-  ISimpleFormPayload
-> = createCachedSelector(
-  simpleFormState,
-  (simpleForm: ISimpleFormState, tag: string) => {
-    return partition(Object.keys(simpleForm), k => k.startsWith(tag))[0]
-      .length > 0
-      ? partition(Object.keys(simpleForm), k => k.startsWith(tag))[0].map(
-          k => ({ [k]: simpleForm[k].data })
-        )
-      : defaultState
-  },
-  (state: ISimpleFormState, tagResponse: ISimpleFormPayload) => tagResponse
-)((state, tag) => tag)
-
-export const valueSimpleForm = (simpleForm: ISimpleFormState, tag: string) => {
-  try {
-    const { data } = getSimpleForm(simpleForm, tag)
-    return data
-  } catch (e) {}
+const filterObject = (
+  object: any,
+  filterFn: string | ((key: any) => boolean)
+) => {
+  let matched = []
+  if (typeof filterFn === "string") {
+    const escMatch = escapeRegExp(filterFn)
+    if (isRegExp(filterFn)) {
+      matched = flatFilterObject(object, key => filterFn.test(key))
+    } else if (isRegExp(escMatch)) {
+      matched = flatFilterObject(object, key => escMatch.test(key))
+    } else {
+      matched = flatFilterObject(object, key => key.startsWith(filterFn))
+    }
+  } else {
+    matched = flatFilterObject(object, filterFn)
+  }
+  return matched
 }
 
-export const valueSimpleFormTags = (
-  simpleForm: ISimpleFormState,
-  tag: string
-) => {
-  try {
-    const data = valueSimpleForm(simpleForm, tag)
-    if (data instanceof Array) {
-      return data
-    } else {
-      return [] as string[]
-    }
-  } catch (e) {
-    return [] as string[]
+export const enum simpleType {
+  array,
+  boolean,
+  number,
+  object,
+  string,
+  tags
+}
+
+const baseType = (returnType: simpleType = simpleType.string): any => {
+  switch (returnType) {
+    case simpleType.boolean:
+      return false
+    case simpleType.number:
+      return 0
+    case simpleType.string:
+      return ""
+    case simpleType.object:
+      return {}
+    case simpleType.tags:
+      return []
   }
 }
+
+const flatResults = (results: object[], returnType: simpleType) => {
+  if (results.length === 0) {
+    return baseType(returnType)
+  } else if (results.length === 1 && returnType != simpleType.tags) {
+    return results[0]
+  } else {
+    return results
+  }
+}
+
+const selectAndFilterState: <
+  IState extends {
+    [key: string]: any
+  },
+  ISubState extends {
+    [key: string]: any
+  },
+  ISubPayload extends {
+    [key: string]: any
+  }
+>(
+  domain: string,
+  tagKeysFilter?: string | ((key: any) => boolean),
+  returnType?: simpleType,
+  subStateSelector?: any
+) => ParametricSelector<
+  ISubState,
+  string,
+  any | ISubPayload | ISubPayload[]
+> & {
+  resultFunc: (
+    res1: ISubState,
+    res2: any[]
+  ) => any | ISubPayload | ISubPayload[]
+  recomputations: () => number
+  resetRecomputations: () => number
+} = <
+  IState extends { [key: string]: ISubState | any },
+  ISubState extends { [key: string]: any },
+  ISubPayload extends { [key: string]: any }
+>(
+  domain: string,
+  tagKeysFilter: string | ((key: any) => boolean) = "",
+  returnType?: simpleType,
+  subStateSelector: any = selectSubState<IState, ISubState>(domain)
+) =>
+  createCachedSelector(
+    subStateSelector,
+    (subState: ISubState, tagFilter: string) => {
+      let tagFiltered = filterObject(subState, tagFilter)
+      if (!isEmpty(tagKeysFilter)) {
+        if (isEmpty(tagFiltered)) {
+          return baseType(returnType)
+        }
+        tagFiltered = flatMap(tagFiltered, obj =>
+          flatResults(filterObject(obj, tagKeysFilter), returnType)
+        )
+      }
+      return isEmpty(tagFiltered)
+        ? defaultState
+        : flatResults(tagFiltered, returnType)
+    },
+    (state: ISubState, matched: ISubPayload[]) => matched
+  )((state, match) => match)
+
+export const simpleSelect = <
+  IState extends { [key: string]: ISubState | any },
+  ISubState extends { [key: string]: any },
+  ISubPayload extends { [key: string]: any }
+>(
+  subStateDomain: string,
+  subState: any,
+  tagFilter: string,
+  tagKeysFilter: string | ((key: any) => boolean) = "",
+  returnType?: simpleType
+) =>
+  selectAndFilterState<IState, ISubState, ISubPayload>(
+    subStateDomain,
+    tagKeysFilter,
+    returnType
+  )(subState, tagFilter)
 
 /**
  * Handler Functions
@@ -119,8 +193,8 @@ export const valueSimpleFormTags = (
  *
  * New way: Use on*FnCall to wrap and implicitly pass into handling functions the input events
  * ```
- * <InputGroup onChange={onChangeFnCall(props.simpleFormInput, ["FormInputTag"])}
- * <NumberInput onChange={onChangeNumberFnCall(props.simpleFormNumber, ["FormNumberTag"])}
+ * <InputGroup onChange={onChangeFnCall(props.simpleFormInput, "FormInputTag")}
+ * <NumberInput onChange={onChangeNumberFnCall(props.simpleFormNumber, "FormNumberTag")}
  * ```
  */
 
@@ -130,10 +204,10 @@ export const valueSimpleFormTags = (
  * @param args: arguments to be passed into the callFn
  *
  * ```
- * <Button onClick={onClickFnCall(props.simpleNetworkPut, ["PutTag", { ...requestBody }])}
+ * <Button onClick={onClickFnCall(props.simpleNetworkPut, "PutTag", { ...requestBody })}
  * ```
  */
-export const onClickFnCall = (callFn: any, args: any[]) => (event: any) => {
+export const onClickFnCall = (callFn: any, ...args: any) => (event: any) => {
   callFn(...args)
 }
 
@@ -143,10 +217,10 @@ export const onClickFnCall = (callFn: any, args: any[]) => (event: any) => {
  * @param args: arguments to be passed into the callFn
  *
  * ```
- * <InputGroup onChange={onChangeFnCall(props.simpleFormInput, ["FormInputTag"])}
+ * <InputGroup onChange={onChangeFnCall(props.simpleFormInput, "FormInputTag")}
  * ```
  */
-export const onChangeFnCall = (callFn: any, args: any[]) => (event: any) => {
+export const onChangeFnCall = (callFn: any, ...args: any) => (event: any) => {
   callFn(...args, event.target.value)
 }
 
@@ -156,10 +230,10 @@ export const onChangeFnCall = (callFn: any, args: any[]) => (event: any) => {
  * @param args: arguments to be passed into the callFn
  *
  * ```
- * <Checkbox onChange={onChangeToggleFnCall(props.simpleFormToggle, ["FormToggleTag", simpleFormState])}
+ * <Checkbox onChange={onChangeToggleFnCall(props.simpleFormToggle, "FormToggleTag", simpleFormState)}
  * ```
  */
-export const onChangeToggleFnCall = (callFn: any, args: any[]) => (
+export const onChangeToggleFnCall = (callFn: any, ...args: any) => (
   event: any
 ) => {
   callFn(...args, event.target.value)
@@ -171,10 +245,10 @@ export const onChangeToggleFnCall = (callFn: any, args: any[]) => (
  * @param args: arguments to be passed into the callFn
  *
  * ```
- * <NumberInput onChange={onChangeNumberFnCall(props.simpleFormNumber, ["FormNumberTag"])}
+ * <NumberInput onChange={onChangeNumberFnCall(props.simpleFormNumber, "FormNumberTag")}
  * ```
  */
-export const onChangeNumberFnCall = (callFn: any, args: any[]) => (
+export const onChangeNumberFnCall = (callFn: any, ...args: any) => (
   valueAsNumber: number,
   valueAsString: string
 ) => {
@@ -187,10 +261,10 @@ export const onChangeNumberFnCall = (callFn: any, args: any[]) => (
  * @param args: arguments to be passed into the callFn
  *
  * ```
- * <TagInput onChange={onChangeTagFnCall(props.simpleFormInput, ["FormTagsTag"])}
+ * <TagInput onChange={onChangeTagFnCall(props.simpleFormInput, "FormTagsTag")}
  * ```
  */
-export const onChangeTagFnCall = (callFn: any, args: any[]) => (
+export const onChangeTagFnCall = (callFn: any, ...args: any) => (
   values: string[]
 ) => {
   callFn(...args, values)
