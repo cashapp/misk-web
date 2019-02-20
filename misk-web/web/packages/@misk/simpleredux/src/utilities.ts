@@ -1,7 +1,180 @@
+import { escapeRegExp, filter, flatMap, isEmpty, isRegExp } from "lodash-es"
+import createCachedSelector from "re-reselect"
+import { createSelector, OutputSelector, ParametricSelector } from "reselect"
+import { defaultState } from "."
+
 /**
  * simple*Ducks libraries common code
  */
+/**
+ * State Selectors
+ * A memoized, efficient way to compute and return the latest domain of the state
+ */
+const selectSubState: <
+  IState extends { [key: string]: ISubState | any },
+  ISubState extends { toJS?: () => any }
+>(
+  domain: string
+) => (state: IState) => ISubState = <
+  IState extends { [key: string]: ISubState },
+  ISubState extends { toJS?: () => any }
+>(
+  domain: string
+) => (state: IState) => {
+  return state[domain]
+}
 
+const subStateSelector: <
+  IState extends { [key: string]: ISubState & any },
+  ISubState extends { toJS?: () => any }
+>(
+  domain: string
+) => OutputSelector<IState, any, (res: ISubState) => any> = <
+  IState extends { [key: string]: ISubState },
+  ISubState extends { toJS?: () => any }
+>(
+  domain: string
+) =>
+  createSelector(
+    selectSubState<IState, ISubState>(domain),
+    state => state.toJS()
+  )
+
+export const simpleRootSelector = <
+  IState extends { [key: string]: ISubState & any },
+  ISubState extends { toJS?: () => any }
+>(
+  domain: string,
+  state: IState
+) => subStateSelector<IState, ISubState>(domain)(state)
+
+const flatFilterObject = (object: any, filterFn: (key: any) => boolean) =>
+  flatMap(filter(Object.keys(object), filterFn), key => object[key])
+
+const filterObject = (
+  object: any,
+  filterFn: string | ((key: any) => boolean)
+) => {
+  let matched = []
+  let regMatched = []
+  let escRegMatched = []
+  if (typeof filterFn === "string") {
+    const escMatch = escapeRegExp(filterFn)
+    if (isRegExp(filterFn)) {
+      regMatched = flatFilterObject(object, key => filterFn.test(key))
+    }
+    if (isRegExp(escMatch)) {
+      escRegMatched = flatFilterObject(object, key => escMatch.test(key))
+    }
+    /** Choose the largest set of results from regExp, coersed regExp, and basic startsWith matching */
+    matched = flatFilterObject(object, key => key.startsWith(filterFn))
+    if (matched.length < regMatched.length) matched = regMatched
+    if (matched.length < escRegMatched.length) matched = escRegMatched
+  } else {
+    matched = flatFilterObject(object, filterFn)
+  }
+  return matched
+}
+
+export const enum simpleType {
+  array,
+  boolean,
+  number,
+  object,
+  string,
+  tags
+}
+
+const baseType = (returnType: simpleType = simpleType.string): any => {
+  switch (returnType) {
+    case simpleType.boolean:
+      return false
+    case simpleType.number:
+      return 0
+    case simpleType.string:
+      return ""
+    case simpleType.object:
+      return {}
+    case simpleType.tags:
+      return []
+  }
+}
+
+const flatResults = (results: object[], returnType: simpleType) => {
+  if (results.length === 0) {
+    return baseType(returnType)
+  } else if (results.length === 1 && returnType != simpleType.tags) {
+    return results[0]
+  } else {
+    return results
+  }
+}
+
+const selectAndFilterState: <
+  ISubState extends { [key: string]: any },
+  ISubPayload extends { [key: string]: any }
+>(
+  subStateSelector: (state: any) => ISubState,
+  tagKeysFilter?: string | ((key: any) => boolean),
+  returnType?: simpleType
+) => ParametricSelector<
+  ISubState,
+  string,
+  any | ISubPayload | ISubPayload[]
+> = <
+  ISubState extends { [key: string]: any },
+  ISubPayload extends { [key: string]: any }
+>(
+  subStateSelector: (state: any) => ISubState,
+  tagKeysFilter: string | ((key: any) => boolean) = "",
+  returnType?: simpleType
+) =>
+  createCachedSelector(
+    subStateSelector,
+    (subState: ISubState, tagFilter: string) => {
+      let tagFiltered = filterObject(subState, tagFilter)
+      if (!isEmpty(tagKeysFilter)) {
+        if (isEmpty(tagFiltered)) {
+          return baseType(returnType)
+        }
+        tagFiltered = flatMap(tagFiltered, obj =>
+          flatResults(filterObject(obj, tagKeysFilter), returnType)
+        )
+      }
+      return isEmpty(tagFiltered)
+        ? defaultState
+        : flatResults(tagFiltered, returnType)
+    },
+    (state: ISubState, matched: ISubPayload[]) => matched
+  )((state, match) => match)
+
+export const simpleSelect = <
+  IState extends { [key: string]: ISubState | any },
+  ISubState extends { [key: string]: any },
+  ISubPayload extends { [key: string]: any }
+>(
+  subState: any,
+  tagFilter: string,
+  tagKeysFilter: string | ((key: any) => boolean) = "",
+  subStateSelector?: string | any,
+  returnType?: simpleType
+) => {
+  if (subState.simpleTag) {
+  }
+  if (typeof subStateSelector === "string") {
+    return selectAndFilterState<ISubState, ISubPayload>(
+      selectSubState<IState, ISubState>(subStateSelector),
+      tagKeysFilter,
+      returnType
+    )(subState, tagFilter)
+  } else {
+    return selectAndFilterState<ISubState, ISubPayload>(
+      subStateSelector,
+      tagKeysFilter,
+      returnType
+    )(subState, tagFilter)
+  }
+}
 /**
  * Handler Functions
  * Reduce the legwork of parsing `onChange`, `onClick` and other events in Buttons, Inputs, Toggles...etc to call your handling function

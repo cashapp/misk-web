@@ -1,11 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios"
-import { partition } from "lodash-es"
-import createCachedSelector from "re-reselect"
 import { all, AllEffect, call, put, takeEvery } from "redux-saga/effects"
-import { createSelector, OutputSelector, ParametricSelector } from "reselect"
 import {
   createAction,
-  defaultState,
   defaultRootState,
   getPayloadTag,
   IAction,
@@ -15,6 +11,7 @@ import {
 } from "."
 
 const simpleTag = "simpleNetwork"
+
 /**
  * Actions
  * string enum of the defined actions that is used as type enforcement for Reducer and Sagas arguments
@@ -388,52 +385,3 @@ export function SimpleNetworkReducer(
 export interface ISimpleNetworkState extends IRootState {
   [tag: string]: any | ISimpleNetworkPayload
 }
-
-/**
- * Selector
- * A memoized, efficient way to compute and return the latest domain of the state
- */
-export const simpleNetworkState = <
-  T extends { simpleNetwork: ISimpleNetworkState }
->(
-  state: T
-) => state.simpleNetwork
-
-export const simpleNetworkSelector: OutputSelector<
-  {},
-  any,
-  (res: ISimpleNetworkState) => any
-> = createSelector(
-  simpleNetworkState,
-  state => state.toJS()
-)
-
-export const getSimpleNetwork: ParametricSelector<
-  {},
-  string,
-  ISimpleNetworkPayload
-> = createCachedSelector(
-  simpleNetworkState,
-  (simpleNetwork: ISimpleNetworkState, tag: string) =>
-    simpleNetwork[tag] ? simpleNetwork[tag] : defaultState,
-  (state: ISimpleNetworkState, tagResponse: ISimpleNetworkPayload) =>
-    tagResponse
-)((state, tag) => tag)
-
-export const querySimpleNetwork: ParametricSelector<
-  {},
-  string,
-  ISimpleNetworkPayload
-> = createCachedSelector(
-  simpleNetworkState,
-  (simpleNetwork: ISimpleNetworkState, tag: string) => {
-    return partition(Object.keys(simpleNetwork), k => k.startsWith(tag))[0]
-      .length > 0
-      ? partition(Object.keys(simpleNetwork), k => k.startsWith(tag))[0].map(
-          k => simpleNetwork[k]
-        )
-      : defaultState
-  },
-  (state: ISimpleNetworkState, tagResponse: ISimpleNetworkPayload) =>
-    tagResponse
-)((state, tag) => tag)

@@ -1,17 +1,14 @@
-import { partition } from "lodash-es"
-import createCachedSelector from "re-reselect"
 import { all, AllEffect, put, takeEvery } from "redux-saga/effects"
-import { createSelector, OutputSelector, ParametricSelector } from "reselect"
 import {
   booleanToggle,
   createAction,
-  defaultState,
   defaultRootState,
   getPayloadTag,
   IAction,
   IDefaultState,
   IRootState
 } from "."
+import { simpleSelect, simpleType } from "./utilities"
 
 const simpleTag = "simpleForm"
 
@@ -115,7 +112,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
     createAction<SIMPLEFORM.TOGGLE, ISimpleFormState>(SIMPLEFORM.TOGGLE, {
       simpleTag,
       [tag]: {
-        oldToggle: valueSimpleForm(oldState, tag),
+        oldToggle: simpleSelect(oldState, tag, "data", simpleType.boolean),
         error: null,
         loading: true,
         success: false,
@@ -221,89 +218,4 @@ export function SimpleFormReducer(
 
 export interface ISimpleFormState extends IRootState {
   [tag: string]: any | ISimpleFormPayload
-}
-
-/**
- * Selector
- * A memoized, efficient way to compute and return the latest domain of the state
- */
-export const simpleFormState = <T extends { simpleForm: ISimpleFormState }>(
-  state: T
-) => state.simpleForm
-
-export const simpleFormSelector: OutputSelector<
-  {},
-  any,
-  (res: ISimpleFormState) => any
-> = createSelector(
-  simpleFormState,
-  state => state.toJS()
-)
-
-export const getSimpleForm: ParametricSelector<
-  {},
-  string,
-  ISimpleFormPayload
-> = createCachedSelector(
-  simpleFormState,
-  (simpleForm: ISimpleFormState, tag: string) =>
-    simpleForm[tag] ? simpleForm[tag] : defaultState,
-  (state: ISimpleFormState, tagResponse: ISimpleFormPayload) => tagResponse
-)((state, tag) => tag)
-
-export const querySimpleForm: ParametricSelector<
-  {},
-  string,
-  ISimpleFormPayload
-> = createCachedSelector(
-  simpleFormState,
-  (simpleForm: ISimpleFormState, tag: string) => {
-    return partition(Object.keys(simpleForm), k => k.startsWith(tag))[0]
-      .length > 0
-      ? partition(Object.keys(simpleForm), k => k.startsWith(tag))[0].map(
-          k => simpleForm[k]
-        )
-      : defaultState
-  },
-  (state: ISimpleFormState, tagResponse: ISimpleFormPayload) => tagResponse
-)((state, tag) => tag)
-
-export const querySimpleFormData: ParametricSelector<
-  {},
-  string,
-  ISimpleFormPayload
-> = createCachedSelector(
-  simpleFormState,
-  (simpleForm: ISimpleFormState, tag: string) => {
-    return partition(Object.keys(simpleForm), k => k.startsWith(tag))[0]
-      .length > 0
-      ? partition(Object.keys(simpleForm), k => k.startsWith(tag))[0].map(
-          k => ({ [k]: simpleForm[k].data })
-        )
-      : defaultState
-  },
-  (state: ISimpleFormState, tagResponse: ISimpleFormPayload) => tagResponse
-)((state, tag) => tag)
-
-export const valueSimpleForm = (simpleForm: ISimpleFormState, tag: string) => {
-  try {
-    const { data } = getSimpleForm(simpleForm, tag)
-    return data
-  } catch (e) {}
-}
-
-export const valueSimpleFormTags = (
-  simpleForm: ISimpleFormState,
-  tag: string
-) => {
-  try {
-    const data = valueSimpleForm(simpleForm, tag)
-    if (data instanceof Array) {
-      return data
-    } else {
-      return [] as string[]
-    }
-  } catch (e) {
-    return [] as string[]
-  }
 }
