@@ -11,6 +11,7 @@ Misk-Web is still bleeding edge and may have breaking changes up until version `
 ## NPM Libraries
 
 - [![npm](https://img.shields.io/npm/v/@misk/core.svg?label=@misk/core)](https://www.npmjs.com/package/@misk/core) &ndash; React + Typescript components and utilities
+- [![npm](https://img.shields.io/npm/v/@misk/common.svg?label=@misk/simpleredux)](https://www.npmjs.com/package/@misk/simpleredux) &ndash; A simpler way to wire up interactive form, network, and other components with Redux
 - [![npm](https://img.shields.io/npm/v/@misk/common.svg?label=@misk/common)](https://www.npmjs.com/package/@misk/common) &ndash; Common interfaces, colors, constants
 - [![npm](https://img.shields.io/npm/v/@misk/dev.svg?label=@misk/dev)](https://www.npmjs.com/package/@misk/dev) &ndash; Shared developer build tools
 - [![npm](https://img.shields.io/npm/v/@misk/tslint.svg?label=@misk/tslint)](https://www.npmjs.com/package/@misk/tslint) &ndash; Standard TSLint configuration and rules
