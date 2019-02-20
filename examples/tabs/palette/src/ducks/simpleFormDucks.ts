@@ -9,7 +9,8 @@ import { partition } from "lodash-es"
 import createCachedSelector from "re-reselect"
 import { all, AllEffect, put, takeEvery } from "redux-saga/effects"
 import { createSelector, OutputSelector, ParametricSelector } from "reselect"
-import { booleanToggle, getPayloadTag } from "."
+import { booleanToggle, getPayloadTag, simpleSelect } from "."
+import { simpleType } from "./simpleDucksUtilities"
 
 const simpleTag = "simpleForm"
 
@@ -64,7 +65,7 @@ export interface IDispatchSimpleForm {
 export const dispatchSimpleForm: IDispatchSimpleForm = {
   simpleFormFailure: (tag: string, error: any) =>
     createAction<SIMPLEFORM.FAILURE, ISimpleFormState>(SIMPLEFORM.FAILURE, {
-      simpleTag,
+      // simpleTag,
       [tag]: {
         ...error,
         loading: false,
@@ -74,7 +75,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
     }),
   simpleFormInput: (tag: string, data: any) =>
     createAction<SIMPLEFORM.INPUT, ISimpleFormState>(SIMPLEFORM.INPUT, {
-      simpleTag,
+      // simpleTag,
       [tag]: {
         data,
         error: null,
@@ -89,7 +90,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
     valueAsString: string
   ) =>
     createAction<SIMPLEFORM.NUMBER, ISimpleFormState>(SIMPLEFORM.NUMBER, {
-      simpleTag,
+      // simpleTag,
       [tag]: {
         data: valueAsString,
         error: null,
@@ -100,7 +101,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
     }),
   simpleFormSuccess: (tag: string, data: any) =>
     createAction<SIMPLEFORM.SUCCESS, ISimpleFormState>(SIMPLEFORM.SUCCESS, {
-      simpleTag,
+      // simpleTag,
       [tag]: {
         ...data,
         error: null,
@@ -111,9 +112,9 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
     }),
   simpleFormToggle: (tag: string, oldState: any) =>
     createAction<SIMPLEFORM.TOGGLE, ISimpleFormState>(SIMPLEFORM.TOGGLE, {
-      simpleTag,
+      // simpleTag,
       [tag]: {
-        oldToggle: valueSimpleForm(oldState, tag),
+        oldToggle: simpleSelect(oldState, tag, "data", simpleType.boolean),
         error: null,
         loading: true,
         success: false,

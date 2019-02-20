@@ -160,24 +160,33 @@ export const simpleSelect = <
   subState: any,
   tagFilter: string,
   tagKeysFilter: string | ((key: any) => boolean) = "",
-  subStateSelector?: string | any,
-  returnType?: simpleType
+  returnType?: simpleType,
+  subStateSelector?: string | any
 ) => {
   if (subState.simpleTag) {
-    
-  }
-  if (typeof subStateSelector === "string") {
     return selectAndFilterState<ISubState, ISubPayload>(
-      selectSubState<IState, ISubState>(subStateSelector),
+      selectSubState<IState, ISubState>(subState.domain),
       tagKeysFilter,
       returnType
     )(subState, tagFilter)
+  } else if (subStateSelector) {
+    if (typeof subStateSelector === "string") {
+      return selectAndFilterState<ISubState, ISubPayload>(
+        selectSubState<IState, ISubState>(subStateSelector),
+        tagKeysFilter,
+        returnType
+      )(subState, tagFilter)
+    } else {
+      return selectAndFilterState<ISubState, ISubPayload>(
+        subStateSelector,
+        tagKeysFilter,
+        returnType
+      )(subState, tagFilter)
+    }
   } else {
-    return selectAndFilterState<ISubState, ISubPayload>(
-      subStateSelector,
-      tagKeysFilter,
-      returnType
-    )(subState, tagFilter)
+    throw new Error(
+      `Invalid use of simpleSelect. Argument subState must have attribute simpleTag OR optional argument subStateSelector (string or selector function) must be included.`
+    )
   }
 }
 
@@ -293,6 +302,7 @@ export const booleanToggle = (oldState: string | boolean) => {
  * Otherwise, unpredictable key selection
  */
 export const getPayloadTag = <T = any>(payload: { [tag: string]: T }) => {
+  // console.log(filter(Object.keys(payload), key => key != "simpleTag"))
   return payload[Object.keys(payload)[0]]
 }
 

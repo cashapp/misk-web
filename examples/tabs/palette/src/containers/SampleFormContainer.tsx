@@ -42,7 +42,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
       <Pre>
         sampleFormData:
         {JSON.stringify(
-          simpleSelect("simpleForm", props.simpleForm, FormTag, "data"),
+          simpleSelect(props.simpleForm, FormTag, "data"),
           null,
           2
         )}
@@ -50,11 +50,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
       <H1>Sample Form Component :: {FormTag}</H1>
       <Pre>
         raw form input:{" "}
-        {JSON.stringify(
-          simpleSelect("simpleForm", props.simpleForm, FormTag),
-          null,
-          2
-        )}
+        {JSON.stringify(simpleSelect(props.simpleForm, FormTag), null, 2)}
       </Pre>
       <FormGroup>
         <InputGroup
@@ -69,12 +65,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
             props.simpleFormNumber,
             `${FormTag}::Price`
           )}
-          value={simpleSelect(
-            "simpleForm",
-            props.simpleForm,
-            `${FormTag}::Price`,
-            "data"
-          )}
+          value={simpleSelect(props.simpleForm, `${FormTag}::Price`, "data")}
         />
         <TextArea
           fill={true}
@@ -89,7 +80,6 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           <H5>Bill Splitting</H5>
           <Checkbox
             checked={simpleSelect(
-              "simpleForm",
               props.simpleForm,
               `${FormTag}::CheckAlice`,
               "data"
@@ -103,7 +93,6 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           />
           <Checkbox
             checked={simpleSelect(
-              "simpleForm",
               props.simpleForm,
               `${FormTag}::CheckBob`,
               "data"
@@ -117,7 +106,6 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           />
           <Checkbox
             checked={simpleSelect(
-              "simpleForm",
               props.simpleForm,
               `${FormTag}::CheckEve`,
               "data"
@@ -131,7 +119,6 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           />
           <Checkbox
             checked={simpleSelect(
-              "simpleForm",
               props.simpleForm,
               `${FormTag}::CheckMallory`,
               "data"
@@ -145,7 +132,6 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           />
           <Checkbox
             checked={simpleSelect(
-              "simpleForm",
               props.simpleForm,
               `${FormTag}::CheckTrent`,
               "data"
@@ -163,7 +149,6 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           inline={true}
           onChange={onChangeFnCall(props.simpleFormInput, `${FormTag}::Meal`)}
           selectedValue={simpleSelect(
-            "simpleForm",
             props.simpleForm,
             `${FormTag}::Meal`,
             "data"
@@ -180,7 +165,6 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           )}
           placeholder={"Tags"}
           values={simpleSelect(
-            "simpleForm",
             props.simpleForm,
             `${FormTag}::Tags`,
             "data",
@@ -191,11 +175,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
         <Pre>
           submit form network request:{" "}
           {JSON.stringify(
-            simpleSelect(
-              "simpleNetwork",
-              props.simpleNetwork,
-              `${FormTag}::POST`
-            ),
+            simpleSelect(props.simpleNetwork, `${FormTag}::POST`),
             null,
             2
           )}
@@ -214,17 +194,11 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           onClick={onClickFnCall(
             props.simpleNetworkPost,
             `${FormTag}::POST`,
-            simpleSelect(
-              "simpleForm",
-              props.simpleForm,
-              `${FormTag}::POST_URL`,
-              "data"
-            ),
-            simpleSelect("simpleForm", props.simpleForm, FormTag, "data")
+            simpleSelect(props.simpleForm, `${FormTag}::POST_URL`, "data"),
+            simpleSelect(props.simpleForm, FormTag, "data")
           )}
           intent={Intent.PRIMARY}
           loading={simpleSelect(
-            "simpleNetwork",
             props.simpleNetwork,
             `${FormTag}::POST`,
             "loading"

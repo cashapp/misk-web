@@ -19,7 +19,7 @@ export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
       <Pre>
         sampleNetwork:
         {JSON.stringify(
-          simpleSelect("simpleNetwork", props.simpleNetwork, "SampleNetwork"),
+          simpleSelect(props.simpleNetwork, "SampleNetwork"),
           null,
           2
         )}
@@ -27,19 +27,13 @@ export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
       <Pre>
         simpleForm:
         {JSON.stringify(
-          simpleSelect("simpleForm", props.simpleForm, "SampleNetwork"),
+          simpleSelect(props.simpleForm, "SampleNetwork"),
           null,
           2
         )}
       </Pre>
       <Pre>
-        url:{" "}
-        {simpleSelect(
-          "simpleForm",
-          props.simpleForm,
-          "SampleNetwork::url",
-          "data"
-        )}
+        url: {simpleSelect(props.simpleForm, "SampleNetwork::url", "data")}
       </Pre>
       <InputGroup
         placeholder={"Request URL: http://your.url.com/to/send/a/request/to/"}
@@ -56,16 +50,10 @@ export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
           onClick={onClickFnCall(
             props.simpleNetworkGet,
             "SampleNetwork::DELETE",
-            simpleSelect(
-              "simpleForm",
-              props.simpleForm,
-              "SampleNetwork::url",
-              "data"
-            )
+            simpleSelect(props.simpleForm, "SampleNetwork::url", "data")
           )}
           intent={Intent.DANGER}
           loading={simpleSelect(
-            "simpleNetwork",
             props.simpleNetwork,
             "SampleNetwork::DELETE",
             "loading"
@@ -76,16 +64,10 @@ export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
           onClick={onClickFnCall(
             props.simpleNetworkGet,
             "SampleNetwork::GET",
-            simpleSelect(
-              "simpleForm",
-              props.simpleForm,
-              "SampleNetwork::url",
-              "data"
-            )
+            simpleSelect(props.simpleForm, "SampleNetwork::url", "data")
           )}
           intent={Intent.SUCCESS}
           loading={simpleSelect(
-            "simpleNetwork",
             props.simpleNetwork,
             "SampleNetwork::GET",
             "loading"
@@ -96,16 +78,10 @@ export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
           onClick={onClickFnCall(
             props.simpleNetworkHead,
             "SampleNetwork::HEAD",
-            simpleSelect(
-              "simpleForm",
-              props.simpleForm,
-              "SampleNetwork::url",
-              "data"
-            )
+            simpleSelect(props.simpleForm, "SampleNetwork::url", "data")
           )}
           intent={Intent.NONE}
           loading={simpleSelect(
-            "simpleNetwork",
             props.simpleNetwork,
             "SampleNetwork::HEAD",
             "loading"
@@ -116,22 +92,11 @@ export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
           onClick={onClickFnCall(
             props.simpleNetworkPatch,
             "SampleNetwork::PATCH",
-            simpleSelect(
-              "simpleForm",
-              props.simpleForm,
-              "SampleNetwork::url",
-              "data"
-            ),
-            simpleSelect(
-              "simpleForm",
-              props.simpleForm,
-              "SampleNetwork::data",
-              "data"
-            )
+            simpleSelect(props.simpleForm, "SampleNetwork::url", "data"),
+            simpleSelect(props.simpleForm, "SampleNetwork::data", "data")
           )}
           intent={Intent.PRIMARY}
           loading={simpleSelect(
-            "simpleNetwork",
             props.simpleNetwork,
             "SampleNetwork::PATCH",
             "loading"
@@ -142,22 +107,11 @@ export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
           onClick={onClickFnCall(
             props.simpleNetworkPost,
             "SampleNetwork::POST",
-            simpleSelect(
-              "simpleForm",
-              props.simpleForm,
-              "SampleNetwork::url",
-              "data"
-            ),
-            simpleSelect(
-              "simpleForm",
-              props.simpleForm,
-              "SampleNetwork::data",
-              "data"
-            )
+            simpleSelect(props.simpleForm, "SampleNetwork::url", "data"),
+            simpleSelect(props.simpleForm, "SampleNetwork::data", "data")
           )}
           intent={Intent.PRIMARY}
           loading={simpleSelect(
-            "simpleNetwork",
             props.simpleNetwork,
             "SampleNetwork::POST",
             "loading"
@@ -168,22 +122,11 @@ export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
           onClick={onClickFnCall(
             props.simpleNetworkPut,
             "SampleNetwork::PUT",
-            simpleSelect(
-              "simpleForm",
-              props.simpleForm,
-              "SampleNetwork::url",
-              "data"
-            ),
-            simpleSelect(
-              "simpleForm",
-              props.simpleForm,
-              "SampleNetwork::data",
-              "data"
-            )
+            simpleSelect(props.simpleForm, "SampleNetwork::url", "data"),
+            simpleSelect(props.simpleForm, "SampleNetwork::data", "data")
           )}
           intent={Intent.WARNING}
           loading={simpleSelect(
-            "simpleNetwork",
             props.simpleNetwork,
             "SampleNetwork::PUT",
             "loading"
