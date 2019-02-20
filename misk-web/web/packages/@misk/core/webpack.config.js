@@ -18,7 +18,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "./lib/web/@misk/core"),
     filename: "[name].js",
-    library: ["Misk", "Components"],
+    library: ["Misk", "Core"],
     libraryTarget: "umd",
     /**
      * library will try to bind to browser `window` variable

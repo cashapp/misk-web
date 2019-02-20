@@ -1,5 +1,4 @@
 ///<reference types="react" />
-import { fromJS, List } from "immutable"
 
 /**
  * Common Interfaces
@@ -53,24 +52,6 @@ enum DateFormat {
 }
 
 /**
- * Ducks
- */
-interface IDefaultState {
-  data?: any
-  error?: any
-  loading?: boolean
-  success?: boolean
-  toJS?: () => any
-}
-
-const defaultState: IDefaultState = fromJS({
-  data: List([]),
-  error: null,
-  loading: false,
-  success: false
-})
-
-/**
  * Binder
  */
 enum IBinderKeys {
@@ -102,13 +83,11 @@ interface IWindow extends Window {
 
 export {
   DateFormat,
-  defaultState,
   Environment,
   IWebTab,
   IDashboardTab,
   IAdminDashboardTab,
   IServiceMetadata,
-  IDefaultState,
   IBinder,
   IBinderKeys,
   IWindow
