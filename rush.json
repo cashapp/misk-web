@@ -94,8 +94,8 @@
    * To remove these restrictions, you could set projectFolderMinDepth=1
    * and set projectFolderMaxDepth to a large number.
    */
-  // "projectFolderMinDepth": 2,
-  // "projectFolderMaxDepth": 2,
+  "projectFolderMinDepth": 1,
+  "projectFolderMaxDepth": 6,
 
   /**
    * This feature helps you to review and approve new packages before they are introduced
@@ -254,33 +254,53 @@
   "projects": [
     {
       "packageName": "@misk/cli",
-      "projectFolder": "@misk/cli",
+      "projectFolder": "misk-web/web/packages/@misk/cli",
       "versionPolicyName": "MiskWeb"
     },
     {
       "packageName": "@misk/common",
-      "projectFolder": "@misk/common",
+      "projectFolder": "misk-web/web/packages/@misk/common",
       "versionPolicyName": "MiskWeb"
     },
     {
       "packageName": "@misk/core",
-      "projectFolder": "@misk/core",
+      "projectFolder": "misk-web/web/packages/@misk/core",
       "versionPolicyName": "MiskWeb"
     },
     {
       "packageName": "@misk/dev",
-      "projectFolder": "@misk/dev",
+      "projectFolder": "misk-web/web/packages/@misk/dev",
       "versionPolicyName": "MiskWeb"
     },
     {
       "packageName": "@misk/simpleredux",
-      "projectFolder": "@misk/simpleredux",
+      "projectFolder": "misk-web/web/packages/@misk/simpleredux",
       "versionPolicyName": "MiskWeb"
     },
     {
       "packageName": "@misk/tslint",
-      "projectFolder": "@misk/tslint",
+      "projectFolder": "misk-web/web/packages/@misk/tslint",
       "versionPolicyName": "MiskWeb"
+    },
+    {
+      "packageName": "misk-web-examples-data",
+      "projectFolder": "examples/data",
+      "versionPolicyName": "MiskWebDemo"
+    },
+    {
+      "packageName": "misk-web-tab-dashboard",
+      "projectFolder": "examples/services/dashboard",
+      "versionPolicyName": "MiskWebDemo"
+    },
+    {
+      "packageName": "misk-web-tab-palette",
+      "projectFolder": "examples/tabs/palette",
+      "versionPolicyName": "MiskWebDemo"
+    },
+    {
+      "packageName": "misk-web-tab-palette-exemplar",
+      "projectFolder": "examples/tabs/palette-exemplar",
+      "versionPolicyName": "MiskWebDemo"
     }
     // {
     //   /**

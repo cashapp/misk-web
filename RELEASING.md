@@ -24,7 +24,7 @@ This outlines the steps necessary to release new `@misk` packages on NPM.
 
 ```Bash
 $ npm install -g @microsoft/rush
-$ cd </your/code/directory>/misk-web/misk-web/web/packages
+$ cd </your/code/directory>/misk-web
 $ rush update
 $ rush build
 ```
@@ -32,7 +32,7 @@ $ rush build
 ## Releasing
 
 - `@misk` packages in this repo are managed by [Rush](https://rushjs.io/), which allows easy coordinated releases of all packages (ie. release all with a common version number). [Read their docs](https://rushjs.io/pages/intro/welcome/) to understand how to develop using Rush and how to setup your environment.
-- All commands below must be run from the `misk-web/misk-web/web/packages` directory.
+- All commands below must be run from the `misk-web` root directory.
 - Use the command below to bump the version across all packages.
 
   ```Bash
