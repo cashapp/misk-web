@@ -60,15 +60,20 @@ const filterObject = (
   filterFn: string | ((key: any) => boolean)
 ) => {
   let matched = []
+  let regMatched = []
+  let escRegMatched = []
   if (typeof filterFn === "string") {
     const escMatch = escapeRegExp(filterFn)
     if (isRegExp(filterFn)) {
-      matched = flatFilterObject(object, key => filterFn.test(key))
-    } else if (isRegExp(escMatch)) {
-      matched = flatFilterObject(object, key => escMatch.test(key))
-    } else {
-      matched = flatFilterObject(object, key => key.startsWith(filterFn))
+      regMatched = flatFilterObject(object, key => filterFn.test(key))
     }
+    if (isRegExp(escMatch)) {
+      escRegMatched = flatFilterObject(object, key => escMatch.test(key))
+    }
+    /** Choose the largest set of results from regExp, coersed regExp, and basic startsWith matching */
+    matched = flatFilterObject(object, key => key.startsWith(filterFn))
+    if (matched.length < regMatched.length) matched = regMatched
+    if (matched.length < escRegMatched.length) matched = escRegMatched
   } else {
     matched = flatFilterObject(object, filterFn)
   }
@@ -110,40 +115,23 @@ const flatResults = (results: object[], returnType: simpleType) => {
 }
 
 const selectAndFilterState: <
-  IState extends {
-    [key: string]: any
-  },
-  ISubState extends {
-    [key: string]: any
-  },
-  ISubPayload extends {
-    [key: string]: any
-  }
+  ISubState extends { [key: string]: any },
+  ISubPayload extends { [key: string]: any }
 >(
-  domain: string,
+  subStateSelector: (state: any) => ISubState,
   tagKeysFilter?: string | ((key: any) => boolean),
-  returnType?: simpleType,
-  subStateSelector?: any
+  returnType?: simpleType
 ) => ParametricSelector<
   ISubState,
   string,
   any | ISubPayload | ISubPayload[]
-> & {
-  resultFunc: (
-    res1: ISubState,
-    res2: any[]
-  ) => any | ISubPayload | ISubPayload[]
-  recomputations: () => number
-  resetRecomputations: () => number
-} = <
-  IState extends { [key: string]: ISubState | any },
+> = <
   ISubState extends { [key: string]: any },
   ISubPayload extends { [key: string]: any }
 >(
-  domain: string,
+  subStateSelector: (state: any) => ISubState,
   tagKeysFilter: string | ((key: any) => boolean) = "",
-  returnType?: simpleType,
-  subStateSelector: any = selectSubState<IState, ISubState>(domain)
+  returnType?: simpleType
 ) =>
   createCachedSelector(
     subStateSelector,
@@ -169,17 +157,29 @@ export const simpleSelect = <
   ISubState extends { [key: string]: any },
   ISubPayload extends { [key: string]: any }
 >(
-  subStateDomain: string,
   subState: any,
   tagFilter: string,
   tagKeysFilter: string | ((key: any) => boolean) = "",
+  subStateSelector?: string | any,
   returnType?: simpleType
-) =>
-  selectAndFilterState<IState, ISubState, ISubPayload>(
-    subStateDomain,
-    tagKeysFilter,
-    returnType
-  )(subState, tagFilter)
+) => {
+  if (subState.simpleTag) {
+    
+  }
+  if (typeof subStateSelector === "string") {
+    return selectAndFilterState<ISubState, ISubPayload>(
+      selectSubState<IState, ISubState>(subStateSelector),
+      tagKeysFilter,
+      returnType
+    )(subState, tagFilter)
+  } else {
+    return selectAndFilterState<ISubState, ISubPayload>(
+      subStateSelector,
+      tagKeysFilter,
+      returnType
+    )(subState, tagFilter)
+  }
+}
 
 /**
  * Handler Functions

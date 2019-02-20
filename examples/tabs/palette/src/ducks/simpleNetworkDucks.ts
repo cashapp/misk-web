@@ -12,6 +12,8 @@ import { all, AllEffect, call, put, takeEvery } from "redux-saga/effects"
 import { createSelector, OutputSelector, ParametricSelector } from "reselect"
 import { getPayloadTag, jsonOrString } from "."
 
+const simpleTag = "simpleNetwork"
+
 /**
  * Actions
  * string enum of the defined actions that is used as type enforcement for Reducer and Sagas arguments
@@ -109,6 +111,7 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     createAction<SIMPLENETWORK.DELETE, ISimpleNetworkState>(
       SIMPLENETWORK.DELETE,
       {
+        simpleTag,
         [tag]: {
           error: null,
           loading: true,
@@ -128,6 +131,7 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     createAction<SIMPLENETWORK.FAILURE, ISimpleNetworkState>(
       SIMPLENETWORK.FAILURE,
       {
+        simpleTag,
         [tag]: {
           ...error,
           loading: false,
@@ -144,6 +148,7 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
   ) =>
     createAction<SIMPLENETWORK.GET, ISimpleNetworkState>(SIMPLENETWORK.GET, {
+      simpleTag,
       [tag]: {
         error: null,
         loading: true,
@@ -159,6 +164,7 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
   ) =>
     createAction<SIMPLENETWORK.HEAD, ISimpleNetworkState>(SIMPLENETWORK.HEAD, {
+      simpleTag,
       [tag]: {
         error: null,
         loading: true,
@@ -177,6 +183,7 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     createAction<SIMPLENETWORK.PATCH, ISimpleNetworkState>(
       SIMPLENETWORK.PATCH,
       {
+        simpleTag,
         [tag]: {
           data,
           error: null,
@@ -195,6 +202,7 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
   ) =>
     createAction<SIMPLENETWORK.POST, ISimpleNetworkState>(SIMPLENETWORK.POST, {
+      simpleTag,
       [tag]: {
         data,
         error: null,
@@ -212,6 +220,7 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
   ) =>
     createAction<SIMPLENETWORK.PUT, ISimpleNetworkState>(SIMPLENETWORK.PUT, {
+      simpleTag,
       [tag]: {
         data,
         error: null,
@@ -231,6 +240,7 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     createAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkState>(
       SIMPLENETWORK.SUCCESS,
       {
+        simpleTag,
         [tag]: {
           ...data,
           error: null,
@@ -343,6 +353,7 @@ export function* watchSimpleNetworkSagas(): IterableIterator<AllEffect> {
  * Reducer merges all changes from dispatched action objects on to this initial state
  */
 const initialState = fromJS({
+  simpleTag,
   ...defaultState.toJS()
 })
 
@@ -377,6 +388,7 @@ export function SimpleNetworkReducer(
  */
 
 export interface ISimpleNetworkState extends IDefaultState {
+  simpleTag: string
   [tag: string]: any | ISimpleNetworkPayload
 }
 

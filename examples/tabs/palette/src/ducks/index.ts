@@ -13,7 +13,8 @@ import {
   dispatchSimpleForm,
   SimpleFormReducer,
   watchSimpleFormSagas
-} from "@misk/core"
+  // } from "@misk/core"
+} from "."
 import {
   connectRouter,
   LocationChangeAction,

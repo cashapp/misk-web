@@ -11,6 +11,8 @@ import { all, AllEffect, put, takeEvery } from "redux-saga/effects"
 import { createSelector, OutputSelector, ParametricSelector } from "reselect"
 import { booleanToggle, getPayloadTag } from "."
 
+const simpleTag = "simpleForm"
+
 /**
  * Actions
  * string enum of the defined actions that is used as type enforcement for Reducer and Sagas arguments
@@ -62,6 +64,7 @@ export interface IDispatchSimpleForm {
 export const dispatchSimpleForm: IDispatchSimpleForm = {
   simpleFormFailure: (tag: string, error: any) =>
     createAction<SIMPLEFORM.FAILURE, ISimpleFormState>(SIMPLEFORM.FAILURE, {
+      simpleTag,
       [tag]: {
         ...error,
         loading: false,
@@ -71,6 +74,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
     }),
   simpleFormInput: (tag: string, data: any) =>
     createAction<SIMPLEFORM.INPUT, ISimpleFormState>(SIMPLEFORM.INPUT, {
+      simpleTag,
       [tag]: {
         data,
         error: null,
@@ -85,6 +89,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
     valueAsString: string
   ) =>
     createAction<SIMPLEFORM.NUMBER, ISimpleFormState>(SIMPLEFORM.NUMBER, {
+      simpleTag,
       [tag]: {
         data: valueAsString,
         error: null,
@@ -95,6 +100,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
     }),
   simpleFormSuccess: (tag: string, data: any) =>
     createAction<SIMPLEFORM.SUCCESS, ISimpleFormState>(SIMPLEFORM.SUCCESS, {
+      simpleTag,
       [tag]: {
         ...data,
         error: null,
@@ -105,6 +111,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
     }),
   simpleFormToggle: (tag: string, oldState: any) =>
     createAction<SIMPLEFORM.TOGGLE, ISimpleFormState>(SIMPLEFORM.TOGGLE, {
+      simpleTag,
       [tag]: {
         oldToggle: valueSimpleForm(oldState, tag),
         error: null,
@@ -182,6 +189,7 @@ export function* watchSimpleFormSagas(): IterableIterator<AllEffect> {
  * Reducer merges all changes from dispatched action objects on to this initial state
  */
 const initialState = fromJS({
+  simpleTag,
   ...defaultState.toJS()
 })
 
@@ -213,6 +221,7 @@ export function SimpleFormReducer(
  */
 
 export interface ISimpleFormState extends IDefaultState {
+  simpleTag: string
   [tag: string]: any | ISimpleFormPayload
 }
 
