@@ -1,6 +1,6 @@
-import { color } from "@misk/common"
 import { Link } from "react-router-dom"
 import styled, { StyledComponent } from "styled-components"
+import { color } from "../../utilities"
 
 export const MiskNavbarHeading: StyledComponent<
   "span",

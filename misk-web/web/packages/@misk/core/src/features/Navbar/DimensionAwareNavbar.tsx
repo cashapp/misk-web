@@ -1,5 +1,4 @@
 import { Alignment, Navbar, NavbarGroup } from "@blueprintjs/core"
-import { color, Environment, IDashboardTab } from "@misk/common"
 import * as React from "react"
 import styled from "styled-components"
 import { ResponsiveContainer } from "../../containers"
@@ -11,6 +10,7 @@ import {
   NavItems,
   processNavbarItems
 } from "../Navbar"
+import { color, Environment, IDashboardTab } from "../../utilities"
 
 /**
  * <DimensionAwareComponent

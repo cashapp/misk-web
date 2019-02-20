@@ -1,7 +1,6 @@
-import { Environment } from "@misk/common"
 import * as React from "react"
 import { TextHTMLOrElementComponent } from "../../components"
-import { environmentToColor } from "../../utilities"
+import { Environment, environmentToColor } from "../../utilities"
 import { MiskNavbarHeading, MiskNavbarHeadingEnvironment } from "../Navbar"
 
 /**

@@ -1,5 +1,4 @@
 ///<reference types="webpack-env" />
-import { IWindow } from "@misk/common"
 import {
   routerMiddleware,
   RouterState,
@@ -19,6 +18,7 @@ import {
 } from "redux"
 import createSagaMiddleware from "redux-saga"
 import { AllEffect } from "redux-saga/effects"
+import { IWindow } from "../utilities"
 
 export const createIndex = (
   tabSlug: string,
