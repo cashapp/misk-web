@@ -1,28 +1,62 @@
-language: java
+matrix:
+  include:
+    # Test everything using Gradle and Docker builds
+    - language: java
+      jdk:
+        - openjdk11
 
-jdk:
-  - openjdk11
+      # Run Docker Pulls in parallel
+      install:
+        - docker pull squareup/misk-web &
 
-# Run Docker Pulls in parallel
-install:
-  - docker pull squareup/misk-web &
+      script:
+        - ./gradlew jar
+        - ./gradlew test
+        - ./ci-examples.sh
 
-script:
-  - ./gradlew jar
-  - ./gradlew test
-  - ./ci-examples.sh
+      # Gradle caching - as per https://docs.travis-ci.com/user/languages/java/#Projects-Using-Gradle
+      before_cache:
+        - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+        - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 
-# Gradle caching - as per https://docs.travis-ci.com/user/languages/java/#Projects-Using-Gradle
-before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+      cache:
+        bundler: true
+        directories:
+          - $HOME/.gradle/caches/
+          - $HOME/.gradle/wrapper/
 
-cache:
-  bundler: true
-  directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
+      services:
+        - mysql
+        - docker
 
-services:
-  - mysql
-  - docker
+    # Test web project builds using Rush in a native Node environment
+    - language: node_js
+
+      # Run Docker Pulls in parallel
+      install:
+        - docker pull squareup/misk-web &
+
+      node_js:
+        - "$(docker run -it --rm squareup/misk-web:latest node --version | sed 's/[^0-9,.]*//g')"
+      script:
+        # - set -e
+
+        - echo 'Checking for missing change logs...' && echo -en 'travis_fold:start:change\\r'
+        - git fetch origin master:refs/remotes/origin/master -a
+        - node common/scripts/install-run-rush.js change -v
+        - echo -en 'travis_fold:end:change\\r'
+
+        - echo 'Checking for inconsistent dependency versions' && echo -en 'travis_fold:start:check\\r'
+        - node common/scripts/install-run-rush.js check
+        - echo -en 'travis_fold:end:check\\r'
+
+        - echo 'Installing...' && echo -en 'travis_fold:start:install\\r'
+        - node common/scripts/install-run-rush.js install
+        - echo -en 'travis_fold:end:install\\r'
+
+        - echo 'Building...' && echo -en 'travis_fold:start:build\\r'
+        - node common/scripts/install-run-rush.js rebuild --verbose
+        - echo -en 'travis_fold:end:build\\r'
+
+      services:
+        - docker
