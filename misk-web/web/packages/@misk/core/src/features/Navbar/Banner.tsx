@@ -1,9 +1,8 @@
-import { color, Environment } from "@misk/common"
 import * as React from "react"
 import styled from "styled-components"
 import { TextHTMLOrElementComponent } from "../../components"
 import { FlexContainer, ResponsiveContainer } from "../../containers"
-import { environmentToColor } from "../../utilities"
+import { color, Environment, environmentToColor } from "../../utilities"
 
 /**
  * <Banner

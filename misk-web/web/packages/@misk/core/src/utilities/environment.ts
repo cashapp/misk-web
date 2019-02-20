@@ -1,4 +1,4 @@
-import { color, Environment } from "@misk/common"
+import { color, Environment } from "../utilities"
 
 export const defaultEnvironment = Environment.PRODUCTION
 export const defaultEnvironmentIndicatorsVisible = [

@@ -1,6 +1,6 @@
-import { IWebTab } from "@misk/common"
 import * as React from "react"
 import Helmet from "react-helmet"
+import { IWebTab } from "../utilities"
 
 /**
  * <TabLoaderComponent
