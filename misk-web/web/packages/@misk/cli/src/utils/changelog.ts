@@ -1,6 +1,7 @@
 export enum MiskVersion {
   "latest" = "0.1.3",
-  "alpha" = "0.1.4-2",
+  "alpha" = "0.1.4-6",
+  "v014_6" = "0.1.4-6",
   "v014_3" = "0.1.4-3",
   "v014_2" = "0.1.4-2",
   "v014_1" = "0.1.4-1",
@@ -51,6 +52,7 @@ export enum MiskPkg {
   "common" = "@misk/common",
   "core" = "@misk/core",
   "dev" = "@misk/dev",
+  "simpleredux" = "@misk/simpleredux",
   "tslint" = "@misk/tslint"
 }
 
@@ -60,6 +62,7 @@ export interface IMiskTabVersion {
   [MiskPkg.common]: string
   [MiskPkg.core]: string
   [MiskPkg.dev]: string
+  [MiskPkg.simpleredux]?: string
   [MiskPkg.tslint]: string
   notes?: string
 }
@@ -105,6 +108,16 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v014_6]: {
+    [MiskPkg.cli]: `${[MiskVersion.v014_6]}`,
+    [MiskPkg.common]: `${[MiskVersion.v014_6]}`,
+    [MiskPkg.core]: `${[MiskVersion.v014_6]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v014_6]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v014_6]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v014_6]}`,
+    date: "2019-02-20",
+    notes: "New SimpleRedux library with refactors of simple*Ducks API."
+  },
   [MiskVersion.v014_3]: {
     [MiskPkg.cli]: `${[MiskVersion.v014_3]}`,
     [MiskPkg.common]: `${[MiskVersion.v014_3]}`,
