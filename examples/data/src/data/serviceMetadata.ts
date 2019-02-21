@@ -1,4 +1,4 @@
-import { Environment, IServiceMetadata } from "@misk/common"
+import { Environment, IServiceMetadata } from "@misk/core"
 
 export const serviceMetadata: { serviceMetadata: IServiceMetadata } = {
   serviceMetadata: {

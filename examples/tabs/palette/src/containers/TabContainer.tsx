@@ -1,4 +1,4 @@
-import { getSimpleNetwork } from "@misk/core"
+import { simpleSelect } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
 import { HowToComponent, SampleTableComponent } from "../components"
@@ -18,7 +18,7 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
     return (
       <div>
         <SampleTableComponent
-          data={getSimpleNetwork(this.props.simpleNetwork, this.tableTag)}
+          data={simpleSelect(this.props.simpleNetwork, this.tableTag)}
           rows={5}
           url={this.tableUrl}
           tag={this.tableTag}

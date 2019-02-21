@@ -1,37 +1,123 @@
-import { escapeRegExp, filter, flatMap, isEmpty, isRegExp } from "lodash-es"
+import { fromJS, List } from "immutable"
+import {
+  escapeRegExp,
+  filter,
+  flatMap,
+  isEmpty,
+  isRegExp
+  // reduce
+} from "lodash-es"
 import createCachedSelector from "re-reselect"
 import { createSelector, OutputSelector, ParametricSelector } from "reselect"
-import { defaultState } from "."
 
 /**
- * simple*Ducks libraries common code
+ * Default State with Redux flow metadata wrapped in an Immutable JS object for more efficient use in Reducers
  */
+export interface IDefaultState {
+  data: any
+  error: any
+  loading: boolean
+  simpleTag: string
+  success: boolean
+}
+
+/**
+ * RootState has added simpleTag for easier use in selectors
+ */
+export interface IRootState {
+  simpleTag: string
+}
+
+export interface IDefaultRootState extends IDefaultState, IRootState {}
+
+/**
+ * Initializes new default state with initial Redux metadata state
+ */
+export const defaultState = fromJS({
+  data: List([]),
+  error: null,
+  loading: false,
+  success: false
+})
+
+/**
+ *
+ * @param simpleTag string identifier for the state domain
+ * Used to initialize a top level domain of Redux state
+ *
+ * Example
+ * - Domain: simpleForm
+ * - Access: this.state.simpleForm
+ * - simpleTag: "simpleForm"
+ * - Initialize: defaultRootState("simpleForm")
+ */
+export const defaultRootState = (simpleTag: string) =>
+  fromJS({
+    simpleTag,
+    ...defaultState.toJS()
+  })
+
+/**
+ * Create type safe Redux Actions
+ */
+export interface IAction<T, P> {
+  readonly type: T
+  readonly payload?: P
+}
+
+export function createAction<T extends string, P>(
+  type: T,
+  payload: P
+): IAction<T, P> {
+  return { type, payload }
+}
+
+/**
+ *
+ * @param error Generates message given a potentially null error object
+ */
+export const errorMessage = (error: any) => {
+  if (!error) {
+    return ""
+  }
+
+  let code = error.errorCode
+  if (!code) {
+    code =
+      error.response && error.response.status === 401
+        ? "Unauthorized"
+        : "InternalServerError"
+  }
+
+  return code
+}
+
 /**
  * State Selectors
  * A memoized, efficient way to compute and return the latest domain of the state
  */
 const selectSubState: <
-  IState extends { [key: string]: ISubState | any },
-  ISubState extends { toJS?: () => any }
+  IState extends { [key: string]: ISubState },
+  ISubState extends { [key: string]: any }
 >(
   domain: string
 ) => (state: IState) => ISubState = <
   IState extends { [key: string]: ISubState },
-  ISubState extends { toJS?: () => any }
+  ISubState extends { [key: string]: any }
 >(
   domain: string
 ) => (state: IState) => {
   return state[domain]
 }
 
-const subStateSelector: <
+const immutableSubStateSelector: <
   IState extends { [key: string]: ISubState & any },
-  ISubState extends { toJS?: () => any }
+  ISubState extends { toJS: () => IRootState }
 >(
   domain: string
 ) => OutputSelector<IState, any, (res: ISubState) => any> = <
   IState extends { [key: string]: ISubState },
-  ISubState extends { toJS?: () => any }
+  ISubState extends { toJS: () => IRootState }
 >(
   domain: string
 ) =>
@@ -40,13 +126,13 @@ const subStateSelector: <
     state => state.toJS()
   )
 
-export const simpleRootSelector = <
+export const simpleImmutableRootSelector = <
   IState extends { [key: string]: ISubState & any },
-  ISubState extends { toJS?: () => any }
+  ISubState extends { toJS: () => IRootState }
 >(
   domain: string,
   state: IState
-) => subStateSelector<IState, ISubState>(domain)(state)
+) => immutableSubStateSelector<IState, ISubState>(domain)(state)
 
 const flatFilterObject = (object: any, filterFn: (key: any) => boolean) =>
   flatMap(filter(Object.keys(object), filterFn), key => object[key])
@@ -160,8 +246,12 @@ export const simpleSelect = <
   returnType?: simpleType
 ) => {
   if (subState.simpleTag) {
-  }
-  if (typeof subStateSelector === "string") {
+    return selectAndFilterState<ISubState, ISubPayload>(
+      selectSubState<IState, ISubState>(subState.simpleTag),
+      tagKeysFilter,
+      returnType
+    )(subState, tagFilter)
+  } else if (typeof subStateSelector === "string") {
     return selectAndFilterState<ISubState, ISubPayload>(
       selectSubState<IState, ISubState>(subStateSelector),
       tagKeysFilter,
@@ -201,7 +291,7 @@ export const simpleSelect = <
  * <Button onClick={onClickFnCall(props.simpleNetworkPut, ["PutTag", { ...requestBody }])}
  * ```
  */
-export const onClickFnCall = (callFn: any, args: any[]) => (event: any) => {
+export const onClickFnCall = (callFn: any, ...args: any) => (event: any) => {
   callFn(...args)
 }
 
@@ -214,7 +304,7 @@ export const onClickFnCall = (callFn: any, args: any[]) => (event: any) => {
  * <InputGroup onChange={onChangeFnCall(props.simpleFormInput, ["FormInputTag"])}
  * ```
  */
-export const onChangeFnCall = (callFn: any, args: any[]) => (event: any) => {
+export const onChangeFnCall = (callFn: any, ...args: any) => (event: any) => {
   callFn(...args, event.target.value)
 }
 
@@ -227,7 +317,7 @@ export const onChangeFnCall = (callFn: any, args: any[]) => (event: any) => {
  * <Checkbox onChange={onChangeToggleFnCall(props.simpleFormToggle, ["FormToggleTag", simpleFormState])}
  * ```
  */
-export const onChangeToggleFnCall = (callFn: any, args: any[]) => (
+export const onChangeToggleFnCall = (callFn: any, ...args: any) => (
   event: any
 ) => {
   callFn(...args, event.target.value)
@@ -242,7 +332,7 @@ export const onChangeToggleFnCall = (callFn: any, args: any[]) => (
  * <NumberInput onChange={onChangeNumberFnCall(props.simpleFormNumber, ["FormNumberTag"])}
  * ```
  */
-export const onChangeNumberFnCall = (callFn: any, args: any[]) => (
+export const onChangeNumberFnCall = (callFn: any, ...args: any) => (
   valueAsNumber: number,
   valueAsString: string
 ) => {
@@ -258,7 +348,7 @@ export const onChangeNumberFnCall = (callFn: any, args: any[]) => (
  * <TagInput onChange={onChangeTagFnCall(props.simpleFormInput, ["FormTagsTag"])}
  * ```
  */
-export const onChangeTagFnCall = (callFn: any, args: any[]) => (
+export const onChangeTagFnCall = (callFn: any, ...args: any) => (
   values: string[]
 ) => {
   callFn(...args, values)
@@ -286,9 +376,19 @@ export const booleanToggle = (oldState: string | boolean) => {
  * Only use when action.payload has a single key (ie. the tag with all metadata inside)
  * Otherwise, unpredictable key selection
  */
-export const getPayloadTag = <T = any>(payload: { [tag: string]: T }) => {
-  return payload[Object.keys(payload)[0]]
-}
+export const getPayloadTag = <T = { [key: string]: any }>(payload: {
+  [tag: string]: T
+}): T => payload[filter(Object.keys(payload), key => key != "simpleTag")[0]]
+// TODO do not assume only 1 remaining valid key that should be returned. rework reducers, don't do fancy handling here.
+
+// reduce(
+//   filter(Object.keys(payload), key => key != "simpleTag"),
+//   (result: { [key: string]: any }, key: string) => {
+//     result[key] = payload[key]
+//     return result
+//   },
+//   {}
+// ) as T
 
 /**
  *

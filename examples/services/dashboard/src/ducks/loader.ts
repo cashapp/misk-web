@@ -1,11 +1,14 @@
 import {
+  IDashboardTab,
+  IServiceMetadata
+} from "@misk/core"
+import {
   createAction,
   defaultState,
   IAction,
-  IDashboardTab,
   IDefaultState,
-  IServiceMetadata
-} from "@misk/common"
+  IRootState
+} from "@misk/simpleredux"
 import axios from "axios"
 import { fromJS } from "immutable"
 import {
@@ -70,7 +73,7 @@ export const dispatchLoader = {
  * @param state
  * @param action
  */
-export interface ILoaderState extends IDefaultState {
+export interface ILoaderState extends IRootState {
   adminTabComponents: {
     [tab: string]: string
   }

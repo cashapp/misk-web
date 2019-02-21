@@ -1,4 +1,4 @@
-import { IDashboardTab } from "@misk/common"
+import { IDashboardTab } from "@misk/core"
 
 export const adminDashboardTabs: { adminDashboardTabs: IDashboardTab[] } = {
   adminDashboardTabs: [

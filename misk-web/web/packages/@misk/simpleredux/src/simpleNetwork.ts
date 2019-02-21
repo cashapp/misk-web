@@ -8,7 +8,7 @@ import {
   IDefaultState,
   jsonOrString,
   IRootState
-} from "."
+} from "./utilities"
 
 const simpleTag = "simpleNetwork"
 
@@ -384,4 +384,8 @@ export function SimpleNetworkReducer(
 
 export interface ISimpleNetworkState extends IRootState {
   [tag: string]: any | ISimpleNetworkPayload
+}
+
+export interface ISimpleNetworkImmutableState {
+  toJS: () => ISimpleNetworkState
 }

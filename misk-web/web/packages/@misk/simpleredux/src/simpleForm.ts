@@ -6,9 +6,10 @@ import {
   getPayloadTag,
   IAction,
   IDefaultState,
-  IRootState
-} from "."
-import { simpleSelect, simpleType } from "./utilities"
+  IRootState,
+  simpleSelect,
+  simpleType
+} from "./utilities"
 
 const simpleTag = "simpleForm"
 
@@ -218,4 +219,8 @@ export function SimpleFormReducer(
 
 export interface ISimpleFormState extends IRootState {
   [tag: string]: any | ISimpleFormPayload
+}
+
+export interface ISimpleFormImmutableState {
+  toJS: () => ISimpleFormState
 }

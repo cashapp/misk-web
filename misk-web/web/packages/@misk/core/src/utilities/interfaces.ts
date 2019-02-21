@@ -3,21 +3,21 @@
 /**
  * Common Interfaces
  */
-interface IWebTab {
+export interface IWebTab {
   slug: string
   url_path_prefix: string
   roles?: string[]
   services?: string[]
 }
 
-interface IDashboardTab extends IWebTab {
+export interface IDashboardTab extends IWebTab {
   name: string
   category?: string
 }
 
-interface IAdminDashboardTab extends IDashboardTab {}
+export interface IAdminDashboardTab extends IDashboardTab {}
 
-interface IServiceMetadata {
+export interface IServiceMetadata {
   admin_dashboard_url: string
   app_name: string
   environment: Environment
@@ -28,7 +28,7 @@ interface IServiceMetadata {
 /**
  * Environment
  */
-enum Environment {
+export const enum Environment {
   TESTING = "TESTING",
   DEVELOPMENT = "DEVELOPMENT",
   STAGING = "STAGING",
@@ -39,7 +39,7 @@ enum Environment {
  * Time
  */
 
-enum DateFormat {
+export const enum DateFormat {
   year = "YYYY",
   month = "YYYY-MM",
   day = "YYYY-MM-DD",
@@ -54,19 +54,19 @@ enum DateFormat {
 /**
  * Binder
  */
-enum IBinderKeys {
+export const enum IBinderKeys {
   NavNavbarMenu = "NavNavbarMenu",
   TabEntry = "TabEntry"
 }
 
-interface IBinder {
+export interface IBinder {
   multibind: (binder: IBinderKeys, key: string, value: any) => any
 }
 
 /**
  * Window
  */
-interface IWindow extends Window {
+export interface IWindow extends Window {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any
   Misk: {
     Binder: IBinder
@@ -79,16 +79,4 @@ interface IWindow extends Window {
     Loader: any
   }
   MiskBinders: any
-}
-
-export {
-  DateFormat,
-  Environment,
-  IWebTab,
-  IDashboardTab,
-  IAdminDashboardTab,
-  IServiceMetadata,
-  IBinder,
-  IBinderKeys,
-  IWindow
 }

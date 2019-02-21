@@ -26,7 +26,6 @@ const vendorExternals = createExternals({
   dayjs: "Dayjs",
   history: "HistoryNPM",
   immutable: "Immutable",
-  "lodash-es": "_",
   react: "React",
   "react-dom": "ReactDom",
   "react-helmet": "ReactHelmet",
@@ -44,7 +43,8 @@ const vendorExternals = createExternals({
 
 const miskExternals = createExternals({
   "@misk/common": ["Misk", "Common"],
-  "@misk/core": ["Misk", "Components"]
+  "@misk/core": ["Misk", "Core"],
+  "@misk/simpleredux": ["Misk", "SimpleRedux"]
 })
 
 module.exports = { createExternals, vendorExternals, miskExternals }
