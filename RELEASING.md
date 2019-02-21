@@ -157,6 +157,8 @@ $ rush build
 
 - Commit all code changes with a commit message starting with `[RELEASE] 0.1.3-4.`
 
+- Use `rush change` to update the Changelog. Commit and squash these changes into the `[RELEASE] X.Y.Z-Q` commit.
+
 - 🎉 Congratulations! You've released a new set of `@misk` packages! Downstream `misk-web` tabs can now simply update the `version` in their `miskTab.json` and on their next build, they will start using the latest packages.
 
 ## Deprecating
