@@ -4,7 +4,7 @@ import { getPackageVersion, MiskPkg } from "../changelog"
 
 const header = {
   license: "SEE LICENSE IN https://github.com/square/misk-web",
-  main: "src/index.ts"
+  main: "src/index.tsx"
 }
 
 const scripts = (miskTab: IMiskTabJSON) => ({

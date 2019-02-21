@@ -31,9 +31,6 @@ import { IState, rootDispatcher, rootSelectors, IDispatchProps } from "../ducks"
 
 export const SampleFormContainer = (props: IState & IDispatchProps) => {
   const FormTag = "Expense Report"
-  console.log(
-    simpleSelect(props.simpleForm, `${FormTag}::Tags`, "data", simpleType.tags)
-  )
   return (
     <div>
       <H1>Test</H1>
@@ -193,7 +190,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
             props.simpleNetworkPost,
             `${FormTag}::POST`,
             simpleSelect(props.simpleForm, `${FormTag}::POST_URL`, "data"),
-            simpleSelect(props.simpleForm, FormTag, "data")
+            simpleSelect(props.simpleForm, FormTag)
           )}
           intent={Intent.PRIMARY}
           loading={simpleSelect(

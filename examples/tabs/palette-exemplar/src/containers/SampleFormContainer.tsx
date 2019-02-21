@@ -190,7 +190,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
             props.simpleNetworkPost,
             `${FormTag}::POST`,
             simpleSelect(props.simpleForm, `${FormTag}::POST_URL`, "data"),
-            simpleSelect(props.simpleForm, FormTag, "data")
+            simpleSelect(props.simpleForm, FormTag)
           )}
           intent={Intent.PRIMARY}
           loading={simpleSelect(

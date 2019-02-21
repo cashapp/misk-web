@@ -1,14 +1,11 @@
 import {
   createAction,
-  defaultState,
   IAction,
-  IDefaultState
-} from "@misk/common"
+  IRootState,
+  defaultRootState
+} from "@misk/simpleredux"
 import axios from "axios"
-import { fromJS } from "immutable"
 import { all, AllEffect, call, put, takeLatest } from "redux-saga/effects"
-import { createSelector, OutputSelector } from "reselect"
-import { IState } from "../ducks"
 
 /**
  * Actions
@@ -25,26 +22,56 @@ export enum PALETTEEXEMPLAR {
  * Object of functions that dispatch Actions with standard defaults and any required passed in input
  * dispatch Object is used within containers to initiate any saga provided functionality
  */
-export const dispatchPaletteExemplar = {
-  dinosaur: () =>
-    createAction(PALETTEEXEMPLAR.DINOSAUR, {
-      error: null,
-      loading: true,
-      success: false
-    }),
-  failure: (error: any) =>
-    createAction(PALETTEEXEMPLAR.FAILURE, {
-      ...error,
-      loading: false,
-      success: false
-    }),
-  success: (data: any) =>
-    createAction(PALETTEEXEMPLAR.SUCCESS, {
-      ...data,
-      error: null,
-      loading: false,
-      success: true
-    })
+export interface IPaletteExemplarPayload {
+  data?: any
+  error: any
+  loading: boolean
+  success: boolean
+}
+
+export interface IDispatchPaletteExemplar {
+  paletteExemplarDinosaur: (
+    data: any,
+    fieldTag: string,
+    formTag: string
+  ) => IAction<PALETTEEXEMPLAR.DINOSAUR, IPaletteExemplarPayload>
+  paletteExemplarFailure: (
+    error: any
+  ) => IAction<PALETTEEXEMPLAR.FAILURE, IPaletteExemplarPayload>
+  paletteExemplarSuccess: (
+    data: any
+  ) => IAction<PALETTEEXEMPLAR.SUCCESS, IPaletteExemplarPayload>
+}
+
+export const dispatchPaletteExemplar: IDispatchPaletteExemplar = {
+  paletteExemplarDinosaur: () =>
+    createAction<PALETTEEXEMPLAR.DINOSAUR, IPaletteExemplarPayload>(
+      PALETTEEXEMPLAR.DINOSAUR,
+      {
+        error: null,
+        loading: true,
+        success: false
+      }
+    ),
+  paletteExemplarFailure: (error: any) =>
+    createAction<PALETTEEXEMPLAR.FAILURE, IPaletteExemplarPayload>(
+      PALETTEEXEMPLAR.FAILURE,
+      {
+        ...error,
+        loading: false,
+        success: false
+      }
+    ),
+  paletteExemplarSuccess: (data: any) =>
+    createAction<PALETTEEXEMPLAR.SUCCESS, IPaletteExemplarPayload>(
+      PALETTEEXEMPLAR.SUCCESS,
+      {
+        ...data,
+        error: null,
+        loading: false,
+        success: true
+      }
+    )
 }
 
 /**
@@ -60,15 +87,19 @@ export const dispatchPaletteExemplar = {
  *  function to prevent unhelpful errors. Ie. a failed request error is
  *  returned but it actually was just a parsing error within the try/catch.
  */
-function* handleDinosaur() {
+function* handleDinosaur(
+  action: IAction<PALETTEEXEMPLAR, IPaletteExemplarPayload>
+) {
   try {
     const { data } = yield call(
       axios.get,
       "https://jsonplaceholder.typicode.com/posts/"
     )
-    yield put(dispatchPaletteExemplar.success({ data }))
+    yield put(dispatchPaletteExemplar.paletteExemplarSuccess({ data }))
   } catch (e) {
-    yield put(dispatchPaletteExemplar.failure({ error: { ...e } }))
+    yield put(
+      dispatchPaletteExemplar.paletteExemplarFailure({ error: { ...e } })
+    )
   }
 }
 
@@ -80,18 +111,16 @@ export function* watchPaletteExemplarSagas(): IterableIterator<AllEffect> {
  * Initial State
  * Reducer merges all changes from dispatched action objects on to this initial state
  */
-const initialState = fromJS({
-  ...defaultState.toJS()
-})
+const initialState = defaultRootState("paletteExemplar")
 
 /**
  * Duck Reducer
  * Merges dispatched action objects on to the existing (or initial) state to generate new state
  */
-export default function PaletteExemplarReducer(
+export const PaletteExemplarReducer = (
   state = initialState,
-  action: IAction<string, {}>
-) {
+  action: IAction<PALETTEEXEMPLAR, {}>
+) => {
   switch (action.type) {
     case PALETTEEXEMPLAR.DINOSAUR:
     case PALETTEEXEMPLAR.FAILURE:
@@ -108,22 +137,10 @@ export default function PaletteExemplarReducer(
  * Consumed by the root reducer in ./ducks index to update global state
  * Duck state is attached at the root level of global state
  */
-export interface IPaletteExemplarState extends IDefaultState {
+export interface IPaletteExemplarState extends IRootState {
   [key: string]: any
 }
 
-/**
- * Selector
- * A memoized, efficient way to compute and return the latest domain of the state
- */
-export const paletteExemplarState = (state: IState) =>
-  state.paletteExemplar.toJS()
-
-export const paletteExemplarSelector: OutputSelector<
-  IState,
-  any,
-  (res: any) => any
-> = createSelector(
-  paletteExemplarState,
-  state => state
-)
+export interface IPaletteExemplarImmutableState {
+  toJS: () => IPaletteExemplarState
+}
