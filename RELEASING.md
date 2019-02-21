@@ -149,12 +149,6 @@ $ rush build
   `-- npm@6.4.1
   ```
 
-- Update the latest Docker image in `misk-web/gradle/web.gradle`
-
-  ```Gradle
-  def dockerMiskWebVersion = "0.1.3-4"
-  ```
-
 - Commit all code changes with a commit message starting with `[RELEASE] 0.1.3-4.`
 
 - Use `rush change` to update the Changelog. Commit and squash these changes into the `[RELEASE] X.Y.Z-Q` commit.
@@ -168,3 +162,11 @@ If a package is no longer required, you must mark it as deprecated on NPM. Use t
 ```Bash
 npm deprecate @misk/tabs@0.0.1 "Deprecation Message" --otp=
 ```
+
+## Publishing `misk-web-plugin`
+
+- `misk-web-plugin` is a Gradle plugin written in Kotlin DSL that builds Misk-Web tabs within a Java/Kotlin project.
+
+- Builds of tabs are done within a Docker container that contains the latest version of `@misk/*` NPM packages on a Node Alpine base image.
+
+- Publish the plugin to [Gradle M2](https://plugins.gradle.org/plugin/com.squareup.misk-web-plugin) locally by using `./gradlew pluginPublic` with `Gradle M2` credentials stored in a local `~/.gradle/gradle.properties` file.

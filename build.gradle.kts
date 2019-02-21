@@ -1,35 +1,38 @@
-ext.set("isCi", "true" == System.getenv("CI"))
-
 tasks {
   val plugin by registering(GradleBuild::class) {
     dir = file("misk-web-plugin")
     tasks = listOf("publish")
   }
 
+  val pluginPublic by registering(GradleBuild::class) {
+    dir = file("misk-web-plugin")
+    tasks = listOf("publish", "publishPlugins")
+  }
+
   val jar by registering(GradleBuild::class) {
     dir = file("misk-web")
-    tasks = listOf("webBuild", "jar")
+    tasks = listOf("jar")
   }
 
   jar {
     dependsOn(plugin)
   }
 
-  val example by registering(GradleBuild::class) {
+  val testlocal by registering(GradleBuild::class) {
     dir = file("examples/gradle")
-    tasks = listOf("example")
+    tasks = listOf("testlocal")
   }
 
-  example {
+  testlocal {
     dependsOn(plugin)
   }
 
-  val test by registering(GradleBuild::class) {
+  val testm2 by registering(GradleBuild::class) {
     dir = file("examples/gradle")
-    tasks = listOf("test")
+    tasks = listOf("testm2")
   }
 
-  test {
+  testm2 {
     dependsOn(plugin)
   }
 }

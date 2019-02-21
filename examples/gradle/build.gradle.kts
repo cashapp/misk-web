@@ -1,31 +1,37 @@
+buildscript {
+  val miskWebPluginArtifact by rootProject.extra { "com.squareup.misk-web-plugin:misk-web-plugin" }
+  val miskWebPluginVersion by rootProject.extra { "201902211730-3b716ac" }
+}
+
 tasks {
 
-    val mwpGroovyExample by registering(GradleBuild::class) {
-        dir = file("misk-web-plugin-groovy")
-        tasks = listOf("webBuild")
-    }
+  val mwpGroovyLocal by registering(GradleBuild::class) {
+    dir = file("misk-web-plugin-groovy-local")
+    tasks = listOf("webBuild")
+  }
 
-    val mwpKotlinExample by registering(GradleBuild::class) {
-        dir = file("misk-web-plugin-kotlin-dsl")
-        tasks = listOf("webBuild")
-    }
+  val mwpKotlinLocal by registering(GradleBuild::class) {
+    dir = file("misk-web-plugin-kotlin-dsl-local")
+    tasks = listOf("webBuild")
+  }
 
-    register("example") {
-        dependsOn(listOf(mwpGroovyExample, mwpKotlinExample))
-    }
+  // Integration test using locally built version of `misk-web-plugin`
+  register("testlocal") {
+    dependsOn(listOf(mwpGroovyLocal, mwpKotlinLocal))
+  }
 
+  val mwpGroovyM2 by registering(GradleBuild::class) {
+    dir = file("misk-web-plugin-groovy-m2")
+    tasks = listOf("webBuild")
+  }
 
-    val mwpGroovyTest by registering(GradleBuild::class) {
-        dir = file("misk-web-plugin-groovy-test")
-        tasks = listOf("webBuild")
-    }
+  val mwpKotlinM2 by registering(GradleBuild::class) {
+    dir = file("misk-web-plugin-kotlin-dsl-m2")
+    tasks = listOf("webBuild")
+  }
 
-    val mwpKotlinTest by registering(GradleBuild::class) {
-        dir = file("misk-web-plugin-kotlin-dsl-test")
-        tasks = listOf("webBuild")
-    }
-
-    register("test") {
-        dependsOn(listOf(mwpGroovyTest, mwpKotlinTest))
-    }
+  // Integration test using public published Gradle M2 version of `misk-web-plugin`
+  register("testm2") {
+    dependsOn(listOf(mwpGroovyM2, mwpKotlinM2))
+  }
 }
