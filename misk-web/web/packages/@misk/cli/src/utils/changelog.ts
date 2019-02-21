@@ -1,6 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.3",
+  "latest" = "0.1.4",
   "alpha" = "0.1.4-14",
+  "v014" = "0.1.4",
   "v014_14" = "0.1.4-14",
   "v014_13" = "0.1.4-13",
   "v014_12" = "0.1.4-12",
@@ -114,6 +115,16 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v014]: {
+    [MiskPkg.cli]: `${[MiskVersion.v014]}`,
+    [MiskPkg.common]: `${[MiskVersion.v014]}`,
+    [MiskPkg.core]: `${[MiskVersion.v014]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v014]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v014]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v014]}`,
+    date: "2019-02-21",
+    notes: "Stable release including all @misk/simpleredux changes."
+  },
   [MiskVersion.v014_14]: {
     [MiskPkg.cli]: `${[MiskVersion.v014_14]}`,
     [MiskPkg.common]: `${[MiskVersion.v014_14]}`,
