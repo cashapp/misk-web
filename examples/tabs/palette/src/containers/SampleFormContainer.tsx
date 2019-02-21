@@ -162,15 +162,12 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
             `${FormTag}::Tags`
           )}
           placeholder={"Tags"}
-          values={
-            // simpleSelect(
-            //   props.simpleForm,
-            //   `${FormTag}::Tags`,
-            //   "data",
-            //   simpleType.tags
-            // ) ||
-            []
-          }
+          values={simpleSelect(
+            props.simpleForm,
+            `${FormTag}::Tags`,
+            "data",
+            simpleType.tags
+          )}
         />
         <H3>Form Submission</H3>
         <Pre>

@@ -3,7 +3,7 @@ import {
   booleanToggle,
   createAction,
   defaultRootState,
-  getPayloadTag,
+  getFirstTag,
   IAction,
   IDefaultState,
   IRootState,
@@ -30,41 +30,44 @@ export enum SIMPLEFORM {
  * Object of functions that dispatch Actions with standard defaults and any required passed in input
  * dispatch Object is used within containers to initiate any saga provided functionality
  */
-export interface ISimpleFormPayload extends IDefaultState {
+export interface ISimpleFormPayloadTag extends IDefaultState {
   oldToggle?: string | boolean
   tag: string
   valueAsString?: string
   valueAsNumber?: number
 }
 
+export interface ISimpleFormPayload {
+  [tag: string]: ISimpleFormPayloadTag
+}
+
 export interface IDispatchSimpleForm {
   simpleFormFailure: (
     tag: string,
     error: any
-  ) => IAction<SIMPLEFORM.FAILURE, ISimpleFormState>
+  ) => IAction<SIMPLEFORM.FAILURE, ISimpleFormPayload>
   simpleFormInput: (
     tag: string,
     data: any
-  ) => IAction<SIMPLEFORM.INPUT, ISimpleFormState>
+  ) => IAction<SIMPLEFORM.INPUT, ISimpleFormPayload>
   simpleFormNumber: (
     tag: string,
     valueAsNumber: number,
     valueAsString: string
-  ) => IAction<SIMPLEFORM.NUMBER, ISimpleFormState>
+  ) => IAction<SIMPLEFORM.NUMBER, ISimpleFormPayload>
   simpleFormSuccess: (
     tag: string,
     data: any
-  ) => IAction<SIMPLEFORM.SUCCESS, ISimpleFormState>
+  ) => IAction<SIMPLEFORM.SUCCESS, ISimpleFormPayload>
   simpleFormToggle: (
     tag: string,
     oldState: any
-  ) => IAction<SIMPLEFORM.TOGGLE, ISimpleFormState>
+  ) => IAction<SIMPLEFORM.TOGGLE, ISimpleFormPayload>
 }
 
 export const dispatchSimpleForm: IDispatchSimpleForm = {
   simpleFormFailure: (tag: string, error: any) =>
-    createAction<SIMPLEFORM.FAILURE, ISimpleFormState>(SIMPLEFORM.FAILURE, {
-      simpleTag,
+    createAction<SIMPLEFORM.FAILURE, ISimpleFormPayload>(SIMPLEFORM.FAILURE, {
       [tag]: {
         ...error,
         loading: false,
@@ -73,8 +76,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
       }
     }),
   simpleFormInput: (tag: string, data: any) =>
-    createAction<SIMPLEFORM.INPUT, ISimpleFormState>(SIMPLEFORM.INPUT, {
-      simpleTag,
+    createAction<SIMPLEFORM.INPUT, ISimpleFormPayload>(SIMPLEFORM.INPUT, {
       [tag]: {
         data,
         error: null,
@@ -88,8 +90,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
     valueAsNumber: number,
     valueAsString: string
   ) =>
-    createAction<SIMPLEFORM.NUMBER, ISimpleFormState>(SIMPLEFORM.NUMBER, {
-      simpleTag,
+    createAction<SIMPLEFORM.NUMBER, ISimpleFormPayload>(SIMPLEFORM.NUMBER, {
       [tag]: {
         data: valueAsString,
         error: null,
@@ -99,8 +100,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
       }
     }),
   simpleFormSuccess: (tag: string, data: any) =>
-    createAction<SIMPLEFORM.SUCCESS, ISimpleFormState>(SIMPLEFORM.SUCCESS, {
-      simpleTag,
+    createAction<SIMPLEFORM.SUCCESS, ISimpleFormPayload>(SIMPLEFORM.SUCCESS, {
       [tag]: {
         ...data,
         error: null,
@@ -110,10 +110,10 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
       }
     }),
   simpleFormToggle: (tag: string, oldState: any) =>
-    createAction<SIMPLEFORM.TOGGLE, ISimpleFormState>(SIMPLEFORM.TOGGLE, {
-      simpleTag,
+    createAction<SIMPLEFORM.TOGGLE, ISimpleFormPayload>(SIMPLEFORM.TOGGLE, {
       [tag]: {
         oldToggle: simpleSelect(oldState, tag, "data", simpleType.boolean),
+        data: null,
         error: null,
         loading: true,
         success: false,
@@ -136,40 +136,42 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
  *  returned but it actually was just a parsing error within the try/catch.
  */
 
-function* handleBasicRequest(action: IAction<SIMPLEFORM, ISimpleFormState>) {
+function* handleBasicRequest(action: IAction<SIMPLEFORM, ISimpleFormPayload>) {
   try {
-    const { data, tag } = getPayloadTag(action.payload)
+    const { data, tag } = getFirstTag<ISimpleFormPayloadTag>(action.payload)
     yield put(
       dispatchSimpleForm.simpleFormSuccess(tag, {
-        ...getPayloadTag(action.payload),
+        ...getFirstTag<ISimpleFormPayloadTag>(action.payload),
         data
       })
     )
   } catch (e) {
-    const { tag } = getPayloadTag(action.payload)
+    const { tag } = getFirstTag<ISimpleFormPayloadTag>(action.payload)
     yield put(
       dispatchSimpleForm.simpleFormFailure(tag, {
-        ...getPayloadTag(action.payload),
+        ...getFirstTag<ISimpleFormPayloadTag>(action.payload),
         ...e
       })
     )
   }
 }
 
-function* handleToggle(action: IAction<SIMPLEFORM, ISimpleFormState>) {
+function* handleToggle(action: IAction<SIMPLEFORM, ISimpleFormPayload>) {
   try {
-    const { oldToggle, tag } = getPayloadTag<ISimpleFormPayload>(action.payload)
+    const { oldToggle, tag } = getFirstTag<ISimpleFormPayloadTag>(
+      action.payload
+    )
     yield put(
       dispatchSimpleForm.simpleFormSuccess(tag, {
-        ...getPayloadTag<ISimpleFormPayload>(action.payload),
+        ...getFirstTag<ISimpleFormPayloadTag>(action.payload),
         data: booleanToggle(oldToggle)
       })
     )
   } catch (e) {
-    const { tag } = getPayloadTag<ISimpleFormPayload>(action.payload)
+    const { tag } = getFirstTag<ISimpleFormPayloadTag>(action.payload)
     yield put(
       dispatchSimpleForm.simpleFormFailure(tag, {
-        ...getPayloadTag<ISimpleFormPayload>(action.payload),
+        ...getFirstTag<ISimpleFormPayloadTag>(action.payload),
         ...e
       })
     )

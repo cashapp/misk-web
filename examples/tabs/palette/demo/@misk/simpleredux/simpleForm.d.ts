@@ -7,18 +7,21 @@ export declare enum SIMPLEFORM {
     SUCCESS = "SIMPLEFORM_SUCCESS",
     TOGGLE = "SIMPLEFORM_TOGGLE"
 }
-export interface ISimpleFormPayload extends IDefaultState {
+export interface ISimpleFormPayloadTag extends IDefaultState {
     oldToggle?: string | boolean;
     tag: string;
     valueAsString?: string;
     valueAsNumber?: number;
 }
+export interface ISimpleFormPayload {
+    [tag: string]: ISimpleFormPayloadTag;
+}
 export interface IDispatchSimpleForm {
-    simpleFormFailure: (tag: string, error: any) => IAction<SIMPLEFORM.FAILURE, ISimpleFormState>;
-    simpleFormInput: (tag: string, data: any) => IAction<SIMPLEFORM.INPUT, ISimpleFormState>;
-    simpleFormNumber: (tag: string, valueAsNumber: number, valueAsString: string) => IAction<SIMPLEFORM.NUMBER, ISimpleFormState>;
-    simpleFormSuccess: (tag: string, data: any) => IAction<SIMPLEFORM.SUCCESS, ISimpleFormState>;
-    simpleFormToggle: (tag: string, oldState: any) => IAction<SIMPLEFORM.TOGGLE, ISimpleFormState>;
+    simpleFormFailure: (tag: string, error: any) => IAction<SIMPLEFORM.FAILURE, ISimpleFormPayload>;
+    simpleFormInput: (tag: string, data: any) => IAction<SIMPLEFORM.INPUT, ISimpleFormPayload>;
+    simpleFormNumber: (tag: string, valueAsNumber: number, valueAsString: string) => IAction<SIMPLEFORM.NUMBER, ISimpleFormPayload>;
+    simpleFormSuccess: (tag: string, data: any) => IAction<SIMPLEFORM.SUCCESS, ISimpleFormPayload>;
+    simpleFormToggle: (tag: string, oldState: any) => IAction<SIMPLEFORM.TOGGLE, ISimpleFormPayload>;
 }
 export declare const dispatchSimpleForm: IDispatchSimpleForm;
 export declare function watchSimpleFormSagas(): IterableIterator<AllEffect>;

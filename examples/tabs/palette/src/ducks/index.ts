@@ -8,7 +8,7 @@ import {
   ISimpleNetworkState,
   ISimpleNetworkImmutableState,
   SimpleFormReducer,
-  simpleImmutableRootSelector,
+  simpleRootSelector,
   SimpleNetworkReducer,
   watchSimpleFormSagas,
   watchSimpleNetworkSagas
@@ -59,18 +59,15 @@ export const rootDispatcher: IDispatchProps = {
  * State Selectors
  */
 export const rootSelectors = (state: IState) => ({
-  palette: simpleImmutableRootSelector<IState, IPaletteImmutableState>(
-    "palette",
-    state
-  ),
-  simpleForm: simpleImmutableRootSelector<IState, ISimpleFormImmutableState>(
+  palette: simpleRootSelector<IState, IPaletteImmutableState>("palette", state),
+  simpleForm: simpleRootSelector<IState, ISimpleFormImmutableState>(
     "simpleForm",
     state
   ),
-  simpleNetwork: simpleImmutableRootSelector<
-    IState,
-    ISimpleNetworkImmutableState
-  >("simpleNetwork", state)
+  simpleNetwork: simpleRootSelector<IState, ISimpleNetworkImmutableState>(
+    "simpleNetwork",
+    state
+  )
 })
 
 /**

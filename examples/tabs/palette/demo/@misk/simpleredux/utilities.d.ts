@@ -2,7 +2,6 @@ export interface IDefaultState {
     data: any;
     error: any;
     loading: boolean;
-    simpleTag: string;
     success: boolean;
 }
 export interface IRootState {
@@ -18,7 +17,7 @@ export interface IAction<T, P> {
 }
 export declare function createAction<T extends string, P>(type: T, payload: P): IAction<T, P>;
 export declare const errorMessage: (error: any) => any;
-export declare const simpleImmutableRootSelector: <IState extends {
+export declare const simpleRootSelector: <IState extends {
     [key: string]: any;
 }, ISubState extends {
     toJS: () => IRootState;
@@ -37,16 +36,16 @@ export declare const simpleSelect: <IState extends {
     [key: string]: any;
 }, ISubPayload extends {
     [key: string]: any;
-}>(subState: any, tagFilter: string, tagKeysFilter?: string | ((key: any) => boolean), subStateSelector?: any, returnType?: simpleType) => any;
+}>(subState: any, tagFilter: string, tagKeysFilter?: string | ((key: any) => boolean), returnType?: simpleType, subStateSelector?: any) => any;
 export declare const onClickFnCall: (callFn: any, ...args: any) => (event: any) => void;
 export declare const onChangeFnCall: (callFn: any, ...args: any) => (event: any) => void;
 export declare const onChangeToggleFnCall: (callFn: any, ...args: any) => (event: any) => void;
 export declare const onChangeNumberFnCall: (callFn: any, ...args: any) => (valueAsNumber: number, valueAsString: string) => void;
 export declare const onChangeTagFnCall: (callFn: any, ...args: any) => (values: string[]) => void;
 export declare const booleanToggle: (oldState: string | boolean) => boolean;
-export declare const getPayloadTag: <T = {
+export declare const getFirstTag: <T = {
     [key: string]: any;
 }>(payload: {
-    [tag: string]: T;
+    [key: string]: T;
 }) => T;
 export declare const jsonOrString: (json: string) => any;

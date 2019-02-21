@@ -17,7 +17,6 @@ export interface IDefaultState {
   data: any
   error: any
   loading: boolean
-  simpleTag: string
   success: boolean
 }
 
@@ -126,7 +125,14 @@ const immutableSubStateSelector: <
     state => state.toJS()
   )
 
-export const simpleImmutableRootSelector = <
+/**
+ * simpleRootSelector is a Redux selector of a subState based on a domain string
+ * @param domain
+ * @param state
+ *
+ * Asssumes that the substate is an ImmutableJS object and has a toJS function on the object
+ */
+export const simpleRootSelector = <
   IState extends { [key: string]: ISubState & any },
   ISubState extends { toJS: () => IRootState }
 >(
@@ -234,6 +240,49 @@ const selectAndFilterState: <
     (state: ISubState, matched: ISubPayload[]) => matched
   )((state, match) => match)
 
+/**
+ *
+ * simpleSelect is a cachedSelector that can filter Redux state
+ * @param subState: top level state
+ * @param tagFilter: string filter of top level of substate tags
+ * @param tagKeysFilter: string or function filter of returned keys in each tag
+ * @param subStateSelector: optional pass in of subState domain as a string or selector
+ * @param returnType: override the default returnType with a simpleType type. Useful for tags.
+ *
+ * Use any of the three ways below:
+ *
+ * - Declare return type. Pass in your own subStateSelector. If no tagKeysFilter, use "".
+ *   ```Typescript
+ *   simpleSelect(props.simpleTrex, "Alice", "height", simpleType.number, customSubStateSelector)
+ *   ```
+ * - Declare return type. Pass in the top level domain string for the subState. If subState.simpleTag exists, simpleSelect can automatically pull from that so call without explicitly declaring the domain.
+ *   ```Typescript
+ *   simpleSelect(props.simpleTrex, "Alice", "height", simpleType.number, "simpleTrex")
+ *   ```
+ * - Preferred way of calling. First argument, subState, must have a string field such that subState.simpleTag equals the top level name of that subState.
+ *   - Good
+ *     ```Typescript
+ *     state = { "simpleTrex": {
+ *        "simpleTag": "simpleTrex",
+ *        "Alice": {height, weight, latitute, longitude},
+ *        "Bob": {height, weight, latitute, longitude}
+ *       }
+ *     }
+ *     props = { "simpleTrex": state.simpleTrex }
+ *     simpleSelect(props.simpleTrex, "Alice", "height")
+ *     ```
+ *   - Bad
+ *     ```Typescript
+ *     state = { "simpleTrex": {
+ *        "Alice": {height, weight, latitute, longitude},
+ *        "Bob": {height, weight, latitute, longitude}
+ *       }
+ *     }
+ *     props = { "simpleTrex": state.simpleTrex }
+ *     ERROR: simpleSelect(props.simpleTrex, "Alice", "height")
+ *     ```
+ * - If subState doesn't have simpleTag, then optional argument subStateSelector is looked for
+ */
 export const simpleSelect = <
   IState extends { [key: string]: ISubState | any },
   ISubState extends { [key: string]: any },
@@ -242,29 +291,34 @@ export const simpleSelect = <
   subState: any,
   tagFilter: string,
   tagKeysFilter: string | ((key: any) => boolean) = "",
-  subStateSelector?: string | any,
-  returnType?: simpleType
+  returnType?: simpleType,
+  subStateSelector?: string | any
 ) => {
-  if (subState.simpleTag) {
-    return selectAndFilterState<ISubState, ISubPayload>(
-      selectSubState<IState, ISubState>(subState.simpleTag),
-      tagKeysFilter,
-      returnType
-    )(subState, tagFilter)
-  } else if (typeof subStateSelector === "string") {
-    return selectAndFilterState<ISubState, ISubPayload>(
-      selectSubState<IState, ISubState>(subStateSelector),
-      tagKeysFilter,
-      returnType
-    )(subState, tagFilter)
+  let selector
+  if (subStateSelector) {
+    if (typeof subStateSelector === "string") {
+      selector = selectSubState<IState, ISubState>(subStateSelector)
+    } else if (typeof subStateSelector === "function") {
+      selector = subStateSelector
+    } else {
+      throw new Error(
+        "@misk/simpleRedux:simpleSelect Invalid subStateSelector argument. Must be string or selector function."
+      )
+    }
+  } else if (subState.simpleTag) {
+    selector = selectSubState<IState, ISubState>(subState.simpleTag)
   } else {
-    return selectAndFilterState<ISubState, ISubPayload>(
-      subStateSelector,
-      tagKeysFilter,
-      returnType
-    )(subState, tagFilter)
+    throw new Error(
+      "@misk/simpleRedux:simpleSelect No subStateSelector could be determined from subState.simpleTag or from subStateSelector argument. Check documentation for approved ways to call simpleSelect."
+    )
   }
+  return selectAndFilterState<ISubState, ISubPayload>(
+    selector,
+    tagKeysFilter,
+    returnType
+  )(subState, tagFilter)
 }
+
 /**
  * Handler Functions
  * Reduce the legwork of parsing `onChange`, `onClick` and other events in Buttons, Inputs, Toggles...etc to call your handling function
@@ -376,19 +430,16 @@ export const booleanToggle = (oldState: string | boolean) => {
  * Only use when action.payload has a single key (ie. the tag with all metadata inside)
  * Otherwise, unpredictable key selection
  */
-export const getPayloadTag = <T = { [key: string]: any }>(payload: {
-  [tag: string]: T
-}): T => payload[filter(Object.keys(payload), key => key != "simpleTag")[0]]
-// TODO do not assume only 1 remaining valid key that should be returned. rework reducers, don't do fancy handling here.
-
-// reduce(
-//   filter(Object.keys(payload), key => key != "simpleTag"),
-//   (result: { [key: string]: any }, key: string) => {
-//     result[key] = payload[key]
-//     return result
-//   },
-//   {}
-// ) as T
+export const getFirstTag = <T = { [key: string]: any }>(payload: {
+  [key: string]: T
+}): T => {
+  if (Object.keys(payload).length === 1) {
+    return payload[Object.keys(payload)[0]]
+  }
+  throw new Error(
+    "@misk/simpleredux:getFirstTag unpredictable use with an object that has more than one key"
+  )
+}
 
 /**
  *
