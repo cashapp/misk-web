@@ -1,2 +1,3 @@
+import HowToComponent from "./HowToComponent"
 import SampleTableComponent from "./SampleTableComponent"
-export { SampleTableComponent }
+export { HowToComponent, SampleTableComponent }

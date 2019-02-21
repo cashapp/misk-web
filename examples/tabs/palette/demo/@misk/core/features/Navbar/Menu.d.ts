@@ -1,5 +1,5 @@
-import { IDashboardTab } from "@misk/common";
 import * as React from "react";
+import { IDashboardTab } from "../../utilities";
 export interface IMenuProps {
     error?: any;
     links?: IDashboardTab[];

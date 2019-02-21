@@ -1,6 +1,6 @@
-import { Environment, IDashboardTab } from "@misk/common";
 import * as React from "react";
 import { IDimensionAwareProps } from "../Navbar";
+import { Environment, IDashboardTab } from "../../utilities";
 export interface INavbarProps {
     environment?: Environment;
     environmentBannerVisible?: Environment[];

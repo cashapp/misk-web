@@ -1,5 +1,5 @@
-import { Environment } from "@misk/common";
 import * as React from "react";
+import { Environment } from "../../utilities";
 export interface IBannerProps {
     environment?: Environment;
     environmentBannerVisible?: Environment[];

@@ -1,30 +1,30 @@
 /// <reference types="react" />
-interface IWebTab {
+export interface IWebTab {
     slug: string;
     url_path_prefix: string;
     roles?: string[];
     services?: string[];
 }
-interface IDashboardTab extends IWebTab {
+export interface IDashboardTab extends IWebTab {
     name: string;
     category?: string;
 }
-interface IAdminDashboardTab extends IDashboardTab {
+export interface IAdminDashboardTab extends IDashboardTab {
 }
-interface IServiceMetadata {
+export interface IServiceMetadata {
     admin_dashboard_url: string;
     app_name: string;
     environment: Environment;
     navbar_items?: Array<string | Element | JSX.Element>;
     navbar_status?: string | Element | JSX.Element;
 }
-declare enum Environment {
+export declare const enum Environment {
     TESTING = "TESTING",
     DEVELOPMENT = "DEVELOPMENT",
     STAGING = "STAGING",
     PRODUCTION = "PRODUCTION"
 }
-declare enum DateFormat {
+export declare const enum DateFormat {
     year = "YYYY",
     month = "YYYY-MM",
     day = "YYYY-MM-DD",
@@ -35,22 +35,14 @@ declare enum DateFormat {
     secondAMPM = "YYYY-MM-DD hh:mm:ss A",
     millisecondAMPM = "YYYY-MM-DD hh:mm:ss:SSS A"
 }
-interface IDefaultState {
-    data?: any;
-    error?: any;
-    loading?: boolean;
-    success?: boolean;
-    toJS?: () => any;
-}
-declare const defaultState: IDefaultState;
-declare enum IBinderKeys {
+export declare const enum IBinderKeys {
     NavNavbarMenu = "NavNavbarMenu",
     TabEntry = "TabEntry"
 }
-interface IBinder {
+export interface IBinder {
     multibind: (binder: IBinderKeys, key: string, value: any) => any;
 }
-interface IWindow extends Window {
+export interface IWindow extends Window {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
     Misk: {
         Binder: IBinder;
@@ -64,4 +56,3 @@ interface IWindow extends Window {
     };
     MiskBinders: any;
 }
-export { DateFormat, defaultState, Environment, IWebTab, IDashboardTab, IAdminDashboardTab, IServiceMetadata, IDefaultState, IBinder, IBinderKeys, IWindow };

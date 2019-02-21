@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { IDashboardTab } from "@misk/common";
+import { IDashboardTab } from "../utilities";
 interface ISidebarProps {
     tabs: IDashboardTab[];
 }

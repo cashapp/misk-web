@@ -4,7 +4,7 @@ import { getPackageVersion, MiskPkg } from "../changelog"
 
 const header = {
   license: "SEE LICENSE IN https://github.com/square/misk-web",
-  main: "src/index.ts"
+  main: "src/index.tsx"
 }
 
 const scripts = (miskTab: IMiskTabJSON) => ({
@@ -15,7 +15,8 @@ const scripts = (miskTab: IMiskTabJSON) => ({
     build: miskTab.zipOnBuild
       ? "npm run-script ci-build && npm run-script zip"
       : "npm run-script ci-build",
-    "ci-build": "npm run-script clean && npm run-script lib",
+    "ci-build":
+      "npm run-script clean && miskweb prebuild && npm run-script lib",
     clean: "rm -rf demo lib",
     lib: "cross-env NODE_ENV=production webpack",
     lint:
@@ -42,6 +43,7 @@ const dependencies = (miskTab: IMiskTabJSON, pkg: any) => ({
 const devDependencies = (miskTab: IMiskTabJSON, pkg: any) => ({
   devDependencies: {
     ...pkg.devDependencies,
+    [MiskPkg.cli]: `^${getPackageVersion(MiskPkg.cli, miskTab.version)}`,
     [MiskPkg.dev]: `^${getPackageVersion(MiskPkg.dev, miskTab.version)}`,
     [MiskPkg.tslint]: `^${getPackageVersion(MiskPkg.tslint, miskTab.version)}`
   }

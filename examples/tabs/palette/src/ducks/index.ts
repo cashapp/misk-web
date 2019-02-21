@@ -1,17 +1,18 @@
 import {
-  dispatchSimpleNetwork,
-  IDispatchSimpleNetwork,
-  ISimpleNetworkState,
-  SimpleNetworkReducer,
-  simpleNetworkSelector,
-  watchSimpleNetworkSagas,
-  ISimpleFormState,
-  IDispatchSimpleForm,
   dispatchSimpleForm,
-  simpleFormSelector,
+  dispatchSimpleNetwork,
+  IDispatchSimpleForm,
+  IDispatchSimpleNetwork,
+  ISimpleFormState,
+  ISimpleFormImmutableState,
+  ISimpleNetworkState,
+  ISimpleNetworkImmutableState,
   SimpleFormReducer,
-  watchSimpleFormSagas
-} from "@misk/core"
+  simpleRootSelector,
+  SimpleNetworkReducer,
+  watchSimpleFormSagas,
+  watchSimpleNetworkSagas
+} from "@misk/simpleredux"
 import {
   connectRouter,
   LocationChangeAction,
@@ -21,12 +22,12 @@ import { History } from "history"
 import { AnyAction, combineReducers, Reducer } from "redux"
 import { all, AllEffect, fork } from "redux-saga/effects"
 import {
+  dispatchPalette,
   PaletteReducer,
-  IPaletteState,
-  paletteSelector,
-  watchPaletteSagas,
   IDispatchPalette,
-  dispatchPalette
+  IPaletteState,
+  IPaletteImmutableState,
+  watchPaletteSagas
 } from "./palette"
 export * from "./palette"
 
@@ -58,25 +59,21 @@ export const rootDispatcher: IDispatchProps = {
  * State Selectors
  */
 export const rootSelectors = (state: IState) => ({
-  palette: paletteSelector(state),
-  simpleForm: simpleFormSelector(state),
-  simpleNetwork: simpleNetworkSelector(state)
+  palette: simpleRootSelector<IState, IPaletteImmutableState>("palette", state),
+  simpleForm: simpleRootSelector<IState, ISimpleFormImmutableState>(
+    "simpleForm",
+    state
+  ),
+  simpleNetwork: simpleRootSelector<IState, ISimpleNetworkImmutableState>(
+    "simpleNetwork",
+    state
+  )
 })
 
 /**
  * Reducers
  */
-export const rootReducer = (
-  history: History
-): Reducer<
-  {
-    palette: any
-    router: RouterState
-    simpleForm: any
-    simpleNetwork: any
-  },
-  AnyAction
-> =>
+export const rootReducer = (history: History): Reducer<any, AnyAction> =>
   combineReducers({
     palette: PaletteReducer,
     router: connectRouter(history),

@@ -1,9 +1,9 @@
-import { IDispatchSimpleNetwork, ISimpleNetworkState, ISimpleFormState, IDispatchSimpleForm } from "@misk/core";
+import { IDispatchSimpleForm, IDispatchSimpleNetwork, ISimpleFormState, ISimpleNetworkState } from "@misk/simpleredux";
 import { LocationChangeAction, RouterState } from "connected-react-router";
 import { History } from "history";
 import { AnyAction, Reducer } from "redux";
 import { AllEffect } from "redux-saga/effects";
-import { IPaletteState, IDispatchPalette } from "./palette";
+import { IDispatchPalette, IPaletteState } from "./palette";
 export * from "./palette";
 /**
  * Redux Store State
@@ -31,12 +31,7 @@ export declare const rootSelectors: (state: IState) => {
 /**
  * Reducers
  */
-export declare const rootReducer: (history: History<any>) => Reducer<{
-    palette: any;
-    router: RouterState;
-    simpleForm: any;
-    simpleNetwork: any;
-}, AnyAction>;
+export declare const rootReducer: (history: History<any>) => Reducer<any, AnyAction>;
 /**
  * Sagas
  */

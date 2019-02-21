@@ -1,14 +1,14 @@
 {
   "name": "misk-web-tab-palette-exemplar",
-  "version": "0.0.1",
+  "version": "0.1.4-13",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
-  "main": "src/index.ts",
+  "main": "src/index.tsx",
   "engines": {
     "yarn": "YARN NO LONGER USED - use npm instead."
   },
   "scripts": {
     "build": "npm run-script ci-build && npm run-script zip",
-    "ci-build": "npm run-script clean && npm run-script lib",
+    "ci-build": "npm run-script clean && miskweb prebuild && npm run-script lib",
     "clean": "rm -rf demo lib",
     "lib": "cross-env NODE_ENV=production webpack",
     "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
@@ -19,8 +19,9 @@
     "zip": "tar --exclude='.DS_Store' --exclude='.old_build_files' --exclude='demo' --exclude='lib' --exclude='node_modules' --exclude='package-lock.json' --exclude='palette-exemplar.tgz' -czvf palette-exemplar.tgz ./"
   },
   "dependencies": {
-    "@misk/common": "^0.1.3",
-    "@misk/core": "^0.1.3",
+    "@misk/common": "^0.1.4-14",
+    "@misk/core": "^0.1.4-14",
+    "@misk/simpleredux": "^0.1.4-14",
     "@blueprintjs/core": "^3.9.0",
     "@blueprintjs/datetime": "^3.4.0",
     "@blueprintjs/icons": "^3.3.0",
@@ -49,11 +50,11 @@
     "styled-components": "^4.1.2"
   },
   "devDependencies": {
-    "@misk/dev": "^0.1.3",
-    "@misk/tslint": "^0.1.3",
+    "@misk/dev": "^0.1.4-14",
+    "@misk/tslint": "^0.1.4-14",
     "@types/history": "^4.7.2",
     "@types/lodash-es": "^4.17.1",
-    "@types/node": "^10.12.21",
+    "@types/node": "^10.12.18",
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
     "@types/react-helmet": "^5.0.8",

@@ -7,9 +7,10 @@ RUN apk add --no-cache tini git \
   @misk/common \
   @misk/components \
   @misk/core \
+  @misk/simpleredux \
   @misk/dev \
   @misk/tslint \
-  && npm install -g @misk/cli @misk/common @misk/components @misk/core @misk/dev @misk/tslint cross-env prettier webpack webpack-cli webpack-dev-server
+  && npm install -g @misk/cli @misk/common @misk/components @misk/core @misk/simpleredux @misk/dev @misk/tslint cross-env prettier webpack webpack-cli webpack-dev-server
 
 ENV NODE_PATH='/node_modules'
 COPY misk-web /bin/

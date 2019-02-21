@@ -1,14 +1,11 @@
 import {
   createAction,
-  defaultState,
   IAction,
-  IDefaultState
-} from "@misk/common"
+  IRootState,
+  defaultRootState
+} from "@misk/simpleredux"
 import axios from "axios"
-import { fromJS } from "immutable"
 import { all, AllEffect, call, put, takeLatest } from "redux-saga/effects"
-import { createSelector, OutputSelector } from "reselect"
-import { IState } from "../ducks"
 
 /**
  * Actions
@@ -93,9 +90,7 @@ export function* watchPaletteSagas(): IterableIterator<AllEffect> {
  * Initial State
  * Reducer merges all changes from dispatched action objects on to this initial state
  */
-const initialState = fromJS({
-  ...defaultState.toJS()
-})
+const initialState = defaultRootState("palette")
 
 /**
  * Duck Reducer
@@ -121,21 +116,10 @@ export const PaletteReducer = (
  * Consumed by the root reducer in ./ducks index to update global state
  * Duck state is attached at the root level of global state
  */
-export interface IPaletteState extends IDefaultState {
+export interface IPaletteState extends IRootState {
   [key: string]: any
 }
 
-/**
- * Selector
- * A memoized, efficient way to compute and return the latest domain of the state
- */
-export const paletteState = (state: IState) => state.palette.toJS()
-
-export const paletteSelector: OutputSelector<
-  IState,
-  any,
-  (res: any) => any
-> = createSelector(
-  paletteState,
-  state => state
-)
+export interface IPaletteImmutableState {
+  toJS: () => IPaletteState
+}

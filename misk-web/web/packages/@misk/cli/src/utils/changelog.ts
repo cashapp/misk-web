@@ -1,6 +1,13 @@
 export enum MiskVersion {
   "latest" = "0.1.3",
-  "alpha" = "0.1.4-2",
+  "alpha" = "0.1.4-14",
+  "v014_14" = "0.1.4-14",
+  "v014_13" = "0.1.4-13",
+  "v014_12" = "0.1.4-12",
+  "v014_11" = "0.1.4-11",
+  "v014_10" = "0.1.4-10",
+  "v014_9" = "0.1.4-9",
+  "v014_6" = "0.1.4-6",
   "v014_3" = "0.1.4-3",
   "v014_2" = "0.1.4-2",
   "v014_1" = "0.1.4-1",
@@ -51,6 +58,7 @@ export enum MiskPkg {
   "common" = "@misk/common",
   "core" = "@misk/core",
   "dev" = "@misk/dev",
+  "simpleredux" = "@misk/simpleredux",
   "tslint" = "@misk/tslint"
 }
 
@@ -60,6 +68,7 @@ export interface IMiskTabVersion {
   [MiskPkg.common]: string
   [MiskPkg.core]: string
   [MiskPkg.dev]: string
+  [MiskPkg.simpleredux]?: string
   [MiskPkg.tslint]: string
   notes?: string
 }
@@ -105,6 +114,79 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v014_14]: {
+    [MiskPkg.cli]: `${[MiskVersion.v014_14]}`,
+    [MiskPkg.common]: `${[MiskVersion.v014_14]}`,
+    [MiskPkg.core]: `${[MiskVersion.v014_14]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v014_14]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v014_14]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v014_14]}`,
+    date: "2019-02-21",
+    notes: "Fix CLI handling of no build files."
+  },
+  [MiskVersion.v014_13]: {
+    [MiskPkg.cli]: `${[MiskVersion.v014_13]}`,
+    [MiskPkg.common]: `${[MiskVersion.v014_13]}`,
+    [MiskPkg.core]: `${[MiskVersion.v014_13]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v014_13]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v014_13]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v014_13]}`,
+    date: "2019-02-21",
+    notes: "Fix tag handling in @misk/simpleredux."
+  },
+  [MiskVersion.v014_12]: {
+    [MiskPkg.cli]: `${[MiskVersion.v014_12]}`,
+    [MiskPkg.common]: `${[MiskVersion.v014_12]}`,
+    [MiskPkg.core]: `${[MiskVersion.v014_12]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v014_12]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v014_12]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v014_12]}`,
+    date: "2019-02-21",
+    notes:
+      "Squash more @misk/simpleredux bugs. Tags input handling still not working."
+  },
+  [MiskVersion.v014_11]: {
+    [MiskPkg.cli]: `${[MiskVersion.v014_11]}`,
+    [MiskPkg.common]: `${[MiskVersion.v014_11]}`,
+    [MiskPkg.core]: `${[MiskVersion.v014_11]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v014_11]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v014_11]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v014_11]}`,
+    date: "2019-02-21",
+    notes:
+      "Fix interface exports in @misk/core. Add @misk/simpleredux to default webpack base in @misk/dev."
+  },
+  [MiskVersion.v014_10]: {
+    [MiskPkg.cli]: `${[MiskVersion.v014_10]}`,
+    [MiskPkg.common]: `${[MiskVersion.v014_10]}`,
+    [MiskPkg.core]: `${[MiskVersion.v014_10]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v014_10]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v014_10]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v014_10]}`,
+    date: "2019-02-21",
+    notes: "More bugs worked out in @misk/simpleredux."
+  },
+  [MiskVersion.v014_9]: {
+    [MiskPkg.cli]: `${[MiskVersion.v014_9]}`,
+    [MiskPkg.common]: `${[MiskVersion.v014_9]}`,
+    [MiskPkg.core]: `${[MiskVersion.v014_9]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v014_9]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v014_9]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v014_9]}`,
+    date: "2019-02-21",
+    notes:
+      "Remove lodash-es from vendors / externals because of non-transpiled ES code issues (https://medium.com/@martin_hotell/tree-shake-lodash-with-webpack-jest-and-typescript-2734fa13b5cd). In @misk/simpleredux change onClick* handlers to use rest parameter syntax instead of an array of args."
+  },
+  [MiskVersion.v014_6]: {
+    [MiskPkg.cli]: `${[MiskVersion.v014_6]}`,
+    [MiskPkg.common]: `${[MiskVersion.v014_6]}`,
+    [MiskPkg.core]: `${[MiskVersion.v014_6]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v014_6]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v014_6]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v014_6]}`,
+    date: "2019-02-20",
+    notes: "New SimpleRedux library with refactors of simple*Ducks API."
+  },
   [MiskVersion.v014_3]: {
     [MiskPkg.cli]: `${[MiskVersion.v014_3]}`,
     [MiskPkg.common]: `${[MiskVersion.v014_3]}`,

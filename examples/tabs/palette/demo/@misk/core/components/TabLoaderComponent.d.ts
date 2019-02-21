@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { IWebTab } from "@misk/common";
+import { IWebTab } from "../utilities";
 export interface ITabLoaderProps {
     tabs: IWebTab[];
 }
