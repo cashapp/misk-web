@@ -1,26 +1,40 @@
 plugins {
-    `kotlin-dsl`
-    `maven-publish`
+  `kotlin-dsl`
+  `maven-publish`
+  `java-gradle-plugin`
+  id("com.gradle.plugin-publish") version "0.10.0"
+  `misk-web-plugin-version`
 }
 
-group = "misk-web-plugin"
-version = "0.1.3"
+dependencies {
+  compile("com.squareup.okhttp3:okhttp:3.12.1")
+}
+
+pluginBundle {
+  website = "https://github.com/square/misk-web"
+  vcsUrl = "https://github.com/square/misk-web"
+  tags = listOf("misk", "misk-web")
+}
+
+group = "com.squareup.misk-web-plugin"
 
 gradlePlugin {
-    plugins {
-        register("MiskWebPlugin") {
-            id = "misk-web-plugin"
-            implementationClass = "misk-web-plugin.MiskWebPlugin"
-        }
+  plugins {
+    create("MiskWebPlugin") {
+      id = "com.squareup.misk-web-plugin"
+      displayName = "Misk-Web Plugin"
+      description = "Web build tasks for to compile your Misk-Web tabs in a Gradle project."
+      implementationClass = "com.squareup.misk-web-plugin.MiskWebPlugin"
     }
+  }
 }
 
 publishing {
-    repositories {
-        maven(url = "build/repository")
-    }
+  repositories {
+    maven(url = "build/repository")
+  }
 }
 
 repositories {
-    jcenter()
+  jcenter()
 }

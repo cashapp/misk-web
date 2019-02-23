@@ -11,7 +11,8 @@ matrix:
 
       script:
         - ./gradlew jar
-        - ./gradlew test
+        - jar -tf misk-web/build/libs/misk-web.jar
+        - ./gradlew testm2
         - ./ci-examples.sh
 
       # Gradle caching - as per https://docs.travis-ci.com/user/languages/java/#Projects-Using-Gradle
@@ -35,10 +36,9 @@ matrix:
       # Run Docker Pulls in parallel
       install:
         - npm install -g @misk/cli
-        - docker pull squareup/misk-web &
 
       node_js:
-        - "$(docker run -it --rm squareup/misk-web:latest node --version | sed 's/[^0-9,.]*//g')"
+        - 10.15
       script:
         # - set -e
 
