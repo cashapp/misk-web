@@ -3,13 +3,13 @@ import {
   dispatchSimpleNetwork,
   IDispatchSimpleForm,
   IDispatchSimpleNetwork,
-  ISimpleFormState,
   ISimpleFormImmutableState,
-  ISimpleNetworkState,
+  ISimpleFormState,
   ISimpleNetworkImmutableState,
+  ISimpleNetworkState,
   SimpleFormReducer,
-  simpleRootSelector,
   SimpleNetworkReducer,
+  simpleRootSelector,
   watchSimpleFormSagas,
   watchSimpleNetworkSagas
 } from "@misk/simpleredux"
@@ -23,10 +23,10 @@ import { AnyAction, combineReducers, Reducer } from "redux"
 import { all, AllEffect, fork } from "redux-saga/effects"
 import {
   dispatchPalette,
-  PaletteReducer,
   IDispatchPalette,
-  IPaletteState,
   IPaletteImmutableState,
+  IPaletteState,
+  PaletteReducer,
   watchPaletteSagas
 } from "./palette"
 export * from "./palette"
