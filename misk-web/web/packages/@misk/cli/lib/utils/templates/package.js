@@ -29,7 +29,7 @@ var scripts = function (miskTab) { return ({
 var dependencies = function (miskTab, pkg) {
     var _a;
     return ({
-        dependencies: tslib_1.__assign({}, pkg.dependencies, (_a = {}, _a[changelog_1.MiskPkg.common] = "^" + changelog_1.getPackageVersion(changelog_1.MiskPkg.common, miskTab.version), _a[changelog_1.MiskPkg.core] = "^" + changelog_1.getPackageVersion(changelog_1.MiskPkg.core, miskTab.version), _a))
+        dependencies: tslib_1.__assign({}, pkg.dependencies, (_a = {}, _a[changelog_1.MiskPkg.common] = "^" + changelog_1.getPackageVersion(changelog_1.MiskPkg.common, miskTab.version), _a[changelog_1.MiskPkg.core] = "^" + changelog_1.getPackageVersion(changelog_1.MiskPkg.core, miskTab.version), _a[changelog_1.MiskPkg.simpleredux] = "^" + changelog_1.getPackageVersion(changelog_1.MiskPkg.simpleredux, miskTab.version), _a))
     });
 };
 var devDependencies = function (miskTab, pkg) {
