@@ -71,4 +71,8 @@ sh -c "$CMD_SLUG_CASE"
 echo "Rename files with Palette in name"
 mv ./${NEW_SLUG_CASE}/src/ducks/${OLD_CAMEL_CASE}.ts ./${NEW_SLUG_CASE}/src/ducks/${NEW_CAMEL_CASE}.ts
 
+# Force generate the build files with miskweb CLI
+rm package.json tsconfig.json tslint.json webpack.config.js .gitignore
+miskweb prebuild
+
 echo "Done!"
