@@ -40,7 +40,7 @@ matrix:
       node_js:
         - 10.15
       script:
-        # - set -e
+        - set -e
 
         - echo 'Checking for missing change logs...' && echo -en 'travis_fold:start:change\\r'
         - git fetch origin master:refs/remotes/origin/master -a
