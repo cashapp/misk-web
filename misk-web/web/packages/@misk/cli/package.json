@@ -74,10 +74,6 @@
     "build": "npm run-script clean && npm run-script buildcli",
     "buildcli": "./node_modules/.bin/tsc",
     "buildrun": "npm run-script build && npm run-script start",
-    "package": "npm run-script package:mac | npm run-script package:lin",
-    "package:win": "pkg . --targets win-x64 --output ./bin/windows/miskweb.exe",
-    "package:mac": "pkg . --targets macos-x64 --output ./bin/macos/miskweb",
-    "package:lin": "pkg . --targets linux-x64 --output ./bin/linux/miskweb",
     "prepare": "npm run-script ci-build && npm run-script buildcli && npm run-script package",
     "precommit": "npm run-script lint",
     "smooth-release": "smooth-release"
