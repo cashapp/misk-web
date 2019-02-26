@@ -102,10 +102,6 @@ open class MiskWebPlugin : Plugin<Project> {
     return "${hash}-${dateHash}"
   }
 
-  fun dockerBuildContainerName(relPath: String): String {
-    return "${timeHash()}-misk${relPath.slugify()}"
-  }
-
   fun npmVersion(url: String): String? {
     var version: String? = null
     try {
@@ -124,37 +120,12 @@ open class MiskWebPlugin : Plugin<Project> {
     return version
   }
 
-  fun dockerBuildContainer(
-    project: Project,
-    relPath: String,
-    mountPath: String = relPath,
-    name: String = dockerBuildContainerName(relPath),
-    runtime: String = "/bin/misk-web -n -g"
-  ): String {
-    val volume = "${project.projectDir}${relPath}:${mountPath}"
-
-    val port = simpleFlatJsonToMap("${project.projectDir}${relPath}").get("port")
-    val portStmt = if (port is Int) {
-      " -p ${port}:${port}"
-    } else {
-      ""
-    }
-
-    val image =
-        simpleFlatJsonToMap("${project.projectDir}${relPath}").get("image") ?: "squareup/misk-web"
-    val imageVersion =
-        simpleFlatJsonToMap("${project.projectDir}${relPath}").get("version") ?: npmVersion("https://unpkg.com/@misk/core/") ?: "0.1.4"
-    val command =
-        "docker run --rm --name ${name} -v ${volume}${portStmt} ${image}:${imageVersion} ${runtime}"
-    return command
+  fun cliBuild(): String {
+    return "npm install -g @misk/cli && npm install && miskweb build"
   }
 
-  fun dockerInformation(dockerName: String, dockerCmd: String): String {
-    return """
-    |Container Name: ${dockerName}
-    |Logs:    $ docker logs -f ${dockerName}
-    |Command: $ ${dockerCmd}
-    """.trimMargin()
+  fun cliStart(): String {
+    return "npm install -g @misk/cli && npm install && miskweb start"
   }
 
   override fun apply(project: Project) {
@@ -163,27 +134,18 @@ open class MiskWebPlugin : Plugin<Project> {
         register("webBuild", Task::class) {
           val packagesPaths = recursiveFind(project, "/web/packages", 2)
           packagesPaths.forEach {
-            val dockerName = dockerBuildContainerName(it)
-            val dockerCmd = dockerBuildContainer(project, it, mountPath = "/web", name = dockerName)
-            println(dockerInformation(dockerName, dockerCmd))
-            println(dockerCmd.runCommand())
+            println(cliBuild().runCommand())
           }
           val tabPaths = recursiveFind(project, "/web/tabs/", 3)
           tabPaths.forEach {
-            val dockerName = dockerBuildContainerName(it)
-            val dockerCmd = dockerBuildContainer(project, it, name = dockerName)
-            println(dockerInformation(dockerName, dockerCmd))
-            println(dockerCmd.runCommand())
+            println(cliBuild().runCommand())
           }
         }
 
         register("webStart", Task::class) {
           val tabPaths = recursiveFind(project, "/web/tabs/", 3)
           tabPaths.forEach {
-            val dockerName = dockerBuildContainerName(it)
-            val dockerCmd = dockerBuildContainer(project, it, name = dockerName, runtime = "/bin/misk-web -n -d")
-            println(dockerInformation(dockerName, dockerCmd))
-            println(dockerCmd.runCommand())
+            println(cliStart().runCommand())
           }
         }
       }
