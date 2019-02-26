@@ -47,7 +47,6 @@ const dependencies = (miskTab: IMiskTabJSON, pkg: any) => ({
 const devDependencies = (miskTab: IMiskTabJSON, pkg: any) => ({
   devDependencies: {
     ...pkg.devDependencies,
-    [MiskPkg.cli]: `^${getPackageVersion(MiskPkg.cli, miskTab.version)}`,
     [MiskPkg.dev]: `^${getPackageVersion(MiskPkg.dev, miskTab.version)}`,
     [MiskPkg.tslint]: `^${getPackageVersion(MiskPkg.tslint, miskTab.version)}`
   }
