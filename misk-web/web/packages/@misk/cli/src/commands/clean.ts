@@ -1,11 +1,9 @@
-import { prebuild } from "./"
-import { runCmd } from "../utils"
-
+import { execute, handleCommand, prebuild } from "../utils"
 export const command = "clean"
 export const desc = "remove build directory and other temporary files"
-
-export async function handler() {
-  await prebuild()
+export const handlerFn = async (...args: any) => {
+  prebuild(...args)
   console.log("[CLEAN]")
-  runCmd("sh -c 'npm run-script clean'")
+  execute("npm run-script clean", ...args)
 }
+export const handler = async (yargs: any) => handleCommand(yargs, handlerFn)

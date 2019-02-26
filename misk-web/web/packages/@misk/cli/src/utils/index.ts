@@ -1,5 +1,6 @@
-import { execSync } from "child_process"
-import yargs = require("yargs")
+import klaw from "klaw"
+import { cd, exec, pwd } from "shelljs"
+import * as yargs from "yargs"
 import { MiskVersion } from "./changelog"
 
 export * from "./changelog"
@@ -32,25 +33,64 @@ export enum Files {
 
 export const JsonOptions = { spaces: 2 }
 
-export const cmdFromArgs = (exec: string) => {
-  const args = process.argv
-  args.splice(0, 1)
-  args[0] = exec
-  return args.join(" ")
-}
+export const prebuild = async (...args: any) =>
+  execute("miskweb prebuild", ...args)
 
-export const runCmd = (cmd: string) => {
-  try {
-    execSync(cmd, { stdio: "inherit", encoding: "utf-8" })
-  } catch (e) {
-    console.log(e.stdout)
-    console.log(e.stderr)
+export const execute = async (cmd: string, ...args: any) => {
+  const dir = args[0]
+  if (dir) {
+    cd(dir)
+  }
+  pwd().stdout
+  const terminal = exec(cmd)
+  terminal.stdout
+  if (terminal.code) {
+    throw new Error(
+      `Shell command \`${cmd}\` exited with code ${terminal.code}. ${
+        terminal.stderr
+      }`
+    )
   }
 }
 
-export const handleFail = (): void => {
-  console.log(yargs.help().version())
-  // const cmd = cmdFromArgs("npm")
-  // console.log("Now running: $ ${cmd}")
-  // runCmd(cmd)
+export const handleCommand = async (
+  args: {
+    _: string[]
+    e: boolean
+    each: boolean
+    $0: string
+  },
+  handlerFn: (...args: any) => void,
+  blockedOptions: string[] = []
+) => {
+  let invalidOptions: string[] = []
+  blockedOptions.map((opt: string) => {
+    if (opt in args) {
+      invalidOptions.push(opt)
+    }
+  })
+  if (invalidOptions.length > 0) {
+    console.error(
+      `Invalid use of ${invalidOptions.map(
+        opt => `-${opt} `
+      )} option with command ${args._[0]}.`
+    )
+    yargs
+      .hide(invalidOptions[0])
+      .hide("help")
+      .hide("version")
+      .showHelp()
+  } else if (args.each) {
+    klaw(".")
+      .on("data", (item: any) => {
+        if (item.stats.isFile() && item.path.includes("/miskTab.json")) {
+          const dir = item.path.split("/miskTab.json")[0]
+          cd(dir)
+          handlerFn(dir)
+        }
+      })
+      .on("error", (err: Error) => console.error(err))
+  } else {
+    handlerFn()
+  }
 }

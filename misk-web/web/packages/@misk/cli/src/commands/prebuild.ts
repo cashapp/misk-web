@@ -1,9 +1,7 @@
-import { generateBuildFiles, migrate } from "../utils"
-
+import { generateBuildFiles, handleCommand, migrate } from "../utils"
 export const command = "prebuild"
 export const desc = "consume miskTab.json and write necessary build files"
-
-export async function handler() {
+export const handlerFn = async (...args: any) => {
   try {
     console.log("[PREBUILD]")
     await migrate().catch(e => {
@@ -17,3 +15,4 @@ export async function handler() {
     console.log(`[ERROR] Generating up to date build files failed. ${e}`)
   }
 }
+export const handler = async (yargs: any) => handleCommand(yargs, handlerFn)

@@ -1,11 +1,9 @@
-import { prebuild } from "./"
-import { runCmd } from "../utils"
-
+import { execute, handleCommand, prebuild } from "../utils"
 export const command = "start"
 export const desc = "start webpack development server"
-
-export async function handler() {
-  await prebuild()
+export const handlerFn = async (...args: any) => {
+  prebuild(...args)
   console.log("[START]")
-  runCmd("sh -c 'npm run-script start'")
+  execute("npm run-script start", ...args)
 }
+export const handler = async (yargs: any) => handleCommand(yargs, handlerFn)
