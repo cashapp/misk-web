@@ -21,5 +21,6 @@ prettier.config.js
 tsconfig.json
 tslint.json
 webpack.config.js
+*.js.map
 ${generatedByCLI}
 `
