@@ -120,32 +120,40 @@ open class MiskWebPlugin : Plugin<Project> {
     return version
   }
 
-  fun cliBuild(): String {
-    return "npm install -g @misk/cli && npm install && miskweb build"
+  fun cliBuild(path: String): String {
+    return "cd $path && pwd && npm install -g @misk/cli && npm install && miskweb build"
   }
 
-  fun cliStart(): String {
-    return "npm install -g @misk/cli && npm install && miskweb start"
+  fun cliStart(path: String): String {
+    return "cd $path && pwd && npm install -g @misk/cli && npm install && miskweb start"
   }
 
   override fun apply(project: Project) {
     project.run {
+      println("touch /tmp/h2 && touch /tmp/t2 && pwd".runCommand())
       tasks {
         register("webBuild", Task::class) {
           val packagesPaths = recursiveFind(project, "/web/packages", 2)
           packagesPaths.forEach {
-            println(cliBuild().runCommand())
+            println(it)
+            val cmd = cliBuild("${project.projectDir}${it}")
+            println(cmd)
+            println(cmd.runCommand())
           }
           val tabPaths = recursiveFind(project, "/web/tabs/", 3)
           tabPaths.forEach {
-            println(cliBuild().runCommand())
+            println(it)
+            val cmd = cliBuild("${project.projectDir}${it}")
+            println(cmd)
+            println(cmd.runCommand())
           }
         }
 
         register("webStart", Task::class) {
           val tabPaths = recursiveFind(project, "/web/tabs/", 3)
           tabPaths.forEach {
-            println(cliStart().runCommand())
+            println(it)
+            println(cliStart(it).runCommand())
           }
         }
       }

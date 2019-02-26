@@ -1,6 +1,6 @@
 buildscript {
   val miskWebPluginArtifact by rootProject.extra { "com.squareup.misk-web-plugin:misk-web-plugin" }
-  val miskWebPluginVersion by rootProject.extra { "201902211730-3b716ac" }
+  val miskWebPluginVersion by rootProject.extra { "201902261411-fe46101" }
 }
 
 tasks {
