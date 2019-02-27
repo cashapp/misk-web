@@ -48,8 +48,6 @@ Read more instructions in [HOWTO](HOWTO.md)
 
 ## More
 
-- [Included Docker Build Image](docker/)
-
 - [Examples](examples/): Data sets, Gradle examples for `misk-web-plugin`, Services, and Tabs
 
 - [Recommended Workflow](https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/)

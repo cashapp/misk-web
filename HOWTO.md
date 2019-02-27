@@ -10,7 +10,7 @@
 
 - Any new tabs or `@misk/` packages live in a top level `web/` directory of the same level as your service's `src`, `build`, or `out` directories.
 - All tabs live in `web/tabs/` and `@misk/` packages live in `web/@misk/`. For most services, you will only need a `web/tabs/` directory.
-- This structure is assumed by the Docker build containers and scripts. An example is included below.
+- This structure is recommended to structure your tab web code separately from your Kotlin or Java code living in `src` and `test`. An example is included below.
 
 ```
   trex-service/
@@ -133,17 +133,9 @@
 
 ## Adding your Tab Webpack Build to Gradle
 
-Tab builds are kicked off by Gradle but done within a Docker container for portability across environments.
-
-In your service's project `build.gradle` file you will need to add the following to configure the Docker plugin, start the container, and let Gradle spin off a build if there is a change in your tab code.
-
-Adjust the template below to fit your service's file structure and to use the most up to date [Docker image version](https://hub.docker.com/r/squareup/) and [Misk-Web commit hash](https://github.com/square/misk-web/blob/master/gradle/web.gradle).
+In your service's project `build.gradle` file you will need to add the following to add your tab's compiled code to your service's production Jar artifact.
 
 ```Gradle
-  apply from: "https://raw.githubusercontent.com/square/misk-web/54512dfe2d2ff4d5ccae66d6841ed0f65ba5bf8c/gradle/web.gradle"
-
-  ...
-
   sourceSets {
     ...
     main.resources {
@@ -178,9 +170,8 @@ To confirm that your tab is shipping in the jar, you can run the following comma
 ## Developing your Tab
 
 1. Follow the steps above to build all local tabs and start your service.
-1. Run the following commands to spin up a Webpack-Dev-Server in Docker instance to serve live edits to your service.
+1. Run the following commands to spin up a Webpack-Dev-Server to serve live edits to your service.
    - CLI: (from each tab directory in separate terminal windows) `$ miskweb start`
-   - OR Gradle: (from your project root directory) `$ ./gradlew web -Pcmd='-d' -Ptabs='tabs/trexfoodlog,tabs/healthcheck'`. This will start separate docker containers with webpack-dev-servers for each of the tabs you pass in to `tabs`.
 1. This will start webpack-dev-servers for each of your tabs.
 1. Your service will now automatically route traffic (when in development mode) to the dev servers and you should see any changes you make appearing live.
 1. Restart your service after your webpack-dev-servers are running to take effect.
