@@ -63,7 +63,7 @@
     relative_path_prefix: string
     slug: string
     tsconfigCompilerOptions: any
-    version: MiskVersion
+    version: string
     zipOnBuild: boolean
   }
   ```
@@ -79,7 +79,7 @@
   - relative_path_prefix: optional override field. By default, it will be tab slug prefixed by `_tab/`.
   - slug: lowercase, no symbols name to be used in determining URL domain space. Should be the same as the `package.json::name` without the prefix `misktab-`.
   - tsconfigCompilerOptions: any additional or Typescript compiler options that should be overridden for your tab. Usually should be unnecessary. File bugs if you're finding issues building your tab with the shipped default compiler options.
-  - version: [`squareup/misk-web`](https://hub.docker.com/r/squareup/misk-web/) Docker image version for the build and packages Misk Web environment to be used for the tab. Upgrade this periodically to get latest `@misk/` packages and build environment. By default it is on `latest` which is the latest stable Misk Web version. `alpha` is another short hand that will always include the latest version.
+  - version: Misk Web Framework version
   - zipOnBuild: will zip contents of tab into a `.tgz` file in the tab directory.
 
 ## Local Development
@@ -88,9 +88,9 @@
   - For local developments, you'll need to install local requirements with `$ npm install`. Run this periodically to get latest versions of Misk-Web libraries.
   - To run a build, use `$ miskweb build`.
   - To start a local dev server, use `$ miskweb start`.
-- If you have issues with your local development, the following tasks are included with the Gradle Misk-Web tasks and run builds and dev-server inside of a Docker container.
-  - `$ ./gradlew web -Ptabs='tabs/trexfoodlog'` to build the tab
-  - `$ ./gradlew web -Pcmd='-d' -Ptabs='tabs/trexfoodlog'` for a dev-server to do live editing on your tab
+- If you have issues with your local development, the following tasks are included with the miskweb cli
+  - `cd tabs/trexfoodlog; miskweb build` to build the tab
+  - `cd tabs/trexfoodlog; miskweb tart` for a dev-server to do live editing on your tab
 
 ## Configuring with a Misk Service
 

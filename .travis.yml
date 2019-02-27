@@ -1,19 +1,14 @@
 matrix:
   include:
-    # Test everything using Gradle and Docker builds
+    # Test everything using Gradle builds
     - language: java
       jdk:
         - openjdk11
 
-      # Run Docker Pulls in parallel
       install:
-        - docker pull squareup/misk-web &
 
       script:
-        - ./gradlew jar
-        - jar -tf misk-web/build/libs/misk-web.jar
         - ./gradlew testm2
-        - ./ci-examples.sh
 
       # Gradle caching - as per https://docs.travis-ci.com/user/languages/java/#Projects-Using-Gradle
       before_cache:
@@ -28,12 +23,10 @@ matrix:
 
       services:
         - mysql
-        - docker
 
     # Test web project builds using Rush in a native Node environment
     - language: node_js
 
-      # Run Docker Pulls in parallel
       install:
         - npm install -g @misk/cli
 
@@ -53,6 +46,3 @@ matrix:
         - echo 'Building...' && echo -en 'travis_fold:start:build\\r'
         - node common/scripts/install-run-rush.js rebuild --verbose
         - echo -en 'travis_fold:end:build\\r'
-
-      services:
-        - docker

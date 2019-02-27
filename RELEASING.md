@@ -8,11 +8,6 @@ This outlines the steps necessary to release new `@misk` packages on NPM.
 - **Note:** member level may not actually be high enough to publish, needs further testing whether publish permissions are only available at Admin or Owner level.
 - On your development machine, run `$ npm login` to authorize your local environment with publish permissions.
 
-## Docker Setup
-
-- Create a [Docker Hub](https://hub.docker.com/) user and request access to the [squareup](https://cloud.docker.com/u/squareup) organization. You will then have publish rights to the [squareup/misk-web](https://cloud.docker.com/u/squareup/repository/docker/squareup/misk-web) image used to build all Misk-Web tabs.
-- On your development machine, run `$ docker login` to authorize your local environment with publish permissions.
-
 ## Rush: Setup
 
 - `@misk` packages are in a directory managed by [Rush](https://rushjs.io/). This allows coordinated version releases and iterative builds among other headache saving features.
@@ -110,44 +105,6 @@ $ rush build
   ```
 
 - 🎉 All packages will now be live on NPM!
-
-- Now publish a matching Docker `misk-web` image version that will contain all the new packages. Use the command below in the `misk-web/docker` directory.
-
-  ```Bash
-  $ ./build-tag-push.sh misk-web 0.1.3-4
-  ```
-
-- After the Docker image is built you should see the following print out. Verify two things
-
-  1. New image successfully pushed to the Docker Hub repository. Look for similar output as below:
-
-  ```
-  Successfully built be00d8904623
-  Successfully tagged squareup/misk-web:0.1.3-4
-  [TAG] squareup/misk-web:latest
-  [PUSH] squareup/misk-web:0.1.3-4
-  The push refers to repository [docker.io/squareup/misk-web]
-  8a5278557aba: Pushed
-  901f9a8915b1: Pushed
-  18110f63496b: Pushed
-  abbd24a8638d: Layer already exists
-  945feb772e99: Layer already exists
-  7bff100f35cb: Layer already exists
-  0.1.3-4: digest: sha256:581f0d3872faad7dc6a7bd322a5da64629ecce2442b1a04ea3553ad11e7c6e96 size: 1578
-  ```
-
-  2. Confirm that the updated `@misk` NPM packages were included in the image build. Look for similar output as below:
-
-  ```
-  [INSPECT] squareup/misk-web:0.1.3-4 shipped with following @misk/ NPM packages
-  /usr/local/lib
-  +-- @misk/cli@0.1.3-4
-  +-- @misk/components@0.1.0
-  +-- @misk/core@0.1.3-4
-  +-- @misk/dev@0.1.3-4
-  +-- @misk/tslint@0.1.3-4
-  `-- npm@6.4.1
-  ```
 
 - Commit all code changes with a commit message starting with `[RELEASE] 0.1.3-4.`
 
