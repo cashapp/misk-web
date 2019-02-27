@@ -15,13 +15,15 @@ $ npm install -g @misk/cli
 miskweb <command> [opts]
 
 Commands:
-  miskweb build     run webpack production build
-  miskweb ci-build  run a fast, clean, webpack production build
-  miskweb clean     remove build directory and other temporary files
-  miskweb lint      lint all files
+  miskweb build     run a fast webpack development build
+  miskweb ci-build  npm install, then clean webpack production build
+  miskweb clean     remove lib directory and other temporary files
+  miskweb install   install node_modules dependencies
+  miskweb lint      use prettier to lint all files
   miskweb new       create a new tab in the current directory
   miskweb prebuild  consume miskTab.json and write necessary build files
-  miskweb start     start webpack development server
+  miskweb start     start webpack development server for live editing
+  miskweb update    update miskweb CLI
   miskweb zip       zip source code for tab
 
 Options:
