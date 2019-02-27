@@ -1,9 +1,9 @@
-import { generateBuildFiles, handleCommand, migrate } from "../utils"
+import { cmdHeader, generateBuildFiles, handleCommand, migrate } from "../utils"
 export const command = "prebuild"
 export const desc = "consume miskTab.json and write necessary build files"
 export const handlerFn = async (...args: any) => {
+  cmdHeader(command)
   try {
-    console.log("[PREBUILD]")
     await migrate().catch(e => {
       throw new Error(`Migrating miskTab failed. ${e}`)
     })
