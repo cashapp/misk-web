@@ -1,11 +1,9 @@
-import { prebuild } from "./"
-import { runCmd } from "../utils"
-
+import { execute, handleCommand, prebuild } from "../utils"
 export const command = "zip"
 export const desc = "zip source code for tab"
-
-export async function handler() {
-  await prebuild()
+export const handlerFn = async (...args: any) => {
+  prebuild(...args)
   console.log("[ZIP]")
-  runCmd("sh -c 'npm run-script zip'")
+  execute("npm run-script zip", ...args)
 }
+export const handler = async (yargs: any) => handleCommand(yargs, handlerFn)

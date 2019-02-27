@@ -3,7 +3,15 @@
 import * as yargs from "yargs"
 
 yargs
+  .scriptName("miskweb")
   .commandDir("commands")
-  .demandCommand(1)
+  .demandCommand()
+  .option("e", {
+    alias: "each",
+    describe: "run command in all subdirectories that have miskTab.json",
+    type: "boolean"
+  })
   .help()
-  .version().argv
+  .version()
+  .usage("$0 <command> [opts]")
+  .strict().argv
