@@ -39,7 +39,7 @@ $ rush build
   $ rush version --bump
   ```
 
-- Update the changelog in `misk-web/misk-web/web/packages/@misk/cli/src/utils/changelog.ts` with the new version. Consider the example where the new version to be published will be `0.1.3-4`. **The changelog is used in build file generation so this step is vitally important.**
+- Update the changelog in `misk-web/packages/@misk/cli/src/utils/changelog.ts` with the new version. Consider the example where the new version to be published will be `0.1.3-4`. **The changelog is used in build file generation so this step is vitally important.**
 
   Currently
 

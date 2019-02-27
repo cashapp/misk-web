@@ -23,7 +23,7 @@ A standardized set of Axios based request Redux-Sagas parts (actions, dispatcher
 
 [Example Code](https://github.com/square/misk-web/blob/master/examples/tabs/palette-exemplar/src/containers/SampleNetworkContainer.tsx)
 
-[Understanding Redux](https://github.com/square/misk-web/blob/master/misk-web/web/packages/%40misk/simpleredux/REDUX.md)
+[Understanding Redux](https://github.com/square/misk-web/blob/master/packages/%40misk/simpleredux/REDUX.md)
 
 ## [Releasing](https://github.com/square/misk-web/blob/master/RELEASING.md)
 

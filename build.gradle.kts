@@ -9,22 +9,9 @@ tasks {
     tasks = listOf("publish", "publishPlugins")
   }
 
-  val jar by registering(GradleBuild::class) {
-    dir = file("misk-web")
-    tasks = listOf("jar")
-  }
-
-  jar {
-    dependsOn(plugin)
-  }
-
-  val uploadArchives by registering(GradleBuild::class) {
-    dir = file("misk-web")
-    tasks = listOf("uploadArchives")
-  }
-
-  uploadArchives {
-    dependsOn(jar)
+  val assemble by registering(GradleBuild::class) {
+    dir = file("misk-web-plugin")
+    tasks = listOf("assemble")
   }
 
   val testlocal by registering(GradleBuild::class) {
