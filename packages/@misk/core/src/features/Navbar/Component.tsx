@@ -1,5 +1,5 @@
 import { IResizeEntry, ResizeSensor } from "@blueprintjs/core"
-import { reduce } from "lodash-es"
+import reduce from "lodash/reduce"
 import * as React from "react"
 import {
   defaultEnvironment,
