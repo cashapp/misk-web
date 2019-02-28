@@ -18,13 +18,13 @@ const scripts = (miskTab: IMiskTabJSON) => ({
     "ci-build":
       "npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib",
     "dev-build": miskTab.zipOnBuild
-      ? `cross-env NODE_ENV=development npm run-script lib && npm run-script zip`
-      : "cross-env NODE_ENV=development npm run-script lib",
+      ? `npm run-script prebuild && cross-env NODE_ENV=development npm run-script lib && npm run-script zip`
+      : "npm run-script prebuild && cross-env NODE_ENV=development npm run-script lib",
     clean: "rm -rf demo lib",
     lib: "webpack",
     lint:
       'prettier --write --config package.json ".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}"',
-    prebuild: "npm run-script lint",
+    prebuild: "miskweb prebuild && npm run-script lint",
     reinstall: "rm -rf node_modules && npm run-script install",
     start:
       "npm run-script prebuild && cross-env NODE_ENV=development webpack-dev-server",
