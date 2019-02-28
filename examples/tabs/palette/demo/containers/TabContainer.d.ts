@@ -6,5 +6,5 @@ declare class TabContainer extends React.Component<IState & IDispatchProps, ISta
     componentDidMount(): void;
     render(): JSX.Element;
 }
-declare const _default;
+declare const _default: import("react-redux").ConnectedComponentClass<typeof TabContainer, Pick<IState & IDispatchProps, "router">>;
 export default _default;
