@@ -13,10 +13,13 @@ const scripts = (miskTab: IMiskTabJSON) => ({
   },
   scripts: {
     build: miskTab.zipOnBuild
-      ? `cross-env NODE_ENV=development npm run-script lib && npm run-script zip`
-      : "cross-env NODE_ENV=development npm run-script lib",
+      ? `cross-env NODE_ENV=production npm run-script lib && npm run-script zip`
+      : "cross-env NODE_ENV=production npm run-script lib",
     "ci-build":
       "npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib",
+    "dev-build": miskTab.zipOnBuild
+      ? `cross-env NODE_ENV=development npm run-script lib && npm run-script zip`
+      : "cross-env NODE_ENV=development npm run-script lib",
     clean: "rm -rf demo lib",
     lib: "webpack",
     lint:
