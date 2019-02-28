@@ -36,8 +36,8 @@ export const JsonOptions = { spaces: 2 }
 export const cmdHeader = (cmd: string) =>
   console.log(`[${cmd.toUpperCase()}] ${pwd()}`)
 
-export const prebuild = async (...args: any) =>
-  execute("miskweb prebuild", ...args)
+export const npmRunScript = (cmd: string, prebuild: boolean = false) =>
+  `${prebuild ? "miskweb prebuild && " : ""}npm run-script ${cmd}`
 
 export const execute = async (cmd: string, ...args: any) => {
   const dir = args[0]
