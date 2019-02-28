@@ -96,25 +96,13 @@ export const getPackageVersion = (
   miskWebVersion: string
 ) => {
   let version = getVersion(miskWebVersion)
-  if (version in MiskTabVersions) {
-    if (miskWebPackage in MiskTabVersions[version]) {
-      return MiskTabVersions[version][miskWebPackage]
-    } else {
-      throw new Error(
-        `No ${miskWebPackage} version found in Misk-Web@${version}, ${Object.values(
-          MiskPkg
-        ).toString()}`
-      )
-    }
-  } else {
-    throw new Error(
-      `Invalid Misk-Web version in miskTab.json. Recommended version: latest or ${
-        MiskVersion.latest
-      }. \nChoose a valid version: latest, alpha, ${Object.values(
-        MiskVersion
-      ).toString()}`
-    )
+  if (
+    version in MiskTabVersions &&
+    miskWebPackage in MiskTabVersions[version]
+  ) {
+    return MiskTabVersions[version][miskWebPackage]
   }
+  return null
 }
 
 export const MiskTabVersions: IMiskTabVersions = {

@@ -1,8 +1,8 @@
-import { cmdHeader, execute, handleCommand } from "../utils"
+import { logDebug, execute, handleCommand } from "../utils"
 export const command = "update"
 export const desc = "update miskweb CLI"
 export const handlerFn = async (...args: any) => {
-  cmdHeader(command)
+  logDebug(command, desc)
   execute("npm install -g @misk/cli", ...args)
 }
 export const handler = async (yargs: any) =>
