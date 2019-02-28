@@ -41,10 +41,7 @@ export const prebuild = async (...args: any) =>
 
 export const execute = async (cmd: string, ...args: any) => {
   const dir = args[0]
-  if (dir) {
-    cd(dir)
-  }
-  pwd().stdout
+  cd(dir)
   const terminal = exec(cmd)
   terminal.stdout
   if (terminal.code) {
@@ -88,7 +85,6 @@ export const handleCommand = async (
       .on("data", (item: any) => {
         if (item.stats.isFile() && item.path.includes("/miskTab.json")) {
           const dir = item.path.split("/miskTab.json")[0]
-          cd(dir)
           handlerFn(dir)
         }
       })

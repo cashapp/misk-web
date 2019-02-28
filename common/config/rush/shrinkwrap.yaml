@@ -16,6 +16,7 @@ dependencies:
   '@types/fs-extra': 5.0.5
   '@types/history': 4.7.2
   '@types/klaw': 3.0.0
+  '@types/lodash': 4.14.121
   '@types/lodash-es': 4.17.2
   '@types/node': 10.12.27
   '@types/react': 16.8.5
@@ -43,6 +44,7 @@ dependencies:
   html-webpack-plugin: 3.2.0
   immutable: 4.0.0-rc.12
   klaw: 3.0.0
+  lodash: 4.17.11
   lodash-es: 4.17.11
   mini-css-extract-plugin: 0.5.0
   optimize-css-assets-webpack-plugin: 5.0.1
@@ -342,10 +344,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-e9wgeY6gaY21on3ve0xAjgBVjGDWq/xUteK0ujsE53bUoxycMkqfnkUgMt6ffZtykZ5X12Mg3T7Pw4TRCObDKg==
-  /@types/prop-types/15.5.9:
+  /@types/prop-types/15.7.0:
     dev: false
     resolution:
-      integrity: sha512-Nha5b+jmBI271jdTMwrHiNXM+DvThjHOfyZtMX9kj/c/LUj2xiLHsG/1L3tJ8DjAoQN48cHwUwtqBotjyXaSdQ==
+      integrity: sha512-eItQyV43bj4rR3JPV0Skpl1SncRCdziTEK9/v8VwXmV6d/qOUO8/EuWeHBbCZcsfSHfzI5UyMJLCSXtxxznyZg==
   /@types/q/1.5.1:
     dev: false
     resolution:
@@ -371,7 +373,7 @@ packages:
       integrity: sha512-N/+Ua6kSrehJ5vpu4b2tAG4NjMcXQPlStnkUzjNlPokae97sUDtj096WlgN3ApefCvggPjJPP5iutyZ5dKBNPQ==
   /@types/react-native/0.57.38:
     dependencies:
-      '@types/prop-types': 15.5.9
+      '@types/prop-types': 15.7.0
       '@types/react': 16.8.5
     dev: false
     resolution:
@@ -400,7 +402,7 @@ packages:
       integrity: sha512-TZVfpT6nvUv/lbho/nRtckEtgkhspOQr3qxrnpXixwgQRKKyg5PvDfNKc8Uend/p/Pi70614VCmC0NPAKWF+0g==
   /@types/react/16.8.5:
     dependencies:
-      '@types/prop-types': 15.5.9
+      '@types/prop-types': 15.7.0
       csstype: 2.6.2
     dev: false
     resolution:
@@ -7623,12 +7625,14 @@ packages:
     dependencies:
       '@types/fs-extra': 5.0.5
       '@types/klaw': 3.0.0
+      '@types/lodash': 4.14.121
       '@types/node': 10.12.27
       '@types/shelljs': 0.8.3
       '@types/yargs': 12.0.9
       dayjs: 1.8.8
       fs-extra: 7.0.1
       klaw: 3.0.0
+      lodash: 4.17.11
       pkg: 4.3.7
       prettier: 1.16.4
       shelljs: 0.8.3
@@ -7638,7 +7642,7 @@ packages:
     dev: false
     name: '@rush-temp/cli'
     resolution:
-      integrity: sha512-NO7bEJqT6fz7o6AEXekUbZuCCR4rfEmE2gKi/tcKdHpH1MI0+VWMxvh2KTc0sdE4cYkE3moParvcQ0lAZzLzMg==
+      integrity: sha512-IAviU6lDsy7H42/2CdBVFQMcchCjG0ktZXmtrVZ/QSOSJL0j+PcwzuVQs3do37MumuXMNoITJUeeTyFTXOdzNQ==
       tarball: 'file:projects/cli.tgz'
     version: 0.0.0
   'file:projects/common.tgz':
@@ -7707,7 +7711,7 @@ packages:
     dev: false
     name: '@rush-temp/common'
     resolution:
-      integrity: sha512-XNwCRdH66xrMrScgH1sViyzW66OYmzeAUHpohCCg5qb3mUNj4lK9aeUCKgpMRWQGhlURXrl3O33IcZ/ZdZa0Ww==
+      integrity: sha512-9wkb2pZRr+891r7jNtkCZuvY3B09mKHEZ0bmXXk6yXz7zazd4RsFKkqdmHh8aIFGvlnF0FnlsCTB8J7TSfNd4g==
       tarball: 'file:projects/common.tgz'
     version: 0.0.0
   'file:projects/core.tgz':
@@ -7776,7 +7780,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-pui/SYbkAzjA3Ic+AepwgGMCHs+apAn4IwQaRi+cARERWXdqS3q599Ku5L56Qyi6TNmNpN7H3QQQuuETmlcJHw==
+      integrity: sha512-RbNy/j8PCH998lZWPYNtWEsJNutgl8bggdygKygxcBpd6xA1dizRjGAz3oY0cb1fHRR8JnA+niTlKTZquwaHUw==
       tarball: 'file:projects/core.tgz'
     version: 0.0.0
   'file:projects/dev.tgz':
@@ -7888,7 +7892,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-W64/IfFtj/7ibb2dwuG9heULTEBVlCuDbej8ik3KB893YHhT3KY17/AFJlbbOzdaH2rN+KtGxEGfb/yXsgv95w==
+      integrity: sha512-tgeUe64xz7muAP7ICW9HtdPvnmmhU/vmSvO/XkpM8sp+UuZp5CLcujxIkjKGMu5ntFcojHCCuo5ChvFS/NFxCQ==
       tarball: 'file:projects/misk-web-tab-palette-exemplar.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette.tgz':
@@ -7957,7 +7961,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette'
     resolution:
-      integrity: sha512-NpSZ6Tuhl0/es/iXK7lEgA5BWMqiv5yw5O7fCz6qrk2aUU8izmXrf5OHk0w/md4VKhWz85VvCdB329bVUBFnHw==
+      integrity: sha512-kDh9uYoJ2g3LvudBmzspLo6oMUWsBPClPv9L4Zl48yEqVq5bXWHGzNTUgsCpeFWRl55QwZQHr5dd/rZdShkYvQ==
       tarball: 'file:projects/misk-web-tab-palette.tgz'
     version: 0.0.0
   'file:projects/simpleredux.tgz':
@@ -8026,7 +8030,7 @@ packages:
     dev: false
     name: '@rush-temp/simpleredux'
     resolution:
-      integrity: sha512-4E4RASLqjZo+QVTWjYcRO3A7EaEI72p8sq4MOSC//YMUHgNJ1793S4nf5ixfhuEU8aPdv8r3Q9GLqEqAix5cWw==
+      integrity: sha512-Ek1nUjssFFKVxKPSrna29Dz6+6swzc9gzUa7oKPsKou/oiMJf05xPk0wUQcOvN9SHAhqRVpzD1a7ELJcBJgUag==
       tarball: 'file:projects/simpleredux.tgz'
     version: 0.0.0
   'file:projects/tslint.tgz':
@@ -8068,6 +8072,7 @@ specifiers:
   '@types/fs-extra': ^5.0.4
   '@types/history': ^4.7.2
   '@types/klaw': ^3.0.0
+  '@types/lodash': ^4.14.121
   '@types/lodash-es': ^4.17.1
   '@types/node': ^10.12.18
   '@types/react': ^16.7.18
@@ -8095,6 +8100,7 @@ specifiers:
   html-webpack-plugin: ^3.2.0
   immutable: ^4.0.0-rc.12
   klaw: ^3.0.0
+  lodash: ^4.17.11
   lodash-es: ^4.17.11
   mini-css-extract-plugin: ^0.5.0
   optimize-css-assets-webpack-plugin: ^5.0.1

@@ -1,3 +1,4 @@
+import reduce from "lodash/reduce"
 import { IMiskTabJSON } from "../../utils"
 import { generatedByCLI, prettier } from "../templates"
 import { getPackageVersion, MiskPkg } from "../changelog"
@@ -12,11 +13,12 @@ const scripts = (miskTab: IMiskTabJSON) => ({
     yarn: "YARN NO LONGER USED - use npm instead."
   },
   scripts: {
-    build: miskTab.zipOnBuild
-      ? `cross-env NODE_ENV=development npm run-script lib && npm run-script zip`
-      : "cross-env NODE_ENV=development npm run-script lib",
-    "ci-build":
-      "npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib",
+    build: `cross-env NODE_ENV=development npm run-script lib && ${
+      miskTab.zipOnBuild ? "&& npm run-script zip" : ""
+    }`,
+    "ci-build": `npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib ${
+      miskTab.zipOnBuild ? "&& npm run-script zip" : ""
+    }`,
     clean: "rm -rf demo lib",
     lib: "webpack",
     lint:
@@ -32,23 +34,38 @@ const scripts = (miskTab: IMiskTabJSON) => ({
   }
 })
 
+const createMiskPackageJson = (
+  packages: MiskPkg[],
+  version: string
+): { [pkg in MiskPkg]?: string } =>
+  reduce(
+    packages,
+    (packageJson, pkg: MiskPkg) => {
+      try {
+        const pkgVersion = getPackageVersion(pkg, version)
+        return { ...packageJson, [pkg]: pkgVersion }
+      } catch (e) {
+        console.error(e)
+        return packageJson
+      }
+    },
+    {}
+  )
+
 const dependencies = (miskTab: IMiskTabJSON, pkg: any) => ({
   dependencies: {
     ...pkg.dependencies,
-    [MiskPkg.common]: `^${getPackageVersion(MiskPkg.common, miskTab.version)}`,
-    [MiskPkg.core]: `^${getPackageVersion(MiskPkg.core, miskTab.version)}`,
-    [MiskPkg.simpleredux]: `^${getPackageVersion(
-      MiskPkg.simpleredux,
+    ...createMiskPackageJson(
+      [MiskPkg.common, MiskPkg.core, MiskPkg.simpleredux],
       miskTab.version
-    )}`
+    )
   }
 })
 
 const devDependencies = (miskTab: IMiskTabJSON, pkg: any) => ({
   devDependencies: {
     ...pkg.devDependencies,
-    [MiskPkg.dev]: `^${getPackageVersion(MiskPkg.dev, miskTab.version)}`,
-    [MiskPkg.tslint]: `^${getPackageVersion(MiskPkg.tslint, miskTab.version)}`
+    ...createMiskPackageJson([MiskPkg.dev, MiskPkg.tslint], miskTab.version)
   }
 })
 
