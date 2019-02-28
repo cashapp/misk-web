@@ -11,7 +11,10 @@ import {
 import { getVersion } from "./changelog"
 
 export const generateBuildFiles = async () => {
-  const pkg = await fs.readJson(Files.package)
+  let pkg = {}
+  if (await fs.existsSync(Files.package)) {
+    pkg = await fs.readJson(Files.package)
+  }
   const miskTab: IMiskTabJSON = await fs.readJson(Files.miskTab)
   // Write out fresh files
   await [
