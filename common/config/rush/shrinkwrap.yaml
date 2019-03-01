@@ -9,6 +9,7 @@ dependencies:
   '@rush-temp/common': 'file:projects/common.tgz'
   '@rush-temp/core': 'file:projects/core.tgz'
   '@rush-temp/dev': 'file:projects/dev.tgz'
+  '@rush-temp/misk-web-examples-data': 'file:projects/misk-web-examples-data.tgz'
   '@rush-temp/misk-web-tab-palette': 'file:projects/misk-web-tab-palette.tgz'
   '@rush-temp/misk-web-tab-palette-exemplar': 'file:projects/misk-web-tab-palette-exemplar.tgz'
   '@rush-temp/simpleredux': 'file:projects/simpleredux.tgz'
@@ -18,6 +19,7 @@ dependencies:
   '@types/klaw': 3.0.0
   '@types/lodash': 4.14.121
   '@types/node': 10.12.27
+  '@types/prop-types': 15.7.0
   '@types/react': 16.8.6
   '@types/react-dom': 16.8.2
   '@types/react-helmet': 5.0.8
@@ -7630,7 +7632,7 @@ packages:
     dev: false
     name: '@rush-temp/cli'
     resolution:
-      integrity: sha512-PScDtrPUgk/Vawu4lLGzJWzPN9ITj0dnJ+sPzS1/Na4Fo5jHfNo2J2UzhwHQOP0AMWpJVAMQ/xn7ahtYkIUq1w==
+      integrity: sha512-lHHPrVhRVwksX8bC/W5AtXfcV2cv4WP5MGUGpsCta/BgtSD5QGOYBtuIeuT2vxYB3NFatITR1D/f85DTkjoVzA==
       tarball: 'file:projects/cli.tgz'
     version: 0.0.0
   'file:projects/common.tgz':
@@ -7699,7 +7701,7 @@ packages:
     dev: false
     name: '@rush-temp/common'
     resolution:
-      integrity: sha512-J5Q8VWTDovkYN49lJMeRxOkHBhWqtJGvosMRslhPRe2Tv05JyovrCpqU5/c6MeKP45CCs+9uF+M35zyQQH4rvA==
+      integrity: sha512-XM4Pow1789dFuylQSDzucFqedur0dRpSPcTZRDBVbon7dcyBn/GqG1lM2DY7Buq1IXDwV+M6kS6qGQmPiIwOHg==
       tarball: 'file:projects/common.tgz'
     version: 0.0.0
   'file:projects/core.tgz':
@@ -7768,7 +7770,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-k7SIlmUBxh5YqRuStSCtTYWJRwZ5DNXdiwS7sOvZae7e4OZKeeAr8rZdH7IQ/2Di23pKTAxkHvBDvHOGOmXR7Q==
+      integrity: sha512-mdWJ3wULNo1niO3qDbTbVX6E0ikXKkoSoo0wt1CjY1CSJwgJkac++3NhEx/N5X/LTJxmh67MTkm2SQZ1yi33rQ==
       tarball: 'file:projects/core.tgz'
     version: 0.0.0
   'file:projects/dev.tgz':
@@ -7813,6 +7815,22 @@ packages:
     resolution:
       integrity: sha512-KqgRSII2FXVN2z6zgC2/2vqQgPTESdpzzEI2apg1Bt11DOCuQkWEUtRPBnczMmqsbhYLA792SZf+lge6s5uuPQ==
       tarball: 'file:projects/dev.tgz'
+    version: 0.0.0
+  'file:projects/misk-web-examples-data.tgz':
+    dependencies:
+      '@types/fs-extra': 5.0.5
+      '@types/node': 10.12.27
+      '@types/prop-types': 15.7.0
+      '@types/react': 16.8.6
+      fs-extra: 7.0.1
+      prettier: 1.16.4
+      tslib: 1.9.3
+      typescript: 3.3.3333
+    dev: false
+    name: '@rush-temp/misk-web-examples-data'
+    resolution:
+      integrity: sha512-nYuBybEXVoN0dKkFBtE3MDymk9qVNhwrF/pO3myt71/Z0WbfnpbLbyyt4sB0IoabSzupIu/jK11Htvl/JO80DQ==
+      tarball: 'file:projects/misk-web-examples-data.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette-exemplar.tgz':
     dependencies:
@@ -7878,7 +7896,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-yh1icmiML47pEa6QOmimOcM9bEekGSKeU2eIW+UbvO2go7ANHdKgLustpOF2iVV6Za45HSBSQqxJeYZx8QKlsw==
+      integrity: sha512-B1KSlJLBXNocKBETj9tix1Z+NZKXI48glDKHpX/yvk9KJy/sB1WH+Gbnv4GMzp3izawnUbdL2GrjYG9ubytw/w==
       tarball: 'file:projects/misk-web-tab-palette-exemplar.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette.tgz':
@@ -7945,7 +7963,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette'
     resolution:
-      integrity: sha512-GUKpOY1OrXj443nkvCyKv7Pe8qlSzzaxkkJIjze+7ImDcph61AvSfDqLnMLyEqNrUid/LGGkITFDZFfkviMETA==
+      integrity: sha512-84x+tE8gEW1NS4qObFGjW9lFPgqQ3+NI/B7Xpm73qoquVq3U+rDRc0LRg4TNd6w4oLO6s8OSdW+4gTNbagjz4Q==
       tarball: 'file:projects/misk-web-tab-palette.tgz'
     version: 0.0.0
   'file:projects/simpleredux.tgz':
@@ -8014,7 +8032,7 @@ packages:
     dev: false
     name: '@rush-temp/simpleredux'
     resolution:
-      integrity: sha512-UbVYqyc39wJpbdwSXaw8DJGBfe/W2+FG/htIHzkl/B7jQHFCVLOyOD4foZg4lg/uVuXW+6WTV3HHqwggEQinuw==
+      integrity: sha512-gFYHhbngYEiR19x9geUE9oLallbj+hRKbeuPUHsWayLHhQMJEkAzqSPNgYNaR4ST8fIyCZHxYMTCLlH5+PMcow==
       tarball: 'file:projects/simpleredux.tgz'
     version: 0.0.0
   'file:projects/tslint.tgz':
@@ -8049,6 +8067,7 @@ specifiers:
   '@rush-temp/common': 'file:./projects/common.tgz'
   '@rush-temp/core': 'file:./projects/core.tgz'
   '@rush-temp/dev': 'file:./projects/dev.tgz'
+  '@rush-temp/misk-web-examples-data': 'file:./projects/misk-web-examples-data.tgz'
   '@rush-temp/misk-web-tab-palette': 'file:./projects/misk-web-tab-palette.tgz'
   '@rush-temp/misk-web-tab-palette-exemplar': 'file:./projects/misk-web-tab-palette-exemplar.tgz'
   '@rush-temp/simpleredux': 'file:./projects/simpleredux.tgz'
@@ -8058,6 +8077,7 @@ specifiers:
   '@types/klaw': ^3.0.0
   '@types/lodash': ^4.14.121
   '@types/node': ^10.12.18
+  '@types/prop-types': ^15.7.0
   '@types/react': ^16.7.18
   '@types/react-dom': ^16.0.11
   '@types/react-helmet': ^5.0.8
