@@ -15,18 +15,19 @@
     "prepare": "npm run-script build"
   },
   "dependencies": {
-    "@misk/core": "^0.1.4-6",
+    "@misk/core": "0.1.5-13",
     "fs-extra": "^7.0.1"
   },
   "devDependencies": {
-    "@misk/dev": "^0.1.4-6",
-    "@misk/tslint": "^0.1.4-6",
+    "@misk/dev": "0.1.5-13",
+    "@types/fs-extra": "^5.0.4",
+    "@misk/tslint": "0.1.5-13",
     "@types/node": "^10.12.18",
+    "@types/prop-types": "^15.7.0",
     "@types/react": "^16.7.18",
     "prettier": "^1.15.3",
     "tslib": "^1.9.3",
-    "typescript": "^3.2.2",
-    "@types/fs-extra": "^5.0.4"
+    "typescript": "^3.2.2"
   },
   "engines": {
     "yarn": "YARN NO LONGER USED - use npm instead."

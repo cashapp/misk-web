@@ -1,12 +1,9 @@
 import { fromJS, List } from "immutable"
-import {
-  escapeRegExp,
-  filter,
-  flatMap,
-  isEmpty,
-  isRegExp
-  // reduce
-} from "lodash-es"
+import escapeRegExp from "lodash/escapeRegExp"
+import filter from "lodash/filter"
+import flatMap from "lodash/flatMap"
+import isEmpty from "lodash/isEmpty"
+import isRegExp from "lodash/isRegExp"
 import createCachedSelector from "re-reselect"
 import { createSelector, OutputSelector, ParametricSelector } from "reselect"
 
