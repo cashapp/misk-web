@@ -2,7 +2,8 @@ import reduce from "lodash/reduce"
 import {
   getVersion as parseMiskVersion,
   IMiskTabJSON,
-  logFormatter
+  logFormatter,
+  Files
 } from "../../utils"
 import { generatedByCLI, prettier } from "../templates"
 import { getPackageVersion, MiskPkg, MiskVersion } from "../changelog"
@@ -38,9 +39,25 @@ const scripts = (miskTab: IMiskTabJSON) => ({
     start:
       "npm run-script prebuild && cross-env NODE_ENV=development webpack-dev-server",
     test: "echo no test",
-    zip: `tar --exclude='.DS_Store' --exclude='.old_build_files' --exclude='demo' --exclude='lib' --exclude='node_modules' --exclude='package-lock.json' --exclude='${
-      miskTab.slug
-    }.tgz' -czvf ${miskTab.slug}.tgz ./`
+    zip: `tar ${[
+      Files.gitignore,
+      Files.old,
+      Files.package,
+      Files.packageLock,
+      Files.prettier,
+      Files.tsconfig,
+      Files.tslint,
+      Files.webpack,
+      Files.yarnLock,
+      "demo",
+      "lib",
+      ".DS_Store",
+      "*.log",
+      "node_modules",
+      `${miskTab.slug}.tgz`
+    ]
+      .map(file => `--exclude='${file}'`)
+      .join(" ")} -czvf ${miskTab.slug}.tgz ./`
   }
 })
 
