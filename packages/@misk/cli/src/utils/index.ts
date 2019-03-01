@@ -34,20 +34,27 @@ export enum Files {
 
 export const JsonOptions = { spaces: 2 }
 
-export const logFormatter = (tag: string, msg?: string, dir: string = pwd()) =>
+export const logFormatter = (
+  tag: string,
+  msg?: string,
+  dir: string = pwd().stdout
+) =>
   `[${tag.toUpperCase()}][${dir
     .split("/")
     .pop()
     .toUpperCase()}] ${msg}`
 
-export const logDebug = (tag: string, msg?: string, dir: string = pwd()) =>
-  console.log(logFormatter(tag, msg, dir))
+export const logDebug = (
+  tag: string,
+  msg?: string,
+  dir: string = pwd().stdout
+) => console.log(logFormatter(tag, msg, dir))
 
 export const path = (...segments: string[]) => `${segments.join("/")}`
 
 export const parseArgs = (...args: any): { args: any[]; dir: string } => ({
   args,
-  dir: args[0]
+  dir: args[0] ? args[0] : pwd().stdout
 })
 
 export const remove = async (path: string) => {

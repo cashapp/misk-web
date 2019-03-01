@@ -1,5 +1,9 @@
 import reduce from "lodash/reduce"
-import { IMiskTabJSON, logFormatter } from "../../utils"
+import {
+  getVersion as parseMiskVersion,
+  IMiskTabJSON,
+  logFormatter
+} from "../../utils"
 import { generatedByCLI, prettier } from "../templates"
 import { getPackageVersion, MiskPkg, MiskVersion } from "../changelog"
 
@@ -86,7 +90,10 @@ const devDependencies = (miskTab: IMiskTabJSON, pkg: any) => ({
 
 export const createPackage = (miskTab: IMiskTabJSON, pkg: any) => ({
   name: `misk-web-tab-${miskTab.slug}`,
-  version: pkg.version,
+  version:
+    pkg.version && pkg.version.length > 0
+      ? pkg.version
+      : parseMiskVersion(miskTab.version),
   ...header,
   ...scripts(miskTab),
   ...dependencies(miskTab, pkg),
