@@ -1,13 +1,12 @@
 {
   "name": "misk-web-tab-palette",
-  "version": "0.1.5-9",
+  "version": "0.1.5-11",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "main": "src/index.tsx",
   "engines": {
     "yarn": "YARN NO LONGER USED - use npm instead."
   },
   "scripts": {
-<<<<<<< HEAD
     "build": "npm run-script lib && npm run-script zip",
     "ci-build": "npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib && npm run-script zip",
     "dev-build": "npm run-script dev-lib && npm run-script zip",
@@ -15,12 +14,6 @@
     "clean-build-files": "rm .hash package-lock.json package.json tsconfig.json tslint.json webpack.config.js",
     "lib": "cross-env NODE_ENV=production webpack",
     "dev-lib": "cross-env NODE_ENV=development webpack",
-=======
-    "build": "cross-env NODE_ENV=development npm run-script lib && npm run-script zip",
-    "ci-build": "npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib",
-    "clean": "rm -rf demo lib",
-    "lib": "webpack",
->>>>>>> a84f584... [CLOSES #220] Migrate repo lodash-es -> lodash
     "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
     "prebuild": "npm run-script lint",
     "reinstall": "rm -rf node_modules && npm run-script install",

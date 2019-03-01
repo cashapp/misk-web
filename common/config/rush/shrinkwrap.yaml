@@ -17,7 +17,6 @@ dependencies:
   '@types/history': 4.7.2
   '@types/klaw': 3.0.0
   '@types/lodash': 4.14.121
-  '@types/lodash-es': 4.17.2
   '@types/node': 10.12.27
   '@types/react': 16.8.6
   '@types/react-dom': 16.8.2
@@ -45,7 +44,6 @@ dependencies:
   immutable: 4.0.0-rc.12
   klaw: 3.0.0
   lodash: 4.17.11
-  lodash-es: 4.17.11
   mini-css-extract-plugin: 0.5.0
   optimize-css-assets-webpack-plugin: 5.0.1
   pkg: 4.3.7
@@ -326,12 +324,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-vbHQ88nyYtf+lUQEXh/4nH/qXcXU5twAdJyYHKX/uiSivu8XqR8rgWYHY07hQ1iaPdx8+sz3vDL70ZQw7gepIg==
-  /@types/lodash-es/4.17.2:
-    dependencies:
-      '@types/lodash': 4.14.121
-    dev: false
-    resolution:
-      integrity: sha512-Bpl6bh7kF9IdepJEfSd6g/E6OPq99jcIQP5g0xqv47P1FjLOP1+PENCy2vWvrzY+KwnnHwGAbUcTxbEr+WAnUw==
   /@types/lodash/4.14.121:
     dev: false
     resolution:
@@ -3894,10 +3886,6 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-7AO748wWnIhNqAuaty2ZWHkQHRSNfPVIsPIfwEOWO22AmaoVrWavlOcMR5nzTLNYvp36X220/maaRsrec1G65A==
-  /lodash-es/4.17.11:
-    dev: false
-    resolution:
-      integrity: sha512-DHb1ub+rMjjrxqlB3H56/6MXtm1lSksDp2rA2cNWjG8mlDUYFhUj3Di2Zn5IwSU87xLv8tNIQ7sSwE/YOX/D/Q==
   /lodash.get/4.4.2:
     dev: false
     resolution:
@@ -7642,7 +7630,7 @@ packages:
     dev: false
     name: '@rush-temp/cli'
     resolution:
-      integrity: sha512-2HRAcwEjkJH8dUWn0/OtBFGY+eOixFpWvBJTye2exAJ4obOXsq5539mJyq0A7DENeZBw1BDdIP1IUO+tnp5hmA==
+      integrity: sha512-PScDtrPUgk/Vawu4lLGzJWzPN9ITj0dnJ+sPzS1/Na4Fo5jHfNo2J2UzhwHQOP0AMWpJVAMQ/xn7ahtYkIUq1w==
       tarball: 'file:projects/cli.tgz'
     version: 0.0.0
   'file:projects/common.tgz':
@@ -7654,7 +7642,7 @@ packages:
       '@blueprintjs/table': 3.4.1
       '@blueprintjs/timezone': 3.3.0
       '@types/history': 4.7.2
-      '@types/lodash-es': 4.17.2
+      '@types/lodash': 4.14.121
       '@types/node': 10.12.27
       '@types/react': 16.8.6
       '@types/react-dom': 16.8.2
@@ -7677,7 +7665,7 @@ packages:
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/54bb3b4ade3087c8af7de9b317a3d270
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.29.6
       immutable: 4.0.0-rc.12
-      lodash-es: 4.17.11
+      lodash: 4.17.11
       mini-css-extract-plugin: /mini-css-extract-plugin/0.5.0/webpack@4.29.6
       optimize-css-assets-webpack-plugin: /optimize-css-assets-webpack-plugin/5.0.1/webpack@4.29.6
       prettier: 1.16.4
@@ -7711,7 +7699,7 @@ packages:
     dev: false
     name: '@rush-temp/common'
     resolution:
-      integrity: sha512-OuyIVYfUVgm8mvufIbu0MDb4tYGaMP7rSU088J4yC/Gh0U2Qt3ZWwjfthv00WPCATCbfNyK72yySWhwN0ORitg==
+      integrity: sha512-J5Q8VWTDovkYN49lJMeRxOkHBhWqtJGvosMRslhPRe2Tv05JyovrCpqU5/c6MeKP45CCs+9uF+M35zyQQH4rvA==
       tarball: 'file:projects/common.tgz'
     version: 0.0.0
   'file:projects/core.tgz':
@@ -7723,7 +7711,7 @@ packages:
       '@blueprintjs/table': 3.4.1
       '@blueprintjs/timezone': 3.3.0
       '@types/history': 4.7.2
-      '@types/lodash-es': 4.17.2
+      '@types/lodash': 4.14.121
       '@types/node': 10.12.27
       '@types/react': 16.8.6
       '@types/react-dom': 16.8.2
@@ -7746,7 +7734,7 @@ packages:
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/54bb3b4ade3087c8af7de9b317a3d270
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.29.6
       immutable: 4.0.0-rc.12
-      lodash-es: 4.17.11
+      lodash: 4.17.11
       mini-css-extract-plugin: /mini-css-extract-plugin/0.5.0/webpack@4.29.6
       optimize-css-assets-webpack-plugin: /optimize-css-assets-webpack-plugin/5.0.1/webpack@4.29.6
       prettier: 1.16.4
@@ -7780,13 +7768,13 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-TpvtjtMQGy/SkWkOGCutOBJq76UNQDvWHKCD0Cq2Oez9hedRnOkHOehXFZbwVvmNaDxiujLGbA24WzWqQp03pw==
+      integrity: sha512-k7SIlmUBxh5YqRuStSCtTYWJRwZ5DNXdiwS7sOvZae7e4OZKeeAr8rZdH7IQ/2Di23pKTAxkHvBDvHOGOmXR7Q==
       tarball: 'file:projects/core.tgz'
     version: 0.0.0
   'file:projects/dev.tgz':
     dependencies:
       '@types/history': 4.7.2
-      '@types/lodash-es': 4.17.2
+      '@types/lodash': 4.14.121
       '@types/node': 10.12.27
       '@types/react': 16.8.6
       '@types/react-dom': 16.8.2
@@ -7823,7 +7811,7 @@ packages:
     dev: false
     name: '@rush-temp/dev'
     resolution:
-      integrity: sha512-rqHQZFuZBem0wpw2519bCz3aCPpL71EQTsU95t85i4M7VqL7jaQsIagOggEm6Z5U8jOBouKl8FDXhz53xT1hCQ==
+      integrity: sha512-KqgRSII2FXVN2z6zgC2/2vqQgPTESdpzzEI2apg1Bt11DOCuQkWEUtRPBnczMmqsbhYLA792SZf+lge6s5uuPQ==
       tarball: 'file:projects/dev.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette-exemplar.tgz':
@@ -7835,7 +7823,6 @@ packages:
       '@blueprintjs/table': 3.4.1
       '@blueprintjs/timezone': 3.3.0
       '@types/history': 4.7.2
-      '@types/lodash-es': 4.17.2
       '@types/node': 10.12.27
       '@types/react': 16.8.6
       '@types/react-dom': 16.8.2
@@ -7858,7 +7845,6 @@ packages:
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/54bb3b4ade3087c8af7de9b317a3d270
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.29.6
       immutable: 4.0.0-rc.12
-      lodash-es: 4.17.11
       mini-css-extract-plugin: /mini-css-extract-plugin/0.5.0/webpack@4.29.6
       optimize-css-assets-webpack-plugin: /optimize-css-assets-webpack-plugin/5.0.1/webpack@4.29.6
       prettier: 1.16.4
@@ -7892,7 +7878,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-nH2K39G2bkIuEl33G1Wl4sYRY6HQRpi81VtD8WIvgahLAKtsHp0lHiAsAKeL1PAzS0uuZ/EvS2nj4SnHjmrv0Q==
+      integrity: sha512-yh1icmiML47pEa6QOmimOcM9bEekGSKeU2eIW+UbvO2go7ANHdKgLustpOF2iVV6Za45HSBSQqxJeYZx8QKlsw==
       tarball: 'file:projects/misk-web-tab-palette-exemplar.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette.tgz':
@@ -7904,7 +7890,6 @@ packages:
       '@blueprintjs/table': 3.4.1
       '@blueprintjs/timezone': 3.3.0
       '@types/history': 4.7.2
-      '@types/lodash-es': 4.17.2
       '@types/node': 10.12.27
       '@types/react': 16.8.6
       '@types/react-dom': 16.8.2
@@ -7927,7 +7912,6 @@ packages:
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/54bb3b4ade3087c8af7de9b317a3d270
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.29.6
       immutable: 4.0.0-rc.12
-      lodash-es: 4.17.11
       mini-css-extract-plugin: /mini-css-extract-plugin/0.5.0/webpack@4.29.6
       optimize-css-assets-webpack-plugin: /optimize-css-assets-webpack-plugin/5.0.1/webpack@4.29.6
       prettier: 1.16.4
@@ -7961,7 +7945,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette'
     resolution:
-      integrity: sha512-QBTCqJTKrJ7VOZ8XMAPS12Ir5nbVmDVndwBW6EEc9nquv2qP1fPreamdbJdd5uBSk7xt8vrPRmeA0ncS9ofvAg==
+      integrity: sha512-GUKpOY1OrXj443nkvCyKv7Pe8qlSzzaxkkJIjze+7ImDcph61AvSfDqLnMLyEqNrUid/LGGkITFDZFfkviMETA==
       tarball: 'file:projects/misk-web-tab-palette.tgz'
     version: 0.0.0
   'file:projects/simpleredux.tgz':
@@ -7973,7 +7957,7 @@ packages:
       '@blueprintjs/table': 3.4.1
       '@blueprintjs/timezone': 3.3.0
       '@types/history': 4.7.2
-      '@types/lodash-es': 4.17.2
+      '@types/lodash': 4.14.121
       '@types/node': 10.12.27
       '@types/react': 16.8.6
       '@types/react-dom': 16.8.2
@@ -7996,7 +7980,7 @@ packages:
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/54bb3b4ade3087c8af7de9b317a3d270
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.29.6
       immutable: 4.0.0-rc.12
-      lodash-es: 4.17.11
+      lodash: 4.17.11
       mini-css-extract-plugin: /mini-css-extract-plugin/0.5.0/webpack@4.29.6
       optimize-css-assets-webpack-plugin: /optimize-css-assets-webpack-plugin/5.0.1/webpack@4.29.6
       prettier: 1.16.4
@@ -8030,7 +8014,7 @@ packages:
     dev: false
     name: '@rush-temp/simpleredux'
     resolution:
-      integrity: sha512-6WvqCjccuqMX8XYKMMiirH5DolCHk/dWiBj68KF8RKB75lOBb/N/+FmjSQnryyzJHZHbi8FGFPDDw2s/GwQXNQ==
+      integrity: sha512-UbVYqyc39wJpbdwSXaw8DJGBfe/W2+FG/htIHzkl/B7jQHFCVLOyOD4foZg4lg/uVuXW+6WTV3HHqwggEQinuw==
       tarball: 'file:projects/simpleredux.tgz'
     version: 0.0.0
   'file:projects/tslint.tgz':
@@ -8073,7 +8057,6 @@ specifiers:
   '@types/history': ^4.7.2
   '@types/klaw': ^3.0.0
   '@types/lodash': ^4.14.121
-  '@types/lodash-es': ^4.17.1
   '@types/node': ^10.12.18
   '@types/react': ^16.7.18
   '@types/react-dom': ^16.0.11
@@ -8101,7 +8084,6 @@ specifiers:
   immutable: ^4.0.0-rc.12
   klaw: ^3.0.0
   lodash: ^4.17.11
-  lodash-es: ^4.17.11
   mini-css-extract-plugin: ^0.5.0
   optimize-css-assets-webpack-plugin: ^5.0.1
   pkg: ^4.3.7
