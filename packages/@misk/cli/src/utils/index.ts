@@ -1,3 +1,4 @@
+import * as fs from "fs-extra"
 import klaw from "klaw"
 import { cd, exec, pwd } from "shelljs"
 import * as yargs from "yargs"
@@ -33,18 +34,40 @@ export enum Files {
 
 export const JsonOptions = { spaces: 2 }
 
-export const cmdHeader = (cmd: string) =>
-  console.log(`[${cmd.toUpperCase()}] ${pwd()}`)
+export const logFormatter = (
+  tag: string,
+  msg?: string,
+  dir: string = pwd().stdout
+) =>
+  `[${tag.toUpperCase()}][${dir
+    .split("/")
+    .pop()
+    .toUpperCase()}] ${msg}`
 
-export const prebuild = async (...args: any) =>
-  execute("miskweb prebuild", ...args)
+export const logDebug = (
+  tag: string,
+  msg?: string,
+  dir: string = pwd().stdout
+) => console.log(logFormatter(tag, msg, dir))
 
-export const execute = async (cmd: string, ...args: any) => {
-  const dir = args[0]
-  if (dir) {
-    cd(dir)
+export const path = (...segments: string[]) => `${segments.join("/")}`
+
+export const parseArgs = (...args: any): { args: any[]; dir: string } => ({
+  args,
+  dir: args[0] ? args[0] : pwd().stdout
+})
+
+export const remove = async (path: string) => {
+  try {
+    fs.remove(path)
+  } catch (e) {
+    console.log(`[ERROR] ${e}`)
   }
-  pwd().stdout
+}
+
+export const execute = (cmd: string, ...args: any) => {
+  const { dir } = parseArgs(...args)
+  cd(dir)
   const terminal = exec(cmd)
   terminal.stdout
   if (terminal.code) {
@@ -55,6 +78,9 @@ export const execute = async (cmd: string, ...args: any) => {
     )
   }
 }
+
+export const npmRunScript = (cmd: string, prebuild: boolean = false) =>
+  `${prebuild ? "miskweb prebuild && " : ""}npm run-script ${cmd}`
 
 export const handleCommand = async (
   args: {
@@ -84,15 +110,20 @@ export const handleCommand = async (
       .hide("version")
       .showHelp()
   } else if (args.each) {
+    const tabs: string[] = []
     klaw(".")
       .on("data", (item: any) => {
         if (item.stats.isFile() && item.path.includes("/miskTab.json")) {
-          const dir = item.path.split("/miskTab.json")[0]
-          cd(dir)
-          handlerFn(dir)
+          tabs.push(item.path.split("/miskTab.json")[0])
         }
       })
       .on("error", (err: Error) => console.error(err))
+      .on("end", async () => {
+        for (const tab in tabs) {
+          cd(tabs[tab])
+          handlerFn(tabs[tab])
+        }
+      })
   } else {
     handlerFn()
   }

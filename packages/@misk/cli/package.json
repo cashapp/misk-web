@@ -1,6 +1,6 @@
 {
   "name": "@misk/cli",
-  "version": "0.1.5-4",
+  "version": "0.1.5-11",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "description": "Misk-Web CLI Build Tool",
   "author": "Square/Misk Authors (https://github.com/square/misk-web/graphs/contributors)",
@@ -19,6 +19,7 @@
     "dayjs": "^1.7.7",
     "fs-extra": "^7.0.1",
     "klaw": "^3.0.0",
+    "lodash": "^4.17.11",
     "pkg": "^4.3.7",
     "prettier": "^1.15.3",
     "shelljs": "^0.8.3",
@@ -27,10 +28,11 @@
     "yargs": "^12.0.4"
   },
   "devDependencies": {
-    "@misk/dev": "^0.1.5-4",
-    "@misk/tslint": "^0.1.5-4",
+    "@misk/dev": "0.1.5-11",
+    "@misk/tslint": "0.1.5-11",
     "@types/fs-extra": "^5.0.4",
     "@types/klaw": "^3.0.0",
+    "@types/lodash": "^4.14.121",
     "@types/node": "^10.12.18",
     "@types/shelljs": "^0.8.3",
     "@types/yargs": "^12.0.1"

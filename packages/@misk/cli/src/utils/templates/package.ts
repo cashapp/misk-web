@@ -1,6 +1,11 @@
-import { IMiskTabJSON } from "../../utils"
+import reduce from "lodash/reduce"
+import {
+  getVersion as parseMiskVersion,
+  IMiskTabJSON,
+  logFormatter
+} from "../../utils"
 import { generatedByCLI, prettier } from "../templates"
-import { getPackageVersion, MiskPkg } from "../changelog"
+import { getPackageVersion, MiskPkg, MiskVersion } from "../changelog"
 
 const header = {
   license: "SEE LICENSE IN https://github.com/square/misk-web",
@@ -12,13 +17,20 @@ const scripts = (miskTab: IMiskTabJSON) => ({
     yarn: "YARN NO LONGER USED - use npm instead."
   },
   scripts: {
-    build: miskTab.zipOnBuild
-      ? `cross-env NODE_ENV=development npm run-script lib && npm run-script zip`
-      : "cross-env NODE_ENV=development npm run-script lib",
-    "ci-build":
-      "npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib",
+    build: `npm run-script lib ${
+      miskTab.zipOnBuild ? "&& npm run-script zip" : ""
+    }`,
+    "ci-build": `npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib ${
+      miskTab.zipOnBuild ? "&& npm run-script zip" : ""
+    }`,
+    "dev-build": `npm run-script dev-lib ${
+      miskTab.zipOnBuild ? "&& npm run-script zip" : ""
+    }`,
     clean: "rm -rf demo lib",
-    lib: "webpack",
+    "clean-build-files":
+      "rm .hash package-lock.json package.json tsconfig.json tslint.json webpack.config.js",
+    lib: "cross-env NODE_ENV=production webpack",
+    "dev-lib": "cross-env NODE_ENV=development webpack",
     lint:
       'prettier --write --config package.json ".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}"',
     prebuild: "npm run-script lint",
@@ -32,29 +44,56 @@ const scripts = (miskTab: IMiskTabJSON) => ({
   }
 })
 
+const createMiskPackageJson = (
+  packages: MiskPkg[],
+  miskTab: IMiskTabJSON
+): { [pkg in MiskPkg]?: string } =>
+  reduce(
+    packages,
+    (packageJson: { [pkg in MiskPkg]?: string }, pkg: MiskPkg) => {
+      const pkgVersion = getPackageVersion(pkg, miskTab.version)
+      if (pkgVersion) {
+        return { ...packageJson, [pkg]: pkgVersion }
+      } else {
+        console.error(
+          logFormatter(
+            "prebuild][error",
+            `Failed to find package ${pkg}@${
+              miskTab.version
+            }.\n\tTry updating your version in miskTab.json to latest: ${
+              MiskVersion.latest
+            }.`
+          )
+        )
+        return packageJson
+      }
+    },
+    {}
+  )
+
 const dependencies = (miskTab: IMiskTabJSON, pkg: any) => ({
   dependencies: {
     ...pkg.dependencies,
-    [MiskPkg.common]: `^${getPackageVersion(MiskPkg.common, miskTab.version)}`,
-    [MiskPkg.core]: `^${getPackageVersion(MiskPkg.core, miskTab.version)}`,
-    [MiskPkg.simpleredux]: `^${getPackageVersion(
-      MiskPkg.simpleredux,
-      miskTab.version
-    )}`
+    ...createMiskPackageJson(
+      [MiskPkg.common, MiskPkg.core, MiskPkg.simpleredux],
+      miskTab
+    )
   }
 })
 
 const devDependencies = (miskTab: IMiskTabJSON, pkg: any) => ({
   devDependencies: {
     ...pkg.devDependencies,
-    [MiskPkg.dev]: `^${getPackageVersion(MiskPkg.dev, miskTab.version)}`,
-    [MiskPkg.tslint]: `^${getPackageVersion(MiskPkg.tslint, miskTab.version)}`
+    ...createMiskPackageJson([MiskPkg.dev, MiskPkg.tslint], miskTab)
   }
 })
 
 export const createPackage = (miskTab: IMiskTabJSON, pkg: any) => ({
   name: `misk-web-tab-${miskTab.slug}`,
-  version: pkg.version,
+  version:
+    pkg.version && pkg.version.length > 0
+      ? pkg.version
+      : parseMiskVersion(miskTab.version),
   ...header,
   ...scripts(miskTab),
   ...dependencies(miskTab, pkg),
