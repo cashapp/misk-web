@@ -26,7 +26,6 @@ export const generateBuildFiles = async (...args: any) => {
   if (fs.existsSync(path(dir, Files.package))) {
     pkg = fs.readJsonSync(path(dir, Files.package))
   }
-  console.log("adsfasdf", pkg)
   const miskTab: IMiskTabJSON = await fs.readJsonSync(path(dir, Files.miskTab))
   // Write out fresh files
   await [
