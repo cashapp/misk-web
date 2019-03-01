@@ -24,9 +24,10 @@ export const generateBuildFiles = async (...args: any) => {
   logDebug(tag, "", dir)
   let pkg = {}
   if (fs.existsSync(path(dir, Files.package))) {
-    pkg = fs.readJson(path(dir, Files.package))
+    pkg = fs.readJsonSync(path(dir, Files.package))
   }
-  const miskTab: IMiskTabJSON = await fs.readJson(path(dir, Files.miskTab))
+  console.log("adsfasdf", pkg)
+  const miskTab: IMiskTabJSON = await fs.readJsonSync(path(dir, Files.miskTab))
   // Write out fresh files
   await [
     fs.writeJson(
