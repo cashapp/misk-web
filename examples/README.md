@@ -13,8 +13,6 @@ These projects will let you test `misk-web` without a full `misk` server.
 
 Test data for use in example services and tabs. Find all current data sets in [/examples/data/](https://square.github.io/misk-web/examples/data/).
 
-## Gradle [/examples/gradle/](https://square.github.io/misk-web/examples/gradle/)
-
 ## Services
 
 - `dashboard` [[Live Demo](https://square.github.io/misk-web/examples/services/dashboard/demo/)]: Dashboard UI with the ability to set mock data for menu links, environment, service name, and other fields
