@@ -1,6 +1,6 @@
 {
   "name": "@misk/core",
-  "version": "0.1.5-13",
+  "version": "0.1.5-14",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "description": "Misk-Web Core",
   "author": "Square/Misk Authors (https://github.com/square/misk-web/graphs/contributors)",
@@ -33,7 +33,7 @@
     "updateDevCache": "cd ..; ./updateLocalCache.sh"
   },
   "dependencies": {
-    "@misk/common": "0.1.5-13",
+    "@misk/common": "0.1.5-14",
     "@blueprintjs/core": "^3.9.0",
     "@blueprintjs/datetime": "^3.4.0",
     "@blueprintjs/icons": "^3.3.0",
@@ -43,7 +43,9 @@
     "axios": "^0.18.0",
     "connected-react-router": "^5.0.1",
     "dayjs": "^1.7.7",
+    "enum-utils": "^1.0.0",
     "history": "^4.7.2",
+    "http-method-enum": "^1.0.0",
     "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.11",
     "react": "^16.6.3",
@@ -59,11 +61,12 @@
     "reselect": "^4.0.0",
     "re-reselect": "2.2.0",
     "skeleton-css": "^2.0.4",
+    "status-code-enum": "^1.0.0",
     "styled-components": "^4.1.2"
   },
   "devDependencies": {
-    "@misk/dev": "0.1.5-13",
-    "@misk/tslint": "0.1.5-13",
+    "@misk/dev": "0.1.5-14",
+    "@misk/tslint": "0.1.5-14",
     "@types/history": "^4.7.2",
     "@types/lodash": "^4.14.121",
     "@types/node": "^10.12.18",

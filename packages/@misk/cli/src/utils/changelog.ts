@@ -1,6 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.5-13",
-  "alpha" = "0.1.5-13",
+  "latest" = "0.1.5-14",
+  "alpha" = "0.1.5-14",
+  "v015_14" = "0.1.5-14",
   "v015_13" = "0.1.5-13",
   "v015_11" = "0.1.5-11",
   "v015_4" = "0.1.5-4",
@@ -108,6 +109,16 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v015_14]: {
+    [MiskPkg.cli]: `${[MiskVersion.v015_14]}`,
+    [MiskPkg.common]: `${[MiskVersion.v015_14]}`,
+    [MiskPkg.core]: `${[MiskVersion.v015_14]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v015_14]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v015_14]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v015_14]}`,
+    date: "2019-03-04",
+    notes: "Add http-method-enum, status-code-enum, and enum-utils libraries."
+  },
   [MiskVersion.v015_13]: {
     [MiskPkg.cli]: `${[MiskVersion.v015_13]}`,
     [MiskPkg.common]: `${[MiskVersion.v015_13]}`,

@@ -6,6 +6,7 @@ import isEmpty from "lodash/isEmpty"
 import isRegExp from "lodash/isRegExp"
 import createCachedSelector from "re-reselect"
 import { createSelector, OutputSelector, ParametricSelector } from "reselect"
+import { StatusCode } from "status-code-enum"
 
 /**
  * Default State with Redux flow metadata wrapped in an Immutable JS object for more efficient use in Reducers
@@ -80,7 +81,8 @@ export const errorMessage = (error: any) => {
   let code = error.errorCode
   if (!code) {
     code =
-      error.response && error.response.status === 401
+      error.response &&
+      error.response.status === StatusCode.ClientErrorUnauthorized
         ? "Unauthorized"
         : "InternalServerError"
   }
