@@ -310,7 +310,6 @@ const ActionTypeToAxiosCall: { [key: string]: any } = {
 }
 
 const responseAndData = (response: AxiosResponse) => {
-  console.log(response)
   const data =
     typeof response.data === "string" ? { data: response.data } : response.data
   return { ...response, ...data }
