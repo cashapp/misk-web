@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from "axios"
+import axios, { AxiosResponse, AxiosRequestConfig } from "axios"
 import { all, AllEffect, call, put, takeEvery } from "redux-saga/effects"
 import {
   createAction,
@@ -32,7 +32,7 @@ export enum SIMPLENETWORK {
  * Object of functions that dispatch Actions with standard defaults and any required passed in input
  * dispatch Object is used within containers to initiate any saga provided functionality
  */
-export interface ISimpleNetworkPayloadTag extends IDefaultState {
+export interface ISimpleNetworkPayloadTag extends IDefaultState, AxiosResponse {
   requestConfig: AxiosRequestConfig
   tag: string
   url: string
@@ -85,7 +85,7 @@ export interface IDispatchSimpleNetwork {
   simpleNetworkSuccess: (
     tag: string,
     url: string,
-    error: any,
+    response: AxiosResponse,
     requestConfig?: AxiosRequestConfig
   ) => IAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkPayload>
 }
@@ -115,9 +115,13 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
       {
         [tag]: {
           data: null,
+          config: null,
           error: null,
+          headers: null,
           loading: true,
           requestConfig,
+          status: 0,
+          statusText: "",
           success: false,
           tag,
           url
@@ -135,8 +139,12 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
       {
         [tag]: {
           data: null,
+          config: null,
+          headers: null,
           loading: false,
           requestConfig,
+          status: 0,
+          statusText: "",
           success: false,
           tag,
           url,
@@ -152,9 +160,13 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     createAction<SIMPLENETWORK.GET, ISimpleNetworkPayload>(SIMPLENETWORK.GET, {
       [tag]: {
         data: null,
+        config: null,
         error: null,
+        headers: null,
         loading: true,
         requestConfig,
+        status: 0,
+        statusText: "",
         success: false,
         tag,
         url
@@ -170,9 +182,13 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
       {
         [tag]: {
           data: null,
+          config: null,
           error: null,
+          headers: null,
           loading: true,
           requestConfig,
+          status: 0,
+          statusText: "",
           success: false,
           tag,
           url
@@ -190,9 +206,13 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
       {
         [tag]: {
           data,
+          config: null,
           error: null,
+          headers: null,
           loading: true,
           requestConfig,
+          status: 0,
+          statusText: "",
           success: false,
           tag,
           url
@@ -210,9 +230,13 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
       {
         [tag]: {
           data,
+          config: null,
           error: null,
+          headers: null,
           loading: true,
           requestConfig,
+          status: 0,
+          statusText: "",
           success: false,
           tag,
           url
@@ -228,9 +252,13 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     createAction<SIMPLENETWORK.PUT, ISimpleNetworkPayload>(SIMPLENETWORK.PUT, {
       [tag]: {
         data,
+        config: null,
         error: null,
+        headers: null,
         loading: true,
         requestConfig,
+        status: 0,
+        statusText: "",
         success: false,
         tag,
         url
@@ -239,7 +267,7 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
   simpleNetworkSuccess: (
     tag: string = dispatchDefault.tag,
     url: string,
-    data: any = dispatchDefault.data,
+    response: AxiosResponse,
     requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
   ) =>
     createAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkPayload>(
@@ -252,7 +280,7 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
           success: true,
           tag,
           url,
-          ...data
+          ...response
         }
       }
     )
@@ -281,6 +309,18 @@ const ActionTypeToAxiosCall: { [key: string]: any } = {
   [SIMPLENETWORK.PUT]: axios.put
 }
 
+const responseAndData = (response: AxiosResponse) => {
+  console.log(response)
+  const data =
+    typeof response.data === "string" ? { data: response.data } : response.data
+  return { ...response, ...data }
+}
+
+const responseAndError = (error: { response: AxiosResponse }) => ({
+  ...error,
+  ...error.response
+})
+
 /**
  *
  * Generic handler function for HTTP methods that don't include data in the request
@@ -295,15 +335,23 @@ function* handleBasicRequest(
     const { tag, url, requestConfig } = getFirstTag<ISimpleNetworkPayloadTag>(
       action.payload
     )
-    const { data } = yield call(
+    const response = yield call(
       ActionTypeToAxiosCall[action.type],
       url,
       requestConfig
     )
-    yield put(dispatchSimpleNetwork.simpleNetworkSuccess(tag, url, { ...data }))
+    yield put(
+      dispatchSimpleNetwork.simpleNetworkSuccess(
+        tag,
+        url,
+        responseAndData(response)
+      )
+    )
   } catch (e) {
     const { tag, url } = getFirstTag<ISimpleNetworkPayloadTag>(action.payload)
-    yield put(dispatchSimpleNetwork.simpleNetworkFailure(tag, url, { ...e }))
+    yield put(
+      dispatchSimpleNetwork.simpleNetworkFailure(tag, url, responseAndError(e))
+    )
   }
 }
 
@@ -315,11 +363,19 @@ function* handlePatch(action: IAction<SIMPLENETWORK, ISimpleNetworkPayload>) {
     const { tag, url, requestConfig } = getFirstTag<ISimpleNetworkPayloadTag>(
       action.payload
     )
-    const { data } = yield call(axios.patch, url, updateData, requestConfig)
-    yield put(dispatchSimpleNetwork.simpleNetworkSuccess(tag, url, { ...data }))
+    const response = yield call(axios.patch, url, updateData, requestConfig)
+    yield put(
+      dispatchSimpleNetwork.simpleNetworkSuccess(
+        tag,
+        url,
+        responseAndData(response)
+      )
+    )
   } catch (e) {
     const { tag, url } = getFirstTag<ISimpleNetworkPayloadTag>(action.payload)
-    yield put(dispatchSimpleNetwork.simpleNetworkFailure(tag, url, { ...e }))
+    yield put(
+      dispatchSimpleNetwork.simpleNetworkFailure(tag, url, responseAndError(e))
+    )
   }
 }
 
@@ -331,11 +387,19 @@ function* handlePost(action: IAction<SIMPLENETWORK, ISimpleNetworkPayload>) {
     const { tag, url, requestConfig } = getFirstTag<ISimpleNetworkPayloadTag>(
       action.payload
     )
-    const { data } = yield call(axios.post, url, saveData, requestConfig)
-    yield put(dispatchSimpleNetwork.simpleNetworkSuccess(tag, url, { ...data }))
+    const response = yield call(axios.post, url, saveData, requestConfig)
+    yield put(
+      dispatchSimpleNetwork.simpleNetworkSuccess(
+        tag,
+        url,
+        responseAndData(response)
+      )
+    )
   } catch (e) {
     const { tag, url } = getFirstTag<ISimpleNetworkPayloadTag>(action.payload)
-    yield put(dispatchSimpleNetwork.simpleNetworkFailure(tag, url, { ...e }))
+    yield put(
+      dispatchSimpleNetwork.simpleNetworkFailure(tag, url, responseAndError(e))
+    )
   }
 }
 
@@ -347,11 +411,19 @@ function* handlePut(action: IAction<SIMPLENETWORK, ISimpleNetworkPayload>) {
     const { tag, url, requestConfig } = getFirstTag<ISimpleNetworkPayloadTag>(
       action.payload
     )
-    const { data } = yield call(axios.put, url, updateData, requestConfig)
-    yield put(dispatchSimpleNetwork.simpleNetworkSuccess(tag, url, { ...data }))
+    const response = yield call(axios.put, url, updateData, requestConfig)
+    yield put(
+      dispatchSimpleNetwork.simpleNetworkSuccess(
+        tag,
+        url,
+        responseAndData(response)
+      )
+    )
   } catch (e) {
     const { tag, url } = getFirstTag<ISimpleNetworkPayloadTag>(action.payload)
-    yield put(dispatchSimpleNetwork.simpleNetworkFailure(tag, url, { ...e }))
+    yield put(
+      dispatchSimpleNetwork.simpleNetworkFailure(tag, url, responseAndError(e))
+    )
   }
 }
 
