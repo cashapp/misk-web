@@ -1,4 +1,4 @@
-import { AxiosRequestConfig } from "axios";
+import { AxiosResponse, AxiosRequestConfig } from "axios";
 import { AllEffect } from "redux-saga/effects";
 import { IAction, IDefaultState, IRootState } from "./utilities";
 export declare enum SIMPLENETWORK {
@@ -11,7 +11,7 @@ export declare enum SIMPLENETWORK {
     PUT = "SIMPLENETWORK_PUT",
     SUCCESS = "SIMPLENETWORK_SUCCESS"
 }
-export interface ISimpleNetworkPayloadTag extends IDefaultState {
+export interface ISimpleNetworkPayloadTag extends IDefaultState, AxiosResponse {
     requestConfig: AxiosRequestConfig;
     tag: string;
     url: string;
@@ -27,7 +27,7 @@ export interface IDispatchSimpleNetwork {
     simpleNetworkPatch: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.PATCH, ISimpleNetworkPayload>;
     simpleNetworkPost: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.POST, ISimpleNetworkPayload>;
     simpleNetworkPut: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.PUT, ISimpleNetworkPayload>;
-    simpleNetworkSuccess: (tag: string, url: string, error: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkPayload>;
+    simpleNetworkSuccess: (tag: string, url: string, response: AxiosResponse, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkPayload>;
 }
 export declare const dispatchSimpleNetwork: IDispatchSimpleNetwork;
 export declare function watchSimpleNetworkSagas(): IterableIterator<AllEffect>;
