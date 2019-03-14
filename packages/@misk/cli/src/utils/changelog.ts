@@ -1,7 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.5-15",
-  "alpha" = "0.1.5-15",
-  "v015_15" = "0.1.5-15",
+  "latest" = "0.1.5-16",
+  "alpha" = "0.1.5-16",
+  "v015_16" = "0.1.5-16",
   "v015_14" = "0.1.5-14",
   "v015_13" = "0.1.5-13",
   "v015_11" = "0.1.5-11",
@@ -110,13 +110,13 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
-  [MiskVersion.v015_15]: {
-    [MiskPkg.cli]: `${[MiskVersion.v015_15]}`,
-    [MiskPkg.common]: `${[MiskVersion.v015_15]}`,
-    [MiskPkg.core]: `${[MiskVersion.v015_15]}`,
-    [MiskPkg.dev]: `${[MiskVersion.v015_15]}`,
-    [MiskPkg.simpleredux]: `${[MiskVersion.v015_15]}`,
-    [MiskPkg.tslint]: `${[MiskVersion.v015_15]}`,
+  [MiskVersion.v015_16]: {
+    [MiskPkg.cli]: `${[MiskVersion.v015_16]}`,
+    [MiskPkg.common]: `${[MiskVersion.v015_16]}`,
+    [MiskPkg.core]: `${[MiskVersion.v015_16]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v015_16]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v015_16]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v015_16]}`,
     date: "2019-03-14",
     notes: "SimpleNetworks: Return full AxiosResponse."
   },
