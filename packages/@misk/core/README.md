@@ -23,6 +23,7 @@ $ yarn add @misk/core
 
 ## Containers
 
+- `CodePreContainer`: Word wrap enabled BlueprintJS `<Pre>` block for displaying formatted content (ie. JSON, logs...)
 - `DesktopWideOnlyContainer`: Only shows container when window width >1200px
 - `FlexContainer`: Container using CSS FlexBox to have enclosed items flow responsively to screen width
 - `MobileNeverContainer`: Never show container when window width <768px
