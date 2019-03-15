@@ -1,7 +1,6 @@
 import { Button, Collapse, Icon } from "@blueprintjs/core"
 import { IconNames } from "@blueprintjs/icons"
-import groupBy from "lodash/groupBy"
-import sortBy from "lodash/sortBy"
+import { chain, sortBy } from "lodash"
 import * as React from "react"
 import styled from "styled-components"
 import { ErrorCalloutComponent } from "../../components"
@@ -128,7 +127,15 @@ export class Menu extends React.Component<IMenuProps, {}> {
 
   private renderMenuCategories(links: IDashboardTab[]) {
     const categories: Array<[string, IDashboardTab[]]> = Object.entries(
-      groupBy(links, "category")
+      // sort and group array of links by category string
+      // and sort each category's links by lower case tab name string
+      chain(links)
+        .sortBy("category")
+        .groupBy("category")
+        .mapValues(category =>
+          sortBy(category, (tab: IDashboardTab) => tab.name.toLowerCase())
+        )
+        .value()
     )
     return categories.map(([categoryName, categoryLinks]) =>
       this.renderMenuCategory(categoryName, categoryLinks)
@@ -139,7 +146,6 @@ export class Menu extends React.Component<IMenuProps, {}> {
     categoryName: string,
     categoryLinks: IDashboardTab[]
   ) {
-    const sortedCategoryLinks = sortBy(categoryLinks, "name")
     return (
       <div>
         <MiskMenuCategory>
@@ -147,7 +153,7 @@ export class Menu extends React.Component<IMenuProps, {}> {
         </MiskMenuCategory>
         <MiskMenuDivider />
         <MiskMenuLinks>
-          {sortedCategoryLinks.map((link: IDashboardTab) => (
+          {categoryLinks.map((link: IDashboardTab) => (
             <MiskMenuLink
               key={link.slug}
               onClick={this.handleClick}
