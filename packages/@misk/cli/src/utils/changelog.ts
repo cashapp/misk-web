@@ -1,7 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.5-17",
-  "alpha" = "0.1.5-17",
-  "v015_17" = "0.1.5-17",
+  "latest" = "0.1.5-18",
+  "alpha" = "0.1.5-18",
+  "v015_18" = "0.1.5-18",
   "v015_16" = "0.1.5-16",
   "v015_14" = "0.1.5-14",
   "v015_13" = "0.1.5-13",
@@ -111,13 +111,13 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
-  [MiskVersion.v015_17]: {
-    [MiskPkg.cli]: `${[MiskVersion.v015_17]}`,
-    [MiskPkg.common]: `${[MiskVersion.v015_17]}`,
-    [MiskPkg.core]: `${[MiskVersion.v015_17]}`,
-    [MiskPkg.dev]: `${[MiskVersion.v015_17]}`,
-    [MiskPkg.simpleredux]: `${[MiskVersion.v015_17]}`,
-    [MiskPkg.tslint]: `${[MiskVersion.v015_17]}`,
+  [MiskVersion.v015_18]: {
+    [MiskPkg.cli]: `${[MiskVersion.v015_18]}`,
+    [MiskPkg.common]: `${[MiskVersion.v015_18]}`,
+    [MiskPkg.core]: `${[MiskVersion.v015_18]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v015_18]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v015_18]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v015_18]}`,
     date: "2019-03-15",
     notes: "Core: CodePreContainer and improved Navbar link sorting."
   },
