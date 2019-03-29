@@ -1,6 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.5-18",
-  "alpha" = "0.1.5-18",
+  "latest" = "0.1.5-19",
+  "alpha" = "0.1.5-19",
+  "v015_19" = "0.1.5-19",
   "v015_18" = "0.1.5-18",
   "v015_16" = "0.1.5-16",
   "v015_14" = "0.1.5-14",
@@ -111,6 +112,16 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v015_19]: {
+    [MiskPkg.cli]: `${[MiskVersion.v015_19]}`,
+    [MiskPkg.common]: `${[MiskVersion.v015_19]}`,
+    [MiskPkg.core]: `${[MiskVersion.v015_19]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v015_19]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v015_19]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v015_19]}`,
+    date: "2019-03-29",
+    notes: "Core: Add HTTP Utilities."
+  },
   [MiskVersion.v015_18]: {
     [MiskPkg.cli]: `${[MiskVersion.v015_18]}`,
     [MiskPkg.common]: `${[MiskVersion.v015_18]}`,
