@@ -1,0 +1,46 @@
+version: 2
+jobs:
+  rushBuild:
+    working_directory: ~/misk-web
+    docker:
+      - image: circleci/node:10.15
+    steps:
+      - checkout
+      - run:
+          name: Misk-Web Prebuild...
+          command: sudo npm install -g @misk/cli && miskweb prebuild -e
+      - run:
+          name: Checking for inconsistent dependency versions
+          command: node common/scripts/install-run-rush.js check
+      - run:
+          name: Installing...
+          command: node common/scripts/install-run-rush.js install
+      - run:
+          name: Building...
+          command: node common/scripts/install-run-rush.js rebuild --verbose
+  javaBuild:
+    working_directory: ~/misk-web
+    docker:
+      - image: circleci/openjdk:11-jdk
+    steps:
+      - checkout
+      - run:
+          name: Build Gradle Plugin
+          command: ./gradlew plugin
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - rushBuild
+      - javaBuild
+  continuous-testing:
+    jobs:
+      - rushBuild
+      - javaBuild
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
