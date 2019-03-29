@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  rushBuild:
+  node:
     working_directory: ~/misk-web
     docker:
       - image: circleci/node:10.15
@@ -18,7 +18,7 @@ jobs:
       - run:
           name: Building...
           command: node common/scripts/install-run-rush.js rebuild --verbose
-  javaBuild:
+  java:
     working_directory: ~/misk-web
     docker:
       - image: circleci/openjdk:11-jdk
@@ -31,12 +31,12 @@ workflows:
   version: 2
   commit:
     jobs:
-      - rushBuild
-      - javaBuild
+      - node
+      - java
   continuous-testing:
     jobs:
-      - rushBuild
-      - javaBuild
+      - node
+      - java
     triggers:
       - schedule:
           cron: "0 0 * * *"
