@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/square/misk/master/misk.png" width="300">
 
-[![Build Status](https://travis-ci.com/square/misk-web.svg?branch=master)](https://travis-ci.org/square/misk-web)
+[![CircleCI](https://circleci.com/gh/square/misk-web.svg?style=svg)](https://circleci.com/gh/square/misk-web)
 
 [Misk](https://github.com/square/misk) is a new open source application container from Square.
 
