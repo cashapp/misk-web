@@ -108,6 +108,22 @@ const selectSubState: <
   return state[domain]
 }
 
+const rawSubStateSelector: <
+  IState extends { [key: string]: ISubState & any },
+  ISubState
+>(
+  domain: string
+) => OutputSelector<IState, any, (res: ISubState) => any> = <
+  IState extends { [key: string]: ISubState },
+  ISubState
+>(
+  domain: string
+) =>
+  createSelector(
+    selectSubState<IState, ISubState>(domain),
+    state => state
+  )
+
 const immutableSubStateSelector: <
   IState extends { [key: string]: ISubState & any },
   ISubState extends { toJS: () => IRootState }
@@ -123,6 +139,21 @@ const immutableSubStateSelector: <
     selectSubState<IState, ISubState>(domain),
     state => state.toJS()
   )
+
+/**
+ * simpleRootRawSelector is a Redux selector of a subState based on a domain string
+ * @param domain
+ * @param state
+ *
+ * Returns the raw stored object from Redux (in contrast to simpleRootSelector)
+ */
+export const simpleRootRawSelector = <
+  IState extends { [key: string]: ISubState & any },
+  ISubState
+>(
+  domain: string,
+  state: IState
+) => rawSubStateSelector<IState, ISubState>(domain)(state)
 
 /**
  * simpleRootSelector is a Redux selector of a subState based on a domain string
