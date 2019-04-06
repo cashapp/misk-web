@@ -1,4 +1,4 @@
-import { fromJS, List } from "immutable"
+import { fromJS, List, Map } from "immutable"
 import escapeRegExp from "lodash/escapeRegExp"
 import filter from "lodash/filter"
 import flatMap from "lodash/flatMap"
@@ -94,7 +94,7 @@ export const errorMessage = (error: any) => {
  * State Selectors
  * A memoized, efficient way to compute and return the latest domain of the state
  */
-const selectSubState: <
+export const selectSubState: <
   IState extends { [key: string]: ISubState },
   ISubState extends { [key: string]: any }
 >(
@@ -108,19 +108,30 @@ const selectSubState: <
   return state[domain]
 }
 
-const rawSubStateSelector: <
-  IState extends { [key: string]: ISubState & any },
-  ISubState
+export const selectRawSubState: <
+  IState extends Map<string, any>,
+  ISubState extends { [key: string]: any }
 >(
   domain: string
+) => (state: IState) => ISubState = <
+  IState extends Map<string, any>,
+  ISubState extends { [key: string]: any }
+>(
+  domain: string
+) => (state: IState) => {
+  return state.get(domain)
+}
+
+const rawSubStateSelector: <IState extends Map<string, any>, ISubState>(
+  domain: string
 ) => OutputSelector<IState, any, (res: ISubState) => any> = <
-  IState extends { [key: string]: ISubState },
+  IState extends Map<string, any>,
   ISubState
 >(
   domain: string
 ) =>
   createSelector(
-    selectSubState<IState, ISubState>(domain),
+    selectRawSubState<IState, ISubState>(domain),
     state => state
   )
 
@@ -148,7 +159,7 @@ const immutableSubStateSelector: <
  * Returns the raw stored object from Redux (in contrast to simpleRootSelector)
  */
 export const simpleRootRawSelector = <
-  IState extends { [key: string]: ISubState & any },
+  IState extends Map<string, any>,
   ISubState
 >(
   domain: string,
