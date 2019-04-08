@@ -1,6 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.5-20",
-  "alpha" = "0.1.5-20",
+  "latest" = "0.1.5-21",
+  "alpha" = "0.1.5-21",
+  "v015_21" = "0.1.5-21",
   "v015_20" = "0.1.5-20",
   "v015_19" = "0.1.5-19",
   "v015_18" = "0.1.5-18",
@@ -113,6 +114,16 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v015_21]: {
+    [MiskPkg.cli]: `${[MiskVersion.v015_21]}`,
+    [MiskPkg.common]: `${[MiskVersion.v015_21]}`,
+    [MiskPkg.core]: `${[MiskVersion.v015_21]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v015_21]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v015_21]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v015_21]}`,
+    date: "2019-04-08",
+    notes: "Bump most dependencies to latest. SimpleRedux: Add selectRawSubState."
+  },
   [MiskVersion.v015_20]: {
     [MiskPkg.cli]: `${[MiskVersion.v015_20]}`,
     [MiskPkg.common]: `${[MiskVersion.v015_20]}`,
