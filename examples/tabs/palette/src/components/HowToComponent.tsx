@@ -15,8 +15,8 @@ export const HowToComponent = () => {
           <code>$ docker run -p 1080:80 kennethreitz/httpbin</code>
         </li>
         <li>
-          Use <code>http://localhost:1080/anything</code> as your URL for any
-          URL requests below
+          Use <code>{"http://localhost:1080/anything"}</code> as your URL for
+          any URL requests below
         </li>
       </ol>
     </div>
