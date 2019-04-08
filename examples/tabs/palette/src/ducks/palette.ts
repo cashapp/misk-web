@@ -5,6 +5,7 @@ import {
   defaultRootState
 } from "@misk/simpleredux"
 import axios from "axios"
+import { Map } from "immutable"
 import { all, AllEffect, call, put, takeLatest } from "redux-saga/effects"
 
 /**
@@ -120,6 +121,6 @@ export interface IPaletteState extends IRootState {
   [key: string]: any
 }
 
-export interface IPaletteImmutableState {
+export interface IPaletteImmutableState extends Map<string, any> {
   toJS: () => IPaletteState
 }

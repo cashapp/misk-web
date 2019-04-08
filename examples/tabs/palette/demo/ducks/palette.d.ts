@@ -1,4 +1,5 @@
 import { IAction, IRootState } from "@misk/simpleredux";
+import { Map } from "immutable";
 import { AllEffect } from "redux-saga/effects";
 /**
  * Actions
@@ -41,6 +42,6 @@ export declare const PaletteReducer: (state: any, action: IAction<string, {}>) =
 export interface IPaletteState extends IRootState {
     [key: string]: any;
 }
-export interface IPaletteImmutableState {
+export interface IPaletteImmutableState extends Map<string, any> {
     toJS: () => IPaletteState;
 }
