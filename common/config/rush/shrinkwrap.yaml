@@ -56,7 +56,7 @@ dependencies:
   pkg: 4.3.7
   prettier: 1.16.4
   prop-types: 15.7.2
-  re-reselect: 2.2.0
+  re-reselect: 3.1.0
   react: 16.8.6
   react-dom: 16.8.6
   react-helmet: 5.2.0
@@ -5674,12 +5674,6 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-9esiElv1BrZoI3rCDuOuKCBRbuApGGaDPQfjSflGxdy4oyzqghxu6klEkkVIvBje+FF0BX9coEv8KqW6X/7njw==
-  /re-reselect/2.2.0:
-    dev: false
-    peerDependencies:
-      reselect: '>1.0.0'
-    resolution:
-      integrity: sha512-Ugknx2fT+CFquFT0VdFTlrkyFW5NyIYsPFe9xJlP/xEjkygl2t3oBBBu2gslCIYIntzbCR/OALeJ8Tt/qZd4Gg==
   /re-reselect/2.2.0/reselect@4.0.0:
     dependencies:
       reselect: 4.0.0
@@ -5689,6 +5683,21 @@ packages:
       reselect: '>1.0.0'
     resolution:
       integrity: sha512-Ugknx2fT+CFquFT0VdFTlrkyFW5NyIYsPFe9xJlP/xEjkygl2t3oBBBu2gslCIYIntzbCR/OALeJ8Tt/qZd4Gg==
+  /re-reselect/3.1.0:
+    dev: false
+    peerDependencies:
+      reselect: '>1.0.0'
+    resolution:
+      integrity: sha512-1Dh/EKWarO/SeXZCodZBT2puHZRuZUCngCueisCfggCIg+yldyk/N1PTpCkJW+jiWJX4qJFc6ip5l8wDBRsyaQ==
+  /re-reselect/3.1.0/reselect@4.0.0:
+    dependencies:
+      reselect: 4.0.0
+    dev: false
+    id: registry.npmjs.org/re-reselect/3.1.0
+    peerDependencies:
+      reselect: '>1.0.0'
+    resolution:
+      integrity: sha512-1Dh/EKWarO/SeXZCodZBT2puHZRuZUCngCueisCfggCIg+yldyk/N1PTpCkJW+jiWJX4qJFc6ip5l8wDBRsyaQ==
   /react-day-picker/7.3.0:
     dependencies:
       prop-types: 15.7.2
@@ -8098,7 +8107,7 @@ packages:
       optimize-css-assets-webpack-plugin: /optimize-css-assets-webpack-plugin/5.0.1/webpack@4.29.6
       prettier: 1.16.4
       prop-types: 15.7.2
-      re-reselect: /re-reselect/2.2.0/reselect@4.0.0
+      re-reselect: /re-reselect/3.1.0/reselect@4.0.0
       react: 16.8.6
       react-dom: /react-dom/16.8.6/react@16.8.6
       react-helmet: /react-helmet/5.2.0/react@16.8.6
@@ -8128,7 +8137,7 @@ packages:
     dev: false
     name: '@rush-temp/common'
     resolution:
-      integrity: sha512-CetneNVOkT/ZPpxT0WBX9sKXjlWPagbKSRPWiIblpZGAY92XuZzBwEIyKPVfF13YtE4hAlUv57pDv7UWcquQjg==
+      integrity: sha512-VNBN0QmOUw2j+3tROYtz44c0MXSH3mnO5ZVZ1AP5fEmKvbBkaRT77Dgi99/9eDmVe8ujcIvH4+4AQ3xTkfX6GA==
       tarball: 'file:projects/common.tgz'
     version: 0.0.0
   'file:projects/core.tgz':
@@ -8170,7 +8179,7 @@ packages:
       optimize-css-assets-webpack-plugin: /optimize-css-assets-webpack-plugin/5.0.1/webpack@4.29.6
       prettier: 1.16.4
       prop-types: 15.7.2
-      re-reselect: /re-reselect/2.2.0/reselect@4.0.0
+      re-reselect: /re-reselect/3.1.0/reselect@4.0.0
       react: 16.8.6
       react-dom: /react-dom/16.8.6/react@16.8.6
       react-helmet: /react-helmet/5.2.0/react@16.8.6
@@ -8200,7 +8209,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-Xn+oVKbDqz3/pREHGDH4Z0R0NSQ8cml15mQ8zXrOWw3YT8uBabBBTf8cY635SbgGWUid6z5qWDrlexc/R88Qxw==
+      integrity: sha512-Z7/6g4/yLDcrX1ns9LpPet2KlSML6kUUHA1YbdM7EZzUqeQUhXYedIfaZWCEBntzSIJijMeL1pGlz3z3ttE+5Q==
       tarball: 'file:projects/core.tgz'
     version: 0.0.0
   'file:projects/dev.tgz':
@@ -8283,7 +8292,7 @@ packages:
       optimize-css-assets-webpack-plugin: /optimize-css-assets-webpack-plugin/5.0.1/webpack@4.29.6
       prettier: 1.16.4
       prop-types: 15.7.2
-      re-reselect: /re-reselect/2.2.0/reselect@4.0.0
+      re-reselect: /re-reselect/3.1.0/reselect@4.0.0
       react: 16.8.6
       react-dom: /react-dom/16.8.6/react@16.8.6
       react-helmet: /react-helmet/5.2.0/react@16.8.6
@@ -8313,7 +8322,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-Uq6UOu2HVItNy+x1vDtr10zm+oiIcWpIvkTsIQWKIWOQSw9Fwx33KhMhCVJf9qlPNIysAjzWaQY2hVdR/cfpjg==
+      integrity: sha512-3EwSyLYntiI/4gPrj8ZDvbWuTVsUmAh+DB/2fn5ZKLvlqbLaJvaaHUFNfCP70agDhJE4DZT+1n4qj5pMUN9dBg==
       tarball: 'file:projects/misk-web-tab-palette-exemplar.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette.tgz':
@@ -8358,7 +8367,7 @@ packages:
       optimize-css-assets-webpack-plugin: /optimize-css-assets-webpack-plugin/5.0.1/webpack@4.29.6
       prettier: 1.16.4
       prop-types: 15.7.2
-      re-reselect: /re-reselect/2.2.0/reselect@4.0.0
+      re-reselect: /re-reselect/3.1.0/reselect@4.0.0
       react: 16.8.6
       react-dom: /react-dom/16.8.6/react@16.8.6
       react-helmet: /react-helmet/5.2.0/react@16.8.6
@@ -8388,7 +8397,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette'
     resolution:
-      integrity: sha512-bBAZhSJrYV4DZpsllbhYfXlqA4czBTX8IUVAX8Tad9fJnBauRwCtC6XktaTX7fqlRluBZZ09nUKgOiWgs8k+0A==
+      integrity: sha512-/f+xro9UVXlTXl+b/40wpUQVyggNWMoIVaEUiqprqGN9uFREdIQleEljOOeZbEHFxG5nkMtqNC/+ONmIHiCYkQ==
       tarball: 'file:projects/misk-web-tab-palette.tgz'
     version: 0.0.0
   'file:projects/simpleredux.tgz':
@@ -8430,7 +8439,7 @@ packages:
       optimize-css-assets-webpack-plugin: /optimize-css-assets-webpack-plugin/5.0.1/webpack@4.29.6
       prettier: 1.16.4
       prop-types: 15.7.2
-      re-reselect: /re-reselect/2.2.0/reselect@4.0.0
+      re-reselect: /re-reselect/3.1.0/reselect@4.0.0
       react: 16.8.6
       react-dom: /react-dom/16.8.6/react@16.8.6
       react-helmet: /react-helmet/5.2.0/react@16.8.6
@@ -8460,7 +8469,7 @@ packages:
     dev: false
     name: '@rush-temp/simpleredux'
     resolution:
-      integrity: sha512-R6mD5mQB2ZKWKhINst6iYxVNbahqr1kOn8CkIlA/KgC79Ladizx39W8cQs3YmZx02teIzT240ykxVtZx3OKfkQ==
+      integrity: sha512-m5vEPnMli2mEgeyvbryvse23ipn0LX1Kyr0kUhqFlb4np1/F73F8K/tmPnwbi+PA8LoeoKLJ144XJWkZuXgncA==
       tarball: 'file:projects/simpleredux.tgz'
     version: 0.0.0
   'file:projects/tslint.tgz':
@@ -8542,7 +8551,7 @@ specifiers:
   pkg: 4.3.7
   prettier: 1.16.4
   prop-types: 15.7.2
-  re-reselect: 2.2.0
+  re-reselect: 3.1.0
   react: 16.8.6
   react-dom: 16.8.6
   react-helmet: 5.2.0
