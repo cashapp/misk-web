@@ -97,7 +97,7 @@ Note that the `output_path` must match the `outDir` specified in the repo's `tsc
 
 ```JSON
   "devDependencies": {
-    "@misk/dev": "^0.0.20"
+    "@misk/dev": "0.0.20"
   },
   "miskTab": {
     "name": "Config",
