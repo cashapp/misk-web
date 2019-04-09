@@ -15,7 +15,7 @@ Misk-Web is still bleeding edge and may have breaking changes up until version `
 - [![npm](https://img.shields.io/npm/v/@misk/common.svg?label=@misk/common)](https://www.npmjs.com/package/@misk/common) &ndash; Common interfaces, colors, constants
 - [![npm](https://img.shields.io/npm/v/@misk/dev.svg?label=@misk/dev)](https://www.npmjs.com/package/@misk/dev) &ndash; Shared developer build tools
 - [![npm](https://img.shields.io/npm/v/@misk/tslint.svg?label=@misk/tslint)](https://www.npmjs.com/package/@misk/tslint) &ndash; Standard TSLint configuration and rules
-- [![npm](https://img.shields.io/npm/v/@misk/components.svg?label=@misk/components)](https://www.npmjs.com/package/@misk/components) &ndash; Deprecated, migrated to `@misk/core`
+- [![npm](https://img.shields.io/npm/v/@misk/components.svg?label=@misk/components)](https://www.npmjs.com/package/@misk/components) [![Greenkeeper badge](https://badges.greenkeeper.io/square/misk-web.svg)](https://greenkeeper.io/) &ndash; Deprecated, migrated to `@misk/core`
 
 ## Misk-Web-Plugin
 
