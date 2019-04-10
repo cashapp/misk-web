@@ -24,11 +24,13 @@ $ yarn add @misk/core
 ## Containers
 
 - `CodePreContainer`: Word wrap enabled BlueprintJS `<Pre>` block for displaying formatted content (ie. JSON, logs...)
+- `ColumnContainer`: Column container for use inside of a `<FlexContainer>`
 - `DesktopWideOnlyContainer`: Only shows container when window width >1200px
 - `FlexContainer`: Container using CSS FlexBox to have enclosed items flow responsively to screen width
 - `MobileNeverContainer`: Never show container when window width <768px
 - `MobileOnlyContainer`: Only show container when window width <768px
 - `ResponsiveContainer`: Responsive container that all tabs and Nav Navbar use to ensure consistent view width
+- `WrapTextContainer`: Word wrap enabled `<span>` block
 
 ## Ducks
 
