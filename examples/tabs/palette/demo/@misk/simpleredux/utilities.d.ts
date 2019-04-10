@@ -1,3 +1,4 @@
+import { Map } from "immutable";
 export interface IDefaultState {
     data: any;
     error: any;
@@ -17,6 +18,15 @@ export interface IAction<T, P> {
 }
 export declare function createAction<T extends string, P>(type: T, payload: P): IAction<T, P>;
 export declare const errorMessage: (error: any) => any;
+export declare const selectSubState: <IState extends {
+    [key: string]: ISubState;
+}, ISubState extends {
+    [key: string]: any;
+}>(domain: string) => (state: IState) => ISubState;
+export declare const selectRawSubState: <IState extends Map<string, any>, ISubState extends {
+    [key: string]: any;
+}>(domain: string) => (state: IState) => ISubState;
+export declare const simpleRootRawSelector: <IState extends Map<string, any>, ISubState>(domain: string, state: IState) => any;
 export declare const simpleRootSelector: <IState extends {
     [key: string]: any;
 }, ISubState extends {
