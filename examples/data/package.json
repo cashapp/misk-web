@@ -1,12 +1,12 @@
 {
   "name": "misk-web-examples-data",
-  "version": "0.1.4-6",
+  "version": "0.1.5-21",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "main": "src/index.ts",
   "scripts": {
     "start": "node dist/index.js",
-    "watch": "./node_modules/.bin/tsc -w",
-    "buildonly": "./node_modules/.bin/tsc",
+    "watch": "tsc -w",
+    "buildonly": "tsc",
     "build": "npm run-script buildonly && npm run-script start",
     "ci-build": "npm install && npm run-script build",
     "clean": "rm -rf demo dist",
@@ -15,17 +15,17 @@
     "prepare": "npm run-script build"
   },
   "dependencies": {
-    "@misk/core": "0.1.5-20",
+    "@misk/core": "0.1.5-21",
     "fs-extra": "7.0.1"
   },
   "devDependencies": {
-    "@misk/dev": "0.1.5-20",
-    "@types/fs-extra": "5.0.4",
-    "@misk/tslint": "0.1.5-20",
-    "@types/node": "10.12.18",
+    "@misk/dev": "0.1.5-21",
+    "@types/fs-extra": "5.0.5",
+    "@misk/tslint": "0.1.5-21",
+    "@types/node": "11.13.1",
     "@types/prop-types": "15.7.0",
-    "@types/react": "16.7.18",
-    "prettier": "1.15.3",
+    "@types/react": "16.8.13",
+    "prettier": "1.16.4",
     "tslib": "1.9.3",
     "typescript": "3.4.2"
   },
