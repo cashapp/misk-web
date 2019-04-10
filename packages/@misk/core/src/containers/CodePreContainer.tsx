@@ -13,10 +13,10 @@ export const CodePreContainer: StyledComponent<
   {},
   never
 > = styled(Pre)`
-  font-family: Fira Code, Menlo;
-  white-space: pre-wrap; /* Since CSS 2.1 */
-  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
-  white-space: -pre-wrap; /* Opera 4-6 */
-  white-space: -o-pre-wrap; /* Opera 7 */
-  word-wrap: break-word; /* Internet Explorer 5.5+ */
+  font-family: Fira Code, Menlo !important;
+  white-space: pre-wrap !important; /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+  white-space: -pre-wrap !important; /* Opera 4-6 */
+  white-space: -o-pre-wrap !important; /* Opera 7 */
+  word-wrap: break-word !important; /* Internet Explorer 5.5+ */
 `
