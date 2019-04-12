@@ -1,17 +1,17 @@
 {
   "name": "@misk/test",
-  "version": "0.1.5-22",
+  "version": "0.1.5-24",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "description": "Misk-Web Test",
   "author": "Square/Misk Authors (https://github.com/square/misk-web/graphs/contributors)",
-  "main": "lib/web/@misk/test/index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:square/misk-web.git"
   },
   "scripts": {
     "build": "./node_modules/.bin/tsc",
-    "clean": "rm -rf lib node_modules package-lock.json yarn.lock",
+    "clean": "rm -rf lib package-lock.json yarn.lock",
     "ci-build": "npm run-script clean && npm run-script build",
     "prepare": "npm run-script ci-build"
   },

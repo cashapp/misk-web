@@ -1,5 +1,5 @@
 export const testPackageScript = {
-  test: "jest"
+  test: "jest --passWithNoTests"
 }
 
 export const testPackageJson = {

@@ -1,6 +1,6 @@
 {
   "name": "@misk/tslint",
-  "version": "0.1.5-22",
+  "version": "0.1.5-24",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "description": "Misk-Web TsLint",
   "author": "Square/Misk Authors (https://github.com/square/misk-web/graphs/contributors)",
@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build": "mkdir -p lib/web/@misk/tslint && cp package.json README.md tslint.base.json lib/web/@misk/tslint",
-    "clean": "rm -rf lib node_modules package-lock.json yarn.lock",
+    "clean": "rm -rf lib package-lock.json yarn.lock",
     "ci-build": "npm run-script clean && npm run-script build",
     "prepare": "npm run-script ci-build"
   },
