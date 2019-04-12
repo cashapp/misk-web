@@ -9247,7 +9247,7 @@ packages:
     dev: false
     name: '@rush-temp/cli'
     resolution:
-      integrity: sha512-GRP66OoDDzZWX44TbqCT09K6kdOOGdargvfnkRB3OiP5pqcegZrDVr2u9L7Nj7vmG+wywKGrDXP/yLJp/OmTXQ==
+      integrity: sha512-czelPQOUfKrq/Jj33pWtldSNm+QNTIo+23AJeMYfjkVcsoLbvfOumH2c28rF6pOut7AHxofSiPM5tSt1P7cCxA==
       tarball: 'file:projects/cli.tgz'
     version: 0.0.0
   'file:projects/common.tgz':
@@ -9319,7 +9319,7 @@ packages:
     dev: false
     name: '@rush-temp/common'
     resolution:
-      integrity: sha512-1Eaz47UHmy1gztKv5+ti7xYY66/5UHwW/qv6ixuUL0W47oSiOhLrj/Zruca5WHQsE/SOwg880XcRQ0y2naWrzw==
+      integrity: sha512-s9lh1afDrIdzDDHMxFgxvkuQS+zb+JroKvavl1ZUXL0r34vE8azFTtuN2/hegj5M6epnqd49HLFoCgNW1u3fAg==
       tarball: 'file:projects/common.tgz'
     version: 0.0.0
   'file:projects/core.tgz':
@@ -9391,7 +9391,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-35Xmhe8GEO1rR7U7EUKvD2wF7okrYXhEycFy7qrYN7UtkkTYCs4Jll1k2VfeRf1KV5U8gJxe13meMNGRZhpFbA==
+      integrity: sha512-QQUfNrnWU7Qi62G4hMjx22hfw0QzLVMdo7dXK4wySssNOsEibmZOo860Bni2erI2NCMJ4XpLJBcFjTasLdNFpg==
       tarball: 'file:projects/core.tgz'
     version: 0.0.0
   'file:projects/dev.tgz':
@@ -9446,6 +9446,7 @@ packages:
       '@blueprintjs/table': 3.5.0
       '@blueprintjs/timezone': 3.4.0
       '@types/history': 4.7.2
+      '@types/jest': 24.0.11
       '@types/node': 11.13.1
       '@types/react': 16.8.13
       '@types/react-dom': 16.8.3
@@ -9466,10 +9467,13 @@ packages:
       enum-utils: 1.0.0
       file-loader: /file-loader/3.0.1/webpack@4.29.6
       history: 4.9.0
+      html-parser: 0.11.0
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/54bb3b4ade3087c8af7de9b317a3d270
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.29.6
       http-method-enum: 1.0.0
       immutable: 4.0.0-rc.12
+      jest: 24.7.0
+      jest-serializer-html: 6.0.0
       mini-css-extract-plugin: /mini-css-extract-plugin/0.5.0/webpack@4.29.6
       optimize-css-assets-webpack-plugin: /optimize-css-assets-webpack-plugin/5.0.1/webpack@4.29.6
       prettier: 1.16.4
@@ -9492,6 +9496,7 @@ packages:
       status-code-enum: 1.0.0
       style-loader: 0.23.1
       styled-components: /styled-components/4.2.0/b8333fe1de066bcb7f20c3365f51e6fb
+      ts-jest: /ts-jest/24.0.2/jest@24.7.0
       ts-loader: /ts-loader/5.3.3/typescript@3.4.2
       tslib: 1.9.3
       typescript: 3.4.2
@@ -9504,7 +9509,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-I5yJMzBFv3cnMZi2x5cZI0V4yAEcK2waUZhxmMspOlKQm6LAW1nTdH+mQ0eJ8tCgSV0ngZ42TanHIukPxBpZdw==
+      integrity: sha512-Wimt2c2FaQ7eWQcfwTRWuw2rd2i+mbJmScmhwwBjcoqUU8esNWYdJIY/yaqux2WWTiT/DdJF4z1H3YS4N9RQMw==
       tarball: 'file:projects/misk-web-tab-palette-exemplar.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette.tgz':
@@ -9516,6 +9521,7 @@ packages:
       '@blueprintjs/table': 3.5.0
       '@blueprintjs/timezone': 3.4.0
       '@types/history': 4.7.2
+      '@types/jest': 24.0.11
       '@types/node': 11.13.1
       '@types/react': 16.8.13
       '@types/react-dom': 16.8.3
@@ -9536,10 +9542,13 @@ packages:
       enum-utils: 1.0.0
       file-loader: /file-loader/3.0.1/webpack@4.29.6
       history: 4.9.0
+      html-parser: 0.11.0
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/54bb3b4ade3087c8af7de9b317a3d270
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.29.6
       http-method-enum: 1.0.0
       immutable: 4.0.0-rc.12
+      jest: 24.7.0
+      jest-serializer-html: 6.0.0
       mini-css-extract-plugin: /mini-css-extract-plugin/0.5.0/webpack@4.29.6
       optimize-css-assets-webpack-plugin: /optimize-css-assets-webpack-plugin/5.0.1/webpack@4.29.6
       prettier: 1.16.4
@@ -9562,6 +9571,7 @@ packages:
       status-code-enum: 1.0.0
       style-loader: 0.23.1
       styled-components: /styled-components/4.2.0/b8333fe1de066bcb7f20c3365f51e6fb
+      ts-jest: /ts-jest/24.0.2/jest@24.7.0
       ts-loader: /ts-loader/5.3.3/typescript@3.4.2
       tslib: 1.9.3
       typescript: 3.4.2
@@ -9574,7 +9584,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette'
     resolution:
-      integrity: sha512-6QfxunW0f+e+gVufogazgL4xKCqDtexgdEm17dqvFXef2lLfNcNdn9Xu8Ti29xkcmP+e7mJMJ5//YeznFanxGQ==
+      integrity: sha512-xlNTsCIKCEIikvZYRVxDz9IU+71UbcUsXRSlWp/8+lZpSjMchL/dhQTEBs5OmHoSaHOxoWsQ7ML4bEsRD73eAw==
       tarball: 'file:projects/misk-web-tab-palette.tgz'
     version: 0.0.0
   'file:projects/simpleredux.tgz':
@@ -9646,7 +9656,7 @@ packages:
     dev: false
     name: '@rush-temp/simpleredux'
     resolution:
-      integrity: sha512-4kUiaBIE3EUWNmS+SV8aMOfu6VfHw1zwJIAvaowyLIeEiBzXfO3sIwKOuBl5igf3c/5GLQIzac6qWjBJtFN3NA==
+      integrity: sha512-TJi7j/umB99jPmEAd7Ux5N9hWmNeI4AMDNaVBlqJq+L6W9hHyY3due8WB1NMwfLz0W013nNO6vntsWwP0mFOTg==
       tarball: 'file:projects/simpleredux.tgz'
     version: 0.0.0
   'file:projects/test.tgz':

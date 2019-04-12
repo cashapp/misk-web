@@ -1,7 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.5-24",
-  "alpha" = "0.1.5-24",
-  "v015_24" = "0.1.5-24",
+  "latest" = "0.1.5-29",
+  "alpha" = "0.1.5-29",
+  "v015_29" = "0.1.5-29",
   "v015_22" = "0.1.5-22",
   "v015_21" = "0.1.5-21",
   "v015_20" = "0.1.5-20",
@@ -118,14 +118,14 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
-  [MiskVersion.v015_24]: {
-    [MiskPkg.cli]: `${[MiskVersion.v015_24]}`,
-    [MiskPkg.common]: `${[MiskVersion.v015_24]}`,
-    [MiskPkg.core]: `${[MiskVersion.v015_24]}`,
-    [MiskPkg.dev]: `${[MiskVersion.v015_24]}`,
-    [MiskPkg.simpleredux]: `${[MiskVersion.v015_24]}`,
-    [MiskPkg.test]: `${[MiskVersion.v015_24]}`,
-    [MiskPkg.tslint]: `${[MiskVersion.v015_24]}`,
+  [MiskVersion.v015_29]: {
+    [MiskPkg.cli]: `${[MiskVersion.v015_29]}`,
+    [MiskPkg.common]: `${[MiskVersion.v015_29]}`,
+    [MiskPkg.core]: `${[MiskVersion.v015_29]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v015_29]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v015_29]}`,
+    [MiskPkg.test]: `${[MiskVersion.v015_29]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v015_29]}`,
     date: "2019-04-08",
     notes: "[Test] Add @misk/test package."
   },
