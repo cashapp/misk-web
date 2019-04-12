@@ -31,9 +31,9 @@ export const createTsconfig = (miskTab: IMiskTabJSON) => ({
     sourceMap: true,
     stripInternal: true,
     target: "es5",
-    typeRoots: ["../node_modules/@types"],
-    types: ["node"],
+    typeRoots: ["node_modules/@types"],
+    types: ["jest", "node"],
     ...miskTab.tsconfigCompilerOptions
   },
-  include: ["src/**/*"]
+  include: ["src/**/*", "tests/**/*"]
 })

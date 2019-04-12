@@ -27,6 +27,8 @@ export const generateBuildFiles = async (...args: any) => {
     pkg = fs.readJsonSync(path(dir, Files.package))
   }
   const miskTab: IMiskTabJSON = await fs.readJsonSync(path(dir, Files.miskTab))
+  // TODO (adrw) validate miskTab, add missing fields, sort keys
+
   // Write out fresh files
   await [
     fs.writeJson(

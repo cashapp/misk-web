@@ -1,33 +1,42 @@
 {
-  "name": "@misk/tslint",
+  "name": "@misk/test",
   "version": "0.1.5-29",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
-  "description": "Misk-Web TsLint",
+  "description": "Misk-Web Test",
   "author": "Square/Misk Authors (https://github.com/square/misk-web/graphs/contributors)",
-  "main": "lib/web/@misk/tslint/tslint.base.json",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:square/misk-web.git"
   },
   "scripts": {
-    "build": "mkdir -p lib/web/@misk/tslint && cp package.json README.md tslint.base.json lib/web/@misk/tslint",
+    "build": "./node_modules/.bin/tsc",
     "clean": "rm -rf lib package-lock.json yarn.lock",
     "ci-build": "npm run-script clean && npm run-script build",
     "prepare": "npm run-script ci-build"
   },
   "dependencies": {
-    "tslint": "5.15.0",
-    "tslint-blueprint": "0.1.0",
-    "tslint-clean-code": "0.2.9",
-    "tslint-config-prettier": "1.18.0",
-    "tslint-consistent-codestyle": "1.15.1",
-    "tslint-eslint-rules": "5.4.0",
-    "tslint-immutable": "5.5.2",
-    "tslint-react": "4.0.0",
-    "tslint-sonarts": "1.9.0",
+    "@types/jest": "24.0.11",
+    "@types/node": "11.13.1",
+    "html-parser": "0.11.0",
+    "jest": "24.7.0",
+    "jest-serializer-html": "6.0.0",
+    "tslib": "1.9.3",
+    "ts-jest": "24.0.2",
     "typescript": "3.4.2"
   },
   "engines": {
     "yarn": "YARN NO LONGER USED - use npm instead."
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "useTabs": false
   }
 }

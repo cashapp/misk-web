@@ -1,3 +1,4 @@
+import { testPackageJson, testPackageScript } from "@misk/test"
 import reduce from "lodash/reduce"
 import {
   getVersion as parseMiskVersion,
@@ -21,7 +22,7 @@ const scripts = (miskTab: IMiskTabJSON) => ({
     build: `npm run-script lib ${
       miskTab.zipOnBuild ? "&& npm run-script zip" : ""
     }`,
-    "ci-build": `npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib ${
+    "ci-build": `npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib && npm run-script test ${
       miskTab.zipOnBuild ? "&& npm run-script zip" : ""
     }`,
     "dev-build": `npm run-script dev-lib ${
@@ -38,7 +39,7 @@ const scripts = (miskTab: IMiskTabJSON) => ({
     reinstall: "rm -rf node_modules && npm run-script install",
     start:
       "npm run-script prebuild && cross-env NODE_ENV=development webpack-dev-server",
-    test: "echo no test",
+    ...testPackageScript,
     zip: `tar ${[
       Files.gitignore,
       Files.old,
@@ -101,7 +102,10 @@ const dependencies = (miskTab: IMiskTabJSON, pkg: any) => ({
 const devDependencies = (miskTab: IMiskTabJSON, pkg: any) => ({
   devDependencies: {
     ...pkg.devDependencies,
-    ...createMiskPackageJson([MiskPkg.dev, MiskPkg.tslint], miskTab)
+    ...createMiskPackageJson(
+      [MiskPkg.dev, MiskPkg.test, MiskPkg.tslint],
+      miskTab
+    )
   }
 })
 
@@ -115,6 +119,7 @@ export const createPackage = (miskTab: IMiskTabJSON, pkg: any) => ({
   ...scripts(miskTab),
   ...dependencies(miskTab, pkg),
   ...devDependencies(miskTab, pkg),
+  ...testPackageJson,
   ...prettier,
   generated: generatedByCLI
 })
