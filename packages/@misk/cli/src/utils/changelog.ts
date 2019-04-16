@@ -1,6 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.5-29",
-  "alpha" = "0.1.5-29",
+  "latest" = "0.1.5-30",
+  "alpha" = "0.1.5-30",
+  "v015_30" = "0.1.5-30",
   "v015_29" = "0.1.5-29",
   "v015_22" = "0.1.5-22",
   "v015_21" = "0.1.5-21",
@@ -118,6 +119,17 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v015_30]: {
+    [MiskPkg.cli]: `${[MiskVersion.v015_30]}`,
+    [MiskPkg.common]: `${[MiskVersion.v015_30]}`,
+    [MiskPkg.core]: `${[MiskVersion.v015_30]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v015_30]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v015_30]}`,
+    [MiskPkg.test]: `${[MiskVersion.v015_30]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v015_30]}`,
+    date: "2019-04-16",
+    notes: "[Test] Add react-testing-library to @misk/test."
+  },
   [MiskVersion.v015_29]: {
     [MiskPkg.cli]: `${[MiskVersion.v015_29]}`,
     [MiskPkg.common]: `${[MiskVersion.v015_29]}`,
