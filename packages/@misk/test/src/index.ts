@@ -1,5 +1,5 @@
 export const testPackageScript = {
-  test: "jest --passWithNoTests"
+  test: "jest --passWithNoTests --env=jsdom"
 }
 
 export const testPackageJson = {
