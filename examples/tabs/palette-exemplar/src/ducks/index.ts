@@ -63,6 +63,7 @@ export const rootSelectors = (state: IState) => ({
     "paletteExemplar",
     state
   ),
+  router: state.router,
   simpleForm: simpleRootSelector<IState, ISimpleFormImmutableState>(
     "simpleForm",
     state
@@ -93,4 +94,13 @@ export function* rootSaga(): IterableIterator<AllEffect> {
     fork(watchSimpleFormSagas),
     fork(watchSimpleNetworkSagas)
   ])
+}
+
+/**
+ * Map Dispatch/State to Props
+ */
+export const mapStateToProps = (state: IState) => rootSelectors(state)
+
+export const mapDispatchToProps: IDispatchProps = {
+  ...rootDispatcher
 }

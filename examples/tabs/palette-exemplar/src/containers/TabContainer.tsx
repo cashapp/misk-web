@@ -3,7 +3,12 @@ import * as React from "react"
 import { connect } from "react-redux"
 import { HowToComponent, SampleTableComponent } from "../components"
 import { SampleFormContainer, SampleNetworkContainer } from "../containers"
-import { IDispatchProps, IState, rootDispatcher, rootSelectors } from "../ducks"
+import {
+  IDispatchProps,
+  IState,
+  mapDispatchToProps,
+  mapStateToProps
+} from "../ducks"
 
 class TabContainer extends React.Component<IState & IDispatchProps, IState> {
   private tableTag = "Cars"
@@ -24,17 +29,11 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
           tag={this.tableTag}
         />
         <HowToComponent />
-        <SampleNetworkContainer {...this.props} />
-        <SampleFormContainer {...this.props} />
+        <SampleNetworkContainer />
+        <SampleFormContainer />
       </div>
     )
   }
-}
-
-const mapStateToProps = (state: IState) => rootSelectors(state)
-
-const mapDispatchToProps = {
-  ...rootDispatcher
 }
 
 export default connect(

@@ -10,7 +10,12 @@ import {
 import { onClickFnCall, onChangeFnCall, simpleSelect } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
-import { IDispatchProps, IState, rootDispatcher, rootSelectors } from "../ducks"
+import {
+  IDispatchProps,
+  IState,
+  mapDispatchToProps,
+  mapStateToProps
+} from "../ducks"
 
 export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
   return (
@@ -138,9 +143,7 @@ export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
   )
 }
 
-const mapStateToProps = (state: IState) => rootSelectors(state)
-
 export default connect(
   mapStateToProps,
-  rootDispatcher
+  mapDispatchToProps
 )(SampleNetworkContainer)
