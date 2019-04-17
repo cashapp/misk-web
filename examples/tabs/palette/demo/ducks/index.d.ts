@@ -25,6 +25,7 @@ export declare const rootDispatcher: IDispatchProps;
  */
 export declare const rootSelectors: (state: IState) => {
     palette: any;
+    router: Reducer<RouterState, LocationChangeAction>;
     simpleForm: any;
     simpleNetwork: any;
 };
@@ -36,3 +37,13 @@ export declare const rootReducer: (history: History<any>) => Reducer<any, AnyAct
  * Sagas
  */
 export declare function rootSaga(): IterableIterator<AllEffect>;
+/**
+ * Map Dispatch/State to Props
+ */
+export declare const mapStateToProps: (state: IState) => {
+    palette: any;
+    router: Reducer<RouterState, LocationChangeAction>;
+    simpleForm: any;
+    simpleNetwork: any;
+};
+export declare const mapDispatchToProps: IDispatchProps;

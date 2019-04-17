@@ -27,7 +27,12 @@ import {
 } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
-import { IState, rootDispatcher, rootSelectors, IDispatchProps } from "../ducks"
+import {
+  IDispatchProps,
+  IState,
+  mapStateToProps,
+  mapDispatchToProps
+} from "../ducks"
 
 export const SampleFormContainer = (props: IState & IDispatchProps) => {
   const FormTag = "Expense Report"
@@ -205,9 +210,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
   )
 }
 
-const mapStateToProps = (state: IState) => rootSelectors(state)
-
 export default connect(
   mapStateToProps,
-  rootDispatcher
+  mapDispatchToProps
 )(SampleFormContainer)
