@@ -1,6 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.5-30",
-  "alpha" = "0.1.5-30",
+  "latest" = "0.1.5-31",
+  "alpha" = "0.1.5-31",
+  "v015_31" = "0.1.5-31",
   "v015_30" = "0.1.5-30",
   "v015_29" = "0.1.5-29",
   "v015_22" = "0.1.5-22",
@@ -119,6 +120,17 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v015_31]: {
+    [MiskPkg.cli]: `${[MiskVersion.v015_31]}`,
+    [MiskPkg.common]: `${[MiskVersion.v015_31]}`,
+    [MiskPkg.core]: `${[MiskVersion.v015_31]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v015_31]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v015_31]}`,
+    [MiskPkg.test]: `${[MiskVersion.v015_31]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v015_31]}`,
+    date: "2019-04-18",
+    notes: "[Test] Add --env=jsdom to allow UI snapshot testing."
+  },
   [MiskVersion.v015_30]: {
     [MiskPkg.cli]: `${[MiskVersion.v015_30]}`,
     [MiskPkg.common]: `${[MiskVersion.v015_30]}`,
