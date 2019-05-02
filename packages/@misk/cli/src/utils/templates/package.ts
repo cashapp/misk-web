@@ -19,7 +19,7 @@ const scripts = (miskTab: IMiskTabJSON) => ({
     yarn: "YARN NO LONGER USED - use npm instead."
   },
   scripts: {
-    build: `npm run-script lib ${
+    build: `npm run-script lib && npm run-script test ${
       miskTab.zipOnBuild ? "&& npm run-script zip" : ""
     }`,
     "ci-build": `npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib && npm run-script test ${

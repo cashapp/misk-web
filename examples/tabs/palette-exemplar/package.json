@@ -7,7 +7,7 @@
     "yarn": "YARN NO LONGER USED - use npm instead."
   },
   "scripts": {
-    "build": "npm run-script lib && npm run-script zip",
+    "build": "npm run-script lib && npm run-script test && npm run-script zip",
     "ci-build": "npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib && npm run-script test && npm run-script zip",
     "dev-build": "npm run-script dev-lib && npm run-script zip",
     "clean": "rm -rf demo lib",
