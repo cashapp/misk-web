@@ -1,3 +1,4 @@
+import "jest-styled-components"
 import { createBrowserHistory } from "history"
 import React from "react"
 import { Provider } from "react-redux"

@@ -26,6 +26,7 @@ export enum Files {
   "package" = "package.json",
   "packageLock" = "package-lock.json",
   "prettier" = "prettier.config.js",
+  "setupMiskTest" = "setupMiskTest.js",
   "tsconfig" = "tsconfig.json",
   "tslint" = "tslint.json",
   "webpack" = "webpack.config.js",

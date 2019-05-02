@@ -1,10 +1,10 @@
 export const testPackageScript = {
-  test: "jest --passWithNoTests --env=jsdom"
+  test: "jest --passWithNoTests"
 }
 
 export const testPackageJson = {
   jest: {
-    testEnvironment: "node",
+    testEnvironment: "jsdom",
     snapshotSerializers: ["jest-serializer-html"],
     transform: {
       "^.+\\.tsx?$": "ts-jest"
