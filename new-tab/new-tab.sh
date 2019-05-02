@@ -18,13 +18,23 @@ echo "Misk-Web: New Tab"
 echo "A new tab will be created in $(pwd)/{new-tab}. If this is not right the directory, re-run this command in the correct directory."
 echo "You will now be guided through the steps to create a new tab based on the exemplar Palette tab"
 echo "Palette Exemplar Tab: https://github.com/square/misk-web/tree/master/examples/tabs/palette-exemplar"
+echo ""
 echo "New Tab Name"
 echo "You'll now be asked how you want your tab name written in different formats (ALLCAPCASE, TitleCase, Title With Space Case, camelCase, slug-case)."
-read -p "Tab Name in ALLCAPCASE: " -r NEW_ALL_CAP_CASE
-read -p "Tab Name in TitleCase: " -r NEW_TITLE_CASE
-read -p "Tab Name in Title Space Case: " -r NEW_TITLE_SPACE_CASE
-read -p "Tab Name in camelCase: " -r NEW_CAMEL_CASE
-read -p "Tab Name in slug-case: " -r NEW_SLUG_CASE
+echo "This is necessary to build your new tab off of palette-exemplar."
+echo ""
+echo "Example for new dino-food tab"
+echo "ALLCAPCASE: DINOFOOD"
+echo "TitleCase: DinoFood"
+echo "Title Space Case: Dino Food"
+echo "camelCase: dinoFood"
+echo "slug-case: dino-food"
+echo ""
+read -p "Your new tab name in ALLCAPCASE: " -r NEW_ALL_CAP_CASE
+read -p "Your new tab name in TitleCase: " -r NEW_TITLE_CASE
+read -p "Your new tab name in Title Space Case: " -r NEW_TITLE_SPACE_CASE
+read -p "Your new tab name in camelCase: " -r NEW_CAMEL_CASE
+read -p "Your new tab name in slug-case: " -r NEW_SLUG_CASE
 echo ""
 echo "Registered NEW_ALL_CAP_CASE     ${NEW_ALL_CAP_CASE}"
 echo "Registered NEW_TITLE_CASE       ${NEW_TITLE_CASE}"
@@ -71,8 +81,18 @@ sh -c "$CMD_SLUG_CASE"
 echo "Rename files with Palette in name"
 mv ./${NEW_SLUG_CASE}/src/ducks/${OLD_CAMEL_CASE}.ts ./${NEW_SLUG_CASE}/src/ducks/${NEW_CAMEL_CASE}.ts
 
-# Force generate the build files with miskweb CLI
-rm package.json tsconfig.json tslint.json webpack.config.js .gitignore
-miskweb prebuild
+# Set zipOnBuild to false in miskTab.json
+echo "Set zipOnBuild to false in miskTab.json"
+sed -i -e 's/"zipOnBuild": true,/"zipOnBuild": false,/g' ./${NEW_SLUG_CASE}/miskTab.json
+rm ./${NEW_SLUG_CASE}/miskTab.json-e
 
+echo "Remove intermediate new-tab files"
+rm palette-exemplar.tgz
+rm new-tab.sh
+
+echo ""
 echo "Done!"
+echo "Go check out your new tab ${NEW_SLUG_CASE} !"
+echo "Use '$ miskweb ci-build' to install, build, and run tests."
+echo "$ cd ${NEW_SLUG_CASE}"
+echo "$ miskweb ci-build"
