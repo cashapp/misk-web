@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SampleNetworkContainer SampleNetworkContainer can render with redux 1`] = `
+<DocumentFragment>
+  <div>
+    <h1
+      class="bp3-heading"
+    >
+      Sample Network Component
+    </h1>
+    <pre
+      class="bp3-code-block"
+    >
+      sampleNetwork:{
+  "data": [],
+  "error": null,
+  "loading": false,
+  "success": false
+}
+    </pre>
+    <pre
+      class="bp3-code-block"
+    >
+      simpleForm:{
+  "data": [],
+  "error": null,
+  "loading": false,
+  "success": false
+}
+    </pre>
+    <pre
+      class="bp3-code-block"
+    >
+      url: 
+    </pre>
+    <div
+      class="bp3-input-group"
+    >
+      <input
+        class="bp3-input"
+        placeholder="Request URL: http://your.url.com/to/send/a/request/to/"
+        style="padding-right: 10px;"
+        type="url"
+      />
+    </div>
+    <textarea
+      class="bp3-input bp3-fill"
+      placeholder="Request Body (JSON or Text)"
+    />
+    <div
+      class="bp3-button-group"
+    >
+      <button
+        class="bp3-button bp3-intent-danger"
+        type="button"
+      >
+        <span
+          class="bp3-button-text"
+        >
+          DELETE
+        </span>
+      </button>
+      <button
+        class="bp3-button bp3-intent-success"
+        type="button"
+      >
+        <span
+          class="bp3-button-text"
+        >
+          GET
+        </span>
+      </button>
+      <button
+        class="bp3-button"
+        type="button"
+      >
+        <span
+          class="bp3-button-text"
+        >
+          HEAD
+        </span>
+      </button>
+      <button
+        class="bp3-button bp3-intent-primary"
+        type="button"
+      >
+        <span
+          class="bp3-button-text"
+        >
+          PATCH
+        </span>
+      </button>
+      <button
+        class="bp3-button bp3-intent-primary"
+        type="button"
+      >
+        <span
+          class="bp3-button-text"
+        >
+          POST
+        </span>
+      </button>
+      <button
+        class="bp3-button bp3-intent-warning"
+        type="button"
+      >
+        <span
+          class="bp3-button-text"
+        >
+          PUT
+        </span>
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

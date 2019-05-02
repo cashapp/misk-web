@@ -2,26 +2,29 @@
   "name": "misk-web-tab-dashboard",
   "version": "0.1.4-6",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
-  "main": "src/index.ts",
+  "main": "src/index.tsx",
   "engines": {
     "yarn": "YARN NO LONGER USED - use npm instead."
   },
   "scripts": {
-    "build": "npm run-script ci-build",
-    "ci-build": "npm run-script clean && npm run-script lib",
+    "build": "npm run-script lib ",
+    "ci-build": "npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib && npm run-script test ",
+    "dev-build": "npm run-script dev-lib ",
     "clean": "rm -rf demo lib",
+    "clean-build-files": "rm .hash package-lock.json package.json tsconfig.json tslint.json webpack.config.js",
     "lib": "cross-env NODE_ENV=production webpack",
-    "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
+    "dev-lib": "cross-env NODE_ENV=development webpack",
+    "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,scss,less,json,js,jsx,ts,tsx}\"",
     "prebuild": "npm run-script lint",
     "reinstall": "rm -rf node_modules && npm run-script install",
     "start": "npm run-script prebuild && cross-env NODE_ENV=development webpack-dev-server",
-    "test": "echo no test",
-    "zip": "tar --exclude='.DS_Store' --exclude='.old_build_files' --exclude='demo' --exclude='lib' --exclude='node_modules' --exclude='package-lock.json' --exclude='dashboard.tgz' -czvf dashboard.tgz ./"
+    "test": "jest --passWithNoTests --env=jsdom",
+    "zip": "tar --exclude='.gitignore' --exclude='.old_build_files' --exclude='package.json' --exclude='package-lock.json' --exclude='prettier.config.js' --exclude='tsconfig.json' --exclude='tslint.json' --exclude='webpack.config.js' --exclude='yarn.lock' --exclude='demo' --exclude='lib' --exclude='.DS_Store' --exclude='*.log' --exclude='node_modules' --exclude='dashboard.tgz' -czvf dashboard.tgz ./"
   },
   "dependencies": {
-    "@misk/common": "0.1.5-20",
-    "@misk/core": "0.1.5-20",
-    "@misk/simpleredux": "0.1.5-20",
+    "@misk/common": "0.1.5-31",
+    "@misk/core": "0.1.5-31",
+    "@misk/simpleredux": "0.1.5-31",
     "@blueprintjs/core": "3.9.0",
     "@blueprintjs/datetime": "3.4.0",
     "@blueprintjs/icons": "3.3.0",
@@ -49,8 +52,8 @@
     "styled-components": "4.1.2"
   },
   "devDependencies": {
-    "@misk/dev": "0.1.5-20",
-    "@misk/tslint": "0.1.5-20",
+    "@misk/dev": "0.1.5-31",
+    "@misk/tslint": "0.1.5-31",
     "@types/history": "4.7.2",
     "@types/node": "10.12.18",
     "@types/react": "16.7.18",
@@ -84,7 +87,25 @@
     "webpack-cli": "3.3.0",
     "webpack-bundle-analyzer": "3.2.0",
     "webpack-dev-server": "3.3.0",
-    "webpack-merge": "4.2.1"
+    "webpack-merge": "4.2.1",
+    "@misk/test": "0.1.5-31"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "snapshotSerializers": [
+      "jest-serializer-html"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "jsx"
+    ]
   },
   "prettier": {
     "arrowParens": "avoid",
