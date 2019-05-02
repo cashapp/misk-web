@@ -1,6 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.5-31",
-  "alpha" = "0.1.5-31",
+  "latest" = "0.1.5-32",
+  "alpha" = "0.1.5-32",
+  "v015_32" = "0.1.5-32",
   "v015_31" = "0.1.5-31",
   "v015_30" = "0.1.5-30",
   "v015_29" = "0.1.5-29",
@@ -120,6 +121,17 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v015_32]: {
+    [MiskPkg.cli]: `${[MiskVersion.v015_32]}`,
+    [MiskPkg.common]: `${[MiskVersion.v015_32]}`,
+    [MiskPkg.core]: `${[MiskVersion.v015_32]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v015_32]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v015_32]}`,
+    [MiskPkg.test]: `${[MiskVersion.v015_32]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v015_32]}`,
+    date: "2019-05-02",
+    notes: "[CLI][Palette] Fix new command. Add tests to Palette."
+  },
   [MiskVersion.v015_31]: {
     [MiskPkg.cli]: `${[MiskVersion.v015_31]}`,
     [MiskPkg.common]: `${[MiskVersion.v015_31]}`,
