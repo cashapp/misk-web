@@ -11,14 +11,23 @@ export interface ITableProps {
 
 const Row = (props: ITableProps) => {
   const { data } = props
-  return <tr>{data && Object.entries(data).map(([k, v]) => <td>{v}</td>)}</tr>
+  return (
+    <tr>
+      {data && Object.entries(data).map(([k, v]) => <td key={k}>{v}</td>)}
+    </tr>
+  )
 }
 
 const Rows = (props: ITableProps) => {
   const { data, rows } = props
   return (
     <tbody>
-      {data && data.slice(0, rows).map((row: any) => <Row data={row} />)}
+      {data &&
+        data
+          .slice(0, rows)
+          .map((row: any, index: number) => (
+            <Row key={`row${index}`} data={row} />
+          ))}
     </tbody>
   )
 }
