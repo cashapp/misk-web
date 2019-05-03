@@ -1,6 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.5-32",
-  "alpha" = "0.1.5-32",
+  "latest" = "0.1.5-33",
+  "alpha" = "0.1.5-33",
+  "v015_33" = "0.1.5-33",
   "v015_32" = "0.1.5-32",
   "v015_31" = "0.1.5-31",
   "v015_30" = "0.1.5-30",
@@ -121,6 +122,17 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v015_33]: {
+    [MiskPkg.cli]: `${[MiskVersion.v015_33]}`,
+    [MiskPkg.common]: `${[MiskVersion.v015_33]}`,
+    [MiskPkg.core]: `${[MiskVersion.v015_33]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v015_33]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v015_33]}`,
+    [MiskPkg.test]: `${[MiskVersion.v015_33]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v015_33]}`,
+    date: "2019-05-03",
+    notes: "[Test] Add jest-styled-components."
+  },
   [MiskVersion.v015_32]: {
     [MiskPkg.cli]: `${[MiskVersion.v015_32]}`,
     [MiskPkg.common]: `${[MiskVersion.v015_32]}`,
