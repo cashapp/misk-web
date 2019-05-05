@@ -1,11 +1,11 @@
 import * as React from "react"
 
 /**
- * <TextHTMLOrElementComponent length={35}>{<div>item</div>}</TextHTMLOrElementComponent>
- * <TextHTMLOrElementComponent length={35}>{"Test"} </TextHTMLOrElementComponent>
- * <TextHTMLOrElementComponent length={35}>{'<a href="http://squareup.com/">Test</a>'} </TextHTMLOrElementComponent>
+ * <TextHTMLOrElementComponent>{<div>item</div>}</TextHTMLOrElementComponent>
+ * <TextHTMLOrElementComponent>{"Test"} </TextHTMLOrElementComponent>
+ * <TextHTMLOrElementComponent>{'<a href="http://squareup.com/">Test</a>'} </TextHTMLOrElementComponent>
  *
- * Renders passed in text, HTML-parseable string, or React element with optional length constraints for text.
+ * Renders passed in text, HTML-parseable string, or React element.
  */
 
 export interface ITextHTMLOrElementProps {

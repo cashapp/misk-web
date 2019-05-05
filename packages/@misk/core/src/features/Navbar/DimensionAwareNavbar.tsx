@@ -1,16 +1,18 @@
+/** @jsx jsx */
 import { Alignment, Navbar, NavbarGroup } from "@blueprintjs/core"
+import { css, jsx } from "@emotion/core"
 import * as React from "react"
-import styled from "styled-components"
-import { ResponsiveContainer } from "../../containers"
+import { ResponsiveContainer } from "../../cssContainers"
 import {
   Banner,
   HomeLink,
   IDimensionAwareProps,
   Menu,
-  NavItems,
+  // NavItems,
   processNavbarItems
-} from "../Navbar"
+} from "."
 import { color, Environment, IDashboardTab } from "../../utilities"
+import { truncateNavbarItemsByScreenWidth } from "./processNavbarItems"
 
 /**
  * <DimensionAwareComponent
@@ -40,39 +42,50 @@ export interface INavbarProps {
   status?: string | Element | JSX.Element
 }
 
-const MiskNavbar = styled(Navbar)`
-  background-color: ${color.cadet} !important;
-  padding-top: 10px !important;
-  padding-bottom: 60px !important;
-  position: fixed !important;
-`
+const MiskNavbar = (props: any) => (
+  <Navbar
+    css={css`
+      background-color: ${color.cadet} !important;
+      padding-top: 10px !important;
+      padding-bottom: 60px !important;
+      position: fixed !important;
+    `}
+    {...props}
+  />
+)
 
-const MiskNavbarGroup = styled(NavbarGroup)`
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  position: relative;
-  padding-top: 25px;
-  padding-bottom: 27px;
-  color: ${color.gray};
-  &:hover {
-    color: ${color.white};
-    text-decoration: none;
-  }
-  @media (max-width: 870px) {
-    padding-left: 60px;
-  }
-  @media (min-width: 992px) and (max-width: 1085px) {
-    padding-left: 60px;
-  }
-  @media (min-width: 1200px) and (max-width: 1285px) {
-    padding-left: 60px;
-  }
-`
+const MiskNavbarGroup = (props: any) => (
+  <NavbarGroup
+    css={css`
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      position: relative;
+      padding-top: 25px;
+      padding-bottom: 27px;
+      color: ${color.gray};
+      &:hover {
+        color: ${color.white};
+        text-decoration: none;
+      }
+      @media (max-width: 870px) {
+        padding-left: 60px;
+      }
+      @media (min-width: 992px) and (max-width: 1085px) {
+        padding-left: 60px;
+      }
+      @media (min-width: 1200px) and (max-width: 1285px) {
+        padding-left: 60px;
+      }
+    `}
+    {...props}
+  />
+)
 
 export class DimensionAwareNavbar extends React.Component<
   IDimensionAwareProps & INavbarProps,
   {}
 > {
+  // TODO see if this can be removed
   public state = {
     isOpen: false
   }
@@ -86,7 +99,6 @@ export class DimensionAwareNavbar extends React.Component<
       homeName,
       homeUrl,
       links,
-      height,
       navbar_items,
       width,
       status
@@ -101,11 +113,7 @@ export class DimensionAwareNavbar extends React.Component<
         <ResponsiveContainer>
           <MiskNavbarGroup align={Alignment.LEFT} className="bp3-dark">
             <HomeLink homeName={homeName} homeUrl={homeUrl} />
-            <NavItems
-              processedNavbarItems={processedNavbarItems}
-              height={height}
-              width={width}
-            />
+            {truncateNavbarItemsByScreenWidth(width, processedNavbarItems)}
           </MiskNavbarGroup>
         </ResponsiveContainer>
         <Menu

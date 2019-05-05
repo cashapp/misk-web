@@ -1,5 +1,5 @@
 import * as React from "react"
-import styled from "styled-components"
+import { LinkProps } from "react-router-dom"
 import { MiskLink, MiskNavbarHeading } from "../Navbar"
 
 /**
@@ -14,9 +14,9 @@ export interface IHomeLinkProps {
   homeUrl?: string
 }
 
-const MiskLinkHome = styled(MiskLink)`
-  min-width: fit-content;
-`
+const MiskLinkHome = (props: LinkProps) => (
+  <MiskLink css={{ minWidth: "fit-content" }} {...props} />
+)
 
 export const HomeLink = (props: IHomeLinkProps) => {
   const { homeName, homeUrl } = props

@@ -1,13 +1,7 @@
 const path = require("path")
 const MiskDev = require("@misk/dev")
-const StyledComponentsTransformerPlugin = require("typescript-plugin-styled-components")
-const createStyledComponentsTransformer =
-  StyledComponentsTransformerPlugin.default
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
-
 const bundleAnalyzer = false
-
-const StyledComponentsTransformer = createStyledComponentsTransformer()
 
 module.exports = {
   mode: "production",
@@ -31,12 +25,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: "ts-loader",
-        options: {
-          getCustomTransformers: () => ({
-            before: [StyledComponentsTransformer]
-          })
-        }
+        loader: "ts-loader"
       },
       {
         test: /\.(scss|sass|css)$/,

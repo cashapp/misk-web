@@ -12,7 +12,7 @@ export interface ITabLoaderProps {
   tabs: IWebTab[]
 }
 
-const renderTab = (props: IWebTab) => {
+const RenderTab = (props: IWebTab) => {
   return (
     <span>
       <Helmet>
@@ -25,7 +25,13 @@ const renderTab = (props: IWebTab) => {
 
 export const TabLoaderComponent = (props: ITabLoaderProps): JSX.Element => {
   if (props.tabs) {
-    return <div>{props.tabs.map(tab => renderTab(tab))}</div>
+    return (
+      <div>
+        {props.tabs.map(tab => (
+          <RenderTab key={tab.slug} {...tab} />
+        ))}
+      </div>
+    )
   } else {
     return <div />
   }
