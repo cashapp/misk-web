@@ -1,6 +1,6 @@
 import { Menu, MenuItem } from "@blueprintjs/core"
 import * as React from "react"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import { IDashboardTab } from "../utilities"
 
 /**

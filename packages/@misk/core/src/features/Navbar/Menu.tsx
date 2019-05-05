@@ -1,10 +1,11 @@
+/** @jsx jsx */
 import { Button, Collapse, Icon } from "@blueprintjs/core"
 import { IconNames } from "@blueprintjs/icons"
+import { css, jsx } from "@emotion/core"
 import { chain, sortBy } from "lodash"
 import * as React from "react"
-import styled from "styled-components"
 import { ErrorCalloutComponent } from "../../components"
-import { FlexContainer, ResponsiveContainer } from "../../containers"
+import { FlexContainer, ResponsiveContainer } from "../../cssContainers"
 import { MiskLink } from "../Navbar"
 import { color, IDashboardTab } from "../../utilities"
 
@@ -22,7 +23,7 @@ export interface IMenuProps {
   processedNavbarItems?: JSX.Element[]
 }
 
-const MiskNavbarButton = styled(Button)`
+const cssButton = css`
   background-color: ${color.cadet} !important;
   box-shadow: none !important;
   background-image: none !important;
@@ -32,21 +33,21 @@ const MiskNavbarButton = styled(Button)`
   z-index: 1020;
 `
 
-const MiskNavbarIcon = styled(Icon)`
+const cssIcon = css`
   color: ${color.gray} !important;
   &:hover {
     color: ${color.white};
   }
 `
 
-const MiskCollapse = styled.div`
+const cssCollapse = css`
   color: ${color.white};
   background-color: ${color.cadet};
   display: block;
   margin: 60px -20px 0 -20px;
 `
 
-const MiskMenu = styled.div`
+const cssMenu = css`
   min-height: 250px;
   padding: 50px 0px;
   @media (max-width: 768px) {
@@ -56,32 +57,58 @@ const MiskMenu = styled.div`
   max-height: 100vh;
 `
 
-const MiskMenuNavbarItems = styled.div`
+const cssMenuNavbarItems = css`
   display: inline-block;
 `
 
-const MiskMenuLinks = styled(FlexContainer)`
+const cssMenuLinks = css`
   padding-bottom: 35px;
 `
 
-const MiskMenuLink = styled(MiskLink)`
+const cssMenuLink = css`
   font-size: 16px;
   flex-basis: 300px;
   padding: 5px 0;
   color: ${color.platinum};
 `
 
-const MiskMenuCategory = styled.span`
+const cssMenuCategory = css`
   font-size: 24px;
   color: ${color.gray};
   letter-spacing: 0px;
   display: block;
 `
 
-const MiskMenuDivider = styled.hr`
+const cssMenuDivider = css`
   border-color: ${color.gray};
   margin: 5px 0 10px 0;
 `
+
+const MenuCategory = (props: {
+  categoryName: string
+  categoryLinks: IDashboardTab[]
+  handleClick: () => void
+}) => (
+  <div>
+    <span css={cssMenuCategory}>
+      {props.categoryName === "undefined" ? "" : props.categoryName}
+    </span>
+    <hr css={cssMenuDivider} />
+    <FlexContainer css={cssMenuLinks}>
+      {props.categoryLinks &&
+        props.categoryLinks.map((link: IDashboardTab) => (
+          <MiskLink
+            css={cssMenuLink}
+            key={link.slug}
+            onClick={props.handleClick}
+            to={link.url_path_prefix}
+          >
+            {link.name}
+          </MiskLink>
+        ))}
+    </FlexContainer>
+  </div>
+)
 
 export class Menu extends React.Component<IMenuProps, {}> {
   public state = {
@@ -93,34 +120,36 @@ export class Menu extends React.Component<IMenuProps, {}> {
     const { error, links, processedNavbarItems } = this.props
     return (
       <div>
-        <MiskNavbarButton onClick={this.handleClick}>
-          <MiskNavbarIcon
+        <Button css={cssButton} onClick={this.handleClick}>
+          <Icon
+            css={cssIcon}
             iconSize={32}
             icon={isOpen ? IconNames.CROSS : IconNames.MENU}
           />
-        </MiskNavbarButton>
-        <MiskCollapse>
+        </Button>
+        <div css={cssCollapse}>
           <Collapse isOpen={isOpen} keepChildrenMounted={true}>
-            <MiskMenu>
+            <div css={cssMenu}>
               <ResponsiveContainer>
-                <MiskMenuNavbarItems>
+                <div css={cssMenuNavbarItems}>
                   <FlexContainer>
-                    {processedNavbarItems.map(item => (
-                      <span key={item.key} onClick={this.handleClick}>
-                        {item}
-                      </span>
-                    ))}
+                    {processedNavbarItems &&
+                      processedNavbarItems.map((item, index) => (
+                        <span key={index} onClick={this.handleClick}>
+                          {item}
+                        </span>
+                      ))}
                   </FlexContainer>
-                </MiskMenuNavbarItems>
+                </div>
                 {links ? (
                   this.renderMenuCategories(links)
                 ) : (
                   <ErrorCalloutComponent error={error} />
                 )}
               </ResponsiveContainer>
-            </MiskMenu>
+            </div>
           </Collapse>
-        </MiskCollapse>
+        </div>
       </div>
     )
   }
@@ -137,33 +166,16 @@ export class Menu extends React.Component<IMenuProps, {}> {
         )
         .value()
     )
-    return categories.map(([categoryName, categoryLinks]) =>
-      this.renderMenuCategory(categoryName, categoryLinks)
-    )
-  }
-
-  private renderMenuCategory(
-    categoryName: string,
-    categoryLinks: IDashboardTab[]
-  ) {
     return (
-      <div>
-        <MiskMenuCategory>
-          {categoryName === "undefined" ? "" : categoryName}
-        </MiskMenuCategory>
-        <MiskMenuDivider />
-        <MiskMenuLinks>
-          {categoryLinks.map((link: IDashboardTab) => (
-            <MiskMenuLink
-              key={link.slug}
-              onClick={this.handleClick}
-              to={link.url_path_prefix}
-            >
-              {link.name}
-            </MiskMenuLink>
-          ))}
-        </MiskMenuLinks>
-      </div>
+      categories &&
+      categories.map(([categoryName, categoryLinks], index) => (
+        <MenuCategory
+          categoryName={categoryName}
+          categoryLinks={categoryLinks}
+          key={index}
+          handleClick={this.handleClick}
+        />
+      ))
     )
   }
 

@@ -1,12 +1,23 @@
-import { Link } from "react-router-dom"
-import styled, { StyledComponent } from "styled-components"
+/** @jsx jsx */
+import { Link, LinkProps } from "react-router-dom"
+import { css, jsx } from "@emotion/core"
+import styled, { StyledComponent } from "@emotion/styled"
+import * as React from "react"
 import { color } from "../../utilities"
 
 export const MiskNavbarHeading: StyledComponent<
-  "span",
-  any,
-  {},
-  never
+  React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLSpanElement>,
+    HTMLSpanElement
+  >,
+  Pick<
+    React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLSpanElement>,
+      HTMLSpanElement
+    >,
+    any
+  >,
+  any
 > = styled.span`
   font-size: 24px !important;
   text-decoration: none;
@@ -27,16 +38,28 @@ export const MiskNavbarHeading: StyledComponent<
   }
 `
 
-export const MiskNavbarHeadingEnvironment = styled(MiskNavbarHeading)`
-  color: ${props => props.color} !important;
-  min-width: 0;
-`
+export const MiskNavbarHeadingEnvironment = (
+  props: { color: string } & any
+) => (
+  <MiskNavbarHeading
+    css={css`
+      color: ${props.color} !important;
+      min-width: 0;
+    `}
+    {...props}
+  />
+)
 
-export const MiskLink = styled(Link)`
-  color: ${color.gray};
-  text-decoration: none;
-  &:hover {
-    color: ${color.white};
-    text-decoration: none;
-  }
-`
+export const MiskLink = (props: LinkProps) => (
+  <Link
+    css={css`
+      color: ${color.gray};
+      text-decoration: none;
+      &:hover {
+        color: ${color.white};
+        text-decoration: none;
+      }
+    `}
+    {...props}
+  />
+)

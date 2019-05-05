@@ -1,0 +1,359 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`css containers CodePreContainer can render 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: Fira Code,Menlo !important;
+  white-space: pre-wrap !important;
+  white-space: -moz-pre-wrap !important;
+  white-space: -pre-wrap !important;
+  white-space: -o-pre-wrap !important;
+  word-wrap: break-word !important;
+}
+
+<pre
+    class="bp3-code-block emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`css containers CodePreContainer can render with children 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: Fira Code,Menlo !important;
+  white-space: pre-wrap !important;
+  white-space: -moz-pre-wrap !important;
+  white-space: -pre-wrap !important;
+  white-space: -o-pre-wrap !important;
+  word-wrap: break-word !important;
+}
+
+<pre
+    class="bp3-code-block emotion-0"
+  >
+    <div>
+      <span>
+        Test Child
+      </span>
+    </div>
+  </pre>
+</DocumentFragment>
+`;
+
+exports[`css containers ColumnContainer can render 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  min-width: 320px;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`css containers ColumnContainer can render with children 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  min-width: 320px;
+}
+
+<div
+    class="emotion-0"
+  >
+    <div>
+      <span>
+        Test Child
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`css containers DesktopWideOnlyContainer can render 1`] = `
+<DocumentFragment>
+  @media (max-width:1200px) {
+  .emotion-0 {
+    display: none;
+  }
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`css containers DesktopWideOnlyContainer can render with children 1`] = `
+<DocumentFragment>
+  @media (max-width:1200px) {
+  .emotion-0 {
+    display: none;
+  }
+}
+
+<div
+    class="emotion-0"
+  >
+    <div>
+      <span>
+        Test Child
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`css containers FlexContainer can render 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.emotion-0 * {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`css containers FlexContainer can render with children 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.emotion-0 * {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+<div
+    class="emotion-0"
+  >
+    <div>
+      <span>
+        Test Child
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`css containers MobileNeverContainer can render 1`] = `
+<DocumentFragment>
+  @media (max-width:768px) {
+  .emotion-0 {
+    display: none;
+  }
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`css containers MobileNeverContainer can render with children 1`] = `
+<DocumentFragment>
+  @media (max-width:768px) {
+  .emotion-0 {
+    display: none;
+  }
+}
+
+<div
+    class="emotion-0"
+  >
+    <div>
+      <span>
+        Test Child
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`css containers MobileOnlyContainer can render 1`] = `
+<DocumentFragment>
+  @media (min-width:768px) {
+  .emotion-0 {
+    display: none;
+  }
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`css containers MobileOnlyContainer can render with children 1`] = `
+<DocumentFragment>
+  @media (min-width:768px) {
+  .emotion-0 {
+    display: none;
+  }
+}
+
+<div
+    class="emotion-0"
+  >
+    <div>
+      <span>
+        Test Child
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`css containers ResponsiveContainer can render 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0 auto;
+}
+
+@media (min-width:768px) {
+  .emotion-0 {
+    width: 750px;
+  }
+}
+
+@media (min-width:992px) {
+  .emotion-0 {
+    width: 970px;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-0 {
+    width: 1170px;
+  }
+}
+
+<div
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`css containers ResponsiveContainer can render with children 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin: 0 auto;
+}
+
+@media (min-width:768px) {
+  .emotion-0 {
+    width: 750px;
+  }
+}
+
+@media (min-width:992px) {
+  .emotion-0 {
+    width: 970px;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-0 {
+    width: 1170px;
+  }
+}
+
+<div
+    class="emotion-0"
+  >
+    <div>
+      <span>
+        Test Child
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`css containers WrapTextContainer can render 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  white-space: pre-wrap !important;
+  white-space: -moz-pre-wrap !important;
+  white-space: -pre-wrap !important;
+  white-space: -o-pre-wrap !important;
+  word-wrap: break-word !important;
+}
+
+<span
+    class="emotion-0"
+  />
+</DocumentFragment>
+`;
+
+exports[`css containers WrapTextContainer can render with children 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  white-space: pre-wrap !important;
+  white-space: -moz-pre-wrap !important;
+  white-space: -pre-wrap !important;
+  white-space: -o-pre-wrap !important;
+  word-wrap: break-word !important;
+}
+
+<span
+    class="emotion-0"
+  >
+    <div>
+      <span>
+        Test Child
+      </span>
+    </div>
+  </span>
+</DocumentFragment>
+`;

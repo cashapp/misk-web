@@ -1,7 +1,7 @@
 import * as React from "react"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import { TextHTMLOrElementComponent } from "../../components"
-import { FlexContainer, ResponsiveContainer } from "../../containers"
+import { FlexContainer, ResponsiveContainer } from "../../cssContainers"
 import { color, Environment, environmentToColor } from "../../utilities"
 
 /**
@@ -19,7 +19,7 @@ export interface IBannerProps {
 }
 
 const MiskNavbarBanner = styled.span`
-  background-color: ${props => props.color} !important;
+  background-color: ${(props: { color: string }) => props.color} !important;
   color: ${color.accent} !important;
   text-align: center;
   font-weight: 600;

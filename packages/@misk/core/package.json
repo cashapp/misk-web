@@ -29,7 +29,7 @@
     "prepare": "npm run-script ci-build",
     "reinstall": "rm -rf node_modules && npm install",
     "start": "npm run-script lint && cross-env NODE_ENV=development webpack-dev-server",
-    "test": "echo no tests",
+    "test": "jest --passWithNoTests",
     "updateDevCache": "cd ..; ./updateLocalCache.sh"
   },
   "dependencies": {
@@ -41,6 +41,8 @@
     "@blueprintjs/select": "3.8.0",
     "@blueprintjs/table": "3.5.0",
     "@blueprintjs/timezone": "3.4.0",
+    "@emotion/core": "10.0.10",
+    "@emotion/styled": "10.0.10",
     "axios": "0.18.0",
     "connected-react-router": "5.0.1",
     "dayjs": "1.8.12",
@@ -62,11 +64,17 @@
     "reselect": "4.0.0",
     "re-reselect": "3.1.0",
     "skeleton-css": "2.0.4",
-    "status-code-enum": "1.0.0",
-    "styled-components": "4.2.0"
+    "status-code-enum": "1.0.0"
   },
   "devDependencies": {
     "@misk/dev": "0.1.5-33",
+    "@misk/test": "0.1.5-33",
+    "@types/jest": "24.0.11",
+    "jest": "24.7.1",
+    "jest-emotion": "10.0.10",
+    "jest-serializer-html": "6.0.0",
+    "react-testing-library": "6.1.2",
+    "ts-jest": "24.0.2",
     "@misk/tslint": "0.1.5-33",
     "@types/history": "4.7.2",
     "@types/lodash": "4.14.123",
@@ -97,7 +105,6 @@
     "ts-loader": "5.3.3",
     "tslib": "1.9.3",
     "typescript": "3.4.2",
-    "typescript-plugin-styled-components": "1.4.2",
     "webpack": "4.29.6",
     "webpack-cli": "3.3.0",
     "webpack-bundle-analyzer": "3.2.0",
@@ -114,6 +121,24 @@
     "tabWidth": 2,
     "trailingComma": "none",
     "useTabs": false
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "snapshotSerializers": [
+      "jest-serializer-html",
+      "jest-emotion"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "jsx"
+    ]
   },
   "miskTab": {
     "version": "0.1.1"
