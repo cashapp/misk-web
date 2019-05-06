@@ -1,12 +1,12 @@
 {
   "name": "@misk/core",
-  "version": "0.1.5-34",
+  "version": "0.1.5-35",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "description": "Misk-Web Core",
   "author": "Square/Misk Authors (https://github.com/square/misk-web/graphs/contributors)",
   "main": "lib/web/@misk/core/core.js",
   "module": "lib/web/@misk/core/core.js",
-  "typings": "lib/web/@misk/core/index.d.ts",
+  "typings": "lib/web/@misk/core/src/index.d.ts",
   "engines": {
     "node": ">=7.8.0",
     "yarn": "YARN NO LONGER USED - use npm instead."
@@ -33,8 +33,8 @@
     "updateDevCache": "cd ..; ./updateLocalCache.sh"
   },
   "dependencies": {
-    "@misk/common": "0.1.5-34",
-    "@misk/simpleredux": "0.1.5-34",
+    "@misk/common": "0.1.5-35",
+    "@misk/simpleredux": "0.1.5-35",
     "@blueprintjs/core": "3.15.0",
     "@blueprintjs/datetime": "3.8.0",
     "@blueprintjs/icons": "3.7.0",
@@ -67,15 +67,15 @@
     "status-code-enum": "1.0.0"
   },
   "devDependencies": {
-    "@misk/dev": "0.1.5-34",
-    "@misk/test": "0.1.5-34",
+    "@misk/dev": "0.1.5-35",
+    "@misk/test": "0.1.5-35",
     "@types/jest": "24.0.11",
     "jest": "24.7.1",
     "jest-emotion": "10.0.10",
     "jest-serializer-html": "6.0.0",
     "react-testing-library": "6.1.2",
     "ts-jest": "24.0.2",
-    "@misk/tslint": "0.1.5-34",
+    "@misk/tslint": "0.1.5-35",
     "@types/history": "4.7.2",
     "@types/lodash": "4.14.123",
     "@types/node": "11.13.1",
