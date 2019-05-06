@@ -96,3 +96,9 @@ echo "Go check out your new tab ${NEW_SLUG_CASE} !"
 echo "Use '$ miskweb ci-build' to install, build, and run tests."
 echo "$ cd ${NEW_SLUG_CASE}"
 echo "$ miskweb ci-build"
+
+echo ""
+echo "Running clean build in ./${NEW_SLUG_CASE}"
+cd "$NEW_SLUG_CASE" || exit 1
+miskweb ci-build
+echo "${NEW_SLUG_CASE} has been installed, built, and tested!"
