@@ -121,5 +121,6 @@ export const createPackage = (miskTab: IMiskTabJSON, pkg: any) => ({
   ...devDependencies(miskTab, pkg),
   ...testPackageJson,
   ...prettier,
+  ...miskTab.rawPackageJson,
   generated: generatedByCLI
 })

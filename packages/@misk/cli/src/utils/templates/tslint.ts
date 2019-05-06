@@ -1,3 +1,6 @@
-export const tslint = {
-  extends: "@misk/tslint"
-}
+import { IMiskTabJSON } from ".."
+
+export const tslint = (miskTab: IMiskTabJSON) => ({
+  extends: "@misk/tslint",
+  ...miskTab.rawTslint
+})

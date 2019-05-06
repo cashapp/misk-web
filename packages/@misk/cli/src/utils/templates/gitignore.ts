@@ -1,6 +1,7 @@
 import { generatedByCLI } from "../templates"
+import { IMiskTabJSON } from ".."
 
-export const gitignore = `.git
+export const gitignore = (miskTab: IMiskTabJSON) => `.git
 .DS_Store
 **/@misk/web
 cachedUrls
@@ -22,5 +23,6 @@ tsconfig.json
 tslint.json
 webpack.config.js
 *.js.map
+${miskTab.rawGitginore}
 ${generatedByCLI}
 `
