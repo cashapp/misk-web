@@ -26,16 +26,16 @@ export interface IMiskTabJSON {
 }
 
 export const defaultMiskTabJson: IMiskTabJSON = {
-  name: "test-tab",
-  output_path: "/_admin/test-tab/",
+  name: "",
+  output_path: "",
   port: 3000,
   rawGitginore: "",
   rawPackageJson: {},
   rawTsconfig: {},
   rawTslint: {},
   rawWebpackConfig: {},
-  relative_path_prefix: "string",
-  slug: "string",
+  relative_path_prefix: "",
+  slug: "",
   useWebpackExternals: true,
   version: MiskVersion.latest,
   zipOnBuild: false,
@@ -77,9 +77,9 @@ export const logDebug = (
 
 export const path = (...segments: string[]) => `${segments.join("/")}`
 
-export const parseArgs = (...args: any): { args: any[]; dir: string } => ({
-  args,
-  dir: args[0] ? args[0] : pwd().stdout
+export const parseArgs = (...args: any): { dir: string; rawArgs: any } => ({
+  dir: pwd().stdout,
+  rawArgs: args
 })
 
 export const remove = async (path: string) => {
@@ -146,10 +146,10 @@ export const handleCommand = async (
       .on("end", async () => {
         for (const tab in tabs) {
           cd(tabs[tab])
-          handlerFn(tabs[tab])
+          handlerFn({ ...args, dir: tabs[tab] })
         }
       })
   } else {
-    handlerFn()
+    handlerFn(args)
   }
 }
