@@ -12,7 +12,7 @@ import {
   remove,
   makePath,
   parseArgs,
-  defaultMiskTabJson
+  generateMiskTabJson
 } from "../utils"
 import { MiskVersion } from "./changelog"
 
@@ -22,19 +22,6 @@ const moveOldBuildFile = async (dir: string, filename: Files) => {
   if (await fs.existsSync(makePath(dir, filename))) {
     fs.move(makePath(dir, filename), makePath(dir, Files.old, filename))
   }
-}
-
-export const generateMiskTabJson = (dir: string, fieldsToSet?: any) => {
-  const miskTab = fs.readJSONSync(makePath(dir, Files.miskTab))
-  fs.writeJsonSync(
-    makePath(dir, Files.miskTab),
-    {
-      ...defaultMiskTabJson,
-      ...miskTab,
-      ...fieldsToSet
-    },
-    JsonOptions
-  )
 }
 
 export const migrateBuildFiles = (...args: any) => {
@@ -90,7 +77,10 @@ export const migrateBuildFiles = (...args: any) => {
     // move all build files to an .old-build-files folder
     logDebug(tag, `Stashing old build files in ${makePath(dir, Files.old)}`)
     fs.mkdirp(makePath(dir, Files.old))
-    fs.copy(makePath(dir, Files.package), makePath(dir, Files.old, Files.package))
+    fs.copy(
+      makePath(dir, Files.package),
+      makePath(dir, Files.old, Files.package)
+    )
     moveOldBuildFile(dir, Files.gitignore)
     moveOldBuildFile(dir, Files.prettier)
     moveOldBuildFile(dir, Files.tsconfig)
