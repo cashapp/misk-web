@@ -10,20 +10,20 @@ export * from "./generate"
 export * from "./migrate"
 
 export interface IMiskTabJSON {
-  name: string
-  output_path: string
-  port: number
-  rawGitginore: string
-  rawPackageJson: any
-  rawTsconfig: any
-  rawTslint: any
-  rawWebpackConfig: any
-  relative_path_prefix: string
-  slug: string
-  useWebpackExternals: boolean
-  version: MiskVersion
-  zipOnBuild: boolean
-  ___DeprecatedKeys: string
+  name: string // name of tab in Title Case
+  output_path: string // output path for Webpack build
+  port: number // port for Webpack-Dev-Server
+  rawGitginore: string // prebuild permanent add to .gitignore file
+  rawPackageJson: any // prebuild permanent add/override to package.json file
+  rawTsconfig: any // prebuild permanent add/override to tsconfig.json file
+  rawTslint: any // prebuild permanent add/override to tslint.json file
+  rawWebpackConfig: any // prebuild permanent add to webpack.config.js file
+  relative_path_prefix: string // override default URL for tab: /_tab/{slug}/
+  slug: string // unique slug used in URL path
+  useWebpackExternals: boolean // turn off/on thin build by including externals in Webpack build
+  version: MiskVersion // Misk Web release version or keyword (alpha, latest)
+  zipOnBuild: boolean // zip relevant source code of tab into {slug}.tgz after each build
+  ___DeprecatedKeys: string // divider to the miskTab.json to improve maintainability
 }
 
 export const defaultMiskTabJson: IMiskTabJSON = {
@@ -103,6 +103,19 @@ export const execute = (cmd: string, ...args: any) => {
       }`
     )
   }
+}
+
+export const generateMiskTabJson = (dir: string, fieldsToSet?: any) => {
+  const miskTab = fs.readJSONSync(makePath(dir, Files.miskTab))
+  fs.writeJsonSync(
+    makePath(dir, Files.miskTab),
+    {
+      ...defaultMiskTabJson,
+      ...miskTab,
+      ...fieldsToSet
+    },
+    JsonOptions
+  )
 }
 
 export const npmRunScript = (cmd: string, prebuild: boolean = false) =>
