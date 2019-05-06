@@ -57,6 +57,7 @@
   "devDependencies": {
     "@misk/dev": "0.1.5-33",
     "@misk/test": "0.1.5-33",
+    "jest-emotion": "10.0.10",
     "@misk/tslint": "0.1.5-33",
     "@types/history": "4.7.2",
     "@types/jest": "24.0.11",
@@ -102,7 +103,8 @@
   "jest": {
     "testEnvironment": "jsdom",
     "snapshotSerializers": [
-      "jest-serializer-html"
+      "jest-serializer-html",
+      "jest-emotion"
     ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
