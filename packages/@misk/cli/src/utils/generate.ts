@@ -11,8 +11,8 @@ import {
   createPackage,
   createTsconfig,
   generatedByCLI,
-  gitignore,
-  tslint,
+  gitignore as createGitignore,
+  tslint as createTslint,
   webpack
 } from "./templates"
 import { getVersion } from "./changelog"
@@ -36,13 +36,13 @@ export const generateBuildFiles = async (...args: any) => {
       createTsconfig(miskTab),
       JsonOptions
     ),
-    fs.writeJson(path(dir, Files.tslint), tslint, JsonOptions),
+    fs.writeJson(path(dir, Files.tslint), createTslint(miskTab), JsonOptions),
     fs.writeJson(
       path(dir, Files.package),
       createPackage(miskTab, pkg),
       JsonOptions
     ),
-    fs.writeFile(path(dir, Files.gitignore), gitignore),
+    fs.writeFile(path(dir, Files.gitignore), createGitignore(miskTab)),
     fs.writeFile(path(dir, Files.webpack), webpack)
   ]
 

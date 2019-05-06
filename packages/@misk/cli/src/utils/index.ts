@@ -12,9 +12,13 @@ export interface IMiskTabJSON {
   name: string
   output_path: string
   port: number
+  rawGitginore: string
+  rawPackageJson: any
+  rawTsconfig: any
+  rawTslint: any
+  rawWebpackConfig: any
   relative_path_prefix: string
   slug: string
-  tsconfigCompilerOptions: any
   useWebpackExternals: boolean
   version: MiskVersion
   zipOnBuild: boolean
@@ -22,12 +26,16 @@ export interface IMiskTabJSON {
 }
 
 export const defaultMiskTabJson: IMiskTabJSON = {
-  name: "string",
-  output_path: "string",
+  name: "test-tab",
+  output_path: "/_admin/test-tab/",
   port: 3000,
+  rawGitginore: "",
+  rawPackageJson: {},
+  rawTsconfig: {},
+  rawTslint: {},
+  rawWebpackConfig: {},
   relative_path_prefix: "string",
   slug: "string",
-  tsconfigCompilerOptions: {},
   useWebpackExternals: true,
   version: MiskVersion.latest,
   zipOnBuild: false,

@@ -70,7 +70,7 @@ export const migrateBuildFiles = (...args: any) => {
         ...defaultMiskTabJson,
         ...miskTab
       },
-      { spaces: 2 }
+      JsonOptions
     )
   } else if (pkgMiskTab && !fs.existsSync(path(dir, Files.miskTab))) {
     // TODO Add type enforcement that it is valid IMiskTabJSON
