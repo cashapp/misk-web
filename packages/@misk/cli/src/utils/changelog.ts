@@ -1,6 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.5-34",
-  "alpha" = "0.1.5-34",
+  "latest" = "0.1.5-35",
+  "alpha" = "0.1.5-35",
+  "v015_35" = "0.1.5-35",
   "v015_34" = "0.1.5-34",
   "v015_33" = "0.1.5-33",
   "v015_32" = "0.1.5-32",
@@ -123,6 +124,17 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v015_35]: {
+    [MiskPkg.cli]: `${[MiskVersion.v015_35]}`,
+    [MiskPkg.common]: `${[MiskVersion.v015_35]}`,
+    [MiskPkg.core]: `${[MiskVersion.v015_35]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v015_35]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v015_35]}`,
+    [MiskPkg.test]: `${[MiskVersion.v015_35]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v015_35]}`,
+    date: "2019-05-06",
+    notes: "[Core] Fix typings path in package.json."
+  },
   [MiskVersion.v015_34]: {
     [MiskPkg.cli]: `${[MiskVersion.v015_34]}`,
     [MiskPkg.common]: `${[MiskVersion.v015_34]}`,
