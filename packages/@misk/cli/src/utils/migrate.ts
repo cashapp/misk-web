@@ -24,6 +24,19 @@ const moveOldBuildFile = async (dir: string, filename: Files) => {
   }
 }
 
+export const generateMiskTabJson = (dir: string, fieldsToSet?: any) => {
+  const miskTab = fs.readJSONSync(path(dir, Files.miskTab))
+  fs.writeJsonSync(
+    path(dir, Files.miskTab),
+    {
+      ...defaultMiskTabJson,
+      ...miskTab,
+      ...fieldsToSet
+    },
+    JsonOptions
+  )
+}
+
 export const migrateBuildFiles = (...args: any) => {
   const { dir } = parseArgs(...args)
   logDebug(tag, "", dir)
@@ -63,15 +76,7 @@ export const migrateBuildFiles = (...args: any) => {
     )
   } else if (!pkgMiskTab && fs.existsSync(path(dir, Files.miskTab))) {
     // miskTab.json exists. Rewrite out with alphabetically sorted and up to date set of keys.
-    const miskTab = fs.readJSONSync(path(dir, Files.miskTab))
-    fs.writeJsonSync(
-      path(dir, Files.miskTab),
-      {
-        ...defaultMiskTabJson,
-        ...miskTab
-      },
-      JsonOptions
-    )
+    generateMiskTabJson(dir)
   } else if (pkgMiskTab && !fs.existsSync(path(dir, Files.miskTab))) {
     // TODO Add type enforcement that it is valid IMiskTabJSON
     const normalizedMiskTab: IMiskTabJSON = {
