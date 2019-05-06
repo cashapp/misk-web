@@ -17,7 +17,8 @@ module.exports = (env, argv, otherConfigFields = {}) => {
     "name" in miskTab &&
     "port" in miskTab &&
     "slug" in miskTab &&
-    "version" in miskTab
+    "version" in miskTab &&
+    "useWebpackExternals" in miskTab
   ) {
     console.log("[MISK] Valid miskTab in package.json")
   } else {
@@ -41,10 +42,14 @@ module.exports = (env, argv, otherConfigFields = {}) => {
       "version" in miskTab
         ? `[MISK] miskTab contains version: ${miskTab.version}\n`
         : "[MISK] miskTab missing version, upgrade to latest squareup/misk-web Docker image version at https://hub.docker.com/r/squareup/misk-web/\n"
+    errMsg +=
+      "useWebpackExternals" in miskTab
+        ? `[MISK] miskTab contains useWebpackExternals: ${miskTab.version}\n`
+        : "[MISK] miskTab missing useWebpackExternals, upgrade to the latest CLI and run prebuild. $ npm install -g @misk/cli && miskweb prebuild"
     throw Error(errMsg)
   }
 
-  const { name, port, slug } = miskTab
+  const { name, port, slug, thinBuild: useWebpackExternals } = miskTab
   const relative_path_prefix = miskTab.relative_path_prefix
     ? miskTab.relative_path_prefix
     : `_tab/${miskTab.slug}/`
@@ -161,7 +166,9 @@ module.exports = (env, argv, otherConfigFields = {}) => {
             bundleAnalyzer ? [BundleAnalyzerPluginConfig] : []
           )
     ),
-    externals: { ...vendorExternals, ...miskExternals }
+    externals: useWebpackExternals
+      ? { ...vendorExternals, ...miskExternals }
+      : {}
   }
 
   return merge(baseConfigFields, otherConfigFields)

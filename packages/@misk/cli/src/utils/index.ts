@@ -15,8 +15,24 @@ export interface IMiskTabJSON {
   relative_path_prefix: string
   slug: string
   tsconfigCompilerOptions: any
+  useWebpackExternals: boolean
   version: MiskVersion
   zipOnBuild: boolean
+  ___DeprecatedKeys: string
+}
+
+export const defaultMiskTabJson: IMiskTabJSON = {
+  name: "string",
+  output_path: "string",
+  port: 3000,
+  relative_path_prefix: "string",
+  slug: "string",
+  tsconfigCompilerOptions: {},
+  useWebpackExternals: true,
+  version: MiskVersion.latest,
+  zipOnBuild: false,
+  ___DeprecatedKeys:
+    "Any keys below this point in your miskTab.json are deprecated and can be safely removed."
 }
 
 export enum Files {

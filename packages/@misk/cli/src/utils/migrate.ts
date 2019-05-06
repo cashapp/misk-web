@@ -11,7 +11,8 @@ import {
   logFormatter,
   remove,
   path,
-  parseArgs
+  parseArgs,
+  defaultMiskTabJson
 } from "../utils"
 import { MiskVersion } from "./changelog"
 
@@ -61,7 +62,16 @@ export const migrateBuildFiles = (...args: any) => {
       )
     )
   } else if (!pkgMiskTab && fs.existsSync(path(dir, Files.miskTab))) {
-    // miskTab.json exists. No migration required
+    // miskTab.json exists. Rewrite out with alphabetically sorted and up to date set of keys.
+    const miskTab = fs.readJSONSync(path(dir, Files.miskTab))
+    fs.writeJsonSync(
+      path(dir, Files.miskTab),
+      {
+        ...defaultMiskTabJson,
+        ...miskTab
+      },
+      { spaces: 2 }
+    )
   } else if (pkgMiskTab && !fs.existsSync(path(dir, Files.miskTab))) {
     // TODO Add type enforcement that it is valid IMiskTabJSON
     const normalizedMiskTab: IMiskTabJSON = {
