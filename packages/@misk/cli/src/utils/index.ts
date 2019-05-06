@@ -1,5 +1,6 @@
 import * as fs from "fs-extra"
 import klaw from "klaw"
+import path from "path"
 import { cd, exec, pwd } from "shelljs"
 import * as yargs from "yargs"
 import { MiskVersion } from "./changelog"
@@ -75,7 +76,7 @@ export const logDebug = (
   dir: string = pwd().stdout
 ) => console.log(logFormatter(tag, msg, dir))
 
-export const path = (...segments: string[]) => `${segments.join("/")}`
+export const makePath = (...segments: string[]) => `${segments.join("/")}`
 
 export const parseArgs = (...args: any): { dir: string; rawArgs: any } => ({
   dir: pwd().stdout,
@@ -107,6 +108,20 @@ export const execute = (cmd: string, ...args: any) => {
 export const npmRunScript = (cmd: string, prebuild: boolean = false) =>
   `${prebuild ? "miskweb prebuild && " : ""}npm run-script ${cmd}`
 
+/**
+ * @param item full file path
+ * Want to stop traversion over directory names that are unlikely to have a Misk Web tab inside.
+ * These files include:
+ *   * hidden directories (prefix: .)
+ *   * node_modules directory
+ */
+const filterFunc = (item: string) => {
+  const basename = path.basename(item)
+  return (
+    (basename === "." || basename[0] !== ".") && basename !== "node_modules"
+  )
+}
+
 export const handleCommand = async (
   args: {
     _: string[]
@@ -136,7 +151,7 @@ export const handleCommand = async (
       .showHelp()
   } else if (args.each) {
     const tabs: string[] = []
-    klaw(".")
+    klaw(".", { filter: filterFunc })
       .on("data", (item: any) => {
         if (item.stats.isFile() && item.path.includes("/miskTab.json")) {
           tabs.push(item.path.split("/miskTab.json")[0])

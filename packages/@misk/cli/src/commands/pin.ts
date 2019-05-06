@@ -5,16 +5,18 @@ import {
   parseArgs
 } from "../utils"
 export const command = "pin <pinnedVersion>"
-export const desc = "set version for all Misk Web dependencies"
+export const desc = "pin version for all Misk Web dependencies"
 export const positional = (yargs: any): any => {
   yargs.positional("pinnedVersion", {
-    describe: "pin a specific version for all Misk Web dependencies",
+    describe:
+      "a Misk Web release version. All Misk-Web dependencies in your tab will use this version in package.json",
     type: "string"
   })
 }
 export const handlerFn = async (...args: any) => {
-  logDebug("PIN", desc)
   const { dir, rawArgs } = parseArgs(...args)
-  generateMiskTabJson(dir, { version: rawArgs[0].pinnedVersion })
+  const { pinnedVersion } = rawArgs[0]
+  logDebug("PIN", `pin ${pinnedVersion} for all Misk Web dependencies`)
+  generateMiskTabJson(dir, { version: pinnedVersion })
 }
 export const handler = async (yargs: any) => handleCommand(yargs, handlerFn)

@@ -10,7 +10,7 @@ import {
   logDebug,
   logFormatter,
   remove,
-  path,
+  makePath,
   parseArgs,
   defaultMiskTabJson
 } from "../utils"
@@ -19,15 +19,15 @@ import { MiskVersion } from "./changelog"
 const tag = "migrate"
 
 const moveOldBuildFile = async (dir: string, filename: Files) => {
-  if (await fs.existsSync(path(dir, filename))) {
-    fs.move(path(dir, filename), path(dir, Files.old, filename))
+  if (await fs.existsSync(makePath(dir, filename))) {
+    fs.move(makePath(dir, filename), makePath(dir, Files.old, filename))
   }
 }
 
 export const generateMiskTabJson = (dir: string, fieldsToSet?: any) => {
-  const miskTab = fs.readJSONSync(path(dir, Files.miskTab))
+  const miskTab = fs.readJSONSync(makePath(dir, Files.miskTab))
   fs.writeJsonSync(
-    path(dir, Files.miskTab),
+    makePath(dir, Files.miskTab),
     {
       ...defaultMiskTabJson,
       ...miskTab,
@@ -44,14 +44,14 @@ export const migrateBuildFiles = (...args: any) => {
   let pkgMiskTab: IMiskTabJSON = null
 
   // Use existing package.json field if it exists
-  if (fs.existsSync(path(dir, Files.package))) {
+  if (fs.existsSync(makePath(dir, Files.package))) {
     let pkg = null
     try {
       // This fails if file doesn't exist || invalid JSON parse
-      pkg = fs.readJsonSync(path(dir, Files.package))
+      pkg = fs.readJsonSync(makePath(dir, Files.package))
     } catch (e) {
       // If it's invalid, remove it
-      fs.removeSync(path(dir, Files.package))
+      fs.removeSync(makePath(dir, Files.package))
     }
 
     if (pkg && "name" in pkg && pkg.name.startsWith("@misk/")) {
@@ -65,7 +65,7 @@ export const migrateBuildFiles = (...args: any) => {
     }
     pkgMiskTab = pkg && "miskTab" in pkg ? pkg.miskTab : null
   }
-  if (pkgMiskTab && fs.existsSync(path(dir, Files.miskTab))) {
+  if (pkgMiskTab && fs.existsSync(makePath(dir, Files.miskTab))) {
     // miskTab.json and package with miskTab exists
     throw Error(
       logFormatter(
@@ -74,10 +74,10 @@ export const migrateBuildFiles = (...args: any) => {
         dir
       )
     )
-  } else if (!pkgMiskTab && fs.existsSync(path(dir, Files.miskTab))) {
+  } else if (!pkgMiskTab && fs.existsSync(makePath(dir, Files.miskTab))) {
     // miskTab.json exists. Rewrite out with alphabetically sorted and up to date set of keys.
     generateMiskTabJson(dir)
-  } else if (pkgMiskTab && !fs.existsSync(path(dir, Files.miskTab))) {
+  } else if (pkgMiskTab && !fs.existsSync(makePath(dir, Files.miskTab))) {
     // TODO Add type enforcement that it is valid IMiskTabJSON
     const normalizedMiskTab: IMiskTabJSON = {
       output_path: `lib/web/_tab/${pkgMiskTab.slug}`,
@@ -86,19 +86,19 @@ export const migrateBuildFiles = (...args: any) => {
       zipOnBuild: false,
       ...pkgMiskTab
     }
-    fs.writeJson(path(dir, Files.miskTab), normalizedMiskTab, JsonOptions)
+    fs.writeJson(makePath(dir, Files.miskTab), normalizedMiskTab, JsonOptions)
     // move all build files to an .old-build-files folder
-    logDebug(tag, `Stashing old build files in ${path(dir, Files.old)}`)
-    fs.mkdirp(path(dir, Files.old))
-    fs.copy(path(dir, Files.package), path(dir, Files.old, Files.package))
+    logDebug(tag, `Stashing old build files in ${makePath(dir, Files.old)}`)
+    fs.mkdirp(makePath(dir, Files.old))
+    fs.copy(makePath(dir, Files.package), makePath(dir, Files.old, Files.package))
     moveOldBuildFile(dir, Files.gitignore)
     moveOldBuildFile(dir, Files.prettier)
     moveOldBuildFile(dir, Files.tsconfig)
     moveOldBuildFile(dir, Files.tslint)
     moveOldBuildFile(dir, Files.webpack)
-    remove(path(dir, Files.packageLock))
-    remove(path(dir, Files.yarnLock))
-  } else if (!pkgMiskTab && !fs.existsSync(path(dir, Files.miskTab))) {
+    remove(makePath(dir, Files.packageLock))
+    remove(makePath(dir, Files.yarnLock))
+  } else if (!pkgMiskTab && !fs.existsSync(makePath(dir, Files.miskTab))) {
     throw Error(
       logFormatter(
         tag,
