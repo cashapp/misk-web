@@ -1,6 +1,7 @@
 export enum MiskVersion {
-  "latest" = "0.1.5-33",
-  "alpha" = "0.1.5-33",
+  "latest" = "0.1.5-34",
+  "alpha" = "0.1.5-34",
+  "v015_34" = "0.1.5-34",
   "v015_33" = "0.1.5-33",
   "v015_32" = "0.1.5-32",
   "v015_31" = "0.1.5-31",
@@ -122,6 +123,18 @@ export const getPackageVersion = (
 }
 
 export const MiskTabVersions: IMiskTabVersions = {
+  [MiskVersion.v015_34]: {
+    [MiskPkg.cli]: `${[MiskVersion.v015_34]}`,
+    [MiskPkg.common]: `${[MiskVersion.v015_34]}`,
+    [MiskPkg.core]: `${[MiskVersion.v015_34]}`,
+    [MiskPkg.dev]: `${[MiskVersion.v015_34]}`,
+    [MiskPkg.simpleredux]: `${[MiskVersion.v015_34]}`,
+    [MiskPkg.test]: `${[MiskVersion.v015_34]}`,
+    [MiskPkg.tslint]: `${[MiskVersion.v015_34]}`,
+    date: "2019-05-06",
+    notes:
+      "[CLI] New pin command. Auto-migrate miskTab.json with indicator for deprecated keys. [Core] Migrate to Emotion from Styled-Components for better testing."
+  },
   [MiskVersion.v015_33]: {
     [MiskPkg.cli]: `${[MiskVersion.v015_33]}`,
     [MiskPkg.common]: `${[MiskVersion.v015_33]}`,
