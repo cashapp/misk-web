@@ -8,7 +8,8 @@ import {
   IMiskTabJSON
 } from "../utils"
 export const command = "misk"
-export const desc = "multibindings to add tab to a Misk Admin Dashboard"
+export const desc =
+  "generate multibindings to configure tab with a Misk service\n"
 export const handlerFn = async (...args: any) => {
   logDebug(command, desc)
   const { dir } = parseArgs(...args)

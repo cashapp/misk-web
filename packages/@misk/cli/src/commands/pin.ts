@@ -6,7 +6,7 @@ import {
   readMiskTabJson
 } from "../utils"
 export const command = "pin <pinnedVersion>"
-export const desc = "pin version for all Misk Web dependencies"
+export const desc = "pin version for all tab Misk Web dependencies\n"
 export const positional = (yargs: any): any => {
   yargs.positional("pinnedVersion", {
     describe:
@@ -17,8 +17,8 @@ export const positional = (yargs: any): any => {
 export const handlerFn = async (...args: any) => {
   const { dir, rawArgs } = parseArgs(...args)
   const { pinnedVersion } = rawArgs[0]
-  logDebug("PIN", `pin ${pinnedVersion} for all Misk Web dependencies`)
   const miskTab = readMiskTabJson(dir)
+  logDebug("PIN", `Pin to Misk Web @ ${pinnedVersion}`)
   generateMiskTabJson(dir, { ...miskTab, version: pinnedVersion })
 }
 export const handler = async (yargs: any) => handleCommand(yargs, handlerFn)

@@ -1,6 +1,6 @@
 import { logDebug, execute, handleCommand } from "../utils"
 export const command = "new"
-export const desc = "create a new tab in the current directory"
+export const desc = "create a new tab in the current directory\n"
 export const handlerFn = async (...args: any) => {
   logDebug(command, desc)
   execute(
