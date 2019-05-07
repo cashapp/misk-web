@@ -105,14 +105,17 @@ export const execute = (cmd: string, ...args: any) => {
   }
 }
 
-export const generateMiskTabJson = (dir: string, fieldsToSet?: any) => {
-  const miskTab = fs.readJSONSync(makePath(dir, Files.miskTab))
+export const readMiskTabJson = (dir: string): IMiskTabJSON =>
+  fs.readJSONSync(makePath(dir, Files.miskTab))
+
+export const generateMiskTabJson = (dir: string, newMiskTab?: IMiskTabJSON) => {
+  const miskTab = readMiskTabJson(dir)
   fs.writeJsonSync(
     makePath(dir, Files.miskTab),
     {
       ...defaultMiskTabJson,
       ...miskTab,
-      ...fieldsToSet
+      ...newMiskTab
     },
     JsonOptions
   )
