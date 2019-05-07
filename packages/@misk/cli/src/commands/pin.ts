@@ -2,7 +2,8 @@ import {
   logDebug,
   generateMiskTabJson,
   handleCommand,
-  parseArgs
+  parseArgs,
+  readMiskTabJson
 } from "../utils"
 export const command = "pin <pinnedVersion>"
 export const desc = "pin version for all Misk Web dependencies"
@@ -17,6 +18,7 @@ export const handlerFn = async (...args: any) => {
   const { dir, rawArgs } = parseArgs(...args)
   const { pinnedVersion } = rawArgs[0]
   logDebug("PIN", `pin ${pinnedVersion} for all Misk Web dependencies`)
-  generateMiskTabJson(dir, { version: pinnedVersion })
+  const miskTab = readMiskTabJson(dir)
+  generateMiskTabJson(dir, { ...miskTab, version: pinnedVersion })
 }
 export const handler = async (yargs: any) => handleCommand(yargs, handlerFn)

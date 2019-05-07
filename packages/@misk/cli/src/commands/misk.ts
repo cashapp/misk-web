@@ -27,7 +27,13 @@ export const handlerFn = async (...args: any) => {
     install(WebTabResourceModule(
       environment = environment,
       slug = "${miskTab.slug}",
-      web_proxy_url = "http://localhost:${miskTab.port}/"
+      web_proxy_url = "http://localhost:${miskTab.port}/"${
+    miskTab.output_path === `lib/web/_tab/${miskTab.slug}`
+      ? ""
+      : `,
+      url_path_prefix = "/${miskTab.relative_path_prefix}",
+      resourcePath = "classpath:/web/${miskTab.relative_path_prefix}"`
+  }
     ))
   `
   const multibindingsMessage = `
