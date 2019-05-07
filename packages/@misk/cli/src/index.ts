@@ -13,5 +13,7 @@ yargs
   })
   .help()
   .version()
-  .usage("$0 <command> [opts]")
+  .usage(
+    "Misk Web CLI Usage: $ $0 <command> <required arg> [optional arg] [options]"
+  )
   .strict().argv

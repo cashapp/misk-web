@@ -5,19 +5,19 @@ import {
   parseArgs,
   readMiskTabJson
 } from "../utils"
-export const command = "path <pathToTab>"
+export const command = "path <URLpath>"
 export const desc =
-  "set relative URL path where tab will be served in browser. Especially useful if your tab is not part of Misk Admin Dashboard but is just a Misk Web frontend."
+  "set relative URL path where tab will be served in browser. Provides support for a non-Misk Admin Dashboard tab that is a dedicated Misk Web front end\n"
 export const positional = (yargs: any): any => {
-  yargs.positional("pathToTab", {
+  yargs.positional("URLpath", {
     describe: "set path where tab will be served in browser",
     type: "string"
   })
 }
 export const handlerFn = async (...args: any) => {
   const { dir, rawArgs } = parseArgs(...args)
-  const { pathToTab } = rawArgs[0]
-  let normalizedPath = pathToTab
+  const { URLpath } = rawArgs[0]
+  let normalizedPath = URLpath
   if (normalizedPath.startsWith("/")) {
     normalizedPath = normalizedPath.substring(1)
   }

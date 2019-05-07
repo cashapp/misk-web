@@ -1,6 +1,7 @@
 import * as fs from "fs-extra"
 import klaw from "klaw"
 import path from "path"
+const ProgressBar = require("progress")
 import { cd, exec, pwd } from "shelljs"
 import * as yargs from "yargs"
 import { MiskVersion } from "./changelog"
@@ -46,6 +47,7 @@ export const defaultMiskTabJson: IMiskTabJSON = {
 
 export enum Files {
   "gitignore" = ".gitignore",
+  "masterDependencies" = "master-dependencies.json",
   "miskTab" = "miskTab.json",
   "old" = ".old_build_files",
   "package" = "package.json",
@@ -166,15 +168,23 @@ export const handleCommand = async (
       .hide("version")
       .showHelp()
   } else if (args.each) {
+    const bar = new ProgressBar(`[EACH][:bar]`, {
+      complete: "=",
+      incomplete: " ",
+      width: 80,
+      total: 10
+    })
     const tabs: string[] = []
     klaw(".", { filter: filterFunc })
       .on("data", (item: any) => {
         if (item.stats.isFile() && item.path.includes("/miskTab.json")) {
+          if (tabs.length < 10) bar.tick(1)
           tabs.push(item.path.split("/miskTab.json")[0])
         }
       })
       .on("error", (err: Error) => console.error(err))
       .on("end", async () => {
+        bar.tick(10 - tabs.length)
         for (const tab in tabs) {
           cd(tabs[tab])
           handlerFn({ ...args, dir: tabs[tab] })
