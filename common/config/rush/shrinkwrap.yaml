@@ -1281,12 +1281,13 @@ packages:
       node: '>=0.8'
     resolution:
       integrity: sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=
-  /assert/1.4.1:
+  /assert/1.5.0:
     dependencies:
+      object-assign: 4.1.1
       util: 0.10.3
     dev: false
     resolution:
-      integrity: sha1-mZEtWRg2tab1s0XA8H7vwI/GXZE=
+      integrity: sha512-EDsgawzwoun2CZkCgtxJbv392v4nbk9XDD06zI+kQYoBM/3RBWLlEyJARDOmhAAosBjWACEkKL6S+lIZtcAubA==
   /assign-symbols/1.0.0:
     dev: false
     engines:
@@ -5635,7 +5636,7 @@ packages:
       integrity: sha1-h6kGXNs1XTGC2PlM4RGIuCXGijs=
   /node-libs-browser/2.2.0:
     dependencies:
-      assert: 1.4.1
+      assert: 1.5.0
       browserify-zlib: 0.2.0
       buffer: 4.9.1
       console-browserify: 1.1.0
@@ -9400,7 +9401,7 @@ packages:
     dev: false
     name: '@rush-temp/cli'
     resolution:
-      integrity: sha512-9S5l1/nSAR213MIMP1IJLs6jDgjQcFVh55z31Ll/RliY2Sz6ucoTPpQXo1lt7SHPfA7quu5AkzOh6MNdpVx9JA==
+      integrity: sha512-c3hcP2M+JOyr3cznhXxFsIGoOsfnLB48rpOvcL+mg8Hd+gm8x0KT7l8jTMrDdtE53fsvjARbZUIUaCziOBJxjw==
       tarball: 'file:projects/cli.tgz'
     version: 0.0.0
   'file:projects/common.tgz':
@@ -9474,7 +9475,7 @@ packages:
     dev: false
     name: '@rush-temp/common'
     resolution:
-      integrity: sha512-JKwVSr332i/LSqq0hfmY6ySeNQbw8fpnyfGVIk7J0JlyIOcHp4K0Ewu7yJx4SI2GIZkjicvAx8nAQacYvlqlkw==
+      integrity: sha512-jnhIWuyMFWg5Oq+ccQikKQvNhaW7qKXz9bdconHv1AzF4igePLl1ewFuNhNUFMshCOwdQ3fll2SCdJ6Y8vPZXA==
       tarball: 'file:projects/common.tgz'
     version: 0.0.0
   'file:projects/core.tgz':
@@ -9552,7 +9553,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-rAdWTzAuNRvOFKm+BnadfZmT2mhnPDzfjuaPeZV54M/NGTeARw2oRbzwagcUf20BcHyKGW7AskjV//bVvFXkJQ==
+      integrity: sha512-KpK6jWi3QwlShwa4A9/U0ZRIb2UwE29GCZ+8PFmtoItHAW3tLzS8cIzUSWsneercS9RHQA842XG+cG7vyvy/5Q==
       tarball: 'file:projects/core.tgz'
     version: 0.0.0
   'file:projects/dev.tgz':
@@ -9672,7 +9673,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-bAQpaDKjNyKaz4Exwq0nYiO9a1T9CIhEmL6o0OHoUtWCKjdB0l8pQkuDRB53Q6EnDmVIC5/zosIrtj1G4UGr5A==
+      integrity: sha512-rX5KCYbASzSbJLpJ5FdEH+Gw1ZqXUxmr96fVPvdDaGRStsgSmHScTmGxfqQoaQzjAkS9jkBC9EhR0vjhjLITGA==
       tarball: 'file:projects/misk-web-tab-palette-exemplar.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette.tgz':
@@ -9748,7 +9749,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette'
     resolution:
-      integrity: sha512-Zd4rZvxfGappVg2YO113pWMwVHKpm3C2Tk/wjMftf+wtM+Ca5HCZ2d+ZOpbzQwOyiNExso7mbQ08C943Ua8VDw==
+      integrity: sha512-Hty6Y+t2N6C07t/lTGxh1AIQPWmW6yQSlKrr5fr353wkuRloyB0dnFpE3n2uvNNSZXAgTbvOlzxWIVy2iTHlWA==
       tarball: 'file:projects/misk-web-tab-palette.tgz'
     version: 0.0.0
   'file:projects/simpleredux.tgz':
@@ -9820,7 +9821,7 @@ packages:
     dev: false
     name: '@rush-temp/simpleredux'
     resolution:
-      integrity: sha512-leZXEiSeOO9VUpt5jO4a6Zh/YsRXneztoFAB5pJH3zrfBectnqm2Ms/uwu8MULF3h4RLA+b1Xf0e9ECzPGAv7g==
+      integrity: sha512-E/JwGuyTSJt7NJvXZfpmMzbK4D3MQy+TNPNBdj2WzFN9KKI9O1D0qRitfa4lD7VmhnSjTq2GHigKwzOJ+G1fLg==
       tarball: 'file:projects/simpleredux.tgz'
     version: 0.0.0
   'file:projects/test.tgz':
