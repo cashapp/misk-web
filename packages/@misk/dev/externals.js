@@ -19,8 +19,6 @@ const vendorExternals = createExternals({
   "@blueprintjs/datetime": ["Blueprint", "Datetime"],
   "@blueprintjs/icons": ["Blueprint", "Icons"],
   "@blueprintjs/select": ["Blueprint", "Select"],
-  "@emotion/core": ["Emotion", "Core"],
-  "@emotion/styled": ["Emotion", "Core"],
   axios: "Axios",
   "connected-react-router": "ConnectedReactRouter",
   history: "HistoryNPM",
