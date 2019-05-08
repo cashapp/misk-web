@@ -5,7 +5,9 @@ import {
   parseArgs,
   readMiskTabJson,
   packageVersionExistsOnNPM,
-  offlineOrNotFoundMessage
+  offlineOrNotFoundMessage,
+  npmRunScript,
+  execute
 } from "../utils"
 export const command = "pin <pinnedVersion>"
 export const desc = "pin version for all tab Misk Web dependencies\n"
@@ -30,5 +32,6 @@ export const handlerFn = async (...args: any) => {
     ...miskTab,
     version: versionExistsOnNPM || pinnedVersion
   })
+  execute(npmRunScript("prebuild", true), ...args)
 }
 export const handler = async (yargs: any) => handleCommand(yargs, handlerFn)
