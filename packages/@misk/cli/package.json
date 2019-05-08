@@ -4,9 +4,9 @@
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "description": "Misk-Web CLI Build Tool",
   "author": "Square/Misk Authors (https://github.com/square/misk-web/graphs/contributors)",
-  "main": "lib/index.js",
+  "main": "lib/src/index.js",
   "bin": {
-    "miskweb": "lib/index.js"
+    "miskweb": "lib/src/index.js"
   },
   "files": [
     "lib"
@@ -14,30 +14,6 @@
   "engines": {
     "node": ">= 0.2.0",
     "yarn": "YARN NO LONGER USED - use npm instead."
-  },
-  "dependencies": {
-    "@misk/test": "0.1.5-35",
-    "dayjs": "1.8.12",
-    "fs-extra": "7.0.1",
-    "klaw": "3.0.0",
-    "lodash": "4.17.11",
-    "pkg": "4.3.7",
-    "prettier": "1.16.4",
-    "progress": "2.0.3",
-    "shelljs": "0.8.3",
-    "tslib": "1.9.3",
-    "typescript": "3.4.2",
-    "yargs": "13.2.2"
-  },
-  "devDependencies": {
-    "@misk/dev": "0.1.5-35",
-    "@misk/tslint": "0.1.5-35",
-    "@types/fs-extra": "5.0.5",
-    "@types/klaw": "3.0.0",
-    "@types/lodash": "4.14.123",
-    "@types/node": "11.13.1",
-    "@types/shelljs": "0.8.4",
-    "@types/yargs": "13.0.0"
   },
   "preferGlobal": true,
   "scripts": {
@@ -47,7 +23,7 @@
     "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
     "start": "node lib/index.js",
     "watch": "./node_modules/.bin/tsc -w",
-    "build": "npm run-script clean && npm run-script buildcli",
+    "build": "npm run-script clean && npm run-script buildcli && npm run test",
     "buildcli": "./node_modules/.bin/tsc",
     "buildrun": "npm run-script build && npm run-script start",
     "prepare": "npm run-script ci-build && npm run-script buildcli",
@@ -55,11 +31,40 @@
     "smooth-release": "smooth-release",
     "test": "jest --passWithNoTests"
   },
+  "dependencies": {
+    "@misk/test": "0.1.5-35",
+    "axios": "0.18.0",
+    "dayjs": "1.8.12",
+    "fs-extra": "7.0.1",
+    "klaw": "3.0.0",
+    "lodash": "4.17.11",
+    "pkg": "4.3.7",
+    "prettier": "1.16.4",
+    "progress": "2.0.3",
+    "root-require": "0.3.1",
+    "shelljs": "0.8.3",
+    "tslib": "1.9.3",
+    "typescript": "3.4.2",
+    "yargs": "13.2.2"
+  },
+  "devDependencies": {
+    "@misk/dev": "0.1.5-35",
+    "@types/jest": "24.0.11",
+    "jest": "24.7.1",
+    "jest-emotion": "10.0.10",
+    "jest-serializer-html": "6.0.0",
+    "react-testing-library": "6.1.2",
+    "ts-jest": "24.0.2",
+    "@misk/tslint": "0.1.5-35",
+    "@types/fs-extra": "5.0.5",
+    "@types/klaw": "3.0.0",
+    "@types/lodash": "4.14.123",
+    "@types/node": "11.13.1",
+    "@types/shelljs": "0.8.4",
+    "@types/yargs": "13.0.0"
+  },
   "jest": {
     "testEnvironment": "node",
-    "snapshotSerializers": [
-      "jest-serializer-html"
-    ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },

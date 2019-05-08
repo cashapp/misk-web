@@ -12,9 +12,8 @@ import {
   remove,
   makePath,
   parseArgs,
-  generateMiskTabJson
+  getSemVarPackageVersionOnNPM
 } from "../utils"
-import { MiskVersion } from "./changelog"
 
 const tag = "migrate"
 
@@ -22,6 +21,45 @@ const moveOldBuildFile = async (dir: string, filename: Files) => {
   if (await fs.existsSync(makePath(dir, filename))) {
     fs.move(makePath(dir, filename), makePath(dir, Files.old, filename))
   }
+}
+
+export const defaultMiskTabJson = async (
+  slug?: string
+): Promise<IMiskTabJSON> => ({
+  name: "",
+  output_path: `lib/web/_tab/${slug}`,
+  port: 4242,
+  rawGitginore: "",
+  rawPackageJson: {},
+  rawTsconfig: {},
+  rawTslint: {},
+  rawWebpackConfig: {},
+  relative_path_prefix: "",
+  slug: "",
+  useWebpackExternals: true,
+  version: await getSemVarPackageVersionOnNPM(),
+  zipOnBuild: false,
+  ___DeprecatedKeys:
+    "Any keys below this point in your miskTab.json are deprecated and can be safely removed."
+})
+
+export const readMiskTabJson = (dir: string): IMiskTabJSON =>
+  fs.readJSONSync(makePath(dir, Files.miskTab))
+
+export const generateMiskTabJson = async (
+  dir: string,
+  newMiskTab?: IMiskTabJSON
+) => {
+  const miskTab = readMiskTabJson(dir)
+  return fs.writeJsonSync(
+    makePath(dir, Files.miskTab),
+    {
+      ...(await defaultMiskTabJson(miskTab.slug)),
+      ...miskTab,
+      ...newMiskTab
+    },
+    JsonOptions
+  )
 }
 
 export const migrateBuildFiles = (...args: any) => {
@@ -65,15 +103,7 @@ export const migrateBuildFiles = (...args: any) => {
     // miskTab.json exists. Rewrite out with alphabetically sorted and up to date set of keys.
     generateMiskTabJson(dir)
   } else if (pkgMiskTab && !fs.existsSync(makePath(dir, Files.miskTab))) {
-    // TODO Add type enforcement that it is valid IMiskTabJSON
-    const normalizedMiskTab: IMiskTabJSON = {
-      output_path: `lib/web/_tab/${pkgMiskTab.slug}`,
-      port: 4242,
-      version: MiskVersion.latest,
-      zipOnBuild: false,
-      ...pkgMiskTab
-    }
-    fs.writeJson(makePath(dir, Files.miskTab), normalizedMiskTab, JsonOptions)
+    generateMiskTabJson(dir, pkgMiskTab)
     // move all build files to an .old-build-files folder
     logDebug(tag, `Stashing old build files in ${makePath(dir, Files.old)}`)
     fs.mkdirp(makePath(dir, Files.old))

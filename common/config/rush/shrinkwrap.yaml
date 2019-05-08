@@ -73,6 +73,7 @@ dependencies:
   redux: 4.0.1
   redux-saga: 0.16.2
   reselect: 4.0.0
+  root-require: 0.3.1
   sass-loader: 7.1.0
   shelljs: 0.8.3
   skeleton-css: 2.0.4
@@ -578,7 +579,7 @@ packages:
       '@jest/types': 24.8.0
       chalk: 2.4.2
       exit: 0.1.2
-      glob: 7.1.3
+      glob: 7.1.4
       istanbul-lib-coverage: 2.0.5
       istanbul-lib-instrument: 3.3.0
       istanbul-lib-report: 2.0.8
@@ -822,13 +823,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-N/+Ua6kSrehJ5vpu4b2tAG4NjMcXQPlStnkUzjNlPokae97sUDtj096WlgN3ApefCvggPjJPP5iutyZ5dKBNPQ==
-  /@types/react-native/0.57.51:
+  /@types/react-native/0.57.53:
     dependencies:
       '@types/prop-types': 15.7.1
       '@types/react': 16.8.13
     dev: false
     resolution:
-      integrity: sha512-0LkXPeV1Hn+5zZ0BE6RBrBJTpM2P4S+306H9lKdi220PHFwMtHt1k8SiQpqUA2yjpi+c6pFIq6H2zZGusPHT9w==
+      integrity: sha512-dBcehLQmES4gQxZAd4XifbaQA9cTtFIjDsIcYRIy2SG6aoQsqQjZmC2a/Nv2orvG8qR9pLgoO3GlJS2/lj5jAA==
   /@types/react-redux/7.0.6:
     dependencies:
       '@types/hoist-non-react-statics': 3.3.1
@@ -873,7 +874,7 @@ packages:
   /@types/styled-components/4.1.13:
     dependencies:
       '@types/react': 16.8.13
-      '@types/react-native': 0.57.51
+      '@types/react-native': 0.57.53
       csstype: 2.6.4
     dev: false
     resolution:
@@ -1647,9 +1648,9 @@ packages:
       integrity: sha512-Z942RysHXmJrhqk88FmKBVq/v5tqmSkDz7p54G/MGyjMnCFFnC79XWNbg+Vta8W6Wb2qtSZTSxIGkJrRpCFEiA==
   /browserslist/4.5.6:
     dependencies:
-      caniuse-lite: 1.0.30000966
-      electron-to-chromium: 1.3.131
-      node-releases: 1.1.17
+      caniuse-lite: 1.0.30000967
+      electron-to-chromium: 1.3.133
+      node-releases: 1.1.18
     dev: false
     hasBin: true
     resolution:
@@ -1715,7 +1716,7 @@ packages:
       bluebird: 3.5.4
       chownr: 1.1.1
       figgy-pudding: 3.5.1
-      glob: 7.1.3
+      glob: 7.1.4
       graceful-fs: 4.1.15
       lru-cache: 5.1.1
       mississippi: 3.0.0
@@ -1803,16 +1804,16 @@ packages:
   /caniuse-api/3.0.0:
     dependencies:
       browserslist: 4.5.6
-      caniuse-lite: 1.0.30000966
+      caniuse-lite: 1.0.30000967
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
     dev: false
     resolution:
       integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==
-  /caniuse-lite/1.0.30000966:
+  /caniuse-lite/1.0.30000967:
     dev: false
     resolution:
-      integrity: sha512-qqLQ/uYrpZmFhPY96VuBkMEo8NhVFBZ9y/Bh+KnvGzGJ5I8hvpIaWlF2pw5gqe4PLAL+ZjsPgMOvoXSpX21Keg==
+      integrity: sha512-rUBIbap+VJfxTzrM4akJ00lkvVb5/n5v3EGXfWzSH5zT8aJmGzjA8HWhJ4U6kCpzxozUSnB+yvAYDRPY6mRpgQ==
   /capture-exit/2.0.0:
     dependencies:
       rsvp: 4.8.4
@@ -2417,14 +2418,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-dSpYaDVoWaELjvZ3mS6IKZM/y2PMPa/XYoEfYNZePL4U/XgyxZNroHEHReDx/d+VgXh9VbCTtFqLkFbmeqeaRQ==
-  /css-to-react-native/2.3.0:
+  /css-to-react-native/2.3.1:
     dependencies:
       camelize: 1.0.0
       css-color-keywords: 1.0.0
       postcss-value-parser: 3.3.1
     dev: false
     resolution:
-      integrity: sha512-IhR7bNIrCFwbJbKZOAjNDZdwpsbjTN6f1agXeELHDqg1wHPA8c2QLruttKOW7hgMGetkfraRJCIEMrptifBfVw==
+      integrity: sha512-yO+oEx1Lf+hDKasqQRVrAvzMCz825Huh1VMlEEDlRWyAhFb/FWb6I0KpEF1PkyKQ7NEdcx9d5M2ZEWgJAsgPvQ==
   /css-tree/1.0.0-alpha.28:
     dependencies:
       mdn-data: 1.1.4
@@ -2917,10 +2918,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-0xy4A/twfrRCnkhfk8ErDi5DqdAsAqeGxht4xkCUrsvhhbQNs7E+4jV0CN7+NKIY0aHE72+XvqtBIXzD31ZbXQ==
-  /electron-to-chromium/1.3.131:
+  /electron-to-chromium/1.3.133:
     dev: false
     resolution:
-      integrity: sha512-NSO4jLeyGLWrT4mzzfYX8vt1MYCoMI5LxSYAjt0H9+LF/14JyiKJSyyjA6AJTxflZlEM5v3QU33F0ohbPMCAPg==
+      integrity: sha512-lyoC8aoqbbDqsprb6aPdt9n3DpOZZzdz/T4IZKsR0/dkZIxnJVUjjcpOSwA66jPRIOyDAamCTAUqweU05kKNSg==
   /elliptic/6.4.1:
     dependencies:
       bn.js: 4.11.8
@@ -3602,7 +3603,7 @@ packages:
     dev: false
     resolution:
       integrity: sha1-jFoUlNIGbFcMw7/kSWF1rMTVAqs=
-  /glob/7.1.3:
+  /glob/7.1.4:
     dependencies:
       fs.realpath: 1.0.0
       inflight: 1.0.6
@@ -3612,7 +3613,7 @@ packages:
       path-is-absolute: 1.0.1
     dev: false
     resolution:
-      integrity: sha512-vcfuiIxogLV4DlGBHIUOwI0IbrJ8HWPc4MU7HzviGeNho/UJDfi6B5p3sHeWIQ0KGIU0Jpxi5ZHxemQfLkkAwQ==
+      integrity: sha512-hkLPepehmnKk41pUGm3sYxoFs/umurYfYJCerbXEyFIWcAzvpipAgVkBqqT9RBKMGjnq6kMuyYwha6csxbiM1A==
   /global-modules/1.0.0:
     dependencies:
       global-prefix: 1.0.2
@@ -3651,7 +3652,7 @@ packages:
   /globby/6.1.0:
     dependencies:
       array-union: 1.0.2
-      glob: 7.1.3
+      glob: 7.1.4
       object-assign: 4.1.1
       pify: 2.3.0
       pinkie-promise: 2.0.1
@@ -3664,7 +3665,7 @@ packages:
     dependencies:
       array-union: 1.0.2
       dir-glob: 2.2.2
-      glob: 7.1.3
+      glob: 7.1.4
       ignore: 3.3.10
       pify: 3.0.0
       slash: 1.0.0
@@ -3678,7 +3679,7 @@ packages:
       array-union: 1.0.2
       dir-glob: 2.0.0
       fast-glob: 2.2.6
-      glob: 7.1.3
+      glob: 7.1.4
       ignore: 3.3.10
       pify: 3.0.0
       slash: 1.0.0
@@ -4604,7 +4605,7 @@ packages:
       '@jest/types': 24.8.0
       babel-jest: /babel-jest/24.8.0/@babel!core@7.4.4
       chalk: 2.4.2
-      glob: 7.1.3
+      glob: 7.1.4
       jest-environment-jsdom: 24.8.0
       jest-environment-node: 24.8.0
       jest-get-type: 24.8.0
@@ -4853,7 +4854,7 @@ packages:
       '@types/yargs': 12.0.12
       chalk: 2.4.2
       exit: 0.1.2
-      glob: 7.1.3
+      glob: 7.1.4
       graceful-fs: 4.1.15
       jest-config: 24.8.0
       jest-haste-map: 24.8.0
@@ -5676,12 +5677,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-SUDEb+o71XR5lXSTyivXd9J7fCloE3SyP4lSgt3lU2oSANiox+SxlNRGPjDKrwU1YN3ix2KN/VGGCg0t01rttQ==
-  /node-releases/1.1.17:
+  /node-releases/1.1.18:
     dependencies:
       semver: 5.7.0
     dev: false
     resolution:
-      integrity: sha512-/SCjetyta1m7YXLgtACZGDYJdCSIBAWorDWkGCGZlydP2Ll7J48l7j/JxNYZ+xsgSPbWfdulVS/aY+GdjUsQ7Q==
+      integrity: sha512-/mnVgm6u/8OwlIsoyRXtTI0RfQcxZoAZbdwyXap0EeWwcOpDDymyCHM2/aR9XKmHXrvizHoPAOs0pcbiJ6RUaA==
   /normalize-package-data/2.5.0:
     dependencies:
       hosted-git-info: 2.7.1
@@ -5964,6 +5965,10 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==
+  /packpath/0.1.0:
+    dev: false
+    resolution:
+      integrity: sha1-pSFTQiLf6qnGEu8MZA7DmRSezdg=
   /pako/1.0.10:
     dev: false
     resolution:
@@ -7366,7 +7371,7 @@ packages:
       integrity: sha1-QzdOLiyglosO8VI0YLfXMP8i7rM=
   /rimraf/2.6.3:
     dependencies:
-      glob: 7.1.3
+      glob: 7.1.4
     dev: false
     hasBin: true
     resolution:
@@ -7378,6 +7383,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-ii4iagi25WusVoiC4B4lq7pbXfAp3D9v5CwfkY33vffw2+pkDjY1D8GaN7spsxvCSx8dkPqOZCEZyfxcmJG2IA==
+  /root-require/0.3.1:
+    dependencies:
+      packpath: 0.1.0
+    dev: false
+    resolution:
+      integrity: sha1-leFVTWPMhpoqvePjv8m7qqHtrNM=
   /rsvp/4.8.4:
     dev: false
     engines:
@@ -7624,7 +7635,7 @@ packages:
       integrity: sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM=
   /shelljs/0.8.3:
     dependencies:
-      glob: 7.1.3
+      glob: 7.1.4
       interpret: 1.2.0
       rechoir: 0.6.2
     dev: false
@@ -8027,7 +8038,7 @@ packages:
       '@emotion/is-prop-valid': 0.7.3
       '@emotion/unitless': 0.7.3
       babel-plugin-styled-components: 1.10.0
-      css-to-react-native: 2.3.0
+      css-to-react-native: 2.3.1
       memoize-one: 5.0.4
       prop-types: 15.7.2
       react-is: 16.8.6
@@ -8047,7 +8058,7 @@ packages:
       '@emotion/is-prop-valid': 0.7.3
       '@emotion/unitless': 0.7.3
       babel-plugin-styled-components: /babel-plugin-styled-components/1.10.0/styled-components@4.2.0
-      css-to-react-native: 2.3.0
+      css-to-react-native: 2.3.1
       memoize-one: 5.0.4
       prop-types: 15.7.2
       react: 16.8.6
@@ -8177,7 +8188,7 @@ packages:
       integrity: sha512-/FQzzPJmCpjAH9Xvk2paiWrFq+5M6aVOf+2KRbwhByISDX/EujxsK+BAvrhb6H+2rtrLCHK9N01wO014vrIwVQ==
   /test-exclude/5.2.3:
     dependencies:
-      glob: 7.1.3
+      glob: 7.1.4
       minimatch: 3.0.4
       read-pkg-up: 4.0.0
       require-main-filename: 2.0.0
@@ -8540,7 +8551,7 @@ packages:
       chalk: 2.4.2
       commander: 2.20.0
       diff: 3.5.0
-      glob: 7.1.3
+      glob: 7.1.4
       js-yaml: 3.13.1
       minimatch: 3.0.4
       mkdirp: 0.5.1
@@ -8563,7 +8574,7 @@ packages:
       chalk: 2.4.2
       commander: 2.20.0
       diff: 3.5.0
-      glob: 7.1.3
+      glob: 7.1.4
       js-yaml: 3.13.1
       minimatch: 3.0.4
       mkdirp: 0.5.1
@@ -9362,26 +9373,34 @@ packages:
   'file:projects/cli.tgz':
     dependencies:
       '@types/fs-extra': 5.0.5
+      '@types/jest': 24.0.11
       '@types/klaw': 3.0.0
       '@types/lodash': 4.14.123
       '@types/node': 11.13.1
       '@types/shelljs': 0.8.4
       '@types/yargs': 13.0.0
+      axios: 0.18.0
       dayjs: 1.8.12
       fs-extra: 7.0.1
+      jest: 24.7.1
+      jest-emotion: 10.0.10
+      jest-serializer-html: 6.0.0
       klaw: 3.0.0
       lodash: 4.17.11
       pkg: 4.3.7
       prettier: 1.16.4
       progress: 2.0.3
+      react-testing-library: 6.1.2
+      root-require: 0.3.1
       shelljs: 0.8.3
+      ts-jest: /ts-jest/24.0.2/jest@24.7.1
       tslib: 1.9.3
       typescript: 3.4.2
       yargs: 13.2.2
     dev: false
     name: '@rush-temp/cli'
     resolution:
-      integrity: sha512-VoygGJIKp6t6ZXG6t31vtHuU8ExYhVWCxV+thqbgS8mLg3FD5uLKF0gNzSjumvrQetvVmGYcjSKKqEQ1Le83rg==
+      integrity: sha512-9S5l1/nSAR213MIMP1IJLs6jDgjQcFVh55z31Ll/RliY2Sz6ucoTPpQXo1lt7SHPfA7quu5AkzOh6MNdpVx9JA==
       tarball: 'file:projects/cli.tgz'
     version: 0.0.0
   'file:projects/common.tgz':
@@ -9917,6 +9936,7 @@ specifiers:
   redux: 4.0.1
   redux-saga: 0.16.2
   reselect: 4.0.0
+  root-require: 0.3.1
   sass-loader: 7.1.0
   shelljs: 0.8.3
   skeleton-css: 2.0.4
