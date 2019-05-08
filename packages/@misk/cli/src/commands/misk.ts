@@ -1,11 +1,9 @@
-import * as fs from "fs-extra"
 import {
   logDebug,
   handleCommand,
   parseArgs,
-  makePath,
-  Files,
-  IMiskTabJSON
+  IMiskTabJSON,
+  readMiskTabJson
 } from "../utils"
 export const command = "misk"
 export const desc =
@@ -13,7 +11,7 @@ export const desc =
 export const handlerFn = async (...args: any) => {
   logDebug(command, desc)
   const { dir } = parseArgs(...args)
-  const miskTab: IMiskTabJSON = fs.readJSONSync(makePath(dir, Files.miskTab))
+  const miskTab: IMiskTabJSON = readMiskTabJson(dir)
   const dashboardTabBinding = `
     multibind<DashboardTab, AdminDashboardTab>().toInstance(DashboardTab(
       name = "${miskTab.name}",

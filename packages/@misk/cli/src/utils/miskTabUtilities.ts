@@ -43,8 +43,19 @@ export const defaultMiskTabJson = async (
     "Any keys below this point in your miskTab.json are deprecated and can be safely removed."
 })
 
-export const readMiskTabJson = (dir: string): IMiskTabJSON =>
-  fs.readJSONSync(makePath(dir, Files.miskTab))
+export const readMiskTabJson = (dir: string): IMiskTabJSON => {
+  try {
+    return fs.readJSONSync(makePath(dir, Files.miskTab))
+  } catch (e) {
+    console.log(
+      `[FATAL] Failed to read ${dir}/${
+        Files.miskTab
+      }. Try this command in a tab directory.\n\n`,
+      e
+    )
+    return process.exit()
+  }
+}
 
 export const generateMiskTabJson = async (
   dir: string,
