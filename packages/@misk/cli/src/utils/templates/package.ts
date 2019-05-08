@@ -1,13 +1,8 @@
 import { testPackageJson, testPackageScript } from "@misk/test"
 import reduce from "lodash/reduce"
-import {
-  getVersion as parseMiskVersion,
-  IMiskTabJSON,
-  logFormatter,
-  Files
-} from "../../utils"
+import { IMiskTabJSON, Files, getSemVarPackageVersionOnNPM } from "../../utils"
 import { generatedByCLI, prettier } from "../templates"
-import { getPackageVersion, MiskPkg, MiskVersion } from "../changelog"
+import { MiskPkg } from "../../utils"
 
 const header = {
   license: "SEE LICENSE IN https://github.com/square/misk-web",
@@ -62,63 +57,56 @@ const scripts = (miskTab: IMiskTabJSON) => ({
   }
 })
 
-const createMiskPackageJson = (
+const createMiskPackageJson = async (
   packages: MiskPkg[],
   miskTab: IMiskTabJSON
-): { [pkg in MiskPkg]?: string } =>
-  reduce(
-    packages,
-    (packageJson: { [pkg in MiskPkg]?: string }, pkg: MiskPkg) => {
-      const pkgVersion = getPackageVersion(pkg, miskTab.version)
-      if (pkgVersion) {
-        return { ...packageJson, [pkg]: pkgVersion }
-      } else {
-        console.error(
-          logFormatter(
-            "prebuild][error",
-            `Failed to find package ${pkg}@${
-              miskTab.version
-            }.\n\tTry updating your version in miskTab.json to latest: ${
-              MiskVersion.latest
-            }.`
-          )
-        )
-        return packageJson
-      }
-    },
+): Promise<{ [pkg in MiskPkg]?: string }> => {
+  const pkgVersions = await Promise.all(
+    packages.map(pkg => getSemVarPackageVersionOnNPM(miskTab.version, pkg))
+  )
+  const pkgVersionMap = packages.map((pkg: string, index: number) => ({
+    [pkg]: pkgVersions[index]
+  }))
+  return reduce(
+    pkgVersionMap,
+    (pj: { [pkg in MiskPkg]?: string }, pkg: { [key: string]: string }) => ({
+      ...pj,
+      ...pkg
+    }),
     {}
   )
+}
 
-const dependencies = (miskTab: IMiskTabJSON, pkg: any) => ({
+const dependencies = async (miskTab: IMiskTabJSON, pkg: any) => ({
   dependencies: {
     ...pkg.dependencies,
-    ...createMiskPackageJson(
+    ...(await createMiskPackageJson(
       [MiskPkg.common, MiskPkg.core, MiskPkg.simpleredux],
       miskTab
-    )
+    ))
   }
 })
 
-const devDependencies = (miskTab: IMiskTabJSON, pkg: any) => ({
+const devDependencies = async (miskTab: IMiskTabJSON, pkg: any) => ({
   devDependencies: {
     ...pkg.devDependencies,
-    ...createMiskPackageJson(
+    ...(await createMiskPackageJson(
       [MiskPkg.dev, MiskPkg.test, MiskPkg.tslint],
       miskTab
-    )
+    ))
   }
 })
 
-export const createPackage = (miskTab: IMiskTabJSON, pkg: any) => ({
+export const createPackage = async (miskTab: IMiskTabJSON, pkg: any) => ({
   name: `misk-web-tab-${miskTab.slug}`,
   version:
     pkg.version && pkg.version.length > 0
       ? pkg.version
-      : parseMiskVersion(miskTab.version),
+      : await getSemVarPackageVersionOnNPM(miskTab.version),
   ...header,
   ...scripts(miskTab),
-  ...dependencies(miskTab, pkg),
-  ...devDependencies(miskTab, pkg),
+  ...(await dependencies(miskTab, pkg)),
+  ...(await devDependencies(miskTab, pkg)),
   ...testPackageJson,
   ...prettier,
   ...miskTab.rawPackageJson,

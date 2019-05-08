@@ -5,7 +5,8 @@ import {
   JsonOptions,
   logDebug,
   makePath,
-  parseArgs
+  parseArgs,
+  getSemVarPackageVersionOnNPM
 } from "../utils"
 import {
   createPackage,
@@ -15,7 +16,6 @@ import {
   tslint as createTslint,
   webpack
 } from "./templates"
-import { getVersion } from "./changelog"
 
 const tag = "generate"
 
@@ -29,7 +29,6 @@ export const generateBuildFiles = async (...args: any) => {
   const miskTab: IMiskTabJSON = await fs.readJsonSync(
     makePath(dir, Files.miskTab)
   )
-  // TODO (adrw) validate miskTab, add missing fields, sort keys
 
   // Write out fresh files
   await [
@@ -45,7 +44,7 @@ export const generateBuildFiles = async (...args: any) => {
     ),
     fs.writeJson(
       makePath(dir, Files.package),
-      createPackage(miskTab, pkg),
+      await createPackage(miskTab, pkg),
       JsonOptions
     ),
     fs.writeFile(makePath(dir, Files.gitignore), createGitignore(miskTab)),
@@ -57,7 +56,7 @@ export const generateBuildFiles = async (...args: any) => {
   fs.writeFile(makePath(dir, Files.tslint), generatedByCLI, { flag: "a" })
   logDebug(
     tag,
-    `Up to date build files generated using Misk Web @ v${getVersion(
+    `Up to date build files generated using Misk Web @ ${await getSemVarPackageVersionOnNPM(
       miskTab.version
     )}`,
     dir

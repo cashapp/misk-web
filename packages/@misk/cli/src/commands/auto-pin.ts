@@ -6,7 +6,9 @@ import {
   makePath,
   readMiskTabJson,
   generateMiskTabJson,
-  Files
+  Files,
+  packageVersionExistsOnNPM,
+  offlineOrNotFoundMessage
 } from "../utils"
 export const command = "auto-pin [filename]"
 export const desc =
@@ -33,10 +35,24 @@ export const handlerFn = async (...args: any) => {
     const masterDeps = fs.readJSONSync(masterDepsPath)
     if ("miskWebNPM" in masterDeps) {
       const miskTab = readMiskTabJson(dir)
-      logDebug(
-        "AUTO-PIN",
-        `Pin to Misk Web @ ${masterDeps.miskWebNPM} from ${masterDepsPath}`
+      const versionExistsOnNPM = await packageVersionExistsOnNPM(
+        masterDeps.miskWebNPM
       )
+      if (versionExistsOnNPM) {
+        logDebug(
+          "AUTO-PIN",
+          `Pin to Misk Web @ ${masterDeps.miskWebNPM} from ${masterDepsPath}`
+        )
+      } else {
+        logDebug(
+          "AUTO-PIN",
+          offlineOrNotFoundMessage(
+            "Pin to",
+            masterDeps.miskWebNPM,
+            ` from ${masterDepsPath}.`
+          )
+        )
+      }
       generateMiskTabJson(dir, { ...miskTab, version: masterDeps.miskWebNPM })
     } else {
       logDebug(
