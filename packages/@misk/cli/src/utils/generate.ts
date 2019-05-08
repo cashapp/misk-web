@@ -16,6 +16,7 @@ import {
   tslint as createTslint,
   webpack
 } from "./templates"
+import { readMiskTabJson } from "./miskTabUtilities"
 
 const tag = "generate"
 
@@ -26,9 +27,7 @@ export const generateBuildFiles = async (...args: any) => {
   if (fs.existsSync(makePath(dir, Files.package))) {
     pkg = fs.readJsonSync(makePath(dir, Files.package))
   }
-  const miskTab: IMiskTabJSON = await fs.readJsonSync(
-    makePath(dir, Files.miskTab)
-  )
+  const miskTab: IMiskTabJSON = readMiskTabJson(dir)
 
   // Write out fresh files
   await [

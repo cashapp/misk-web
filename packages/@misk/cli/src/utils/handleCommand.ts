@@ -4,7 +4,11 @@ const ProgressBar = require("progress")
 import { cd } from "shelljs"
 import * as yargs from "yargs"
 const { version: packageVersion } = require("root-require")("package.json")
-import { packageVersionExistsOnNPM, logDebug, execute } from "../utils"
+import {
+  packageVersionExistsOnNPM,
+  logDebug as formattedLog,
+  execute
+} from "../utils"
 import { PackageVersionStatus } from "./resolveNpmVersion"
 
 /**
@@ -31,6 +35,14 @@ export const handleCommand = async (
   handlerFn: (...args: any) => void,
   blockedOptions: string[] = []
 ) => {
+  const { node: nodeVersion } = process.versions
+  if (parseInt(nodeVersion.split(".")[0]) !== 10) {
+    formattedLog(
+      "Warn",
+      `Node version is ${nodeVersion}. Recommended is 10 LTS (10 <= 10 LTS < 11).`,
+      "Node"
+    )
+  }
   const latestOnlineVersion = await packageVersionExistsOnNPM()
   if (
     packageVersion !== latestOnlineVersion &&
@@ -88,7 +100,7 @@ export const handleCommand = async (
     packageVersion !== latestOnlineVersion &&
     latestOnlineVersion !== PackageVersionStatus.OFFLINE
   ) {
-    logDebug(
+    formattedLog(
       "Auto-Update",
       `updating miskweb CLI from ${packageVersion} to ${latestOnlineVersion ||
         "latest"}`,
