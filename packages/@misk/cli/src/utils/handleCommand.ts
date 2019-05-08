@@ -25,6 +25,22 @@ const filterFunc = (item: string) => {
   )
 }
 
+export const autoUpdate = async () => {
+  const latestOnlineVersion = await packageVersionExistsOnNPM()
+  if (
+    packageVersion !== latestOnlineVersion &&
+    latestOnlineVersion !== PackageVersionStatus.OFFLINE
+  ) {
+    formattedLog(
+      "Auto-Update",
+      `updating miskweb CLI from ${packageVersion} to ${latestOnlineVersion ||
+        "latest"}`,
+      "NPM"
+    )
+    execute("npm install -g @misk/cli")
+  }
+}
+
 export const handleCommand = async (
   args: {
     _: string[]
@@ -95,17 +111,5 @@ export const handleCommand = async (
       })
   } else {
     handlerFn(args)
-  }
-  if (
-    packageVersion !== latestOnlineVersion &&
-    latestOnlineVersion !== PackageVersionStatus.OFFLINE
-  ) {
-    formattedLog(
-      "Auto-Update",
-      `updating miskweb CLI from ${packageVersion} to ${latestOnlineVersion ||
-        "latest"}`,
-      "NPM"
-    )
-    execute("npm install -g @misk/cli", args)
   }
 }
