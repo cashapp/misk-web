@@ -8,7 +8,9 @@ import {
   generateMiskTabJson,
   Files,
   packageVersionExistsOnNPM,
-  offlineOrNotFoundMessage
+  offlineOrNotFoundMessage,
+  npmRunScript,
+  execute
 } from "../utils"
 export const command = "auto-pin [filename]"
 export const desc =
@@ -54,6 +56,7 @@ export const handlerFn = async (...args: any) => {
         )
       }
       generateMiskTabJson(dir, { ...miskTab, version: masterDeps.miskWebNPM })
+      execute(npmRunScript("prebuild", true), ...args)
     } else {
       logDebug(
         "AUTO-PIN",
