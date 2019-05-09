@@ -1,4 +1,5 @@
-import * as React from "react"
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core"
 import { LinkProps } from "react-router-dom"
 import { MiskLink, MiskNavbarHeading } from "../Navbar"
 
@@ -15,7 +16,7 @@ export interface IHomeLinkProps {
 }
 
 const MiskLinkHome = (props: LinkProps) => (
-  <MiskLink css={{ minWidth: "fit-content" }} {...props} />
+  <MiskLink css={css({ minWidth: "fit-content" })} {...props} />
 )
 
 export const HomeLink = (props: IHomeLinkProps) => {
