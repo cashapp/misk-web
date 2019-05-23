@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Callout, ICalloutProps } from "@blueprintjs/core"
-import { jsx } from "@emotion/core"
+import { css, jsx } from "@emotion/core"
 import styled from "@emotion/styled"
 
 /**
@@ -16,7 +16,7 @@ export interface IErrorCalloutProps {
 }
 
 const ErrorCallout = (props: ICalloutProps) => (
-  <Callout css={{ margin: "20px 0" }} {...props} />
+  <Callout css={css({ margin: "20px 0" })} {...props} />
 )
 
 const RawError = styled.pre`
