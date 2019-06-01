@@ -18,34 +18,7 @@ Misk-Web is still bleeding edge and may have breaking changes up until version `
 - [![npm](https://img.shields.io/npm/v/@misk/tslint.svg?label=@misk/tslint)](https://www.npmjs.com/package/@misk/tslint) &ndash; Standard TSLint configuration and rules
 - [![npm](https://img.shields.io/npm/v/@misk/components.svg?label=@misk/components)](https://www.npmjs.com/package/@misk/components) &ndash; Deprecated, migrated to `@misk/core`
 
-## Misk-Web-Plugin
-
-Gradle plugin to build Misk-Web tabs included inside Kotlin / Java projects.
-
-Get usage instructions at [Gradle M2 Repository](https://plugins.gradle.org/plugin/com.squareup.misk-web-plugin).
-
-## [Getting Started](HOWTO.md): Build a new Tab
-
-Install the Misk-Web CLI. You may need to edit your `~/.npmrc` and comment out any custom `registry` configurations.
-
-```Bash
-$ npm install -g @misk/cli
-$ miskweb -h
-```
-
-Use the Misk-Web CLI to create a new tab. If it's in a Misk service, that should be in `{service name}/web/tabs/{new tab}` where `web` is at the same level as your Kotlin `src` directory.
-
-```Bash
-$ miskweb new
-```
-
-or
-
-```Bash
-$ curl -s https://raw.githubusercontent.com/square/misk-web/master/new-tab/get-new-tab.sh | bash -s && ./new-tab.sh
-```
-
-Read more instructions in [HOWTO](HOWTO.md)
+## [Getting Started](HOWTO.md)
 
 ## More
 
