@@ -1,4 +1,30 @@
-# How to make a New Misk Tab
+# Getting Started 101
+
+- `$ npm install -g @misk/cli`: Install the CLI
+- `$ mkdir -p service/web/tabs`: Create a `tabs` directory for new Misk Web tabs. For a Misk service, this will be `service/web/tabs`
+- `$ miskweb new`: In the tabs directory, start the new tab flow
+- `$ ./new-tab.sh`: The `new` command downloads a Bash script that does the work to create a new tab. It will prompt for your tab name in different cases.
+- `$ cd {new-tab-name}`: Enter your tab's directory
+- `$ miskweb ci-build`: Do a clean install, lint, build, and test of your new tab
+- `$ miskweb misk`: Wire up your tab with your Misk service with the instructions and generated multibindings and Gradle configuration provided by the `misk` command
+- `$ miskweb start`: Reboot your locally running Misk service and use the `start` command to start a local dev server for your tab. It will by default run on port 3150 (but can be changed in `miskTab.json`) and must correspond to the port in the `WebTabResourceModule` Guice binding in the Misk service.
+
+All together this looks something like this (assuming starting in the root directory for a Misk service):
+
+```
+$ npm install -g @misk/cli
+$ mkdir -p service/web/tabs
+$ miskweb new
+$ ./new-tab.sh
+$ cd {new-tab-name}
+$ miskweb ci-build
+$ miskweb misk
+$ miskweb start
+```
+
+# Advanced Instructions and Understanding Below (Optional)
+
+## How to make a New Misk Tab
 
 - For this guide, the following tab properties are used for example
   - name: T-Rex Food Log
