@@ -122,6 +122,26 @@ DinoService.kt
     return modules
   }
 --------------------------------------------------------------------------------
+
+service/build.gradle
+===
+You'll need to add your tabs to the build.gradle main.resources so that they are wrapped up in your service jar. Add the Gradle stanza below.
+
+--------------------------------------------------------------------------------
+service/build.gradle (Groovy)
+--------------------------------------------------------------------------------
+sourceSets {
+  main.java.srcDirs += 'src/main/kotlin/'
+  test.java.srcDirs += 'src/test/kotlin/'
+  main.resources {
+    srcDirs += [
+            'web/tabs/${miskTab.slug}/lib'
+    ]
+    exclude '**/node_modules'
+  }
+}
+--------------------------------------------------------------------------------
+
   Done!
   Boot your service and your tab will be at:
 
