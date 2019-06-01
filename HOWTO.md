@@ -1,6 +1,6 @@
 # Getting Started 101
 
-- `$ npm install -g @misk/cli`: Install the CLI
+- `$ npm install -g @misk/cli`: Install the CLI. You may need to edit your `~/.npmrc` and comment out any custom `registry` configurations.
 - `$ mkdir -p service/web/tabs`: Create a `tabs` directory for new Misk Web tabs. For a Misk service, this will be `service/web/tabs`
 - `$ miskweb new`: In the tabs directory, start the new tab flow
 - `$ ./new-tab.sh`: The `new` command downloads a Bash script that does the work to create a new tab. It will prompt for your tab name in different cases.
