@@ -1,4 +1,10 @@
 {
   "extends": ["config:base"],
-  "automerge": true
+  "automerge": true,
+  "includePaths": [
+    "common/**",
+    "examples/services/**",
+    "examples/tabs/**",
+    "packages/@misk/**"
+  ]
 }
