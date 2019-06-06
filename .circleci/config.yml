@@ -14,7 +14,7 @@ jobs:
           command: node common/scripts/install-run-rush.js check
       - run:
           name: Installing...
-          command: node common/scripts/install-run-rush.js install
+          command: node common/scripts/install-run-rush.js update
       - run:
           name: Building...
           command: node common/scripts/install-run-rush.js rebuild --verbose
