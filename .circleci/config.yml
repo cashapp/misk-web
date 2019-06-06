@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  node:
+  nodeInstall:
     working_directory: ~/misk-web
     docker:
       - image: circleci/node:10.15
@@ -15,6 +15,24 @@ jobs:
       - run:
           name: Installing...
           command: node common/scripts/install-run-rush.js install
+      - run:
+          name: Building...
+          command: node common/scripts/install-run-rush.js rebuild --verbose
+  nodeUpdate:
+    working_directory: ~/misk-web
+    docker:
+      - image: circleci/node:10.15
+    steps:
+      - checkout
+      - run:
+          name: Misk-Web Prebuild...
+          command: sudo npm install -g @misk/cli && miskweb prebuild -e
+      - run:
+          name: Checking for inconsistent dependency versions
+          command: node common/scripts/install-run-rush.js check
+      - run:
+          name: Updating...
+          command: node common/scripts/install-run-rush.js update
       - run:
           name: Building...
           command: node common/scripts/install-run-rush.js rebuild --verbose
