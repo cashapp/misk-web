@@ -6,12 +6,6 @@ jobs:
       - image: circleci/node:10.15
     steps:
       - checkout
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - dependencies-{{ checksum "common/config/shrinkwrap.yaml" }}
-            # fallback to using the latest cache if no exact match is found
-            - dependencies-
       - run:
           name: Misk-Web Prebuild...
           command: sudo npm install -g @misk/cli && miskweb prebuild -e
@@ -21,10 +15,6 @@ jobs:
       - run:
           name: Installing...
           command: node common/scripts/install-run-rush.js install
-      - save_cache:
-          paths:
-            - common/temp
-          key: dependencies-{{ checksum "common/config/shrinkwrap.yaml" }}
       - run:
           name: Building...
           command: node common/scripts/install-run-rush.js rebuild --verbose
