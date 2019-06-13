@@ -10,9 +10,6 @@ const header = {
 }
 
 const scripts = (miskTab: IMiskTabJSON) => ({
-  engines: {
-    yarn: "YARN NO LONGER USED - use npm instead."
-  },
   scripts: {
     build: `npm run-script lib && npm run-script test ${
       miskTab.zipOnBuild ? "&& npm run-script zip" : ""
