@@ -3,9 +3,6 @@
   "version": "0.1.5-11",
   "license": "SEE LICENSE IN https://github.com/square/misk-web",
   "main": "src/index.tsx",
-  "engines": {
-    "yarn": "YARN NO LONGER USED - use npm instead."
-  },
   "scripts": {
     "build": "npm run-script lib && npm run-script test && npm run-script zip",
     "ci-build": "npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib && npm run-script test && npm run-script zip",
