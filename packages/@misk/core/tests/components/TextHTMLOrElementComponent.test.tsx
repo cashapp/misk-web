@@ -27,7 +27,7 @@ describe("components", () => {
   it("TextHTMLOrElementComponent can render string HTML", () => {
     const { asFragment } = render(
       <TextHTMLOrElementComponent>
-        {'<a href="http://squareup.com/">String HTML Link</a>'}
+        {'<a href="http://cash.app/">String HTML Link</a>'}
       </TextHTMLOrElementComponent>
     )
     expect(asFragment()).toMatchSnapshot()

@@ -74,7 +74,7 @@ $ miskweb start
   or
 
   ```Bash
-  $ curl -s https://raw.githubusercontent.com/square/misk-web/master/new-tab/get-new-tab.sh | bash -s && ./new-tab.sh
+  $ curl -s https://raw.githubusercontent.com/cashapp/misk-web/master/new-tab/get-new-tab.sh | bash -s && ./new-tab.sh
   ```
 
 - The new tab script will help initialize a tab prompting for the name of your new tab.
@@ -204,8 +204,8 @@ To confirm that your tab is shipping in the jar, you can run the following comma
 
 ## Visual Studio Code
 
-Extensions: [`@misk/dev/vscode.extensions.js`](https://raw.githubusercontent.com/square/misk-web/master/packages/%40misk/dev/vscode.extensions.js)
-Settings: [`@misk/dev/vscode.settings.js`](https://raw.githubusercontent.com/square/misk-web/master/packages/%40misk/dev/vscode.settings.js)
+Extensions: [`@misk/dev/vscode.extensions.js`](https://raw.githubusercontent.com/cashapp/misk-web/master/packages/%40misk/dev/vscode.extensions.js)
+Settings: [`@misk/dev/vscode.settings.js`](https://raw.githubusercontent.com/cashapp/misk-web/master/packages/%40misk/dev/vscode.settings.js)
 
 Add settings by copying the JSON from the file into `.vscode/settings.json` in your Tab repo.
 

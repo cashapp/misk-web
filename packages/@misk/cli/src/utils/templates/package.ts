@@ -5,7 +5,7 @@ import { generatedByCLI, prettier } from "../templates"
 import { MiskPkg } from "../../utils"
 
 const header = {
-  license: "SEE LICENSE IN https://github.com/square/misk-web",
+  license: "SEE LICENSE IN https://github.com/cashapp/misk-web",
   main: "src/index.tsx"
 }
 

@@ -1,10 +1,10 @@
-<img src="https://raw.githubusercontent.com/square/misk/master/misk.png" width="300">
+<img src="https://raw.githubusercontent.com/cashapp/misk/master/misk.png" width="300">
 
-[![CircleCI](https://circleci.com/gh/square/misk-web.svg?style=svg)](https://circleci.com/gh/square/misk-web)
+[![CircleCI](https://circleci.com/gh/cashapp/misk-web.svg?style=svg)](https://circleci.com/gh/cashapp/misk-web)
 
-[Misk](https://github.com/square/misk) is a new open source application container from Square.
+[Misk](https://github.com/cashapp/misk) is a new open source application container from Square.
 
-**Misk-Web** is a new micro-frontends Typescript + React web framework from Square. It happens to work seamlessly with [Misk](https://github.com/square/misk) but is also a robust stand alone web framework.
+**Misk-Web** is a new micro-frontends Typescript + React web framework from Square. It happens to work seamlessly with [Misk](https://github.com/cashapp/misk) but is also a robust stand alone web framework.
 
 Misk-Web is still bleeding edge and may have breaking changes up until version `1.0.0`.
 
@@ -28,7 +28,7 @@ Misk-Web is still bleeding edge and may have breaking changes up until version `
 
   1. Fork into your personal Github account
   1. Clone repo from your fork
-  1. Add square as a remote with `git remote add square git@github.com:square/misk-web.git`
-  1. Pull any new changes with `git pull square master`
+  1. Add cashapp as a remote with `git remote add cashapp git@github.com:cashapp/misk-web.git`
+  1. Pull any new changes with `git pull cashapp master`
   1. Push any new changes to a new branch in your personal fork
-  1. Open PR from personal fork -> square/master
+  1. Open PR from personal fork -> cashapp/master

@@ -11,13 +11,13 @@ OLD_SLUG_CASE="palette-exemplar"
 # 1. Download .zip of palette src code from github
 echo "Downloading fresh Palette Exemplar tab"
 rm ./palette-exemplar.tgz
-curl -sL0 https://github.com/square/misk-web/raw/master/examples/tabs/palette-exemplar/palette-exemplar.tgz -o palette-exemplar.tgz
+curl -sL0 https://github.com/cashapp/misk-web/raw/master/examples/tabs/palette-exemplar/palette-exemplar.tgz -o palette-exemplar.tgz
 
 # 1. Prompt for new name in formats: `foo-bar`, `fooBar`, `FooBar`
 echo "Misk-Web: New Tab"
 echo "A new tab will be created in $(pwd)/{new-tab}. If this is not right the directory, re-run this command in the correct directory."
 echo "You will now be guided through the steps to create a new tab based on the exemplar Palette tab"
-echo "Palette Exemplar Tab: https://github.com/square/misk-web/tree/master/examples/tabs/palette-exemplar"
+echo "Palette Exemplar Tab: https://github.com/cashapp/misk-web/tree/master/examples/tabs/palette-exemplar"
 echo ""
 echo "New Tab Name"
 echo "You'll now be asked how you want your tab name written in different formats (ALLCAPCASE, TitleCase, Title With Space Case, camelCase, slug-case)."

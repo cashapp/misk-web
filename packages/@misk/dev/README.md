@@ -1,6 +1,6 @@
 ## Misk Dev
 
-![](https://raw.githubusercontent.com/square/misk/master/misk.png)
+![](https://raw.githubusercontent.com/cashapp/misk/master/misk.png)
 This package provides shared devDependencies and compiler options used to provide a common development environment across Misk tab repos. For Typescript linting, see [@misk/tslint](https://www.npmjs.com/package/@misk/tslint).
 
 ## Getting Started
@@ -110,6 +110,6 @@ Note that the `output_path` must match the `outDir` specified in the repo's `tsc
 
 Included Libraries: Look at `package.json`
 
-## [Releasing](https://github.com/square/misk-web/blob/master/RELEASING.md)
+## [Releasing](https://github.com/cashapp/misk-web/blob/master/RELEASING.md)
 
-## [Changelog (and Breaking Changes)](https://github.com/square/misk-web/blob/master/CHANGELOG.md)
+## [Changelog (and Breaking Changes)](https://github.com/cashapp/misk-web/blob/master/CHANGELOG.md)

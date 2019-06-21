@@ -3,7 +3,7 @@ import * as React from "react"
 import { SampleTableComponent } from "../components"
 
 const shortUrlsUrl =
-  "https://square.github.io/misk-web/examples/data/demo/shortUrls.json"
+  "https://cashapp.github.io/misk-web/examples/data/demo/shortUrls.json"
 
 class TabContainer extends React.PureComponent<any> {
   state = {

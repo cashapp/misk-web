@@ -2,13 +2,13 @@
 
 ## Data Sets
 
-- [`adminDashboardTabs`](https://square.github.io/misk-web/examples/data/demo/adminDashboardTabs.json): Misk bound admin dashboard tabs
-- [`cars`](https://square.github.io/misk-web/examples/data/demo/cars.json): 1000 cars with quantities, prices, locations
-- [`config`](https://square.github.io/misk-web/examples/data/demo/config.json): Misk service config
-- [`dinos`](https://square.github.io/misk-web/examples/data/demo/dinos.json): 1000 dinosaurs
-- [`serviceMetadata`](https://square.github.io/misk-web/examples/data/demo/serviceMetadata.json): Misk service metadata
-- [`shortUrls`](https://square.github.io/misk-web/examples/data/demo/shortUrls.json): Shortened urls
-- [`webActions`](https://square.github.io/misk-web/examples/data/demo/webActions.json): Misk bound web actions
+- [`adminDashboardTabs`](https://cashapp.github.io/misk-web/examples/data/demo/adminDashboardTabs.json): Misk bound admin dashboard tabs
+- [`cars`](https://cashapp.github.io/misk-web/examples/data/demo/cars.json): 1000 cars with quantities, prices, locations
+- [`config`](https://cashapp.github.io/misk-web/examples/data/demo/config.json): Misk service config
+- [`dinos`](https://cashapp.github.io/misk-web/examples/data/demo/dinos.json): 1000 dinosaurs
+- [`serviceMetadata`](https://cashapp.github.io/misk-web/examples/data/demo/serviceMetadata.json): Misk service metadata
+- [`shortUrls`](https://cashapp.github.io/misk-web/examples/data/demo/shortUrls.json): Shortened urls
+- [`webActions`](https://cashapp.github.io/misk-web/examples/data/demo/webActions.json): Misk bound web actions
 
 ## Getting Started
 
