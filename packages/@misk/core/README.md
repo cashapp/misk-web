@@ -1,6 +1,6 @@
 ## Misk Core
 
-![](https://raw.githubusercontent.com/square/misk/master/misk.png)
+![](https://raw.githubusercontent.com/cashapp/misk/master/misk.png)
 This package provides shared, styled React components, Redux helper functions, and Typescript utilities across Misk tab repos. The top of each component/container file contains a usage example.
 
 ## Getting Started
@@ -47,6 +47,6 @@ $ yarn add @misk/core
 - `environment`: various utilities helpful in environment (color, default visibilities...)
 - `network`: wrapped functions around Axios requests to allow simplified syntax that with `async await` returns an object of `{ data, error }`.
 
-## [Releasing](https://github.com/square/misk-web/blob/master/RELEASING.md)
+## [Releasing](https://github.com/cashapp/misk-web/blob/master/RELEASING.md)
 
-## [Changelog (and Breaking Changes)](https://github.com/square/misk-web/blob/master/CHANGELOG.md)
+## [Changelog (and Breaking Changes)](https://github.com/cashapp/misk-web/blob/master/CHANGELOG.md)

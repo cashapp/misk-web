@@ -11,8 +11,8 @@ dependencies {
 }
 
 pluginBundle {
-  website = "https://github.com/square/misk-web"
-  vcsUrl = "https://github.com/square/misk-web"
+  website = "https://github.com/cashapp/misk-web"
+  vcsUrl = "https://github.com/cashapp/misk-web"
   tags = listOf("misk", "misk-web")
 }
 

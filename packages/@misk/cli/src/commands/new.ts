@@ -4,7 +4,7 @@ export const desc = "create a new tab in the current directory\n"
 export const handlerFn = async (...args: any) => {
   logDebug(command, desc)
   execute(
-    "curl -s https://raw.githubusercontent.com/square/misk-web/master/new-tab/get-new-tab.sh | bash -s",
+    "curl -s https://raw.githubusercontent.com/cashapp/misk-web/master/new-tab/get-new-tab.sh | bash -s",
     ...args
   )
   logDebug(

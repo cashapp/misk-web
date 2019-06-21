@@ -3,7 +3,7 @@ import * as React from "react"
 /**
  * <TextHTMLOrElementComponent>{<div>item</div>}</TextHTMLOrElementComponent>
  * <TextHTMLOrElementComponent>{"Test"} </TextHTMLOrElementComponent>
- * <TextHTMLOrElementComponent>{'<a href="http://squareup.com/">Test</a>'} </TextHTMLOrElementComponent>
+ * <TextHTMLOrElementComponent>{'<a href="http://cash.app/">Test</a>'} </TextHTMLOrElementComponent>
  *
  * Renders passed in text, HTML-parseable string, or React element.
  */

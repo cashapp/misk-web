@@ -20,9 +20,9 @@ const TabContainer = styled(ResponsiveContainer)`
 `
 
 const adminDashboardTabsUrl =
-  "https://square.github.io/misk-web/examples/data/demo/adminDashboardTabs.json"
+  "https://cashapp.github.io/misk-web/examples/data/demo/adminDashboardTabs.json"
 const serviceMetadataUrl =
-  "https://square.github.io/misk-web/examples/data/demo/serviceMetadata.json"
+  "https://cashapp.github.io/misk-web/examples/data/demo/serviceMetadata.json"
 
 class LoaderContainer extends React.Component<ILoaderProps> {
   state = {

@@ -1,6 +1,6 @@
 ## Misk TsLint
 
-![](https://raw.githubusercontent.com/square/misk/master/misk.png)
+![](https://raw.githubusercontent.com/cashapp/misk/master/misk.png)
 This package provides shared TsLint linting across Misk tab repos.
 
 ## Getting Started
@@ -35,6 +35,6 @@ From `package.json`:
   tslint-sonarts
 ```
 
-## [Releasing](https://github.com/square/misk-web/blob/master/RELEASING.md)
+## [Releasing](https://github.com/cashapp/misk-web/blob/master/RELEASING.md)
 
-## [Changelog (and Breaking Changes)](https://github.com/square/misk-web/blob/master/CHANGELOG.md)
+## [Changelog (and Breaking Changes)](https://github.com/cashapp/misk-web/blob/master/CHANGELOG.md)

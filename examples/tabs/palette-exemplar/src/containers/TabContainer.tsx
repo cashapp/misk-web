@@ -13,7 +13,7 @@ import {
 class TabContainer extends React.Component<IState & IDispatchProps, IState> {
   private tableTag = "Cars"
   private tableUrl =
-    "https://square.github.io/misk-web/examples/data/demo/cars.json"
+    "https://cashapp.github.io/misk-web/examples/data/demo/cars.json"
 
   componentDidMount() {
     this.props.simpleNetworkGet(this.tableTag, this.tableUrl)
