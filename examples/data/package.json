@@ -7,7 +7,7 @@
     "start": "node dist/index.js",
     "watch": "./node_modules/.bin/tsc -w",
     "buildonly": "./node_modules/.bin/tsc",
-    "build": "npm run-script buildonly && npm run-script start",
+    "build": "npm run-script buildonly && npm run-script start; echo 0",
     "ci-build": "npm install && npm run-script build",
     "clean": "rm -rf demo dist",
     "test": "echo 'no tests'",
@@ -15,14 +15,14 @@
     "prepare": "npm run-script build"
   },
   "dependencies": {
-    "@misk/core": "0.1.5",
+    "@misk/core": "0.1.6",
     "fs-extra": "8.0.1"
   },
   "devDependencies": {
-    "@misk/dev": "0.1.5",
+    "@misk/dev": "0.1.6",
     "@types/fs-extra": "7.0.0",
-    "@misk/tslint": "0.1.5",
-    "@types/node": "10.12.18",
+    "@misk/tslint": "0.1.6",
+    "@types/node": "11.13.1",
     "@types/prop-types": "15.7.1",
     "@types/react": "16.8.21",
     "prettier": "1.18.2",

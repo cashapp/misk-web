@@ -1,4 +1,5 @@
-import { IAction, IDashboardTab, IDefaultState, IServiceMetadata } from "@misk/common";
+import { IDashboardTab, IServiceMetadata } from "@misk/core";
+import { IAction, IRootState } from "@misk/simpleredux";
 import { AllEffect } from "redux-saga/effects";
 export declare enum LOADER {
     FAILURE = "LOADER_FAILURE",
@@ -34,7 +35,7 @@ export declare const dispatchLoader: {
  * @param state
  * @param action
  */
-export interface ILoaderState extends IDefaultState {
+export interface ILoaderState extends IRootState {
     adminTabComponents: {
         [tab: string]: string;
     };

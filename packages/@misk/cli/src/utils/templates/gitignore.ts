@@ -11,8 +11,6 @@ npm-debug.log*
 coverage
 node_modules
 .npm
-package-lock.json
-yarn.lock
 build
 dist
 lib
