@@ -81,7 +81,7 @@ class LoaderContainer extends React.Component<ILoaderProps> {
 }
 
 const mapStateToProps = (state: IState) => ({
-  loader: state.loader.toJS(),
+  loader: state.loader,
   router: state.router
 })
 

@@ -1,12 +1,8 @@
-import {
-  IDashboardTab,
-  IServiceMetadata
-} from "@misk/core"
+import { IDashboardTab, IServiceMetadata } from "@misk/core"
 import {
   createAction,
   defaultState,
   IAction,
-  IDefaultState,
   IRootState
 } from "@misk/simpleredux"
 import axios from "axios"
