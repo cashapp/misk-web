@@ -18,7 +18,7 @@ export const handlerFn = async (...args: any) => {
       slug = "${miskTab.slug}",
       url_path_prefix = "/_admin/${miskTab.slug}/",
       category = "{add menu category to group the tab}",
-      roles = setOf("optional list", "of authenticated roles",
+      capabilities = setOf("optional list", "of authenticated capabilities",
         "who can see the tab")
     ))
   `
