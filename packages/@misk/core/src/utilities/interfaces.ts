@@ -6,7 +6,7 @@
 export interface IWebTab {
   slug: string
   url_path_prefix: string
-  roles?: string[]
+  capabilities?: string[]
   services?: string[]
 }
 
