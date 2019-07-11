@@ -46,10 +46,11 @@ Commands:
 
   miskweb start                start Webpack Dev Server for live editing
 
-  miskweb test-coverage        generate test coverage report with `jest --
-                               --coverage`
+  miskweb tabs                 prints path of all downstream tabs
 
-  miskweb test-update          update test snapshots with `jest -- -u`
+  miskweb test-coverage        generate test coverage report
+
+  miskweb test-update          update test snapshots
 
   miskweb test                 run tests
 

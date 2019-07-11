@@ -34,7 +34,7 @@ export const autoUpdate = async () => {
     formattedLog(
       "Auto-Update",
       `updating miskweb CLI from ${packageVersion} to ${latestOnlineVersion ||
-        "latest"}`,
+      "latest"}`,
       "NPM"
     )
     execute("npm install -g @misk/cli")
@@ -47,10 +47,12 @@ export const handleCommand = async (
     e: boolean
     each: boolean
     $0: string
+    hideProgress: boolean
   },
   handlerFn: (...args: any) => void,
   blockedOptions: string[] = []
 ) => {
+  // Node version check
   const { node: nodeVersion } = process.versions
   if (parseInt(nodeVersion.split(".")[0]) !== 10) {
     formattedLog(
@@ -60,21 +62,27 @@ export const handleCommand = async (
     )
   }
   const latestOnlineVersion = await packageVersionExistsOnNPM()
+
+  // CLI version check
   if (
     packageVersion !== latestOnlineVersion &&
     latestOnlineVersion !== PackageVersionStatus.OFFLINE
   ) {
     console.log(
       `[ALERT] Upgrade miskweb CLI from ${packageVersion} to ${latestOnlineVersion ||
-        "latest"} with '$ miskweb update'`
+      "latest"} with '$ miskweb update'`
     )
   }
+
+  // Blocked options (ie. not allowing -e on miskweb start)
   let invalidOptions: string[] = []
   blockedOptions.map((opt: string) => {
     if (opt in args) {
       invalidOptions.push(opt)
     }
   })
+
+  // Execute command
   if (invalidOptions.length > 0) {
     console.error(
       `Invalid use of ${invalidOptions.map(
@@ -87,29 +95,35 @@ export const handleCommand = async (
       .hide("version")
       .showHelp()
   } else if (args.each) {
-    const bar = new ProgressBar(`[EACH][:bar]`, {
-      complete: "=",
-      incomplete: " ",
-      width: 80,
-      total: 10
-    })
+    // Find all downstream tabs and execute command in that tab directory
+    let bar: any = null
+    if (!args.hideProgress) {
+      bar = new ProgressBar(`[EACH][:bar]`, {
+        complete: "=",
+        incomplete: " ",
+        width: 80,
+        total: 10
+      })
+    }
+
     const tabs: string[] = []
     klaw(".", { filter: filterFunc })
       .on("data", (item: any) => {
         if (item.stats.isFile() && item.path.includes("/miskTab.json")) {
-          if (tabs.length < 10) bar.tick(1)
+          if (!args.hideProgress && tabs.length < 10) bar.tick(1)
           tabs.push(item.path.split("/miskTab.json")[0])
         }
       })
       .on("error", (err: Error) => console.error(err))
       .on("end", async () => {
-        bar.tick(10 - tabs.length)
+        if (!args.hideProgress) bar.tick(10 - tabs.length)
         for (const tab in tabs) {
           cd(tabs[tab])
           handlerFn({ ...args, dir: tabs[tab] })
         }
       })
   } else {
+    // Execute command in current directory
     handlerFn(args)
   }
 }
