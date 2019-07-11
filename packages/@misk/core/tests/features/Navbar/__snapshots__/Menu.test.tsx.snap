@@ -40,10 +40,6 @@ exports[`Navbar Menu Menu can render 1`] = `
   }
 }
 
-.emotion-3 {
-  display: inline-block;
-}
-
 .emotion-4 {
   margin: 0 auto;
 }
@@ -64,6 +60,10 @@ exports[`Navbar Menu Menu can render 1`] = `
   .emotion-4 {
     width: 1170px;
   }
+}
+
+.emotion-3 {
+  display: inline-block;
 }
 
 .emotion-2 {
@@ -192,14 +192,6 @@ exports[`Navbar Menu Menu can render with error 1`] = `
   }
 }
 
-.emotion-3 {
-  display: inline-block;
-}
-
-.emotion-5 {
-  margin: 20px 0;
-}
-
 .emotion-6 {
   margin: 0 auto;
 }
@@ -220,6 +212,10 @@ exports[`Navbar Menu Menu can render with error 1`] = `
   .emotion-6 {
     width: 1170px;
   }
+}
+
+.emotion-3 {
+  display: inline-block;
 }
 
 .emotion-2 {
@@ -243,6 +239,10 @@ exports[`Navbar Menu Menu can render with error 1`] = `
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.emotion-5 {
+  margin: 20px 0;
 }
 
 .emotion-4 {
@@ -390,47 +390,6 @@ exports[`Navbar Menu Menu can render with links 1`] = `
   }
 }
 
-.emotion-3 {
-  display: inline-block;
-}
-
-.emotion-4 {
-  font-size: 24px;
-  color: #7a7e82;
-  -webkit-letter-spacing: 0px;
-  -moz-letter-spacing: 0px;
-  -ms-letter-spacing: 0px;
-  letter-spacing: 0px;
-  display: block;
-}
-
-.emotion-5 {
-  border-color: #7a7e82;
-  margin: 5px 0 10px 0;
-}
-
-.emotion-9 {
-  padding-bottom: 35px;
-}
-
-.emotion-6 {
-  color: #7a7e82;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  -webkit-flex-basis: 300px;
-  -ms-flex-preferred-size: 300px;
-  flex-basis: 300px;
-  padding: 5px 0;
-  color: #cecece;
-}
-
-.emotion-6:hover {
-  color: white;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 .emotion-11 {
   margin: 0 auto;
 }
@@ -451,6 +410,10 @@ exports[`Navbar Menu Menu can render with links 1`] = `
   .emotion-11 {
     width: 1170px;
   }
+}
+
+.emotion-3 {
+  display: inline-block;
 }
 
 .emotion-2 {
@@ -474,6 +437,63 @@ exports[`Navbar Menu Menu can render with links 1`] = `
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.emotion-4 {
+  font-size: 24px;
+  color: #7a7e82;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  display: block;
+}
+
+.emotion-5 {
+  border-color: #7a7e82;
+  margin: 5px 0 10px 0;
+}
+
+.emotion-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-bottom: 35px;
+}
+
+.emotion-10 * {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emotion-6 {
+  color: #7a7e82;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  -webkit-flex-basis: 300px;
+  -ms-flex-preferred-size: 300px;
+  flex-basis: 300px;
+  padding: 5px 0;
+  color: #cecece;
+}
+
+.emotion-6:hover {
+  color: white;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 <div>
@@ -537,13 +557,19 @@ exports[`Navbar Menu Menu can render with links 1`] = `
                   class="emotion-5"
                 />
                 <div
-                  class="emotion-9 emotion-2"
+                  class="emotion-10"
                 >
                   <a
                     class="emotion-6"
                     href="/first-tab/"
                   >
                     First Tab
+                  </a>
+                  <a
+                    class="emotion-6"
+                    href="https://github.com/cashapp/misk-web"
+                  >
+                    Misk Web Repo
                   </a>
                   <a
                     class="emotion-6"
@@ -608,47 +634,6 @@ exports[`Navbar Menu Menu can render with links and rendered navbar items 1`] = 
   }
 }
 
-.emotion-3 {
-  display: inline-block;
-}
-
-.emotion-4 {
-  font-size: 24px;
-  color: #7a7e82;
-  -webkit-letter-spacing: 0px;
-  -moz-letter-spacing: 0px;
-  -ms-letter-spacing: 0px;
-  letter-spacing: 0px;
-  display: block;
-}
-
-.emotion-5 {
-  border-color: #7a7e82;
-  margin: 5px 0 10px 0;
-}
-
-.emotion-9 {
-  padding-bottom: 35px;
-}
-
-.emotion-6 {
-  color: #7a7e82;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  -webkit-flex-basis: 300px;
-  -ms-flex-preferred-size: 300px;
-  flex-basis: 300px;
-  padding: 5px 0;
-  color: #cecece;
-}
-
-.emotion-6:hover {
-  color: white;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 .emotion-11 {
   margin: 0 auto;
 }
@@ -669,6 +654,10 @@ exports[`Navbar Menu Menu can render with links and rendered navbar items 1`] = 
   .emotion-11 {
     width: 1170px;
   }
+}
+
+.emotion-3 {
+  display: inline-block;
 }
 
 .emotion-2 {
@@ -692,6 +681,63 @@ exports[`Navbar Menu Menu can render with links and rendered navbar items 1`] = 
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.emotion-4 {
+  font-size: 24px;
+  color: #7a7e82;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  display: block;
+}
+
+.emotion-5 {
+  border-color: #7a7e82;
+  margin: 5px 0 10px 0;
+}
+
+.emotion-10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-bottom: 35px;
+}
+
+.emotion-10 * {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emotion-6 {
+  color: #7a7e82;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  -webkit-flex-basis: 300px;
+  -ms-flex-preferred-size: 300px;
+  flex-basis: 300px;
+  padding: 5px 0;
+  color: #cecece;
+}
+
+.emotion-6:hover {
+  color: white;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 <div>
@@ -766,13 +812,19 @@ exports[`Navbar Menu Menu can render with links and rendered navbar items 1`] = 
                   class="emotion-5"
                 />
                 <div
-                  class="emotion-9 emotion-2"
+                  class="emotion-10"
                 >
                   <a
                     class="emotion-6"
                     href="/first-tab/"
                   >
                     First Tab
+                  </a>
+                  <a
+                    class="emotion-6"
+                    href="https://github.com/cashapp/misk-web"
+                  >
+                    Misk Web Repo
                   </a>
                   <a
                     class="emotion-6"
@@ -837,10 +889,6 @@ exports[`Navbar Menu Menu can render with rendered navbar items 1`] = `
   }
 }
 
-.emotion-3 {
-  display: inline-block;
-}
-
 .emotion-4 {
   margin: 0 auto;
 }
@@ -861,6 +909,10 @@ exports[`Navbar Menu Menu can render with rendered navbar items 1`] = `
   .emotion-4 {
     width: 1170px;
   }
+}
+
+.emotion-3 {
+  display: inline-block;
 }
 
 .emotion-2 {

@@ -50,16 +50,15 @@ export const MiskNavbarHeadingEnvironment = (
   />
 )
 
+export const cssMiskLink = css`
+  color: ${color.gray};
+  text-decoration: none;
+  &:hover {
+    color: ${color.white};
+    text-decoration: none;
+  }
+`
+
 export const MiskLink = (props: LinkProps) => (
-  <Link
-    css={css`
-      color: ${color.gray};
-      text-decoration: none;
-      &:hover {
-        color: ${color.white};
-        text-decoration: none;
-      }
-    `}
-    {...props}
-  />
+  <Link css={cssMiskLink} {...props} />
 )

@@ -34,5 +34,10 @@ export const adminDashboardTabs: IDashboardTab[] = [
     name: "Palette",
     slug: "palette",
     url_path_prefix: "/palette/"
+  },
+  {
+    name: "Misk Web Repo",
+    slug: "misk-web-repo",
+    url_path_prefix: "https://github.com/cashapp/misk-web"
   }
 ]
