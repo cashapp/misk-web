@@ -9,6 +9,28 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar can render 1`] = `
   position: fixed !important;
 }
 
+.emotion-2 {
+  margin: 0 auto;
+}
+
+@media (min-width:768px) {
+  .emotion-2 {
+    width: 750px;
+  }
+}
+
+@media (min-width:992px) {
+  .emotion-2 {
+    width: 970px;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-2 {
+    width: 1170px;
+  }
+}
+
 .emotion-1 {
   font-size: 13px !important;
   font-weight: 600 !important;
@@ -40,6 +62,38 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar can render 1`] = `
   .emotion-1 {
     padding-left: 60px;
   }
+}
+
+.emotion-0 {
+  font-size: 24px !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+.emotion-0 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0 a:hover {
+  color: white !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-4 {
@@ -82,60 +136,6 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar can render 1`] = `
 
 .emotion-6 {
   display: inline-block;
-}
-
-.emotion-2 {
-  margin: 0 auto;
-}
-
-@media (min-width:768px) {
-  .emotion-2 {
-    width: 750px;
-  }
-}
-
-@media (min-width:992px) {
-  .emotion-2 {
-    width: 970px;
-  }
-}
-
-@media (min-width:1200px) {
-  .emotion-2 {
-    width: 1170px;
-  }
-}
-
-.emotion-0 {
-  font-size: 24px !important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  -webkit-letter-spacing: 0px;
-  -moz-letter-spacing: 0px;
-  -ms-letter-spacing: 0px;
-  letter-spacing: 0px;
-  margin-right: 30px;
-  color: #cecece;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-}
-
-.emotion-0 a {
-  color: #cecece !important;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-0 a:hover {
-  color: white !important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
 }
 
 .emotion-5 {
@@ -248,7 +248,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar can render 1`] = `
 
 exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`] = `
 <DocumentFragment>
-  .emotion-17 {
+  .emotion-15 {
   background-color: #29333a !important;
   padding-top: 10px !important;
   padding-bottom: 60px !important;
@@ -256,6 +256,28 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
 }
 
 .emotion-3 {
+  margin: 0 auto;
+}
+
+@media (min-width:768px) {
+  .emotion-3 {
+    width: 750px;
+  }
+}
+
+@media (min-width:992px) {
+  .emotion-3 {
+    width: 970px;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-3 {
+    width: 1170px;
+  }
+}
+
+.emotion-2 {
   font-size: 13px !important;
   font-weight: 600 !important;
   position: relative;
@@ -264,96 +286,27 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   color: #7a7e82;
 }
 
-.emotion-3:hover {
+.emotion-2:hover {
   color: white;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 @media (max-width:870px) {
-  .emotion-3 {
+  .emotion-2 {
     padding-left: 60px;
   }
 }
 
 @media (min-width:992px) and (max-width:1085px) {
-  .emotion-3 {
+  .emotion-2 {
     padding-left: 60px;
   }
 }
 
 @media (min-width:1200px) and (max-width:1285px) {
-  .emotion-3 {
+  .emotion-2 {
     padding-left: 60px;
-  }
-}
-
-.emotion-6 {
-  background-color: #29333a !important;
-  box-shadow: none !important;
-  background-image: none !important;
-  top: 15px;
-  left: 15px;
-  position: absolute;
-  z-index: 1020;
-}
-
-.emotion-5 {
-  color: #7a7e82 !important;
-}
-
-.emotion-5:hover {
-  color: white;
-}
-
-.emotion-13 {
-  color: white;
-  background-color: #29333a;
-  display: block;
-  margin: 60px -20px 0 -20px;
-}
-
-.emotion-12 {
-  min-height: 250px;
-  padding: 50px 0px;
-  overflow-y: scroll;
-  max-height: 100vh;
-}
-
-@media (max-width:768px) {
-  .emotion-12 {
-    padding: 50px 20px;
-  }
-}
-
-.emotion-10 {
-  display: inline-block;
-}
-
-.emotion-1 {
-  color: #49a4d5 !important;
-  min-width: 0;
-}
-
-.emotion-4 {
-  margin: 0 auto;
-}
-
-@media (min-width:768px) {
-  .emotion-4 {
-    width: 750px;
-  }
-}
-
-@media (min-width:992px) {
-  .emotion-4 {
-    width: 970px;
-  }
-}
-
-@media (min-width:1200px) {
-  .emotion-4 {
-    width: 1170px;
   }
 }
 
@@ -389,7 +342,49 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   text-decoration: none;
 }
 
-.emotion-9 {
+.emotion-5 {
+  background-color: #29333a !important;
+  box-shadow: none !important;
+  background-image: none !important;
+  top: 15px;
+  left: 15px;
+  position: absolute;
+  z-index: 1020;
+}
+
+.emotion-4 {
+  color: #7a7e82 !important;
+}
+
+.emotion-4:hover {
+  color: white;
+}
+
+.emotion-11 {
+  color: white;
+  background-color: #29333a;
+  display: block;
+  margin: 60px -20px 0 -20px;
+}
+
+.emotion-10 {
+  min-height: 250px;
+  padding: 50px 0px;
+  overflow-y: scroll;
+  max-height: 100vh;
+}
+
+@media (max-width:768px) {
+  .emotion-10 {
+    padding: 50px 20px;
+  }
+}
+
+.emotion-8 {
+  display: inline-block;
+}
+
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -402,7 +397,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   flex-wrap: wrap;
 }
 
-.emotion-9 * {
+.emotion-7 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -412,7 +407,41 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   white-space: nowrap;
 }
 
-.emotion-16 {
+.emotion-1 {
+  font-size: 24px !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  color: #49a4d5 !important;
+  min-width: 0;
+}
+
+.emotion-1 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-1 a:hover {
+  color: white !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-14 {
   background-color: #49a4d5 !important;
   color: #eceef1 !important;
   text-align: center;
@@ -425,7 +454,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   z-index: 1010 !important;
 }
 
-.emotion-16 a {
+.emotion-14 a {
   font-weight: 300;
   color: #eceef1;
   -webkit-text-decoration: underline;
@@ -436,20 +465,20 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   letter-spacing: 1px;
 }
 
-.emotion-16 a:hover {
+.emotion-14 a:hover {
   color: white;
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 <div
-    class="bp3-navbar emotion-17"
+    class="bp3-navbar emotion-15"
   >
     <div
-      class="emotion-4"
+      class="emotion-3"
     >
       <div
-        class="bp3-navbar-group bp3-align-left bp3-dark emotion-3"
+        class="bp3-navbar-group bp3-align-left bp3-dark emotion-2"
       >
         <span
           class="emotion-0"
@@ -457,7 +486,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
           Misk
         </span>
         <span
-          class="emotion-1 emotion-0"
+          class="emotion-1"
           color="#49a4d5"
         >
           DEVELOPMENT
@@ -466,14 +495,14 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
     </div>
     <div>
       <button
-        class="bp3-button emotion-6"
+        class="bp3-button emotion-5"
         type="button"
       >
         <span
           class="bp3-button-text"
         >
           <span
-            class="bp3-icon bp3-icon-menu emotion-5"
+            class="bp3-icon bp3-icon-menu emotion-4"
             icon="menu"
           >
             <svg
@@ -494,7 +523,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
         </span>
       </button>
       <div
-        class="emotion-13"
+        class="emotion-11"
       >
         <div
           class="bp3-collapse"
@@ -505,20 +534,20 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
             style="transform: translateY(-0px);"
           >
             <div
-              class="emotion-12"
+              class="emotion-10"
             >
               <div
-                class="emotion-4"
+                class="emotion-3"
               >
                 <div
-                  class="emotion-10"
+                  class="emotion-8"
                 >
                   <div
-                    class="emotion-9"
+                    class="emotion-7"
                   >
                     <span>
                       <span
-                        class="emotion-1 emotion-0"
+                        class="emotion-1"
                         color="#49a4d5"
                       >
                         DEVELOPMENT
@@ -537,14 +566,14 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
       </div>
     </div>
     <span
-      class="emotion-16"
+      class="emotion-14"
       color="#49a4d5"
     >
       <div
-        class="emotion-4"
+        class="emotion-3"
       >
         <div
-          class="emotion-9"
+          class="emotion-7"
         >
           <span />
         </div>
@@ -556,7 +585,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
 
 exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`] = `
 <DocumentFragment>
-  .emotion-17 {
+  .emotion-15 {
   background-color: #29333a !important;
   padding-top: 10px !important;
   padding-bottom: 60px !important;
@@ -564,6 +593,28 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
 }
 
 .emotion-3 {
+  margin: 0 auto;
+}
+
+@media (min-width:768px) {
+  .emotion-3 {
+    width: 750px;
+  }
+}
+
+@media (min-width:992px) {
+  .emotion-3 {
+    width: 970px;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-3 {
+    width: 1170px;
+  }
+}
+
+.emotion-2 {
   font-size: 13px !important;
   font-weight: 600 !important;
   position: relative;
@@ -572,96 +623,27 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
   color: #7a7e82;
 }
 
-.emotion-3:hover {
+.emotion-2:hover {
   color: white;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 @media (max-width:870px) {
-  .emotion-3 {
+  .emotion-2 {
     padding-left: 60px;
   }
 }
 
 @media (min-width:992px) and (max-width:1085px) {
-  .emotion-3 {
+  .emotion-2 {
     padding-left: 60px;
   }
 }
 
 @media (min-width:1200px) and (max-width:1285px) {
-  .emotion-3 {
+  .emotion-2 {
     padding-left: 60px;
-  }
-}
-
-.emotion-6 {
-  background-color: #29333a !important;
-  box-shadow: none !important;
-  background-image: none !important;
-  top: 15px;
-  left: 15px;
-  position: absolute;
-  z-index: 1020;
-}
-
-.emotion-5 {
-  color: #7a7e82 !important;
-}
-
-.emotion-5:hover {
-  color: white;
-}
-
-.emotion-13 {
-  color: white;
-  background-color: #29333a;
-  display: block;
-  margin: 60px -20px 0 -20px;
-}
-
-.emotion-12 {
-  min-height: 250px;
-  padding: 50px 0px;
-  overflow-y: scroll;
-  max-height: 100vh;
-}
-
-@media (max-width:768px) {
-  .emotion-12 {
-    padding: 50px 20px;
-  }
-}
-
-.emotion-10 {
-  display: inline-block;
-}
-
-.emotion-1 {
-  color: #49a4d5 !important;
-  min-width: 0;
-}
-
-.emotion-4 {
-  margin: 0 auto;
-}
-
-@media (min-width:768px) {
-  .emotion-4 {
-    width: 750px;
-  }
-}
-
-@media (min-width:992px) {
-  .emotion-4 {
-    width: 970px;
-  }
-}
-
-@media (min-width:1200px) {
-  .emotion-4 {
-    width: 1170px;
   }
 }
 
@@ -697,7 +679,49 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
   text-decoration: none;
 }
 
-.emotion-9 {
+.emotion-5 {
+  background-color: #29333a !important;
+  box-shadow: none !important;
+  background-image: none !important;
+  top: 15px;
+  left: 15px;
+  position: absolute;
+  z-index: 1020;
+}
+
+.emotion-4 {
+  color: #7a7e82 !important;
+}
+
+.emotion-4:hover {
+  color: white;
+}
+
+.emotion-11 {
+  color: white;
+  background-color: #29333a;
+  display: block;
+  margin: 60px -20px 0 -20px;
+}
+
+.emotion-10 {
+  min-height: 250px;
+  padding: 50px 0px;
+  overflow-y: scroll;
+  max-height: 100vh;
+}
+
+@media (max-width:768px) {
+  .emotion-10 {
+    padding: 50px 20px;
+  }
+}
+
+.emotion-8 {
+  display: inline-block;
+}
+
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -710,7 +734,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
   flex-wrap: wrap;
 }
 
-.emotion-9 * {
+.emotion-7 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -720,7 +744,41 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
   white-space: nowrap;
 }
 
-.emotion-16 {
+.emotion-1 {
+  font-size: 24px !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  color: #49a4d5 !important;
+  min-width: 0;
+}
+
+.emotion-1 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-1 a:hover {
+  color: white !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-14 {
   background-color: #49a4d5 !important;
   color: #eceef1 !important;
   text-align: center;
@@ -733,7 +791,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
   z-index: 1010 !important;
 }
 
-.emotion-16 a {
+.emotion-14 a {
   font-weight: 300;
   color: #eceef1;
   -webkit-text-decoration: underline;
@@ -744,20 +802,20 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
   letter-spacing: 1px;
 }
 
-.emotion-16 a:hover {
+.emotion-14 a:hover {
   color: white;
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 <div
-    class="bp3-navbar emotion-17"
+    class="bp3-navbar emotion-15"
   >
     <div
-      class="emotion-4"
+      class="emotion-3"
     >
       <div
-        class="bp3-navbar-group bp3-align-left bp3-dark emotion-3"
+        class="bp3-navbar-group bp3-align-left bp3-dark emotion-2"
       >
         <span
           class="emotion-0"
@@ -765,7 +823,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
           Misk
         </span>
         <span
-          class="emotion-1 emotion-0"
+          class="emotion-1"
           color="#49a4d5"
         >
           DEVELOPMENT
@@ -774,14 +832,14 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
     </div>
     <div>
       <button
-        class="bp3-button emotion-6"
+        class="bp3-button emotion-5"
         type="button"
       >
         <span
           class="bp3-button-text"
         >
           <span
-            class="bp3-icon bp3-icon-menu emotion-5"
+            class="bp3-icon bp3-icon-menu emotion-4"
             icon="menu"
           >
             <svg
@@ -802,7 +860,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
         </span>
       </button>
       <div
-        class="emotion-13"
+        class="emotion-11"
       >
         <div
           class="bp3-collapse"
@@ -813,20 +871,20 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
             style="transform: translateY(-0px);"
           >
             <div
-              class="emotion-12"
+              class="emotion-10"
             >
               <div
-                class="emotion-4"
+                class="emotion-3"
               >
                 <div
-                  class="emotion-10"
+                  class="emotion-8"
                 >
                   <div
-                    class="emotion-9"
+                    class="emotion-7"
                   >
                     <span>
                       <span
-                        class="emotion-1 emotion-0"
+                        class="emotion-1"
                         color="#49a4d5"
                       >
                         DEVELOPMENT
@@ -845,14 +903,14 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
       </div>
     </div>
     <span
-      class="emotion-16"
+      class="emotion-14"
       color="#49a4d5"
     >
       <div
-        class="emotion-4"
+        class="emotion-3"
       >
         <div
-          class="emotion-9"
+          class="emotion-7"
         >
           <span />
         </div>

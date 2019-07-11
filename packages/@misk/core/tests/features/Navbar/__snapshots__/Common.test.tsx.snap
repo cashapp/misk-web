@@ -63,7 +63,7 @@ exports[`Navbar Common MiskNavbarHeading can render 1`] = `
 
 exports[`Navbar Common MiskNavbarHeadingEnvironment can render 1`] = `
 <DocumentFragment>
-  .emotion-1 {
+  .emotion-0 {
   font-size: 24px !important;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -77,9 +77,11 @@ exports[`Navbar Common MiskNavbarHeadingEnvironment can render 1`] = `
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
+  color: !important;
+  min-width: 0;
 }
 
-.emotion-1 a {
+.emotion-0 a {
   color: #cecece !important;
   -webkit-letter-spacing: 1px;
   -moz-letter-spacing: 1px;
@@ -89,19 +91,14 @@ exports[`Navbar Common MiskNavbarHeadingEnvironment can render 1`] = `
   text-decoration: none;
 }
 
-.emotion-1 a:hover {
+.emotion-0 a:hover {
   color: white !important;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-0 {
-  color: !important;
-  min-width: 0;
-}
-
 <span
-    class="emotion-0 emotion-1"
+    class="emotion-0"
   />
 </DocumentFragment>
 `;

@@ -9,6 +9,28 @@ exports[`Navbar Component Navbar can render 1`] = `
   position: fixed !important;
 }
 
+.emotion-2 {
+  margin: 0 auto;
+}
+
+@media (min-width:768px) {
+  .emotion-2 {
+    width: 750px;
+  }
+}
+
+@media (min-width:992px) {
+  .emotion-2 {
+    width: 970px;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-2 {
+    width: 1170px;
+  }
+}
+
 .emotion-1 {
   font-size: 13px !important;
   font-weight: 600 !important;
@@ -40,6 +62,38 @@ exports[`Navbar Component Navbar can render 1`] = `
   .emotion-1 {
     padding-left: 60px;
   }
+}
+
+.emotion-0 {
+  font-size: 24px !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+.emotion-0 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0 a:hover {
+  color: white !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-4 {
@@ -82,60 +136,6 @@ exports[`Navbar Component Navbar can render 1`] = `
 
 .emotion-6 {
   display: inline-block;
-}
-
-.emotion-2 {
-  margin: 0 auto;
-}
-
-@media (min-width:768px) {
-  .emotion-2 {
-    width: 750px;
-  }
-}
-
-@media (min-width:992px) {
-  .emotion-2 {
-    width: 970px;
-  }
-}
-
-@media (min-width:1200px) {
-  .emotion-2 {
-    width: 1170px;
-  }
-}
-
-.emotion-0 {
-  font-size: 24px !important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  -webkit-letter-spacing: 0px;
-  -moz-letter-spacing: 0px;
-  -ms-letter-spacing: 0px;
-  letter-spacing: 0px;
-  margin-right: 30px;
-  color: #cecece;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-}
-
-.emotion-0 a {
-  color: #cecece !important;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-0 a:hover {
-  color: white !important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
 }
 
 .emotion-5 {

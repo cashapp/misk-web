@@ -8,6 +8,7 @@ import { ErrorCalloutComponent } from "../../components"
 import { FlexContainer, ResponsiveContainer } from "../../cssContainers"
 import { MiskLink } from "../Navbar"
 import { color, IDashboardTab } from "../../utilities"
+import { cssMiskLink } from "./Common"
 
 /**
  * <Menu
@@ -96,16 +97,31 @@ const MenuCategory = (props: {
     <hr css={cssMenuDivider} />
     <FlexContainer css={cssMenuLinks}>
       {props.categoryLinks &&
-        props.categoryLinks.map((link: IDashboardTab) => (
-          <MiskLink
-            css={cssMenuLink}
-            key={link.slug}
-            onClick={props.handleClick}
-            to={link.url_path_prefix}
-          >
-            {link.name}
-          </MiskLink>
-        ))}
+        props.categoryLinks.map((link: IDashboardTab) => {
+          if (link.url_path_prefix.startsWith("http")) {
+            return (
+              <a
+                css={css(cssMiskLink, cssMenuLink)}
+                key={link.slug}
+                onClick={props.handleClick}
+                href={link.url_path_prefix}
+              >
+                {link.name}
+              </a>
+            )
+          } else {
+            return (
+              <MiskLink
+                css={cssMenuLink}
+                key={link.slug}
+                onClick={props.handleClick}
+                to={link.url_path_prefix}
+              >
+                {link.name}
+              </MiskLink>
+            )
+          }
+        })}
     </FlexContainer>
   </div>
 )
