@@ -1,6 +1,5 @@
 import { AxiosRequestConfig } from "axios";
-import { AllEffect } from "redux-saga/effects";
-import { IAction, IDefaultState } from "./utilities";
+import { IAction, IDefaultState, SimpleReduxSaga } from "./utilities";
 export declare enum ROUTER {
     DELETE = "SIMPLENETWORK_DELETE",
     FAILURE = "SIMPLENETWORK_FAILURE",
@@ -28,7 +27,7 @@ export interface IDispatchRouterProps {
     success: (data: any) => IAction<ROUTER.SUCCESS, IRouterPayload>;
 }
 export declare const dispatchRouter: IDispatchRouterProps;
-export declare function watchRouterSagas(): IterableIterator<AllEffect>;
+export declare function watchRouterSagas(): SimpleReduxSaga;
 export declare function RouterReducer(state: any, action: IAction<ROUTER, {}>): any;
 export interface IRouterState extends IDefaultState {
     tags: {

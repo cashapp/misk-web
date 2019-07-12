@@ -1,8 +1,7 @@
-import { IDispatchSimpleForm, IDispatchSimpleNetwork, ISimpleFormState, ISimpleNetworkState } from "@misk/simpleredux";
+import { IDispatchSimpleForm, IDispatchSimpleNetwork, ISimpleFormState, ISimpleNetworkState, SimpleReduxSaga } from "@misk/simpleredux";
 import { LocationChangeAction, RouterState } from "connected-react-router";
 import { History } from "history";
 import { AnyAction, Reducer } from "redux";
-import { AllEffect } from "redux-saga/effects";
 import { IDispatchPalette, IPaletteState } from "./palette";
 export * from "./palette";
 /**
@@ -36,7 +35,7 @@ export declare const rootReducer: (history: History<any>) => Reducer<any, AnyAct
 /**
  * Sagas
  */
-export declare function rootSaga(): IterableIterator<AllEffect>;
+export declare function rootSaga(): SimpleReduxSaga;
 /**
  * Map Dispatch/State to Props
  */

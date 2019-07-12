@@ -1,5 +1,4 @@
-import { AllEffect } from "redux-saga/effects";
-import { IAction, IDefaultState, IRootState } from "./utilities";
+import { IAction, IDefaultState, IRootState, SimpleReduxSaga } from "./utilities";
 export declare enum SIMPLEFORM {
     INPUT = "SIMPLEFORM_INPUT",
     FAILURE = "SIMPLEFORM_FAILURE",
@@ -24,7 +23,7 @@ export interface IDispatchSimpleForm {
     simpleFormToggle: (tag: string, oldState: any) => IAction<SIMPLEFORM.TOGGLE, ISimpleFormPayload>;
 }
 export declare const dispatchSimpleForm: IDispatchSimpleForm;
-export declare function watchSimpleFormSagas(): IterableIterator<AllEffect>;
+export declare function watchSimpleFormSagas(): SimpleReduxSaga;
 export declare function SimpleFormReducer(state: any, action: IAction<SIMPLEFORM, {}>): any;
 export interface ISimpleFormState extends IRootState {
     [tag: string]: any | ISimpleFormPayload;

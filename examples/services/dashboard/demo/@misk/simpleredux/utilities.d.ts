@@ -1,4 +1,15 @@
 import { Map } from "immutable";
+import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects";
+export interface CombinatorEffect<T, E> {
+    "@@redux-saga/IO": true;
+    combinator: true;
+    type: T;
+    payload: CombinatorEffectDescriptor<E>;
+}
+export declare type CombinatorEffectDescriptor<E> = {
+    [key: string]: E;
+} | E[];
+export declare type SimpleReduxSaga = IterableIterator<CombinatorEffect<"ALL", SimpleEffect<"FORK", ForkEffectDescriptor>>>;
 export interface IDefaultState {
     data: any;
     error: any;

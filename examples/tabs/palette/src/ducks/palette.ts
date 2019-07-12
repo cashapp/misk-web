@@ -2,11 +2,12 @@ import {
   createAction,
   IAction,
   IRootState,
-  defaultRootState
+  defaultRootState,
+  SimpleReduxSaga
 } from "@misk/simpleredux"
 import axios from "axios"
 import { Map } from "immutable"
-import { all, AllEffect, call, put, takeLatest } from "redux-saga/effects"
+import { all, call, put, takeLatest } from "redux-saga/effects"
 
 /**
  * Actions
@@ -83,7 +84,7 @@ function* handleDinosaur() {
   }
 }
 
-export function* watchPaletteSagas(): IterableIterator<AllEffect> {
+export function* watchPaletteSagas(): SimpleReduxSaga {
   yield all([takeLatest(PALETTE.DINOSAUR, handleDinosaur)])
 }
 

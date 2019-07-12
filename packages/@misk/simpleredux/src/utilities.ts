@@ -4,9 +4,27 @@ import filter from "lodash/filter"
 import flatMap from "lodash/flatMap"
 import isEmpty from "lodash/isEmpty"
 import isRegExp from "lodash/isRegExp"
+import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects"
 import createCachedSelector from "re-reselect"
 import { createSelector, OutputSelector, ParametricSelector } from "reselect"
 import { StatusCode } from "status-code-enum"
+
+/**
+ * redux-sagas types copied manually in since they are not yet exported
+ * @todo remove once https://github.com/redux-saga/redux-saga/pull/1890 is merged
+ */
+export interface CombinatorEffect<T, E> {
+  "@@redux-saga/IO": true
+  combinator: true
+  type: T
+  payload: CombinatorEffectDescriptor<E>
+}
+
+export type CombinatorEffectDescriptor<E> = { [key: string]: E } | E[]
+
+export type SimpleReduxSaga = IterableIterator<
+  CombinatorEffect<"ALL", SimpleEffect<"FORK", ForkEffectDescriptor>>
+>
 
 /**
  * Default State with Redux flow metadata wrapped in an Immutable JS object for more efficient use in Reducers

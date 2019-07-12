@@ -1,6 +1,5 @@
-import { IAction, IRootState } from "@misk/simpleredux";
+import { IAction, IRootState, SimpleReduxSaga } from "@misk/simpleredux";
 import { Map } from "immutable";
-import { AllEffect } from "redux-saga/effects";
 /**
  * Actions
  * string enum of the defined actions that is used as type enforcement for Reducer and Sagas arguments
@@ -27,7 +26,7 @@ export interface IDispatchPalette {
     paletteSuccess: (data: any) => IAction<PALETTE.SUCCESS, IPalettePayload>;
 }
 export declare const dispatchPalette: IDispatchPalette;
-export declare function watchPaletteSagas(): IterableIterator<AllEffect>;
+export declare function watchPaletteSagas(): SimpleReduxSaga;
 /**
  * Duck Reducer
  * Merges dispatched action objects on to the existing (or initial) state to generate new state

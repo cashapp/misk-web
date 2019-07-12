@@ -3,13 +3,13 @@ import {
   createAction,
   defaultState,
   IAction,
-  IRootState
+  IRootState,
+  SimpleReduxSaga
 } from "@misk/simpleredux"
 import axios from "axios"
 import { fromJS } from "immutable"
 import {
   all,
-  AllEffect,
   call,
   put,
   takeEvery,
@@ -143,7 +143,7 @@ function* handleGetServiceMetadata(
   }
 }
 
-export function* watchLoaderSagas(): IterableIterator<AllEffect> {
+export function* watchLoaderSagas(): SimpleReduxSaga {
   yield all([
     takeEvery(LOADER.GET_ONE_COMPONENT, handleGetOneComponent),
     takeLatest(LOADER.GET_ALL_TABS, handleGetAllTabs),

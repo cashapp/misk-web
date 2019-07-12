@@ -1,3 +1,4 @@
+import { SimpleReduxSaga } from "@misk/simpleredux"
 import {
   connectRouter,
   LocationChangeAction,
@@ -5,7 +6,7 @@ import {
 } from "connected-react-router"
 import { History } from "history"
 import { AnyAction, combineReducers, Reducer } from "redux"
-import { all, AllEffect, fork } from "redux-saga/effects"
+import { all, fork } from "redux-saga/effects"
 import {
   default as LoaderReducer,
   ILoaderState,
@@ -41,6 +42,6 @@ export const rootReducer = (
 /**
  * Sagas
  */
-export function* rootSaga(): IterableIterator<AllEffect> {
+export function* rootSaga(): SimpleReduxSaga {
   yield all([fork(watchLoaderSagas)])
 }
