@@ -1,6 +1,214 @@
+const types = {
+  TypeA: {
+    fields: [
+      {
+        name: "Field1",
+        repeated: false,
+        type: "Long"
+      },
+      {
+        name: "Field2",
+        repeated: true,
+        type: "Boolean"
+      },
+      {
+        name: "Field3",
+        repeated: false,
+        type: "TypeB"
+      }
+    ]
+  },
+  TypeB: {
+    fields: [
+      {
+        name: "Field4",
+        repeated: true,
+        type: "TypeC"
+      },
+      {
+        name: "Field5",
+        repeated: true,
+        type: "TypeD"
+      }
+    ]
+  },
+  TypeC: {
+    fields: [
+      {
+        name: "Field6A",
+        repeated: true,
+        type: "Int"
+      },
+      {
+        name: "Field6B",
+        repeated: true,
+        type: "Boolean"
+      },
+      {
+        name: "Field7",
+        repeated: true,
+        type: "String"
+      }
+    ]
+  },
+  TypeD: {
+    fields: [
+      {
+        name: "Field8",
+        repeated: false,
+        type: "Int"
+      },
+      {
+        name: "Field9",
+        repeated: false,
+        type: "String"
+      },
+      {
+        name: "Field10",
+        repeated: true,
+        type: "TypeC"
+      }
+    ]
+  },
+  TypeE: {
+    fields: [
+      {
+        name: "Field11",
+        repeated: true,
+        type: "String"
+      }
+    ]
+  }
+}
 export const webActions = {
   webActionMetadata: [
     {
+      allowedRoles: [] as string[],
+      allowedServices: [] as string[],
+      applicationInterceptors: [] as string[],
+      dispatchMechanism: "POST",
+      function:
+        "fun misk.web.resources.TestActionTypeA.action(): misk.web.Response<misk.web.ResponseBody>",
+      functionAnnotations: [
+        '@misk.web.Post(pathPattern="/{path:.*}")',
+        '@misk.web.RequestContentType(value={"*/*"})',
+        '@misk.web.ResponseContentType(value="*/*")',
+        "@misk.security.authz.Unauthenticated()"
+      ],
+      name: "TestActionTypeA",
+      networkInterceptors: [
+        "misk.web.interceptors.InternalErrorInterceptorFactory$Companion$INTERCEPTOR$1",
+        "misk.web.interceptors.RequestLogContextInterceptor",
+        "misk.web.interceptors.MetricsInterceptor",
+        "misk.web.interceptors.TracingInterceptor",
+        "misk.web.exceptions.ExceptionHandlingInterceptor",
+        "misk.web.interceptors.MarshallerInterceptor",
+        "com.squareup.skim.tracing.SpeleoServerInterceptor"
+      ],
+      parameterTypes: [] as string[],
+      pathPattern: "/test/action/type/a",
+      requestMediaTypes: ["*/*"],
+      responseMediaType: "*/*",
+      returnType: "misk.web.Response<misk.web.ResponseBody>",
+      requestType: "TypeA",
+      types
+    },
+    {
+      allowedRoles: [] as string[],
+      allowedServices: [] as string[],
+      applicationInterceptors: [] as string[],
+      dispatchMechanism: "POST",
+      function:
+        "fun misk.web.resources.TestActionTypeB.action(): misk.web.Response<misk.web.ResponseBody>",
+      functionAnnotations: [
+        '@misk.web.Post(pathPattern="/{path:.*}")',
+        '@misk.web.RequestContentType(value={"*/*"})',
+        '@misk.web.ResponseContentType(value="*/*")',
+        "@misk.security.authz.Unauthenticated()"
+      ],
+      name: "TestActionTypeB",
+      networkInterceptors: [
+        "misk.web.interceptors.InternalErrorInterceptorFactory$Companion$INTERCEPTOR$1",
+        "misk.web.interceptors.RequestLogContextInterceptor",
+        "misk.web.interceptors.MetricsInterceptor",
+        "misk.web.interceptors.TracingInterceptor",
+        "misk.web.exceptions.ExceptionHandlingInterceptor",
+        "misk.web.interceptors.MarshallerInterceptor",
+        "com.squareup.skim.tracing.SpeleoServerInterceptor"
+      ],
+      parameterTypes: [] as string[],
+      pathPattern: "/test/action/type/b",
+      requestMediaTypes: ["*/*"],
+      responseMediaType: "*/*",
+      returnType: "misk.web.Response<misk.web.ResponseBody>",
+      requestType: "TypeB",
+      types
+    },
+    {
+      allowedRoles: [],
+      allowedServices: [],
+      applicationInterceptors: [],
+      dispatchMechanism: "POST",
+      function:
+        "fun misk.web.resources.TestActionTypeC.action(): misk.web.Response<misk.web.ResponseBody>",
+      functionAnnotations: [
+        '@misk.web.Post(pathPattern="/{path:.*}")',
+        '@misk.web.RequestContentType(value={"*/*"})',
+        '@misk.web.ResponseContentType(value="*/*")',
+        "@misk.security.authz.Unauthenticated()"
+      ],
+      name: "TestActionTypeC",
+      networkInterceptors: [
+        "misk.web.interceptors.InternalErrorInterceptorFactory$Companion$INTERCEPTOR$1",
+        "misk.web.interceptors.RequestLogContextInterceptor",
+        "misk.web.interceptors.MetricsInterceptor",
+        "misk.web.interceptors.TracingInterceptor",
+        "misk.web.exceptions.ExceptionHandlingInterceptor",
+        "misk.web.interceptors.MarshallerInterceptor",
+        "com.squareup.skim.tracing.SpeleoServerInterceptor"
+      ],
+      parameterTypes: [],
+      pathPattern: "/test/action/type/c",
+      requestMediaTypes: ["*/*"],
+      responseMediaType: "*/*",
+      returnType: "misk.web.Response<misk.web.ResponseBody>",
+      requestType: "TypeC",
+      types
+    },
+    {
+      allowedRoles: [],
+      allowedServices: [],
+      applicationInterceptors: [],
+      dispatchMechanism: "POST",
+      function:
+        "fun misk.web.resources.TestActionTypeD.action(): misk.web.Response<misk.web.ResponseBody>",
+      functionAnnotations: [
+        '@misk.web.Post(pathPattern="/{path:.*}")',
+        '@misk.web.RequestContentType(value={"*/*"})',
+        '@misk.web.ResponseContentType(value="*/*")',
+        "@misk.security.authz.Unauthenticated()"
+      ],
+      name: "TestActionTypeD",
+      networkInterceptors: [
+        "misk.web.interceptors.InternalErrorInterceptorFactory$Companion$INTERCEPTOR$1",
+        "misk.web.interceptors.RequestLogContextInterceptor",
+        "misk.web.interceptors.MetricsInterceptor",
+        "misk.web.interceptors.TracingInterceptor",
+        "misk.web.exceptions.ExceptionHandlingInterceptor",
+        "misk.web.interceptors.MarshallerInterceptor",
+        "com.squareup.skim.tracing.SpeleoServerInterceptor"
+      ],
+      parameterTypes: [],
+      pathPattern: "/test/action/type/d",
+      requestMediaTypes: ["*/*"],
+      responseMediaType: "*/*",
+      returnType: "misk.web.Response<misk.web.ResponseBody>",
+      requestType: "TypeD",
+      types
+    },
+    {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "GET",
       function:
@@ -27,6 +235,8 @@ export const webActions = {
       returnType: "kotlin.Nothing"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "GET",
       function:
@@ -54,6 +264,8 @@ export const webActions = {
       returnType: "misk.web.actions.StatusAction.ServerStatus"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "GET",
       function:
@@ -81,6 +293,8 @@ export const webActions = {
       returnType: "misk.web.Response<kotlin.String>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "GET",
       function:
@@ -108,6 +322,8 @@ export const webActions = {
       returnType: "misk.web.Response<kotlin.String>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "GET",
       function:
@@ -137,6 +353,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "POST",
       function:
@@ -166,6 +384,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "GET",
       function:
@@ -194,6 +414,8 @@ export const webActions = {
       returnType: "misk.web.actions.AdminDashboardTabAction.Response"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "GET",
       function:
@@ -222,6 +444,8 @@ export const webActions = {
       returnType: "misk.web.actions.ServiceMetadataAction.Response"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "GET",
       function:
@@ -251,6 +475,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "POST",
       function:
@@ -280,6 +506,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "GET",
       function:
@@ -309,6 +537,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "POST",
       function:
@@ -338,6 +568,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "GET",
       function:
@@ -367,6 +599,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "POST",
       function:
@@ -396,6 +630,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: ["misk.security.authz.AccessInterceptor"],
       dispatchMechanism: "GET",
       function:
@@ -424,6 +660,8 @@ export const webActions = {
       returnType: "misk.config.ConfigAdminAction.Response"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "GET",
       function:
@@ -453,6 +691,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "POST",
       function:
@@ -482,6 +722,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: ["misk.security.authz.AccessInterceptor"],
       dispatchMechanism: "GET",
       function:
@@ -510,6 +752,8 @@ export const webActions = {
       returnType: "misk.web.actions.WebActionMetadataAction.Response"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "GET",
       function:
@@ -539,6 +783,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "POST",
       function:
@@ -568,6 +814,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: ["misk.security.authz.AccessInterceptor"],
       dispatchMechanism: "GET",
       function:
@@ -597,6 +845,8 @@ export const webActions = {
         "com.squareup.cashurlshortener.actions.UrlTokenMetadataWebAction.Response"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "GET",
       function:
@@ -626,6 +876,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "POST",
       function:
@@ -655,6 +907,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "GET",
       function:
@@ -684,6 +938,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: [],
       dispatchMechanism: "POST",
       function:
@@ -713,6 +969,8 @@ export const webActions = {
       returnType: "misk.web.Response<misk.web.ResponseBody>"
     },
     {
+      allowedRoles: [] as string[],
+      allowedServices: [] as string[],
       applicationInterceptors: ["misk.security.authz.AccessInterceptor"],
       dispatchMechanism: "POST",
       function:
@@ -744,6 +1002,8 @@ export const webActions = {
         "com.squareup.cashurlshortener.actions.CreateShortUrlWebAction.Response"
     },
     {
+      allowedRoles: [],
+      allowedServices: [],
       applicationInterceptors: ["misk.security.authz.AccessInterceptor"],
       dispatchMechanism: "GET",
       function:
