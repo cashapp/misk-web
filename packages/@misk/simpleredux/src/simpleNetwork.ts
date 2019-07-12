@@ -1,5 +1,5 @@
 import axios, { AxiosResponse, AxiosRequestConfig } from "axios"
-import { all, AllEffect, call, put, takeEvery } from "redux-saga/effects"
+import { all, AllEffect, call, put, takeLatest } from "redux-saga/effects"
 import {
   createAction,
   defaultRootState,
@@ -428,12 +428,12 @@ function* handlePut(action: IAction<SIMPLENETWORK, ISimpleNetworkPayload>) {
 
 export function* watchSimpleNetworkSagas(): IterableIterator<AllEffect> {
   yield all([
-    takeEvery(SIMPLENETWORK.DELETE, handleBasicRequest),
-    takeEvery(SIMPLENETWORK.GET, handleBasicRequest),
-    takeEvery(SIMPLENETWORK.HEAD, handleBasicRequest),
-    takeEvery(SIMPLENETWORK.PATCH, handlePatch),
-    takeEvery(SIMPLENETWORK.POST, handlePost),
-    takeEvery(SIMPLENETWORK.PUT, handlePut)
+    takeLatest(SIMPLENETWORK.DELETE, handleBasicRequest),
+    takeLatest(SIMPLENETWORK.GET, handleBasicRequest),
+    takeLatest(SIMPLENETWORK.HEAD, handleBasicRequest),
+    takeLatest(SIMPLENETWORK.PATCH, handlePatch),
+    takeLatest(SIMPLENETWORK.POST, handlePost),
+    takeLatest(SIMPLENETWORK.PUT, handlePut)
   ])
 }
 
