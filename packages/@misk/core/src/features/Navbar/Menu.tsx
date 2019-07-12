@@ -90,41 +90,48 @@ const MenuCategory = (props: {
   categoryLinks: IDashboardTab[]
   handleClick: () => void
 }) => (
-  <div>
-    <span css={cssMenuCategory}>
-      {props.categoryName === "undefined" ? "" : props.categoryName}
-    </span>
-    <hr css={cssMenuDivider} />
-    <FlexContainer css={cssMenuLinks}>
-      {props.categoryLinks &&
-        props.categoryLinks.map((link: IDashboardTab) => {
-          if (link.url_path_prefix.startsWith("http")) {
-            return (
-              <a
-                css={css(cssMiskLink, cssMenuLink)}
-                key={link.slug}
-                onClick={props.handleClick}
-                href={link.url_path_prefix}
-              >
-                {link.name}
-              </a>
-            )
-          } else {
-            return (
-              <MiskLink
-                css={cssMenuLink}
-                key={link.slug}
-                onClick={props.handleClick}
-                to={link.url_path_prefix}
-              >
-                {link.name}
-              </MiskLink>
-            )
-          }
-        })}
-    </FlexContainer>
-  </div>
-)
+    <div>
+      <span css={cssMenuCategory}>
+        {props.categoryName === "undefined" ? "" : props.categoryName}
+      </span>
+      <hr css={cssMenuDivider} />
+      <FlexContainer css={cssMenuLinks}>
+        {props.categoryLinks &&
+          props.categoryLinks.map((link: IDashboardTab) => {
+            <MiskLink
+              key={link.slug}
+              onClick={props.handleClick}
+              to={link.url_path_prefix}
+            >
+              {link.name}
+            </MiskLink>
+            // if (link.url_path_prefix.startsWith("http")) {
+            //   return (
+            //     <a
+            //       css={css(cssMiskLink, cssMenuLink)}
+            // key={link.slug}
+            // onClick={props.handleClick}
+            //       href={link.url_path_prefix}
+            //     >
+            //       {link.name}
+            //     </a>
+            //   )
+            // } else {
+            //   return (
+            //     <MiskLink
+            //       css={cssMenuLink}
+            //       key={link.slug}
+            //       onClick={props.handleClick}
+            //       to={link.url_path_prefix}
+            //     >
+            //       {link.name}
+            //     </MiskLink>
+            //   )
+            // }
+          })}
+      </FlexContainer>
+    </div>
+  )
 
 export class Menu extends React.Component<IMenuProps, {}> {
   public state = {
@@ -160,8 +167,8 @@ export class Menu extends React.Component<IMenuProps, {}> {
                 {links ? (
                   this.renderMenuCategories(links)
                 ) : (
-                  <ErrorCalloutComponent error={error} />
-                )}
+                    <ErrorCalloutComponent error={error} />
+                  )}
               </ResponsiveContainer>
             </div>
           </Collapse>

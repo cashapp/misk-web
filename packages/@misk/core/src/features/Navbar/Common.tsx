@@ -1,9 +1,10 @@
 /** @jsx jsx */
 import { Link, LinkProps } from "react-router-dom"
-import { css, jsx } from "@emotion/core"
+import { css, jsx, SerializedStyles } from "@emotion/core"
 import styled, { StyledComponent } from "@emotion/styled"
 import * as React from "react"
-import { color } from "../../utilities"
+import { branch, compose, InferableComponentEnhancerWithProps, mapProps, renderComponent, withProps } from "recompose"
+import { color, IDashboardTab } from "../../utilities"
 
 export const MiskNavbarHeading: StyledComponent<
   React.DetailedHTMLProps<
@@ -41,14 +42,14 @@ export const MiskNavbarHeading: StyledComponent<
 export const MiskNavbarHeadingEnvironment = (
   props: { color: string } & any
 ) => (
-  <MiskNavbarHeading
-    css={css`
+    <MiskNavbarHeading
+      css={css`
       color: ${props.color} !important;
       min-width: 0;
     `}
-    {...props}
-  />
-)
+      {...props}
+    />
+  )
 
 export const cssMiskLink = css`
   color: ${color.gray};
@@ -59,6 +60,44 @@ export const cssMiskLink = css`
   }
 `
 
-export const MiskLink = (props: LinkProps) => (
-  <Link css={cssMiskLink} {...props} />
+
+const myAnchorYarr = (props: any) => (<a {...props} />)
+const enhancer = mapProps((props: LinkProps) => ({ children: props.children, css: css(cssMiskLink), href: props.to.toString() }))
+const normalA = enhancer(myAnchorYarr);
+
+export const MiskLink = (props: LinkProps & { children: any, key: string, onClick: () => void, to: string }) => branch(
+  (props: LinkProps & { children: any, key: string, onClick: () => void, to: string }) => props.to.startsWith("http"),
+  renderComponent(normalA),
+  renderComponent((withProps({ css: css(cssMiskLink) }) as InferableComponentEnhancerWithProps<LinkProps, { css: SerializedStyles }>)(Link))
 )
+
+
+
+
+// export const MiskLink = branch(
+//   (props: LinkProps & { to: string }) => props.to.startsWith("http"),
+//   renderComponent((props: LinkProps) => (<a
+//     css={css(cssMiskLink)}
+//     href={`${props.to}`}
+//   />)),
+//   renderComponent((props: LinkProps) => (
+//     <Link css={cssMiskLink} to={props.to} />)),
+// )
+
+
+// if (link.url_path_prefix.startsWith("http")) {
+//   return (
+
+//   )
+// } else {
+//   return (
+//     <MiskLink
+//       css={cssMenuLink}
+//       key={link.slug}
+//       onClick={props.handleClick}
+//       to={link.url_path_prefix}
+//     >
+//       {link.name}
+//     </MiskLink>
+//   )
+// }
