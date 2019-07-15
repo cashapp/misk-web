@@ -1,6 +1,5 @@
 import { AxiosResponse, AxiosRequestConfig } from "axios";
-import { AllEffect } from "redux-saga/effects";
-import { IAction, IDefaultState, IRootState } from "./utilities";
+import { IAction, IDefaultState, IRootState, SimpleReduxSaga } from "./utilities";
 export declare enum SIMPLENETWORK {
     DELETE = "SIMPLENETWORK_DELETE",
     FAILURE = "SIMPLENETWORK_FAILURE",
@@ -30,7 +29,7 @@ export interface IDispatchSimpleNetwork {
     simpleNetworkSuccess: (tag: string, url: string, response: AxiosResponse, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkPayload>;
 }
 export declare const dispatchSimpleNetwork: IDispatchSimpleNetwork;
-export declare function watchSimpleNetworkSagas(): IterableIterator<AllEffect>;
+export declare function watchSimpleNetworkSagas(): SimpleReduxSaga;
 export declare function SimpleNetworkReducer(state: any, action: IAction<SIMPLENETWORK, {}>): any;
 export interface ISimpleNetworkState extends IRootState {
     [tag: string]: any | ISimpleNetworkPayload;

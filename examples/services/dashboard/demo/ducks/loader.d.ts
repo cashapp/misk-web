@@ -1,6 +1,5 @@
 import { IDashboardTab, IServiceMetadata } from "@misk/core";
-import { IAction, IRootState } from "@misk/simpleredux";
-import { AllEffect } from "redux-saga/effects";
+import { IAction, IRootState, SimpleReduxSaga } from "@misk/simpleredux";
 export declare enum LOADER {
     FAILURE = "LOADER_FAILURE",
     GET_ALL_TABS = "LOADER_GET_ALL_TABS",
@@ -43,4 +42,4 @@ export interface ILoaderState extends IRootState {
     serviceMetadata: IServiceMetadata;
 }
 export default function loaderReducer(state: any, action: IAction<string, {}>): any;
-export declare function watchLoaderSagas(): IterableIterator<AllEffect>;
+export declare function watchLoaderSagas(): SimpleReduxSaga;

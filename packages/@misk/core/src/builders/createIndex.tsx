@@ -1,4 +1,5 @@
 ///<reference types="webpack-env" />
+import { CombinatorEffect } from "@misk/simpleredux"
 import {
   routerMiddleware,
   RouterState,
@@ -17,7 +18,6 @@ import {
   Reducer
 } from "redux"
 import createSagaMiddleware from "redux-saga"
-import { AllEffect } from "redux-saga/effects"
 import { IWindow } from "../utilities"
 
 export const createIndex = (
@@ -30,7 +30,7 @@ export const createIndex = (
       { router: Reducer<RouterState, LocationChangeAction> } & any,
       AnyAction
     >
-    rootSaga: () => IterableIterator<AllEffect>
+    rootSaga: () => IterableIterator<CombinatorEffect<"ALL", any>>
   }
 ) => {
   const Window = window as IWindow

@@ -1,7 +1,7 @@
+import { SimpleReduxSaga } from "@misk/simpleredux";
 import { LocationChangeAction, RouterState } from "connected-react-router";
 import { History } from "history";
 import { AnyAction, Reducer } from "redux";
-import { AllEffect } from "redux-saga/effects";
 import { ILoaderState } from "./loader";
 export * from "./loader";
 /**
@@ -21,4 +21,4 @@ export declare const rootReducer: (history: History<any>) => Reducer<{
 /**
  * Sagas
  */
-export declare function rootSaga(): IterableIterator<AllEffect>;
+export declare function rootSaga(): SimpleReduxSaga;

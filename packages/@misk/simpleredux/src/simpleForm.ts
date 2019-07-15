@@ -1,4 +1,4 @@
-import { all, AllEffect, put, takeEvery } from "redux-saga/effects"
+import { all, put, takeLatest } from "redux-saga/effects"
 import {
   booleanToggle,
   createAction,
@@ -8,7 +8,8 @@ import {
   IDefaultState,
   IRootState,
   simpleSelect,
-  simpleType
+  simpleType,
+  SimpleReduxSaga
 } from "./utilities"
 
 const simpleTag = "simpleForm"
@@ -178,11 +179,11 @@ function* handleToggle(action: IAction<SIMPLEFORM, ISimpleFormPayload>) {
   }
 }
 
-export function* watchSimpleFormSagas(): IterableIterator<AllEffect> {
+export function* watchSimpleFormSagas(): SimpleReduxSaga {
   yield all([
-    takeEvery(SIMPLEFORM.INPUT, handleBasicRequest),
-    takeEvery(SIMPLEFORM.NUMBER, handleBasicRequest),
-    takeEvery(SIMPLEFORM.TOGGLE, handleToggle)
+    takeLatest(SIMPLEFORM.INPUT, handleBasicRequest),
+    takeLatest(SIMPLEFORM.NUMBER, handleBasicRequest),
+    takeLatest(SIMPLEFORM.TOGGLE, handleToggle)
   ])
 }
 
