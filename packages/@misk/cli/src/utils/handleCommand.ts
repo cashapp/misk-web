@@ -34,7 +34,7 @@ export const autoUpdate = async () => {
     formattedLog(
       "Auto-Update",
       `updating miskweb CLI from ${packageVersion} to ${latestOnlineVersion ||
-      "latest"}`,
+        "latest"}`,
       "NPM"
     )
     execute("npm install -g @misk/cli")
@@ -70,7 +70,7 @@ export const handleCommand = async (
   ) {
     console.log(
       `[ALERT] Upgrade miskweb CLI from ${packageVersion} to ${latestOnlineVersion ||
-      "latest"} with '$ miskweb update'`
+        "latest"} with '$ miskweb update'`
     )
   }
 

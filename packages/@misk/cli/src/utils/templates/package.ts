@@ -13,13 +13,13 @@ const scripts = (miskTab: IMiskTabJSON) => ({
   scripts: {
     build: `npm run-script lib && npm run-script test ${
       miskTab.zipOnBuild ? "&& npm run-script zip" : ""
-    }`,
+      }`,
     "ci-build": `npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib && npm run-script test ${
       miskTab.zipOnBuild ? "&& npm run-script zip" : ""
-    }`,
+      }`,
     "dev-build": `npm run-script dev-lib ${
       miskTab.zipOnBuild ? "&& npm run-script zip" : ""
-    }`,
+      }`,
     clean: "rm -rf demo lib",
     "clean-build-files":
       "rm .hash package-lock.json package.json tsconfig.json tslint.json webpack.config.js",
@@ -88,7 +88,7 @@ const devDependencies = async (miskTab: IMiskTabJSON, pkg: any) => ({
   devDependencies: {
     ...pkg.devDependencies,
     ...(await createMiskPackageJson(
-      [MiskPkg.dev, MiskPkg.test, MiskPkg.tslint],
+      [MiskPkg.dev, MiskPkg.prettier, MiskPkg.test, MiskPkg.tslint],
       miskTab
     ))
   }

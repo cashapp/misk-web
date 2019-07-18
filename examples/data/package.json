@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@misk/dev": "0.1.13",
+    "@misk/prettier": "0.1.13",
     "@types/fs-extra": "7.0.0",
     "@misk/tslint": "0.1.13",
     "@types/node": "11.13.1",
@@ -29,15 +30,5 @@
     "tslib": "1.10.0",
     "typescript": "3.5.2"
   },
-  "prettier": {
-    "arrowParens": "avoid",
-    "bracketSpacing": true,
-    "jsxBracketSameLine": false,
-    "printWidth": 80,
-    "semi": false,
-    "singleQuote": false,
-    "tabWidth": 2,
-    "trailingComma": "none",
-    "useTabs": false
-  }
+  "prettier": "@misk/prettier",
 }

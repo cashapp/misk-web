@@ -48,9 +48,7 @@ export const readMiskTabJson = (dir: string): IMiskTabJSON => {
     return fs.readJSONSync(makePath(dir, Files.miskTab))
   } catch (e) {
     console.log(
-      `[FATAL] Failed to read ${dir}/${
-        Files.miskTab
-      }. Try this command in a tab directory.\n\n`,
+      `[FATAL] Failed to read ${dir}/${Files.miskTab}. Try this command in a tab directory.\n\n`,
       e
     )
     return process.exit()
