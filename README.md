@@ -14,6 +14,7 @@ Misk-Web is still bleeding edge and may have breaking changes up until version `
 - [![npm](https://img.shields.io/npm/v/@misk/simpleredux.svg?label=@misk/simpleredux)](https://www.npmjs.com/package/@misk/simpleredux) &ndash; A simpler way to wire up interactive form, network, and other components with Redux
 - [![npm](https://img.shields.io/npm/v/@misk/common.svg?label=@misk/common)](https://www.npmjs.com/package/@misk/common) &ndash; Common interfaces, colors, constants
 - [![npm](https://img.shields.io/npm/v/@misk/dev.svg?label=@misk/dev)](https://www.npmjs.com/package/@misk/dev) &ndash; Shared developer build tools
+- [![npm](https://img.shields.io/npm/v/@misk/prettier.svg?label=@misk/prettier)](https://www.npmjs.com/package/@misk/prettier) &ndash; Shared [Prettier config](https://prettier.io/docs/en/configuration.html)
 - [![npm](https://img.shields.io/npm/v/@misk/test.svg?label=@misk/test)](https://www.npmjs.com/package/@misk/test) &ndash; Test libraries (Jest) and configuration
 - [![npm](https://img.shields.io/npm/v/@misk/tslint.svg?label=@misk/tslint)](https://www.npmjs.com/package/@misk/tslint) &ndash; Standard TSLint configuration and rules
 - [![npm](https://img.shields.io/npm/v/@misk/components.svg?label=@misk/components)](https://www.npmjs.com/package/@misk/components) &ndash; Deprecated, migrated to `@misk/core`

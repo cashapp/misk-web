@@ -11,6 +11,7 @@ export enum MiskPkg {
   "common" = "@misk/common",
   "core" = "@misk/core",
   "dev" = "@misk/dev",
+  "prettier" = "@misk/prettier",
   "simpleredux" = "@misk/simpleredux",
   "test" = "@misk/test",
   "tslint" = "@misk/tslint"
@@ -88,9 +89,7 @@ export const execute = (cmd: string, ...args: any) => {
   terminal.stdout
   if (terminal.code) {
     throw new Error(
-      `Shell command \`${cmd}\` exited with code ${terminal.code}. ${
-        terminal.stderr
-      }`
+      `Shell command \`${cmd}\` exited with code ${terminal.code}. ${terminal.stderr}`
     )
   }
 }

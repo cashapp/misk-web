@@ -67,9 +67,7 @@ The Web Tab Resource Module multibinding tells Misk where to find the compiled
   tab code. It lives in two places:
 
 - In Classpath/JAR path ${miskTab.output_path} after running $ miskweb build
-- Served from Webpack-Dev-Server over localhost on port ${
-    miskTab.port
-  } when running $ miskweb start
+- Served from Webpack-Dev-Server over localhost on port ${miskTab.port} when running $ miskweb start
 
 Web Tab Resource Module Binding for ${miskTab.slug}:
 

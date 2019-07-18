@@ -1,6 +1,6 @@
 {
   "name": "@misk/dev",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "license": "SEE LICENSE IN https://github.com/cashapp/misk-web",
   "description": "Misk-Web Build and Dev Tools",
   "author": "CashApp/Misk-Web Authors (https://github.com/cashapp/misk-web/graphs/contributors)",
@@ -54,15 +54,8 @@
     "webpack-dev-server": "3.7.2",
     "webpack-merge": "4.2.1"
   },
-  "prettier": {
-    "arrowParens": "avoid",
-    "bracketSpacing": true,
-    "jsxBracketSameLine": false,
-    "printWidth": 80,
-    "semi": false,
-    "singleQuote": false,
-    "tabWidth": 2,
-    "trailingComma": "none",
-    "useTabs": false
-  }
+  "devDependencies": {
+    "@misk/prettier": "0.1.14"
+  },
+  "prettier": "@misk/prettier"
 }

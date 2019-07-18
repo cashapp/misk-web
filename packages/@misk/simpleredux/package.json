@@ -1,6 +1,6 @@
 {
   "name": "@misk/simpleredux",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "license": "SEE LICENSE IN https://github.com/cashapp/misk-web",
   "description": "Misk-Web SimpleRedux",
   "author": "CashApp/Misk-Web Authors (https://github.com/cashapp/misk-web/graphs/contributors)",
@@ -32,7 +32,7 @@
     "updateDevCache": "cd ..; ./updateLocalCache.sh"
   },
   "dependencies": {
-    "@misk/common": "0.1.13",
+    "@misk/common": "0.1.14",
     "@blueprintjs/core": "3.16.0",
     "@blueprintjs/datetime": "3.10.0",
     "@blueprintjs/icons": "3.9.0",
@@ -65,8 +65,9 @@
     "styled-components": "4.3.2"
   },
   "devDependencies": {
-    "@misk/dev": "0.1.13",
-    "@misk/tslint": "0.1.13",
+    "@misk/dev": "0.1.14",
+    "@misk/prettier": "0.1.14",
+    "@misk/tslint": "0.1.14",
     "@types/history": "4.7.2",
     "@types/lodash": "4.14.134",
     "@types/node": "11.13.1",
@@ -103,17 +104,7 @@
     "webpack-dev-server": "3.7.2",
     "webpack-merge": "4.2.1"
   },
-  "prettier": {
-    "arrowParens": "avoid",
-    "bracketSpacing": true,
-    "jsxBracketSameLine": false,
-    "printWidth": 80,
-    "semi": false,
-    "singleQuote": false,
-    "tabWidth": 2,
-    "trailingComma": "none",
-    "useTabs": false
-  },
+  "prettier": "@misk/prettier",
   "miskTab": {
     "version": "0.1.1"
   }
