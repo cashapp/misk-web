@@ -2,6 +2,7 @@
 import { Alignment, Navbar, NavbarGroup } from "@blueprintjs/core"
 import { css, jsx } from "@emotion/core"
 import * as React from "react"
+import { Link } from "react-router-dom"
 import { ResponsiveContainer } from "../../cssContainers"
 import {
   Banner,
@@ -38,6 +39,7 @@ export interface INavbarProps {
   homeName?: string
   homeUrl?: string
   navbar_items?: Array<string | Element | JSX.Element>
+  linkComponent?: any
   links?: IDashboardTab[]
   status?: string | Element | JSX.Element
 }
@@ -98,6 +100,7 @@ export class DimensionAwareNavbar extends React.Component<
       error,
       homeName,
       homeUrl,
+      linkComponent = Link,
       links,
       navbar_items,
       width,
@@ -112,7 +115,11 @@ export class DimensionAwareNavbar extends React.Component<
       <MiskNavbar>
         <ResponsiveContainer>
           <MiskNavbarGroup align={Alignment.LEFT} className="bp3-dark">
-            <HomeLink homeName={homeName} homeUrl={homeUrl} />
+            <HomeLink
+              linkComponent={linkComponent}
+              homeName={homeName}
+              homeUrl={homeUrl}
+            />
             {truncateNavbarItemsByScreenWidth(width, processedNavbarItems)}
           </MiskNavbarGroup>
         </ResponsiveContainer>
@@ -120,6 +127,7 @@ export class DimensionAwareNavbar extends React.Component<
           processedNavbarItems={processedNavbarItems}
           error={error}
           links={links}
+          linkComponent={linkComponent}
         />
         <Banner
           environment={environment}

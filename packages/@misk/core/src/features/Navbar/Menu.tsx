@@ -4,9 +4,9 @@ import { IconNames } from "@blueprintjs/icons"
 import { css, jsx } from "@emotion/core"
 import { chain, sortBy } from "lodash"
 import * as React from "react"
+import { Link } from "react-router-dom"
 import { ErrorCalloutComponent } from "../../components"
 import { FlexContainer, ResponsiveContainer } from "../../cssContainers"
-import { MiskLink } from "../Navbar"
 import { color, IDashboardTab } from "../../utilities"
 import { cssMiskLink } from "./Common"
 
@@ -21,6 +21,7 @@ import { cssMiskLink } from "./Common"
 export interface IMenuProps {
   error?: any
   links?: IDashboardTab[]
+  linkComponent?: any
   processedNavbarItems?: JSX.Element[]
 }
 
@@ -85,23 +86,35 @@ const cssMenuDivider = css`
   margin: 5px 0 10px 0;
 `
 
+const MenuHeading = (props: { categoryName: string }) => {
+  if (props.categoryName === "undefined") {
+    return <span />
+  } else {
+    return (
+      <div>
+        <span css={css(cssMenuCategory)}>{props.categoryName}</span>
+        <hr css={cssMenuDivider} />
+      </div>
+    )
+  }
+}
+
 const MenuCategory = (props: {
   categoryName: string
   categoryLinks: IDashboardTab[]
   handleClick: () => void
+  linkComponent: any
 }) => (
   <div>
-    <span css={cssMenuCategory}>
-      {props.categoryName === "undefined" ? "" : props.categoryName}
-    </span>
-    <hr css={cssMenuDivider} />
+    <MenuHeading categoryName={props.categoryName} />
     <FlexContainer css={cssMenuLinks}>
       {props.categoryLinks &&
         props.categoryLinks.map((link: IDashboardTab) => {
+          const cssProps = css(cssMiskLink, cssMenuLink)
           if (link.url_path_prefix.startsWith("http")) {
             return (
               <a
-                css={css(cssMiskLink, cssMenuLink)}
+                css={cssProps}
                 key={link.slug}
                 onClick={props.handleClick}
                 href={link.url_path_prefix}
@@ -111,14 +124,14 @@ const MenuCategory = (props: {
             )
           } else {
             return (
-              <MiskLink
-                css={cssMenuLink}
+              <props.linkComponent
+                css={cssProps}
                 key={link.slug}
                 onClick={props.handleClick}
                 to={link.url_path_prefix}
               >
                 {link.name}
-              </MiskLink>
+              </props.linkComponent>
             )
           }
         })}
@@ -133,7 +146,12 @@ export class Menu extends React.Component<IMenuProps, {}> {
 
   public render() {
     const { isOpen } = this.state
-    const { error, links, processedNavbarItems } = this.props
+    const {
+      error,
+      links,
+      linkComponent = Link,
+      processedNavbarItems
+    } = this.props
     return (
       <div>
         <Button css={cssButton} onClick={this.handleClick}>
@@ -158,7 +176,7 @@ export class Menu extends React.Component<IMenuProps, {}> {
                   </FlexContainer>
                 </div>
                 {links ? (
-                  this.renderMenuCategories(links)
+                  this.renderMenuCategories(links, linkComponent)
                 ) : (
                   <ErrorCalloutComponent error={error} />
                 )}
@@ -170,7 +188,7 @@ export class Menu extends React.Component<IMenuProps, {}> {
     )
   }
 
-  private renderMenuCategories(links: IDashboardTab[]) {
+  private renderMenuCategories(links: IDashboardTab[], linkComponent: any) {
     const categories: Array<[string, IDashboardTab[]]> = Object.entries(
       // sort and group array of links by category string
       // and sort each category's links by lower case tab name string
@@ -188,8 +206,9 @@ export class Menu extends React.Component<IMenuProps, {}> {
         <MenuCategory
           categoryName={categoryName}
           categoryLinks={categoryLinks}
-          key={index}
+          key={`${categoryName}-${index}`}
           handleClick={this.handleClick}
+          linkComponent={linkComponent}
         />
       ))
     )

@@ -3,6 +3,7 @@ import { IDashboardTab } from "../../utilities";
 export interface IMenuProps {
     error?: any;
     links?: IDashboardTab[];
+    linkComponent?: any;
     processedNavbarItems?: JSX.Element[];
 }
 export declare class Menu extends React.Component<IMenuProps, {}> {

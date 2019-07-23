@@ -9,6 +9,7 @@ export interface INavbarProps {
     homeName?: string;
     homeUrl?: string;
     navbar_items?: Array<string | Element | JSX.Element>;
+    linkComponent?: any;
     links?: IDashboardTab[];
     status?: string | Element | JSX.Element;
 }
