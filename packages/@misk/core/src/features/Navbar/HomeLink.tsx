@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core"
-import { LinkProps } from "react-router-dom"
-import { MiskLink, MiskNavbarHeading } from "../Navbar"
+import { Link } from "react-router-dom"
+import { MiskNavbarHeading } from "../Navbar"
+import { cssMiskLink } from "./Common"
 
 /**
  * <HomeLink
@@ -13,19 +14,20 @@ import { MiskLink, MiskNavbarHeading } from "../Navbar"
 export interface IHomeLinkProps {
   homeName?: string
   homeUrl?: string
+  linkComponent?: any
 }
-
-const MiskLinkHome = (props: LinkProps) => (
-  <MiskLink css={css({ minWidth: "fit-content" })} {...props} />
-)
 
 export const HomeLink = (props: IHomeLinkProps) => {
   const { homeName, homeUrl } = props
+  const LinkComponent = props.linkComponent || Link
   if (homeName && homeUrl) {
     return (
-      <MiskLinkHome to={homeUrl}>
+      <LinkComponent
+        css={css(cssMiskLink, { minWidth: "fit-content" })}
+        to={homeUrl}
+      >
         <MiskNavbarHeading>{homeName}</MiskNavbarHeading>
-      </MiskLinkHome>
+      </LinkComponent>
     )
   } else if (homeName) {
     return <MiskNavbarHeading>{homeName}</MiskNavbarHeading>

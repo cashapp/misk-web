@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import { Link, LinkProps } from "react-router-dom"
 import { css, jsx } from "@emotion/core"
 import styled, { StyledComponent } from "@emotion/styled"
 import * as React from "react"
@@ -58,7 +57,3 @@ export const cssMiskLink = css`
     text-decoration: none;
   }
 `
-
-export const MiskLink = (props: LinkProps) => (
-  <Link css={cssMiskLink} {...props} />
-)

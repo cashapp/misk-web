@@ -53,6 +53,7 @@ export class Navbar extends React.Component<INavbarProps, {}> {
       error,
       homeName,
       homeUrl,
+      linkComponent,
       links,
       navbar_items,
       status
@@ -69,6 +70,7 @@ export class Navbar extends React.Component<INavbarProps, {}> {
           error={error}
           homeName={homeName}
           homeUrl={homeUrl}
+          linkComponent={linkComponent}
           links={links}
           navbar_items={navbar_items}
           status={status}

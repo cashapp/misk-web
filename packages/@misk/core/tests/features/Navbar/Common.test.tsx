@@ -1,10 +1,12 @@
-import React from "react"
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core"
+import { Link } from 'react-router-dom'
 import { BrowserRouter } from "react-router-dom"
 import { cleanup, render } from "react-testing-library"
 import {
+  cssMiskLink,
   MiskNavbarHeading,
-  MiskNavbarHeadingEnvironment,
-  MiskLink
+  MiskNavbarHeadingEnvironment
 } from "../../../src/features/Navbar"
 
 describe("Navbar Common", () => {
@@ -17,10 +19,10 @@ describe("Navbar Common", () => {
     const { asFragment } = render(<MiskNavbarHeadingEnvironment />)
     expect(asFragment()).toMatchSnapshot()
   })
-  it("MiskLink can render", () => {
+  it("Link with cssMiskLink can render", () => {
     const { asFragment } = render(
       <BrowserRouter>
-        <MiskLink to={"/link/path/"} />
+        <Link css={css(cssMiskLink)} to={"/link/path/"} />
       </BrowserRouter>
     )
     expect(asFragment()).toMatchSnapshot()
