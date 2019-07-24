@@ -1,7 +1,17 @@
 version: 2
 jobs:
+  docs:
+    docker:
+      - image: circleci/node:10.15
+    steps:
+      - checkout
+      - run:
+          name: Install
+          command: cd docs && npm install
+      - run:
+          name: Build
+          command: cd docs && npm run-script build
   node:
-    working_directory: ~/misk-web
     docker:
       - image: circleci/node:10.15
     steps:
@@ -19,7 +29,6 @@ jobs:
           name: Building...
           command: node common/scripts/install-run-rush.js rebuild --verbose
   java:
-    working_directory: ~/misk-web
     docker:
       - image: circleci/openjdk:11-jdk
     steps:
@@ -33,10 +42,12 @@ workflows:
     jobs:
       - node
       - java
+      - docs
   continuous-testing:
     jobs:
       - node
       - java
+      - docs
     triggers:
       - schedule:
           cron: "0 0 * * *"
