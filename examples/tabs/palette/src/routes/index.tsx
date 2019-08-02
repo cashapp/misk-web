@@ -5,6 +5,7 @@ import { TabContainer } from "../containers"
 const routes = (
   <div>
     <Switch>
+      <Route path="/path/param/:first/:second/" component={TabContainer} />
       <Route path="*" component={TabContainer} />
       {/* Do not include a Route without a path or it will display during on all tabs */}
     </Switch>

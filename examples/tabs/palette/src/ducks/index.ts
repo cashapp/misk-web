@@ -3,6 +3,7 @@ import {
   dispatchSimpleNetwork,
   IDispatchSimpleForm,
   IDispatchSimpleNetwork,
+  IRouterProvidedProps,
   ISimpleFormImmutableState,
   ISimpleFormState,
   ISimpleNetworkImmutableState,
@@ -46,9 +47,10 @@ export interface IState {
  * Dispatcher
  */
 export interface IDispatchProps
-  extends IDispatchSimpleForm,
+  extends IDispatchPalette,
+  IDispatchSimpleForm,
   IDispatchSimpleNetwork,
-  IDispatchPalette { }
+  IRouterProvidedProps { }
 
 export const rootDispatcher: IDispatchProps = {
   ...dispatchSimpleForm,
