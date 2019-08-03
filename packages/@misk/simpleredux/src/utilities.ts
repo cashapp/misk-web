@@ -1,9 +1,11 @@
+import { History, Location } from "history"
 import { fromJS, List, Map } from "immutable"
 import escapeRegExp from "lodash/escapeRegExp"
 import filter from "lodash/filter"
 import flatMap from "lodash/flatMap"
 import isEmpty from "lodash/isEmpty"
 import isRegExp from "lodash/isRegExp"
+import { match } from "react-router"
 import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects"
 import createCachedSelector from "re-reselect"
 import { createSelector, OutputSelector, ParametricSelector } from "reselect"
@@ -25,6 +27,18 @@ export type CombinatorEffectDescriptor<E> = { [key: string]: E } | E[]
 export type SimpleReduxSaga = IterableIterator<
   CombinatorEffect<"ALL", SimpleEffect<"FORK", ForkEffectDescriptor>>
 >
+
+/**
+ * Default React Router Props
+ * These are injected in different conditions depending on if a component is
+ * rendered as part of a React Router route
+ * https://reacttraining.com/react-router/web/api/location
+ */
+export interface IRouterProvidedProps {
+  history?: History
+  location?: Location
+  match?: match
+}
 
 /**
  * Default State with Redux flow metadata wrapped in an Immutable JS object for more efficient use in Reducers

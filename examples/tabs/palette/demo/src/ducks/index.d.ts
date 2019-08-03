@@ -1,4 +1,4 @@
-import { IDispatchSimpleForm, IDispatchSimpleNetwork, ISimpleFormState, ISimpleNetworkState, SimpleReduxSaga } from "@misk/simpleredux";
+import { IDispatchSimpleForm, IDispatchSimpleNetwork, IRouterProvidedProps, ISimpleFormState, ISimpleNetworkState, SimpleReduxSaga } from "@misk/simpleredux";
 import { LocationChangeAction, RouterState } from "connected-react-router";
 import { History } from "history";
 import { AnyAction, Reducer } from "redux";
@@ -16,7 +16,7 @@ export interface IState {
 /**
  * Dispatcher
  */
-export interface IDispatchProps extends IDispatchSimpleForm, IDispatchSimpleNetwork, IDispatchPalette {
+export interface IDispatchProps extends IDispatchPalette, IDispatchSimpleForm, IDispatchSimpleNetwork, IRouterProvidedProps {
 }
 export declare const rootDispatcher: IDispatchProps;
 /**

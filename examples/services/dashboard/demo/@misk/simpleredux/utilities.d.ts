@@ -1,4 +1,6 @@
+import { History, Location } from "history";
 import { Map } from "immutable";
+import { match } from "react-router";
 import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects";
 export interface CombinatorEffect<T, E> {
     "@@redux-saga/IO": true;
@@ -10,6 +12,11 @@ export declare type CombinatorEffectDescriptor<E> = {
     [key: string]: E;
 } | E[];
 export declare type SimpleReduxSaga = IterableIterator<CombinatorEffect<"ALL", SimpleEffect<"FORK", ForkEffectDescriptor>>>;
+export interface IRouterProvidedProps {
+    history?: History;
+    location?: Location;
+    match?: match;
+}
 export interface IDefaultState {
     data: any;
     error: any;
