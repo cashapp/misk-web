@@ -11,9 +11,9 @@ Object.entries(data).map(([key, jsonDataSet]) => {
   const file = `${output}/${key}.json`
   fs.writeJson(file, jsonDataSet, JsonOptions)
     .then(() => {
-      console.log(`[misk-web-examples-demo] [success] ${file}`)
+      console.log(`[misk-web-examples-data] [success] ${file}`)
     })
     .catch((error: any) =>
-      console.log(`[misk-web-examples-demo] [error] ${file}.\n${error}`)
+      console.log(`[misk-web-examples-data] [error] ${file}.\n${error}`)
     )
 })
