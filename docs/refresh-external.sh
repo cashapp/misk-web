@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "[WARN] This deploys the current local state of docs, consider a Rush rebuild!"
+
 MW=$(cd .. && pwd)
 EXTERNAL=$MW/docs/static/external
 EXAMPLES=$MW/docs/static/examples
@@ -14,7 +16,7 @@ cat $MW/docs/README.md > $MW/docs/docs/guides/contributing-to-the-docs.md
 # Copy over Palette demo
 DIR=$EXAMPLES/tabs/palette/demo
 mkdir -p $DIR
-cp -r $MW/examples/tabs/palette/demo/* $DIR
+cp -r $MW/examples/tabs/palette/lib/* $DIR
 
 # Copy over example data demo
 DIR=$EXAMPLES/data/demo
