@@ -1,0 +1,112 @@
+# Path Parameters
+
+Misk-Web uses [React Router][react-router-docs] under the hood to handle routing.
+
+React Router implicitly inserts 3 important props into components that are rendered within a route (which will likely be all components that are in a Misk-Web tab).
+
+These three are (and are documented fully in the [React Router docs][react-router-docs]):
+- history
+- location
+- match: useful for parsing out path parameters
+
+## How to use Path Parameters
+
+Path parmeters are useful for a page that references a specific element of a set.
+
+For example, consider a component that is a list of articles has a link to edit each specific article. To support permalinking, the path for the edit article component includes the article ID as a path parameter.
+
+To set this up, you will need to add a route to `routes/index.tsx` in your tab with a `:` prefixed path parameter variable like `:articleId`.
+
+Note the ordering of routes matter, put the most specific route first so that it matches first.
+
+```TSX
+  // routes/index.tsx
+  <Switch>
+    <Route path="/articles/edit/:articleId/" component={EditContainer} />
+    <Route path="/articles" component={ArticlesContainer} />
+  </Switch>
+
+```
+
+Use the path parameter variable in your component as following.
+
+```TSX
+// containers/EditContainer.tsx
+import { Spinner } from "@blueprintjs/core"
+import { IRouterProvidedProps } from "@misk/simpleredux"
+
+export const EditContainer = (props: IRouterProvidedProps) => {
+  const { articleId } = props.match && props.match.params
+  if (articleId) {
+    return (
+      <h1>Edit {articleId}</h1>
+      <EditForm articleId={articleId} />
+    )
+  } else {
+    return <Spinner />
+  }
+}
+
+```
+
+Note the use of the `IRouterProvidedProps` to get typed access to the `match` props.
+
+## IRouterProvidedProps
+
+`IRouterProvidedProps` is provided as part of the [`@misk/simpleredux` library][irouter-provided-props-code]. Since all of the props are provided optionally by React Router, all members are nullable null checking must be performed on use.
+
+```TS
+// @misk/simpleredux/utilities
+export interface IRouterProvidedProps {
+  history?: History
+  location?: Location
+  match?: match
+}
+```
+
+## Inclusion in Ducks
+
+You can include `IRouterProvidedProps` in the `ducks/index.ts` default provided props for your tab as follows.
+
+```TS
+// ducks/index.ts
+import {
+  IDispatchSimpleForm,
+  IDispatchSimpleNetwork,
+  IRouterProvidedProps
+} from "@misk/simpleredux"
+
+// ...
+
+/**
+ * Dispatcher
+ */
+export interface IDispatchProps
+  extends IDispatchPalette,
+  IDispatchSimpleForm,
+  IDispatchSimpleNetwork,
+  IRouterProvidedProps { }
+
+// ...
+```
+
+This makes for easy use of React Router provided props in Redux connected containers since they come in the already included `IDispatchProps`.
+
+```TSX
+// containers/TabContainer.tsx
+import { connect } from "react-redux"
+import { IDispatchProps, IState, mapDispatchToProps, mapStateToProps } from "../ducks"
+
+const TabContainer = (props: IDispatchProps & IState) => {
+  // ...
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TabContainer)
+```
+
+[react-router-docs]: https://reacttraining.com/react-router/
+[irouter-provided-props-code]: https://github.com/cashapp/misk-web/blob/9b31fbad9ebe36d582cec525fc51a200e270c9bf/packages/%40misk/simpleredux/src/utilities.ts#L31-L41
+
