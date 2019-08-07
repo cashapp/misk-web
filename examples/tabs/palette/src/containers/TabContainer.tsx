@@ -35,7 +35,11 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
         <HowToComponent />
         <SampleNetworkContainer />
         <SampleFormContainer />
-        <SampleRouterComponent history={this.props.history} location={this.props.location} match={this.props.match} />
+        <SampleRouterComponent
+          history={this.props.history}
+          location={this.props.location}
+          match={this.props.match}
+        />
       </div>
     )
   }
