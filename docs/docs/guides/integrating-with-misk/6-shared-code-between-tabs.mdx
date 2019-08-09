@@ -1,0 +1,77 @@
+# Shared Code Between Tabs
+
+1. Publish a shared code package to NPM (public or internal)
+2. Setup a Rush monorepo to handle automatically linking the shared code library to your Tabs
+
+## Setting up a Rush monorepo
+
+TODO: polish up rough notes below.
+
+Recommendation: Use Microsoft Rush to have a managed monorepo that autolinks the built shared components into the consuming tabs
+
+- Move your tabs repo outside of web, since web will be the root of your monorepo `$
+- Install Rush: `npm install @microsoft/rush -g`
+- In web/: `$ rush init`
+- In web/rush.json
+    ```JSON
+    /**
+    * This is the main configuration file for Rush.
+    * For full documentation, please see https://rushjs.io
+    */
+    {
+      "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
+      "rushVersion": "5.7.3", // use latest version possible
+      "npmVersion": "6.4.1",
+      "projects": [
+        {
+          "packageName": "misk-web-tab-user",
+          "projectFolder": "tabs/user",
+          "shouldPublish": false
+        },
+        {
+          "packageName": "dino-service-components",
+          "projectFolder": "shared/dino-service-components",
+          "shouldPublish": false
+        }
+      ]
+    }
+    ```
+
+	- Configure your package blocks
+	- Uncomment npmVersion so that NPM (and not Yarn or PNPM is used as the underlying engine)
+	- Remove the pnpm file from common/
+- Create a new `web/shared` directory for shared components or internal libraries
+- Create your shared library as a tab in `web/shared` with `$ cd web/shared && miskweb new`
+- Configure the following overrides to your `miskTab.json` to have it work as an internal shared component library
+
+    ```JSON
+    {
+      "name": "DinoServiceComponents",
+      "output_path": "lib",
+      "port": "3150",
+      "rawGitginore": "",
+      "rawPackageJson": {
+        "name": "dino-service-components",
+        "main": "lib/tab_dino-service-components.js",
+        "module": "lib/tab_dino-service-components.js",
+        "typings": "lib/src/index.d.ts"
+      },
+      "rawTsconfig": {},
+      "rawTslint": {},
+      "rawWebpackConfig": {},
+      "relative_path_prefix": "",
+      "slug": "dino-service-components",
+      "useWebpackExternals": true,
+      "version": "0.1.15", // use latest version
+      "zipOnBuild": false,
+      "___DeprecatedKeys": "Any keys below this point in your miskTab.json are deprecated and can be safely removed."
+    }
+    ```
+
+  - The miskTab overrides require src/ and tests/ directories to be present for the typings path to be correct
+
+- Rebuild Misk-Web build files for shared and tabs with `$ cd web && miskweb prebuild -e`
+- Add the shared library to the rush.json configuration file
+- Add the shared library to the package.json dependencies of the consuming tabs
+- Run `$ rush update --full` to do a Rush install and link
+- Run `$ rush build` to confirm that all tabs and the shared components build

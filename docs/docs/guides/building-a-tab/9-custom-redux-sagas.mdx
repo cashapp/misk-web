@@ -1,0 +1,13 @@
+# Custom Redux Sagas
+
+For some more complicated interactions, `@misk/simpleredux` will not cover your use case and you'll need to build out your own custom Redux Saga.
+
+Warning: for most forms and network requests, `@misk/simpleredux` will be sufficient and make your life easier since you will not need to maintain a full Redux Saga flow yourself (steps outlined below). Consider if there's a way to do what you want using `@misk/simpleredux` if you're not fully comfortable with diving into Redux.
+
+[Read more about Redux in the @misk/simpleredux docs](/docs/packages/simpleredux/REDUX).
+
+Redux Sagas are extremely useful in building debuggable, asynchronous state transformation and comes in handy for moving render blocking functionality out of your containers and components.
+
+Start by copying the `palette.tsx` from `palette-exemplar/src/ducks` and renaming it to match your tab name or the saga purpose.
+
+Lean into the Redux-Saga docs to tweak configuration of your handler functions or the sagas (takeEvery, takeLatest, throttle, debounce...).

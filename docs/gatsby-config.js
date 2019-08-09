@@ -62,9 +62,19 @@ module.exports = {
               category: 'Info'
             },
             {
+              href: '/docs/guides/building-a-tab',
+              label: 'Building a Tab',
+              category: 'Guides'
+            },
+            {
+              href: '/docs/guides/integrating-with-misk',
+              label: 'Integrating with Misk',
+              category: 'Guides'
+            },
+            {
               href: '/docs/guides',
-              label: 'Guides',
-              category: 'Info'
+              label: 'Other',
+              category: 'Guides'
             },
             {
               href: 'https://github.com/cashapp/misk-web/',
