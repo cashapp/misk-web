@@ -11,47 +11,42 @@ const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
 const merge = require("webpack-merge")
 
 module.exports = (env, argv) => {
-  const { dirname, miskTab, bundleAnalyzer = false } = argv
+  const { dirname, miskTab } = argv
 
   if (
     "name" in miskTab &&
+    "output_path" in miskTab &&
     "port" in miskTab &&
+    "rawIndex" in miskTab &&
+    "rawWebpackConfig" in miskTab &&
+    "relative_path_prefix" in miskTab &&
     "slug" in miskTab &&
-    "version" in miskTab &&
-    "useWebpackExternals" in miskTab
+    "useWebpackBundleAnalyzer" in miskTab &&
+    "useWebpackExternals" in miskTab &&
+    "version" in miskTab
   ) {
-    console.log("[MISK] Valid miskTab in package.json")
+    console.log("[MISK] Valid miskTab.json")
   } else {
-    console.log(
-      "[MISK] Invalid miskTab in package.json, testing for missing fields..."
-    )
-    let errMsg = "\n"
-    errMsg +=
-      "name" in miskTab
-        ? `[MISK] miskTab contains name: ${miskTab.name}\n`
-        : "[MISK] miskTab missing name\n"
-    errMsg +=
-      "port" in miskTab
-        ? `[MISK] miskTab contains port: ${miskTab.port}\n`
-        : "[MISK] miskTab missing port\n"
-    errMsg +=
-      "slug" in miskTab
-        ? `[MISK] miskTab contains slug: ${miskTab.slug}\n`
-        : "[MISK] miskTab missing slug\n"
-    errMsg +=
-      "version" in miskTab
-        ? `[MISK] miskTab contains version: ${miskTab.version}\n`
-        : "[MISK] miskTab missing version, upgrade to the latest CLI and run prebuild. $ npm install -g @misk/cli && miskweb prebuild\n"
-    throw Error(errMsg)
+    throw Error(`[MISK] Invalid miskTab.json.
+      1) Install Misk-Web CLI ($ npm install -g @misk/cli)
+          OR Update Misk-Web CLI ($ miskweb update)
+      2) Regenerate build files ($ miskweb prebuild)`)
   }
-
-  const { name, port, slug } = miskTab
-  const relative_path_prefix = miskTab.relative_path_prefix
-    ? miskTab.relative_path_prefix
-    : `_tab/${miskTab.slug}/`
-  const output_path = miskTab.output_path
-    ? miskTab.output_path
-    : `lib/web/_tab/${slug}`
+  const {
+    name,
+    output_path,
+    port,
+    rawIndex,
+    rawWebpackConfig,
+    relative_path_prefix,
+    slug,
+    useWebpackBundleAnalyzer,
+    useWebpackExternals
+  } = miskTab
+  const relativePathPrefix = relative_path_prefix
+    ? relative_path_prefix
+    : `_tab/${slug}/`
+  const outputPath = output_path ? output_path : `lib/web/_tab/${slug}`
 
   const DefinePluginConfig = new webpack.DefinePlugin({
     "process.env.NODE_ENV": JSON.stringify("production")
@@ -74,6 +69,11 @@ module.exports = (env, argv) => {
     { copyUnmodified: true }
   )
 
+  const CopyRawIndexHtmlConfig = new CopyWebpackPlugin(
+    [{ from: "./src/index.html" }],
+    { copyUnmodified: true }
+  )
+
   const HTMLWebpackHarddiskPluginConfig = new HTMLWebpackHarddiskPlugin()
 
   const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
@@ -88,7 +88,7 @@ module.exports = (env, argv) => {
 
   const baseConfigFields = {
     entry: {
-      [`${relative_path_prefix}tab_${slug}`]: [
+      [`${relativePathPrefix}tab_${slug}`]: [
         "react-hot-loader/patch",
         path.join(dirname, "/src/index.tsx")
       ], // two locations so local dev and through misk proxy works
@@ -99,7 +99,7 @@ module.exports = (env, argv) => {
     },
     output: {
       filename: `[name].js`,
-      path: path.join(dirname, output_path),
+      path: path.join(dirname, outputPath),
       publicPath: "/",
       library: ["MiskTabs", name],
       libraryTarget: "umd",
@@ -151,21 +151,23 @@ module.exports = (env, argv) => {
       extensions: [".js", ".jsx", ".ts", ".tsx", ".json"]
     },
     mode: env !== "production" ? "development" : "production",
-    plugins: [
-      CopyWebpackPluginConfig,
-      HTMLWebpackPluginConfig,
-      HTMLWebpackHarddiskPluginConfig
-    ].concat(
-      env !== "production"
-        ? [new webpack.HotModuleReplacementPlugin()]
-        : [DefinePluginConfig].concat(
-            bundleAnalyzer ? [BundleAnalyzerPluginConfig] : []
-          )
-    ),
-    externals: miskTab.useWebpackExternals
+    plugins: [CopyWebpackPluginConfig]
+      .concat(
+        env !== "production"
+          ? [new webpack.HotModuleReplacementPlugin()]
+          : [DefinePluginConfig].concat(
+              useWebpackBundleAnalyzer ? [BundleAnalyzerPluginConfig] : []
+            )
+      )
+      .concat(
+        env === "production" && rawIndex
+          ? [CopyRawIndexHtmlConfig]
+          : [HTMLWebpackPluginConfig, HTMLWebpackHarddiskPluginConfig]
+      ),
+    externals: useWebpackExternals
       ? { ...vendorExternals, ...miskExternals }
       : {}
   }
 
-  return merge(baseConfigFields, miskTab.rawWebpackConfig)
+  return merge(baseConfigFields, rawWebpackConfig)
 }
