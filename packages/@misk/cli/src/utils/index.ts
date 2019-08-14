@@ -90,9 +90,9 @@ export const execute = (cmd: string, ...args: any) => {
   const terminal = exec(cmd)
   terminal.stdout
   if (terminal.code) {
-    throw new Error(
-      `Shell command \`${cmd}\` exited with code ${terminal.code}. ${terminal.stderr}`
-    )
+    console.log(`\n[ERROR][STDERR]\n${terminal.stderr}\n`)
+    console.log(`\n[ERROR][CODE] Shell command exited with code ${terminal.code}:\n\`${cmd}\``)
+    process.exitCode = terminal.code
   }
 }
 
