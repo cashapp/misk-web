@@ -62,6 +62,11 @@ module.exports = {
               category: 'Info'
             },
             {
+              href: '/docs/guides/changelog',
+              label: 'Changelog',
+              category: 'Info'
+            },
+            {
               href: '/docs/guides/building-a-tab',
               label: 'Building a Tab',
               category: 'Guides'
