@@ -1,6 +1,6 @@
 {
   "name": "@misk/test",
-  "version": "0.1.16",
+  "version": "0.1.17-0",
   "license": "SEE LICENSE IN https://github.com/cashapp/misk-web",
   "description": "Misk-Web Test",
   "author": "CashApp/Misk-Web Authors (https://github.com/cashapp/misk-web/graphs/contributors)",
@@ -16,18 +16,18 @@
     "prepare": "npm run-script ci-build"
   },
   "dependencies": {
+    "@testing-library/react": "9.1.1",
     "@types/jest": "24.0.15",
     "@types/node": "11.13.1",
     "jest": "24.8.0",
     "jest-emotion": "10.0.11",
     "jest-serializer-html": "7.0.0",
-    "react-testing-library": "6.1.2",
     "tslib": "1.10.0",
     "ts-jest": "24.0.2",
     "typescript": "3.5.2"
   },
   "devDependencies": {
-    "@misk/prettier": "0.1.16"
+    "@misk/prettier": "0.1.17-0"
   },
   "prettier": "@misk/prettier"
 }
