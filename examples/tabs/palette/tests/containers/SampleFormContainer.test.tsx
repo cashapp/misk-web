@@ -1,6 +1,6 @@
 import React from "react"
 import { cleanup } from "@testing-library/react"
-import { SampleFormContainer } from "../../src/containers"
+import { SampleFormContainer } from "src/containers"
 import { renderWithRedux } from "../upstreamableTestUtilities"
 
 describe("SampleFormContainer", () => {

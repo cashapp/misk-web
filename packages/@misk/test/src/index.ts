@@ -10,6 +10,10 @@ export const testPackageJson = {
       "^.+\\.tsx?$": "ts-jest"
     },
     testRegex: "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
-    moduleFileExtensions: ["ts", "tsx", "js", "json", "jsx"]
+    moduleFileExtensions: ["ts", "tsx", "js", "json", "jsx"],
+    moduleNameMapper: {
+      "^src(.*)$": "<rootDir>/src/$1",
+      "^tests(.*)$": "<rootDir>/tests/$1"
+    }
   }
 }
