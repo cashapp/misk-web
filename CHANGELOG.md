@@ -1,5 +1,12 @@
 ## Changelog
 
+## 0.1.17-2
+Wed, 14 Aug 2019 16:15:27 GMT
+
+### @misk/cli
+
+* Use ShellJS instead of process.exit to pass through exit code
+
 ## 0.1.17-1
 Wed, 14 Aug 2019 16:05:27 GMT
 
