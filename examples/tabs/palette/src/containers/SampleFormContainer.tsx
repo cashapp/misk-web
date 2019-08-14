@@ -32,7 +32,7 @@ import {
   IState,
   mapDispatchToProps,
   mapStateToProps
-} from "../ducks"
+} from "src/ducks"
 
 export const SampleFormContainer = (props: IState & IDispatchProps) => {
   const FormTag = "Expense Report"

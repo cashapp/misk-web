@@ -15,7 +15,7 @@ import {
   IState,
   mapStateToProps,
   mapDispatchToProps
-} from "../ducks"
+} from "src/ducks"
 
 export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
   return (

@@ -1,6 +1,6 @@
 import React from "react"
 import { cleanup } from "@testing-library/react"
-import { SampleNetworkContainer } from "../../src/containers"
+import { SampleNetworkContainer } from "src/containers"
 import { renderWithRedux } from "../upstreamableTestUtilities"
 
 describe("SampleNetworkContainer", () => {

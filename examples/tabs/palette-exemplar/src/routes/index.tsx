@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Route, Switch } from "react-router"
-import { TabContainer } from "../containers"
+import { TabContainer } from "src/containers"
 
 const routes = (
   <div>

@@ -1,6 +1,6 @@
 import React from "react"
 import { cleanup } from "@testing-library/react"
-import { TabContainer } from "../../src/containers"
+import { TabContainer } from "src/containers"
 import { renderWithRedux } from "../upstreamableTestUtilities"
 
 describe("TabContainer", () => {
@@ -10,4 +10,3 @@ describe("TabContainer", () => {
     expect(asFragment()).toMatchSnapshot()
   })
 })
-

@@ -1,6 +1,6 @@
 import React from "react"
 import { cleanup, render } from "@testing-library/react"
-import { SampleTableComponent } from "../../src/components"
+import { SampleTableComponent } from "src/components"
 
 describe("SampleTableComponent", () => {
   afterEach(cleanup)
