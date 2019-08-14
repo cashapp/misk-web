@@ -1,6 +1,12 @@
 # Change Log - @misk/core
 
-This log was last generated on Tue, 23 Jul 2019 01:27:17 GMT and should not be manually modified.
+This log was last generated on Wed, 14 Aug 2019 13:39:27 GMT and should not be manually modified.
+
+## 0.1.16
+
+Wed, 14 Aug 2019 13:39:27 GMT
+
+_Version update only_
 
 ## 0.1.15
 
