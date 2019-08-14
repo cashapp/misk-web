@@ -10,6 +10,7 @@ rm -rf $EXTERNAL
 # Copy README over
 cat $MW/README.md | grep -v 'project website' > $MW/docs/pages/index.md
 cat $MW/RELEASING.md > $MW/docs/docs/guides/releasing.md
+cat $MW/CHANGELOG.md > $MW/docs/docs/guides/changelog.md
 cat $MW/CONTRIBUTING.md > $MW/docs/docs/guides/contributing.md
 cat $MW/docs/README.md > $MW/docs/docs/guides/contributing-to-the-docs.md
 

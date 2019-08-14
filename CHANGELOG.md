@@ -1,7 +1,30 @@
 ## Changelog
 
-_Note: extensive changelog is in `@misk/cli/src/utils/changelog.ts`. This is primarily only for breaking changes._
+## 0.1.16
+Wed, 14 Aug 2019 13:39:27 GMT
 
+### @misk/dev
+* Two new keys added to `miskTab.json` for expanded configuration of the Webpack build provided by `@misk/dev`
+  * `rawIndex` option stops injecting unused Script tags in Misk Loader tab, instead copies the index.html from src as is without any processing
+  * `useWebpackBundleAnalyzer` allows turning off or on in non-production environments Webpack Bundler Analyzer reports
+
+### @misk/simpleredux
+* New `IRouterProvidedProps` interface to be uesd to access the optionally injected React-Router props of history, location, and match. Useful for handling path parameters, [see the docs for more](https://cashapp.github.io/misk-web/docs/guides/building-a-tab/5-path-parameters).
+
+## 0.1.13
+Wed, 15 Jul 2019 12:29:37 GMT
+
+### @misk/simpleredux
+* New `SimpleReduxSaga` type to alias the type of a `rootSaga` in a tab's `src/ducks/index.ts` to support bumping `redux-sagas` library. It looks as follows.
+  ```Typescript
+  export function* rootSaga(): SimpleReduxSaga {
+    yield all([
+      fork(watchPaletteSagas),
+      ...
+  ```
+
+
+## Old Changelog
 - 2019-02-21: First stable release of `@misk/simpleredux` at `0.1.4`.
 - 2019-02-20: Move `ducks` out of `@misk/common` and `@misk/core` into `@misk/simpleredux` for better centralized, isolated functionality. Effective as of `@misk/*@0.1.4-4^`.
 - 2019-02-20: All interfaces, functions, colors, and code in `@misk/common` has been moved to `@misk/core`. `@misk/common` now only has styles and vendors library creation. Update any broken references to point to `@misk/core`. Effective as of `@misk/*@0.1.4-3^`.
