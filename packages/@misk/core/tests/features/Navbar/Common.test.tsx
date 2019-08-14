@@ -2,7 +2,7 @@
 import { css, jsx } from "@emotion/core"
 import { Link } from 'react-router-dom'
 import { BrowserRouter } from "react-router-dom"
-import { cleanup, render } from "react-testing-library"
+import { cleanup, render } from "@testing-library/react"
 import {
   cssMiskLink,
   MiskNavbarHeading,

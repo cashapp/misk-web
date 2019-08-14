@@ -1,5 +1,5 @@
 import React from "react"
-import { cleanup, render } from "react-testing-library"
+import { cleanup, render } from "@testing-library/react"
 import { Banner } from "../../../src/features/Navbar"
 import { Environment } from "src"
 
