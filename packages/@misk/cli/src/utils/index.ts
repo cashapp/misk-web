@@ -1,5 +1,5 @@
 import * as fs from "fs-extra"
-import { cd, exec, pwd } from "shelljs"
+import { cd, exec, exit, pwd } from "shelljs"
 
 export * from "./generate"
 export * from "./handleCommand"
@@ -90,9 +90,8 @@ export const execute = (cmd: string, ...args: any) => {
   const terminal = exec(cmd)
   terminal.stdout
   if (terminal.code) {
-    throw new Error(
-      `Shell command \`${cmd}\` exited with code ${terminal.code}. ${terminal.stderr}`
-    )
+    console.log(`\n[ERROR][CODE] Shell command exited with code ${terminal.code}:\n\`${cmd}\``)
+    exit(terminal.code)
   }
 }
 

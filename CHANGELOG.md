@@ -1,5 +1,19 @@
 ## Changelog
 
+## 0.1.17-2
+Wed, 14 Aug 2019 16:15:27 GMT
+
+### @misk/cli
+
+* Use ShellJS instead of process.exit to pass through exit code
+
+## 0.1.17-1
+Wed, 14 Aug 2019 16:05:27 GMT
+
+### @misk/cli
+
+* Exit with failure codes from executed scripts so that CLI fails if downstream tasks fail
+
 ## 0.1.17-0
 Wed, 14 Aug 2019 14:16:27 GMT
 
