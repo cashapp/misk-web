@@ -1,5 +1,16 @@
 ## Changelog
 
+## 0.1.17-0
+Wed, 14 Aug 2019 14:16:27 GMT
+
+* Bump `react` and `react-dom` from `16.8.6` to `16.9.0`
+
+### @misk/test
+
+* Migrate from `react-testing-library` to `@testing-library/react` (package was renamed)
+* Bump `@testing-library/react` from `6.1.2` to `9.1.1`
+* All test files with imports from `react-testing-library` will need to be changed to import from `@testing-library/react`
+
 ## 0.1.16
 Wed, 14 Aug 2019 13:39:27 GMT
 
