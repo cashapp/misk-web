@@ -1,46 +1,66 @@
 ## Changelog
 
+## 0.1.17-4
+
+Thu, 15 Aug 2019 14:00:00 GMT
+
+### @misk/dev
+
+- Use webpack `alias` for `src/` and `tests/` imports
+
+### @misk/test
+
+- Use `moduleNameMapper` in `jest` for `src/` and `tests/` imports
+
 ## 0.1.17-2
+
 Wed, 14 Aug 2019 16:15:27 GMT
 
 ### @misk/cli
 
-* Use ShellJS instead of process.exit to pass through exit code
+- Use ShellJS instead of process.exit to pass through exit code
 
 ## 0.1.17-1
+
 Wed, 14 Aug 2019 16:05:27 GMT
 
 ### @misk/cli
 
-* Exit with failure codes from executed scripts so that CLI fails if downstream tasks fail
+- Exit with failure codes from executed scripts so that CLI fails if downstream tasks fail
 
 ## 0.1.17-0
+
 Wed, 14 Aug 2019 14:16:27 GMT
 
-* Bump `react` and `react-dom` from `16.8.6` to `16.9.0`
+- Bump `react` and `react-dom` from `16.8.6` to `16.9.0`
 
 ### @misk/test
 
-* Migrate from `react-testing-library` to `@testing-library/react` (package was renamed)
-* Bump `@testing-library/react` from `6.1.2` to `9.1.1`
-* All test files with imports from `react-testing-library` will need to be changed to import from `@testing-library/react`
+- Migrate from `react-testing-library` to `@testing-library/react` (package was renamed)
+- Bump `@testing-library/react` from `6.1.2` to `9.1.1`
+- All test files with imports from `react-testing-library` will need to be changed to import from `@testing-library/react`
 
 ## 0.1.16
+
 Wed, 14 Aug 2019 13:39:27 GMT
 
 ### @misk/dev
-* Two new keys added to `miskTab.json` for expanded configuration of the Webpack build provided by `@misk/dev`
-  * `rawIndex` option stops injecting unused Script tags in Misk Loader tab, instead copies the index.html from src as is without any processing
-  * `useWebpackBundleAnalyzer` allows turning off or on in non-production environments Webpack Bundler Analyzer reports
+
+- Two new keys added to `miskTab.json` for expanded configuration of the Webpack build provided by `@misk/dev`
+  - `rawIndex` option stops injecting unused Script tags in Misk Loader tab, instead copies the index.html from src as is without any processing
+  - `useWebpackBundleAnalyzer` allows turning off or on in non-production environments Webpack Bundler Analyzer reports
 
 ### @misk/simpleredux
-* New `IRouterProvidedProps` interface to be uesd to access the optionally injected React-Router props of history, location, and match. Useful for handling path parameters, [see the docs for more](https://cashapp.github.io/misk-web/docs/guides/building-a-tab/5-path-parameters).
+
+- New `IRouterProvidedProps` interface to be uesd to access the optionally injected React-Router props of history, location, and match. Useful for handling path parameters, [see the docs for more](https://cashapp.github.io/misk-web/docs/guides/building-a-tab/5-path-parameters).
 
 ## 0.1.13
+
 Wed, 15 Jul 2019 12:29:37 GMT
 
 ### @misk/simpleredux
-* New `SimpleReduxSaga` type to alias the type of a `rootSaga` in a tab's `src/ducks/index.ts` to support bumping `redux-sagas` library. It looks as follows.
+
+- New `SimpleReduxSaga` type to alias the type of a `rootSaga` in a tab's `src/ducks/index.ts` to support bumping `redux-sagas` library. It looks as follows.
   ```Typescript
   export function* rootSaga(): SimpleReduxSaga {
     yield all([
@@ -48,8 +68,8 @@ Wed, 15 Jul 2019 12:29:37 GMT
       ...
   ```
 
-
 ## Old Changelog
+
 - 2019-02-21: First stable release of `@misk/simpleredux` at `0.1.4`.
 - 2019-02-20: Move `ducks` out of `@misk/common` and `@misk/core` into `@misk/simpleredux` for better centralized, isolated functionality. Effective as of `@misk/*@0.1.4-4^`.
 - 2019-02-20: All interfaces, functions, colors, and code in `@misk/common` has been moved to `@misk/core`. `@misk/common` now only has styles and vendors library creation. Update any broken references to point to `@misk/core`. Effective as of `@misk/*@0.1.4-3^`.
