@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IDispatchProps, IState } from "../ducks";
+import { IDispatchProps, IState } from "src/ducks";
 declare class TabContainer extends React.Component<IState & IDispatchProps, IState> {
     private tableTag;
     private tableUrl;
