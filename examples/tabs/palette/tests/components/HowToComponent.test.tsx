@@ -1,6 +1,6 @@
 import React from "react"
 import { cleanup, render } from "@testing-library/react"
-import { HowToComponent } from "../../src/components"
+import { HowToComponent } from "src/components"
 
 describe("HowToComponent", () => {
   afterEach(cleanup)

@@ -148,7 +148,11 @@ module.exports = (env, argv) => {
       ]
     },
     resolve: {
-      extensions: [".js", ".jsx", ".ts", ".tsx", ".json"]
+      extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
+      alias: {
+        src: path.resolve(dirname, "./src/"),
+        tests: path.resolve(dirname, "./tests/")
+      }
     },
     mode: env !== "production" ? "development" : "production",
     plugins: [CopyWebpackPluginConfig]

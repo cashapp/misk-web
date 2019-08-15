@@ -1,18 +1,18 @@
 import { simpleSelect } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
-import {
-  HowToComponent,
-  SampleTableComponent,
-  SampleRouterComponent
-} from "../components"
-import { SampleFormContainer, SampleNetworkContainer } from "../containers"
+import { SampleFormContainer, SampleNetworkContainer } from "src/containers"
 import {
   IDispatchProps,
   IState,
   mapDispatchToProps,
   mapStateToProps
-} from "../ducks"
+} from "src/ducks"
+import {
+  HowToComponent,
+  SampleTableComponent,
+  SampleRouterComponent
+} from "src/components"
 
 class TabContainer extends React.Component<IState & IDispatchProps, IState> {
   private tableTag = "Cars"
