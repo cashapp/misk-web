@@ -83,7 +83,7 @@ module.exports = {
             },
             {
               href: 'https://github.com/cashapp/misk-web/',
-              label: 'Repo',
+              label: 'Github Repo',
               category: 'Info'
             }
           ]
