@@ -1,6 +1,18 @@
 {
-  "extends": ["config:base"],
+  "extends": [
+    "config:base"
+  ],
   "automerge": true,
+  "ignoreDeps": [
+    "@misk/cli",
+    "@misk/common",
+    "@misk/core",
+    "@misk/dev",
+    "@misk/prettier",
+    "@misk/simpleredux",
+    "@misk/test",
+    "@misk/tslint"
+  ],
   "ignorePaths": [
     "**/node_modules/**",
     "**/bower_components/**",
