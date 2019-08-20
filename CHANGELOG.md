@@ -1,5 +1,11 @@
 ## Changelog
 
+## 0.1.17
+
+Thu, 20 Aug 2019 14:00:00 GMT
+
+- Stable release
+
 ## 0.1.17-4
 
 Thu, 15 Aug 2019 14:00:00 GMT
