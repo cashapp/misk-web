@@ -34,7 +34,11 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
+    alias: {
+      src: path.resolve(__dirname, "./src/"),
+      tests: path.resolve(__dirname, "./tests/")
+    }
   },
   plugins: bundleAnalyzer
     ? [

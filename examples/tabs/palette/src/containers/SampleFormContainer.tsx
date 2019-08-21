@@ -22,9 +22,10 @@ import {
   onChangeTagFnCall,
   onChangeToggleFnCall,
   onClickFnCall,
-  simpleSelect,
-  simpleType
+  simpleSelectorGet,
+  simpleSelectorPick
 } from "@misk/simpleredux"
+import get from "lodash/get"
 import * as React from "react"
 import { connect } from "react-redux"
 import {
@@ -36,22 +37,23 @@ import {
 
 export const SampleFormContainer = (props: IState & IDispatchProps) => {
   const FormTag = "Expense Report"
+  const fields = [
+    "Name",
+    "Price",
+    "Itemized Receipt",
+    "CheckAlice",
+    "CheckBob",
+    "CheckEve",
+    "CheckMallory",
+    "CheckTrent",
+    "Meal",
+    "Tags"
+  ].map((f: string) => `${FormTag}::${f}.data`)
+  const fieldsData = simpleSelectorPick(props.simpleForm, fields)
   return (
     <div>
-      <H1>Test</H1>
-      <Pre>
-        sampleFormData:
-        {JSON.stringify(
-          simpleSelect(props.simpleForm, FormTag, "data"),
-          null,
-          2
-        )}
-      </Pre>
       <H1>Sample Form Component :: {FormTag}</H1>
-      <Pre>
-        raw form input:{" "}
-        {JSON.stringify(simpleSelect(props.simpleForm, FormTag), null, 2)}
-      </Pre>
+      <Pre>simpleForm: {JSON.stringify(fieldsData, null, 2)}</Pre>
       <FormGroup>
         <InputGroup
           id="text-input"
@@ -65,7 +67,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
             props.simpleFormNumber,
             `${FormTag}::Price`
           )}
-          value={simpleSelect(props.simpleForm, `${FormTag}::Price`, "data")}
+          value={get(fieldsData, [`${FormTag}::Price`, "data"])}
         />
         <TextArea
           fill={true}
@@ -79,11 +81,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
         <FlexContainer>
           <H5>Bill Splitting</H5>
           <Checkbox
-            checked={simpleSelect(
-              props.simpleForm,
-              `${FormTag}::CheckAlice`,
-              "data"
-            )}
+            checked={get(fieldsData, [`${FormTag}::CheckAlice`, "data"])}
             label={"Alice"}
             onChange={onChangeToggleFnCall(
               props.simpleFormToggle,
@@ -92,11 +90,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
             )}
           />
           <Checkbox
-            checked={simpleSelect(
-              props.simpleForm,
-              `${FormTag}::CheckBob`,
-              "data"
-            )}
+            checked={get(fieldsData, [`${FormTag}::CheckBob`, "data"])}
             label={"Bob"}
             onChange={onChangeToggleFnCall(
               props.simpleFormToggle,
@@ -105,11 +99,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
             )}
           />
           <Checkbox
-            checked={simpleSelect(
-              props.simpleForm,
-              `${FormTag}::CheckEve`,
-              "data"
-            )}
+            checked={get(fieldsData, [`${FormTag}::CheckEve`, "data"])}
             label={"Eve"}
             onChange={onChangeToggleFnCall(
               props.simpleFormToggle,
@@ -118,11 +108,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
             )}
           />
           <Checkbox
-            checked={simpleSelect(
-              props.simpleForm,
-              `${FormTag}::CheckMallory`,
-              "data"
-            )}
+            checked={get(fieldsData, [`${FormTag}::CheckMallory`, "data"])}
             label={"Mallory"}
             onChange={onChangeToggleFnCall(
               props.simpleFormToggle,
@@ -131,11 +117,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
             )}
           />
           <Checkbox
-            checked={simpleSelect(
-              props.simpleForm,
-              `${FormTag}::CheckTrent`,
-              "data"
-            )}
+            checked={get(fieldsData, [`${FormTag}::CheckTrent`, "data"])}
             label={"Trent"}
             onChange={onChangeToggleFnCall(
               props.simpleFormToggle,
@@ -148,11 +130,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           label="Meal"
           inline={true}
           onChange={onChangeFnCall(props.simpleFormInput, `${FormTag}::Meal`)}
-          selectedValue={simpleSelect(
-            props.simpleForm,
-            `${FormTag}::Meal`,
-            "data"
-          )}
+          selectedValue={get(fieldsData, [`${FormTag}::Meal`, "data"])}
         >
           <Radio label="Breakfast" value="breakfast" />
           <Radio label="Lunch" value="lunch" />
@@ -164,18 +142,13 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
             `${FormTag}::Tags`
           )}
           placeholder={"Tags"}
-          values={simpleSelect(
-            props.simpleForm,
-            `${FormTag}::Tags`,
-            "data",
-            simpleType.tags
-          )}
+          values={get(fieldsData, [`${FormTag}::Tags`, "data"], [])}
         />
         <H3>Form Submission</H3>
         <Pre>
           submit form network request:{" "}
           {JSON.stringify(
-            simpleSelect(props.simpleNetwork, `${FormTag}::POST`),
+            simpleSelectorGet(props.simpleNetwork, `${FormTag}::POST`),
             null,
             2
           )}
@@ -194,15 +167,14 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           onClick={onClickFnCall(
             props.simpleNetworkPost,
             `${FormTag}::POST`,
-            simpleSelect(props.simpleForm, `${FormTag}::POST_URL`, "data"),
-            simpleSelect(props.simpleForm, FormTag)
+            simpleSelectorGet(props.simpleForm, [`${FormTag}::POST_URL`, "data"]),
+            fieldsData
           )}
           intent={Intent.PRIMARY}
-          loading={simpleSelect(
-            props.simpleNetwork,
+          loading={simpleSelectorGet(props.simpleNetwork, [
             `${FormTag}::POST`,
             "loading"
-          )}
+          ])}
           text={"POST"}
         />
       </FormGroup>
