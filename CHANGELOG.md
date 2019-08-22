@@ -1,5 +1,14 @@
 ## Changelog
 
+## 0.1.18-1
+
+Thu, 22 Aug 2019 22:18:00 GMT
+
+### @misk/simpleredux
+
+* Move around files in library
+* There should be no change in functionality
+
 ## 0.1.18-0
 
 Thu, 22 Aug 2019 19:54:00 GMT
