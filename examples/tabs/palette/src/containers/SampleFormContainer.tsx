@@ -167,7 +167,10 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           onClick={onClickFnCall(
             props.simpleNetworkPost,
             `${FormTag}::POST`,
-            simpleSelectorGet(props.simpleForm, [`${FormTag}::POST_URL`, "data"]),
+            simpleSelectorGet(props.simpleForm, [
+              `${FormTag}::POST_URL`,
+              "data"
+            ]),
             fieldsData
           )}
           intent={Intent.PRIMARY}
