@@ -2,6 +2,7 @@ import { History, Location } from "history";
 import { Map } from "immutable";
 import { match } from "react-router";
 import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects";
+import { ParametricSelector } from "reselect";
 export interface CombinatorEffect<T, E> {
     "@@redux-saga/IO": true;
     combinator: true;
@@ -72,6 +73,11 @@ export declare const simpleSelectorGet: <IState extends {
 }, ISubPayload extends {
     [key: string]: any;
 }>(subState: any, path: string | string[], defaultValue?: any) => any;
+export declare const createSimpleSelectorGet: <ISubState extends {
+    [key: string]: any;
+}, ISubPayload extends {
+    [key: string]: any;
+}>(subStateSelector: (state: any) => ISubState, path: string | string[], defaultValue?: any) => ParametricSelector<ISubState, string | string[], any | ISubPayload | ISubPayload[]>;
 export declare const simpleSelectorPick: <IState extends {
     [key: string]: any;
 }, ISubState extends {
@@ -79,6 +85,11 @@ export declare const simpleSelectorPick: <IState extends {
 }, ISubPayload extends {
     [key: string]: any;
 }>(subState: any, paths: string | string[]) => any;
+export declare const createSimpleSelectorPick: <ISubState extends {
+    [key: string]: any;
+}, ISubPayload extends {
+    [key: string]: any;
+}>(subStateSelector: (state: any) => ISubState, paths: string | string[]) => ParametricSelector<ISubState, string | String[], any | ISubPayload | ISubPayload[]>;
 export declare const onClickFnCall: (callFn: any, ...args: any) => (event: any) => void;
 export declare const onChangeFnCall: (callFn: any, ...args: any) => (event: any) => void;
 export declare const onChangeToggleFnCall: (callFn: any, ...args: any) => (event: any) => void;
