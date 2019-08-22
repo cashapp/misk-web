@@ -7,8 +7,7 @@ import {
   IAction,
   IDefaultState,
   IRootState,
-  simpleSelect,
-  simpleType,
+  simpleSelectorGet,
   SimpleReduxSaga
 } from "./utilities"
 
@@ -113,7 +112,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
   simpleFormToggle: (tag: string, oldState: any) =>
     createAction<SIMPLEFORM.TOGGLE, ISimpleFormPayload>(SIMPLEFORM.TOGGLE, {
       [tag]: {
-        oldToggle: simpleSelect(oldState, tag, "data", simpleType.boolean),
+        oldToggle: simpleSelectorGet(oldState, [tag, "data"], false),
         data: null,
         error: null,
         loading: true,

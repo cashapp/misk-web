@@ -1,10 +1,7 @@
 import { History, Location } from "history"
 import { fromJS, List, Map } from "immutable"
-import escapeRegExp from "lodash/escapeRegExp"
-import filter from "lodash/filter"
-import flatMap from "lodash/flatMap"
-import isEmpty from "lodash/isEmpty"
-import isRegExp from "lodash/isRegExp"
+import get from "lodash/get"
+import pick from "lodash/pick"
 import { match } from "react-router"
 import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects"
 import createCachedSelector from "re-reselect"
@@ -213,34 +210,9 @@ export const simpleRootSelector = <
   state: IState
 ) => immutableSubStateSelector<IState, ISubState>(domain)(state)
 
-const flatFilterObject = (object: any, filterFn: (key: any) => boolean) =>
-  flatMap(filter(Object.keys(object), filterFn), key => object[key])
-
-const filterObject = (
-  object: any,
-  filterFn: string | ((key: any) => boolean)
-) => {
-  let matched = []
-  let regMatched = []
-  let escRegMatched = []
-  if (typeof filterFn === "string") {
-    const escMatch = escapeRegExp(filterFn)
-    if (isRegExp(filterFn)) {
-      regMatched = flatFilterObject(object, key => filterFn.test(key))
-    }
-    if (isRegExp(escMatch)) {
-      escRegMatched = flatFilterObject(object, key => escMatch.test(key))
-    }
-    /** Choose the largest set of results from regExp, coersed regExp, and basic startsWith matching */
-    matched = flatFilterObject(object, key => key.startsWith(filterFn))
-    if (matched.length < regMatched.length) matched = regMatched
-    if (matched.length < escRegMatched.length) matched = escRegMatched
-  } else {
-    matched = flatFilterObject(object, filterFn)
-  }
-  return matched
-}
-
+/**
+ * DEPRECATED
+ */
 export const enum simpleType {
   array,
   boolean,
@@ -250,6 +222,9 @@ export const enum simpleType {
   tags
 }
 
+/**
+ * DEPRECATED
+ */
 const baseType = (returnType: simpleType = simpleType.string): any => {
   switch (returnType) {
     case simpleType.boolean:
@@ -265,96 +240,8 @@ const baseType = (returnType: simpleType = simpleType.string): any => {
   }
 }
 
-const flatResults = (results: object[], returnType: simpleType) => {
-  if (results.length === 0) {
-    return baseType(returnType)
-  } else if (results.length === 1 && returnType != simpleType.tags) {
-    return results[0]
-  } else {
-    return results
-  }
-}
-
-const selectAndFilterState: <
-  ISubState extends { [key: string]: any },
-  ISubPayload extends { [key: string]: any }
->(
-  subStateSelector: (state: any) => ISubState,
-  tagKeysFilter?: string | ((key: any) => boolean),
-  returnType?: simpleType
-) => ParametricSelector<
-  ISubState,
-  string,
-  any | ISubPayload | ISubPayload[]
-> = <
-  ISubState extends { [key: string]: any },
-  ISubPayload extends { [key: string]: any }
->(
-  subStateSelector: (state: any) => ISubState,
-  tagKeysFilter: string | ((key: any) => boolean) = "",
-  returnType?: simpleType
-) =>
-  createCachedSelector(
-    subStateSelector,
-    (subState: ISubState, tagFilter: string) => {
-      let tagFiltered = filterObject(subState, tagFilter)
-      if (!isEmpty(tagKeysFilter)) {
-        if (isEmpty(tagFiltered)) {
-          return baseType(returnType)
-        }
-        tagFiltered = flatMap(tagFiltered, obj =>
-          flatResults(filterObject(obj, tagKeysFilter), returnType)
-        )
-      }
-      return isEmpty(tagFiltered)
-        ? defaultState
-        : flatResults(tagFiltered, returnType)
-    },
-    (state: ISubState, matched: ISubPayload[]) => matched
-  )((state, match) => match)
-
 /**
- *
- * simpleSelect is a cachedSelector that can filter Redux state
- * @param subState: top level state
- * @param tagFilter: string filter of top level of substate tags
- * @param tagKeysFilter: string or function filter of returned keys in each tag
- * @param subStateSelector: optional pass in of subState domain as a string or selector
- * @param returnType: override the default returnType with a simpleType type. Useful for tags.
- *
- * Use any of the three ways below:
- *
- * - Declare return type. Pass in your own subStateSelector. If no tagKeysFilter, use "".
- *   ```Typescript
- *   simpleSelect(props.simpleTrex, "Alice", "height", simpleType.number, customSubStateSelector)
- *   ```
- * - Declare return type. Pass in the top level domain string for the subState. If subState.simpleTag exists, simpleSelect can automatically pull from that so call without explicitly declaring the domain.
- *   ```Typescript
- *   simpleSelect(props.simpleTrex, "Alice", "height", simpleType.number, "simpleTrex")
- *   ```
- * - Preferred way of calling. First argument, subState, must have a string field such that subState.simpleTag equals the top level name of that subState.
- *   - Good
- *     ```Typescript
- *     state = { "simpleTrex": {
- *        "simpleTag": "simpleTrex",
- *        "Alice": {height, weight, latitute, longitude},
- *        "Bob": {height, weight, latitute, longitude}
- *       }
- *     }
- *     props = { "simpleTrex": state.simpleTrex }
- *     simpleSelect(props.simpleTrex, "Alice", "height")
- *     ```
- *   - Bad
- *     ```Typescript
- *     state = { "simpleTrex": {
- *        "Alice": {height, weight, latitute, longitude},
- *        "Bob": {height, weight, latitute, longitude}
- *       }
- *     }
- *     props = { "simpleTrex": state.simpleTrex }
- *     ERROR: simpleSelect(props.simpleTrex, "Alice", "height")
- *     ```
- * - If subState doesn't have simpleTag, then optional argument subStateSelector is looked for
+ * DEPRECATED
  */
 export const simpleSelect = <
   IState extends { [key: string]: ISubState | any },
@@ -363,10 +250,13 @@ export const simpleSelect = <
 >(
   subState: any,
   tagFilter: string,
-  tagKeysFilter: string | ((key: any) => boolean) = "",
-  returnType?: simpleType,
+  tagKeysFilter: string = "",
+  returnType?: any,
   subStateSelector?: string | any
 ) => {
+  console.warn(
+    "[DEPRECATED] @misk/simpleRedux::simpleSelect is deprecated and will be removed.\nUse `simpleSelectorGet(subState, path, defaultValue)` instead using the same API as Lodash::get: https://lodash.com/docs#get\n@Misk/SimpleRedux Migration: https://cashapp.github.io/misk-web/docs/guides/changelog"
+  )
   let selector
   if (subStateSelector) {
     if (typeof subStateSelector === "string") {
@@ -385,12 +275,126 @@ export const simpleSelect = <
       "@misk/simpleRedux:simpleSelect No subStateSelector could be determined from subState.simpleTag or from subStateSelector argument. Check documentation for approved ways to call simpleSelect."
     )
   }
-  return selectAndFilterState<ISubState, ISubPayload>(
+  // return simpleSelector(subState, [tagFilter, tagKeysFilter], baseType(returnType))
+  const path = [tagFilter, tagKeysFilter].filter(e => e !== "")
+  const defaultValue = baseType(returnType)
+  return createSimpleSelectorGet<ISubState, ISubPayload>(
     selector,
-    tagKeysFilter,
-    returnType
-  )(subState, tagFilter)
+    path,
+    defaultValue
+  )(subState, path)
 }
+
+/**
+ * Cached Redux Selector using Lodash Get API to select parts of the state
+ * https://lodash.com/docs#get
+ */
+export const simpleSelectorGet = <
+  IState extends { [key: string]: ISubState | any },
+  ISubState extends { [key: string]: any },
+  ISubPayload extends { [key: string]: any }
+>(
+  subState: any,
+  path: string | string[],
+  defaultValue?: any
+) => {
+  if (!subState.simpleTag) {
+    throw new Error(
+      "@misk/simpleRedux:simpleSelect called with state that doesn't have a \"simpleTag\" key. Make sure you're passing in a state that is part of @misk/simpleredux."
+    )
+  }
+  return createSimpleSelectorGet<ISubState, ISubPayload>(
+    selectSubState<IState, ISubState>(subState.simpleTag),
+    path,
+    defaultValue
+  )(subState, path)
+}
+
+export const createSimpleSelectorGet: <
+  ISubState extends { [key: string]: any },
+  ISubPayload extends { [key: string]: any }
+>(
+  subStateSelector: (state: any) => ISubState,
+  path: string | string[],
+  defaultValue?: any
+) => ParametricSelector<
+  ISubState,
+  string | string[],
+  any | ISubPayload | ISubPayload[]
+> = <
+  ISubState extends { [key: string]: any },
+  ISubPayload extends { [key: string]: any }
+>(
+  subStateSelector: (state: any) => ISubState,
+  path: string | string[],
+  defaultValue?: any
+) =>
+  createCachedSelector(
+    // selector
+    subStateSelector,
+    // selection function to retrieve certain results from state
+    (subState: ISubState, path: string | string[]) =>
+      get(subState, path, defaultValue),
+    // cache hit function
+    (_: ISubState, matched: ISubPayload[]) => matched
+  )(
+    // fn to generate the cache key, in this case the joined path
+    (_, path) =>
+      (typeof path === "string" && path) || (path as string[]).join(".")
+  )
+
+/**
+ * Cached Redux Selector using Lodash Pick API to select parts of the state
+ * https://lodash.com/docs#pick
+ */
+export const simpleSelectorPick = <
+  IState extends { [key: string]: ISubState | any },
+  ISubState extends { [key: string]: any },
+  ISubPayload extends { [key: string]: any }
+>(
+  subState: any,
+  paths: string | string[]
+) => {
+  if (!subState.simpleTag) {
+    throw new Error(
+      "@misk/simpleRedux:simpleSelect called with state that doesn't have a \"simpleTag\" key. Make sure you're passing in a state that is part of @misk/simpleredux."
+    )
+  }
+  return createSimpleSelectorPick<ISubState, ISubPayload>(
+    selectSubState<IState, ISubState>(subState.simpleTag),
+    paths
+  )(subState, paths)
+}
+
+export const createSimpleSelectorPick: <
+  ISubState extends { [key: string]: any },
+  ISubPayload extends { [key: string]: any }
+>(
+  subStateSelector: (state: any) => ISubState,
+  paths: string | string[]
+) => ParametricSelector<
+  ISubState,
+  string | String[],
+  any | ISubPayload | ISubPayload[]
+> = <
+  ISubState extends { [key: string]: any },
+  ISubPayload extends { [key: string]: any }
+>(
+  subStateSelector: (state: any) => ISubState,
+  paths: string | string[]
+) =>
+  createCachedSelector(
+    // selector
+    subStateSelector,
+    // selection function to retrieve certain results from state
+    (subState: ISubState, paths: string | string[]) => pick(subState, paths),
+    // cache hit function
+    (_, matched: ISubPayload) => matched
+  )(
+    // fn to generate the cache key, in this case the joined path
+    (_, paths) =>
+      (typeof paths === "string" && paths) || (paths as string[]).join(".")
+  )
 
 /**
  * Handler Functions

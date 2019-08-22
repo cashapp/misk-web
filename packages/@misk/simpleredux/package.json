@@ -1,12 +1,12 @@
 {
   "name": "@misk/simpleredux",
-  "version": "0.1.17",
+  "version": "0.1.18-0",
   "license": "SEE LICENSE IN https://github.com/cashapp/misk-web",
   "description": "Misk-Web SimpleRedux",
   "author": "CashApp/Misk-Web Authors (https://github.com/cashapp/misk-web/graphs/contributors)",
   "main": "lib/web/@misk/simpleredux/simpleredux.js",
   "module": "lib/web/@misk/simpleredux/simpleredux.js",
-  "typings": "lib/web/@misk/simpleredux/index.d.ts",
+  "typings": "lib/web/@misk/simpleredux/src/index.d.ts",
   "engines": {
     "node": ">=7.8.0"
   },
@@ -18,21 +18,21 @@
     "url": "git@github.com:cashapp/misk-web.git"
   },
   "scripts": {
-    "build": "npm run-script lint && npm run-script lib",
+    "build": "npm run-script lint && npm run-script lib && npm run test",
     "clean": "rm -rf lib",
     "dev": "npm run-script build; npm run-script updateDevCache",
-    "ci-build": "npm run-script clean && npm run-script lib",
+    "ci-build": "npm run-script clean && npm run-script lib && npm run test",
     "lib": "webpack",
-    "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
+    "lint": "prettier --write --config package.json \".{/src/**/,test/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
     "gradle": "cd ../../../../../ && ./gradlew web -Pcmd='-ca' -Ptabs='@misk/simpleredux'",
     "prepare": "npm run-script ci-build",
     "reinstall": "rm -rf node_modules && npm install",
     "start": "npm run-script lint && cross-env NODE_ENV=development webpack-dev-server",
-    "test": "echo no tests",
+    "test": "jest --passWithNoTests",
     "updateDevCache": "cd ..; ./updateLocalCache.sh"
   },
   "dependencies": {
-    "@misk/common": "0.1.17",
+    "@misk/common": "0.1.18-0",
     "@blueprintjs/core": "3.18.0",
     "@blueprintjs/datetime": "3.12.0",
     "@blueprintjs/icons": "3.10.0",
@@ -65,9 +65,16 @@
     "styled-components": "4.3.2"
   },
   "devDependencies": {
-    "@misk/dev": "0.1.17",
-    "@misk/prettier": "0.1.17",
-    "@misk/tslint": "0.1.17",
+    "@misk/dev": "0.1.18-0",
+    "@misk/prettier": "0.1.18-0",
+    "@misk/test": "0.1.18-0",
+    "@testing-library/react": "9.1.1",
+    "@types/jest": "24.0.18",
+    "jest": "24.9.0",
+    "jest-emotion": "10.0.14",
+    "jest-serializer-html": "7.0.0",
+    "ts-jest": "24.0.2",
+    "@misk/tslint": "0.1.18-0",
     "@types/history": "4.7.3",
     "@types/lodash": "4.14.137",
     "@types/node": "11.13.1",
@@ -103,6 +110,28 @@
     "webpack-bundle-analyzer": "3.4.1",
     "webpack-dev-server": "3.8.0",
     "webpack-merge": "4.2.1"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "snapshotSerializers": [
+      "jest-serializer-html",
+      "jest-emotion"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "jsx"
+    ],
+    "moduleNameMapper": {
+      "^src(.*)$": "<rootDir>/src/$1",
+      "^tests(.*)$": "<rootDir>/tests/$1"
+    }
   },
   "prettier": "@misk/prettier",
   "miskTab": {
