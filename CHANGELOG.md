@@ -1,8 +1,75 @@
 ## Changelog
 
+## 0.1.18-0
+
+Thu, 22 Aug 2019 19:54:00 GMT
+
+### @misk/simpleredux
+
+* Deprecate `simpleSelect` in favor of two new functions: `simpleSelectorGet` and `simpleSelectorPick`
+* Both new functions have the same API and under the hood use Lodash corresponding functions [`get`](https://lodash.com/docs#get) and [`pick`](https://lodash.com/docs#pick)
+* Update `simpleSelect` calls to either of the two new functions soon as `simpleSelect` will be removed in a future release
+* See more in [`@misk/simpleredux` documentation](https://cashapp.github.io/misk-web/docs/packages/simpleredux/README)
+
+#### simpleSelectorGet
+
+* Allows for single-key cached selection from Redux state
+* Most directly equivalent to deprecated `simpleSelect`
+
+  ```Typescript
+  // OLD
+  const field1 = simpleSelect(props.simpleForm, "Dino::Field1", "data")
+  const tagsField = simpleSelect(props.simpleForm, "Dino::Tags", "data", simpleType.array)
+
+  // NEW
+  const field1 = simpleSelectorGet(props.simpleForm, ["Dino::Field1", "data"])
+  const tagsField = simpleSelectorGet(props.simpleForm, ["Dino::Tags", "data"], [])
+  ```
+
+#### simpleSelectorPick
+
+* Allows for multi-key cached selection from Redux state
+
+  ```Typescript
+  // OLD
+  const fields = [
+    "Name",
+    "Price",
+    "Itemized Receipt",
+    "CheckAlice",
+    "CheckBob",
+    "CheckEve",
+    "CheckMallory",
+    "CheckTrent",
+    "Meal",
+    "Tags"
+  ].map((f: string) => `Dino::${f}`)
+  const fieldsData = fields
+    .map((key: string) => {
+      const value = simpleSelect(props.simpleForm, key, "data")
+      return { [key]: value }
+    })
+    .reduce((prev, current) => ({...prev, ...current}), {})
+
+  // New
+  const fields = [
+    "Name",
+    "Price",
+    "Itemized Receipt",
+    "CheckAlice",
+    "CheckBob",
+    "CheckEve",
+    "CheckMallory",
+    "CheckTrent",
+    "Meal",
+    "Tags"
+  ].map((f: string) => `Dino::${f}.data`)
+  const fieldsData = simpleSelectorPick(props.simpleForm, fields)
+  ```
+
 ## 0.1.17
 
-Thu, 20 Aug 2019 14:00:00 GMT
+Tue, 20 Aug 2019 14:00:00 GMT
 
 - Stable release
 
