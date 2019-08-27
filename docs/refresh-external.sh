@@ -30,3 +30,7 @@ for dir in $MW/packages/@misk/*/; do
   PKG=${dir##*/}    # print everything after the final "/"
   cp $dir/*.md $MW/docs/docs/packages/$PKG/
 done
+
+# Copy over CircleCI to ensure CI still works on gh-pages branch
+mkdir -p $MW/docs/public
+cp -r $MW/.circleci $MW/docs/public/.circleci
