@@ -1,83 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dist bundle action.d.ts is unchanged 1`] = `
-"export declare enum SIMPLENETWORK {
-    DELETE = \\"SIMPLENETWORK_DELETE\\",
-    FAILURE = \\"SIMPLENETWORK_FAILURE\\",
-    GET = \\"SIMPLENETWORK_GET\\",
-    HEAD = \\"SIMPLENETWORK_HEAD\\",
-    PATCH = \\"SIMPLENETWORK_PATCH\\",
-    POST = \\"SIMPLENETWORK_POST\\",
-    PUT = \\"SIMPLENETWORK_PUT\\",
-    SUCCESS = \\"SIMPLENETWORK_SUCCESS\\"
-}
-export declare enum SIMPLEFORM {
-    INPUT = \\"SIMPLEFORM_INPUT\\",
-    FAILURE = \\"SIMPLEFORM_FAILURE\\",
-    NUMBER = \\"SIMPLEFORM_NUMBER\\",
-    SUCCESS = \\"SIMPLEFORM_SUCCESS\\",
-    TOGGLE = \\"SIMPLEFORM_TOGGLE\\"
+"export declare enum SIMPLEREDUX {
+    SUCCESS = \\"SIMPLEREDUX_SUCCESS\\",
+    FAILURE = \\"SIMPLEREDUX_FAILURE\\",
+    MERGE = \\"SIMPLEREDUX_MERGE\\",
+    HTTP_DELETE = \\"SIMPLEREDUX_HTTP_DELETE\\",
+    HTTP_GET = \\"SIMPLEREDUX_HTTP_GET\\",
+    HTTP_HEAD = \\"SIMPLEREDUX_HTTP_HEAD\\",
+    HTTP_PATCH = \\"SIMPLEREDUX_HTTP_PATCH\\",
+    HTTP_POST = \\"SIMPLEREDUX_HTTP_POST\\",
+    HTTP_PUT = \\"SIMPLEREDUX_HTTP_PUT\\",
+    CACHE = \\"SIMPLEREDUX_CACHE\\",
+    CACHE_NUMBER = \\"SIMPLEREDUX_NUMBER\\",
+    CACHE_TOGGLE = \\"SIMPLEREDUX_TOGGLE\\"
 }
 "
 `;
 
 exports[`Dist bundle dispatch.d.ts is unchanged 1`] = `
 "import { AxiosResponse, AxiosRequestConfig } from \\"axios\\";
+import { SIMPLEREDUX } from \\"./action\\";
 import { IDefaultState, IAction } from \\"./utilities\\";
-import { SIMPLEFORM, SIMPLENETWORK } from \\"./action\\";
-export interface ISimpleNetworkPayloadTag extends IDefaultState, AxiosResponse {
-    requestConfig: AxiosRequestConfig;
-    tag: string;
-    url: string;
-}
-export interface ISimpleNetworkPayload {
-    [tag: string]: ISimpleNetworkPayloadTag;
-}
-export interface IDispatchSimpleNetwork {
-    simpleNetworkDelete: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.DELETE, ISimpleNetworkPayload>;
-    simpleNetworkFailure: (tag: string, url: string, error: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.FAILURE, ISimpleNetworkPayload>;
-    simpleNetworkGet: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.GET, ISimpleNetworkPayload>;
-    simpleNetworkHead: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.HEAD, ISimpleNetworkPayload>;
-    simpleNetworkPatch: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.PATCH, ISimpleNetworkPayload>;
-    simpleNetworkPost: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.POST, ISimpleNetworkPayload>;
-    simpleNetworkPut: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.PUT, ISimpleNetworkPayload>;
-    simpleNetworkSuccess: (tag: string, url: string, response: AxiosResponse, requestConfig?: AxiosRequestConfig) => IAction<SIMPLENETWORK.SUCCESS, ISimpleNetworkPayload>;
-}
-export declare const dispatchSimpleNetwork: IDispatchSimpleNetwork;
-export interface ISimpleFormPayloadTag extends IDefaultState {
+export interface ISimpleCachePayloadTag extends IDefaultState {
     oldToggle?: string | boolean;
     tag: string;
     valueAsString?: string;
     valueAsNumber?: number;
 }
-export interface ISimpleFormPayload {
-    [tag: string]: ISimpleFormPayloadTag;
+export interface ISimpleHttpPayloadTag extends IDefaultState, AxiosResponse {
+    requestConfig: AxiosRequestConfig;
+    tag: string;
+    url: string;
 }
+export declare type ISimpleReduxPayloadTag = ISimpleCachePayloadTag | ISimpleHttpPayloadTag;
+export interface ISimpleReduxPayload {
+    [tag: string]: ISimpleReduxPayloadTag;
+}
+export interface IDispatchSimpleRedux {
+    simpleSuccess: (tag: string, data: any) => IAction<SIMPLEREDUX.SUCCESS, ISimpleReduxPayload>;
+    simpleFailure: (tag: string, error: any) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>;
+    simpleMerge: (data: any) => IAction<SIMPLEREDUX.MERGE, any>;
+    simpleHttpDelete: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_DELETE, ISimpleReduxPayload>;
+    simpleHttpGet: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_GET, ISimpleReduxPayload>;
+    simpleHttpHead: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_HEAD, ISimpleReduxPayload>;
+    simpleHttpPatch: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_PATCH, ISimpleReduxPayload>;
+    simpleHttpPost: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_POST, ISimpleReduxPayload>;
+    simpleHttpPut: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_PUT, ISimpleReduxPayload>;
+    simpleCache: (tag: string, data: any) => IAction<SIMPLEREDUX.CACHE, ISimpleReduxPayload>;
+    simpleCacheNumber: (tag: string, valueAsNumber: number, valueAsString: string) => IAction<SIMPLEREDUX.CACHE_NUMBER, ISimpleReduxPayload>;
+    simpleCacheToggle: (tag: string, oldState: any) => IAction<SIMPLEREDUX.CACHE_TOGGLE, ISimpleReduxPayload>;
+}
+interface IPrivateDispatchSimpleRedux extends IDispatchSimpleRedux {
+    simpleSuccess: (tag: string, data: any) => IAction<SIMPLEREDUX.SUCCESS, ISimpleReduxPayload>;
+    simpleFailure: (tag: string, error: any) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>;
+    simpleMerge: (data: any) => IAction<SIMPLEREDUX.MERGE, any>;
+}
+export declare const dispatchSimpleRedux: IPrivateDispatchSimpleRedux;
+export interface IDispatchSimpleNetwork {
+    simpleNetworkDelete: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_DELETE, ISimpleReduxPayload>;
+    simpleNetworkFailure: (tag: string, url: string, error: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>;
+    simpleNetworkGet: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_GET, ISimpleReduxPayload>;
+    simpleNetworkHead: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_HEAD, ISimpleReduxPayload>;
+    simpleNetworkPatch: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_PATCH, ISimpleReduxPayload>;
+    simpleNetworkPost: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_POST, ISimpleReduxPayload>;
+    simpleNetworkPut: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_PUT, ISimpleReduxPayload>;
+    simpleNetworkSuccess: (tag: string, url: string, response: AxiosResponse, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.SUCCESS, ISimpleReduxPayload>;
+}
+export declare const dispatchSimpleNetwork: IDispatchSimpleNetwork;
 export interface IDispatchSimpleForm {
-    simpleFormFailure: (tag: string, error: any) => IAction<SIMPLEFORM.FAILURE, ISimpleFormPayload>;
-    simpleFormInput: (tag: string, data: any) => IAction<SIMPLEFORM.INPUT, ISimpleFormPayload>;
-    simpleFormNumber: (tag: string, valueAsNumber: number, valueAsString: string) => IAction<SIMPLEFORM.NUMBER, ISimpleFormPayload>;
-    simpleFormSuccess: (tag: string, data: any) => IAction<SIMPLEFORM.SUCCESS, ISimpleFormPayload>;
-    simpleFormToggle: (tag: string, oldState: any) => IAction<SIMPLEFORM.TOGGLE, ISimpleFormPayload>;
+    simpleFormFailure: (tag: string, error: any) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>;
+    simpleFormInput: (tag: string, data: any) => IAction<SIMPLEREDUX.CACHE, ISimpleReduxPayload>;
+    simpleFormNumber: (tag: string, valueAsNumber: number, valueAsString: string) => IAction<SIMPLEREDUX.CACHE_NUMBER, ISimpleReduxPayload>;
+    simpleFormSuccess: (tag: string, data: any) => IAction<SIMPLEREDUX.SUCCESS, ISimpleReduxPayload>;
+    simpleFormToggle: (tag: string, oldState: any) => IAction<SIMPLEREDUX.CACHE_TOGGLE, ISimpleReduxPayload>;
 }
 export declare const dispatchSimpleForm: IDispatchSimpleForm;
+export {};
 "
 `;
 
 exports[`Dist bundle reducer.d.ts is unchanged 1`] = `
 "import { IAction, IRootState } from \\"./utilities\\";
-import { SIMPLEFORM, SIMPLENETWORK } from \\"./action\\";
-import { ISimpleFormPayload, ISimpleNetworkPayload } from \\"./dispatch\\";
-export declare function SimpleNetworkReducer(state: any, action: IAction<SIMPLENETWORK, {}>): any;
+import { SIMPLEREDUX } from \\"./action\\";
+import { ISimpleReduxPayload } from \\"./dispatch\\";
+export declare function SimpleReduxReducer(state: any, action: IAction<SIMPLEREDUX, {}>): any;
+export interface ISimpleReduxState extends IRootState {
+    [tag: string]: any | ISimpleReduxPayload;
+}
+export interface ISimpleReduxImmutableState {
+    toJS: () => ISimpleReduxState;
+}
+export declare const SimpleNetworkReducer: typeof SimpleReduxReducer;
 export interface ISimpleNetworkState extends IRootState {
-    [tag: string]: any | ISimpleNetworkPayload;
+    [tag: string]: any | ISimpleReduxPayload;
 }
 export interface ISimpleNetworkImmutableState {
     toJS: () => ISimpleNetworkState;
 }
-export declare function SimpleFormReducer(state: any, action: IAction<SIMPLEFORM, {}>): any;
+export declare const SimpleFormReducer: typeof SimpleReduxReducer;
 export interface ISimpleFormState extends IRootState {
-    [tag: string]: any | ISimpleFormPayload;
+    [tag: string]: any | ISimpleReduxPayload;
 }
 export interface ISimpleFormImmutableState {
     toJS: () => ISimpleFormState;
@@ -87,8 +110,9 @@ export interface ISimpleFormImmutableState {
 
 exports[`Dist bundle saga.d.ts is unchanged 1`] = `
 "import { SimpleReduxSaga } from \\"./utilities\\";
-export declare function watchSimpleNetworkSagas(): SimpleReduxSaga;
-export declare function watchSimpleFormSagas(): SimpleReduxSaga;
+export declare function watchSimpleReduxSagas(): SimpleReduxSaga;
+export declare const watchSimpleFormSagas: typeof watchSimpleReduxSagas;
+export declare const watchSimpleNetworkSagas: typeof watchSimpleReduxSagas;
 "
 `;
 
@@ -193,8 +217,10 @@ export declare const onChangeTagFnCall: (callFn: any, ...args: any) => (values: 
 export declare const booleanToggle: (oldState: string | boolean) => boolean;
 export declare const getFirstTag: <T = {
     [key: string]: any;
+}, UNIONED_TYPE = {
+    [key: string]: any;
 }>(payload: {
-    [key: string]: T;
+    [key: string]: UNIONED_TYPE;
 }) => T;
 export declare const jsonOrString: (json: string) => any;
 "

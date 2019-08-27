@@ -1,34 +1,42 @@
 import { defaultRootState, IAction, IRootState } from "./utilities"
-import { SIMPLEFORM, SIMPLENETWORK } from "./action"
-import { ISimpleFormPayload, ISimpleNetworkPayload } from "./dispatch"
+import { SIMPLEREDUX } from "./action"
+import { ISimpleReduxPayload } from "./dispatch"
 
 /**
- * SimpleNetwork
+ * SimpleRedux
  */
-const simpleNetworkTag = "simpleNetwork"
+const simpleTag = "simpleRedux"
+
 /**
  * Initial State
  * Reducer merges all changes from dispatched action objects on to this initial state
  */
-const initialNetworkState = defaultRootState(simpleNetworkTag)
+const initialState = defaultRootState(simpleTag)
 
 /**
  * Duck Reducer
  * Merges dispatched action objects on to the existing (or initial) state to generate new state
  */
-export function SimpleNetworkReducer(
-  state = initialNetworkState,
-  action: IAction<SIMPLENETWORK, {}>
+export function SimpleReduxReducer(
+  state = initialState,
+  action: IAction<SIMPLEREDUX, {}>
 ) {
   switch (action.type) {
-    case SIMPLENETWORK.DELETE:
-    case SIMPLENETWORK.FAILURE:
-    case SIMPLENETWORK.GET:
-    case SIMPLENETWORK.HEAD:
-    case SIMPLENETWORK.PATCH:
-    case SIMPLENETWORK.POST:
-    case SIMPLENETWORK.PUT:
-    case SIMPLENETWORK.SUCCESS:
+    // Lifecycle
+    case SIMPLEREDUX.SUCCESS:
+    case SIMPLEREDUX.FAILURE:
+    case SIMPLEREDUX.MERGE:
+    // Async HTTP Network Calls
+    case SIMPLEREDUX.HTTP_DELETE:
+    case SIMPLEREDUX.HTTP_GET:
+    case SIMPLEREDUX.HTTP_HEAD:
+    case SIMPLEREDUX.HTTP_PATCH:
+    case SIMPLEREDUX.HTTP_POST:
+    case SIMPLEREDUX.HTTP_PUT:
+    // Redux as UI / Field Input Cache
+    case SIMPLEREDUX.CACHE:
+    case SIMPLEREDUX.CACHE_NUMBER:
+    case SIMPLEREDUX.CACHE_TOGGLE:
       return state.merge(action.payload)
     default:
       return state
@@ -41,45 +49,43 @@ export function SimpleNetworkReducer(
  * Consumed by the root reducer in ./ducks index to update global state
  * Duck state is attached at the root level of global state
  */
-
-export interface ISimpleNetworkState extends IRootState {
-  [tag: string]: any | ISimpleNetworkPayload
+export interface ISimpleReduxState extends IRootState {
+  [tag: string]: any | ISimpleReduxPayload
+}
+export interface ISimpleReduxImmutableState {
+  toJS: () => ISimpleReduxState
 }
 
+/**
+ * DEPRECATED SimpleNetwork
+ */
+/**
+ * Duck Reducer
+ * Merges dispatched action objects on to the existing (or initial) state to generate new state
+ */
+export const SimpleNetworkReducer = SimpleReduxReducer
+
+/**
+ * State Interface
+ * Provides a complete Typescript interface for the object on state that this duck manages
+ * Consumed by the root reducer in ./ducks index to update global state
+ * Duck state is attached at the root level of global state
+ */
+export interface ISimpleNetworkState extends IRootState {
+  [tag: string]: any | ISimpleReduxPayload
+}
 export interface ISimpleNetworkImmutableState {
   toJS: () => ISimpleNetworkState
 }
 
 /**
- * SimpleForm
+ * DEPRECATED SimpleForm
  */
-
-const simpleFormTag = "simpleForm"
-/**
- * Initial State
- * Reducer merges all changes from dispatched action objects on to this initial state
- */
-const initialFormState = defaultRootState(simpleFormTag)
-
 /**
  * Duck Reducer
  * Merges dispatched action objects on to the existing (or initial) state to generate new state
  */
-export function SimpleFormReducer(
-  state = initialFormState,
-  action: IAction<SIMPLEFORM, {}>
-) {
-  switch (action.type) {
-    case SIMPLEFORM.FAILURE:
-    case SIMPLEFORM.INPUT:
-    case SIMPLEFORM.NUMBER:
-    case SIMPLEFORM.SUCCESS:
-    case SIMPLEFORM.TOGGLE:
-      return state.merge(action.payload)
-    default:
-      return state
-  }
-}
+export const SimpleFormReducer = SimpleReduxReducer
 
 /**
  * State Interface
@@ -87,11 +93,9 @@ export function SimpleFormReducer(
  * Consumed by the root reducer in ./ducks index to update global state
  * Duck state is attached at the root level of global state
  */
-
 export interface ISimpleFormState extends IRootState {
-  [tag: string]: any | ISimpleFormPayload
+  [tag: string]: any | ISimpleReduxPayload
 }
-
 export interface ISimpleFormImmutableState {
   toJS: () => ISimpleFormState
 }

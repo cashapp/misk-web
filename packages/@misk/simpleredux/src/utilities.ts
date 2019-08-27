@@ -507,11 +507,14 @@ export const booleanToggle = (oldState: string | boolean) => {
  * Only use when action.payload has a single key (ie. the tag with all metadata inside)
  * Otherwise, unpredictable key selection
  */
-export const getFirstTag = <T = { [key: string]: any }>(payload: {
-  [key: string]: T
+export const getFirstTag = <
+  T = { [key: string]: any },
+  UNIONED_TYPE = { [key: string]: any | T }
+>(payload: {
+  [key: string]: UNIONED_TYPE
 }): T => {
   if (Object.keys(payload).length === 1) {
-    return payload[Object.keys(payload)[0]]
+    return (payload[Object.keys(payload)[0]] as unknown) as T
   }
   throw new Error(
     "@misk/simpleredux:getFirstTag unpredictable use with an object that has more than one key"
