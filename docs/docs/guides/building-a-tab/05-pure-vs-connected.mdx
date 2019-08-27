@@ -1,0 +1,154 @@
+# Pure Components vs Connected Containers
+
+You may have noticed two folders where React components live in the [Project Structure][projectStructure]: `components` and `containers`. This guide details the difference between each and when to create a Pure Component or a Connected Container.
+
+A common development pattern is to start building a large Connected Container and then break off Pure Components as relevant smaller simple components become apparent.
+
+For example, consider a large Connected Container that gets data from a Redux connected network request and displays it in a table. Once built, it could become apparent that each cell, row, and header row, and even the table could each now be composed by separate Pure Components. The Connected Container could then only focus on orchestrating the network request, formatting the data from the response in Redux, and passing it into the initial Pure Component for display.
+
+## Pure Components
+
+A React component can take props as input.
+
+A Pure Component is only concerned with displaying the passed in props. It is not interacting directly with Redux state or any other side effects. It is only displaying props.
+
+An example Pure Component could look as follows:
+
+```TSX
+interface OwnProps {
+  color: string
+  species: string
+}
+
+export const DinoTitle = (props: OwnProps) => (
+  <h1 color={color}>{species}</h1>
+)
+```
+
+`DinoTitle` could then be used like this:
+
+```TSX
+<DinoTitle color={blue} species={"Dinotyrannus"} />
+```
+
+## Connected Container
+
+A Connected Container is a React component that interacts with Redux. It is called `connected` because a `connect` function is used to inject the exported component with Redux provided state and props.
+
+This allows for clean definition of components that can have side effects affecting the global state that is managed by Redux.
+
+An example could look as follows:
+
+```TSX
+import {
+  ControlGroup,
+  InputGroup
+} from "@blueprintjs/core"
+import { onChangeFnCall } from "@misk/simpleredux"
+import * as React from "react"
+import { connect } from "react-redux"
+import {
+  IDispatchProps,
+  mapDispatchToProps,
+  mapStateToProps
+} from "../ducks"
+
+const DinoSearchContainer = (props: IState & IDispatchProps) => {
+  const searchTag = "DinoSearch"
+  return (
+    <ControlGroup fill={true}>
+      <InputGroup
+        large={true}
+        onChange={onChangeFnCall(props.simpleCache, `${searchTag}::Input`)}
+        placeholder={"Filter Dinosaurs"}
+      />
+    </ControlGroup>
+  )
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DinoSearchContainer)
+```
+
+`DinoSearchContainer` could be then used like this:
+
+```TSX
+<DinoSearchContainer />
+```
+
+Notice that though the component definition uses functions from `props`, like `props.simpleCache`, they are not passed in. Instead, they are injected from the `connect` function.
+
+## Connected Container with OwnProps
+
+Sometimes a Connected Container will need non-injected props. In this case, additional props can be added in two steps:
+
+* Defining an `OwnProps` interface
+* Adding `OwnProps` to the interface union props
+
+Note that `OwnProps` is an idiomatic name mentioned in the [React Redux docs](https://react-redux.js.org/api/connect) for the non-connected props of a component. For exported props interfaces used in places other than where the Component is used, the props interface should include a more specific names, like `IDinoEditProps`.
+
+Consider the example definition below:
+
+```TSX
+interface OwnProps {
+  editMode: boolean
+}
+
+const DinoEditContainer = (props: IState & IDispatchProps & OwnProps) => {
+  if (props.editMode) {
+    ...
+  } else {
+    ...
+  }
+
+  return (...)
+}
+```
+
+Usage would then look as follows:
+
+```TSX
+<DinoEditContainer editMode={true} />
+```
+
+## Why distinguish between Pure Component and Connected Container?
+
+The primary reason is easier testing.
+
+Pure Components have very little test overhead and can be snapshot tested easily with passed in dummy props. An example is shown below
+
+```TSX
+import React from "react"
+import { cleanup, render } from "@testing-library/react"
+import { DinoTitle } from "src/components"
+
+describe("DinoTitle renders", () => {
+  afterEach(cleanup)
+  it("DinoTitle can render", () => {
+    const { asFragment } = render(<DinoTitle color={blue} species={"Dinotyrannus"} />)
+    expect(asFragment()).toMatchInlineSnapshot(`
+      <h1 color="blue">Dinotyrannus</h1>
+    `)
+  })
+})
+```
+
+Connected Containers involve more orchestration to seed an initial Redux store to the desired state and then induce actions on it to confirm that it performs as expected.
+
+An example test using Redux is shown in the [Testing Library docs][reduxTest].
+
+## Is this a Pure Component or Connected Container?
+
+A couple questions could help you determine whether what you're building should be a Pure Component or a Connected Container:
+
+* Does the component dispatch actions to Redux?
+  * Network calls?
+  * Persisting UI state from button clicks?
+  * Save field input?
+  * Build a **ConnectedContainer**
+* Is the component focused on only displaying passed in data? Build a **PureComponent**
+
+[projectStructure]: 00-getting-started
+[reduxTest]: https://testing-library.com/docs/example-react-redux
