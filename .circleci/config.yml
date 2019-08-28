@@ -40,14 +40,32 @@ workflows:
   version: 2
   commit:
     jobs:
-      - node
-      - java
-      - docs
+      - node:
+          filters:
+            branches:
+              ignore: gh-pages
+      - java:
+          filters:
+            branches:
+              ignore: gh-pages
+      - docs:
+          filters:
+            branches:
+              ignore: gh-pages
   continuous-testing:
     jobs:
-      - node
-      - java
-      - docs
+      - node:
+          filters:
+            branches:
+              ignore: gh-pages
+      - java:
+          filters:
+            branches:
+              ignore: gh-pages
+      - docs:
+          filters:
+            branches:
+              ignore: gh-pages
     triggers:
       - schedule:
           cron: "0 0 * * *"
