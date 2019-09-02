@@ -2,10 +2,6 @@ import { readFileSync } from 'fs'
 import { join } from 'path'
 
 describe('Dist bundle', () => {
-  it('simpleredux.js is unchanged', () => {
-    const file = readFileSync(join(__dirname, '..', 'lib/web/@misk/simpleredux/simpleredux.js'), 'utf8')
-    expect(file).toMatchSnapshot()
-  })
   it('action.d.ts is unchanged', () => {
     const file = readFileSync(join(__dirname, '..', 'lib/web/@misk/simpleredux/src/action.d.ts'), 'utf8')
     expect(file).toMatchSnapshot()
