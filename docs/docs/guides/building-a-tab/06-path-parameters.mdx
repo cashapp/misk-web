@@ -19,7 +19,7 @@ To set this up, you will need to add a route to `routes/index.tsx` in your tab w
 
 Note the ordering of routes matter, put the most specific route first so that it matches first.
 
-```TSX
+```ts
   // routes/index.tsx
   <Switch>
     <Route path="/articles/edit/:articleId/" component={EditContainer} />
@@ -30,7 +30,7 @@ Note the ordering of routes matter, put the most specific route first so that it
 
 Use the path parameter variable in your component as following.
 
-```TSX
+```ts
 // containers/EditContainer.tsx
 import { Spinner } from "@blueprintjs/core"
 import { IRouterProvidedProps } from "@misk/simpleredux"
@@ -92,7 +92,7 @@ export interface IDispatchProps
 
 This makes for easy use of React Router provided props in Redux connected containers since they come in the already included `IDispatchProps`.
 
-```TSX
+```ts
 // containers/TabContainer.tsx
 import { connect } from "react-redux"
 import { IDispatchProps, IState, mapDispatchToProps, mapStateToProps } from "../ducks"

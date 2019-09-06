@@ -5,9 +5,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: '@westegg/gatsby-theme-core'
-    },
-    {
       resolve: '@westegg/gatsby-theme-misk',
       options: {
         header: {

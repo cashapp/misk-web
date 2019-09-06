@@ -14,7 +14,7 @@ A Pure Component is only concerned with displaying the passed in props. It is no
 
 An example Pure Component could look as follows:
 
-```TSX
+```ts
 interface OwnProps {
   color: string
   species: string
@@ -27,7 +27,7 @@ export const DinoTitle = (props: OwnProps) => (
 
 `DinoTitle` could then be used like this:
 
-```TSX
+```ts
 <DinoTitle color={blue} species={"Dinotyrannus"} />
 ```
 
@@ -39,7 +39,7 @@ This allows for clean definition of components that can have side effects affect
 
 An example could look as follows:
 
-```TSX
+```ts
 import {
   ControlGroup,
   InputGroup
@@ -74,7 +74,7 @@ export default connect(
 
 `DinoSearchContainer` could be then used like this:
 
-```TSX
+```ts
 <DinoSearchContainer />
 ```
 
@@ -91,7 +91,7 @@ Note that `OwnProps` is an idiomatic name mentioned in the [React Redux docs](ht
 
 Consider the example definition below:
 
-```TSX
+```ts
 interface OwnProps {
   editMode: boolean
 }
@@ -109,7 +109,7 @@ const DinoEditContainer = (props: IState & IDispatchProps & OwnProps) => {
 
 Usage would then look as follows:
 
-```TSX
+```ts
 <DinoEditContainer editMode={true} />
 ```
 
@@ -119,7 +119,7 @@ The primary reason is easier testing.
 
 Pure Components have very little test overhead and can be snapshot tested easily with passed in dummy props. An example is shown below
 
-```TSX
+```ts
 import React from "react"
 import { cleanup, render } from "@testing-library/react"
 import { DinoTitle } from "src/components"
