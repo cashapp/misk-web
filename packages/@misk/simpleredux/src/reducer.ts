@@ -23,7 +23,6 @@ export function SimpleReduxReducer(
 ) {
   switch (action.type) {
     // Lifecycle
-    case SIMPLEREDUX.SUCCESS:
     case SIMPLEREDUX.FAILURE:
     case SIMPLEREDUX.MERGE:
     // Async HTTP Network Calls
@@ -33,10 +32,6 @@ export function SimpleReduxReducer(
     case SIMPLEREDUX.HTTP_PATCH:
     case SIMPLEREDUX.HTTP_POST:
     case SIMPLEREDUX.HTTP_PUT:
-    // Redux as UI / Field Input Cache
-    case SIMPLEREDUX.CACHE:
-    case SIMPLEREDUX.CACHE_NUMBER:
-    case SIMPLEREDUX.CACHE_TOGGLE:
       return state.merge(action.payload)
     default:
       return state

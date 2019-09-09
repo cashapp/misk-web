@@ -4,7 +4,8 @@ import {
   IDefaultState,
   IAction,
   createAction,
-  simpleSelectorGet
+  simpleSelectorGet,
+  booleanToggle
 } from "./utilities"
 
 /**
@@ -35,10 +36,10 @@ export interface ISimpleReduxPayload {
 
 export interface IDispatchSimpleRedux {
   // Lifecycle
-  simpleSuccess: (
+  simpleMergeTag: (
     tag: string,
     data: any
-  ) => IAction<SIMPLEREDUX.SUCCESS, ISimpleReduxPayload>
+  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
   simpleFailure: (
     tag: string,
     error: any
@@ -81,49 +82,32 @@ export interface IDispatchSimpleRedux {
   ) => IAction<SIMPLEREDUX.HTTP_PUT, ISimpleReduxPayload>
 
   // Redux as UI / Field Input Cache
-  simpleCache: (
-    tag: string,
-    data: any
-  ) => IAction<SIMPLEREDUX.CACHE, ISimpleReduxPayload>
-  simpleCacheNumber: (
+  simpleMergeNumber: (
     tag: string,
     valueAsNumber: number,
     valueAsString: string
-  ) => IAction<SIMPLEREDUX.CACHE_NUMBER, ISimpleReduxPayload>
-  simpleCacheToggle: (
+  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
+  simpleMergeToggle: (
     tag: string,
     oldState: any
-  ) => IAction<SIMPLEREDUX.CACHE_TOGGLE, ISimpleReduxPayload>
+  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
 }
 
 interface IPrivateDispatchSimpleRedux extends IDispatchSimpleRedux {
   // Lifecycle
-  simpleSuccess: (
-    tag: string,
-    data: any
-  ) => IAction<SIMPLEREDUX.SUCCESS, ISimpleReduxPayload>
   simpleFailure: (
     tag: string,
     error: any
   ) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>
+  simpleMergeTag: (
+    tag: string,
+    data: any
+  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
   simpleMerge: (data: any) => IAction<SIMPLEREDUX.MERGE, any>
 }
 
 export const dispatchSimpleRedux: IPrivateDispatchSimpleRedux = {
   // Lifecycle
-  simpleSuccess: (tag: string, data: any = dispatchDefault.data) =>
-    createAction<SIMPLEREDUX.SUCCESS, ISimpleReduxPayload>(
-      SIMPLEREDUX.SUCCESS,
-      {
-        [tag]: {
-          error: null,
-          loading: false,
-          success: true,
-          tag,
-          ...data
-        }
-      }
-    ),
   simpleFailure: (tag: string, error: any = dispatchDefault.error) =>
     createAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>(
       SIMPLEREDUX.FAILURE,
@@ -147,6 +131,16 @@ export const dispatchSimpleRedux: IPrivateDispatchSimpleRedux = {
       error: null,
       loading: false,
       success: true
+    }),
+  simpleMergeTag: (tag: string, data: any = dispatchDefault.data) =>
+    createAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>(SIMPLEREDUX.MERGE, {
+      [tag]: {
+        error: null,
+        loading: false,
+        success: true,
+        tag,
+        ...data
+      }
     }),
   // Async HTTP Network Calls
   simpleHttpDelete: (
@@ -172,7 +166,6 @@ export const dispatchSimpleRedux: IPrivateDispatchSimpleRedux = {
         }
       }
     ),
-
   simpleHttpGet: (
     tag: string,
     url: string,
@@ -292,47 +285,30 @@ export const dispatchSimpleRedux: IPrivateDispatchSimpleRedux = {
       }
     ),
   // Redux as UI / Field Input Cache
-  simpleCache: (tag: string, data: any) =>
-    createAction<SIMPLEREDUX.CACHE, ISimpleReduxPayload>(SIMPLEREDUX.CACHE, {
-      [tag]: {
-        data,
-        error: null,
-        loading: true,
-        success: false,
-        tag
-      }
-    }),
-  simpleCacheNumber: (
+  simpleMergeNumber: (
     tag: string,
     valueAsNumber: number,
     valueAsString: string
   ) =>
-    createAction<SIMPLEREDUX.CACHE_NUMBER, ISimpleReduxPayload>(
-      SIMPLEREDUX.CACHE_NUMBER,
-      {
-        [tag]: {
-          data: valueAsString,
-          error: null,
-          loading: true,
-          success: false,
-          tag
-        }
+    createAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>(SIMPLEREDUX.MERGE, {
+      [tag]: {
+        data: valueAsString,
+        error: null,
+        loading: false,
+        success: true,
+        tag
       }
-    ),
-  simpleCacheToggle: (tag: string, oldState: any) =>
-    createAction<SIMPLEREDUX.CACHE_TOGGLE, ISimpleReduxPayload>(
-      SIMPLEREDUX.CACHE_TOGGLE,
-      {
-        [tag]: {
-          oldToggle: simpleSelectorGet(oldState, [tag, "data"], false),
-          data: null,
-          error: null,
-          loading: true,
-          success: false,
-          tag
-        }
+    }),
+  simpleMergeToggle: (tag: string, oldState: any) =>
+    createAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>(SIMPLEREDUX.MERGE, {
+      [tag]: {
+        data: booleanToggle(simpleSelectorGet(oldState, [tag, "data"], "off")),
+        error: null,
+        loading: false,
+        success: true,
+        tag
       }
-    )
+    })
 }
 
 const deprecatedCall = (oldName: String, newSignature: String) =>
@@ -387,7 +363,7 @@ export interface IDispatchSimpleNetwork {
     url: string,
     response: AxiosResponse,
     requestConfig?: AxiosRequestConfig
-  ) => IAction<SIMPLEREDUX.SUCCESS, ISimpleReduxPayload>
+  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
 }
 
 interface IDispatchDefault {
@@ -489,9 +465,9 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
   ) => {
     deprecatedCall(
       "simpleNetworkSuccess",
-      "simpleSuccess(tag, { requestConfig?, response, url? })"
+      "simpleMergeTag(tag, { requestConfig?, response, url? })"
     )
-    return dispatchSimpleRedux.simpleSuccess(tag, {
+    return dispatchSimpleRedux.simpleMergeTag(tag, {
       requestConfig,
       response,
       url
@@ -510,20 +486,20 @@ export interface IDispatchSimpleForm {
   simpleFormInput: (
     tag: string,
     data: any
-  ) => IAction<SIMPLEREDUX.CACHE, ISimpleReduxPayload>
+  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
   simpleFormNumber: (
     tag: string,
     valueAsNumber: number,
     valueAsString: string
-  ) => IAction<SIMPLEREDUX.CACHE_NUMBER, ISimpleReduxPayload>
+  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
   simpleFormSuccess: (
     tag: string,
     data: any
-  ) => IAction<SIMPLEREDUX.SUCCESS, ISimpleReduxPayload>
+  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
   simpleFormToggle: (
     tag: string,
     oldState: any
-  ) => IAction<SIMPLEREDUX.CACHE_TOGGLE, ISimpleReduxPayload>
+  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
 }
 
 export const dispatchSimpleForm: IDispatchSimpleForm = {
@@ -532,8 +508,8 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
     return dispatchSimpleRedux.simpleFailure(tag, error)
   },
   simpleFormInput: (tag: string, data: any) => {
-    deprecatedCall("simpleFormInput", "simpleCache(tag, data)")
-    return dispatchSimpleRedux.simpleCache(tag, data)
+    deprecatedCall("simpleFormInput", "simpleMergeTag(tag, data)")
+    return dispatchSimpleRedux.simpleMergeTag(tag, data)
   },
   simpleFormNumber: (
     tag: string,
@@ -542,20 +518,20 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
   ) => {
     deprecatedCall(
       "simpleFormNumber",
-      "simpleCacheNumber(tag, valueAsNumber, valueAsString)"
+      "simpleMergeNumber(tag, valueAsNumber, valueAsString)"
     )
-    return dispatchSimpleRedux.simpleCacheNumber(
+    return dispatchSimpleRedux.simpleMergeNumber(
       tag,
       valueAsNumber,
       valueAsString
     )
   },
   simpleFormSuccess: (tag: string, data: any) => {
-    deprecatedCall("simpleFormSuccess", "simpleSuccess(tag, data)")
-    return dispatchSimpleRedux.simpleSuccess(tag, data)
+    deprecatedCall("simpleFormSuccess", "simpleMergeTag(tag, data)")
+    return dispatchSimpleRedux.simpleMergeTag(tag, data)
   },
   simpleFormToggle: (tag: string, oldState: any) => {
-    deprecatedCall("simpleFormToggle", "simpleCacheToggle(tag, oldState)")
-    return dispatchSimpleRedux.simpleCacheToggle(tag, oldState)
+    deprecatedCall("simpleFormToggle", "simpleMergeToggle(tag, oldState)")
+    return dispatchSimpleRedux.simpleMergeToggle(tag, oldState)
   }
 }

@@ -1,18 +1,16 @@
 import axios, { AxiosResponse } from "axios"
-import { all, call, put, takeEvery, takeLatest } from "redux-saga/effects"
+import { all, call, put, takeEvery } from "redux-saga/effects"
 import { SIMPLEREDUX } from "./action"
 import {
   IAction,
   getFirstTag,
   jsonOrString,
-  SimpleReduxSaga,
-  booleanToggle
+  SimpleReduxSaga
 } from "./utilities"
 import {
   dispatchSimpleRedux,
   ISimpleReduxPayload,
   ISimpleReduxPayloadTag,
-  ISimpleCachePayloadTag,
   ISimpleHttpPayloadTag
 } from "./dispatch"
 
@@ -55,14 +53,12 @@ const responseAndError = (error: { response: AxiosResponse }) => ({
 
 /**
  *
- * Generic handler function for HTTP methods that don't include data in the request
+ * Generic handler function for HTTP methods that don't include data in the request body
  * - DELETE
  * - GET
  * - HEAD
  */
-function* handleBasicNetworkRequest(
-  action: IAction<SIMPLEREDUX, ISimpleReduxPayload>
-) {
+function* handleHttpNoBody(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
   try {
     const { tag, url, requestConfig } = getFirstTag<ISimpleHttpPayloadTag>(
       action.payload
@@ -73,7 +69,7 @@ function* handleBasicNetworkRequest(
       requestConfig
     )
     const data = responseAndData(response)
-    yield put(dispatchSimpleRedux.simpleSuccess(tag, { url, data }))
+    yield put(dispatchSimpleRedux.simpleMergeTag(tag, { url, data }))
   } catch (e) {
     const { tag, url } = getFirstTag<ISimpleHttpPayloadTag>(action.payload)
     const error = responseAndError(e)
@@ -91,7 +87,7 @@ function* handlePatch(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
     )
     const response = yield call(axios.patch, url, updateData, requestConfig)
     const data = responseAndData(response)
-    yield put(dispatchSimpleRedux.simpleSuccess(tag, { url, data }))
+    yield put(dispatchSimpleRedux.simpleMergeTag(tag, { url, data }))
   } catch (e) {
     const { tag, url } = getFirstTag<ISimpleHttpPayloadTag>(action.payload)
     const error = responseAndError(e)
@@ -109,7 +105,7 @@ function* handlePost(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
     )
     const response = yield call(axios.post, url, saveData, requestConfig)
     const data = responseAndData(response)
-    yield put(dispatchSimpleRedux.simpleSuccess(tag, { url, data }))
+    yield put(dispatchSimpleRedux.simpleMergeTag(tag, { url, data }))
   } catch (e) {
     const { tag, url } = getFirstTag<ISimpleHttpPayloadTag>(action.payload)
     const error = responseAndError(e)
@@ -127,7 +123,7 @@ function* handlePut(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
     )
     const response = yield call(axios.put, url, updateData, requestConfig)
     const data = responseAndData(response)
-    yield put(dispatchSimpleRedux.simpleSuccess(tag, { url, data }))
+    yield put(dispatchSimpleRedux.simpleMergeTag(tag, { url, data }))
   } catch (e) {
     const { tag, url } = getFirstTag<ISimpleHttpPayloadTag>(action.payload)
     const error = responseAndError(e)
@@ -135,61 +131,14 @@ function* handlePut(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
   }
 }
 
-function* handleBasicFormRequest(
-  action: IAction<SIMPLEREDUX, ISimpleReduxPayload>
-) {
-  try {
-    const { data, tag } = getFirstTag<ISimpleCachePayloadTag>(action.payload)
-    yield put(
-      dispatchSimpleRedux.simpleSuccess(tag, {
-        ...getFirstTag<ISimpleCachePayloadTag>(action.payload),
-        data
-      })
-    )
-  } catch (e) {
-    const { tag } = getFirstTag<ISimpleCachePayloadTag>(action.payload)
-    yield put(
-      dispatchSimpleRedux.simpleFailure(tag, {
-        ...getFirstTag<ISimpleCachePayloadTag>(action.payload),
-        ...e
-      })
-    )
-  }
-}
-
-function* handleToggle(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
-  try {
-    const { oldToggle, tag } = getFirstTag<ISimpleCachePayloadTag>(
-      action.payload
-    )
-    yield put(
-      dispatchSimpleRedux.simpleSuccess(tag, {
-        ...getFirstTag<ISimpleCachePayloadTag>(action.payload),
-        data: booleanToggle(oldToggle)
-      })
-    )
-  } catch (e) {
-    const { tag } = getFirstTag<ISimpleCachePayloadTag>(action.payload)
-    yield put(
-      dispatchSimpleRedux.simpleFailure(tag, {
-        ...getFirstTag<ISimpleCachePayloadTag>(action.payload),
-        ...e
-      })
-    )
-  }
-}
-
 export function* watchSimpleReduxSagas(): SimpleReduxSaga {
   yield all([
-    takeEvery(SIMPLEREDUX.HTTP_DELETE, handleBasicNetworkRequest),
-    takeEvery(SIMPLEREDUX.HTTP_GET, handleBasicNetworkRequest),
-    takeEvery(SIMPLEREDUX.HTTP_HEAD, handleBasicNetworkRequest),
+    takeEvery(SIMPLEREDUX.HTTP_DELETE, handleHttpNoBody),
+    takeEvery(SIMPLEREDUX.HTTP_GET, handleHttpNoBody),
+    takeEvery(SIMPLEREDUX.HTTP_HEAD, handleHttpNoBody),
     takeEvery(SIMPLEREDUX.HTTP_PATCH, handlePatch),
     takeEvery(SIMPLEREDUX.HTTP_POST, handlePost),
-    takeEvery(SIMPLEREDUX.HTTP_PUT, handlePut),
-    takeLatest(SIMPLEREDUX.CACHE, handleBasicFormRequest),
-    takeLatest(SIMPLEREDUX.CACHE_NUMBER, handleBasicFormRequest),
-    takeLatest(SIMPLEREDUX.CACHE_TOGGLE, handleToggle)
+    takeEvery(SIMPLEREDUX.HTTP_PUT, handlePut)
   ])
 }
 
