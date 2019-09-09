@@ -1,7 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dist bundle action.d.ts is unchanged 1`] = `
-"export declare enum SIMPLEREDUX {
+"/**
+ * SimpleRedux Actions
+ * string enum of the defined actions that is used as type enforcement for Reducer and Sagas arguments
+ */
+export declare enum SIMPLEREDUX {
     MERGE = \\"SIMPLEREDUX_MERGE\\",
     FAILURE = \\"SIMPLEREDUX_FAILURE\\",
     HTTP_DELETE = \\"SIMPLEREDUX_HTTP_DELETE\\",
@@ -34,24 +38,93 @@ export interface ISimpleReduxPayload {
     [tag: string]: ISimpleReduxPayloadTag;
 }
 export interface IDispatchSimpleRedux {
-    simpleMergeTag: (tag: string, data: any) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
-    simpleFailure: (tag: string, error: any) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>;
-    simpleMerge: (data: any) => IAction<SIMPLEREDUX.MERGE, any>;
-    simpleHttpDelete: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_DELETE, ISimpleReduxPayload>;
-    simpleHttpGet: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_GET, ISimpleReduxPayload>;
-    simpleHttpHead: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_HEAD, ISimpleReduxPayload>;
-    simpleHttpPatch: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_PATCH, ISimpleReduxPayload>;
-    simpleHttpPost: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_POST, ISimpleReduxPayload>;
-    simpleHttpPut: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_PUT, ISimpleReduxPayload>;
+    /**
+     * Dispatch state merge action, overwrites state for a specific tag
+     * @param tag string to identify domain of state
+     * @param data new data that overwrites fields in state[tag]
+     */
+    simpleMerge: (tag: string, data: any) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
+    /**
+     * Dispatch state merge action, overwrites entire state
+     * @param tag string to identify domain of state
+     * @param data new data that overwrites any fields in state
+     */
+    simpleMergeRaw: (data: any) => IAction<SIMPLEREDUX.MERGE, any>;
+    /**
+     * Dispatch state merge action, overwrites state for a specific tag
+     * @param tag string to identify domain of state
+     * @param valueAsNumber new number value as a number
+     * @param valueAsString new number value as a string
+     */
     simpleMergeNumber: (tag: string, valueAsNumber: number, valueAsString: string) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
+    /**
+     * Dispatch state merge action, overwrites state for a specific tag
+     * @param tag string to identify domain of state
+     * @param oldState old SimpleRedux state, in order to lookup current value of tag
+     */
     simpleMergeToggle: (tag: string, oldState: any) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
+    /**
+     * Dispatch HTTP Delete action, returns response/failure to a specific tag
+     * @param tag string to identify domain of state
+     * @param url HTTP endpoint to make the request
+     * @param requestConfig optional AxiosRequestConfig to configure the request
+     */
+    simpleHttpDelete: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_DELETE, ISimpleReduxPayload>;
+    /**
+     * Dispatch HTTP Get action, returns response/failure to a specific tag
+     * @param tag string to identify domain of state
+     * @param url HTTP endpoint to make the request
+     * @param requestConfig optional AxiosRequestConfig to configure the request
+     */
+    simpleHttpGet: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_GET, ISimpleReduxPayload>;
+    /**
+     * Dispatch HTTP Head action, returns response/failure to a specific tag
+     * @param tag string to identify domain of state
+     * @param url HTTP endpoint to make the request
+     * @param requestConfig optional AxiosRequestConfig to configure the request
+     */
+    simpleHttpHead: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_HEAD, ISimpleReduxPayload>;
+    /**
+     * Dispatch HTTP Patch action, returns response/failure to a specific tag
+     * @param tag string to identify domain of state
+     * @param url HTTP endpoint to make the request
+     * @param data data to include in request body
+     * @param requestConfig optional AxiosRequestConfig to configure the request
+     */
+    simpleHttpPatch: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_PATCH, ISimpleReduxPayload>;
+    /**
+     * Dispatch HTTP Post action, returns response/failure to a specific tag
+     * @param tag string to identify domain of state
+     * @param url HTTP endpoint to make the request
+     * @param data data to include in request body
+     * @param requestConfig optional AxiosRequestConfig to configure the request
+     */
+    simpleHttpPost: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_POST, ISimpleReduxPayload>;
+    /**
+     * Dispatch HTTP Put action, returns response/failure to a specific tag
+     * @param tag string to identify domain of state
+     * @param url HTTP endpoint to make the request
+     * @param data data to include in request body
+     * @param requestConfig optional AxiosRequestConfig to configure the request
+     */
+    simpleHttpPut: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_PUT, ISimpleReduxPayload>;
 }
 interface IPrivateDispatchSimpleRedux extends IDispatchSimpleRedux {
+    /**
+     * Dispatch failure action, usually for error encountered in Redux saga
+     * @param tag string to identify domain of state
+     * @param error object with error fields
+     */
     simpleFailure: (tag: string, error: any) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>;
-    simpleMergeTag: (tag: string, data: any) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
-    simpleMerge: (data: any) => IAction<SIMPLEREDUX.MERGE, any>;
 }
-export declare const dispatchSimpleRedux: IPrivateDispatchSimpleRedux;
+/**
+ * SimpleRedux Dispatch Object
+ * * Comprised of functions that dispatch Actions with standard defaults and any required passed in input
+ * * dispatchSimpleRedux Object is used in any Redux connected component to initiate Redux Saga provided functionality
+ */
+export declare const dispatchSimpleRedux: IDispatchSimpleRedux;
+export declare const privateDispatchSimpleRedux: IPrivateDispatchSimpleRedux;
+/** DEPRECATED: Use [dispatchSimpleRedux] instead */
 export interface IDispatchSimpleNetwork {
     simpleNetworkDelete: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_DELETE, ISimpleReduxPayload>;
     simpleNetworkFailure: (tag: string, url: string, error: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>;
@@ -62,7 +135,15 @@ export interface IDispatchSimpleNetwork {
     simpleNetworkPut: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_PUT, ISimpleReduxPayload>;
     simpleNetworkSuccess: (tag: string, url: string, response: AxiosResponse, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
 }
+interface IDispatchDefault {
+    data: any;
+    error: any;
+    requestConfig: AxiosRequestConfig;
+}
+export declare const dispatchDefault: IDispatchDefault;
+/** DEPRECATED: Use [dispatchSimpleRedux] instead */
 export declare const dispatchSimpleNetwork: IDispatchSimpleNetwork;
+/** DEPRECATED: Use [dispatchSimpleRedux] instead */
 export interface IDispatchSimpleForm {
     simpleFormFailure: (tag: string, error: any) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>;
     simpleFormInput: (tag: string, data: any) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
@@ -70,6 +151,7 @@ export interface IDispatchSimpleForm {
     simpleFormSuccess: (tag: string, data: any) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
     simpleFormToggle: (tag: string, oldState: any) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
 }
+/** DEPRECATED: Use [dispatchSimpleRedux] instead */
 export declare const dispatchSimpleForm: IDispatchSimpleForm;
 export {};
 "
@@ -79,24 +161,39 @@ exports[`Dist bundle reducer.d.ts is unchanged 1`] = `
 "import { IAction, IRootState } from \\"./utilities\\";
 import { SIMPLEREDUX } from \\"./action\\";
 import { ISimpleReduxPayload } from \\"./dispatch\\";
+/**
+ * Merges dispatched action objects on to the existing (or initial) state to generate new state
+ */
 export declare function SimpleReduxReducer(state: any, action: IAction<SIMPLEREDUX, {}>): any;
+/**
+ * Interface for the SimpleRedux state that is stored in Redux wrapped in an ImmutableJS object
+ */
 export interface ISimpleReduxState extends IRootState {
     [tag: string]: any | ISimpleReduxPayload;
 }
+/**
+ * Interface for a SimpleRedux state wrapped in an ImmutableJS object, as it is in Redux
+ */
 export interface ISimpleReduxImmutableState {
     toJS: () => ISimpleReduxState;
 }
+/** DEPRECATED: Use [SimpleReduxReducer] instead */
 export declare const SimpleNetworkReducer: typeof SimpleReduxReducer;
+/** DEPRECATED: Use [ISimpleReduxState] instead */
 export interface ISimpleNetworkState extends IRootState {
     [tag: string]: any | ISimpleReduxPayload;
 }
+/** DEPRECATED: Use [ISimpleReduxImmutableState] instead */
 export interface ISimpleNetworkImmutableState {
     toJS: () => ISimpleNetworkState;
 }
+/** DEPRECATED: Use [SimpleReduxReducer] instead */
 export declare const SimpleFormReducer: typeof SimpleReduxReducer;
+/** DEPRECATED: Use [ISimpleReduxState] instead */
 export interface ISimpleFormState extends IRootState {
     [tag: string]: any | ISimpleReduxPayload;
 }
+/** DEPRECATED: Use [ISimpleReduxImmutableState] instead */
 export interface ISimpleFormImmutableState {
     toJS: () => ISimpleFormState;
 }
@@ -105,18 +202,25 @@ export interface ISimpleFormImmutableState {
 
 exports[`Dist bundle saga.d.ts is unchanged 1`] = `
 "import { SimpleReduxSaga } from \\"./utilities\\";
+/** Root Saga for SimpleRedux */
 export declare function watchSimpleReduxSagas(): SimpleReduxSaga;
+/** DEPRECATED: Use [watchSimpleReduxSagas] instead */
 export declare const watchSimpleFormSagas: typeof watchSimpleReduxSagas;
+/** DEPRECATED: Use [watchSimpleReduxSagas] instead */
 export declare const watchSimpleNetworkSagas: typeof watchSimpleReduxSagas;
 "
 `;
 
-exports[`Dist bundle utilities.d.ts is unchanged 1`] = `
+exports[`Dist bundle utilities/index.d.ts is unchanged 1`] = `
 "import { History, Location } from \\"history\\";
-import { Map } from \\"immutable\\";
 import { match } from \\"react-router\\";
 import { ForkEffectDescriptor, SimpleEffect } from \\"redux-saga/effects\\";
-import { ParametricSelector } from \\"reselect\\";
+export * from \\"./onFnCall\\";
+export * from \\"./simpleSelector\\";
+/**
+ * redux-sagas types copied manually in since they are not yet exported
+ * @todo remove once https://github.com/redux-saga/redux-saga/pull/1890 is merged
+ */
 export interface CombinatorEffect<T, E> {
     \\"@@redux-saga/IO\\": true;
     combinator: true;
@@ -126,45 +230,173 @@ export interface CombinatorEffect<T, E> {
 export declare type CombinatorEffectDescriptor<E> = {
     [key: string]: E;
 } | E[];
+/** Type definition for SimpleRedux root Saga: [watchSimpleReduxSagas] */
 export declare type SimpleReduxSaga = IterableIterator<CombinatorEffect<\\"ALL\\", SimpleEffect<\\"FORK\\", ForkEffectDescriptor>>>;
+/**
+ * Default React Router Props
+ * These are injected in different conditions depending on if a component is
+ * rendered as part of a React Router route
+ * https://reacttraining.com/react-router/web/api/location
+ */
 export interface IRouterProvidedProps {
     history?: History;
     location?: Location;
     match?: match;
 }
+/** Default State with Redux flow metadata */
 export interface IDefaultState {
     data: any;
     error: any;
     loading: boolean;
     success: boolean;
 }
+/** simpleTag key included in SimpleRedux state to identify that it is compatible with @misk/simpleredux */
 export interface IRootState {
     simpleTag: string;
 }
+/** Default root state that includes Redux flow metadata and simpleTag */
 export interface IDefaultRootState extends IDefaultState, IRootState {
 }
+/** Initializes new default state with initial Redux metadata in an ImmutableJS object */
 export declare const defaultState: any;
+/**
+ * @param simpleTag string identifier for the state domain
+ * Used to initialize a top level domain of Redux state
+ *
+ * Example
+ * - Domain: simpleForm
+ * - Access: this.state.simpleForm
+ * - simpleTag: \\"simpleForm\\"
+ * - Initialize: defaultRootState(\\"simpleForm\\")
+ */
 export declare const defaultRootState: (simpleTag: string) => any;
+/** Interface for read only Redux Action */
 export interface IAction<T, P> {
     readonly type: T;
     readonly payload?: P;
 }
+/** Creates Redux Action enforcing type [T] for Action type, and [P] for Action Payload type */
 export declare function createAction<T extends string, P>(type: T, payload: P): IAction<T, P>;
+/** Generates message given a potentially null error object */
 export declare const errorMessage: (error: any) => any;
-export declare const selectSubState: <IState extends {
-    [key: string]: ISubState;
-}, ISubState extends {
+/**
+ * Utilities
+ */
+/**
+ * @param oldState input from the event.target.value of a button (string) or the oldState from Redux store (boolean)
+ */
+export declare const booleanToggle: (oldState: string | boolean) => boolean;
+/**
+ * @param payload \`action.payload\` from Redux
+ * Assumes that the first non-order safe key accessed is the data
+ * Only use when action.payload has a single key (ie. the tag with all metadata inside)
+ * Otherwise, unpredictable key selection
+ */
+export declare const getFirstTag: <T = {
     [key: string]: any;
-}>(domain: string) => (state: IState) => ISubState;
-export declare const selectRawSubState: <IState extends Map<string, any>, ISubState extends {
+}, UNIONED_TYPE = {
     [key: string]: any;
-}>(domain: string) => (state: IState) => ISubState;
+}>(payload: {
+    [key: string]: UNIONED_TYPE;
+}) => T;
+/**
+ * @param json possibly JSON input as a string
+ * @returns JSON or string if JSON.parse fails
+ */
+export declare const jsonOrString: (json: string) => any;
+"
+`;
+
+exports[`Dist bundle utilities/onFnCall.d.ts is unchanged 1`] = `
+"/**
+ * Handler Functions
+ * Reduce the legwork of parsing \`onChange\`, \`onClick\` and other events in Buttons, Inputs, Toggles...etc to call your handling function
+ *
+ * Old Way: Manually declare inline arrow funtions consuming the input events
+ * \`\`\`
+ * <InputGroup onChange={(event: any) => (props.simpleFormInput(\\"FormInputTag\\", event.target.value))}
+ * <NumberInput onChange={({valueAsNumber: number, valueAsString: string}) => (props.simpleFormNumber(\\"FormNumberTag\\", valueAsNumber, valueAsString))}
+ * \`\`\`
+ *
+ * New way: Use on{Click,Change,Toggle,Number,ChangeTag}FnCall to wrap and implicitly pass into handling functions the input events
+ * \`\`\`
+ * <InputGroup onChange={onChangeFnCall(props.simpleFormInput, \\"FormInputTag\\")}
+ * <NumberInput onChange={onChangeNumberFnCall(props.simpleFormNumber, \\"FormNumberTag\\")}
+ * \`\`\`
+ */
+/**
+ * @param callFn: function to be called
+ * @param args: arguments to be passed into the callFn
+ *
+ * \`\`\`
+ * <Button onClick={onClickFnCall(props.simpleHttpPut, \\"PutTag\\", { ...requestBody })}
+ * \`\`\`
+ */
+export declare const onClickFnCall: (callFn: any, ...args: any) => (event: any) => void;
+/**
+ * @param callFn: function to be called
+ * @param args: arguments to be passed into the callFn
+ *
+ * \`\`\`
+ * <InputGroup onChange={onChangeFnCall(props.simpleMerge, \\"FormInputTag\\")}
+ * \`\`\`
+ */
+export declare const onChangeFnCall: (callFn: any, ...args: any) => (event: any) => void;
+/**
+ * @param callFn: function to be called
+ * @param args: arguments to be passed into the callFn
+ *
+ * \`\`\`
+ * <Checkbox onChange={onChangeToggleFnCall(props.simpleMergeToggle, \\"FormToggleTag\\", props.simpleRedux)}
+ * \`\`\`
+ */
+export declare const onChangeToggleFnCall: (callFn: any, ...args: any) => (event: any) => void;
+/**
+ * @param callFn: function to be called
+ * @param args: arguments to be passed into the callFn
+ *
+ * \`\`\`
+ * <NumberInput onChange={onChangeNumberFnCall(props.simpleMergeNumber, \\"FormNumberTag\\")}
+ * \`\`\`
+ */
+export declare const onChangeNumberFnCall: (callFn: any, ...args: any) => (valueAsNumber: number, valueAsString: string) => void;
+/**
+ * @param callFn: function to be called
+ * @param args: arguments to be passed into the callFn
+ *
+ * \`\`\`
+ * <TagInput onChange={onChangeTagFnCall(props.simpleMerge, \\"FormTagsTag\\")}
+ * \`\`\`
+ */
+export declare const onChangeTagFnCall: (callFn: any, ...args: any) => (values: string[]) => void;
+"
+`;
+
+exports[`Dist bundle utilities/simpleSelector.d.ts is unchanged 1`] = `
+"import { Map } from \\"immutable\\";
+import { ParametricSelector } from \\"reselect\\";
+import { IRootState } from \\"../utilities\\";
+/**
+ * simpleRootRawSelector is a Redux selector of a subState based on a domain string
+ * @param domain
+ * @param state
+ *
+ * Returns the raw stored object from Redux (in contrast to simpleRootSelector)
+ */
 export declare const simpleRootRawSelector: <IState extends Map<string, any>, ISubState>(domain: string, state: IState) => any;
+/**
+ * simpleRootSelector is a Redux selector of a subState based on a domain string
+ * @param domain
+ * @param state
+ *
+ * Asssumes that the substate is an ImmutableJS object and has a toJS function on the object
+ */
 export declare const simpleRootSelector: <IState extends {
     [key: string]: any;
 }, ISubState extends {
     toJS: () => IRootState;
 }>(domain: string, state: IState) => any;
+/** DEPRECATED */
 export declare const enum simpleType {
     array = 0,
     boolean = 1,
@@ -173,6 +405,7 @@ export declare const enum simpleType {
     string = 4,
     tags = 5
 }
+/** DEPRECATED */
 export declare const simpleSelect: <IState extends {
     [key: string]: any;
 }, ISubState extends {
@@ -180,6 +413,10 @@ export declare const simpleSelect: <IState extends {
 }, ISubPayload extends {
     [key: string]: any;
 }>(subState: any, tagFilter: string, tagKeysFilter?: string, returnType?: any, subStateSelector?: any) => any;
+/**
+ * Cached Redux Selector using Lodash Get API to select parts of the state
+ * https://lodash.com/docs#get
+ */
 export declare const simpleSelectorGet: <IState extends {
     [key: string]: any;
 }, ISubState extends {
@@ -192,6 +429,10 @@ export declare const createSimpleSelectorGet: <ISubState extends {
 }, ISubPayload extends {
     [key: string]: any;
 }>(subStateSelector: (state: any) => ISubState, path: string | string[], defaultValue?: any) => ParametricSelector<ISubState, string | string[], any | ISubPayload | ISubPayload[]>;
+/**
+ * Cached Redux Selector using Lodash Pick API to select parts of the state
+ * https://lodash.com/docs#pick
+ */
 export declare const simpleSelectorPick: <IState extends {
     [key: string]: any;
 }, ISubState extends {
@@ -204,19 +445,5 @@ export declare const createSimpleSelectorPick: <ISubState extends {
 }, ISubPayload extends {
     [key: string]: any;
 }>(subStateSelector: (state: any) => ISubState, paths: string | string[]) => ParametricSelector<ISubState, string | String[], any | ISubPayload | ISubPayload[]>;
-export declare const onClickFnCall: (callFn: any, ...args: any) => (event: any) => void;
-export declare const onChangeFnCall: (callFn: any, ...args: any) => (event: any) => void;
-export declare const onChangeToggleFnCall: (callFn: any, ...args: any) => (event: any) => void;
-export declare const onChangeNumberFnCall: (callFn: any, ...args: any) => (valueAsNumber: number, valueAsString: string) => void;
-export declare const onChangeTagFnCall: (callFn: any, ...args: any) => (values: string[]) => void;
-export declare const booleanToggle: (oldState: string | boolean) => boolean;
-export declare const getFirstTag: <T = {
-    [key: string]: any;
-}, UNIONED_TYPE = {
-    [key: string]: any;
-}>(payload: {
-    [key: string]: UNIONED_TYPE;
-}) => T;
-export declare const jsonOrString: (json: string) => any;
 "
 `;

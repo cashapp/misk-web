@@ -1,5 +1,5 @@
 /**
- * Actions
+ * SimpleRedux Actions
  * string enum of the defined actions that is used as type enforcement for Reducer and Sagas arguments
  */
 export enum SIMPLEREDUX {

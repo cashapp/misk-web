@@ -8,11 +8,6 @@ import {
   booleanToggle
 } from "./utilities"
 
-/**
- * Dispatch Object
- * Object of functions that dispatch Actions with standard defaults and any required passed in input
- * dispatch Object is used within containers to initiate any saga provided functionality
- */
 export interface ISimpleCachePayloadTag extends IDefaultState {
   oldToggle?: string | boolean
   tag: string
@@ -36,103 +31,155 @@ export interface ISimpleReduxPayload {
 
 export interface IDispatchSimpleRedux {
   // Lifecycle
-  simpleMergeTag: (
+  /**
+   * Dispatch state merge action, overwrites state for a specific tag
+   * @param tag string to identify domain of state
+   * @param data new data that overwrites fields in state[tag]
+   */
+  simpleMerge: (
     tag: string,
     data: any
   ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
-  simpleFailure: (
+
+  /**
+   * Dispatch state merge action, overwrites entire state
+   * @param tag string to identify domain of state
+   * @param data new data that overwrites any fields in state
+   */
+  simpleMergeRaw: (data: any) => IAction<SIMPLEREDUX.MERGE, any>
+
+  // Redux as UI / Field Input Cache
+
+  /**
+   * Dispatch state merge action, overwrites state for a specific tag
+   * @param tag string to identify domain of state
+   * @param valueAsNumber new number value as a number
+   * @param valueAsString new number value as a string
+   */
+  simpleMergeNumber: (
     tag: string,
-    error: any
-  ) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>
-  simpleMerge: (data: any) => IAction<SIMPLEREDUX.MERGE, any>
+    valueAsNumber: number,
+    valueAsString: string
+  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
+
+  /**
+   * Dispatch state merge action, overwrites state for a specific tag
+   * @param tag string to identify domain of state
+   * @param oldState old SimpleRedux state, in order to lookup current value of tag
+   */
+  simpleMergeToggle: (
+    tag: string,
+    oldState: any
+  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
 
   // Async HTTP Network Calls
+
+  /**
+   * Dispatch HTTP Delete action, returns response/failure to a specific tag
+   * @param tag string to identify domain of state
+   * @param url HTTP endpoint to make the request
+   * @param requestConfig optional AxiosRequestConfig to configure the request
+   */
   simpleHttpDelete: (
     tag: string,
     url: string,
     requestConfig?: AxiosRequestConfig
   ) => IAction<SIMPLEREDUX.HTTP_DELETE, ISimpleReduxPayload>
+
+  /**
+   * Dispatch HTTP Get action, returns response/failure to a specific tag
+   * @param tag string to identify domain of state
+   * @param url HTTP endpoint to make the request
+   * @param requestConfig optional AxiosRequestConfig to configure the request
+   */
   simpleHttpGet: (
     tag: string,
     url: string,
     requestConfig?: AxiosRequestConfig
   ) => IAction<SIMPLEREDUX.HTTP_GET, ISimpleReduxPayload>
+
+  /**
+   * Dispatch HTTP Head action, returns response/failure to a specific tag
+   * @param tag string to identify domain of state
+   * @param url HTTP endpoint to make the request
+   * @param requestConfig optional AxiosRequestConfig to configure the request
+   */
   simpleHttpHead: (
     tag: string,
     url: string,
     requestConfig?: AxiosRequestConfig
   ) => IAction<SIMPLEREDUX.HTTP_HEAD, ISimpleReduxPayload>
+
+  /**
+   * Dispatch HTTP Patch action, returns response/failure to a specific tag
+   * @param tag string to identify domain of state
+   * @param url HTTP endpoint to make the request
+   * @param data data to include in request body
+   * @param requestConfig optional AxiosRequestConfig to configure the request
+   */
   simpleHttpPatch: (
     tag: string,
     url: string,
     data: any,
     requestConfig?: AxiosRequestConfig
   ) => IAction<SIMPLEREDUX.HTTP_PATCH, ISimpleReduxPayload>
+
+  /**
+   * Dispatch HTTP Post action, returns response/failure to a specific tag
+   * @param tag string to identify domain of state
+   * @param url HTTP endpoint to make the request
+   * @param data data to include in request body
+   * @param requestConfig optional AxiosRequestConfig to configure the request
+   */
   simpleHttpPost: (
     tag: string,
     url: string,
     data: any,
     requestConfig?: AxiosRequestConfig
   ) => IAction<SIMPLEREDUX.HTTP_POST, ISimpleReduxPayload>
+
+  /**
+   * Dispatch HTTP Put action, returns response/failure to a specific tag
+   * @param tag string to identify domain of state
+   * @param url HTTP endpoint to make the request
+   * @param data data to include in request body
+   * @param requestConfig optional AxiosRequestConfig to configure the request
+   */
   simpleHttpPut: (
     tag: string,
     url: string,
     data: any,
     requestConfig?: AxiosRequestConfig
   ) => IAction<SIMPLEREDUX.HTTP_PUT, ISimpleReduxPayload>
-
-  // Redux as UI / Field Input Cache
-  simpleMergeNumber: (
-    tag: string,
-    valueAsNumber: number,
-    valueAsString: string
-  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
-  simpleMergeToggle: (
-    tag: string,
-    oldState: any
-  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
 }
 
 interface IPrivateDispatchSimpleRedux extends IDispatchSimpleRedux {
-  // Lifecycle
+  /**
+   * Dispatch failure action, usually for error encountered in Redux saga
+   * @param tag string to identify domain of state
+   * @param error object with error fields
+   */
   simpleFailure: (
     tag: string,
     error: any
   ) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>
-  simpleMergeTag: (
-    tag: string,
-    data: any
-  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
-  simpleMerge: (data: any) => IAction<SIMPLEREDUX.MERGE, any>
 }
 
-export const dispatchSimpleRedux: IPrivateDispatchSimpleRedux = {
+/**
+ * SimpleRedux Dispatch Object
+ * * Comprised of functions that dispatch Actions with standard defaults and any required passed in input
+ * * dispatchSimpleRedux Object is used in any Redux connected component to initiate Redux Saga provided functionality
+ */
+export const dispatchSimpleRedux: IDispatchSimpleRedux = {
   // Lifecycle
-  simpleFailure: (tag: string, error: any = dispatchDefault.error) =>
-    createAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>(
-      SIMPLEREDUX.FAILURE,
-      {
-        [tag]: {
-          data: null,
-          config: null,
-          headers: null,
-          loading: false,
-          status: 0,
-          statusText: "",
-          success: false,
-          tag,
-          ...error
-        }
-      }
-    ),
-  simpleMerge: (data: any) =>
+  simpleMergeRaw: (data: any) =>
     createAction<SIMPLEREDUX.MERGE, any>(SIMPLEREDUX.MERGE, {
       ...data,
       error: null,
       loading: false,
       success: true
     }),
-  simpleMergeTag: (tag: string, data: any = dispatchDefault.data) =>
+  simpleMerge: (tag: string, data: any = dispatchDefault.data) =>
     createAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>(SIMPLEREDUX.MERGE, {
       [tag]: {
         error: null,
@@ -140,6 +187,31 @@ export const dispatchSimpleRedux: IPrivateDispatchSimpleRedux = {
         success: true,
         tag,
         ...data
+      }
+    }),
+  // Redux as UI / Field Input Cache
+  simpleMergeNumber: (
+    tag: string,
+    valueAsNumber: number,
+    valueAsString: string
+  ) =>
+    createAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>(SIMPLEREDUX.MERGE, {
+      [tag]: {
+        data: valueAsString,
+        error: null,
+        loading: false,
+        success: true,
+        tag
+      }
+    }),
+  simpleMergeToggle: (tag: string, oldState: any) =>
+    createAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>(SIMPLEREDUX.MERGE, {
+      [tag]: {
+        data: booleanToggle(simpleSelectorGet(oldState, [tag, "data"], false)),
+        error: null,
+        loading: false,
+        success: true,
+        tag
       }
     }),
   // Async HTTP Network Calls
@@ -283,41 +355,36 @@ export const dispatchSimpleRedux: IPrivateDispatchSimpleRedux = {
           url
         }
       }
-    ),
-  // Redux as UI / Field Input Cache
-  simpleMergeNumber: (
-    tag: string,
-    valueAsNumber: number,
-    valueAsString: string
-  ) =>
-    createAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>(SIMPLEREDUX.MERGE, {
-      [tag]: {
-        data: valueAsString,
-        error: null,
-        loading: false,
-        success: true,
-        tag
+    )
+}
+
+export const privateDispatchSimpleRedux: IPrivateDispatchSimpleRedux = {
+  ...dispatchSimpleRedux,
+  simpleFailure: (tag: string, error: any = dispatchDefault.error) =>
+    createAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>(
+      SIMPLEREDUX.FAILURE,
+      {
+        [tag]: {
+          data: null,
+          config: null,
+          headers: null,
+          loading: false,
+          status: 0,
+          statusText: "",
+          success: false,
+          tag,
+          ...error
+        }
       }
-    }),
-  simpleMergeToggle: (tag: string, oldState: any) =>
-    createAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>(SIMPLEREDUX.MERGE, {
-      [tag]: {
-        data: booleanToggle(simpleSelectorGet(oldState, [tag, "data"], "off")),
-        error: null,
-        loading: false,
-        success: true,
-        tag
-      }
-    })
+    )
 }
 
 const deprecatedCall = (oldName: String, newSignature: String) =>
   console.warn(`@misk/simpleredux::${oldName} is deprecated and will be removed.
-  Use @misk/simpleredux::${newSignature} instead. Migration instructions: https://cashapp.github.io/misk-web/docs/guides/changelog.`)
+Use @misk/simpleredux::${newSignature} instead.
+Migration instructions: https://cashapp.github.io/misk-web/docs/guides/changelog.`)
 
-/**
- * DEPRECATED SimpleNetwork
- */
+/** DEPRECATED: Use [dispatchSimpleRedux] instead */
 export interface IDispatchSimpleNetwork {
   simpleNetworkDelete: (
     tag: string,
@@ -372,12 +439,13 @@ interface IDispatchDefault {
   requestConfig: AxiosRequestConfig
 }
 
-const dispatchDefault: IDispatchDefault = {
+export const dispatchDefault: IDispatchDefault = {
   data: {},
   error: {},
   requestConfig: {}
 }
 
+/** DEPRECATED: Use [dispatchSimpleRedux] instead */
 export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
   simpleNetworkDelete: (
     tag: string,
@@ -397,7 +465,7 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
   ) => {
     deprecatedCall("simpleNetworkFailure", "simpleFailure(tag, error)")
-    return dispatchSimpleRedux.simpleFailure(tag, error)
+    return privateDispatchSimpleRedux.simpleFailure(tag, error)
   },
   simpleNetworkGet: (
     tag: string,
@@ -467,17 +535,15 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
       "simpleNetworkSuccess",
       "simpleMergeTag(tag, { requestConfig?, response, url? })"
     )
-    return dispatchSimpleRedux.simpleMergeTag(tag, {
-      requestConfig,
-      response,
+    return dispatchSimpleRedux.simpleMerge(tag, {
+      ...requestConfig,
+      ...response,
       url
     })
   }
 }
 
-/**
- * DEPRECATED SimpleForm
- */
+/** DEPRECATED: Use [dispatchSimpleRedux] instead */
 export interface IDispatchSimpleForm {
   simpleFormFailure: (
     tag: string,
@@ -502,14 +568,15 @@ export interface IDispatchSimpleForm {
   ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
 }
 
+/** DEPRECATED: Use [dispatchSimpleRedux] instead */
 export const dispatchSimpleForm: IDispatchSimpleForm = {
   simpleFormFailure: (tag: string, error: any) => {
     deprecatedCall("simpleFormFailure", "simpleFailure(tag, error)")
-    return dispatchSimpleRedux.simpleFailure(tag, error)
+    return privateDispatchSimpleRedux.simpleFailure(tag, error)
   },
   simpleFormInput: (tag: string, data: any) => {
     deprecatedCall("simpleFormInput", "simpleMergeTag(tag, data)")
-    return dispatchSimpleRedux.simpleMergeTag(tag, data)
+    return dispatchSimpleRedux.simpleMerge(tag, data)
   },
   simpleFormNumber: (
     tag: string,
@@ -528,7 +595,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
   },
   simpleFormSuccess: (tag: string, data: any) => {
     deprecatedCall("simpleFormSuccess", "simpleMergeTag(tag, data)")
-    return dispatchSimpleRedux.simpleMergeTag(tag, data)
+    return dispatchSimpleRedux.simpleMerge(tag, data)
   },
   simpleFormToggle: (tag: string, oldState: any) => {
     deprecatedCall("simpleFormToggle", "simpleMergeToggle(tag, oldState)")

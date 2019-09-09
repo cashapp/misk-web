@@ -18,8 +18,16 @@ describe('Dist bundle', () => {
     const file = readFileSync(join(__dirname, '..', 'lib/web/@misk/simpleredux/src/saga.d.ts'), 'utf8')
     expect(file).toMatchSnapshot()
   })
-  it('utilities.d.ts is unchanged', () => {
-    const file = readFileSync(join(__dirname, '..', 'lib/web/@misk/simpleredux/src/utilities.d.ts'), 'utf8')
+  it('utilities/index.d.ts is unchanged', () => {
+    const file = readFileSync(join(__dirname, '..', 'lib/web/@misk/simpleredux/src/utilities/index.d.ts'), 'utf8')
+    expect(file).toMatchSnapshot()
+  })
+  it('utilities/onFnCall.d.ts is unchanged', () => {
+    const file = readFileSync(join(__dirname, '..', 'lib/web/@misk/simpleredux/src/utilities/onFnCall.d.ts'), 'utf8')
+    expect(file).toMatchSnapshot()
+  })
+  it('utilities/simpleSelector.d.ts is unchanged', () => {
+    const file = readFileSync(join(__dirname, '..', 'lib/web/@misk/simpleredux/src/utilities/simpleSelector.d.ts'), 'utf8')
     expect(file).toMatchSnapshot()
   })
 })

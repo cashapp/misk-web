@@ -3,18 +3,16 @@ import { SIMPLEREDUX } from "./action"
 import { ISimpleReduxPayload } from "./dispatch"
 
 /**
- * SimpleRedux
+ * Key included in SimpleRedux state to identify that it is compatible with @misk/simpleredux
  */
 const simpleTag = "simpleRedux"
 
 /**
- * Initial State
  * Reducer merges all changes from dispatched action objects on to this initial state
  */
 const initialState = defaultRootState(simpleTag)
 
 /**
- * Duck Reducer
  * Merges dispatched action objects on to the existing (or initial) state to generate new state
  */
 export function SimpleReduxReducer(
@@ -39,58 +37,41 @@ export function SimpleReduxReducer(
 }
 
 /**
- * State Interface
- * Provides a complete Typescript interface for the object on state that this duck manages
- * Consumed by the root reducer in ./ducks index to update global state
- * Duck state is attached at the root level of global state
+ * Interface for the SimpleRedux state that is stored in Redux wrapped in an ImmutableJS object
  */
 export interface ISimpleReduxState extends IRootState {
   [tag: string]: any | ISimpleReduxPayload
 }
+
+/**
+ * Interface for a SimpleRedux state wrapped in an ImmutableJS object, as it is in Redux
+ */
 export interface ISimpleReduxImmutableState {
   toJS: () => ISimpleReduxState
 }
 
-/**
- * DEPRECATED SimpleNetwork
- */
-/**
- * Duck Reducer
- * Merges dispatched action objects on to the existing (or initial) state to generate new state
- */
+/** DEPRECATED: Use [SimpleReduxReducer] instead */
 export const SimpleNetworkReducer = SimpleReduxReducer
 
-/**
- * State Interface
- * Provides a complete Typescript interface for the object on state that this duck manages
- * Consumed by the root reducer in ./ducks index to update global state
- * Duck state is attached at the root level of global state
- */
+/** DEPRECATED: Use [ISimpleReduxState] instead */
 export interface ISimpleNetworkState extends IRootState {
   [tag: string]: any | ISimpleReduxPayload
 }
+
+/** DEPRECATED: Use [ISimpleReduxImmutableState] instead */
 export interface ISimpleNetworkImmutableState {
   toJS: () => ISimpleNetworkState
 }
 
-/**
- * DEPRECATED SimpleForm
- */
-/**
- * Duck Reducer
- * Merges dispatched action objects on to the existing (or initial) state to generate new state
- */
+/** DEPRECATED: Use [SimpleReduxReducer] instead */
 export const SimpleFormReducer = SimpleReduxReducer
 
-/**
- * State Interface
- * Provides a complete Typescript interface for the object on state that this duck manages
- * Consumed by the root reducer in ./ducks index to update global state
- * Duck state is attached at the root level of global state
- */
+/** DEPRECATED: Use [ISimpleReduxState] instead */
 export interface ISimpleFormState extends IRootState {
   [tag: string]: any | ISimpleReduxPayload
 }
+
+/** DEPRECATED: Use [ISimpleReduxImmutableState] instead */
 export interface ISimpleFormImmutableState {
   toJS: () => ISimpleFormState
 }

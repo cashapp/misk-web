@@ -1,129 +1,15 @@
-import { History, Location } from "history"
-import { fromJS, List, Map } from "immutable"
+import { Map } from "immutable"
 import get from "lodash/get"
 import pick from "lodash/pick"
-import { match } from "react-router"
-import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects"
 import createCachedSelector from "re-reselect"
 import { createSelector, OutputSelector, ParametricSelector } from "reselect"
-import { StatusCode } from "status-code-enum"
-
-/**
- * redux-sagas types copied manually in since they are not yet exported
- * @todo remove once https://github.com/redux-saga/redux-saga/pull/1890 is merged
- */
-export interface CombinatorEffect<T, E> {
-  "@@redux-saga/IO": true
-  combinator: true
-  type: T
-  payload: CombinatorEffectDescriptor<E>
-}
-
-export type CombinatorEffectDescriptor<E> = { [key: string]: E } | E[]
-
-export type SimpleReduxSaga = IterableIterator<
-  CombinatorEffect<"ALL", SimpleEffect<"FORK", ForkEffectDescriptor>>
->
-
-/**
- * Default React Router Props
- * These are injected in different conditions depending on if a component is
- * rendered as part of a React Router route
- * https://reacttraining.com/react-router/web/api/location
- */
-export interface IRouterProvidedProps {
-  history?: History
-  location?: Location
-  match?: match
-}
-
-/**
- * Default State with Redux flow metadata wrapped in an Immutable JS object for more efficient use in Reducers
- */
-export interface IDefaultState {
-  data: any
-  error: any
-  loading: boolean
-  success: boolean
-}
-
-/**
- * RootState has added simpleTag for easier use in selectors
- */
-export interface IRootState {
-  simpleTag: string
-}
-
-export interface IDefaultRootState extends IDefaultState, IRootState {}
-
-/**
- * Initializes new default state with initial Redux metadata state
- */
-export const defaultState = fromJS({
-  data: List([]),
-  error: null,
-  loading: false,
-  success: false
-})
-
-/**
- *
- * @param simpleTag string identifier for the state domain
- * Used to initialize a top level domain of Redux state
- *
- * Example
- * - Domain: simpleForm
- * - Access: this.state.simpleForm
- * - simpleTag: "simpleForm"
- * - Initialize: defaultRootState("simpleForm")
- */
-export const defaultRootState = (simpleTag: string) =>
-  fromJS({
-    simpleTag,
-    ...defaultState.toJS()
-  })
-
-/**
- * Create type safe Redux Actions
- */
-export interface IAction<T, P> {
-  readonly type: T
-  readonly payload?: P
-}
-
-export function createAction<T extends string, P>(
-  type: T,
-  payload: P
-): IAction<T, P> {
-  return { type, payload }
-}
-
-/**
- *
- * @param error Generates message given a potentially null error object
- */
-export const errorMessage = (error: any) => {
-  if (!error) {
-    return ""
-  }
-
-  let code = error.errorCode
-  if (!code) {
-    code =
-      error.response &&
-      error.response.status === StatusCode.ClientErrorUnauthorized
-        ? "Unauthorized"
-        : "InternalServerError"
-  }
-
-  return code
-}
+import { IRootState } from "../utilities"
 
 /**
  * State Selectors
  * A memoized, efficient way to compute and return the latest domain of the state
  */
-export const selectSubState: <
+const selectSubState: <
   IState extends { [key: string]: ISubState },
   ISubState extends { [key: string]: any }
 >(
@@ -137,7 +23,7 @@ export const selectSubState: <
   return state[domain]
 }
 
-export const selectRawSubState: <
+const selectRawSubState: <
   IState extends Map<string, any>,
   ISubState extends { [key: string]: any }
 >(
@@ -210,9 +96,7 @@ export const simpleRootSelector = <
   state: IState
 ) => immutableSubStateSelector<IState, ISubState>(domain)(state)
 
-/**
- * DEPRECATED
- */
+/** DEPRECATED */
 export const enum simpleType {
   array,
   boolean,
@@ -222,9 +106,7 @@ export const enum simpleType {
   tags
 }
 
-/**
- * DEPRECATED
- */
+/** DEPRECATED */
 const baseType = (returnType: simpleType = simpleType.string): any => {
   switch (returnType) {
     case simpleType.boolean:
@@ -240,9 +122,7 @@ const baseType = (returnType: simpleType = simpleType.string): any => {
   }
 }
 
-/**
- * DEPRECATED
- */
+/** DEPRECATED */
 export const simpleSelect = <
   IState extends { [key: string]: ISubState | any },
   ISubState extends { [key: string]: any },
@@ -395,141 +275,3 @@ export const createSimpleSelectorPick: <
     (_, paths) =>
       (typeof paths === "string" && paths) || (paths as string[]).join(".")
   )
-
-/**
- * Handler Functions
- * Reduce the legwork of parsing `onChange`, `onClick` and other events in Buttons, Inputs, Toggles...etc to call your handling function
- *
- * Old Way: Manually declare inline arrow funtions consuming the input events
- * ```
- * <InputGroup onChange={(event: any) => (props.simpleFormInput("FormInputTag", event.target.value))}
- * <NumberInput onChange={({valueAsNumber: number, valueAsString: string}) => (props.simpleFormNumber("FormNumberTag", valueAsNumber, valueAsString))}
- * ```
- *
- * New way: Use on*FnCall to wrap and implicitly pass into handling functions the input events
- * ```
- * <InputGroup onChange={onChangeFnCall(props.simpleFormInput, ["FormInputTag"])}
- * <NumberInput onChange={onChangeNumberFnCall(props.simpleFormNumber, ["FormNumberTag"])}
- * ```
- */
-
-/**
- *
- * @param callFn: function to be called
- * @param args: arguments to be passed into the callFn
- *
- * ```
- * <Button onClick={onClickFnCall(props.simpleNetworkPut, ["PutTag", { ...requestBody }])}
- * ```
- */
-export const onClickFnCall = (callFn: any, ...args: any) => (event: any) => {
-  callFn(...args)
-}
-
-/**
- *
- * @param callFn: function to be called
- * @param args: arguments to be passed into the callFn
- *
- * ```
- * <InputGroup onChange={onChangeFnCall(props.simpleFormInput, ["FormInputTag"])}
- * ```
- */
-export const onChangeFnCall = (callFn: any, ...args: any) => (event: any) => {
-  callFn(...args, event.target.value)
-}
-
-/**
- *
- * @param callFn: function to be called
- * @param args: arguments to be passed into the callFn
- *
- * ```
- * <Checkbox onChange={onChangeToggleFnCall(props.simpleFormToggle, ["FormToggleTag", simpleFormState])}
- * ```
- */
-export const onChangeToggleFnCall = (callFn: any, ...args: any) => (
-  event: any
-) => {
-  callFn(...args, event.target.value)
-}
-
-/**
- *
- * @param callFn: function to be called
- * @param args: arguments to be passed into the callFn
- *
- * ```
- * <NumberInput onChange={onChangeNumberFnCall(props.simpleFormNumber, ["FormNumberTag"])}
- * ```
- */
-export const onChangeNumberFnCall = (callFn: any, ...args: any) => (
-  valueAsNumber: number,
-  valueAsString: string
-) => {
-  callFn(...args, valueAsNumber, valueAsString)
-}
-
-/**
- *
- * @param callFn: function to be called
- * @param args: arguments to be passed into the callFn
- *
- * ```
- * <TagInput onChange={onChangeTagFnCall(props.simpleFormInput, ["FormTagsTag"])}
- * ```
- */
-export const onChangeTagFnCall = (callFn: any, ...args: any) => (
-  values: string[]
-) => {
-  callFn(...args, values)
-}
-
-/**
- * Utilities
- */
-
-/**
- * @param oldState input from the event.target.value of a button (string)
- *                 or the oldState from Redux store (boolean)
- */
-export const booleanToggle = (oldState: string | boolean) => {
-  if (oldState === true || oldState === "on") {
-    return false
-  } else {
-    return true
-  }
-}
-
-/**
- * @param payload `action.payload` from Redux
- * Assumes that the first non-order safe key accessed is the data
- * Only use when action.payload has a single key (ie. the tag with all metadata inside)
- * Otherwise, unpredictable key selection
- */
-export const getFirstTag = <
-  T = { [key: string]: any },
-  UNIONED_TYPE = { [key: string]: any | T }
->(payload: {
-  [key: string]: UNIONED_TYPE
-}): T => {
-  if (Object.keys(payload).length === 1) {
-    return (payload[Object.keys(payload)[0]] as unknown) as T
-  }
-  throw new Error(
-    "@misk/simpleredux:getFirstTag unpredictable use with an object that has more than one key"
-  )
-}
-
-/**
- *
- * @param json likely JSON input as a string
- * @returns JSON or string if JSON.parse fails
- */
-export const jsonOrString = (json: string) => {
-  try {
-    return JSON.parse(json)
-  } catch (e) {
-    return json
-  }
-}
