@@ -18,7 +18,7 @@
     "url": "git@github.com:cashapp/misk-web.git"
   },
   "scripts": {
-    "build": "npm run-script lint && npm run-script lib",
+    "build": "npm run-script lint && npm run-script lib && npm run-script test",
     "clean": "rm -rf lib",
     "dev": "npm run-script build; npm run-script updateDevCache",
     "ci-build": "npm run-script clean && npm run-script lib",
@@ -70,6 +70,7 @@
     "@misk/dev": "0.1.18-1",
     "@misk/prettier": "0.1.18-1",
     "@misk/test": "0.1.18-1",
+    "@testing-library/dom": "6.2.0",
     "@testing-library/react": "9.1.1",
     "@types/jest": "24.0.18",
     "jest": "24.9.0",
@@ -129,7 +130,11 @@
       "js",
       "json",
       "jsx"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^src(.*)$": "<rootDir>/src/$1",
+      "^tests(.*)$": "<rootDir>/tests/$1"
+    }
   },
   "miskTab": {
     "version": "0.1.1"

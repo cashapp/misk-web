@@ -64,7 +64,8 @@ module.exports = (env, argv) => {
     [
       { from: "./node_modules/@misk/common/lib/web/" },
       { from: "./node_modules/@misk/core/lib/web/" },
-      { from: "./node_modules/@misk/simpleredux/lib/web/" }
+      { from: "./node_modules/@misk/simpleredux/lib/web/" },
+      { from: "./src/static/" }
     ],
     { copyUnmodified: true }
   )

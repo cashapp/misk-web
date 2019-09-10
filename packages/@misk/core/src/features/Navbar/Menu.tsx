@@ -1,6 +1,5 @@
 /** @jsx jsx */
-import { Button, Collapse, Icon } from "@blueprintjs/core"
-import { IconNames } from "@blueprintjs/icons"
+import { Collapse } from "@blueprintjs/core"
 import { css, jsx } from "@emotion/core"
 import { chain, sortBy } from "lodash"
 import * as React from "react"
@@ -9,38 +8,26 @@ import { ErrorCalloutComponent } from "../../components"
 import { FlexContainer, ResponsiveContainer } from "../../cssContainers"
 import { color, IDashboardTab } from "../../utilities"
 import { cssMiskLink } from "./Common"
+import { MenuButton, IMenuButtonExternalProps } from "./MenuButton"
 
 /**
  * <Menu
  *    error={this.props.error}
  *    links={this.props.links}
  *    processedNavbarItems={this.props.processedNavbarItems}
+ *    ...IMenuButtonExternalProps...
  *  />
  */
 
-export interface IMenuProps {
+export interface IMenuExternalProps extends IMenuButtonExternalProps {
   error?: any
   links?: IDashboardTab[]
   linkComponent?: any
-  processedNavbarItems?: JSX.Element[]
 }
 
-const cssButton = css`
-  background-color: ${color.cadet} !important;
-  box-shadow: none !important;
-  background-image: none !important;
-  top: 15px;
-  left: 15px;
-  position: absolute;
-  z-index: 1020;
-`
-
-const cssIcon = css`
-  color: ${color.gray} !important;
-  &:hover {
-    color: ${color.white};
-  }
-`
+export interface IMenuProps extends IMenuExternalProps {
+  processedNavbarItems?: JSX.Element[]
+}
 
 const cssCollapse = css`
   color: ${color.white};
@@ -150,17 +137,22 @@ export class Menu extends React.Component<IMenuProps, {}> {
       error,
       links,
       linkComponent = Link,
-      processedNavbarItems
+      processedNavbarItems,
+      menuIcon,
+      menuOpenIcon,
+      menuButtonAsLink,
+      menuShowButton
     } = this.props
     return (
       <div>
-        <Button css={cssButton} onClick={this.handleClick}>
-          <Icon
-            css={cssIcon}
-            iconSize={32}
-            icon={isOpen ? IconNames.CROSS : IconNames.MENU}
-          />
-        </Button>
+        <MenuButton
+          handleClick={this.handleClick}
+          isOpen={isOpen}
+          menuIcon={menuIcon}
+          menuOpenIcon={menuOpenIcon}
+          menuButtonAsLink={menuButtonAsLink}
+          menuShowButton={menuShowButton}
+        />
         <div css={cssCollapse}>
           <Collapse isOpen={isOpen} keepChildrenMounted={true}>
             <div css={cssMenu}>

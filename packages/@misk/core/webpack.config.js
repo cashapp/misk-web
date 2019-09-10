@@ -1,7 +1,13 @@
 const path = require("path")
 const MiskDev = require("@misk/dev")
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
 const bundleAnalyzer = false
+
+const CopyWebpackPluginConfig = new CopyWebpackPlugin(
+  [{ from: "./src/static/" }],
+  { copyUnmodified: true }
+)
 
 module.exports = {
   mode: "production",
@@ -40,16 +46,18 @@ module.exports = {
       tests: path.resolve(__dirname, "./tests/")
     }
   },
-  plugins: bundleAnalyzer
-    ? [
-        new BundleAnalyzerPlugin({
-          analyzerMode: "static",
-          reportFilename: "bundle-analyzer-report-common.html",
-          statsFilename: "bundle-analyzer-report-common.json",
-          generateStatsFile: true,
-          openAnalyzer: false
-        })
-      ]
-    : [],
+  plugins: [CopyWebpackPluginConfig].concat(
+    bundleAnalyzer
+      ? [
+          new BundleAnalyzerPlugin({
+            analyzerMode: "static",
+            reportFilename: "bundle-analyzer-report-common.html",
+            statsFilename: "bundle-analyzer-report-common.json",
+            generateStatsFile: true,
+            openAnalyzer: false
+          })
+        ]
+      : []
+  ),
   externals: MiskDev.vendorExternals
 }

@@ -16,6 +16,10 @@ import { DimensionAwareNavbar, INavbarProps } from "../Navbar"
  *    homeName={"Misk Home"}
  *    homeUrl={"/"}
  *    links={links}
+ *    menuIcon={IconNames.FOLDER_CLOSE}
+ *    menuOpenIcon={IconNames.FOLDER_OPEN}
+ *    menuButtonAsLink={true}
+ *    menuShowButton={true}
  *    navbarItems={[ "Test1", '<a href="#">Test2</>', <span key={2}>Test3</span> ]}
  *    status={"News Item"}
  *  />
@@ -55,6 +59,10 @@ export class Navbar extends React.Component<INavbarProps, {}> {
       homeUrl,
       linkComponent,
       links,
+      menuIcon,
+      menuOpenIcon,
+      menuButtonAsLink,
+      menuShowButton,
       navbar_items,
       status
     } = this.props
@@ -72,6 +80,10 @@ export class Navbar extends React.Component<INavbarProps, {}> {
           homeUrl={homeUrl}
           linkComponent={linkComponent}
           links={links}
+          menuIcon={menuIcon}
+          menuOpenIcon={menuOpenIcon}
+          menuButtonAsLink={menuButtonAsLink}
+          menuShowButton={menuShowButton}
           navbar_items={navbar_items}
           status={status}
         />

@@ -12,7 +12,7 @@ import { cssMiskLink } from "./Common"
  */
 
 export interface IHomeLinkProps {
-  homeName?: string
+  homeName?: string | Element | JSX.Element
   homeUrl?: string
   linkComponent?: any
 }
