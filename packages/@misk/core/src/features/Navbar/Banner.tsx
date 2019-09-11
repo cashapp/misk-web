@@ -12,7 +12,7 @@ import { color, Environment, environmentToColor } from "../../utilities"
  *  />
  */
 
-export interface IBannerProps {
+export interface IBannerExternalProps {
   environment?: Environment
   environmentBannerVisible?: Environment[]
   status?: string | Element | JSX.Element
@@ -42,7 +42,7 @@ const MiskNavbarBanner = styled.span`
   }
 `
 
-export class Banner extends React.Component<IBannerProps, {}> {
+export class Banner extends React.Component<IBannerExternalProps, {}> {
   public render() {
     const { environment, environmentBannerVisible, status } = this.props
     if (

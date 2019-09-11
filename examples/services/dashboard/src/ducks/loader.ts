@@ -8,13 +8,7 @@ import {
 } from "@misk/simpleredux"
 import axios from "axios"
 import { fromJS } from "immutable"
-import {
-  all,
-  call,
-  put,
-  takeEvery,
-  takeLatest
-} from "redux-saga/effects"
+import { all, call, put, takeEvery, takeLatest } from "redux-saga/effects"
 
 /**
  * Actions

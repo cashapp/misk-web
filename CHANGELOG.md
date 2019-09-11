@@ -1,5 +1,22 @@
 ## Changelog
 
+## 0.1.18-2
+
+Tue, 22 Sept 2019 20:59:00 GMT
+
+### @misk/core
+
+* Added new props to Navbar to allow customization of MenuButton. All are optional and have sane defaults for the default interaction of showing the menu with respective icons.
+  * `menuIcon?: IconName | JSX.Element | string`: Set the icon that shows when the menu is closed. It can be a BlueprintJS IconName, a React JSX.Element, or a string URL to an image.
+  * `menuOpenIcon?: IconName | JSX.Element | string`: Set the icon that shows when the menu is open. It can be a BlueprintJS IconName, a React JSX.Element, or a string URL to an image.
+  * `menuButtonAsLink?: boolean`: Show the menuIcon and onClick go to the `homeUrl` instead of opening the menu.
+  * `menuShowButton?: boolean`: Hide the MenuButton entirely.
+
+### @misk/test
+
+* Add `@testing-library/dom` library for easier tests that check for certain rendered elements or text
+
+
 ## 0.1.18-1
 
 Thu, 22 Aug 2019 22:18:00 GMT

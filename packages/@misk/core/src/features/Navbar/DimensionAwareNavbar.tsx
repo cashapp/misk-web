@@ -7,13 +7,14 @@ import { ResponsiveContainer } from "../../cssContainers"
 import {
   Banner,
   HomeLink,
+  IBannerExternalProps,
   IDimensionAwareProps,
+  IMenuExternalProps,
   Menu,
-  // NavItems,
-  processNavbarItems
-} from "."
-import { color, Environment, IDashboardTab } from "../../utilities"
-import { truncateNavbarItemsByScreenWidth } from "./processNavbarItems"
+  processNavbarItems,
+  truncateNavbarItemsByScreenWidth
+} from "../Navbar"
+import { color, Environment } from "../../utilities"
 
 /**
  * <DimensionAwareComponent
@@ -31,17 +32,11 @@ import { truncateNavbarItemsByScreenWidth } from "./processNavbarItems"
  *  />
  */
 
-export interface INavbarProps {
-  environment?: Environment
-  environmentBannerVisible?: Environment[]
+export interface INavbarProps extends IBannerExternalProps, IMenuExternalProps {
   environmentNavbarVisible?: Environment[]
-  error?: any
-  homeName?: string
+  homeName?: string | Element | JSX.Element
   homeUrl?: string
   navbar_items?: Array<string | Element | JSX.Element>
-  linkComponent?: any
-  links?: IDashboardTab[]
-  status?: string | Element | JSX.Element
 }
 
 const MiskNavbar = (props: any) => (
@@ -102,9 +97,13 @@ export class DimensionAwareNavbar extends React.Component<
       homeUrl,
       linkComponent = Link,
       links,
+      menuIcon,
+      menuOpenIcon,
+      menuButtonAsLink,
+      menuShowButton,
       navbar_items,
-      width,
-      status
+      status,
+      width
     } = this.props
     const processedNavbarItems = processNavbarItems(
       environment,
@@ -128,6 +127,10 @@ export class DimensionAwareNavbar extends React.Component<
           error={error}
           links={links}
           linkComponent={linkComponent}
+          menuIcon={menuIcon}
+          menuOpenIcon={menuOpenIcon}
+          menuButtonAsLink={menuButtonAsLink}
+          menuShowButton={menuShowButton}
         />
         <Banner
           environment={environment}
