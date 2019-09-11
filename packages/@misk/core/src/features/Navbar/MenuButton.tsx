@@ -3,7 +3,8 @@ import { Button, Classes, Icon, IconName } from "@blueprintjs/core"
 import { IconNames } from "@blueprintjs/icons"
 import { css, jsx } from "@emotion/core"
 import { Link } from "react-router-dom"
-import { color } from "../../utilities"
+import { defaultTheme, ITheme } from "../../utilities"
+import { IThemeProps } from "./DimensionAwareNavbar"
 
 /**
  * <MenuButton
@@ -16,7 +17,7 @@ import { color } from "../../utilities"
  *  />
  */
 
-export interface IMenuButtonExternalProps {
+export interface IMenuButtonExternalProps extends IThemeProps {
   homeUrl?: string
   menuIcon?: IconName | JSX.Element | string
   menuOpenIcon?: IconName | JSX.Element | string
@@ -29,8 +30,8 @@ export interface IMenuButtonProps extends IMenuButtonExternalProps {
   isOpen: boolean
 }
 
-const cssButton = css`
-  background-color: ${color.cadet} !important;
+const cssButton = (theme: ITheme) => css`
+  background-color: ${theme.navbarBackground} !important;
   box-shadow: none !important;
   background-image: none !important;
   top: 15px;
@@ -39,35 +40,43 @@ const cssButton = css`
   z-index: 1020;
 `
 
-const cssIcon = css`
-  color: ${color.gray} !important;
+const cssIcon = (theme: ITheme) => css`
+  color: ${theme.button} !important;
   &:hover {
-    color: ${color.white};
+    color: ${theme.buttonHover};
   }
 `
 
-const ImgOrIcon = (props: { icon: IconName | JSX.Element | string }) => {
-  const { icon } = props
+const cssButtonImg = css`
+  max-height: 32px;
+`
+
+const ImgOrIcon = (
+  props: { icon: IconName | JSX.Element | string } & IThemeProps
+) => {
+  const { icon, theme } = props
   if (
     typeof icon === "string" &&
     (icon.startsWith("/") || icon.startsWith("http"))
   ) {
-    return <img css={css(`max-height: 32px;`)} src={icon as string} />
+    return <img css={cssButtonImg} src={icon as string} />
   } else {
-    return <Icon css={cssIcon} iconSize={32} icon={icon as IconName} />
+    return <Icon css={cssIcon(theme)} iconSize={32} icon={icon as IconName} />
   }
 }
 
-const OpenCloseIcon = (props: {
-  isOpen: boolean
-  menuIcon?: IconName | JSX.Element | string
-  menuOpenIcon?: IconName | JSX.Element | string
-}) => {
-  const { isOpen, menuIcon, menuOpenIcon } = props
+const OpenCloseIcon = (
+  props: {
+    isOpen: boolean
+    menuIcon?: IconName | JSX.Element | string
+    menuOpenIcon?: IconName | JSX.Element | string
+  } & IThemeProps
+) => {
+  const { isOpen, menuIcon, menuOpenIcon, theme } = props
   if (isOpen) {
-    return <ImgOrIcon icon={menuOpenIcon} />
+    return <ImgOrIcon icon={menuOpenIcon} theme={theme} />
   } else {
-    return <ImgOrIcon icon={menuIcon} />
+    return <ImgOrIcon icon={menuIcon} theme={theme} />
   }
 }
 
@@ -79,23 +88,24 @@ export const MenuButton = (props: IMenuButtonProps) => {
     menuIcon = IconNames.MENU,
     menuOpenIcon = IconNames.CROSS,
     menuButtonAsLink = false,
-    menuShowButton = true
+    menuShowButton = true,
+    theme = defaultTheme
   } = props
-  console.log("MB", props)
   if (menuShowButton && !menuButtonAsLink) {
     return (
-      <Button css={cssButton} onClick={handleClick}>
+      <Button css={cssButton(theme)} onClick={handleClick}>
         <OpenCloseIcon
           isOpen={isOpen}
           menuIcon={menuIcon}
           menuOpenIcon={menuOpenIcon}
+          theme={theme}
         />
       </Button>
     )
   } else if (menuShowButton && menuButtonAsLink) {
     return (
-      <Link css={cssButton} className={Classes.BUTTON} to={homeUrl}>
-        <OpenCloseIcon isOpen={false} menuIcon={menuIcon} />
+      <Link css={cssButton(theme)} className={Classes.BUTTON} to={homeUrl}>
+        <OpenCloseIcon isOpen={false} menuIcon={menuIcon} theme={theme} />
       </Link>
     )
   } else {

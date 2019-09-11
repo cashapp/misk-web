@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core"
 import { Link } from "react-router-dom"
-import { MiskNavbarHeading } from "../Navbar"
-import { cssMiskLink } from "./Common"
+import { cssMiskLink, cssNavbarHeading } from "./Common"
+import { IThemeProps } from "./DimensionAwareNavbar"
+import { defaultTheme } from "src/utilities"
 
 /**
  * <HomeLink
@@ -11,27 +12,27 @@ import { cssMiskLink } from "./Common"
  *  />
  */
 
-export interface IHomeLinkProps {
+export interface IHomeLinkProps extends IThemeProps {
   homeName?: string | Element | JSX.Element
   homeUrl?: string
   linkComponent?: any
 }
 
 export const HomeLink = (props: IHomeLinkProps) => {
-  const { homeName, homeUrl } = props
+  const { homeName, homeUrl, theme = defaultTheme } = props
   const LinkComponent = props.linkComponent || Link
   if (homeName && homeUrl) {
     return (
       <LinkComponent
-        css={css(cssMiskLink, { minWidth: "fit-content" })}
+        css={css(cssMiskLink(theme), { minWidth: "fit-content" })}
         to={homeUrl}
       >
-        <MiskNavbarHeading>{homeName}</MiskNavbarHeading>
+        <span css={cssNavbarHeading(theme)}>{homeName}</span>
       </LinkComponent>
     )
   } else if (homeName) {
-    return <MiskNavbarHeading>{homeName}</MiskNavbarHeading>
+    return <span css={cssNavbarHeading(theme)}>{homeName}</span>
   } else {
-    return <MiskNavbarHeading>Misk</MiskNavbarHeading>
+    return <span css={cssNavbarHeading(theme)}>Misk</span>
   }
 }

@@ -14,7 +14,8 @@ import {
   processNavbarItems,
   truncateNavbarItemsByScreenWidth
 } from "../Navbar"
-import { color, Environment } from "../../utilities"
+import { Environment } from "../../utilities"
+import { ITheme, defaultTheme } from "src/utilities/theme"
 
 /**
  * <DimensionAwareComponent
@@ -29,54 +30,47 @@ import { color, Environment } from "../../utilities"
  *    links={this.props.links}
  *    navbarItems={this.props.navbarItems}
  *    status={this.props.status}
+ *    theme={this.props.theme}
  *  />
  */
 
-export interface INavbarProps extends IBannerExternalProps, IMenuExternalProps {
+export interface INavbarProps
+  extends IBannerExternalProps,
+    IMenuExternalProps,
+    IThemeProps {
   environmentNavbarVisible?: Environment[]
   homeName?: string | Element | JSX.Element
   homeUrl?: string
   navbar_items?: Array<string | Element | JSX.Element>
 }
 
-const MiskNavbar = (props: any) => (
-  <Navbar
-    css={css`
-      background-color: ${color.cadet} !important;
-      padding-top: 10px !important;
-      padding-bottom: 60px !important;
-      position: fixed !important;
-    `}
-    {...props}
-  />
-)
+export interface IThemeProps {
+  theme?: ITheme
+}
 
-const MiskNavbarGroup = (props: any) => (
-  <NavbarGroup
-    css={css`
-      font-size: 13px !important;
-      font-weight: 600 !important;
-      position: relative;
-      padding-top: 25px;
-      padding-bottom: 27px;
-      color: ${color.gray};
-      &:hover {
-        color: ${color.white};
-        text-decoration: none;
-      }
-      @media (max-width: 870px) {
-        padding-left: 60px;
-      }
-      @media (min-width: 992px) and (max-width: 1085px) {
-        padding-left: 60px;
-      }
-      @media (min-width: 1200px) and (max-width: 1285px) {
-        padding-left: 60px;
-      }
-    `}
-    {...props}
-  />
-)
+const cssNavbar = (theme: ITheme) => css`
+  background-color: ${theme.navbarBackground} !important;
+  padding-top: 10px !important;
+  padding-bottom: 60px !important;
+  position: fixed !important;
+`
+
+const cssNavbarGroup = (theme: ITheme) => css`
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 27px;
+  @media (max-width: 870px) {
+    padding-left: 60px;
+  }
+  @media (min-width: 992px) and (max-width: 1085px) {
+    padding-left: 60px;
+  }
+  @media (min-width: 1200px) and (max-width: 1285px) {
+    padding-left: 60px;
+  }
+`
 
 export class DimensionAwareNavbar extends React.Component<
   IDimensionAwareProps & INavbarProps,
@@ -103,24 +97,31 @@ export class DimensionAwareNavbar extends React.Component<
       menuShowButton,
       navbar_items,
       status,
+      theme = defaultTheme,
       width
     } = this.props
     const processedNavbarItems = processNavbarItems(
+      theme,
       environment,
       environmentNavbarVisible,
       navbar_items
     )
     return (
-      <MiskNavbar>
+      <Navbar css={cssNavbar(theme)}>
         <ResponsiveContainer>
-          <MiskNavbarGroup align={Alignment.LEFT} className="bp3-dark">
+          <NavbarGroup
+            align={Alignment.LEFT}
+            className="bp3-dark"
+            css={cssNavbarGroup(theme)}
+          >
             <HomeLink
               linkComponent={linkComponent}
               homeName={homeName}
               homeUrl={homeUrl}
+              theme={theme}
             />
             {truncateNavbarItemsByScreenWidth(width, processedNavbarItems)}
-          </MiskNavbarGroup>
+          </NavbarGroup>
         </ResponsiveContainer>
         <Menu
           processedNavbarItems={processedNavbarItems}
@@ -131,13 +132,15 @@ export class DimensionAwareNavbar extends React.Component<
           menuOpenIcon={menuOpenIcon}
           menuButtonAsLink={menuButtonAsLink}
           menuShowButton={menuShowButton}
+          theme={theme}
         />
         <Banner
           environment={environment}
           environmentBannerVisible={environmentBannerVisible}
           status={status}
+          theme={theme}
         />
-      </MiskNavbar>
+      </Navbar>
     )
   }
 }

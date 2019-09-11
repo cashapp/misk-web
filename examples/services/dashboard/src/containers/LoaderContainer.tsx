@@ -11,7 +11,7 @@ import { connect } from "react-redux"
 import styled from "styled-components"
 import { IState } from "../ducks"
 
-export interface ILoaderProps extends IState { }
+export interface ILoaderProps extends IState {}
 
 const TabContainer = styled(ResponsiveContainer)`
   position: relative;

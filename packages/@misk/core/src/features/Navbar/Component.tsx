@@ -6,6 +6,7 @@ import {
   defaultEnvironmentIndicatorsVisible
 } from "../../utilities"
 import { DimensionAwareNavbar, INavbarProps } from "../Navbar"
+import { defaultTheme } from "src/utilities/theme"
 
 /**
  * <Component
@@ -64,7 +65,8 @@ export class Navbar extends React.Component<INavbarProps, {}> {
       menuButtonAsLink,
       menuShowButton,
       navbar_items,
-      status
+      status,
+      theme = defaultTheme
     } = this.props
     const { height, width } = this.state
     return (
@@ -86,6 +88,7 @@ export class Navbar extends React.Component<INavbarProps, {}> {
           menuShowButton={menuShowButton}
           navbar_items={navbar_items}
           status={status}
+          theme={theme}
         />
       </ResizeSensor>
     )
