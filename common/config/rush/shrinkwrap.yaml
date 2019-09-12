@@ -7,13 +7,6 @@ dependencies:
   '@blueprintjs/timezone': 3.5.0
   '@emotion/core': 10.0.16
   '@emotion/styled': 10.0.15
-  '@misk/common': 0.1.18-2
-  '@misk/core': 0.1.18-2
-  '@misk/dev': 0.1.18-2
-  '@misk/prettier': 0.1.18-2
-  '@misk/simpleredux': 0.1.18-2
-  '@misk/test': 0.1.18-2
-  '@misk/tslint': 0.1.18-2
   '@redux-saga/core': 1.0.3
   '@rush-temp/cli': 'file:projects/cli.tgz'
   '@rush-temp/common': 'file:projects/common.tgz'
@@ -57,7 +50,7 @@ dependencies:
   enum-utils: 1.0.0
   file-loader: 4.2.0
   fs-extra: 8.1.0
-  history: 4.9.0
+  history: 4.10.0
   html-parser: 0.11.0
   html-webpack-harddisk-plugin: 1.0.1
   html-webpack-plugin: 3.2.0
@@ -78,7 +71,7 @@ dependencies:
   react: 16.9.0
   react-dom: 16.9.0
   react-helmet: 5.2.1
-  react-hot-loader: 4.12.12
+  react-hot-loader: 4.12.13
   react-redux: 7.1.1
   react-router: 5.0.1
   react-router-dom: 5.0.1
@@ -796,199 +789,6 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-XKK7ze1apu5JWQ5eZjHITP66AX+QsLlbaJRBGYr8pNzwcAE2JVkwnf0yqjHTsDRcjR0mujy/NmZMXw5kl+kGBw==
-  /@misk/common/0.1.18-2:
-    dependencies:
-      '@blueprintjs/core': /@blueprintjs/core/3.18.1/react-dom@16.9.0+react@16.9.0
-      '@blueprintjs/datetime': /@blueprintjs/datetime/3.13.0/react-dom@16.9.0+react@16.9.0
-      '@blueprintjs/icons': 3.10.0
-      '@blueprintjs/select': /@blueprintjs/select/3.10.0/react-dom@16.9.0+react@16.9.0
-      '@blueprintjs/table': /@blueprintjs/table/3.7.1/react-dom@16.9.0+react@16.9.0
-      '@blueprintjs/timezone': /@blueprintjs/timezone/3.5.0/react-dom@16.9.0+react@16.9.0
-      '@emotion/core': /@emotion/core/10.0.16/react@16.9.0
-      '@emotion/styled': /@emotion/styled/10.0.15/4d7cdfe9d879aa1ba46c1a95642853ce
-      '@redux-saga/core': 1.0.3
-      axios: 0.19.0
-      connected-react-router: /connected-react-router/6.5.2/91f0dbb03da87291a8cff1cffaf2b2e1
-      dayjs: 1.8.16
-      enum-utils: 1.0.0
-      history: 4.9.0
-      http-method-enum: 1.0.0
-      immutable: 4.0.0-rc.12
-      lodash: 4.17.15
-      re-reselect: /re-reselect/3.4.0/reselect@4.0.0
-      react: 16.9.0
-      react-dom: /react-dom/16.9.0/react@16.9.0
-      react-helmet: /react-helmet/5.2.1/react@16.9.0
-      react-hot-loader: /react-hot-loader/4.12.12/react-dom@16.9.0+react@16.9.0
-      react-redux: /react-redux/7.1.1/react@16.9.0+redux@4.0.4
-      react-router: /react-router/5.0.1/react@16.9.0
-      react-router-dom: /react-router-dom/5.0.1/react@16.9.0
-      react-transition-group: /react-transition-group/4.3.0/react-dom@16.9.0+react@16.9.0
-      redux: 4.0.4
-      redux-saga: 1.0.5
-      reselect: 4.0.0
-      skeleton-css: 2.0.4
-      status-code-enum: 1.0.0
-      styled-components: /styled-components/4.3.2/c2848318624a1d31e4e2fdb97c485f13
-    dev: false
-    engines:
-      node: '>=7.8.0'
-    resolution:
-      integrity: sha512-mM1WWsa0c6N2QhEJTRbxWBNYLWTw8SBpSXwhVLIFMYrXIaaBkpcLwX+jyMDySKbQde7Dn+AAPRuK/KVc9V0szA==
-  /@misk/core/0.1.18-2:
-    dependencies:
-      '@blueprintjs/core': /@blueprintjs/core/3.18.1/react-dom@16.9.0+react@16.9.0
-      '@blueprintjs/datetime': /@blueprintjs/datetime/3.13.0/react-dom@16.9.0+react@16.9.0
-      '@blueprintjs/icons': 3.10.0
-      '@blueprintjs/select': /@blueprintjs/select/3.10.0/react-dom@16.9.0+react@16.9.0
-      '@blueprintjs/table': /@blueprintjs/table/3.7.1/react-dom@16.9.0+react@16.9.0
-      '@blueprintjs/timezone': /@blueprintjs/timezone/3.5.0/react-dom@16.9.0+react@16.9.0
-      '@emotion/core': /@emotion/core/10.0.16/react@16.9.0
-      '@emotion/styled': /@emotion/styled/10.0.15/4d7cdfe9d879aa1ba46c1a95642853ce
-      '@misk/common': 0.1.18-2
-      '@misk/simpleredux': 0.1.18-2
-      '@redux-saga/core': 1.0.3
-      axios: 0.19.0
-      connected-react-router: /connected-react-router/6.5.2/91f0dbb03da87291a8cff1cffaf2b2e1
-      dayjs: 1.8.16
-      enum-utils: 1.0.0
-      history: 4.9.0
-      http-method-enum: 1.0.0
-      immutable: 4.0.0-rc.12
-      lodash: 4.17.15
-      re-reselect: /re-reselect/3.4.0/reselect@4.0.0
-      react: 16.9.0
-      react-dom: /react-dom/16.9.0/react@16.9.0
-      react-helmet: /react-helmet/5.2.1/react@16.9.0
-      react-hot-loader: /react-hot-loader/4.12.12/react-dom@16.9.0+react@16.9.0
-      react-redux: /react-redux/7.1.1/react@16.9.0+redux@4.0.4
-      react-router: /react-router/5.0.1/react@16.9.0
-      react-router-dom: /react-router-dom/5.0.1/react@16.9.0
-      react-transition-group: /react-transition-group/4.3.0/react-dom@16.9.0+react@16.9.0
-      redux: 4.0.4
-      redux-saga: 1.0.5
-      reselect: 4.0.0
-      skeleton-css: 2.0.4
-      status-code-enum: 1.0.0
-    dev: false
-    engines:
-      node: '>=7.8.0'
-    resolution:
-      integrity: sha512-QIT3BPuO6oJtiV+OUdPqCD+Mwx0qJIp4alNxU2Ufb/5ORnKB/61tFdSb09LuAsPPa1bngNXSUl90sjbeny+bsg==
-  /@misk/dev/0.1.18-2:
-    dependencies:
-      '@types/history': 4.7.3
-      '@types/lodash': 4.14.138
-      '@types/node': 11.13.1
-      '@types/react': 16.9.2
-      '@types/react-dom': 16.9.0
-      '@types/react-helmet': 5.0.9
-      '@types/react-hot-loader': 4.1.0
-      '@types/react-redux': 7.1.2
-      '@types/react-router': 5.0.3
-      '@types/react-router-dom': 4.3.5
-      '@types/styled-components': 4.1.19
-      '@types/webpack': 4.39.1
-      '@types/webpack-env': 1.14.0
-      copy-webpack-plugin: /copy-webpack-plugin/5.0.4/webpack@4.39.3
-      cross-env: 5.2.1
-      css-loader: /css-loader/3.2.0/webpack@4.39.3
-      file-loader: /file-loader/4.2.0/webpack@4.39.3
-      html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/cbe36b67a273ef963aa8a956235ac155
-      html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.39.3
-      mini-css-extract-plugin: /mini-css-extract-plugin/0.8.0/webpack@4.39.3
-      optimize-css-assets-webpack-plugin: /optimize-css-assets-webpack-plugin/5.0.3/webpack@4.39.3
-      prettier: 1.18.2
-      prop-types: 15.7.2
-      sass-loader: /sass-loader/8.0.0/webpack@4.39.3
-      source-map-loader: 0.2.4
-      style-loader: /style-loader/1.0.0/webpack@4.39.3
-      ts-loader: /ts-loader/6.0.4/typescript@3.5.3
-      tslib: 1.10.0
-      typescript: 3.5.3
-      typescript-plugin-styled-components: /typescript-plugin-styled-components/1.4.3/typescript@3.5.3
-      webpack: /webpack/4.39.3/webpack@4.39.3
-      webpack-bundle-analyzer: 3.4.1
-      webpack-cli: /webpack-cli/3.3.8/webpack@4.39.3
-      webpack-dev-server: /webpack-dev-server/3.8.0/webpack@4.39.3
-      webpack-merge: 4.2.2
-    dev: false
-    resolution:
-      integrity: sha512-yB9kxkiutxZ3dYTKneDDOlOP0IVEo2QHPlLceCW/XEd/c2j/4m6LK7RD6Z2FFopZ+h8vNwy686+GJ/RxyU8DFQ==
-  /@misk/prettier/0.1.18-2:
-    dependencies:
-      prettier: 1.18.2
-    dev: false
-    resolution:
-      integrity: sha512-fgKYx7gB3+bR8eiUOAKEGkwcpXVfE6MIfuUxsPca+VZUhq19gJ+/jH5BzEZ5m8ky4xqzFENyKIYzPh+ieT6iQg==
-  /@misk/simpleredux/0.1.18-2:
-    dependencies:
-      '@blueprintjs/core': /@blueprintjs/core/3.18.1/react-dom@16.9.0+react@16.9.0
-      '@blueprintjs/datetime': /@blueprintjs/datetime/3.13.0/react-dom@16.9.0+react@16.9.0
-      '@blueprintjs/icons': 3.10.0
-      '@blueprintjs/select': /@blueprintjs/select/3.10.0/react-dom@16.9.0+react@16.9.0
-      '@blueprintjs/table': /@blueprintjs/table/3.7.1/react-dom@16.9.0+react@16.9.0
-      '@blueprintjs/timezone': /@blueprintjs/timezone/3.5.0/react-dom@16.9.0+react@16.9.0
-      '@misk/common': 0.1.18-2
-      '@redux-saga/core': 1.0.3
-      axios: 0.19.0
-      connected-react-router: /connected-react-router/6.5.2/91f0dbb03da87291a8cff1cffaf2b2e1
-      dayjs: 1.8.16
-      enum-utils: 1.0.0
-      history: 4.9.0
-      http-method-enum: 1.0.0
-      immutable: 4.0.0-rc.12
-      lodash: 4.17.15
-      re-reselect: /re-reselect/3.4.0/reselect@4.0.0
-      react: 16.9.0
-      react-dom: /react-dom/16.9.0/react@16.9.0
-      react-helmet: /react-helmet/5.2.1/react@16.9.0
-      react-hot-loader: /react-hot-loader/4.12.12/react-dom@16.9.0+react@16.9.0
-      react-redux: /react-redux/7.1.1/react@16.9.0+redux@4.0.4
-      react-router: /react-router/5.0.1/react@16.9.0
-      react-router-dom: /react-router-dom/5.0.1/react@16.9.0
-      react-transition-group: /react-transition-group/4.3.0/react-dom@16.9.0+react@16.9.0
-      redux: 4.0.4
-      redux-saga: 1.0.5
-      reselect: 4.0.0
-      skeleton-css: 2.0.4
-      status-code-enum: 1.0.0
-      styled-components: /styled-components/4.3.2/c2848318624a1d31e4e2fdb97c485f13
-    dev: false
-    engines:
-      node: '>=7.8.0'
-    resolution:
-      integrity: sha512-BJ9lRt/s3frIaJEahAmL6PkkbcoioayTh4CR+5piZzgylnsqYy2VeOxKcizpqk3W+ZYKiR8H9FOQQXicJLax4Q==
-  /@misk/test/0.1.18-2:
-    dependencies:
-      '@testing-library/dom': 6.2.0
-      '@testing-library/react': 9.1.1
-      '@types/jest': 24.0.18
-      '@types/node': 11.13.1
-      jest: 24.9.0
-      jest-emotion: 10.0.14
-      jest-serializer-html: 7.0.0
-      ts-jest: /ts-jest/24.0.2/jest@24.9.0
-      tslib: 1.10.0
-      typescript: 3.5.3
-    dev: false
-    resolution:
-      integrity: sha512-y3fAs7fKgHhFKmIGk2RJBbriry16TSNTIStaJnztw5UsU5i20KQunjm3OnxWi4Pyjgk3hBt3Y9jvIz7i+8d+Jw==
-  /@misk/tslint/0.1.18-2:
-    dependencies:
-      tslint: /tslint/5.20.0/typescript@3.5.3
-      tslint-blueprint: 0.1.0
-      tslint-clean-code: /tslint-clean-code/0.2.9/tslint@5.20.0+typescript@3.5.3
-      tslint-config-prettier: 1.18.0
-      tslint-consistent-codestyle: /tslint-consistent-codestyle/1.15.1/tslint@5.20.0+typescript@3.5.3
-      tslint-eslint-rules: /tslint-eslint-rules/5.4.0/tslint@5.20.0+typescript@3.5.3
-      tslint-immutable: /tslint-immutable/6.0.1/tslint@5.20.0+typescript@3.5.3
-      tslint-react: /tslint-react/4.0.0/tslint@5.20.0+typescript@3.5.3
-      tslint-sonarts: /tslint-sonarts/1.9.0/tslint@5.20.0+typescript@3.5.3
-      typescript: 3.5.3
-    dev: false
-    resolution:
-      integrity: sha512-d4oBz7V4IUy+AQXKvzNztpCKw81hOldiRtyrFHhybIXAf8TJTryBYNxIna8V0cpycFTJcPR8mzBnayNiWT8uwA==
   /@mrmlnc/readdir-enhanced/2.2.1:
     dependencies:
       call-me-maybe: 1.0.1
@@ -1223,12 +1023,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-wGr0J7yncqwOS4ae+yYeMd4L3Gh43CgYcbq9bXEeSozB4d/+Z/XLT9wyMUwfWImWtOLCFLP6Xnt7w5P6+02gZg==
-  /@types/react-helmet/5.0.9:
-    dependencies:
-      '@types/react': 16.9.2
-    dev: false
-    resolution:
-      integrity: sha512-0UVaMQk/Xvq6rFaGyepSBnRApy5RE+YH0XAXlbOBhtez5D9y1/jxKaKODofPzNnJLoLQ+sATTsWQIvrw1Dtiag==
   /@types/react-hot-loader/4.1.0:
     dependencies:
       '@types/node': 11.13.1
@@ -2059,7 +1853,7 @@ packages:
   /browserslist/4.7.0:
     dependencies:
       caniuse-lite: 1.0.30000989
-      electron-to-chromium: 1.3.255
+      electron-to-chromium: 1.3.256
       node-releases: 1.1.30
     dev: false
     hasBin: true
@@ -2511,9 +2305,9 @@ packages:
       redux: ^3.6.0 || ^4.0.0
     resolution:
       integrity: sha512-qzsLPZCofSI80fwy+HgxtEgSGS4ndYUUZAWaw1dqaOGPLKX/FVwIOEb7q+hjHdnZ4v5pKZcNv5GG4urjujIoyA==
-  /connected-react-router/6.5.2/91f0dbb03da87291a8cff1cffaf2b2e1:
+  /connected-react-router/6.5.2/a85e0d26a3fe956ab9bb442b8b60d737:
     dependencies:
-      history: 4.9.0
+      history: 4.10.0
       immutable: 3.8.2
       prop-types: 15.7.2
       react: 16.9.0
@@ -2622,7 +2416,7 @@ packages:
       p-limit: 2.2.1
       schema-utils: 1.0.0
       serialize-javascript: 1.9.1
-      webpack: /webpack/4.39.3/webpack@4.39.3
+      webpack: 4.39.3
       webpack-log: 2.0.0
     dev: false
     engines:
@@ -2791,7 +2585,7 @@ packages:
       postcss-modules-values: 3.0.0
       postcss-value-parser: 4.0.2
       schema-utils: 2.2.0
-      webpack: /webpack/4.39.3/webpack@4.39.3
+      webpack: 4.39.3
     dev: false
     engines:
       node: '>= 8.9.0'
@@ -3322,10 +3116,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-kS/gEPzZs3Y1rRsbGX4UOSjtP/CeJP0CxSNZHYxGfVM/VgLcv0ZqM7C45YyTj2DI2g7+P9Dd24C+IMIg6D0nYQ==
-  /electron-to-chromium/1.3.255:
+  /electron-to-chromium/1.3.256:
     dev: false
     resolution:
-      integrity: sha512-SZ6NlaNw3h4WR5kA1BK8XltdJCax02P+lW+z78RYoLDqmpyYuDQ5bS+/O6MCJ/j761qoZIFox2qYYt+UwqGA5w==
+      integrity: sha512-GHY1r2mO56BRMng6rkxxJvsWKtqy9k/IlSBrAV/VKwZKpTydVUJnOwajTNnl5uutJpthHgZy+HeofK5K6PqEgQ==
   /elliptic/6.5.1:
     dependencies:
       bn.js: 4.11.8
@@ -3758,7 +3552,7 @@ packages:
     dependencies:
       loader-utils: 1.2.3
       schema-utils: 2.2.0
-      webpack: /webpack/4.39.3/webpack@4.39.3
+      webpack: 4.39.3
     dev: false
     engines:
       node: '>= 8.9.0'
@@ -4236,17 +4030,17 @@ packages:
     dev: false
     resolution:
       integrity: sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
-  /history/4.9.0:
+  /history/4.10.0:
     dependencies:
       '@babel/runtime': 7.6.0
       loose-envify: 1.4.0
-      resolve-pathname: 2.2.0
+      resolve-pathname: 3.0.0
       tiny-invariant: 1.0.6
       tiny-warning: 1.0.3
-      value-equal: 0.4.0
+      value-equal: 1.0.1
     dev: false
     resolution:
-      integrity: sha512-H2DkjCjXf0Op9OAr6nJ56fcRkTSNrUiv41vNJ6IswJjif6wlpZK0BTfFbi7qK9dXLSYZxkq5lBsj3vUjlYBYZA==
+      integrity: sha512-w5dPeWoxlMyl4zKMXWT3zRxSt1dSblRCtrOoxxinK1fhYQ4Fwm5TPef8hNUYTVVu5Hwxr2nS0uaCX3JJFUeabA==
   /hmac-drbg/1.0.1:
     dependencies:
       hash.js: 1.1.7
@@ -4346,7 +4140,7 @@ packages:
     dependencies:
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.39.3
       mkdirp: 0.5.1
-      webpack: /webpack/4.39.3/webpack@4.39.3
+      webpack: 4.39.3
     dev: false
     engines:
       node: '>=6.9'
@@ -4381,7 +4175,7 @@ packages:
       tapable: 1.1.3
       toposort: 1.0.7
       util.promisify: 1.0.0
-      webpack: /webpack/4.39.3/webpack@4.39.3
+      webpack: 4.39.3
     dev: false
     engines:
       node: '>=6.9'
@@ -5951,7 +5745,7 @@ packages:
       loader-utils: 1.2.3
       normalize-url: 1.9.1
       schema-utils: 1.0.0
-      webpack: /webpack/4.39.3/webpack@4.39.3
+      webpack: 4.39.3
       webpack-sources: 1.4.3
     dev: false
     engines:
@@ -6374,7 +6168,7 @@ packages:
     dependencies:
       cssnano: 4.1.10
       last-call-webpack-plugin: 3.0.0
-      webpack: /webpack/4.39.3/webpack@4.39.3
+      webpack: 4.39.3
     dev: false
     id: registry.npmjs.org/optimize-css-assets-webpack-plugin/5.0.3
     peerDependencies:
@@ -7387,7 +7181,7 @@ packages:
       react: '>=15.0.0'
     resolution:
       integrity: sha512-CnwD822LU8NDBnjCpZ4ySh8L6HYyngViTZLfBBb3NjtrpN8m49clH8hidHouq20I51Y6TpCTISCBbqiY5GamwA==
-  /react-hot-loader/4.12.12:
+  /react-hot-loader/4.12.13:
     dependencies:
       fast-levenshtein: 2.0.6
       global: 4.4.0
@@ -7404,8 +7198,8 @@ packages:
       react: ^15.0.0 || ^16.0.0
       react-dom: ^15.0.0 || ^16.0.0
     resolution:
-      integrity: sha512-Tkd412j5yPKHoTRsJzZb+5UJNFKkPszm7QGKGYvt+jnzTkDS+qK0u3AYPlB0MmBlwzUKVHICqq5KH9Srzda7XA==
-  /react-hot-loader/4.12.12/react-dom@16.9.0+react@16.9.0:
+      integrity: sha512-4Byk3aVQhcmTnVCBvDHOEOUnMFMj81r2yRKZQSfLOG2yd/4hm/A3oK15AnCZilQExqSFSsHcK64lIIU+dU2zQQ==
+  /react-hot-loader/4.12.13/react-dom@16.9.0+react@16.9.0:
     dependencies:
       fast-levenshtein: 2.0.6
       global: 4.4.0
@@ -7420,12 +7214,12 @@ packages:
     dev: false
     engines:
       node: '>= 6'
-    id: registry.npmjs.org/react-hot-loader/4.12.12
+    id: registry.npmjs.org/react-hot-loader/4.12.13
     peerDependencies:
       react: ^15.0.0 || ^16.0.0
       react-dom: ^15.0.0 || ^16.0.0
     resolution:
-      integrity: sha512-Tkd412j5yPKHoTRsJzZb+5UJNFKkPszm7QGKGYvt+jnzTkDS+qK0u3AYPlB0MmBlwzUKVHICqq5KH9Srzda7XA==
+      integrity: sha512-4Byk3aVQhcmTnVCBvDHOEOUnMFMj81r2yRKZQSfLOG2yd/4hm/A3oK15AnCZilQExqSFSsHcK64lIIU+dU2zQQ==
   /react-is/16.9.0:
     dev: false
     resolution:
@@ -7496,7 +7290,7 @@ packages:
   /react-router-dom/5.0.1:
     dependencies:
       '@babel/runtime': 7.6.0
-      history: 4.9.0
+      history: 4.10.0
       loose-envify: 1.4.0
       prop-types: 15.7.2
       react-router: 5.0.1
@@ -7510,7 +7304,7 @@ packages:
   /react-router-dom/5.0.1/react@16.9.0:
     dependencies:
       '@babel/runtime': 7.6.0
-      history: 4.9.0
+      history: 4.10.0
       loose-envify: 1.4.0
       prop-types: 15.7.2
       react: 16.9.0
@@ -7526,7 +7320,7 @@ packages:
   /react-router/5.0.1:
     dependencies:
       '@babel/runtime': 7.6.0
-      history: 4.9.0
+      history: 4.10.0
       hoist-non-react-statics: 3.3.0
       loose-envify: 1.4.0
       mini-create-react-context: /mini-create-react-context/0.3.2/prop-types@15.7.2
@@ -7543,7 +7337,7 @@ packages:
   /react-router/5.0.1/react@16.9.0:
     dependencies:
       '@babel/runtime': 7.6.0
-      history: 4.9.0
+      history: 4.10.0
       hoist-non-react-statics: 3.3.0
       loose-envify: 1.4.0
       mini-create-react-context: /mini-create-react-context/0.3.2/prop-types@15.7.2+react@16.9.0
@@ -7886,10 +7680,10 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha1-six699nWiBvItuZTM17rywoYh0g=
-  /resolve-pathname/2.2.0:
+  /resolve-pathname/3.0.0:
     dev: false
     resolution:
-      integrity: sha512-bAFz9ld18RzJfddgrO2e/0S2O81710++chRMUxHjXOYKF6jTAMrUNZrEZ1PvV0zlhfjidm08iRPdTLPno1FuRg==
+      integrity: sha512-C7rARubxI8bXFNB/hqcp/4iUeIXJhJZvFPFPiSPRnhU5UPxzMFIl+2E6yY6c4k9giDJAhtV+enfA+G89N6Csng==
   /resolve-url/0.2.1:
     dev: false
     resolution:
@@ -8021,7 +7815,7 @@ packages:
       neo-async: 2.6.1
       schema-utils: 2.2.0
       semver: 6.3.0
-      webpack: /webpack/4.39.3/webpack@4.39.3
+      webpack: 4.39.3
     dev: false
     engines:
       node: '>= 8.9.0'
@@ -8632,7 +8426,7 @@ packages:
     dependencies:
       loader-utils: 1.2.3
       schema-utils: 2.2.0
-      webpack: /webpack/4.39.3/webpack@4.39.3
+      webpack: 4.39.3
     dev: false
     engines:
       node: '>= 8.9.0'
@@ -8778,26 +8572,6 @@ packages:
     dev: false
     engines:
       node: '>= 6.9.0'
-    peerDependencies:
-      webpack: ^4.0.0
-    resolution:
-      integrity: sha512-ZXmmfiwtCLfz8WKZyYUuuHf3dMYEjg8NrjHMb0JqHVHVOSkzp3cW2/XG1fP3tRhqEqSzMwzzRQGtAPbs4Cncxg==
-  /terser-webpack-plugin/1.4.1/webpack@4.39.3:
-    dependencies:
-      cacache: 12.0.3
-      find-cache-dir: 2.1.0
-      is-wsl: 1.1.0
-      schema-utils: 1.0.0
-      serialize-javascript: 1.9.1
-      source-map: 0.6.1
-      terser: 4.3.1
-      webpack: /webpack/4.39.3/webpack@4.39.3
-      webpack-sources: 1.4.3
-      worker-farm: 1.7.0
-    dev: false
-    engines:
-      node: '>= 6.9.0'
-    id: registry.npmjs.org/terser-webpack-plugin/1.4.1
     peerDependencies:
       webpack: ^4.0.0
     resolution:
@@ -8997,22 +8771,6 @@ packages:
       jest: '>=24 <25'
     resolution:
       integrity: sha512-h6ZCZiA1EQgjczxq+uGLXQlNgeg02WWJBbeT8j6nyIBRQdglqbvzDoHahTEIiS6Eor6x8mK6PfZ7brQ9Q6tzHw==
-  /ts-loader/6.0.4/typescript@3.5.3:
-    dependencies:
-      chalk: 2.4.2
-      enhanced-resolve: 4.1.0
-      loader-utils: 1.2.3
-      micromatch: 4.0.2
-      semver: 6.3.0
-      typescript: 3.5.3
-    dev: false
-    engines:
-      node: '>=8.6'
-    id: registry.npmjs.org/ts-loader/6.0.4
-    peerDependencies:
-      typescript: '*'
-    resolution:
-      integrity: sha512-p2zJYe7OtwR+49kv4gs7v4dMrfYD1IPpOtqiSPCbe8oR+4zEBtdHwzM7A7M91F+suReqgzZrlClk4LRSSp882g==
   /ts-loader/6.1.0:
     dependencies:
       chalk: 2.4.2
@@ -9568,10 +9326,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==
-  /value-equal/0.4.0:
+  /value-equal/1.0.1:
     dev: false
     resolution:
-      integrity: sha512-x+cYdNnaA3CxvMaTX0INdTCN8m8aF2uY9BvEqmxuYp8bL09cs/kWVQPVGcA35fMktdOsP69IgU7wFj/61dJHEw==
+      integrity: sha512-NOJ6JZCAWr0zlxZt+xqCHNTEKOsrks2HQd4MqhP1qy4z1SkbEP467eNx6TgDKXMvUOb+OENfJCZwM+16n7fRfw==
   /vary/1.1.2:
     dev: false
     engines:
@@ -9690,7 +9448,7 @@ packages:
       loader-utils: 1.2.3
       supports-color: 6.1.0
       v8-compile-cache: 2.0.3
-      webpack: /webpack/4.39.3/webpack@4.39.3
+      webpack: 4.39.3
       yargs: 13.2.4
     dev: false
     engines:
@@ -9721,7 +9479,7 @@ packages:
       mime: 2.4.4
       mkdirp: 0.5.1
       range-parser: 1.2.1
-      webpack: /webpack/4.39.3/webpack@4.39.3
+      webpack: 4.39.3
       webpack-log: 2.0.0
     dev: false
     engines:
@@ -9805,7 +9563,7 @@ packages:
       strip-ansi: 3.0.1
       supports-color: 6.1.0
       url: 0.11.0
-      webpack: /webpack/4.39.3/webpack@4.39.3
+      webpack: 4.39.3
       webpack-dev-middleware: /webpack-dev-middleware/3.7.1/webpack@4.39.3
       webpack-log: 2.0.0
       ws: 6.2.1
@@ -9870,38 +9628,6 @@ packages:
     engines:
       node: '>=6.11.5'
     hasBin: true
-    resolution:
-      integrity: sha512-BXSI9M211JyCVc3JxHWDpze85CvjC842EvpRsVTc/d15YJGlox7GIDd38kJgWrb3ZluyvIjgenbLDMBQPDcxYQ==
-  /webpack/4.39.3/webpack@4.39.3:
-    dependencies:
-      '@webassemblyjs/ast': 1.8.5
-      '@webassemblyjs/helper-module-context': 1.8.5
-      '@webassemblyjs/wasm-edit': 1.8.5
-      '@webassemblyjs/wasm-parser': 1.8.5
-      acorn: 6.3.0
-      ajv: 6.10.2
-      ajv-keywords: /ajv-keywords/3.4.1/ajv@6.10.2
-      chrome-trace-event: 1.0.2
-      enhanced-resolve: 4.1.0
-      eslint-scope: 4.0.3
-      json-parse-better-errors: 1.0.2
-      loader-runner: 2.4.0
-      loader-utils: 1.2.3
-      memory-fs: 0.4.1
-      micromatch: 3.1.10
-      mkdirp: 0.5.1
-      neo-async: 2.6.1
-      node-libs-browser: 2.2.1
-      schema-utils: 1.0.0
-      tapable: 1.1.3
-      terser-webpack-plugin: /terser-webpack-plugin/1.4.1/webpack@4.39.3
-      watchpack: 1.6.0
-      webpack-sources: 1.4.3
-    dev: false
-    engines:
-      node: '>=6.11.5'
-    hasBin: true
-    id: registry.npmjs.org/webpack/4.39.3
     resolution:
       integrity: sha512-BXSI9M211JyCVc3JxHWDpze85CvjC842EvpRsVTc/d15YJGlox7GIDd38kJgWrb3ZluyvIjgenbLDMBQPDcxYQ==
   /websocket-driver/0.7.3:
@@ -10149,7 +9875,7 @@ packages:
     dev: false
     name: '@rush-temp/cli'
     resolution:
-      integrity: sha512-RBtDRiADEwXiF/l/g/UXxOxSBdhtiz4CfeCehjgKMVDXoOixrP68F8PXTWXMi1gEKHs5XWeQdWDzy+P3TdOIiQ==
+      integrity: sha512-3MMQxvbVqSpXUVR/X1Lm87dUBE793PsxN6OquGboFhnkxI4/JP8jx2NYwyPTFMh4jblcjcVyn/UK8VvL0s0w+g==
       tarball: 'file:projects/cli.tgz'
     version: 0.0.0
   'file:projects/common.tgz':
@@ -10177,14 +9903,14 @@ packages:
       '@types/webpack': 4.39.1
       '@types/webpack-env': 1.14.0
       axios: 0.19.0
-      connected-react-router: /connected-react-router/6.5.2/91f0dbb03da87291a8cff1cffaf2b2e1
+      connected-react-router: /connected-react-router/6.5.2/a85e0d26a3fe956ab9bb442b8b60d737
       copy-webpack-plugin: /copy-webpack-plugin/5.0.4/webpack@4.39.3
       cross-env: 5.2.1
       css-loader: /css-loader/3.2.0/webpack@4.39.3
       dayjs: 1.8.16
       enum-utils: 1.0.0
       file-loader: /file-loader/4.2.0/webpack@4.39.3
-      history: 4.9.0
+      history: 4.10.0
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/cbe36b67a273ef963aa8a956235ac155
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.39.3
       http-method-enum: 1.0.0
@@ -10198,7 +9924,7 @@ packages:
       react: 16.9.0
       react-dom: /react-dom/16.9.0/react@16.9.0
       react-helmet: /react-helmet/5.2.1/react@16.9.0
-      react-hot-loader: /react-hot-loader/4.12.12/react-dom@16.9.0+react@16.9.0
+      react-hot-loader: /react-hot-loader/4.12.13/react-dom@16.9.0+react@16.9.0
       react-redux: /react-redux/7.1.1/react@16.9.0+redux@4.0.4
       react-router: /react-router/5.0.1/react@16.9.0
       react-router-dom: /react-router-dom/5.0.1/react@16.9.0
@@ -10224,7 +9950,7 @@ packages:
     dev: false
     name: '@rush-temp/common'
     resolution:
-      integrity: sha512-EYHIHosppwSvXE3iCWOaqzC5VlK+bJ6X0/fxBeLnnhMAymRJdX7C76WZLFflYsDt0BHafh6ecaO00Mr5WS3/+A==
+      integrity: sha512-D8Vfu+VnIHyLPaz2oIF5r7VBsM3QIVhsbiVtMBWP/Kon795i46VleEtg7TCK9odP4U/8B32O4J3bqsRaQDE9SA==
       tarball: 'file:projects/common.tgz'
     version: 0.0.0
   'file:projects/core.tgz':
@@ -10255,14 +9981,14 @@ packages:
       '@types/webpack': 4.39.1
       '@types/webpack-env': 1.14.0
       axios: 0.19.0
-      connected-react-router: /connected-react-router/6.5.2/91f0dbb03da87291a8cff1cffaf2b2e1
+      connected-react-router: /connected-react-router/6.5.2/a85e0d26a3fe956ab9bb442b8b60d737
       copy-webpack-plugin: /copy-webpack-plugin/5.0.4/webpack@4.39.3
       cross-env: 5.2.1
       css-loader: /css-loader/3.2.0/webpack@4.39.3
       dayjs: 1.8.16
       enum-utils: 1.0.0
       file-loader: /file-loader/4.2.0/webpack@4.39.3
-      history: 4.9.0
+      history: 4.10.0
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/cbe36b67a273ef963aa8a956235ac155
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.39.3
       http-method-enum: 1.0.0
@@ -10279,7 +10005,7 @@ packages:
       react: 16.9.0
       react-dom: /react-dom/16.9.0/react@16.9.0
       react-helmet: /react-helmet/5.2.1/react@16.9.0
-      react-hot-loader: /react-hot-loader/4.12.12/react-dom@16.9.0+react@16.9.0
+      react-hot-loader: /react-hot-loader/4.12.13/react-dom@16.9.0+react@16.9.0
       react-redux: /react-redux/7.1.1/react@16.9.0+redux@4.0.4
       react-router: /react-router/5.0.1/react@16.9.0
       react-router-dom: /react-router-dom/5.0.1/react@16.9.0
@@ -10304,7 +10030,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-N7wN4CW2IEc7bdN7HROEeAYSTDc9nLKFtkhnK1fVPMLUbRFnsn0XjvBpyItp/UFbzl2AxpuA9prCuMl/LyKt+Q==
+      integrity: sha512-xUlnf15/6I5xQFcC9DspLkX5X4WvtM1zOCDKEUNQS7J7Ce6RUkfpcKnkoAwBnGax6eLSiOTvKvdwIwACKHCEVg==
       tarball: 'file:projects/core.tgz'
     version: 0.0.0
   'file:projects/dev.tgz':
@@ -10347,7 +10073,7 @@ packages:
     dev: false
     name: '@rush-temp/dev'
     resolution:
-      integrity: sha512-elwN7RVdkBRGjx6G8tDdAr30ciPNvGo65AoHpBYzxMnPqL582WrcVPghWZyIslkHFLk7A+sWpf0RdlfUDFBj9w==
+      integrity: sha512-5m0enQqsIyVzL9TJpo1BEtD4eD1AyqbL4k9yNMSS6fc6qechz/NbPrH8AVuZ0PaxYFi8vEZ+4Q8vc7p8y9Btqw==
       tarball: 'file:projects/dev.tgz'
     version: 0.0.0
   'file:projects/misk-web-examples-data.tgz':
@@ -10363,7 +10089,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-examples-data'
     resolution:
-      integrity: sha512-xcSB3QBcMEK3FQ8feUOJaSzmzQIrVJM1Jvj7LAcbxcp2nnSkqRnE7wY0xQ59eAhenb5jA6iXIOKF52ra298LaA==
+      integrity: sha512-ivVXV7n9TsR5ji2xUy8Qyy0qzjySYszuVsLyPeH46v1+9WJqlOcN15Q7sOYtEXeCn2zbOTAA4eXuxxa1ijHmTA==
       tarball: 'file:projects/misk-web-examples-data.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-dashboard.tgz':
@@ -10391,14 +10117,14 @@ packages:
       '@types/webpack': 4.39.1
       '@types/webpack-env': 1.14.0
       axios: 0.19.0
-      connected-react-router: /connected-react-router/6.5.2/91f0dbb03da87291a8cff1cffaf2b2e1
+      connected-react-router: /connected-react-router/6.5.2/a85e0d26a3fe956ab9bb442b8b60d737
       copy-webpack-plugin: /copy-webpack-plugin/5.0.4/webpack@4.39.3
       cross-env: 5.2.1
       css-loader: /css-loader/3.2.0/webpack@4.39.3
       dayjs: 1.8.16
       enum-utils: 1.0.0
       file-loader: /file-loader/4.2.0/webpack@4.39.3
-      history: 4.9.0
+      history: 4.10.0
       html-parser: 0.11.0
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/cbe36b67a273ef963aa8a956235ac155
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.39.3
@@ -10414,7 +10140,7 @@ packages:
       react: 16.9.0
       react-dom: /react-dom/16.9.0/react@16.9.0
       react-helmet: /react-helmet/5.2.1/react@16.9.0
-      react-hot-loader: /react-hot-loader/4.12.12/react-dom@16.9.0+react@16.9.0
+      react-hot-loader: /react-hot-loader/4.12.13/react-dom@16.9.0+react@16.9.0
       react-redux: /react-redux/7.1.1/react@16.9.0+redux@4.0.4
       react-router: /react-router/5.0.1/react@16.9.0
       react-router-dom: /react-router-dom/5.0.1/react@16.9.0
@@ -10441,7 +10167,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-dashboard'
     resolution:
-      integrity: sha512-HjWOWolc59Ni5M5BFBpRhf8ibcknBV0/quaMnwWiGAKoC7ttbQOmxIhrNxePchUkQwEzhQaVwEd34UBq5cGcUQ==
+      integrity: sha512-/4Un9jUpAMewuVnDpfpPOj+8cp/nX1HLC4vihL1A/6BCfL1XPOucCJKv5oD2U4bEYXl+4IXavEVgThPrj6OyqA==
       tarball: 'file:projects/misk-web-tab-dashboard.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette-exemplar.tgz':
@@ -10452,13 +10178,6 @@ packages:
       '@blueprintjs/select': /@blueprintjs/select/3.10.0/react-dom@16.9.0+react@16.9.0
       '@blueprintjs/table': /@blueprintjs/table/3.7.1/react-dom@16.9.0+react@16.9.0
       '@blueprintjs/timezone': /@blueprintjs/timezone/3.5.0/react-dom@16.9.0+react@16.9.0
-      '@misk/common': 0.1.18-2
-      '@misk/core': 0.1.18-2
-      '@misk/dev': 0.1.18-2
-      '@misk/prettier': 0.1.18-2
-      '@misk/simpleredux': 0.1.18-2
-      '@misk/test': 0.1.18-2
-      '@misk/tslint': 0.1.18-2
       '@redux-saga/core': 1.0.3
       '@testing-library/dom': 6.2.0
       '@testing-library/react': /@testing-library/react/9.1.1/react-dom@16.9.0+react@16.9.0
@@ -10477,14 +10196,14 @@ packages:
       '@types/webpack': 4.39.1
       '@types/webpack-env': 1.14.0
       axios: 0.19.0
-      connected-react-router: /connected-react-router/6.5.2/91f0dbb03da87291a8cff1cffaf2b2e1
+      connected-react-router: /connected-react-router/6.5.2/a85e0d26a3fe956ab9bb442b8b60d737
       copy-webpack-plugin: /copy-webpack-plugin/5.0.4/webpack@4.39.3
       cross-env: 5.2.1
       css-loader: /css-loader/3.2.0/webpack@4.39.3
       dayjs: 1.8.16
       enum-utils: 1.0.0
       file-loader: /file-loader/4.2.0/webpack@4.39.3
-      history: 4.9.0
+      history: 4.10.0
       html-parser: 0.11.0
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/cbe36b67a273ef963aa8a956235ac155
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.39.3
@@ -10502,7 +10221,7 @@ packages:
       react: 16.9.0
       react-dom: /react-dom/16.9.0/react@16.9.0
       react-helmet: /react-helmet/5.2.1/react@16.9.0
-      react-hot-loader: /react-hot-loader/4.12.12/react-dom@16.9.0+react@16.9.0
+      react-hot-loader: /react-hot-loader/4.12.13/react-dom@16.9.0+react@16.9.0
       react-redux: /react-redux/7.1.1/react@16.9.0+redux@4.0.4
       react-router: /react-router/5.0.1/react@16.9.0
       react-router-dom: /react-router-dom/5.0.1/react@16.9.0
@@ -10529,7 +10248,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-+X47DKX5sWUb5QMfvxlqjEK7qVou6a1FBb1OWPxj+kHf6/2C7nH7COMEPM9OOuem+dwhxUs8mpvcOwryCmgQ3A==
+      integrity: sha512-/ZjwYv5FmRE7r5OIpqYG66lJHoxxUuoP5+1y2ycWIYpPc99yZarya0gs5eogdUsUI6Pswx1OGluNEJwWtiiQzQ==
       tarball: 'file:projects/misk-web-tab-palette-exemplar.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette.tgz':
@@ -10558,14 +10277,14 @@ packages:
       '@types/webpack': 4.39.1
       '@types/webpack-env': 1.14.0
       axios: 0.19.0
-      connected-react-router: /connected-react-router/6.5.2/91f0dbb03da87291a8cff1cffaf2b2e1
+      connected-react-router: /connected-react-router/6.5.2/a85e0d26a3fe956ab9bb442b8b60d737
       copy-webpack-plugin: /copy-webpack-plugin/5.0.4/webpack@4.39.3
       cross-env: 5.2.1
       css-loader: /css-loader/3.2.0/webpack@4.39.3
       dayjs: 1.8.16
       enum-utils: 1.0.0
       file-loader: /file-loader/4.2.0/webpack@4.39.3
-      history: 4.9.0
+      history: 4.10.0
       html-parser: 0.11.0
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/cbe36b67a273ef963aa8a956235ac155
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.39.3
@@ -10582,7 +10301,7 @@ packages:
       react: 16.9.0
       react-dom: /react-dom/16.9.0/react@16.9.0
       react-helmet: /react-helmet/5.2.1/react@16.9.0
-      react-hot-loader: /react-hot-loader/4.12.12/react-dom@16.9.0+react@16.9.0
+      react-hot-loader: /react-hot-loader/4.12.13/react-dom@16.9.0+react@16.9.0
       react-redux: /react-redux/7.1.1/react@16.9.0+redux@4.0.4
       react-router: /react-router/5.0.1/react@16.9.0
       react-router-dom: /react-router-dom/5.0.1/react@16.9.0
@@ -10609,7 +10328,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette'
     resolution:
-      integrity: sha512-gNpa1eKTsobLaB1glkwD6KnGg03WIQpsVdLMjj0XBuC4iAWhb/Vi4EOnP2a2qCKVruFru+jhWw1ghryV+bH0Rg==
+      integrity: sha512-0AihBGW3SwjTekyGe3XYbwBC4vaXQLlJpb7EDJJ64BBBxxUbUogFjKlydxM6d97Ajh+IjKavhDEfWOEUCN5B0A==
       tarball: 'file:projects/misk-web-tab-palette.tgz'
     version: 0.0.0
   'file:projects/prettier.tgz':
@@ -10647,14 +10366,14 @@ packages:
       '@types/webpack': 4.39.1
       '@types/webpack-env': 1.14.0
       axios: 0.19.0
-      connected-react-router: /connected-react-router/6.5.2/91f0dbb03da87291a8cff1cffaf2b2e1
+      connected-react-router: /connected-react-router/6.5.2/a85e0d26a3fe956ab9bb442b8b60d737
       copy-webpack-plugin: /copy-webpack-plugin/5.0.4/webpack@4.39.3
       cross-env: 5.2.1
       css-loader: /css-loader/3.2.0/webpack@4.39.3
       dayjs: 1.8.16
       enum-utils: 1.0.0
       file-loader: /file-loader/4.2.0/webpack@4.39.3
-      history: 4.9.0
+      history: 4.10.0
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/cbe36b67a273ef963aa8a956235ac155
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.39.3
       http-method-enum: 1.0.0
@@ -10671,7 +10390,7 @@ packages:
       react: 16.9.0
       react-dom: /react-dom/16.9.0/react@16.9.0
       react-helmet: /react-helmet/5.2.1/react@16.9.0
-      react-hot-loader: /react-hot-loader/4.12.12/react-dom@16.9.0+react@16.9.0
+      react-hot-loader: /react-hot-loader/4.12.13/react-dom@16.9.0+react@16.9.0
       react-redux: /react-redux/7.1.1/react@16.9.0+redux@4.0.4
       react-router: /react-router/5.0.1/react@16.9.0
       react-router-dom: /react-router-dom/5.0.1/react@16.9.0
@@ -10698,7 +10417,7 @@ packages:
     dev: false
     name: '@rush-temp/simpleredux'
     resolution:
-      integrity: sha512-dCATXMP1XNyZ27ajzllgh+JGF8r2gIA20ftAiJit5ukSkiUK/a7XkMlqbyiY3lVIFYnF+tvcYEafdrQtZU8Dzg==
+      integrity: sha512-v1iRb049aml8Hm+0Qv0CKQza3ZyDTDkAsXS4OdS09udy3uIlzU42D13bkvz2jQkbnvpjNK7ceAdCKjnTdBda0Q==
       tarball: 'file:projects/simpleredux.tgz'
     version: 0.0.0
   'file:projects/test.tgz':
@@ -10716,7 +10435,7 @@ packages:
     dev: false
     name: '@rush-temp/test'
     resolution:
-      integrity: sha512-1+c1O2vA4BUQlWhlhPo0qSYA5xWr6ijmujvJcJSoVKTsoAaqOS0WqZboGdW13Gr4UG9PnZlhjBWLNhAmgDl9fQ==
+      integrity: sha512-I+VXklzyK4OlUM1KEPwg11aG24hSteqdBunG+wCXIhkJeZizvDbUTeF/kaLAJHvIcq6xu6Mvimau//meJaFQWg==
       tarball: 'file:projects/test.tgz'
     version: 0.0.0
   'file:projects/tslint.tgz':
@@ -10749,13 +10468,6 @@ specifiers:
   '@blueprintjs/timezone': 3.5.0
   '@emotion/core': 10.0.16
   '@emotion/styled': 10.0.15
-  '@misk/common': 0.1.18-2
-  '@misk/core': 0.1.18-2
-  '@misk/dev': 0.1.18-2
-  '@misk/prettier': 0.1.18-2
-  '@misk/simpleredux': 0.1.18-2
-  '@misk/test': 0.1.18-2
-  '@misk/tslint': 0.1.18-2
   '@redux-saga/core': 1.0.3
   '@rush-temp/cli': 'file:./projects/cli.tgz'
   '@rush-temp/common': 'file:./projects/common.tgz'
@@ -10799,7 +10511,7 @@ specifiers:
   enum-utils: 1.0.0
   file-loader: 4.2.0
   fs-extra: 8.1.0
-  history: 4.9.0
+  history: 4.10.0
   html-parser: 0.11.0
   html-webpack-harddisk-plugin: 1.0.1
   html-webpack-plugin: 3.2.0
@@ -10820,7 +10532,7 @@ specifiers:
   react: 16.9.0
   react-dom: 16.9.0
   react-helmet: 5.2.1
-  react-hot-loader: 4.12.12
+  react-hot-loader: 4.12.13
   react-redux: 7.1.1
   react-router: 5.0.1
   react-router-dom: 5.0.1
