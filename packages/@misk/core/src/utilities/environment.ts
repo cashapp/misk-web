@@ -7,7 +7,7 @@ export const defaultEnvironmentIndicatorsVisible = [
   Environment.TESTING
 ]
 
-export interface EnvironmentToColorLookup {
+export interface IEnvironmentToColorLookup {
   default: color | string
   DEVELOPMENT: color | string
   TESTING: color | string
@@ -15,7 +15,7 @@ export interface EnvironmentToColorLookup {
   PRODUCTION: color | string
 }
 
-export const defaultEnvironmentToColorLookup: EnvironmentToColorLookup = {
+export const defaultEnvironmentToColorLookup: IEnvironmentToColorLookup = {
   default: color.cadet,
   DEVELOPMENT: color.blue,
   TESTING: color.indigo,
@@ -23,7 +23,7 @@ export const defaultEnvironmentToColorLookup: EnvironmentToColorLookup = {
   PRODUCTION: color.red
 }
 
-export const environmentToColor = (colorLookup: EnvironmentToColorLookup) => (
+export const environmentToColor = (colorLookup: IEnvironmentToColorLookup) => (
   environment: Environment
 ) => {
   try {
