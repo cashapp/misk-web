@@ -1,5 +1,14 @@
 ## Changelog
 
+## 0.1.18-4
+
+Tue, 12 Sept 2019 13:29:00 GMT
+
+### @misk/core
+
+- Add `ResponsiveAppContainer` that extends `ResponsiveContainer` with styling to keep it below the Navbar
+- Make `environmentToColor` theme configuration easier with lookup table now as a parameter to create the function
+
 ## 0.1.18-3
 
 Tue, 11 Sept 2019 20:17:00 GMT
@@ -16,30 +25,30 @@ This is the interface for the Navbar theme object.
 
 ```ts
 export interface ITheme {
-  bannerLinkHover: color | string
-  bannerText: color | string
-  button: color | string
-  buttonHover: color | string
-  categoryText: color | string
-  environmentToColor: (environment: Environment) => color | string
-  navbarBackground: color | string
-  navbarLinkHover: color | string
-  navbarText: color | string
+  bannerLinkHover: color | string;
+  bannerText: color | string;
+  button: color | string;
+  buttonHover: color | string;
+  categoryText: color | string;
+  environmentToColor: (environment: Environment) => color | string;
+  navbarBackground: color | string;
+  navbarLinkHover: color | string;
+  navbarText: color | string;
 }
 ```
 
 #### Example
 
 ```tsx
-import { color, defaultTheme, ITheme, Navbar } from "@misk/core"
+import { color, defaultTheme, ITheme, Navbar } from "@misk/core";
 
 const newTheme: ITheme = {
   ...defaultTheme,
   navbarBackground: "red",
   navbarText: color.white
-}
+};
 
-const themedNavbar = <Navbar theme={newTheme} />
+const themedNavbar = <Navbar theme={newTheme} />;
 ```
 
 ## 0.1.18-2
