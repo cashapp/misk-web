@@ -30,22 +30,18 @@ $ yarn add @misk/core
 - `MobileNeverContainer`: Never show container when window width <768px
 - `MobileOnlyContainer`: Only show container when window width <768px
 - `ResponsiveContainer`: Responsive container that all tabs and Nav Navbar use to ensure consistent view width
+- `ResponsiveContainer`: Extension of `ResponsiveContainer` that moves the App view below the Navbar
 - `WrapTextContainer`: Word wrap enabled `<span>` block
-
-## Ducks
-
-- `routerDucks`: router management Redux-Sagas parts (actions, dispatcher, handlers, sagas, reducers, state interface)
-- `simpleFormDucks`: a standardized set of form and input handler Redux-Sagas parts (actions, dispatcher, handlers, sagas, reducers, state interface)
-- `simpleNetworkDucks`: a standardized set of Axios based request Redux-Sagas parts (actions, dispatcher, handlers, sagas, reducers, state interface)
 
 ## Features
 
-- `Navbar`: Related components to a dashboard styled Navbar
+- `Navbar`: Related and themeable components to a dashboard styled Navbar
 
 ## Utilities
 
 - `environment`: various utilities helpful in environment (color, default visibilities...)
 - `network`: wrapped functions around Axios requests to allow simplified syntax that with `async await` returns an object of `{ data, error }`.
+- `theme`: definition and default theme used to style Navbar.
 
 ## [Releasing](https://github.com/cashapp/misk-web/blob/master/RELEASING.md)
 

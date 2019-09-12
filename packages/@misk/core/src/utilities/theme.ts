@@ -1,6 +1,9 @@
 import { color } from "./css"
 import { Environment } from "./interfaces"
-import { environmentToColor } from "./environment"
+import {
+  environmentToColor,
+  defaultEnvironmentToColorLookup
+} from "./environment"
 
 /**
  * Theme to customize Misk Core components
@@ -29,7 +32,7 @@ export const defaultTheme: ITheme = {
   button: color.gray,
   buttonHover: color.white,
   categoryText: color.gray,
-  environmentToColor,
+  environmentToColor: environmentToColor(defaultEnvironmentToColorLookup),
   navbarBackground: color.cadet,
   navbarLinkHover: color.white,
   navbarText: color.platinum

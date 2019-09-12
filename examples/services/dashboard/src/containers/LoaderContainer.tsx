@@ -3,21 +3,14 @@ import {
   initialResponseState,
   Navbar,
   OfflineComponent,
-  ResponsiveContainer,
+  ResponsiveAppContainer,
   TabLoaderComponent
 } from "@misk/core"
 import * as React from "react"
 import { connect } from "react-redux"
-import styled from "styled-components"
 import { IState } from "../ducks"
 
 export interface ILoaderProps extends IState {}
-
-const TabContainer = styled(ResponsiveContainer)`
-  position: relative;
-  top: 110px;
-  padding-left: 5px;
-`
 
 const adminDashboardTabsUrl =
   "https://cashapp.github.io/misk-web/examples/data/demo/adminDashboardTabs.json"
@@ -53,16 +46,16 @@ class LoaderContainer extends React.Component<ILoaderProps> {
             navbar_items={serviceMetadata.navbar_items}
             status={serviceMetadata.navbar_status}
           />
-          <TabContainer>
+          <ResponsiveAppContainer>
             <TabLoaderComponent tabs={adminDashboardTabs} />
-          </TabContainer>
+          </ResponsiveAppContainer>
         </span>
       )
     } else {
       return (
         <span>
           <Navbar error={this.state.adminDashboardTabs.error} />
-          <TabContainer>
+          <ResponsiveAppContainer>
             <OfflineComponent
               error={this.state.adminDashboardTabs.error}
               title={"Error Loading Admin Tabs"}
@@ -73,7 +66,7 @@ class LoaderContainer extends React.Component<ILoaderProps> {
               title={"Error Loading Service Metadata"}
               endpoint={serviceMetadataUrl}
             />
-          </TabContainer>
+          </ResponsiveAppContainer>
         </span>
       )
     }

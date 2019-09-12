@@ -7,18 +7,28 @@ export const defaultEnvironmentIndicatorsVisible = [
   Environment.TESTING
 ]
 
-export const environmentColorMap = {
-  default: color.cadet,
-  [`${Environment.DEVELOPMENT}`]: color.blue,
-  [`${Environment.TESTING}`]: color.indigo,
-  [`${Environment.STAGING}`]: color.green,
-  [`${Environment.PRODUCTION}`]: color.red
+export interface EnvironmentToColorLookup {
+  default: color | string
+  DEVELOPMENT: color | string
+  TESTING: color | string
+  STAGING: color | string
+  PRODUCTION: color | string
 }
 
-export const environmentToColor = (environment: Environment) => {
+export const defaultEnvironmentToColorLookup: EnvironmentToColorLookup = {
+  default: color.cadet,
+  DEVELOPMENT: color.blue,
+  TESTING: color.indigo,
+  STAGING: color.green,
+  PRODUCTION: color.red
+}
+
+export const environmentToColor = (colorLookup: EnvironmentToColorLookup) => (
+  environment: Environment
+) => {
   try {
-    return environmentColorMap[environment]
+    return colorLookup[environment]
   } catch (e) {
-    return environmentColorMap.default
+    return colorLookup.default
   }
 }

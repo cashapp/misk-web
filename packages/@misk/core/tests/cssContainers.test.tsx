@@ -8,7 +8,8 @@ import {
   MobileNeverContainer,
   MobileOnlyContainer,
   ResponsiveContainer,
-  WrapTextContainer
+  WrapTextContainer,
+  ResponsiveAppContainer
 } from "../src/cssContainers"
 
 const TestChildren = () => (
@@ -100,6 +101,14 @@ describe("css containers", () => {
       <ResponsiveContainer>
         <TestChildren />
       </ResponsiveContainer>
+    )
+    expect(asFragment()).toMatchSnapshot()
+  })
+  it("ResponsiveAppContainer can render with children", () => {
+    const { asFragment } = render(
+      <ResponsiveAppContainer>
+        <TestChildren />
+      </ResponsiveAppContainer>
     )
     expect(asFragment()).toMatchSnapshot()
   })
