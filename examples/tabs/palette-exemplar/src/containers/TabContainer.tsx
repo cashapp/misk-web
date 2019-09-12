@@ -25,7 +25,9 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
         <SampleTableComponent
           data={simpleSelectorGet(
             this.props.simpleNetwork,
-            [this.tableTag, "data", "cars"], [])}
+            [this.tableTag, "data", "cars"],
+            []
+          )}
           rows={5}
           url={this.tableUrl}
           tag={this.tableTag}
