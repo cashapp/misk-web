@@ -6,9 +6,10 @@ import * as React from "react"
 import { Link } from "react-router-dom"
 import { ErrorCalloutComponent } from "../../components"
 import { FlexContainer, ResponsiveContainer } from "../../cssContainers"
-import { color, IDashboardTab } from "../../utilities"
+import { IDashboardTab, defaultTheme, ITheme } from "../../utilities"
 import { cssMiskLink } from "./Common"
 import { MenuButton, IMenuButtonExternalProps } from "./MenuButton"
+import { IThemeProps } from "./DimensionAwareNavbar"
 
 /**
  * <Menu
@@ -19,7 +20,9 @@ import { MenuButton, IMenuButtonExternalProps } from "./MenuButton"
  *  />
  */
 
-export interface IMenuExternalProps extends IMenuButtonExternalProps {
+export interface IMenuExternalProps
+  extends IMenuButtonExternalProps,
+    IThemeProps {
   error?: any
   links?: IDashboardTab[]
   linkComponent?: any
@@ -29,9 +32,8 @@ export interface IMenuProps extends IMenuExternalProps {
   processedNavbarItems?: JSX.Element[]
 }
 
-const cssCollapse = css`
-  color: ${color.white};
-  background-color: ${color.cadet};
+const cssCollapse = (theme: ITheme) => css`
+  background-color: ${theme.navbarBackground};
   display: block;
   margin: 60px -20px 0 -20px;
 `
@@ -54,77 +56,89 @@ const cssMenuLinks = css`
   padding-bottom: 35px;
 `
 
-const cssMenuLink = css`
+const cssMenuLink = (theme: ITheme) => css`
   font-size: 16px;
   flex-basis: 300px;
   padding: 5px 0;
-  color: ${color.platinum};
+  color: ${theme.navbarText};
 `
 
-const cssMenuCategory = css`
+const cssMenuCategory = (theme: ITheme) => css`
   font-size: 24px;
-  color: ${color.gray};
+  color: ${theme.categoryText};
   letter-spacing: 0px;
   display: block;
 `
 
-const cssMenuDivider = css`
-  border-color: ${color.gray};
+const cssMenuDivider = (theme: ITheme) => css`
+  border-color: ${theme.categoryText};
   margin: 5px 0 10px 0;
 `
 
-const MenuHeading = (props: { categoryName: string }) => {
-  if (props.categoryName === "undefined") {
+const MenuHeading = (props: { categoryName: string } & IThemeProps) => {
+  const { categoryName, theme = defaultTheme } = props
+  if (categoryName === "undefined") {
     return <span />
   } else {
     return (
       <div>
-        <span css={css(cssMenuCategory)}>{props.categoryName}</span>
-        <hr css={cssMenuDivider} />
+        <span css={css(cssMenuCategory(theme))}>{categoryName}</span>
+        <hr css={cssMenuDivider(theme)} />
       </div>
     )
   }
 }
 
-const MenuCategory = (props: {
-  categoryName: string
-  categoryLinks: IDashboardTab[]
-  handleClick: () => void
-  linkComponent: any
-}) => (
-  <div>
-    <MenuHeading categoryName={props.categoryName} />
-    <FlexContainer css={cssMenuLinks}>
-      {props.categoryLinks &&
-        props.categoryLinks.map((link: IDashboardTab) => {
-          const cssProps = css(cssMiskLink, cssMenuLink)
-          if (link.url_path_prefix.startsWith("http")) {
-            return (
-              <a
-                css={cssProps}
-                key={link.slug}
-                onClick={props.handleClick}
-                href={link.url_path_prefix}
-              >
-                {link.name}
-              </a>
-            )
-          } else {
-            return (
-              <props.linkComponent
-                css={cssProps}
-                key={link.slug}
-                onClick={props.handleClick}
-                to={link.url_path_prefix}
-              >
-                {link.name}
-              </props.linkComponent>
-            )
-          }
-        })}
-    </FlexContainer>
-  </div>
-)
+const MenuCategory = (
+  props: {
+    categoryName: string
+    categoryLinks: IDashboardTab[]
+    handleClick: () => void
+    LinkComponent: any
+  } & IThemeProps
+) => {
+  const {
+    categoryName,
+    categoryLinks,
+    handleClick,
+    LinkComponent,
+    theme = defaultTheme
+  } = props
+  return (
+    <div>
+      <MenuHeading categoryName={categoryName} />
+      <FlexContainer css={cssMenuLinks}>
+        {categoryLinks &&
+          categoryLinks.map((link: IDashboardTab) => {
+            const cssProps = css(cssMiskLink(theme), cssMenuLink(theme))
+            if (link.url_path_prefix.startsWith("http")) {
+              return (
+                <a
+                  css={cssProps}
+                  key={link.slug}
+                  onClick={handleClick}
+                  href={link.url_path_prefix}
+                >
+                  {link.name}
+                </a>
+              )
+            } else {
+              return (
+                <LinkComponent
+                  css={cssProps}
+                  key={link.slug}
+                  onClick={handleClick}
+                  to={link.url_path_prefix}
+                >
+                  {link.name}
+                </LinkComponent>
+              )
+            }
+          })}
+      </FlexContainer>
+    </div>
+  )
+}
 
 export class Menu extends React.Component<IMenuProps, {}> {
   public state = {
@@ -141,7 +155,8 @@ export class Menu extends React.Component<IMenuProps, {}> {
       menuIcon,
       menuOpenIcon,
       menuButtonAsLink,
-      menuShowButton
+      menuShowButton,
+      theme = defaultTheme
     } = this.props
     return (
       <div>
@@ -152,8 +167,9 @@ export class Menu extends React.Component<IMenuProps, {}> {
           menuOpenIcon={menuOpenIcon}
           menuButtonAsLink={menuButtonAsLink}
           menuShowButton={menuShowButton}
+          theme={theme}
         />
-        <div css={cssCollapse}>
+        <div css={cssCollapse(theme)}>
           <Collapse isOpen={isOpen} keepChildrenMounted={true}>
             <div css={cssMenu}>
               <ResponsiveContainer>
@@ -168,7 +184,7 @@ export class Menu extends React.Component<IMenuProps, {}> {
                   </FlexContainer>
                 </div>
                 {links ? (
-                  this.renderMenuCategories(links, linkComponent)
+                  this.renderMenuCategories(links, linkComponent, theme)
                 ) : (
                   <ErrorCalloutComponent error={error} />
                 )}
@@ -180,7 +196,11 @@ export class Menu extends React.Component<IMenuProps, {}> {
     )
   }
 
-  private renderMenuCategories(links: IDashboardTab[], linkComponent: any) {
+  private renderMenuCategories(
+    links: IDashboardTab[],
+    LinkComponent: any,
+    theme: ITheme
+  ) {
     const categories: Array<[string, IDashboardTab[]]> = Object.entries(
       // sort and group array of links by category string
       // and sort each category's links by lower case tab name string
@@ -200,7 +220,8 @@ export class Menu extends React.Component<IMenuProps, {}> {
           categoryLinks={categoryLinks}
           key={`${categoryName}-${index}`}
           handleClick={this.handleClick}
-          linkComponent={linkComponent}
+          LinkComponent={LinkComponent}
+          theme={theme}
         />
       ))
     )

@@ -254,6 +254,45 @@ exports[`css containers MobileOnlyContainer can render with children 1`] = `
 </DocumentFragment>
 `;
 
+exports[`css containers ResponsiveAppContainer can render with children 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  position: relative;
+  top: 110px;
+  padding-left: 5px;
+  margin: 0 auto;
+}
+
+@media (min-width:768px) {
+  .emotion-0 {
+    width: 750px;
+  }
+}
+
+@media (min-width:992px) {
+  .emotion-0 {
+    width: 970px;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-0 {
+    width: 1170px;
+  }
+}
+
+<div
+    class="emotion-0"
+  >
+    <div>
+      <span>
+        Test Child
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`css containers ResponsiveContainer can render 1`] = `
 <DocumentFragment>
   .emotion-0 {

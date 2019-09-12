@@ -1,13 +1,15 @@
-import * as React from "react"
+/** @jsx jsx */
+import { jsx } from "@emotion/core"
 import { TextHTMLOrElementComponent } from "../../components"
-import { Environment, environmentToColor } from "../../utilities"
-import { MiskNavbarHeading, MiskNavbarHeadingEnvironment } from "../Navbar"
+import { Environment, ITheme } from "src/utilities"
+import { cssNavbarHeadingEnvironment, cssNavbarHeading } from "./Common"
 
 /**
  * processNavbarItems(environment, environmentNavbarVisible, navbarItems)
  */
 
 const renderEnvironmentLink = (
+  theme: ITheme,
   environment?: Environment,
   environmentNavbarVisible?: Environment[]
 ) => {
@@ -16,9 +18,9 @@ const renderEnvironmentLink = (
     environmentNavbarVisible.includes(environment)
   ) {
     return [environment].map((env, index) => (
-      <MiskNavbarHeadingEnvironment key={index} color={environmentToColor(env)}>
+      <span css={cssNavbarHeadingEnvironment(env, theme)} key={index}>
         {env}
-      </MiskNavbarHeadingEnvironment>
+      </span>
     ))
   } else {
     return []
@@ -26,13 +28,14 @@ const renderEnvironmentLink = (
 }
 
 const renderNavbarItems = (
+  theme: ITheme,
   navbarItems?: Array<string | Element | JSX.Element>
 ) => {
   if (navbarItems) {
     return navbarItems.map((item, index) => (
-      <MiskNavbarHeading key={index}>
+      <span css={cssNavbarHeading(theme)} key={index}>
         <TextHTMLOrElementComponent>{item}</TextHTMLOrElementComponent>
-      </MiskNavbarHeading>
+      </span>
     ))
   } else {
     return <span />
@@ -40,12 +43,13 @@ const renderNavbarItems = (
 }
 
 export const processNavbarItems = (
+  theme: ITheme,
   environment?: Environment,
   environmentNavbarVisible?: Environment[],
   navbar_items?: Array<string | Element | JSX.Element>
 ) =>
-  renderEnvironmentLink(environment, environmentNavbarVisible).concat(
-    renderNavbarItems(navbar_items)
+  renderEnvironmentLink(theme, environment, environmentNavbarVisible).concat(
+    renderNavbarItems(theme, navbar_items)
   )
 
 export const truncateNavbarItemsByScreenWidth = (

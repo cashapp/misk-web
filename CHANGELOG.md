@@ -1,21 +1,41 @@
 ## Changelog
 
-## 0.1.18-2
+## 0.1.18-5
 
-Tue, 22 Sept 2019 20:59:00 GMT
+Tue, 12 Sept 2019 14:57:00 GMT
 
 ### @misk/core
 
-* Added new props to Navbar to allow customization of MenuButton. All are optional and have sane defaults for the default interaction of showing the menu with respective icons.
-  * `menuIcon?: IconName | JSX.Element | string`: Set the icon that shows when the menu is closed. It can be a BlueprintJS IconName, a React JSX.Element, or a string URL to an image.
-  * `menuOpenIcon?: IconName | JSX.Element | string`: Set the icon that shows when the menu is open. It can be a BlueprintJS IconName, a React JSX.Element, or a string URL to an image.
-  * `menuButtonAsLink?: boolean`: Show the menuIcon and onClick go to the `homeUrl` instead of opening the menu.
-  * `menuShowButton?: boolean`: Hide the MenuButton entirely.
+- Add `ResponsiveAppContainer` that extends `ResponsiveContainer` with styling to keep it below the Navbar
+- Make `environmentToColor` theme configuration easier with lookup table now as a parameter to create the function
+- See examples in the [Custom Styling docs](https://cashapp.github.io/misk-web/docs/guides/building-a-tab/09-custom-styling)
+
+## 0.1.18-3
+
+Tue, 11 Sept 2019 20:17:00 GMT
+
+### @misk/core
+
+- Navbar is now themable!
+- Override the default theme by providing a new theme through props
+- Take advantage of the `defaultTheme` if you only want to change one of the theme values
+- See examples in the [Custom Styling docs](https://cashapp.github.io/misk-web/docs/guides/building-a-tab/09-custom-styling)
+
+## 0.1.18-2
+
+Tue, 10 Sept 2019 20:59:00 GMT
+
+### @misk/core
+
+- Added new props to Navbar to allow customization of MenuButton. All are optional and have sane defaults for the default interaction of showing the menu with respective icons.
+  - `menuIcon?: IconName | JSX.Element | string`: Set the icon that shows when the menu is closed. It can be a BlueprintJS IconName, a React JSX.Element, or a string URL to an image.
+  - `menuOpenIcon?: IconName | JSX.Element | string`: Set the icon that shows when the menu is open. It can be a BlueprintJS IconName, a React JSX.Element, or a string URL to an image.
+  - `menuButtonAsLink?: boolean`: Show the menuIcon and onClick go to the `homeUrl` instead of opening the menu.
+  - `menuShowButton?: boolean`: Hide the MenuButton entirely.
 
 ### @misk/test
 
-* Add `@testing-library/dom` library for easier tests that check for certain rendered elements or text
-
+- Add `@testing-library/dom` library for easier tests that check for certain rendered elements or text
 
 ## 0.1.18-1
 
@@ -23,8 +43,8 @@ Thu, 22 Aug 2019 22:18:00 GMT
 
 ### @misk/simpleredux
 
-* Move around files in library
-* There should be no change in functionality
+- Move around files in library
+- There should be no change in functionality
 
 ## 0.1.18-0
 
@@ -32,15 +52,15 @@ Thu, 22 Aug 2019 19:54:00 GMT
 
 ### @misk/simpleredux
 
-* Deprecate `simpleSelect` in favor of two new functions: `simpleSelectorGet` and `simpleSelectorPick`
-* Both new functions have the same API and under the hood use Lodash corresponding functions [`get`](https://lodash.com/docs#get) and [`pick`](https://lodash.com/docs#pick)
-* Update `simpleSelect` calls to either of the two new functions soon as `simpleSelect` will be removed in a future release
-* See more in [`@misk/simpleredux` documentation](https://cashapp.github.io/misk-web/docs/packages/simpleredux/README)
+- Deprecate `simpleSelect` in favor of two new functions: `simpleSelectorGet` and `simpleSelectorPick`
+- Both new functions have the same API and under the hood use Lodash corresponding functions [`get`](https://lodash.com/docs#get) and [`pick`](https://lodash.com/docs#pick)
+- Update `simpleSelect` calls to either of the two new functions soon as `simpleSelect` will be removed in a future release
+- See more in [`@misk/simpleredux` documentation](https://cashapp.github.io/misk-web/docs/packages/simpleredux/README)
 
 #### simpleSelectorGet
 
-* Allows for single-key cached selection from Redux state
-* Most directly equivalent to deprecated `simpleSelect`
+- Allows for single-key cached selection from Redux state
+- Most directly equivalent to deprecated `simpleSelect`
 
   ```Typescript
   // OLD
@@ -54,7 +74,7 @@ Thu, 22 Aug 2019 19:54:00 GMT
 
 #### simpleSelectorPick
 
-* Allows for multi-key cached selection from Redux state
+- Allows for multi-key cached selection from Redux state
 
   ```Typescript
   // OLD

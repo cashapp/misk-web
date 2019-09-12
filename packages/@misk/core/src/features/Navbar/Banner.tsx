@@ -1,8 +1,10 @@
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core"
 import * as React from "react"
-import styled from "@emotion/styled"
 import { TextHTMLOrElementComponent } from "../../components"
 import { FlexContainer, ResponsiveContainer } from "../../cssContainers"
-import { color, Environment, environmentToColor } from "../../utilities"
+import { Environment, ITheme, defaultTheme } from "../../utilities"
+import { IThemeProps } from "./DimensionAwareNavbar"
 
 /**
  * <Banner
@@ -12,15 +14,15 @@ import { color, Environment, environmentToColor } from "../../utilities"
  *  />
  */
 
-export interface IBannerExternalProps {
+export interface IBannerExternalProps extends IThemeProps {
   environment?: Environment
   environmentBannerVisible?: Environment[]
   status?: string | Element | JSX.Element
 }
 
-const MiskNavbarBanner = styled.span`
-  background-color: ${(props: { color: string }) => props.color} !important;
-  color: ${color.accent} !important;
+const cssNavbarBanner = (environment: Environment, theme: ITheme) => css`
+  background-color: ${theme.environmentToColor(environment)} !important;
+  color: ${theme.bannerText} !important;
   text-align: center;
   font-weight: 600;
   padding: 5px 10px;
@@ -32,11 +34,11 @@ const MiskNavbarBanner = styled.span`
 
   a {
     font-weight: 300;
-    color: ${color.accent};
+    color: ${theme.bannerText};
     text-decoration: underline;
     letter-spacing: 1px;
     &:hover {
-      color: ${color.white};
+      color: ${theme.bannerLinkHover};
       text-decoration: underline;
     }
   }
@@ -44,19 +46,24 @@ const MiskNavbarBanner = styled.span`
 
 export class Banner extends React.Component<IBannerExternalProps, {}> {
   public render() {
-    const { environment, environmentBannerVisible, status } = this.props
+    const {
+      environment,
+      environmentBannerVisible,
+      status,
+      theme = defaultTheme
+    } = this.props
     if (
       environmentBannerVisible &&
       environmentBannerVisible.includes(environment)
     ) {
       return (
-        <MiskNavbarBanner color={environmentToColor(environment)}>
+        <span css={css(cssNavbarBanner(environment, theme))}>
           <ResponsiveContainer>
             <FlexContainer>
               <TextHTMLOrElementComponent>{status}</TextHTMLOrElementComponent>
             </FlexContainer>
           </ResponsiveContainer>
-        </MiskNavbarBanner>
+        </span>
       )
     } else {
       return <div />
