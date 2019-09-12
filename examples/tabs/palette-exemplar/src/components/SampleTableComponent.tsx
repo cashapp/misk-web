@@ -1,5 +1,4 @@
 import { Pre, Classes, H1, HTMLTable } from "@blueprintjs/core"
-import { ErrorCalloutComponent } from "@misk/core"
 import * as React from "react"
 
 export interface ITableProps {
@@ -13,7 +12,9 @@ const Row = (props: ITableProps) => {
   const { data } = props
   return (
     <tr>
-      {data && Object.entries(data).map(([k, v]) => <td key={k}>{v}</td>)}
+      {Object.entries(data).map(([k, v]) => (
+        <td key={k}>{v}</td>
+      ))}
     </tr>
   )
 }
@@ -22,12 +23,9 @@ const Rows = (props: ITableProps) => {
   const { data, rows } = props
   return (
     <tbody>
-      {data &&
-        data
-          .slice(0, rows)
-          .map((row: any, index: number) => (
-            <Row key={`row${index}`} data={row} />
-          ))}
+      {data.slice(0, rows).map((row: any, index: number) => (
+        <Row key={`row${index}`} data={row} />
+      ))}
     </tbody>
   )
 }
@@ -37,7 +35,9 @@ const Heading = (props: ITableProps) => {
   return (
     <thead>
       <tr>
-        {data && Object.entries(data).map(([k, v]) => <th key={k}>{k}</th>)}
+        {Object.entries(data).map(([k, v]) => (
+          <th key={k}>{k}</th>
+        ))}
       </tr>
     </thead>
   )
@@ -52,7 +52,22 @@ export const SampleTableComponent = (props: ITableProps) => {
   /**
    * Have a nice failure mode while your data is loading or doesn't load
    */
-  if (!data.cars || data.cars === null) {
+  if (data && data.length > 1) {
+    /**
+     * Data is loaded and ready to be rendered
+     */
+    const tableData = data
+    return (
+      <div>
+        <H1>{name}</H1>
+        <Pre>url: {url}</Pre>
+        <HTMLTable bordered={true} striped={true}>
+          <Heading data={tableData[0]} />
+          <Rows data={tableData} rows={rows} />
+        </HTMLTable>
+      </div>
+    )
+  } else {
     const FakeCell = <p className={Classes.SKELETON}>lorem ipsum 1234 5678</p>
     return (
       <div>
@@ -77,22 +92,6 @@ export const SampleTableComponent = (props: ITableProps) => {
               <td>{FakeCell}</td>
             </tr>
           </tbody>
-        </HTMLTable>
-        <ErrorCalloutComponent error={data.error} />
-      </div>
-    )
-  } else {
-    /**
-     * Data is loaded and ready to be rendered
-     */
-    const tableData = data.cars
-    return (
-      <div>
-        <H1>{name}</H1>
-        <Pre>url: {url}</Pre>
-        <HTMLTable bordered={true} striped={true}>
-          <Heading data={tableData[0]} />
-          <Rows data={tableData} rows={rows} />
         </HTMLTable>
       </div>
     )

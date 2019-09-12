@@ -11,23 +11,9 @@ Using Redux can be simple.
 $ npm install @misk/simpleredux
 ```
 
-## SimpleForm
-
-A standardized set of form and input handler Redux-Sagas parts (actions, dispatcher, handlers, sagas, reducers, state interface)
-
-[Example Code](https://github.com/cashapp/misk-web/blob/master/examples/tabs/palette-exemplar/src/containers/SampleFormContainer.tsx)
-
-## SimpleNetwork
-
-A standardized set of Axios based request Redux-Sagas parts (actions, dispatcher, handlers, sagas, reducers, state interface)
-
-[Example Code](https://github.com/cashapp/misk-web/blob/master/examples/tabs/palette-exemplar/src/containers/SampleNetworkContainer.tsx)
-
-[Understanding Redux](https://github.com/cashapp/misk-web/blob/master/packages/%40misk/simpleredux/REDUX.md)
-
 ## SimpleSelector
 
-#### simpleSelectorGet
+### simpleSelectorGet
 
 - Allows for single-key cached selection from Redux state
 - Most directly equivalent to deprecated `simpleSelect`
@@ -52,7 +38,7 @@ A standardized set of Axios based request Redux-Sagas parts (actions, dispatcher
     - This is useful for cases like storing a list of tags where the UI expects an empty array `[]` in the case of no elements, not `undefined`.
     - Same as parameter in [Lodash/Get](https://lodash.com/docs#get)
 
-#### simpleSelectorPick
+### simpleSelectorPick
 
 - Allows for multi-key cached selection from Redux state
 
@@ -99,6 +85,20 @@ A standardized set of Axios based request Redux-Sagas parts (actions, dispatcher
   - `paths`: array of paths of keys to return from object.
     - Example: `["Dino::Name.data", "Dino::Price.data"]`
     - Same as parameter in [Lodash/Pick](https://lodash.com/docs#pick)
+
+## Resources
+
+- [Example Form Code](https://github.com/cashapp/misk-web/blob/master/examples/tabs/palette-exemplar/src/containers/SampleFormContainer.tsx)
+- [Example Network Code](https://github.com/cashapp/misk-web/blob/master/examples/tabs/palette-exemplar/src/containers/SampleNetworkContainer.tsx)
+- [Understanding Redux](https://github.com/cashapp/misk-web/blob/master/packages/%40misk/simpleredux/REDUX.md)
+
+## DEPRECATED: SimpleForm
+
+A standardized set of form and input handler Redux-Sagas parts (actions, dispatcher, handlers, sagas, reducers, state interface)
+
+## DEPRECATED: SimpleNetwork
+
+A standardized set of Axios based request Redux-Sagas parts (actions, dispatcher, handlers, sagas, reducers, state interface)
 
 ## [Releasing](https://github.com/cashapp/misk-web/blob/master/RELEASING.md)
 

@@ -1,5 +1,15 @@
 ## Changelog
 
+## 0.1.18-6
+
+Tue, 12 Sept 2019 22:18:00 GMT
+
+### @misk/simpleredux
+
+- Unified SimpleRedux flow merging together SimpleForm and SimpleNetwork
+- Extensive test coverage across new flow
+- Usage of old SimpleForm and SimpleNetwork Redux elements now call out to the new SimpleRedux flow and log deprecation warnings encouraging upgrading to the unified flow.
+
 ## 0.1.18-5
 
 Tue, 12 Sept 2019 14:57:00 GMT
