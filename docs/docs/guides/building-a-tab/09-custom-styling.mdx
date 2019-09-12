@@ -1,5 +1,60 @@
 # Custom Styling
 
+## Navbar
+
+The Navbar component from `@misk/core` is themable. It expects the following theme object to provided by props or will fall back to the default theme.
+
+```ts
+export interface ITheme {
+  bannerLinkHover: color | string
+  bannerText: color | string
+  button: color | string
+  buttonHover: color | string
+  categoryText: color | string
+  environmentToColor: (environment: Environment) => color | string
+  navbarBackground: color | string
+  navbarLinkHover: color | string
+  navbarText: color | string
+}
+```
+
+Note the `environmentToColor` field is a function that accepts the current runtime `Environment` and then returns a `color | string`. The following example includes a custom `environmentToColor` which accepts a lookup map for ease of use.
+
+```ts
+import {
+  color,
+  environmentToColor,
+  IEnvironmentToColorLookup,
+  ITheme
+} from "@misk/core"
+
+const dinoEnvironmentColorLookup: IEnvironmentToColorLookup = {
+  default: color.cadet,
+  DEVELOPMENT: color.platinum,
+  TESTING: color.purple,
+  STAGING: color.yellow,
+  PRODUCTION: color.red
+}
+
+const dinoTheme: ITheme = {
+  ...defaultTheme,
+  environmentToColor: environmentToColor(dinoEnvironmentColorLookup),
+  navbarBackground: color.blue
+}
+
+const MainComponent = (props: any) => (
+  //...
+  <Navbar
+    // ...
+    theme={dinoTheme}
+    // ...
+  />
+  //...
+)
+```
+
+## TODOs
+
 In the unfortunate event that custom styling is required, we recommend and include `@emotion` for CSS-in-JS styling that also plays well with Jest snapshot tests.
 
 Review the css props, JSX pragma,... punt to the Emotion docs.
