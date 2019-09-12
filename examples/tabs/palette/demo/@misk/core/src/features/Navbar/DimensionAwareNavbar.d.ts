@@ -1,17 +1,15 @@
 import * as React from "react";
-import { IDimensionAwareProps } from ".";
-import { Environment, IDashboardTab } from "../../utilities";
-export interface INavbarProps {
-    environment?: Environment;
-    environmentBannerVisible?: Environment[];
+import { IBannerExternalProps, IDimensionAwareProps, IMenuExternalProps } from "../Navbar";
+import { Environment } from "../../utilities";
+import { ITheme } from "src/utilities/theme";
+export interface INavbarProps extends IBannerExternalProps, IMenuExternalProps, IThemeProps {
     environmentNavbarVisible?: Environment[];
-    error?: any;
-    homeName?: string;
+    homeName?: string | Element | JSX.Element;
     homeUrl?: string;
     navbar_items?: Array<string | Element | JSX.Element>;
-    linkComponent?: any;
-    links?: IDashboardTab[];
-    status?: string | Element | JSX.Element;
+}
+export interface IThemeProps {
+    theme?: ITheme;
 }
 export declare class DimensionAwareNavbar extends React.Component<IDimensionAwareProps & INavbarProps, {}> {
     state: {
