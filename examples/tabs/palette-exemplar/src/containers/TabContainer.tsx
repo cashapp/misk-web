@@ -16,7 +16,7 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
     "https://cashapp.github.io/misk-web/examples/data/demo/cars.json"
 
   componentDidMount() {
-    this.props.simpleNetworkGet(this.tableTag, this.tableUrl)
+    this.props.simpleHttpGet(this.tableTag, this.tableUrl)
   }
 
   render() {
@@ -24,7 +24,7 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
       <div>
         <SampleTableComponent
           data={simpleSelectorGet(
-            this.props.simpleNetwork,
+            this.props.simpleRedux,
             [this.tableTag, "data", "cars"],
             []
           )}

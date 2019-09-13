@@ -10,7 +10,6 @@ import {
 import {
   onClickFnCall,
   onChangeFnCall,
-  simpleSelect,
   simpleSelectorGet,
   simpleSelectorPick
 } from "@misk/simpleredux"
@@ -23,115 +22,115 @@ import {
   mapStateToProps
 } from "src/ducks"
 
-export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
-  const FormTag = "SampleNetwork"
+export const SimpleNetworkContainer = (props: IDispatchProps & IState) => {
+  const FormTag = "SimpleNetwork"
   const fields = ["DELETE", "GET", "HEAD", "PATCH", "POST", "PUT"].map(
     (f: string) => `${FormTag}::${f}`
   )
-  const filteredSimpleNetwork = simpleSelectorPick(props.simpleNetwork, fields)
+  const filteredsimpleRedux = simpleSelectorPick(props.simpleRedux, fields)
   return (
     <div>
       <H1>Sample Network Component</H1>
-      <Pre>simpleNetwork: {JSON.stringify(filteredSimpleNetwork, null, 2)}</Pre>
+      <Pre>simpleRedux: {JSON.stringify(filteredsimpleRedux, null, 2)}</Pre>
       <Pre>
-        simpleForm:
+        simpleRedux:
         {JSON.stringify(
-          simpleSelect(props.simpleForm, "SampleNetwork"),
+          simpleSelectorGet(props.simpleRedux, `${FormTag}`),
           null,
           2
         )}
       </Pre>
       <Pre>
-        url: {simpleSelect(props.simpleForm, "SampleNetwork::url", "data")}
+        url: {simpleSelectorGet(props.simpleRedux, `${FormTag}::url`, "data")}
       </Pre>
       <InputGroup
         placeholder={"Request URL: http://your.url.com/to/send/a/request/to/"}
-        onChange={onChangeFnCall(props.simpleFormInput, "SampleNetwork::url")}
+        onChange={onChangeFnCall(props.simpleMerge, `${FormTag}::url`)}
         type={"url"}
       />
       <TextArea
         fill={true}
-        onChange={onChangeFnCall(props.simpleFormInput, "SampleNetwork::data")}
+        onChange={onChangeFnCall(props.simpleMerge, `${FormTag}::data`)}
         placeholder={"Request Body (JSON or Text)"}
       />
       <ButtonGroup>
         <Button
           onClick={onClickFnCall(
-            props.simpleNetworkGet,
-            "SampleNetwork::DELETE",
-            simpleSelectorGet(props.simpleForm, ["SampleNetwork::url", "data"])
+            props.simpleHttpGet,
+            `${FormTag}::DELETE`,
+            simpleSelectorGet(props.simpleRedux, [`${FormTag}::url`, "data"])
           )}
           intent={Intent.DANGER}
-          loading={simpleSelectorGet(props.simpleNetwork, [
-            "SampleNetwork::DELETE",
+          loading={simpleSelectorGet(props.simpleRedux, [
+            `${FormTag}::DELETE`,
             "loading"
           ])}
           text={"DELETE"}
         />
         <Button
           onClick={onClickFnCall(
-            props.simpleNetworkGet,
-            "SampleNetwork::GET",
-            simpleSelectorGet(props.simpleForm, ["SampleNetwork::url", "data"])
+            props.simpleHttpGet,
+            `${FormTag}::GET`,
+            simpleSelectorGet(props.simpleRedux, [`${FormTag}::url`, "data"])
           )}
           intent={Intent.SUCCESS}
-          loading={simpleSelectorGet(props.simpleNetwork, [
-            "SampleNetwork::GET",
+          loading={simpleSelectorGet(props.simpleRedux, [
+            `${FormTag}::GET`,
             "loading"
           ])}
           text={"GET"}
         />
         <Button
           onClick={onClickFnCall(
-            props.simpleNetworkHead,
-            "SampleNetwork::HEAD",
-            simpleSelectorGet(props.simpleForm, ["SampleNetwork::url", "data"])
+            props.simpleHttpHead,
+            `${FormTag}::HEAD`,
+            simpleSelectorGet(props.simpleRedux, [`${FormTag}::url`, "data"])
           )}
           intent={Intent.NONE}
-          loading={simpleSelectorGet(props.simpleNetwork, [
-            "SampleNetwork::HEAD",
+          loading={simpleSelectorGet(props.simpleRedux, [
+            `${FormTag}::HEAD`,
             "loading"
           ])}
           text={"HEAD"}
         />
         <Button
           onClick={onClickFnCall(
-            props.simpleNetworkPatch,
-            "SampleNetwork::PATCH",
-            simpleSelectorGet(props.simpleForm, ["SampleNetwork::url", "data"]),
-            simpleSelectorGet(props.simpleForm, ["SampleNetwork::data", "data"])
+            props.simpleHttpPatch,
+            `${FormTag}::PATCH`,
+            simpleSelectorGet(props.simpleRedux, [`${FormTag}::url`, "data"]),
+            simpleSelectorGet(props.simpleRedux, [`${FormTag}::data`, "data"])
           )}
           intent={Intent.PRIMARY}
-          loading={simpleSelectorGet(props.simpleNetwork, [
-            "SampleNetwork::PATCH",
+          loading={simpleSelectorGet(props.simpleRedux, [
+            `${FormTag}::PATCH`,
             "loading"
           ])}
           text={"PATCH"}
         />
         <Button
           onClick={onClickFnCall(
-            props.simpleNetworkPost,
-            "SampleNetwork::POST",
-            simpleSelectorGet(props.simpleForm, ["SampleNetwork::url", "data"]),
-            simpleSelectorGet(props.simpleForm, ["SampleNetwork::data", "data"])
+            props.simpleHttpPost,
+            `${FormTag}::POST`,
+            simpleSelectorGet(props.simpleRedux, [`${FormTag}::url`, "data"]),
+            simpleSelectorGet(props.simpleRedux, [`${FormTag}::data`, "data"])
           )}
           intent={Intent.PRIMARY}
-          loading={simpleSelectorGet(props.simpleNetwork, [
-            "SampleNetwork::POST",
+          loading={simpleSelectorGet(props.simpleRedux, [
+            `${FormTag}::POST`,
             "loading"
           ])}
           text={"POST"}
         />
         <Button
           onClick={onClickFnCall(
-            props.simpleNetworkPut,
-            "SampleNetwork::PUT",
-            simpleSelectorGet(props.simpleForm, ["SampleNetwork::url", "data"]),
-            simpleSelectorGet(props.simpleForm, ["SampleNetwork::data", "data"])
+            props.simpleHttpPut,
+            `${FormTag}::PUT`,
+            simpleSelectorGet(props.simpleRedux, [`${FormTag}::url`, "data"]),
+            simpleSelectorGet(props.simpleRedux, [`${FormTag}::data`, "data"])
           )}
           intent={Intent.WARNING}
-          loading={simpleSelectorGet(props.simpleNetwork, [
-            "SampleNetwork::PUT",
+          loading={simpleSelectorGet(props.simpleRedux, [
+            `${FormTag}::PUT`,
             "loading"
           ])}
           text={"PUT"}
@@ -144,4 +143,4 @@ export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SampleNetworkContainer)
+)(SimpleNetworkContainer)
