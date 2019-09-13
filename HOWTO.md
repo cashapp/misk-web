@@ -208,9 +208,3 @@ Extensions: [`@misk/dev/vscode.extensions.js`](https://raw.githubusercontent.com
 Settings: [`@misk/dev/vscode.settings.js`](https://raw.githubusercontent.com/cashapp/misk-web/master/packages/%40misk/dev/vscode.settings.js)
 
 Add settings by copying the JSON from the file into `.vscode/settings.json` in your Tab repo.
-
-## Other Development Notes
-
-- Notice in the Misk multibindings that the AdminTabAction url had the prefix `_admin/` but all other multibindings had the prefix `_tab/`. This allows you to develop your tab without any of the surrounding Admin dashboard UI or overhead. Use the respective link below to open your tab in the browser.
-  - [`http://localhost:8080/_admin/trexfoodlog/`](http://localhost:8080/_admin/trexfoodlog/): full dashboard UI with menu, other tabs...etc. Before the tab is pushed in production, extensive testing should be done here to ensure there are no bugs when the tab is loaded into the dashboard.
-  - [`http://localhost:8080/_tab/trexfoodlog/`](http://localhost:8080/_tab/trexfoodlog/): develop your tab in the full browser window without dashboard nav bar or other UI. All functionality and styling should end up being identical to when the tab is loaded in the dashboard.
