@@ -2,7 +2,7 @@ import klaw from "klaw"
 import path from "path"
 const ProgressBar = require("progress")
 import { cd } from "shelljs"
-import * as yargs from "yargs"
+import yargs from "yargs"
 const { version: packageVersion } = require("root-require")("package.json")
 import {
   packageVersionExistsOnNPM,
