@@ -1,18 +1,53 @@
 # Getting Started
 
-Here's how to get started building a new Misk-Web tab.
+Here's how to get started building a new Misk-Web tab in the current directory.
 
 ```
-npm install -g @misk/cli
-miskweb new
-./new-tab.sh
-cd my-new-tab
-miskweb ci-build
-miskweb start
+$ pwd
+    /Users/dino/dev/dino-service/service/web/tabs/
+$ npm install -g @misk/cli    # Install Misk-Web CLI
+$ miskweb new                 # Download new tab script
+$ ./new-tab.sh                # Run the new tab script
+$ cd my-new-tab               # Change directory to new tab
+$ miskweb ci-build            # ci-build command installs NPM dependencies and builds
+$ miskweb start               # start command starts Webpack Dev Server at port in miskTab.json
 ```
 
-Note: the `miskweb new` command only downloads the `new-tab.sh` script, it will need to be run manually.
+Note: the `miskweb new` command only downloads the `new-tab.sh` script, it still will need to be run manually.
 
+# miskTab.json
+
+Misk-Web uses the values in miskTab.json to generate the following build files during the `prebuild` step that happens as part of `ci-build`, `build`, and `start` commands. Trigger a `prebuild` manually with `$ miskweb prebuild`.
+
+- package.json: NPM project configuration
+- tsconfig.json: Typescript Compiler configuration
+- tslint.json: Typescript linting configuration
+- webpack.config.js: Webpack build configuration
+
+The `new` command will configure `miskTab.json` with sane defaults. Advanced configuration can be done by editing the values and then re-running `$ miskweb prebuild`.
+
+Consider the interface below to understand how the `miskTab.json` are used.
+
+```ts
+interface IMiskTabJSON {
+  name: string // name of tab in Title Case
+  output_path: string // output path for Webpack build
+  port: number // port for Webpack-Dev-Server
+  rawGitginore: string // prebuild permanent add to .gitignore file
+  rawIndex: boolean // ignore Webpack injection of source links to index.html
+  rawPackageJson: any // prebuild permanent add/override to package.json file
+  rawTsconfig: any // prebuild permanent add/override to tsconfig.json file
+  rawTslint: any // prebuild permanent add/override to tslint.json file
+  rawWebpackConfig: any // prebuild permanent add to webpack.config.js file
+  relative_path_prefix: string // override default URL for tab: /_tab/{slug}/
+  slug: string // unique slug used in URL path
+  useWebpackBundleAnalyzer: boolean // turn off/on webpack bundle analyzer reports
+  useWebpackExternals: boolean // turn off/on thin build by including externals in Webpack build
+  version: string // Misk Web release version or keyword (alpha, latest)
+  zipOnBuild: boolean // zip relevant source code of tab into {slug}.tgz after each build
+  ___DeprecatedKeys: string // divider to the miskTab.json to improve maintainability
+}
+```
 
 # Project Structure
 
