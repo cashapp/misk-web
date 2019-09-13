@@ -1,6 +1,12 @@
 # Change Log - @misk/simpleredux
 
-This log was last generated on Tue, 20 Aug 2019 20:59:33 GMT and should not be manually modified.
+This log was last generated on Fri, 13 Sep 2019 17:47:49 GMT and should not be manually modified.
+
+## 0.1.18
+
+Fri, 13 Sep 2019 17:47:49 GMT
+
+_Version update only_
 
 ## 0.1.17
 
