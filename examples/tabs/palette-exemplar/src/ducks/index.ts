@@ -1,19 +1,13 @@
 import {
-  dispatchSimpleForm,
-  dispatchSimpleNetwork,
-  IDispatchSimpleForm,
-  IDispatchSimpleNetwork,
   IRouterProvidedProps,
-  ISimpleFormImmutableState,
-  ISimpleFormState,
-  ISimpleNetworkImmutableState,
-  ISimpleNetworkState,
-  SimpleFormReducer,
-  SimpleNetworkReducer,
   SimpleReduxSaga,
   simpleRootSelector,
-  watchSimpleFormSagas,
-  watchSimpleNetworkSagas
+  ISimpleReduxState,
+  dispatchSimpleRedux,
+  IDispatchSimpleRedux,
+  ISimpleReduxImmutableState,
+  SimpleReduxReducer,
+  watchSimpleReduxSagas
 } from "@misk/simpleredux"
 import {
   connectRouter,
@@ -39,8 +33,7 @@ export * from "./paletteExemplar"
 export interface IState {
   paletteExemplar: IPaletteExemplarState
   router: Reducer<RouterState, LocationChangeAction>
-  simpleForm: ISimpleFormState
-  simpleNetwork: ISimpleNetworkState
+  simpleRedux: ISimpleReduxState
 }
 
 /**
@@ -48,13 +41,11 @@ export interface IState {
  */
 export interface IDispatchProps
   extends IDispatchPaletteExemplar,
-    IDispatchSimpleForm,
-    IDispatchSimpleNetwork,
+    IDispatchSimpleRedux,
     IRouterProvidedProps {}
 
 export const rootDispatcher: IDispatchProps = {
-  ...dispatchSimpleForm,
-  ...dispatchSimpleNetwork,
+  ...dispatchSimpleRedux,
   ...dispatchPaletteExemplar
 }
 
@@ -67,12 +58,8 @@ export const rootSelectors = (state: IState) => ({
     state
   ),
   router: state.router,
-  simpleForm: simpleRootSelector<IState, ISimpleFormImmutableState>(
-    "simpleForm",
-    state
-  ),
-  simpleNetwork: simpleRootSelector<IState, ISimpleNetworkImmutableState>(
-    "simpleNetwork",
+  simpleRedux: simpleRootSelector<IState, ISimpleReduxImmutableState>(
+    "simpleRedux",
     state
   )
 })
@@ -84,19 +71,14 @@ export const rootReducer = (history: History): Reducer<any, AnyAction> =>
   combineReducers({
     paletteExemplar: PaletteExemplarReducer,
     router: connectRouter(history),
-    simpleForm: SimpleFormReducer,
-    simpleNetwork: SimpleNetworkReducer
+    simpleRedux: SimpleReduxReducer
   })
 
 /**
  * Sagas
  */
 export function* rootSaga(): SimpleReduxSaga {
-  yield all([
-    fork(watchPaletteExemplarSagas),
-    fork(watchSimpleFormSagas),
-    fork(watchSimpleNetworkSagas)
-  ])
+  yield all([fork(watchPaletteExemplarSagas), fork(watchSimpleReduxSagas)])
 }
 
 /**

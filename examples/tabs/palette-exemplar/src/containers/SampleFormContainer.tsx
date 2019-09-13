@@ -48,25 +48,25 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
     "Meal",
     "Tags"
   ].map((f: string) => `${FormTag}::${f}.data`)
-  const fieldsData = simpleSelectorPick(props.simpleForm, fields)
+  const fieldsData = simpleSelectorPick(props.simpleRedux, fields)
   return (
     <div>
       <H1>Sample Form Component :: {FormTag}</H1>
-      <Pre>simpleForm: {JSON.stringify(fieldsData, null, 2)}</Pre>
+      <Pre>simpleRedux: {JSON.stringify(fieldsData, null, 2)}</Pre>
       <FormGroup>
         <InputGroup
           id="text-input"
           placeholder="Full Name"
-          onChange={onChangeFnCall(props.simpleFormInput, `${FormTag}::Name`)}
+          onChange={onChangeFnCall(props.simpleMerge, `${FormTag}::Name`)}
         />
         <NumericInput
           leftIcon={IconNames.DOLLAR}
           placeholder={"Price"}
           onValueChange={onChangeNumberFnCall(
-            props.simpleFormNumber,
+            props.simpleMergeNumber,
             `${FormTag}::Price`
           )}
-          value={simpleSelectorGet(props.simpleForm, [
+          value={simpleSelectorGet(props.simpleRedux, [
             `${FormTag}::Price`,
             "data"
           ])}
@@ -75,7 +75,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           fill={true}
           intent={Intent.PRIMARY}
           onChange={onChangeFnCall(
-            props.simpleFormInput,
+            props.simpleMerge,
             `${FormTag}::Itemized Receipt`
           )}
           placeholder={"Itemized Receipt"}
@@ -83,71 +83,71 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
         <FlexContainer>
           <H5>Bill Splitting</H5>
           <Checkbox
-            checked={simpleSelectorGet(props.simpleForm, [
+            checked={simpleSelectorGet(props.simpleRedux, [
               `${FormTag}::CheckAlice`,
               "data"
             ])}
             label={"Alice"}
             onChange={onChangeToggleFnCall(
-              props.simpleFormToggle,
+              props.simpleMergeToggle,
               `${FormTag}::CheckAlice`,
-              props.simpleForm
+              props.simpleRedux
             )}
           />
           <Checkbox
-            checked={simpleSelectorGet(props.simpleForm, [
+            checked={simpleSelectorGet(props.simpleRedux, [
               `${FormTag}::CheckBob`,
               "data"
             ])}
             label={"Bob"}
             onChange={onChangeToggleFnCall(
-              props.simpleFormToggle,
+              props.simpleMergeToggle,
               `${FormTag}::CheckBob`,
-              props.simpleForm
+              props.simpleRedux
             )}
           />
           <Checkbox
-            checked={simpleSelectorGet(props.simpleForm, [
+            checked={simpleSelectorGet(props.simpleRedux, [
               `${FormTag}::CheckEve`,
               "data"
             ])}
             label={"Eve"}
             onChange={onChangeToggleFnCall(
-              props.simpleFormToggle,
+              props.simpleMergeToggle,
               `${FormTag}::CheckEve`,
-              props.simpleForm
+              props.simpleRedux
             )}
           />
           <Checkbox
-            checked={simpleSelectorGet(props.simpleForm, [
+            checked={simpleSelectorGet(props.simpleRedux, [
               `${FormTag}::CheckMallory`,
               "data"
             ])}
             label={"Mallory"}
             onChange={onChangeToggleFnCall(
-              props.simpleFormToggle,
+              props.simpleMergeToggle,
               `${FormTag}::CheckMallory`,
-              props.simpleForm
+              props.simpleRedux
             )}
           />
           <Checkbox
-            checked={simpleSelectorGet(props.simpleForm, [
+            checked={simpleSelectorGet(props.simpleRedux, [
               `${FormTag}::CheckTrent`,
               "data"
             ])}
             label={"Trent"}
             onChange={onChangeToggleFnCall(
-              props.simpleFormToggle,
+              props.simpleMergeToggle,
               `${FormTag}::CheckTrent`,
-              props.simpleForm
+              props.simpleRedux
             )}
           />
         </FlexContainer>
         <RadioGroup
           label="Meal"
           inline={true}
-          onChange={onChangeFnCall(props.simpleFormInput, `${FormTag}::Meal`)}
-          selectedValue={simpleSelectorGet(props.simpleForm, [
+          onChange={onChangeFnCall(props.simpleMerge, `${FormTag}::Meal`)}
+          selectedValue={simpleSelectorGet(props.simpleRedux, [
             `${FormTag}::Meal`,
             "data"
           ])}
@@ -157,13 +157,10 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           <Radio label="Dinner" value="dinner" />
         </RadioGroup>
         <TagInput
-          onChange={onChangeTagFnCall(
-            props.simpleFormInput,
-            `${FormTag}::Tags`
-          )}
+          onChange={onChangeTagFnCall(props.simpleMerge, `${FormTag}::Tags`)}
           placeholder={"Tags"}
           values={simpleSelectorGet(
-            props.simpleForm,
+            props.simpleRedux,
             [`${FormTag}::Tags`, "data"],
             []
           )}
@@ -172,7 +169,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
         <Pre>
           submit form network request:{" "}
           {JSON.stringify(
-            simpleSelectorGet(props.simpleNetwork, `${FormTag}::POST`),
+            simpleSelectorGet(props.simpleRedux, `${FormTag}::POST`),
             null,
             2
           )}
@@ -181,24 +178,21 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           placeholder={
             "Form POST URL: http://your.url.com/to/send/a/request/to/"
           }
-          onChange={onChangeFnCall(
-            props.simpleFormInput,
-            `${FormTag}::POST_URL`
-          )}
+          onChange={onChangeFnCall(props.simpleMerge, `${FormTag}::POST_URL`)}
           type={"url"}
         />
         <Button
           onClick={onClickFnCall(
-            props.simpleNetworkPost,
+            props.simpleHttpPost,
             `${FormTag}::POST`,
-            simpleSelectorGet(props.simpleForm, [
+            simpleSelectorGet(props.simpleRedux, [
               `${FormTag}::POST_URL`,
               "data"
             ]),
             fieldsData
           )}
           intent={Intent.PRIMARY}
-          loading={simpleSelectorGet(props.simpleNetwork, [
+          loading={simpleSelectorGet(props.simpleRedux, [
             `${FormTag}::POST`,
             "loading"
           ])}
