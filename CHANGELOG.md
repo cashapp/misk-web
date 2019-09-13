@@ -1,8 +1,14 @@
 ## Changelog
 
+## 0.1.18
+
+Tue, 13 Sept 2019 17:52:00 GMT
+
+Stable release including all the changes of `0.1.18-*` alpha releases.
+
 ## 0.1.18-7
 
-Tue, 12 Sept 2019 22:18:00 GMT
+Tue, 13 Sept 2019 15:18:00 GMT
 
 ### @misk/cli
 
@@ -10,7 +16,7 @@ Tue, 12 Sept 2019 22:18:00 GMT
 
 ## 0.1.18-6
 
-Tue, 12 Sept 2019 22:18:00 GMT
+Tue, 12 Sept 2019 15:18:00 GMT
 
 ### @misk/simpleredux
 
