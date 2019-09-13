@@ -1,8 +1,10 @@
 import { History, Location } from "history"
+import { HTTPMethod } from "http-method-enum"
 import { fromJS, List } from "immutable"
 import { match } from "react-router"
 import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects"
 import { StatusCode } from "status-code-enum"
+import { IDispatchSimpleRedux } from "src"
 
 export * from "./onFnCall"
 export * from "./simpleSelector"
@@ -154,3 +156,16 @@ export const jsonOrString = (json: string) => {
     return json
   }
 }
+
+/** Lookup of HTTP Dispatch method */
+export const HTTPMethodDispatch: any = (props: IDispatchSimpleRedux) => ({
+  [HTTPMethod.CONNECT]: props.simpleHttpGet,
+  [HTTPMethod.DELETE]: props.simpleHttpDelete,
+  [HTTPMethod.GET]: props.simpleHttpGet,
+  [HTTPMethod.HEAD]: props.simpleHttpHead,
+  [HTTPMethod.OPTIONS]: props.simpleHttpGet,
+  [HTTPMethod.PATCH]: props.simpleHttpPatch,
+  [HTTPMethod.POST]: props.simpleHttpPost,
+  [HTTPMethod.PUT]: props.simpleHttpPut,
+  [HTTPMethod.TRACE]: props.simpleHttpGet
+})

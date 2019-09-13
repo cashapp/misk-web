@@ -1,5 +1,4 @@
 import { Intent } from "@blueprintjs/core"
-import { IDispatchSimpleNetwork } from "@misk/simpleredux"
 import { HTTPMethod } from "http-method-enum"
 
 export const HTTPMethodIntent: { [method in HTTPMethod]: Intent } = {
@@ -27,15 +26,3 @@ export const HTTPStatusCodeIntent = (code: number) => {
     return Intent.NONE
   }
 }
-
-export const HTTPMethodDispatch: any = (props: IDispatchSimpleNetwork) => ({
-  [HTTPMethod.CONNECT]: props.simpleNetworkGet,
-  [HTTPMethod.DELETE]: props.simpleNetworkDelete,
-  [HTTPMethod.GET]: props.simpleNetworkGet,
-  [HTTPMethod.HEAD]: props.simpleNetworkHead,
-  [HTTPMethod.OPTIONS]: props.simpleNetworkGet,
-  [HTTPMethod.PATCH]: props.simpleNetworkPatch,
-  [HTTPMethod.POST]: props.simpleNetworkPost,
-  [HTTPMethod.PUT]: props.simpleNetworkPut,
-  [HTTPMethod.TRACE]: props.simpleNetworkGet
-})
