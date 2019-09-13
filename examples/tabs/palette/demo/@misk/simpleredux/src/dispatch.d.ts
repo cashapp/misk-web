@@ -1,6 +1,12 @@
 import { AxiosResponse, AxiosRequestConfig } from "axios";
 import { SIMPLEREDUX } from "./action";
 import { IDefaultState, IAction } from "./utilities";
+interface IDispatchDefault {
+    data: any;
+    error: any;
+    requestConfig: AxiosRequestConfig;
+}
+export declare const dispatchDefault: IDispatchDefault;
 export interface ISimpleCachePayloadTag extends IDefaultState {
     oldToggle?: string | boolean;
     tag: string;
@@ -103,33 +109,4 @@ interface IPrivateDispatchSimpleRedux extends IDispatchSimpleRedux {
  */
 export declare const dispatchSimpleRedux: IDispatchSimpleRedux;
 export declare const privateDispatchSimpleRedux: IPrivateDispatchSimpleRedux;
-/** DEPRECATED: Use [dispatchSimpleRedux] instead */
-export interface IDispatchSimpleNetwork {
-    simpleNetworkDelete: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_DELETE, ISimpleReduxPayload>;
-    simpleNetworkFailure: (tag: string, url: string, error: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>;
-    simpleNetworkGet: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_GET, ISimpleReduxPayload>;
-    simpleNetworkHead: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_HEAD, ISimpleReduxPayload>;
-    simpleNetworkPatch: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_PATCH, ISimpleReduxPayload>;
-    simpleNetworkPost: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_POST, ISimpleReduxPayload>;
-    simpleNetworkPut: (tag: string, url: string, data: any, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_PUT, ISimpleReduxPayload>;
-    simpleNetworkSuccess: (tag: string, url: string, response: AxiosResponse, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
-}
-interface IDispatchDefault {
-    data: any;
-    error: any;
-    requestConfig: AxiosRequestConfig;
-}
-export declare const dispatchDefault: IDispatchDefault;
-/** DEPRECATED: Use [dispatchSimpleRedux] instead */
-export declare const dispatchSimpleNetwork: IDispatchSimpleNetwork;
-/** DEPRECATED: Use [dispatchSimpleRedux] instead */
-export interface IDispatchSimpleForm {
-    simpleFormFailure: (tag: string, error: any) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>;
-    simpleFormInput: (tag: string, data: any) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
-    simpleFormNumber: (tag: string, valueAsNumber: number, valueAsString: string) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
-    simpleFormSuccess: (tag: string, data: any) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
-    simpleFormToggle: (tag: string, oldState: any) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
-}
-/** DEPRECATED: Use [dispatchSimpleRedux] instead */
-export declare const dispatchSimpleForm: IDispatchSimpleForm;
 export {};

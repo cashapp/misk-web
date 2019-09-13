@@ -17,23 +17,3 @@ export interface ISimpleReduxState extends IRootState {
 export interface ISimpleReduxImmutableState {
     toJS: () => ISimpleReduxState;
 }
-/** DEPRECATED: Use [SimpleReduxReducer] instead */
-export declare const SimpleNetworkReducer: typeof SimpleReduxReducer;
-/** DEPRECATED: Use [ISimpleReduxState] instead */
-export interface ISimpleNetworkState extends IRootState {
-    [tag: string]: any | ISimpleReduxPayload;
-}
-/** DEPRECATED: Use [ISimpleReduxImmutableState] instead */
-export interface ISimpleNetworkImmutableState {
-    toJS: () => ISimpleNetworkState;
-}
-/** DEPRECATED: Use [SimpleReduxReducer] instead */
-export declare const SimpleFormReducer: typeof SimpleReduxReducer;
-/** DEPRECATED: Use [ISimpleReduxState] instead */
-export interface ISimpleFormState extends IRootState {
-    [tag: string]: any | ISimpleReduxPayload;
-}
-/** DEPRECATED: Use [ISimpleReduxImmutableState] instead */
-export interface ISimpleFormImmutableState {
-    toJS: () => ISimpleFormState;
-}
