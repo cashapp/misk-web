@@ -1,5 +1,13 @@
 ## Changelog
 
+## 0.1.19-0
+
+Tue, 13 Sept 2019 20:16:00 GMT
+
+### @misk/simpleredux
+
+- Move `HTTPMethodDispatch` from `@misk/core` to `@misk/simpleredux` to fix and prevent future API drift
+
 ## 0.1.18
 
 Tue, 13 Sept 2019 17:52:00 GMT
