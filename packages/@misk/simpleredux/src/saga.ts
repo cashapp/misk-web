@@ -131,9 +131,3 @@ export function* watchSimpleReduxSagas(): SimpleReduxSaga {
     takeEvery(SIMPLEREDUX.HTTP_PUT, handlePut)
   ])
 }
-
-/** DEPRECATED: Use [watchSimpleReduxSagas] instead */
-export const watchSimpleFormSagas = watchSimpleReduxSagas
-
-/** DEPRECATED: Use [watchSimpleReduxSagas] instead */
-export const watchSimpleNetworkSagas = watchSimpleReduxSagas

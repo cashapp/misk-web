@@ -16,6 +16,7 @@ dependencies:
   '@rush-temp/misk-web-tab-dashboard': 'file:projects/misk-web-tab-dashboard.tgz'
   '@rush-temp/misk-web-tab-palette': 'file:projects/misk-web-tab-palette.tgz'
   '@rush-temp/misk-web-tab-palette-exemplar': 'file:projects/misk-web-tab-palette-exemplar.tgz'
+  '@rush-temp/misk-web-tab-palette-lts': 'file:projects/misk-web-tab-palette-lts.tgz'
   '@rush-temp/prettier': 'file:projects/prettier.tgz'
   '@rush-temp/simpleredux': 'file:projects/simpleredux.tgz'
   '@rush-temp/test': 'file:projects/test.tgz'
@@ -50,7 +51,7 @@ dependencies:
   enum-utils: 1.0.0
   file-loader: 4.2.0
   fs-extra: 8.1.0
-  history: 4.10.0
+  history: 4.10.1
   html-parser: 0.11.0
   html-webpack-harddisk-plugin: 1.0.1
   html-webpack-plugin: 3.2.0
@@ -1030,13 +1031,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-N/+Ua6kSrehJ5vpu4b2tAG4NjMcXQPlStnkUzjNlPokae97sUDtj096WlgN3ApefCvggPjJPP5iutyZ5dKBNPQ==
-  /@types/react-native/0.60.13:
+  /@types/react-native/0.60.14:
     dependencies:
       '@types/prop-types': 15.7.2
       '@types/react': 16.9.2
     dev: false
     resolution:
-      integrity: sha512-iEydUatGCGE6s5DSUcqnBGjruxor+XUb+52FTjKXvUDaisXoFZHei4yvAMAVrI7LMvVU0DQUlmHUAkoveO/fNQ==
+      integrity: sha512-8P00PR0TjAZij5VXLYL5pj1ZBYZxY9+Jh2R4iC1daCLaLFkLJ2ceP7WwNhl4PKZyifx0ENJGrt7yClRZGd9Pcw==
   /@types/react-redux/7.1.2:
     dependencies:
       '@types/hoist-non-react-statics': 3.3.1
@@ -1086,7 +1087,7 @@ packages:
   /@types/styled-components/4.1.19:
     dependencies:
       '@types/react': 16.9.2
-      '@types/react-native': 0.60.13
+      '@types/react-native': 0.60.14
       csstype: 2.6.6
     dev: false
     resolution:
@@ -2305,9 +2306,9 @@ packages:
       redux: ^3.6.0 || ^4.0.0
     resolution:
       integrity: sha512-qzsLPZCofSI80fwy+HgxtEgSGS4ndYUUZAWaw1dqaOGPLKX/FVwIOEb7q+hjHdnZ4v5pKZcNv5GG4urjujIoyA==
-  /connected-react-router/6.5.2/a85e0d26a3fe956ab9bb442b8b60d737:
+  /connected-react-router/6.5.2/3cc3a3624602559a10bd309ad34ede79:
     dependencies:
-      history: 4.10.0
+      history: 4.10.1
       immutable: 3.8.2
       prop-types: 15.7.2
       react: 16.9.0
@@ -3496,7 +3497,7 @@ packages:
       '@nodelib/fs.stat': 1.1.3
       glob-parent: 3.1.0
       is-glob: 4.0.1
-      merge2: 1.2.4
+      merge2: 1.3.0
       micromatch: 3.1.10
     dev: false
     engines:
@@ -4030,7 +4031,7 @@ packages:
     dev: false
     resolution:
       integrity: sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
-  /history/4.10.0:
+  /history/4.10.1:
     dependencies:
       '@babel/runtime': 7.6.0
       loose-envify: 1.4.0
@@ -4040,7 +4041,7 @@ packages:
       value-equal: 1.0.1
     dev: false
     resolution:
-      integrity: sha512-w5dPeWoxlMyl4zKMXWT3zRxSt1dSblRCtrOoxxinK1fhYQ4Fwm5TPef8hNUYTVVu5Hwxr2nS0uaCX3JJFUeabA==
+      integrity: sha512-36nwAD620w12kuzPAsyINPWJqlNbij+hpK1k9XRloDtym8mxzGYl2c17LnV6IAGB2Dmg4tEa7G7DlawS0+qjew==
   /hmac-drbg/1.0.1:
     dependencies:
       hash.js: 1.1.7
@@ -4446,12 +4447,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-UFMN+4T8yap9vnhS6Do3uTufKqY=
-  /is-absolute-url/3.0.1:
+  /is-absolute-url/3.0.2:
     dev: false
     engines:
       node: '>=8'
     resolution:
-      integrity: sha512-c2QjUwuMxLsld90sj3xYzpFYWJtuxkIn1f5ua9RTEYJt/vV2IsM+Py00/6qjV7qExgifUvt7qfyBGBBKm+2iBg==
+      integrity: sha512-+5g/wLlcm1AcxSP7014m6GvbPHswDx980vD/3bZaap8aGV9Yfs7Q6y6tfaupgZ5O74Byzc8dGrSCJ+bFXx0KdA==
   /is-accessor-descriptor/0.1.6:
     dependencies:
       kind-of: 3.2.2
@@ -5605,12 +5606,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==
-  /merge2/1.2.4:
+  /merge2/1.3.0:
     dev: false
     engines:
-      node: '>= 4.5.0'
+      node: '>= 6'
     resolution:
-      integrity: sha512-FYE8xI+6pjFOhokZu0We3S5NKCirLbCzSh2Usf3qEyr4X8U+0jNg9P8RZ4qz+V2UoECLVwSyzU3LxXBaLGtD3A==
+      integrity: sha512-2j4DAdlBOkiSZIsaXk4mTE3sRS02yBHAtfy127xRV3bQUFqXkjHCHLW6Scv7DwNRbIWNHH8zpnz9zMaKXIdvYw==
   /methods/1.1.2:
     dev: false
     engines:
@@ -7290,7 +7291,7 @@ packages:
   /react-router-dom/5.0.1:
     dependencies:
       '@babel/runtime': 7.6.0
-      history: 4.10.0
+      history: 4.10.1
       loose-envify: 1.4.0
       prop-types: 15.7.2
       react-router: 5.0.1
@@ -7304,7 +7305,7 @@ packages:
   /react-router-dom/5.0.1/react@16.9.0:
     dependencies:
       '@babel/runtime': 7.6.0
-      history: 4.10.0
+      history: 4.10.1
       loose-envify: 1.4.0
       prop-types: 15.7.2
       react: 16.9.0
@@ -7320,7 +7321,7 @@ packages:
   /react-router/5.0.1:
     dependencies:
       '@babel/runtime': 7.6.0
-      history: 4.10.0
+      history: 4.10.1
       hoist-non-react-statics: 3.3.0
       loose-envify: 1.4.0
       mini-create-react-context: /mini-create-react-context/0.3.2/prop-types@15.7.2
@@ -7337,7 +7338,7 @@ packages:
   /react-router/5.0.1/react@16.9.0:
     dependencies:
       '@babel/runtime': 7.6.0
-      history: 4.10.0
+      history: 4.10.1
       hoist-non-react-statics: 3.3.0
       loose-envify: 1.4.0
       mini-create-react-context: /mini-create-react-context/0.3.2/prop-types@15.7.2+react@16.9.0
@@ -9506,7 +9507,7 @@ packages:
       import-local: 2.0.0
       internal-ip: 4.3.0
       ip: 1.1.5
-      is-absolute-url: 3.0.1
+      is-absolute-url: 3.0.2
       killable: 1.0.1
       loglevel: 1.6.4
       opn: 5.5.0
@@ -9549,7 +9550,7 @@ packages:
       import-local: 2.0.0
       internal-ip: 4.3.0
       ip: 1.1.5
-      is-absolute-url: 3.0.1
+      is-absolute-url: 3.0.2
       killable: 1.0.1
       loglevel: 1.6.4
       opn: 5.5.0
@@ -9905,14 +9906,14 @@ packages:
       '@types/webpack': 4.39.1
       '@types/webpack-env': 1.14.0
       axios: 0.19.0
-      connected-react-router: /connected-react-router/6.5.2/a85e0d26a3fe956ab9bb442b8b60d737
+      connected-react-router: /connected-react-router/6.5.2/3cc3a3624602559a10bd309ad34ede79
       copy-webpack-plugin: /copy-webpack-plugin/5.0.4/webpack@4.40.0
       cross-env: 5.2.1
       css-loader: /css-loader/3.2.0/webpack@4.40.0
       dayjs: 1.8.16
       enum-utils: 1.0.0
       file-loader: /file-loader/4.2.0/webpack@4.40.0
-      history: 4.10.0
+      history: 4.10.1
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/6235eae3ece1de8391e876c37aad997d
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.40.0
       http-method-enum: 1.0.0
@@ -9952,7 +9953,7 @@ packages:
     dev: false
     name: '@rush-temp/common'
     resolution:
-      integrity: sha512-6PZmz6PHYiNlI2jlzsISAk5EnLvhLOCKzSmAMumTvzYQSljZ7UT97SVLY7osLLedh077vWFLuXQo/oiLs7nYRQ==
+      integrity: sha512-E/AkCFa7c9Ue38Jak0eAyHl0QZ/fuG4/QOXyDFH2ouTbKBye+z9WJ4lezgGlY2BIPln5DrjoB3htQjmYgyzR6w==
       tarball: 'file:projects/common.tgz'
     version: 0.0.0
   'file:projects/core.tgz':
@@ -9983,14 +9984,14 @@ packages:
       '@types/webpack': 4.39.1
       '@types/webpack-env': 1.14.0
       axios: 0.19.0
-      connected-react-router: /connected-react-router/6.5.2/a85e0d26a3fe956ab9bb442b8b60d737
+      connected-react-router: /connected-react-router/6.5.2/3cc3a3624602559a10bd309ad34ede79
       copy-webpack-plugin: /copy-webpack-plugin/5.0.4/webpack@4.40.0
       cross-env: 5.2.1
       css-loader: /css-loader/3.2.0/webpack@4.40.0
       dayjs: 1.8.16
       enum-utils: 1.0.0
       file-loader: /file-loader/4.2.0/webpack@4.40.0
-      history: 4.10.0
+      history: 4.10.1
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/6235eae3ece1de8391e876c37aad997d
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.40.0
       http-method-enum: 1.0.0
@@ -10032,7 +10033,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-T0/6/RKMHpB95cpHG7MfiLfMVrXCMkN4UWnzJbG/vj+0IGPH/s6yKHkOcgxOpI+z/FdLIao9v+lik96sOWBgJg==
+      integrity: sha512-0gVx1lMMw825dmVBnPR3M1sqo+9Nakl+cQphPXv34MmaLCZZmbYAKBIT/nY6t4SeCiX4vgHETicPGS42eqEzLg==
       tarball: 'file:projects/core.tgz'
     version: 0.0.0
   'file:projects/dev.tgz':
@@ -10119,14 +10120,14 @@ packages:
       '@types/webpack': 4.39.1
       '@types/webpack-env': 1.14.0
       axios: 0.19.0
-      connected-react-router: /connected-react-router/6.5.2/a85e0d26a3fe956ab9bb442b8b60d737
+      connected-react-router: /connected-react-router/6.5.2/3cc3a3624602559a10bd309ad34ede79
       copy-webpack-plugin: /copy-webpack-plugin/5.0.4/webpack@4.40.0
       cross-env: 5.2.1
       css-loader: /css-loader/3.2.0/webpack@4.40.0
       dayjs: 1.8.16
       enum-utils: 1.0.0
       file-loader: /file-loader/4.2.0/webpack@4.40.0
-      history: 4.10.0
+      history: 4.10.1
       html-parser: 0.11.0
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/6235eae3ece1de8391e876c37aad997d
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.40.0
@@ -10169,7 +10170,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-dashboard'
     resolution:
-      integrity: sha512-F426shrallhcvVFPhcdbsHMTiHVToOK6uyFsPBcR+a+3DwXf7owHAVpMjvQSMCDdHTKDrWovsyGuuGRpSHCsVQ==
+      integrity: sha512-HiMPFih+v+JjIs1+H/kBtVnVAFlvipTm42lMFYGDNgsjBLxuQHp3/VC+wGHSiAkNSdzcz3ZbH5Ft0REOm8411w==
       tarball: 'file:projects/misk-web-tab-dashboard.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette-exemplar.tgz':
@@ -10198,14 +10199,14 @@ packages:
       '@types/webpack': 4.39.1
       '@types/webpack-env': 1.14.0
       axios: 0.19.0
-      connected-react-router: /connected-react-router/6.5.2/a85e0d26a3fe956ab9bb442b8b60d737
+      connected-react-router: /connected-react-router/6.5.2/3cc3a3624602559a10bd309ad34ede79
       copy-webpack-plugin: /copy-webpack-plugin/5.0.4/webpack@4.40.0
       cross-env: 5.2.1
       css-loader: /css-loader/3.2.0/webpack@4.40.0
       dayjs: 1.8.16
       enum-utils: 1.0.0
       file-loader: /file-loader/4.2.0/webpack@4.40.0
-      history: 4.10.0
+      history: 4.10.1
       html-parser: 0.11.0
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/6235eae3ece1de8391e876c37aad997d
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.40.0
@@ -10250,8 +10251,88 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-Qwb2ugydRXqy5ua7Z8vkG/LlcjbV2cFxXm3paHrbbiypYzQPIgMpV4Ftc/N29dIM2f+EfNiQzQwsJvfz7EqYlw==
+      integrity: sha512-u2j1oLFgZiqYZf1UIWuwthsOLOpLMTK6wEpwaugXKzupaKQ9Vp+NaIGCk0OAvCSy2CL4YJ5eEGBACRbMqUUz5g==
       tarball: 'file:projects/misk-web-tab-palette-exemplar.tgz'
+    version: 0.0.0
+  'file:projects/misk-web-tab-palette-lts.tgz':
+    dependencies:
+      '@blueprintjs/core': /@blueprintjs/core/3.18.1/react-dom@16.9.0+react@16.9.0
+      '@blueprintjs/datetime': /@blueprintjs/datetime/3.13.0/react-dom@16.9.0+react@16.9.0
+      '@blueprintjs/icons': 3.10.0
+      '@blueprintjs/select': /@blueprintjs/select/3.10.0/react-dom@16.9.0+react@16.9.0
+      '@blueprintjs/table': /@blueprintjs/table/3.7.1/react-dom@16.9.0+react@16.9.0
+      '@blueprintjs/timezone': /@blueprintjs/timezone/3.5.0/react-dom@16.9.0+react@16.9.0
+      '@redux-saga/core': 1.0.3
+      '@testing-library/dom': 6.2.0
+      '@testing-library/react': /@testing-library/react/9.1.1/react-dom@16.9.0+react@16.9.0
+      '@types/history': 4.7.3
+      '@types/jest': 24.0.18
+      '@types/lodash': 4.14.138
+      '@types/node': 11.13.1
+      '@types/react': 16.9.2
+      '@types/react-dom': 16.9.0
+      '@types/react-helmet': 5.0.10
+      '@types/react-hot-loader': 4.1.0
+      '@types/react-redux': 7.1.2
+      '@types/react-router': 5.0.3
+      '@types/react-router-dom': 4.3.5
+      '@types/styled-components': 4.1.19
+      '@types/webpack': 4.39.1
+      '@types/webpack-env': 1.14.0
+      axios: 0.19.0
+      connected-react-router: /connected-react-router/6.5.2/3cc3a3624602559a10bd309ad34ede79
+      copy-webpack-plugin: /copy-webpack-plugin/5.0.4/webpack@4.40.0
+      cross-env: 5.2.1
+      css-loader: /css-loader/3.2.0/webpack@4.40.0
+      dayjs: 1.8.16
+      enum-utils: 1.0.0
+      file-loader: /file-loader/4.2.0/webpack@4.40.0
+      history: 4.10.1
+      html-parser: 0.11.0
+      html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/6235eae3ece1de8391e876c37aad997d
+      html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.40.0
+      http-method-enum: 1.0.0
+      immutable: 4.0.0-rc.12
+      jest: 24.9.0
+      jest-serializer-html: 7.0.0
+      lodash: 4.17.15
+      mini-css-extract-plugin: /mini-css-extract-plugin/0.8.0/webpack@4.40.0
+      optimize-css-assets-webpack-plugin: /optimize-css-assets-webpack-plugin/5.0.3/webpack@4.40.0
+      prettier: 1.18.2
+      prop-types: 15.7.2
+      re-reselect: /re-reselect/3.4.0/reselect@4.0.0
+      react: 16.9.0
+      react-dom: /react-dom/16.9.0/react@16.9.0
+      react-helmet: /react-helmet/5.2.1/react@16.9.0
+      react-hot-loader: /react-hot-loader/4.12.13/react-dom@16.9.0+react@16.9.0
+      react-redux: /react-redux/7.1.1/react@16.9.0+redux@4.0.4
+      react-router: /react-router/5.0.1/react@16.9.0
+      react-router-dom: /react-router-dom/5.0.1/react@16.9.0
+      react-transition-group: /react-transition-group/4.3.0/react-dom@16.9.0+react@16.9.0
+      redux: 4.0.4
+      redux-saga: 1.0.5
+      reselect: 4.0.0
+      sass-loader: /sass-loader/8.0.0/webpack@4.40.0
+      skeleton-css: 2.0.4
+      source-map-loader: 0.2.4
+      status-code-enum: 1.0.0
+      style-loader: /style-loader/1.0.0/webpack@4.40.0
+      styled-components: /styled-components/4.3.2/c2848318624a1d31e4e2fdb97c485f13
+      ts-jest: /ts-jest/24.1.0/jest@24.9.0
+      ts-loader: /ts-loader/6.1.0/typescript@3.5.3
+      tslib: 1.10.0
+      typescript: 3.5.3
+      typescript-plugin-styled-components: /typescript-plugin-styled-components/1.4.3/typescript@3.5.3
+      webpack: 4.40.0
+      webpack-bundle-analyzer: 3.5.0
+      webpack-cli: /webpack-cli/3.3.8/webpack@4.40.0
+      webpack-dev-server: /webpack-dev-server/3.8.0/webpack@4.40.0
+      webpack-merge: 4.2.2
+    dev: false
+    name: '@rush-temp/misk-web-tab-palette-lts'
+    resolution:
+      integrity: sha512-kbsyo3kfno1XZUgnqwEmXMnKJrGbplOal+v8e6IBNo3GsNbgVblQxLKIqz4dXxDx1MR9GjhjrvB4OCZqWNwNbg==
+      tarball: 'file:projects/misk-web-tab-palette-lts.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette.tgz':
     dependencies:
@@ -10279,14 +10360,14 @@ packages:
       '@types/webpack': 4.39.1
       '@types/webpack-env': 1.14.0
       axios: 0.19.0
-      connected-react-router: /connected-react-router/6.5.2/a85e0d26a3fe956ab9bb442b8b60d737
+      connected-react-router: /connected-react-router/6.5.2/3cc3a3624602559a10bd309ad34ede79
       copy-webpack-plugin: /copy-webpack-plugin/5.0.4/webpack@4.40.0
       cross-env: 5.2.1
       css-loader: /css-loader/3.2.0/webpack@4.40.0
       dayjs: 1.8.16
       enum-utils: 1.0.0
       file-loader: /file-loader/4.2.0/webpack@4.40.0
-      history: 4.10.0
+      history: 4.10.1
       html-parser: 0.11.0
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/6235eae3ece1de8391e876c37aad997d
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.40.0
@@ -10330,7 +10411,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette'
     resolution:
-      integrity: sha512-QeysNkpMmO1t5MLAlLS9dQb2oWOZNSZLAP3NL+L9Hu2A9D80tJDquK/vkFZEIgqkzSdNau35nmRvx+gkGUoZxg==
+      integrity: sha512-37UCYfCL4JDps4nsTmwBkQYfy8OXI9TdvEk6hbmlMlqaKpg2el5jlrTqP1ixYOhySTHeZuh7sZdOR8/YdhFhGw==
       tarball: 'file:projects/misk-web-tab-palette.tgz'
     version: 0.0.0
   'file:projects/prettier.tgz':
@@ -10368,14 +10449,14 @@ packages:
       '@types/webpack': 4.39.1
       '@types/webpack-env': 1.14.0
       axios: 0.19.0
-      connected-react-router: /connected-react-router/6.5.2/a85e0d26a3fe956ab9bb442b8b60d737
+      connected-react-router: /connected-react-router/6.5.2/3cc3a3624602559a10bd309ad34ede79
       copy-webpack-plugin: /copy-webpack-plugin/5.0.4/webpack@4.40.0
       cross-env: 5.2.1
       css-loader: /css-loader/3.2.0/webpack@4.40.0
       dayjs: 1.8.16
       enum-utils: 1.0.0
       file-loader: /file-loader/4.2.0/webpack@4.40.0
-      history: 4.10.0
+      history: 4.10.1
       html-webpack-harddisk-plugin: /html-webpack-harddisk-plugin/1.0.1/6235eae3ece1de8391e876c37aad997d
       html-webpack-plugin: /html-webpack-plugin/3.2.0/webpack@4.40.0
       http-method-enum: 1.0.0
@@ -10419,7 +10500,7 @@ packages:
     dev: false
     name: '@rush-temp/simpleredux'
     resolution:
-      integrity: sha512-HgxBJdayUSkTP9WZZ/7kCXhtPisGpk55JBnlfyOooJqRywatY7mKKdnjstAjrVr9XxCP0pmDBTGATgPlCWXPew==
+      integrity: sha512-P1KWP10AUEt5lj+vGBuu0CjNLQ7vuop3hNmg9G3Cv5u5/naM0F6XpNAT5CEgQj/lMF0qp8GuR00cBpfQkcXXhg==
       tarball: 'file:projects/simpleredux.tgz'
     version: 0.0.0
   'file:projects/test.tgz':
@@ -10479,6 +10560,7 @@ specifiers:
   '@rush-temp/misk-web-tab-dashboard': 'file:./projects/misk-web-tab-dashboard.tgz'
   '@rush-temp/misk-web-tab-palette': 'file:./projects/misk-web-tab-palette.tgz'
   '@rush-temp/misk-web-tab-palette-exemplar': 'file:./projects/misk-web-tab-palette-exemplar.tgz'
+  '@rush-temp/misk-web-tab-palette-lts': 'file:./projects/misk-web-tab-palette-lts.tgz'
   '@rush-temp/prettier': 'file:./projects/prettier.tgz'
   '@rush-temp/simpleredux': 'file:./projects/simpleredux.tgz'
   '@rush-temp/test': 'file:./projects/test.tgz'
@@ -10513,7 +10595,7 @@ specifiers:
   enum-utils: 1.0.0
   file-loader: 4.2.0
   fs-extra: 8.1.0
-  history: 4.10.0
+  history: 4.10.1
   html-parser: 0.11.0
   html-webpack-harddisk-plugin: 1.0.1
   html-webpack-plugin: 3.2.0

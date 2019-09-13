@@ -1,77 +1,101 @@
-import { dispatchSimpleRedux, dispatchSimpleNetwork, dispatchSimpleForm, privateDispatchSimpleRedux } from "src/dispatch"
-import { data, error, requestData, tag, url } from './testFixtures'
+import { dispatchSimpleRedux, privateDispatchSimpleRedux } from "src/dispatch"
+import { data, error, requestData, tag, url } from "./testFixtures"
+import { dispatchSimpleNetwork, dispatchSimpleForm } from "src"
 
-describe('dispatchSimpleNetwork', () => {
+describe("dispatchSimpleNetwork", () => {
   it("simpleNetworkFailure", () => {
     const error = { errorField1: "Null field encountered. Saga failed." }
-    expect(dispatchSimpleNetwork.simpleNetworkFailure(tag, url, error))
-      .toEqual(privateDispatchSimpleRedux.simpleFailure(tag, error))
+    expect(dispatchSimpleNetwork.simpleNetworkFailure(tag, url, error)).toEqual(
+      privateDispatchSimpleRedux.simpleFailure(tag, error)
+    )
   })
 
   it("simpleNetworkSuccess", () => {
-    expect(dispatchSimpleNetwork.simpleNetworkSuccess(tag, url, { config: null, ...data, headers: [] }))
-      .toEqual(dispatchSimpleRedux.simpleMerge(tag, { config: null, ...data, headers: [], url }))
+    expect(
+      dispatchSimpleNetwork.simpleNetworkSuccess(tag, url, {
+        config: null,
+        ...data,
+        headers: []
+      })
+    ).toEqual(
+      dispatchSimpleRedux.simpleMerge(tag, {
+        config: null,
+        ...data,
+        headers: [],
+        url
+      })
+    )
   })
 
   it("simpleNetworkDelete", () => {
-    expect(dispatchSimpleNetwork.simpleNetworkDelete(tag, url))
-      .toEqual(dispatchSimpleRedux.simpleHttpDelete(tag, url))
+    expect(dispatchSimpleNetwork.simpleNetworkDelete(tag, url)).toEqual(
+      dispatchSimpleRedux.simpleHttpDelete(tag, url)
+    )
   })
 
   it("simpleNetworkGet", () => {
-    expect(dispatchSimpleNetwork.simpleNetworkGet(tag, url))
-      .toEqual(dispatchSimpleRedux.simpleHttpGet(tag, url))
+    expect(dispatchSimpleNetwork.simpleNetworkGet(tag, url)).toEqual(
+      dispatchSimpleRedux.simpleHttpGet(tag, url)
+    )
   })
 
   it("simpleNetworkHead", () => {
-    expect(dispatchSimpleNetwork.simpleNetworkHead(tag, url))
-      .toEqual(dispatchSimpleRedux.simpleHttpHead(tag, url))
+    expect(dispatchSimpleNetwork.simpleNetworkHead(tag, url)).toEqual(
+      dispatchSimpleRedux.simpleHttpHead(tag, url)
+    )
   })
 
   it("simpleNetworkPatch", () => {
-    expect(dispatchSimpleNetwork.simpleNetworkPatch(tag, url, requestData))
-      .toEqual(dispatchSimpleRedux.simpleHttpPatch(tag, url, requestData))
+    expect(
+      dispatchSimpleNetwork.simpleNetworkPatch(tag, url, requestData)
+    ).toEqual(dispatchSimpleRedux.simpleHttpPatch(tag, url, requestData))
   })
 
   it("simpleNetworkPost", () => {
-    expect(dispatchSimpleNetwork.simpleNetworkPost(tag, url, requestData))
-      .toEqual(dispatchSimpleRedux.simpleHttpPost(tag, url, requestData))
+    expect(
+      dispatchSimpleNetwork.simpleNetworkPost(tag, url, requestData)
+    ).toEqual(dispatchSimpleRedux.simpleHttpPost(tag, url, requestData))
   })
 
   it("simpleNetworkPut", () => {
-    expect(dispatchSimpleNetwork.simpleNetworkPut(tag, url, requestData))
-      .toEqual(dispatchSimpleRedux.simpleHttpPut(tag, url, requestData))
+    expect(
+      dispatchSimpleNetwork.simpleNetworkPut(tag, url, requestData)
+    ).toEqual(dispatchSimpleRedux.simpleHttpPut(tag, url, requestData))
   })
 })
 
-
-describe('dispatchSimpleForm', () => {
+describe("dispatchSimpleForm", () => {
   it("simpleFormFailure", () => {
-    expect(dispatchSimpleForm.simpleFormFailure(tag, error))
-      .toEqual(privateDispatchSimpleRedux.simpleFailure(tag, error))
+    expect(dispatchSimpleForm.simpleFormFailure(tag, error)).toEqual(
+      privateDispatchSimpleRedux.simpleFailure(tag, error)
+    )
   })
 
   it("simpleFormSuccess", () => {
-    expect(dispatchSimpleForm.simpleFormSuccess(tag, data))
-      .toEqual(dispatchSimpleRedux.simpleMerge(tag, data))
+    expect(dispatchSimpleForm.simpleFormSuccess(tag, data)).toEqual(
+      dispatchSimpleRedux.simpleMerge(tag, data)
+    )
   })
 
   it("simpleFormInput", () => {
-    expect(dispatchSimpleForm.simpleFormInput(tag, data))
-      .toEqual(dispatchSimpleRedux.simpleMerge(tag, data))
+    expect(dispatchSimpleForm.simpleFormInput(tag, data)).toEqual(
+      dispatchSimpleRedux.simpleMerge(tag, data)
+    )
   })
 
   it("simpleFormNumber", () => {
-    expect(dispatchSimpleForm.simpleFormNumber(tag, 1234, "1234"))
-      .toEqual(dispatchSimpleRedux.simpleMergeNumber(tag, 1234, "1234"))
+    expect(dispatchSimpleForm.simpleFormNumber(tag, 1234, "1234")).toEqual(
+      dispatchSimpleRedux.simpleMergeNumber(tag, 1234, "1234")
+    )
   })
 
   it("simpleFormToggle: oldState = undefined", () => {
     const oldState = {
       simpleTag: "simpleRedux"
     }
-    expect(dispatchSimpleForm.simpleFormToggle(tag, oldState))
-      .toEqual(dispatchSimpleRedux.simpleMergeToggle(tag, oldState))
+    expect(dispatchSimpleForm.simpleFormToggle(tag, oldState)).toEqual(
+      dispatchSimpleRedux.simpleMergeToggle(tag, oldState)
+    )
   })
 
   it("simpleFormToggle: oldState = false", () => {
@@ -81,8 +105,9 @@ describe('dispatchSimpleForm', () => {
         data: false
       }
     }
-    expect(dispatchSimpleForm.simpleFormToggle(tag, oldState))
-      .toEqual(dispatchSimpleRedux.simpleMergeToggle(tag, oldState))
+    expect(dispatchSimpleForm.simpleFormToggle(tag, oldState)).toEqual(
+      dispatchSimpleRedux.simpleMergeToggle(tag, oldState)
+    )
   })
 
   it("simpleFormToggle: oldState = true", () => {
@@ -92,7 +117,8 @@ describe('dispatchSimpleForm', () => {
         data: true
       }
     }
-    expect(dispatchSimpleForm.simpleFormToggle(tag, oldState))
-      .toEqual(dispatchSimpleRedux.simpleMergeToggle(tag, oldState))
+    expect(dispatchSimpleForm.simpleFormToggle(tag, oldState)).toEqual(
+      dispatchSimpleRedux.simpleMergeToggle(tag, oldState)
+    )
   })
 })
