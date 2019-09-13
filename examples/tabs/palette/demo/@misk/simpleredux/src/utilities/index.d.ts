@@ -90,3 +90,5 @@ export declare const getFirstTag: <T = {
  * @returns JSON or string if JSON.parse fails
  */
 export declare const jsonOrString: (json: string) => any;
+/** Lookup of HTTP Dispatch method */
+export declare const HTTPMethodDispatch: any;

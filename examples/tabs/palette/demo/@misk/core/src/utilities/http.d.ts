@@ -4,4 +4,3 @@ export declare const HTTPMethodIntent: {
     [method in HTTPMethod]: Intent;
 };
 export declare const HTTPStatusCodeIntent: (code: number) => "none" | "primary" | "success" | "warning" | "danger";
-export declare const HTTPMethodDispatch: any;
