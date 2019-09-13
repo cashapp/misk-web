@@ -1,5 +1,13 @@
 ## Changelog
 
+## 0.1.18-7
+
+Tue, 12 Sept 2019 22:18:00 GMT
+
+### @misk/cli
+
+- Update Yargs library usage. There should no longer be deprecation warnings!
+
 ## 0.1.18-6
 
 Tue, 12 Sept 2019 22:18:00 GMT
