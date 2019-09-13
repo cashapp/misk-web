@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "config:base"
-  ],
+  "extends": ["config:base"],
   "automerge": true,
   "ignoreDeps": [
     "@misk/cli",
@@ -19,5 +17,6 @@
     "**/vendor/**",
     "**/__tests__/**",
     "**/tests/**"
-  ]
+  ],
+  "stabilityDays": 3
 }
