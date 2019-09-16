@@ -197,7 +197,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
   },
   simpleFormInput: (tag: string, data: any) => {
     deprecatedCall("simpleFormInput", "simpleMergeTag(tag, data)")
-    return dispatchSimpleRedux.simpleMerge(tag, data)
+    return dispatchSimpleRedux.simpleMergeData(tag, data)
   },
   simpleFormNumber: (
     tag: string,
