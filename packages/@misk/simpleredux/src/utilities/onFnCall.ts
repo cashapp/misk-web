@@ -36,7 +36,7 @@ export const onClickFnCall = (callFn: any, ...args: any) => (event: any) => {
  * ```
  */
 export const onChangeFnCall = (callFn: any, ...args: any) => (event: any) => {
-  callFn(...args, event.target.value)
+  callFn(...args, { data: event.target.value })
 }
 
 /**
@@ -50,7 +50,7 @@ export const onChangeFnCall = (callFn: any, ...args: any) => (event: any) => {
 export const onChangeToggleFnCall = (callFn: any, ...args: any) => (
   event: any
 ) => {
-  callFn(...args, event.target.value)
+  callFn(...args, { data: event.target.value })
 }
 
 /**
@@ -79,5 +79,5 @@ export const onChangeNumberFnCall = (callFn: any, ...args: any) => (
 export const onChangeTagFnCall = (callFn: any, ...args: any) => (
   values: string[]
 ) => {
-  callFn(...args, values)
+  callFn(...args, { data: values })
 }
