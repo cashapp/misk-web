@@ -38,6 +38,12 @@ export interface IDispatchSimpleRedux {
     /**
      * Dispatch state merge action, overwrites state for a specific tag
      * @param tag string to identify domain of state
+     * @param data new data that overwrites fields in state[tag].data
+     */
+    simpleMergeData: (tag: string, data: any) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
+    /**
+     * Dispatch state merge action, overwrites state for a specific tag
+     * @param tag string to identify domain of state
      * @param valueAsNumber new number value as a number
      * @param valueAsString new number value as a string
      */
