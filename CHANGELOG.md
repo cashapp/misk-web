@@ -1,5 +1,15 @@
 ## Changelog
 
+## 0.1.19-2
+
+Tue, 16 Sept 2019 18:34:00 GMT
+
+### @misk/simpleredux
+
+- Reverse changes from `0.1.19-1`
+- Add new dispatch function `simpleMergeData` that does the similar encapsulation instead to provide that functionality to call sites that aren't using `on*FnCall` utilities
+- Deprecated `simpleFormInput` now resolves to `simpleMergeData` instead of `simpleMerge`
+
 ## 0.1.19-1
 
 Tue, 16 Sept 2019 15:55:00 GMT
