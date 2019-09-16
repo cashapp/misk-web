@@ -1,5 +1,25 @@
 ## Changelog
 
+## 0.1.19-1
+
+Tue, 16 Sept 2019 15:55:00 GMT
+
+### @misk/simpleredux
+
+- Update `onChangeFnCall`, `onChangeToggleFnCall` and `onChangeTagFnCall` to call functions with data enclosed in an object with a `data` key. This will fix outstanding bugs from the new simpleMerge` functionality. No migration should be required.
+  - Old
+  ```ts
+  export const onChangeFnCall = (callFn: any, ...args: any) => (event: any) => {
+    callFn(...args, event.target.value);
+  };
+  ```
+  - New
+  ```ts
+  export const onChangeFnCall = (callFn: any, ...args: any) => (event: any) => {
+    callFn(...args, { data: event.target.value });
+  };
+  ```
+
 ## 0.1.19-0
 
 Tue, 13 Sept 2019 20:16:00 GMT

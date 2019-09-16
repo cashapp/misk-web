@@ -41,7 +41,7 @@ export const SimpleNetworkContainer = (props: IDispatchProps & IState) => {
         )}
       </Pre>
       <Pre>
-        url: {simpleSelectorGet(props.simpleRedux, `${FormTag}::url`, "data")}
+        url: {simpleSelectorGet(props.simpleRedux, [`${FormTag}::url`, "data"])}
       </Pre>
       <InputGroup
         placeholder={"Request URL: http://your.url.com/to/send/a/request/to/"}
