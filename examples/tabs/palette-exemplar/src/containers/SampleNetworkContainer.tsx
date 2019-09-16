@@ -33,24 +33,16 @@ export const SimpleNetworkContainer = (props: IDispatchProps & IState) => {
       <H1>Sample Network Component</H1>
       <Pre>simpleRedux: {JSON.stringify(filteredsimpleRedux, null, 2)}</Pre>
       <Pre>
-        simpleRedux:
-        {JSON.stringify(
-          simpleSelectorGet(props.simpleRedux, `${FormTag}`),
-          null,
-          2
-        )}
-      </Pre>
-      <Pre>
         url: {simpleSelectorGet(props.simpleRedux, [`${FormTag}::url`, "data"])}
       </Pre>
       <InputGroup
         placeholder={"Request URL: http://your.url.com/to/send/a/request/to/"}
-        onChange={onChangeFnCall(props.simpleMerge, `${FormTag}::url`)}
+        onChange={onChangeFnCall(props.simpleMergeData, `${FormTag}::url`)}
         type={"url"}
       />
       <TextArea
         fill={true}
-        onChange={onChangeFnCall(props.simpleMerge, `${FormTag}::data`)}
+        onChange={onChangeFnCall(props.simpleMergeData, `${FormTag}::data`)}
         placeholder={"Request Body (JSON or Text)"}
       />
       <ButtonGroup>

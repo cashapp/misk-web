@@ -79,7 +79,7 @@ describe("dispatchSimpleForm", () => {
 
   it("simpleFormInput", () => {
     expect(dispatchSimpleForm.simpleFormInput(tag, data)).toEqual(
-      dispatchSimpleRedux.simpleMerge(tag, data)
+      dispatchSimpleRedux.simpleMergeData(tag, data)
     )
   })
 

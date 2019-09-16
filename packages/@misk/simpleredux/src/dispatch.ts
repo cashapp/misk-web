@@ -61,6 +61,15 @@ export interface IDispatchSimpleRedux {
   simpleMergeRaw: (data: any) => IAction<SIMPLEREDUX.MERGE, any>
 
   // Redux as UI / Field Input Cache
+  /**
+   * Dispatch state merge action, overwrites state for a specific tag
+   * @param tag string to identify domain of state
+   * @param data new data that overwrites fields in state[tag].data
+   */
+  simpleMergeData: (
+    tag: string,
+    data: any
+  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
 
   /**
    * Dispatch state merge action, overwrites state for a specific tag
@@ -202,6 +211,16 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
       }
     }),
   // Redux as UI / Field Input Cache
+  simpleMergeData: (tag: string, data: any = dispatchDefault.data) =>
+    createAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>(SIMPLEREDUX.MERGE, {
+      [tag]: {
+        data,
+        error: null,
+        loading: false,
+        success: true,
+        tag
+      }
+    }),
   simpleMergeNumber: (
     tag: string,
     valueAsNumber: number,

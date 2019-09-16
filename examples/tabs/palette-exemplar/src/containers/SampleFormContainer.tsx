@@ -57,7 +57,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
         <InputGroup
           id="text-input"
           placeholder="Full Name"
-          onChange={onChangeFnCall(props.simpleMerge, `${FormTag}::Name`)}
+          onChange={onChangeFnCall(props.simpleMergeData, `${FormTag}::Name`)}
         />
         <NumericInput
           leftIcon={IconNames.DOLLAR}
@@ -75,7 +75,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           fill={true}
           intent={Intent.PRIMARY}
           onChange={onChangeFnCall(
-            props.simpleMerge,
+            props.simpleMergeData,
             `${FormTag}::Itemized Receipt`
           )}
           placeholder={"Itemized Receipt"}
@@ -146,7 +146,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
         <RadioGroup
           label="Meal"
           inline={true}
-          onChange={onChangeFnCall(props.simpleMerge, `${FormTag}::Meal`)}
+          onChange={onChangeFnCall(props.simpleMergeData, `${FormTag}::Meal`)}
           selectedValue={simpleSelectorGet(props.simpleRedux, [
             `${FormTag}::Meal`,
             "data"
@@ -157,7 +157,10 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           <Radio label="Dinner" value="dinner" />
         </RadioGroup>
         <TagInput
-          onChange={onChangeTagFnCall(props.simpleMerge, `${FormTag}::Tags`)}
+          onChange={onChangeTagFnCall(
+            props.simpleMergeData,
+            `${FormTag}::Tags`
+          )}
           placeholder={"Tags"}
           values={simpleSelectorGet(
             props.simpleRedux,
@@ -178,7 +181,10 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           placeholder={
             "Form POST URL: http://your.url.com/to/send/a/request/to/"
           }
-          onChange={onChangeFnCall(props.simpleMerge, `${FormTag}::POST_URL`)}
+          onChange={onChangeFnCall(
+            props.simpleMergeData,
+            `${FormTag}::POST_URL`
+          )}
           type={"url"}
         />
         <Button
