@@ -1,6 +1,6 @@
 import React from "react"
 import { cleanup, render } from "@testing-library/react"
-import { Navbar } from "../../../src/features/Navbar"
+import { Navbar } from "src/features/Navbar"
 import { defaultTheme, color } from "src"
 
 describe("Navbar Component", () => {

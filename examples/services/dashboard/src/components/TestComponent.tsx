@@ -1,5 +1,5 @@
 import * as React from "react"
 
 export const TestComponent = () => {
-  return <div />
+  return <h1>{"Test Component"}</h1>
 }
