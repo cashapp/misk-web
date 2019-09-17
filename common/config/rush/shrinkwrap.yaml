@@ -93,7 +93,7 @@ dependencies:
   tslib: 1.10.0
   tslint: 5.20.0
   tslint-blueprint: 0.1.0
-  tslint-clean-code: 0.2.9
+  tslint-clean-code: 0.2.10
   tslint-config-prettier: 1.18.0
   tslint-consistent-codestyle: 1.15.1
   tslint-eslint-rules: 5.4.0
@@ -432,21 +432,21 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-r5160ogAvGyHsal38Kux7YYtodEKOj89RGb28ht1jh3SJb08VwRwAKKJL0bGb04Zd/3r9FL3BFIc3bBidYffCA==
-  /@emotion/cache/10.0.17:
+  /@emotion/cache/10.0.19:
     dependencies:
       '@emotion/sheet': 0.9.3
       '@emotion/stylis': 0.8.4
       '@emotion/utils': 0.11.2
-      '@emotion/weak-memoize': 0.2.3
+      '@emotion/weak-memoize': 0.2.4
     dev: false
     resolution:
-      integrity: sha512-442/miwbuwIDfSzfMqZNxuzxSEbskcz/bZ86QBYzEjFrr/oq9w+y5kJY1BHbGhDtr91GO232PZ5NN9XYMwr/Qg==
+      integrity: sha512-BoiLlk4vEsGBg2dAqGSJu0vJl/PgVtCYLBFJaEO8RmQzPugXewQCXZJNXTDFaRlfCs0W+quesayav4fvaif5WQ==
   /@emotion/core/10.0.16:
     dependencies:
       '@babel/runtime': 7.6.0
-      '@emotion/cache': 10.0.17
+      '@emotion/cache': 10.0.19
       '@emotion/css': 10.0.14
-      '@emotion/serialize': 0.11.10
+      '@emotion/serialize': 0.11.11
       '@emotion/sheet': 0.9.3
       '@emotion/utils': 0.11.2
     dev: false
@@ -457,9 +457,9 @@ packages:
   /@emotion/core/10.0.16/react@16.9.0:
     dependencies:
       '@babel/runtime': 7.6.0
-      '@emotion/cache': 10.0.17
+      '@emotion/cache': 10.0.19
       '@emotion/css': 10.0.14
-      '@emotion/serialize': 0.11.10
+      '@emotion/serialize': 0.11.11
       '@emotion/sheet': 0.9.3
       '@emotion/utils': 0.11.2
       react: 16.9.0
@@ -471,71 +471,71 @@ packages:
       integrity: sha512-whbiiA7FfPreBY4BqWky2qRfAZvq+4dKQ1WNJuiYQwPCNmb0pEYDgNheSbZoNKtGTtfPaM28hBbZAKWD5EZXmQ==
   /@emotion/css/10.0.14:
     dependencies:
-      '@emotion/serialize': 0.11.10
+      '@emotion/serialize': 0.11.11
       '@emotion/utils': 0.11.2
-      babel-plugin-emotion: 10.0.17
+      babel-plugin-emotion: 10.0.19
     dev: false
     resolution:
       integrity: sha512-MozgPkBEWvorcdpqHZE5x1D/PLEHUitALQCQYt2wayf4UNhpgQs2tN0UwHYS4FMy5ROBH+0ALyCFVYJ/ywmwlg==
-  /@emotion/hash/0.7.2:
+  /@emotion/hash/0.7.3:
     dev: false
     resolution:
-      integrity: sha512-RMtr1i6E8MXaBWwhXL3yeOU8JXRnz8GNxHvaUfVvwxokvayUY0zoBeWbKw1S9XkufmGEEdQd228pSZXFkAln8Q==
-  /@emotion/is-prop-valid/0.8.2:
+      integrity: sha512-14ZVlsB9akwvydAdaEnVnvqu6J2P6ySv39hYyl/aoB6w/V+bXX0tay8cF6paqbgZsN2n5Xh15uF4pE+GvE+itw==
+  /@emotion/is-prop-valid/0.8.3:
     dependencies:
-      '@emotion/memoize': 0.7.2
+      '@emotion/memoize': 0.7.3
     dev: false
     resolution:
-      integrity: sha512-ZQIMAA2kLUWiUeMZNJDTeCwYRx1l8SQL0kHktze4COT22occKpDML1GDUXP5/sxhOMrZO8vZw773ni4H5Snrsg==
-  /@emotion/memoize/0.7.2:
+      integrity: sha512-We7VBiltAJ70KQA0dWkdPMXnYoizlxOXpvtjmu5/MBnExd+u0PGgV27WCYanmLAbCwAU30Le/xA0CQs/F/Otig==
+  /@emotion/memoize/0.7.3:
     dev: false
     resolution:
-      integrity: sha512-hnHhwQzvPCW1QjBWFyBtsETdllOM92BfrKWbUTmh9aeOlcVOiXvlPsK4104xH8NsaKfg86PTFsWkueQeUfMA/w==
-  /@emotion/serialize/0.11.10:
+      integrity: sha512-2Md9mH6mvo+ygq1trTeVp2uzAKwE2P7In0cRpD/M9Q70aH8L+rxMLbb3JCN2JoSWsV2O+DdFjfbbXoMoLBczow==
+  /@emotion/serialize/0.11.11:
     dependencies:
-      '@emotion/hash': 0.7.2
-      '@emotion/memoize': 0.7.2
+      '@emotion/hash': 0.7.3
+      '@emotion/memoize': 0.7.3
       '@emotion/unitless': 0.7.4
       '@emotion/utils': 0.11.2
       csstype: 2.6.6
     dev: false
     resolution:
-      integrity: sha512-04AB+wU00vv9jLgkWn13c/GJg2yXp3w7ZR3Q1O6mBSE6mbUmYeNX3OpBhfp//6r47lFyY0hBJJue+bA30iokHQ==
+      integrity: sha512-YG8wdCqoWtuoMxhHZCTA+egL0RSGdHEc+YCsmiSBPBEDNuVeMWtjEWtGrhUterSChxzwnWBXvzSxIFQI/3sHLw==
   /@emotion/sheet/0.9.3:
     dev: false
     resolution:
       integrity: sha512-c3Q6V7Df7jfwSq5AzQWbXHa5soeE4F5cbqi40xn0CzXxWW9/6Mxq48WJEtqfWzbZtW9odZdnRAkwCQwN12ob4A==
-  /@emotion/styled-base/10.0.17:
+  /@emotion/styled-base/10.0.19:
     dependencies:
       '@babel/runtime': 7.6.0
-      '@emotion/is-prop-valid': 0.8.2
-      '@emotion/serialize': 0.11.10
+      '@emotion/is-prop-valid': 0.8.3
+      '@emotion/serialize': 0.11.11
       '@emotion/utils': 0.11.2
     dev: false
     peerDependencies:
       '@emotion/core': ^10.0.17
       react: '>=16.3.0'
     resolution:
-      integrity: sha512-vqQvxluZZKPByAB4zYZys0Qo/kVDP/03hAeg1K+TYpnZRwTi7WteOodc+/5669RPVNcfb93fphQpM5BYJnI1/g==
-  /@emotion/styled-base/10.0.17/4d7cdfe9d879aa1ba46c1a95642853ce:
+      integrity: sha512-Sz6GBHTbOZoeZQKvkE9gQPzaJ6/qtoQ/OPvyG2Z/6NILlYk60Es1cEcTgTkm26H8y7A0GSgp4UmXl+srvsnFPg==
+  /@emotion/styled-base/10.0.19/4d7cdfe9d879aa1ba46c1a95642853ce:
     dependencies:
       '@babel/runtime': 7.6.0
       '@emotion/core': /@emotion/core/10.0.16/react@16.9.0
-      '@emotion/is-prop-valid': 0.8.2
-      '@emotion/serialize': 0.11.10
+      '@emotion/is-prop-valid': 0.8.3
+      '@emotion/serialize': 0.11.11
       '@emotion/utils': 0.11.2
       react: 16.9.0
     dev: false
-    id: registry.npmjs.org/@emotion/styled-base/10.0.17
+    id: registry.npmjs.org/@emotion/styled-base/10.0.19
     peerDependencies:
       '@emotion/core': ^10.0.17
       react: '>=16.3.0'
     resolution:
-      integrity: sha512-vqQvxluZZKPByAB4zYZys0Qo/kVDP/03hAeg1K+TYpnZRwTi7WteOodc+/5669RPVNcfb93fphQpM5BYJnI1/g==
+      integrity: sha512-Sz6GBHTbOZoeZQKvkE9gQPzaJ6/qtoQ/OPvyG2Z/6NILlYk60Es1cEcTgTkm26H8y7A0GSgp4UmXl+srvsnFPg==
   /@emotion/styled/10.0.15:
     dependencies:
-      '@emotion/styled-base': 10.0.17
-      babel-plugin-emotion: 10.0.17
+      '@emotion/styled-base': 10.0.19
+      babel-plugin-emotion: 10.0.19
     dev: false
     peerDependencies:
       '@emotion/core': ^10.0.15
@@ -545,8 +545,8 @@ packages:
   /@emotion/styled/10.0.15/4d7cdfe9d879aa1ba46c1a95642853ce:
     dependencies:
       '@emotion/core': /@emotion/core/10.0.16/react@16.9.0
-      '@emotion/styled-base': /@emotion/styled-base/10.0.17/4d7cdfe9d879aa1ba46c1a95642853ce
-      babel-plugin-emotion: 10.0.17
+      '@emotion/styled-base': /@emotion/styled-base/10.0.19/4d7cdfe9d879aa1ba46c1a95642853ce
+      babel-plugin-emotion: 10.0.19
       react: 16.9.0
     dev: false
     id: registry.npmjs.org/@emotion/styled/10.0.15
@@ -567,10 +567,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-UHX2XklLl3sIaP6oiMmlVzT0J+2ATTVpf0dHQVyPJHTkOITvXfaSqnRk6mdDhV9pR8T/tHc3cex78IKXssmzrA==
-  /@emotion/weak-memoize/0.2.3:
+  /@emotion/weak-memoize/0.2.4:
     dev: false
     resolution:
-      integrity: sha512-zVgvPwGK7c1aVdUVc9Qv7SqepOGRDrqCw7KZPSZziWGxSlbII3gmvGLPzLX4d0n0BMbamBacUrN22zOMyFFEkQ==
+      integrity: sha512-6PYY5DVdAY1ifaQW6XYTnOMihmBVT27elqSjEoodchsGjzYlEsTQMcEhSud99kVawatyTZRTiVkJ/c6lwbQ7nA==
   /@fimbul/bifrost/0.17.0:
     dependencies:
       '@fimbul/ymir': /@fimbul/ymir/0.17.0/tsutils@3.17.1
@@ -801,41 +801,41 @@ packages:
   /@redux-saga/core/1.0.3:
     dependencies:
       '@babel/runtime': 7.6.0
-      '@redux-saga/deferred': 1.0.1
-      '@redux-saga/delay-p': 1.0.1
-      '@redux-saga/is': 1.0.2
-      '@redux-saga/symbols': 1.0.1
-      '@redux-saga/types': 1.0.2
+      '@redux-saga/deferred': 1.1.0
+      '@redux-saga/delay-p': 1.1.0
+      '@redux-saga/is': 1.1.0
+      '@redux-saga/symbols': 1.1.0
+      '@redux-saga/types': 1.1.0
       redux: 4.0.4
       typescript-tuple: 2.2.1
     dev: false
     resolution:
       integrity: sha512-zf8h5N0oTzaNeSMxOWH9GJMB9IRSM8JubDsrZVsvVltXjzFFSR8DNt7tbPoRJUK0hFfQB1it+bL+dEMWpD7wXA==
-  /@redux-saga/deferred/1.0.1:
+  /@redux-saga/deferred/1.1.0:
     dev: false
     resolution:
-      integrity: sha512-+gW5xQ93QXOOmRLAmX8x2Hx1HpbTG6CM6+HcdTSbJovh4uMWaGyeDECnqXSt8QqA/ja3s2nqYXLqXFKepIQ1hw==
-  /@redux-saga/delay-p/1.0.1:
+      integrity: sha512-wOCJCby3hx14bvrEeFLJ1JJTjJdXDJyC+B3JQ6eiqgzNghylbf969lIYmS2Arf2QuALfUtRBNPXBIMDKG9km4g==
+  /@redux-saga/delay-p/1.1.0:
     dependencies:
-      '@redux-saga/symbols': 1.0.1
+      '@redux-saga/symbols': 1.1.0
     dev: false
     resolution:
-      integrity: sha512-0SnNDyDLUyB4NThtptAwiprNOnbCNhoed/Rp5JwS7SB+a/AdWynVgg/E6BmjsggLFNr07KW0bzn05tsPRBuU7Q==
-  /@redux-saga/is/1.0.2:
+      integrity: sha512-BcRwXs20kKjgiYEwZARkpVoRIe/hHftW3iwPhdeW4/jPyR9gLv/vG8VsJMF5NDEch+/w/mJtdgSubq+wtOS47g==
+  /@redux-saga/is/1.1.0:
     dependencies:
-      '@redux-saga/symbols': 1.0.1
-      '@redux-saga/types': 1.0.2
+      '@redux-saga/symbols': 1.1.0
+      '@redux-saga/types': 1.1.0
     dev: false
     resolution:
-      integrity: sha512-WnaUOwYvPK2waWjzebT4uhL8zY76XNkzzpJ2EQJe8bN1tByvAjvT7MuJZTSshOhdHL5PsRO0MsH224XIXBJidQ==
-  /@redux-saga/symbols/1.0.1:
+      integrity: sha512-0uFXWGSvDCfNBdROHwEVixNhFbI3S+UGBQfcPXQiYL+CjIjyR3DTg2Z+NFH9xzP+H4Oh/yGtTHDhC0GxYp7HQQ==
+  /@redux-saga/symbols/1.1.0:
     dev: false
     resolution:
-      integrity: sha512-akKkzcVnb1RzJaZV2LQFbi51abvdICMuAKwwLoCjjxLbLAGIw9EJxk5ucNnWSSCEsoEQMeol5tkAcK+Xzuv1Bg==
-  /@redux-saga/types/1.0.2:
+      integrity: sha512-Fzw1wV3j4hbac3MYmgNE18Z53URmQZeilTHZLF7Lm4SQ1jG4fcU47v2kElsEbQXUSaFqj+uJqdRzmDGNb6pRwQ==
+  /@redux-saga/types/1.1.0:
     dev: false
     resolution:
-      integrity: sha512-8/qcMh15507AnXJ3lBeuhsdFwnWQqnp68EpUuHlYPixJ5vjVmls7/Jq48cnUlrZI8Jd9U1jkhfCl0gaT5KMgVw==
+      integrity: sha512-afmTuJrylUU/0OtqzaRkbyYFFNgCF73Bvel/sw90pvGrWIZ+vyoIJqA6eMSoA6+nb443kTmulmBtC9NerXboNg==
   /@sheerun/mutationobserver-shim/0.3.2:
     dev: false
     resolution:
@@ -1024,13 +1024,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-N/+Ua6kSrehJ5vpu4b2tAG4NjMcXQPlStnkUzjNlPokae97sUDtj096WlgN3ApefCvggPjJPP5iutyZ5dKBNPQ==
-  /@types/react-native/0.60.14:
+  /@types/react-native/0.60.15:
     dependencies:
       '@types/prop-types': 15.7.2
       '@types/react': 16.9.2
     dev: false
     resolution:
-      integrity: sha512-8P00PR0TjAZij5VXLYL5pj1ZBYZxY9+Jh2R4iC1daCLaLFkLJ2ceP7WwNhl4PKZyifx0ENJGrt7yClRZGd9Pcw==
+      integrity: sha512-HcPSAlpFRiFqJ647YfUgzpr0aeMrH2SXkGPsLjkiG53oDj1upRvArVt/yBWRY+aykOs7C44EtZ5puzesO/U7HA==
   /@types/react-redux/7.1.2:
     dependencies:
       '@types/hoist-non-react-statics': 3.3.1
@@ -1080,7 +1080,7 @@ packages:
   /@types/styled-components/4.1.19:
     dependencies:
       '@types/react': 16.9.2
-      '@types/react-native': 0.60.14
+      '@types/react-native': 0.60.15
       csstype: 2.6.6
     dev: false
     resolution:
@@ -1565,12 +1565,12 @@ packages:
       '@babel/core': ^7.0.0
     resolution:
       integrity: sha512-ntuddfyiN+EhMw58PTNL1ph4C9rECiQXjI4nMMBKBaNjXvqLdkXpPRcMSr4iyBrJg/+wz9brFUD6RhOAT6r4Iw==
-  /babel-plugin-emotion/10.0.17:
+  /babel-plugin-emotion/10.0.19:
     dependencies:
       '@babel/helper-module-imports': 7.0.0
-      '@emotion/hash': 0.7.2
-      '@emotion/memoize': 0.7.2
-      '@emotion/serialize': 0.11.10
+      '@emotion/hash': 0.7.3
+      '@emotion/memoize': 0.7.3
+      '@emotion/serialize': 0.11.11
       babel-plugin-macros: 2.6.1
       babel-plugin-syntax-jsx: 6.18.0
       convert-source-map: 1.6.0
@@ -1579,7 +1579,7 @@ packages:
       source-map: 0.5.7
     dev: false
     resolution:
-      integrity: sha512-KNuBadotqYWpQexHhHOu7M9EV1j2c+Oh/JJqBfEQDusD6mnORsCZKHkl+xYwK82CPQ/23wRrsBIEYnKjtbMQJw==
+      integrity: sha512-1pJb5uKN/gx6bi3gGr588Krj49sxARI9KmxhtMUa+NRJb6lR3OfC51mh3NlWRsOqdjWlT4cSjnZpnFq5K3T5ZA==
   /babel-plugin-istanbul/5.2.0:
     dependencies:
       '@babel/helper-plugin-utils': 7.0.0
@@ -8433,7 +8433,7 @@ packages:
     dependencies:
       '@babel/helper-module-imports': 7.0.0
       '@babel/traverse': 7.6.0
-      '@emotion/is-prop-valid': 0.8.2
+      '@emotion/is-prop-valid': 0.8.3
       '@emotion/unitless': 0.7.4
       babel-plugin-styled-components: 1.10.6
       css-to-react-native: 2.3.2
@@ -8455,7 +8455,7 @@ packages:
     dependencies:
       '@babel/helper-module-imports': 7.0.0
       '@babel/traverse': 7.6.0
-      '@emotion/is-prop-valid': 0.8.2
+      '@emotion/is-prop-valid': 0.8.3
       '@emotion/unitless': 0.7.4
       babel-plugin-styled-components: /babel-plugin-styled-components/1.10.6/styled-components@4.3.2
       css-to-react-native: 2.3.2
@@ -8813,7 +8813,7 @@ packages:
     dev: false
     resolution:
       integrity: sha1-tbbhyLGNulpFT6eQWsdRFecoSv0=
-  /tslint-clean-code/0.2.9:
+  /tslint-clean-code/0.2.10:
     dependencies:
       memoize-decorator: 1.0.2
       tsutils: 2.7.1
@@ -8821,18 +8821,18 @@ packages:
     peerDependencies:
       tslint: '>=5.1.0'
     resolution:
-      integrity: sha512-h9BqZIUsvqtns46IIto5fbouaERFd9Iu0NupTZ9s80frdm5eGhOWDp2VjfOx4LqgnvchMFX1xrj+dfWs4bVYog==
-  /tslint-clean-code/0.2.9/tslint@5.20.0+typescript@3.5.3:
+      integrity: sha512-MjfU3TVDB+oidhI/uAN/p0ncaqFnPq4L6nYtPvNp/MaFxM52jYtgx1qxf+uTIaQ7KZWZB/P9CpbL7/8WWSzQJg==
+  /tslint-clean-code/0.2.10/tslint@5.20.0+typescript@3.5.3:
     dependencies:
       memoize-decorator: 1.0.2
       tslint: /tslint/5.20.0/typescript@3.5.3
       tsutils: /tsutils/2.7.1/typescript@3.5.3
     dev: false
-    id: registry.npmjs.org/tslint-clean-code/0.2.9
+    id: registry.npmjs.org/tslint-clean-code/0.2.10
     peerDependencies:
       tslint: '>=5.1.0'
     resolution:
-      integrity: sha512-h9BqZIUsvqtns46IIto5fbouaERFd9Iu0NupTZ9s80frdm5eGhOWDp2VjfOx4LqgnvchMFX1xrj+dfWs4bVYog==
+      integrity: sha512-MjfU3TVDB+oidhI/uAN/p0ncaqFnPq4L6nYtPvNp/MaFxM52jYtgx1qxf+uTIaQ7KZWZB/P9CpbL7/8WWSzQJg==
   /tslint-config-prettier/1.18.0:
     dev: false
     engines:
@@ -9871,7 +9871,7 @@ packages:
     dev: false
     name: '@rush-temp/cli'
     resolution:
-      integrity: sha512-XJe/DJnDfKEVz1GjRizYMgqhbt9ObAbavT9RqRiBxkXzCo4LWBdeNfF92PYJzrkGpdZ9xBHtvjw/7HJyVP35Tw==
+      integrity: sha512-GVwo+wjLwTDohlij+APj0mxnVpc8QfG2H6QLXQHPThqGsNy9iCygJFGLCycC+Y5gPDO7W3OgbIUcDAR9RiNnLA==
       tarball: 'file:projects/cli.tgz'
     version: 0.0.0
   'file:projects/common.tgz':
@@ -9946,7 +9946,7 @@ packages:
     dev: false
     name: '@rush-temp/common'
     resolution:
-      integrity: sha512-UBUtiqnQTJeOdjVpGIiMJ28+unKQn1da/zxtvuvyiLPEq1hayOQMiokjmlNO21orXSlU/knicZrsjbiphHB7vw==
+      integrity: sha512-KxxbT5q6inscZFalg49E8UwPraSRW8IMyTuGJUDYYaeEYi3DujnkcllAVmWs7xKyJ/b4YMOSr5HAEaKzKpoJsw==
       tarball: 'file:projects/common.tgz'
     version: 0.0.0
   'file:projects/core.tgz':
@@ -10026,7 +10026,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-W+7KVpu6Ro3H48W+StgyUV/CFhz3tuMcwHejKKqvPAN2rZaKciRjjMrb29tYF7ueJc9BU0WNahWdbrr3Tgvw5A==
+      integrity: sha512-DcfqE3bhAln9nSKxoNxMfxA+oEDNnhUZt5E7yutjkZhwbLNULIWnX3FieC465rypA+k8UaYf91uwY7okBMVEEw==
       tarball: 'file:projects/core.tgz'
     version: 0.0.0
   'file:projects/dev.tgz':
@@ -10069,7 +10069,7 @@ packages:
     dev: false
     name: '@rush-temp/dev'
     resolution:
-      integrity: sha512-4zVOY9P5K9GMXRgtO+2cuxrV3xqCMH0Eak08AXQWIvuaFRhJeAnrHDMKpr+D1rSX0raKTvSASkgQsCOfmH1QPw==
+      integrity: sha512-X26hFaouxmxVyvVwiaTd6Vb0yMKyHzwGkqAiZjEybqWbYqnjJNmiM+oUtjaGzRSJjrWXP7NSv57G81L5BJTjNQ==
       tarball: 'file:projects/dev.tgz'
     version: 0.0.0
   'file:projects/misk-web-examples-data.tgz':
@@ -10085,7 +10085,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-examples-data'
     resolution:
-      integrity: sha512-ZmHAizXQipniU9oXFiV0NejfMwek9UgOiZbWWJM3+UByHObi3EZ1Wa66kE8kEJ0lFpPIZAXFxbBxDi8qtftXfg==
+      integrity: sha512-4C+02mmeZ+Sn/xupfi6DXMFSl6X3X4t0YxzlmbUEx/U+qUkyngFkFmehK9eRFUi3tx7NpyX68JUeUumqEpkbwQ==
       tarball: 'file:projects/misk-web-examples-data.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-dashboard.tgz':
@@ -10163,7 +10163,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-dashboard'
     resolution:
-      integrity: sha512-BjUvE6bvf7WXc2bBgSNuGy3uoj/HJQztRkQ8Bvb9wfGNA47FUbxMpnlvNzAheRRkV0EUbAxzAAqHjlMBODggIQ==
+      integrity: sha512-6PTO70bW1c5hPScZPQeR+dZFO+YODIscQjh7r8LhjjLGlaB5dzd8v0JQp5aOOh/XRVOP+8Rlpzey3Dz38iom1Q==
       tarball: 'file:projects/misk-web-tab-dashboard.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette-exemplar.tgz':
@@ -10244,7 +10244,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-wJp4/z2WMzqiJqO7hmnlW+S7EHghIqVSqDf/F4D4u/VS1pmVfpl+MWJfDFilEDlaasr6p/yubnXDuhkhSE0LRQ==
+      integrity: sha512-kUs5QDWIeCth/13j5ju8lC5K+0yAUPQZPlMIsLLpyCW16fOVkZYl3Cg681J9J3li4Ad5+BSDLXo0V+vCyon3uA==
       tarball: 'file:projects/misk-web-tab-palette-exemplar.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette-lts.tgz':
@@ -10324,7 +10324,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-lts'
     resolution:
-      integrity: sha512-ilwYM5dtcKib0h0Wjb9eYYU/hnhIJNVpnj7Iy3is9EGjEf8LWs0PqUOyY2LHy5UncsyGCwW0DtGJ4GSJo6OV0g==
+      integrity: sha512-gioPuPkeYXb0VR3NOTDYl/E72sqtWfW14L837orwcmMvc2pvbMFu7A/E9cQfjoD8suarGmhBrl6gy6i/8Hn/Xw==
       tarball: 'file:projects/misk-web-tab-palette-lts.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette.tgz':
@@ -10404,7 +10404,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette'
     resolution:
-      integrity: sha512-FqMuU3Y10CHnRlZkQtmhOMjTt08EBLWYtOTI0ZyksaiKYl612D/qYgs3nqXQRvWybWTuWJxdWqe+oBLDLffSNA==
+      integrity: sha512-80BPc6LEepHT2KBCBdtVgAjIZWC1eYcY991hO2rSqCIQVOErzQrZDN741q3DmcRAZ/L5uprTl4cVAUi67c6sZA==
       tarball: 'file:projects/misk-web-tab-palette.tgz'
     version: 0.0.0
   'file:projects/prettier.tgz':
@@ -10493,7 +10493,7 @@ packages:
     dev: false
     name: '@rush-temp/simpleredux'
     resolution:
-      integrity: sha512-MVZkfzwoMGuTx7+qD4ke/ShtqrcMNHfuCGUsfyMomw8Jz6HxRS7+hb5tQG8v3dP3eJ8SFsMTll+M6svNvQAx0g==
+      integrity: sha512-eL5ErdOeWzrzArho914vRlldw282O8MV+WUFuLSdvCWnkrP41hSfoXjcjNpgE0ZBhGOdQuvVhqNF6i1IObualw==
       tarball: 'file:projects/simpleredux.tgz'
     version: 0.0.0
   'file:projects/test.tgz':
@@ -10511,14 +10511,14 @@ packages:
     dev: false
     name: '@rush-temp/test'
     resolution:
-      integrity: sha512-5GY6OGKXQyWRgfqqLLBEfhBa4DY9tFPXFVC/QEZ9FTrEKj+nQDe/Cp+qKzXZ5dGlv7cDtmSbBSK58UD4u8cs+w==
+      integrity: sha512-8IlPN13boBnkfEhcABox1rR+HQSNcaO4lEZdBCh7Wu304JQ/o+2R4esLh9zDYupFkh9U26Ir5AEBWzEMsrMKFA==
       tarball: 'file:projects/test.tgz'
     version: 0.0.0
   'file:projects/tslint.tgz':
     dependencies:
       tslint: /tslint/5.20.0/typescript@3.5.3
       tslint-blueprint: 0.1.0
-      tslint-clean-code: /tslint-clean-code/0.2.9/tslint@5.20.0+typescript@3.5.3
+      tslint-clean-code: /tslint-clean-code/0.2.10/tslint@5.20.0+typescript@3.5.3
       tslint-config-prettier: 1.18.0
       tslint-consistent-codestyle: /tslint-consistent-codestyle/1.15.1/tslint@5.20.0+typescript@3.5.3
       tslint-eslint-rules: /tslint-eslint-rules/5.4.0/tslint@5.20.0+typescript@3.5.3
@@ -10529,7 +10529,7 @@ packages:
     dev: false
     name: '@rush-temp/tslint'
     resolution:
-      integrity: sha512-UHVn5B9vPu+diuqprphEgruRFKczxri0diwpOi+TKwTdwGRCpFpBtZYgbucwdD2q2xUalybFFE/G+GDB/sVgmw==
+      integrity: sha512-Q+4ims/I5baVHe4HLYowFhMiSY8eFhJg3FPTTGppEGLmKSrxWpFEqTygUp9SbWYD+HnOd/KQJGUCgCj9JSVPkg==
       tarball: 'file:projects/tslint.tgz'
     version: 0.0.0
 registry: 'https://registry.npmjs.org/'
@@ -10630,7 +10630,7 @@ specifiers:
   tslib: 1.10.0
   tslint: 5.20.0
   tslint-blueprint: 0.1.0
-  tslint-clean-code: 0.2.9
+  tslint-clean-code: 0.2.10
   tslint-config-prettier: 1.18.0
   tslint-consistent-codestyle: 1.15.1
   tslint-eslint-rules: 5.4.0

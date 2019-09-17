@@ -1,8 +1,16 @@
 ## Changelog
 
+## 0.1.19-3
+
+17 Sept 2019 18:25:00 GMT
+
+### @misk/core
+
+- Upstream from Misk, the `MiskNavbarContainer` that can be extended to support front end dashboards for any Misk service
+
 ## 0.1.19-2
 
-Tue, 16 Sept 2019 18:34:00 GMT
+16 Sept 2019 18:34:00 GMT
 
 ### @misk/simpleredux
 
@@ -12,7 +20,7 @@ Tue, 16 Sept 2019 18:34:00 GMT
 
 ## 0.1.19-1
 
-Tue, 16 Sept 2019 15:55:00 GMT
+16 Sept 2019 15:55:00 GMT
 
 ### @misk/simpleredux
 
@@ -32,7 +40,7 @@ Tue, 16 Sept 2019 15:55:00 GMT
 
 ## 0.1.19-0
 
-Tue, 13 Sept 2019 20:16:00 GMT
+13 Sept 2019 20:16:00 GMT
 
 ### @misk/simpleredux
 
@@ -40,13 +48,13 @@ Tue, 13 Sept 2019 20:16:00 GMT
 
 ## 0.1.18
 
-Tue, 13 Sept 2019 17:52:00 GMT
+13 Sept 2019 17:52:00 GMT
 
 Stable release including all the changes of `0.1.18-*` alpha releases.
 
 ## 0.1.18-7
 
-Tue, 13 Sept 2019 15:18:00 GMT
+13 Sept 2019 15:18:00 GMT
 
 ### @misk/cli
 
@@ -54,7 +62,7 @@ Tue, 13 Sept 2019 15:18:00 GMT
 
 ## 0.1.18-6
 
-Tue, 12 Sept 2019 15:18:00 GMT
+12 Sept 2019 15:18:00 GMT
 
 ### @misk/simpleredux
 
@@ -64,7 +72,7 @@ Tue, 12 Sept 2019 15:18:00 GMT
 
 ## 0.1.18-5
 
-Tue, 12 Sept 2019 14:57:00 GMT
+12 Sept 2019 14:57:00 GMT
 
 ### @misk/core
 
@@ -74,7 +82,7 @@ Tue, 12 Sept 2019 14:57:00 GMT
 
 ## 0.1.18-3
 
-Tue, 11 Sept 2019 20:17:00 GMT
+11 Sept 2019 20:17:00 GMT
 
 ### @misk/core
 
@@ -85,7 +93,7 @@ Tue, 11 Sept 2019 20:17:00 GMT
 
 ## 0.1.18-2
 
-Tue, 10 Sept 2019 20:59:00 GMT
+10 Sept 2019 20:59:00 GMT
 
 ### @misk/core
 
@@ -101,7 +109,7 @@ Tue, 10 Sept 2019 20:59:00 GMT
 
 ## 0.1.18-1
 
-Thu, 22 Aug 2019 22:18:00 GMT
+22 Aug 2019 22:18:00 GMT
 
 ### @misk/simpleredux
 
@@ -110,7 +118,7 @@ Thu, 22 Aug 2019 22:18:00 GMT
 
 ## 0.1.18-0
 
-Thu, 22 Aug 2019 19:54:00 GMT
+22 Aug 2019 19:54:00 GMT
 
 ### @misk/simpleredux
 
@@ -177,13 +185,13 @@ Thu, 22 Aug 2019 19:54:00 GMT
 
 ## 0.1.17
 
-Tue, 20 Aug 2019 14:00:00 GMT
+20 Aug 2019 14:00:00 GMT
 
 - Stable release
 
 ## 0.1.17-4
 
-Thu, 15 Aug 2019 14:00:00 GMT
+15 Aug 2019 14:00:00 GMT
 
 ### @misk/dev
 
@@ -195,7 +203,7 @@ Thu, 15 Aug 2019 14:00:00 GMT
 
 ## 0.1.17-2
 
-Wed, 14 Aug 2019 16:15:27 GMT
+14 Aug 2019 16:15:27 GMT
 
 ### @misk/cli
 
@@ -203,7 +211,7 @@ Wed, 14 Aug 2019 16:15:27 GMT
 
 ## 0.1.17-1
 
-Wed, 14 Aug 2019 16:05:27 GMT
+14 Aug 2019 16:05:27 GMT
 
 ### @misk/cli
 
@@ -211,7 +219,7 @@ Wed, 14 Aug 2019 16:05:27 GMT
 
 ## 0.1.17-0
 
-Wed, 14 Aug 2019 14:16:27 GMT
+14 Aug 2019 14:16:27 GMT
 
 - Bump `react` and `react-dom` from `16.8.6` to `16.9.0`
 
@@ -223,7 +231,7 @@ Wed, 14 Aug 2019 14:16:27 GMT
 
 ## 0.1.16
 
-Wed, 14 Aug 2019 13:39:27 GMT
+14 Aug 2019 13:39:27 GMT
 
 ### @misk/dev
 
@@ -237,7 +245,7 @@ Wed, 14 Aug 2019 13:39:27 GMT
 
 ## 0.1.13
 
-Wed, 15 Jul 2019 12:29:37 GMT
+15 Jul 2019 12:29:37 GMT
 
 ### @misk/simpleredux
 
