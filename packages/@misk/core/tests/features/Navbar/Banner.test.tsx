@@ -2,7 +2,7 @@ const { getByText } = require("@testing-library/dom")
 import { cleanup, render } from "@testing-library/react"
 import { matchers } from "jest-emotion"
 import React from "react"
-import { Banner } from "../../../src/features/Navbar"
+import { Banner } from "src/features/Navbar"
 import { Environment, defaultTheme, color } from "src"
 
 expect.extend(matchers)

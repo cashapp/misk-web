@@ -1,7 +1,7 @@
 import React from "react"
 import { BrowserRouter } from "react-router-dom"
 import { cleanup, render } from "@testing-library/react"
-import { Menu } from "../../../src/features/Navbar"
+import { Menu } from "src/features/Navbar"
 import { adminDashboardTabs, axiosError } from "../../testUtilities"
 
 describe("Navbar Menu", () => {

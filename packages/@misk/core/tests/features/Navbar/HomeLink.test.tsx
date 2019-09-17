@@ -1,7 +1,7 @@
 import React from "react"
 import { BrowserRouter } from "react-router-dom"
 import { cleanup, render } from "@testing-library/react"
-import { HomeLink } from "../../../src/features/Navbar"
+import { HomeLink } from "src/features/Navbar"
 
 describe("Navbar HomeLink", () => {
   afterEach(cleanup)

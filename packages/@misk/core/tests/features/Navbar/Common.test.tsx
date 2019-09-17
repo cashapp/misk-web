@@ -7,7 +7,7 @@ import {
   cssMiskLink,
   cssNavbarHeadingEnvironment,
   cssNavbarHeading
-} from "../../../src/features/Navbar"
+} from "src/features/Navbar"
 import { defaultTheme, Environment } from "src"
 
 describe("Navbar Common", () => {
