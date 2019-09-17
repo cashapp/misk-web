@@ -1,5 +1,14 @@
 ## Changelog
 
+## 0.1.19
+
+17 Sept 2019 19:19:00 GMT
+
+Stable release including all the changes of `0.1.19-*` alpha releases.
+
+- Bug fixes for `0.1.18` release of `@misk/simpleredux`
+- New `MiskNavbarContainer` in `@misk/core`
+
 ## 0.1.19-3
 
 17 Sept 2019 18:25:00 GMT
