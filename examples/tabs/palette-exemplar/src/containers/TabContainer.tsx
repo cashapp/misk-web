@@ -3,13 +3,17 @@ import { simpleSelectorGet } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
 import { HowToComponent } from "src/components"
-import { SampleFormContainer, SampleNetworkContainer } from "src/containers"
 import {
   IDispatchProps,
   IState,
   mapDispatchToProps,
   mapStateToProps
 } from "src/ducks"
+import {
+  ExampleNetworkContainer,
+  ExampleFormContainer,
+  ExampleMergeSagaContainer
+} from "../containers"
 
 class TabContainer extends React.Component<IState & IDispatchProps, IState> {
   private tableTag = "Cars"
@@ -32,8 +36,9 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
           )}
           maxRows={5}
         />
-        <SampleNetworkContainer />
-        <SampleFormContainer />
+        <ExampleMergeSagaContainer />
+        <ExampleNetworkContainer />
+        <ExampleFormContainer />
       </div>
     )
   }

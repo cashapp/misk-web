@@ -1,4 +1,5 @@
 import { Map } from "immutable"
+import { chain } from "lodash"
 import get from "lodash/get"
 import pick from "lodash/pick"
 import createCachedSelector from "re-reselect"
@@ -160,7 +161,6 @@ export const simpleSelect = <
   const defaultValue = baseType(returnType)
   return createSimpleSelectorGet<ISubState, ISubPayload>(
     selector,
-    path,
     defaultValue
   )(subState, path)
 }
@@ -185,7 +185,6 @@ export const simpleSelectorGet = <
   }
   return createSimpleSelectorGet<ISubState, ISubPayload>(
     selectSubState<IState, ISubState>(subState.simpleTag),
-    path,
     defaultValue
   )(subState, path)
 }
@@ -195,7 +194,6 @@ export const createSimpleSelectorGet: <
   ISubPayload extends { [key: string]: any }
 >(
   subStateSelector: (state: any) => ISubState,
-  path: string | string[],
   defaultValue?: any
 ) => ParametricSelector<
   ISubState,
@@ -206,7 +204,6 @@ export const createSimpleSelectorGet: <
   ISubPayload extends { [key: string]: any }
 >(
   subStateSelector: (state: any) => ISubState,
-  path: string | string[],
   defaultValue?: any
 ) =>
   createCachedSelector(
@@ -241,8 +238,7 @@ export const simpleSelectorPick = <
     )
   }
   return createSimpleSelectorPick<ISubState, ISubPayload>(
-    selectSubState<IState, ISubState>(subState.simpleTag),
-    paths
+    selectSubState<IState, ISubState>(subState.simpleTag)
   )(subState, paths)
 }
 
@@ -250,8 +246,63 @@ export const createSimpleSelectorPick: <
   ISubState extends { [key: string]: any },
   ISubPayload extends { [key: string]: any }
 >(
+  subStateSelector: (state: any) => ISubState
+) => ParametricSelector<
+  ISubState,
+  string | String[],
+  any | ISubPayload | ISubPayload[]
+> = <
+  ISubState extends { [key: string]: any },
+  ISubPayload extends { [key: string]: any }
+>(
+  subStateSelector: (state: any) => ISubState
+) =>
+  createCachedSelector(
+    // selector
+    subStateSelector,
+    // selection function to retrieve certain results from state
+    (subState: ISubState, paths: string | string[]) => pick(subState, paths),
+    // cache hit function
+    (_, matched: ISubPayload) => matched
+  )(
+    // fn to generate the cache key, in this case the joined path
+    (_, paths) =>
+      (typeof paths === "string" && paths) || (paths as string[]).join(".")
+  )
+
+/**
+ * Cached Redux Selector using Lodash Pick API that flattens resulting object and renames keys
+ * https://lodash.com/docs#pick
+ */
+export const simpleSelectorPickTransform = <
+  IState extends { [key: string]: ISubState | any },
+  ISubState extends { [key: string]: any },
+  ISubPayload extends { [key: string]: any }
+>(
+  subState: any,
+  paths: string | string[],
+  keyLookup: { [key: string]: string },
+  keyPathLookup: { [key: string]: string } | string
+) => {
+  if (!subState.simpleTag) {
+    throw new Error(
+      "@misk/simpleRedux:simpleSelect called with state that doesn't have a \"simpleTag\" key. Make sure you're passing in a state that is part of @misk/simpleredux."
+    )
+  }
+  return createSimpleSelectorPickTransform<ISubState, ISubPayload>(
+    selectSubState<IState, ISubState>(subState.simpleTag),
+    keyLookup,
+    keyPathLookup
+  )(subState, paths)
+}
+
+export const createSimpleSelectorPickTransform: <
+  ISubState extends { [key: string]: any },
+  ISubPayload extends { [key: string]: any }
+>(
   subStateSelector: (state: any) => ISubState,
-  paths: string | string[]
+  keyLookup: { [key: string]: string },
+  keyPathLookup: { [key: string]: string } | string
 ) => ParametricSelector<
   ISubState,
   string | String[],
@@ -261,13 +312,25 @@ export const createSimpleSelectorPick: <
   ISubPayload extends { [key: string]: any }
 >(
   subStateSelector: (state: any) => ISubState,
-  paths: string | string[]
+  keyLookup: { [key: string]: string },
+  keyPathLookup: { [key: string]: string }
 ) =>
   createCachedSelector(
     // selector
     subStateSelector,
     // selection function to retrieve certain results from state
-    (subState: ISubState, paths: string | string[]) => pick(subState, paths),
+    (subState: ISubState, paths: string | string[]) =>
+      chain(subState)
+        .pick(paths)
+        .transform((acc: any, value: any, key: string) => {
+          acc[keyLookup[key]] = get(
+            value,
+            typeof keyPathLookup === "string"
+              ? keyPathLookup
+              : keyPathLookup[key]
+          )
+        }, {})
+        .value(),
     // cache hit function
     (_, matched: ISubPayload) => matched
   )(

@@ -8,16 +8,26 @@ import {
   booleanToggle
 } from "./utilities"
 
+/**
+ * Configurable options for each Dispatch function
+ * @param mergeSaga: function to run after the saga to yield more actions
+ * @param requestConfig: [AxiosRequestConfig] to configure the Axios request
+ */
+export interface IDispatchOptions {
+  mergeSaga?: (payload: ISimpleReduxPayloadTag) => void
+  requestConfig?: AxiosRequestConfig
+}
+
 interface IDispatchDefault {
   data: any
   error: any
-  requestConfig: AxiosRequestConfig
+  options: IDispatchOptions
 }
 
 export const dispatchDefault: IDispatchDefault = {
   data: {},
   error: {},
-  requestConfig: {}
+  options: {}
 }
 
 export interface ISimpleCachePayloadTag extends IDefaultState {
@@ -28,7 +38,7 @@ export interface ISimpleCachePayloadTag extends IDefaultState {
 }
 
 export interface ISimpleHttpPayloadTag extends IDefaultState, AxiosResponse {
-  requestConfig: AxiosRequestConfig
+  options: IDispatchOptions
   tag: string
   url: string
 }
@@ -46,39 +56,48 @@ export interface IDispatchSimpleRedux {
   /**
    * Dispatch state merge action, overwrites state for a specific tag
    * @param tag string to identify domain of state
+   * @param options configure the dispatch with optional mergeSaga or requestConfig
    * @param data new data that overwrites fields in state[tag]
    */
   simpleMerge: (
     tag: string,
+    options: IDispatchOptions,
     data: any
   ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
 
   /**
    * Dispatch state merge action, overwrites entire state
-   * @param tag string to identify domain of state
+   * @param options configure the dispatch with optional mergeSaga or requestConfig
    * @param data new data that overwrites any fields in state
    */
-  simpleMergeRaw: (data: any) => IAction<SIMPLEREDUX.MERGE, any>
+  simpleMergeRaw: (
+    options: IDispatchOptions,
+    data: any
+  ) => IAction<SIMPLEREDUX.MERGE, any>
 
   // Redux as UI / Field Input Cache
   /**
    * Dispatch state merge action, overwrites state for a specific tag
    * @param tag string to identify domain of state
+   * @param options configure the dispatch with optional mergeSaga or requestConfig
    * @param data new data that overwrites fields in state[tag].data
    */
   simpleMergeData: (
     tag: string,
+    options: IDispatchOptions,
     data: any
   ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
 
   /**
    * Dispatch state merge action, overwrites state for a specific tag
    * @param tag string to identify domain of state
+   * @param options configure the dispatch with optional mergeSaga or requestConfig
    * @param valueAsNumber new number value as a number
    * @param valueAsString new number value as a string
    */
   simpleMergeNumber: (
     tag: string,
+    options: IDispatchOptions,
     valueAsNumber: number,
     valueAsString: string
   ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
@@ -86,10 +105,12 @@ export interface IDispatchSimpleRedux {
   /**
    * Dispatch state merge action, overwrites state for a specific tag
    * @param tag string to identify domain of state
+   * @param options configure the dispatch with optional mergeSaga or requestConfig
    * @param oldState old SimpleRedux state, in order to lookup current value of tag
    */
   simpleMergeToggle: (
     tag: string,
+    options: IDispatchOptions,
     oldState: any
   ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
 
@@ -98,79 +119,79 @@ export interface IDispatchSimpleRedux {
   /**
    * Dispatch HTTP Delete action, returns response/failure to a specific tag
    * @param tag string to identify domain of state
+   * @param options configure the dispatch with optional mergeSaga or requestConfig
    * @param url HTTP endpoint to make the request
-   * @param requestConfig optional AxiosRequestConfig to configure the request
    */
   simpleHttpDelete: (
     tag: string,
-    url: string,
-    requestConfig?: AxiosRequestConfig
+    options: IDispatchOptions,
+    url: string
   ) => IAction<SIMPLEREDUX.HTTP_DELETE, ISimpleReduxPayload>
 
   /**
    * Dispatch HTTP Get action, returns response/failure to a specific tag
    * @param tag string to identify domain of state
+   * @param options configure the dispatch with optional mergeSaga or requestConfig
    * @param url HTTP endpoint to make the request
-   * @param requestConfig optional AxiosRequestConfig to configure the request
    */
   simpleHttpGet: (
     tag: string,
-    url: string,
-    requestConfig?: AxiosRequestConfig
+    options: IDispatchOptions,
+    url: string
   ) => IAction<SIMPLEREDUX.HTTP_GET, ISimpleReduxPayload>
 
   /**
    * Dispatch HTTP Head action, returns response/failure to a specific tag
    * @param tag string to identify domain of state
+   * @param options configure the dispatch with optional mergeSaga or requestConfig
    * @param url HTTP endpoint to make the request
-   * @param requestConfig optional AxiosRequestConfig to configure the request
    */
   simpleHttpHead: (
     tag: string,
-    url: string,
-    requestConfig?: AxiosRequestConfig
+    options: IDispatchOptions,
+    url: string
   ) => IAction<SIMPLEREDUX.HTTP_HEAD, ISimpleReduxPayload>
 
   /**
    * Dispatch HTTP Patch action, returns response/failure to a specific tag
    * @param tag string to identify domain of state
+   * @param options configure the dispatch with optional mergeSaga or requestConfig
    * @param url HTTP endpoint to make the request
    * @param data data to include in request body
-   * @param requestConfig optional AxiosRequestConfig to configure the request
    */
   simpleHttpPatch: (
     tag: string,
+    options: IDispatchOptions,
     url: string,
-    data: any,
-    requestConfig?: AxiosRequestConfig
+    data: any
   ) => IAction<SIMPLEREDUX.HTTP_PATCH, ISimpleReduxPayload>
 
   /**
    * Dispatch HTTP Post action, returns response/failure to a specific tag
    * @param tag string to identify domain of state
+   * @param options configure the dispatch with optional mergeSaga or requestConfig
    * @param url HTTP endpoint to make the request
    * @param data data to include in request body
-   * @param requestConfig optional AxiosRequestConfig to configure the request
    */
   simpleHttpPost: (
     tag: string,
+    options: IDispatchOptions,
     url: string,
-    data: any,
-    requestConfig?: AxiosRequestConfig
+    data: any
   ) => IAction<SIMPLEREDUX.HTTP_POST, ISimpleReduxPayload>
 
   /**
    * Dispatch HTTP Put action, returns response/failure to a specific tag
    * @param tag string to identify domain of state
+   * @param options configure the dispatch with optional mergeSaga or requestConfig
    * @param url HTTP endpoint to make the request
    * @param data data to include in request body
-   * @param requestConfig optional AxiosRequestConfig to configure the request
    */
   simpleHttpPut: (
     tag: string,
+    options: IDispatchOptions,
     url: string,
-    data: any,
-    requestConfig?: AxiosRequestConfig
+    data: any
   ) => IAction<SIMPLEREDUX.HTTP_PUT, ISimpleReduxPayload>
 }
 
@@ -182,6 +203,7 @@ interface IPrivateDispatchSimpleRedux extends IDispatchSimpleRedux {
    */
   simpleFailure: (
     tag: string,
+    options: IDispatchOptions,
     error: any
   ) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>
 }
@@ -193,36 +215,51 @@ interface IPrivateDispatchSimpleRedux extends IDispatchSimpleRedux {
  */
 export const dispatchSimpleRedux: IDispatchSimpleRedux = {
   // Lifecycle
-  simpleMergeRaw: (data: any) =>
+  simpleMergeRaw: (
+    options: IDispatchOptions = dispatchDefault.options,
+    data: any
+  ) =>
     createAction<SIMPLEREDUX.MERGE, any>(SIMPLEREDUX.MERGE, {
       ...data,
       error: null,
       loading: false,
+      options,
       success: true
     }),
-  simpleMerge: (tag: string, data: any = dispatchDefault.data) =>
+  simpleMerge: (
+    tag: string,
+    options: IDispatchOptions = dispatchDefault.options,
+    data: any = dispatchDefault.data
+  ) =>
     createAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>(SIMPLEREDUX.MERGE, {
       [tag]: {
         error: null,
         loading: false,
+        options,
         success: true,
         tag,
         ...data
       }
     }),
   // Redux as UI / Field Input Cache
-  simpleMergeData: (tag: string, data: any = dispatchDefault.data) =>
+  simpleMergeData: (
+    tag: string,
+    options: IDispatchOptions = dispatchDefault.options,
+    data: any = dispatchDefault.data
+  ) =>
     createAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>(SIMPLEREDUX.MERGE, {
       [tag]: {
         data,
         error: null,
         loading: false,
+        options,
         success: true,
         tag
       }
     }),
   simpleMergeNumber: (
     tag: string,
+    options: IDispatchOptions = dispatchDefault.options,
     valueAsNumber: number,
     valueAsString: string
   ) =>
@@ -231,16 +268,22 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
         data: valueAsString,
         error: null,
         loading: false,
+        options,
         success: true,
         tag
       }
     }),
-  simpleMergeToggle: (tag: string, oldState: any) =>
+  simpleMergeToggle: (
+    tag: string,
+    options: IDispatchOptions = dispatchDefault.options,
+    oldState: any
+  ) =>
     createAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>(SIMPLEREDUX.MERGE, {
       [tag]: {
         data: booleanToggle(simpleSelectorGet(oldState, [tag, "data"], false)),
         error: null,
         loading: false,
+        options,
         success: true,
         tag
       }
@@ -248,8 +291,8 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
   // Async HTTP Network Calls
   simpleHttpDelete: (
     tag: string,
-    url: string,
-    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+    options: IDispatchOptions = dispatchDefault.options,
+    url: string
   ) =>
     createAction<SIMPLEREDUX.HTTP_DELETE, ISimpleReduxPayload>(
       SIMPLEREDUX.HTTP_DELETE,
@@ -260,7 +303,7 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
           error: null,
           headers: null,
           loading: true,
-          requestConfig,
+          options,
           status: 0,
           statusText: "",
           success: false,
@@ -271,8 +314,8 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
     ),
   simpleHttpGet: (
     tag: string,
-    url: string,
-    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+    options: IDispatchOptions = dispatchDefault.options,
+    url: string
   ) =>
     createAction<SIMPLEREDUX.HTTP_GET, ISimpleReduxPayload>(
       SIMPLEREDUX.HTTP_GET,
@@ -283,7 +326,7 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
           error: null,
           headers: null,
           loading: true,
-          requestConfig,
+          options,
           status: 0,
           statusText: "",
           success: false,
@@ -294,8 +337,8 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
     ),
   simpleHttpHead: (
     tag: string,
-    url: string,
-    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+    options: IDispatchOptions = dispatchDefault.options,
+    url: string
   ) =>
     createAction<SIMPLEREDUX.HTTP_HEAD, ISimpleReduxPayload>(
       SIMPLEREDUX.HTTP_HEAD,
@@ -306,7 +349,7 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
           error: null,
           headers: null,
           loading: true,
-          requestConfig,
+          options,
           status: 0,
           statusText: "",
           success: false,
@@ -317,9 +360,9 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
     ),
   simpleHttpPatch: (
     tag: string,
+    options: IDispatchOptions = dispatchDefault.options,
     url: string,
-    data: any = dispatchDefault.data,
-    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+    data: any = dispatchDefault.data
   ) =>
     createAction<SIMPLEREDUX.HTTP_PATCH, ISimpleReduxPayload>(
       SIMPLEREDUX.HTTP_PATCH,
@@ -330,7 +373,7 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
           error: null,
           headers: null,
           loading: true,
-          requestConfig,
+          options,
           status: 0,
           statusText: "",
           success: false,
@@ -341,9 +384,9 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
     ),
   simpleHttpPost: (
     tag: string,
+    options: IDispatchOptions = dispatchDefault.options,
     url: string,
-    data: any = dispatchDefault.data,
-    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+    data: any = dispatchDefault.data
   ) =>
     createAction<SIMPLEREDUX.HTTP_POST, ISimpleReduxPayload>(
       SIMPLEREDUX.HTTP_POST,
@@ -354,7 +397,7 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
           error: null,
           headers: null,
           loading: true,
-          requestConfig,
+          options,
           status: 0,
           statusText: "",
           success: false,
@@ -365,9 +408,9 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
     ),
   simpleHttpPut: (
     tag: string,
+    options: IDispatchOptions = dispatchDefault.options,
     url: string,
-    data: any = dispatchDefault.data,
-    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+    data: any = dispatchDefault.data
   ) =>
     createAction<SIMPLEREDUX.HTTP_PUT, ISimpleReduxPayload>(
       SIMPLEREDUX.HTTP_PUT,
@@ -378,7 +421,7 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
           error: null,
           headers: null,
           loading: true,
-          requestConfig,
+          options,
           status: 0,
           statusText: "",
           success: false,
@@ -391,7 +434,11 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
 
 export const privateDispatchSimpleRedux: IPrivateDispatchSimpleRedux = {
   ...dispatchSimpleRedux,
-  simpleFailure: (tag: string, error: any = dispatchDefault.error) =>
+  simpleFailure: (
+    tag: string,
+    options: IDispatchOptions = dispatchDefault.options,
+    error: any = dispatchDefault.error
+  ) =>
     createAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>(
       SIMPLEREDUX.FAILURE,
       {
@@ -400,6 +447,7 @@ export const privateDispatchSimpleRedux: IPrivateDispatchSimpleRedux = {
           config: null,
           headers: null,
           loading: false,
+          options,
           status: 0,
           statusText: "",
           success: false,

@@ -1,9 +1,5 @@
 import { SIMPLEREDUX } from "src/action"
-import {
-  dispatchSimpleRedux,
-  dispatchDefault,
-  privateDispatchSimpleRedux
-} from "src/dispatch"
+import { dispatchSimpleRedux, privateDispatchSimpleRedux } from "src/dispatch"
 import { data, error, requestData, tag, url } from "./testFixtures"
 
 describe("dispatchSimpleRedux", () => {
@@ -16,6 +12,7 @@ describe("dispatchSimpleRedux", () => {
           config: null as any,
           headers: null as any,
           loading: false,
+          options: {},
           status: 0,
           statusText: "",
           success: false,
@@ -24,7 +21,9 @@ describe("dispatchSimpleRedux", () => {
         }
       }
     }
-    expect(privateDispatchSimpleRedux.simpleFailure(tag, error)).toEqual(action)
+    expect(privateDispatchSimpleRedux.simpleFailure(tag, {}, error)).toEqual(
+      action
+    )
   })
 
   it("simpleMergeRaw", () => {
@@ -33,11 +32,12 @@ describe("dispatchSimpleRedux", () => {
       payload: {
         error: null as any,
         loading: false,
+        options: {},
         success: true,
         ...data
       }
     }
-    expect(dispatchSimpleRedux.simpleMergeRaw(data)).toEqual(action)
+    expect(dispatchSimpleRedux.simpleMergeRaw({}, data)).toEqual(action)
   })
 
   it("simpleMerge", () => {
@@ -47,13 +47,14 @@ describe("dispatchSimpleRedux", () => {
         [tag]: {
           error: null as any,
           loading: false,
+          options: {},
           success: true,
           tag,
           ...data
         }
       }
     }
-    expect(dispatchSimpleRedux.simpleMerge(tag, data)).toEqual(action)
+    expect(dispatchSimpleRedux.simpleMerge(tag, {}, data)).toEqual(action)
   })
 
   it("simpleMergeData", () => {
@@ -64,12 +65,13 @@ describe("dispatchSimpleRedux", () => {
           data,
           error: null as any,
           loading: false,
+          options: {},
           success: true,
           tag
         }
       }
     }
-    expect(dispatchSimpleRedux.simpleMergeData(tag, data)).toEqual(action)
+    expect(dispatchSimpleRedux.simpleMergeData(tag, {}, data)).toEqual(action)
   })
 
   it("simpleMergeTag", () => {
@@ -79,13 +81,14 @@ describe("dispatchSimpleRedux", () => {
         [tag]: {
           error: null as any,
           loading: false,
+          options: {},
           success: true,
           tag,
           ...data
         }
       }
     }
-    expect(dispatchSimpleRedux.simpleMerge(tag, data)).toEqual(action)
+    expect(dispatchSimpleRedux.simpleMerge(tag, {}, data)).toEqual(action)
   })
 
   it("simpleMergeNumber", () => {
@@ -96,14 +99,15 @@ describe("dispatchSimpleRedux", () => {
           data: "1234",
           error: null as any,
           loading: false,
+          options: {},
           success: true,
           tag
         }
       }
     }
-    expect(dispatchSimpleRedux.simpleMergeNumber(tag, 1234, "1234")).toEqual(
-      action
-    )
+    expect(
+      dispatchSimpleRedux.simpleMergeNumber(tag, {}, 1234, "1234")
+    ).toEqual(action)
   })
 
   it("simpleMergeToggle: oldState = undefined", () => {
@@ -117,12 +121,15 @@ describe("dispatchSimpleRedux", () => {
           data: true,
           error: null as any,
           loading: false,
+          options: {},
           success: true,
           tag
         }
       }
     }
-    expect(dispatchSimpleRedux.simpleMergeToggle(tag, oldState)).toEqual(action)
+    expect(dispatchSimpleRedux.simpleMergeToggle(tag, {}, oldState)).toEqual(
+      action
+    )
   })
 
   it("simpleMergeToggle: oldState = false", () => {
@@ -139,12 +146,15 @@ describe("dispatchSimpleRedux", () => {
           data: true,
           error: null as any,
           loading: false,
+          options: {},
           success: true,
           tag
         }
       }
     }
-    expect(dispatchSimpleRedux.simpleMergeToggle(tag, oldState)).toEqual(action)
+    expect(dispatchSimpleRedux.simpleMergeToggle(tag, {}, oldState)).toEqual(
+      action
+    )
   })
 
   it("simpleMergeToggle: oldState = true", () => {
@@ -161,12 +171,15 @@ describe("dispatchSimpleRedux", () => {
           data: false,
           error: null as any,
           loading: false,
+          options: {},
           success: true,
           tag
         }
       }
     }
-    expect(dispatchSimpleRedux.simpleMergeToggle(tag, oldState)).toEqual(action)
+    expect(dispatchSimpleRedux.simpleMergeToggle(tag, {}, oldState)).toEqual(
+      action
+    )
   })
 
   it("simpleHttpDelete", () => {
@@ -179,7 +192,7 @@ describe("dispatchSimpleRedux", () => {
           error: null as any,
           headers: null as any,
           loading: true,
-          requestConfig: dispatchDefault.requestConfig,
+          options: {},
           status: 0,
           statusText: "",
           success: false,
@@ -188,7 +201,7 @@ describe("dispatchSimpleRedux", () => {
         }
       }
     }
-    expect(dispatchSimpleRedux.simpleHttpDelete(tag, url)).toEqual(action)
+    expect(dispatchSimpleRedux.simpleHttpDelete(tag, {}, url)).toEqual(action)
   })
 
   it("simpleHttpGet", () => {
@@ -201,7 +214,7 @@ describe("dispatchSimpleRedux", () => {
           error: null as any,
           headers: null as any,
           loading: true,
-          requestConfig: dispatchDefault.requestConfig,
+          options: {},
           status: 0,
           statusText: "",
           success: false,
@@ -210,7 +223,7 @@ describe("dispatchSimpleRedux", () => {
         }
       }
     }
-    expect(dispatchSimpleRedux.simpleHttpGet(tag, url)).toEqual(action)
+    expect(dispatchSimpleRedux.simpleHttpGet(tag, {}, url)).toEqual(action)
   })
 
   it("simpleHttpHead", () => {
@@ -223,7 +236,7 @@ describe("dispatchSimpleRedux", () => {
           error: null as any,
           headers: null as any,
           loading: true,
-          requestConfig: dispatchDefault.requestConfig,
+          options: {},
           status: 0,
           statusText: "",
           success: false,
@@ -232,7 +245,7 @@ describe("dispatchSimpleRedux", () => {
         }
       }
     }
-    expect(dispatchSimpleRedux.simpleHttpHead(tag, url)).toEqual(action)
+    expect(dispatchSimpleRedux.simpleHttpHead(tag, {}, url)).toEqual(action)
   })
 
   it("simpleHttpPatch", () => {
@@ -245,7 +258,7 @@ describe("dispatchSimpleRedux", () => {
           error: null as any,
           headers: null as any,
           loading: true,
-          requestConfig: dispatchDefault.requestConfig,
+          options: {},
           status: 0,
           statusText: "",
           success: false,
@@ -254,9 +267,9 @@ describe("dispatchSimpleRedux", () => {
         }
       }
     }
-    expect(dispatchSimpleRedux.simpleHttpPatch(tag, url, requestData)).toEqual(
-      action
-    )
+    expect(
+      dispatchSimpleRedux.simpleHttpPatch(tag, {}, url, requestData)
+    ).toEqual(action)
   })
 
   it("simpleHttpPost", () => {
@@ -269,7 +282,7 @@ describe("dispatchSimpleRedux", () => {
           error: null as any,
           headers: null as any,
           loading: true,
-          requestConfig: dispatchDefault.requestConfig,
+          options: {},
           status: 0,
           statusText: "",
           success: false,
@@ -278,9 +291,9 @@ describe("dispatchSimpleRedux", () => {
         }
       }
     }
-    expect(dispatchSimpleRedux.simpleHttpPost(tag, url, requestData)).toEqual(
-      action
-    )
+    expect(
+      dispatchSimpleRedux.simpleHttpPost(tag, {}, url, requestData)
+    ).toEqual(action)
   })
 
   it("simpleHttpPut", () => {
@@ -293,7 +306,7 @@ describe("dispatchSimpleRedux", () => {
           error: null as any,
           headers: null as any,
           loading: true,
-          requestConfig: dispatchDefault.requestConfig,
+          options: {},
           status: 0,
           statusText: "",
           success: false,
@@ -302,8 +315,8 @@ describe("dispatchSimpleRedux", () => {
         }
       }
     }
-    expect(dispatchSimpleRedux.simpleHttpPut(tag, url, requestData)).toEqual(
-      action
-    )
+    expect(
+      dispatchSimpleRedux.simpleHttpPut(tag, {}, url, requestData)
+    ).toEqual(action)
   })
 })
