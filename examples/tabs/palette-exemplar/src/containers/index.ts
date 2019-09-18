@@ -1,4 +1,10 @@
-import SampleFormContainer from "./SampleFormContainer"
-import SampleNetworkContainer from "./SampleNetworkContainer"
+import ExampleFormContainer from "./ExampleFormContainer"
+import ExampleMergeSagaContainer from "./ExampleMergeSagaContainer"
+import ExampleNetworkContainer from "./ExampleNetworkContainer"
 import TabContainer from "./TabContainer"
-export { SampleFormContainer, SampleNetworkContainer, TabContainer }
+export {
+  ExampleFormContainer,
+  ExampleMergeSagaContainer,
+  ExampleNetworkContainer,
+  TabContainer
+}

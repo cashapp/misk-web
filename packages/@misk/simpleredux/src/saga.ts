@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from "axios"
+import { get } from "lodash"
 import { all, call, put, takeEvery } from "redux-saga/effects"
 import { SIMPLEREDUX } from "./action"
 import {
@@ -8,12 +9,15 @@ import {
   SimpleReduxSaga
 } from "./utilities"
 import {
+  dispatchDefault,
   dispatchSimpleRedux,
   ISimpleReduxPayload,
   ISimpleReduxPayloadTag,
   ISimpleHttpPayloadTag,
-  privateDispatchSimpleRedux
+  privateDispatchSimpleRedux,
+  IDispatchOptions
 } from "./dispatch"
+import { IDispatchSimpleRedux } from "src"
 
 /** Map to lookup HTTP library function to handle the network related SimpleRedux action */
 const ActionTypeToHttpCall: { [key: string]: any } = {
@@ -46,20 +50,24 @@ const responseAndError = (error: { response: AxiosResponse }) => ({
  */
 function* handleHttpNoBody(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
   try {
-    const { tag, url, requestConfig } = getFirstTag<ISimpleHttpPayloadTag>(
+    const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
       action.payload
     )
     const response: AxiosResponse = yield call(
       ActionTypeToHttpCall[action.type],
       url,
-      requestConfig
+      options.requestConfig
     )
     const data = responseAndData(response)
-    yield put(dispatchSimpleRedux.simpleMerge(tag, { url, data }))
+    yield put(dispatchSimpleRedux.simpleMerge(tag, options, { url, data }))
   } catch (e) {
-    const { tag, url } = getFirstTag<ISimpleHttpPayloadTag>(action.payload)
+    const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
+      action.payload
+    )
     const error = responseAndError(e)
-    yield put(privateDispatchSimpleRedux.simpleFailure(tag, { url, error }))
+    yield put(
+      privateDispatchSimpleRedux.simpleFailure(tag, options, { url, error })
+    )
   }
 }
 
@@ -69,16 +77,25 @@ function* handlePatch(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
     const updateData = jsonOrString(
       getFirstTag<ISimpleReduxPayloadTag>(action.payload).data
     )
-    const { tag, url, requestConfig } = getFirstTag<ISimpleHttpPayloadTag>(
+    const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
       action.payload
     )
-    const response = yield call(axios.patch, url, updateData, requestConfig)
+    const response = yield call(
+      axios.patch,
+      url,
+      updateData,
+      options.requestConfig
+    )
     const data = responseAndData(response)
-    yield put(dispatchSimpleRedux.simpleMerge(tag, { url, data }))
+    yield put(dispatchSimpleRedux.simpleMerge(tag, options, { url, data }))
   } catch (e) {
-    const { tag, url } = getFirstTag<ISimpleHttpPayloadTag>(action.payload)
+    const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
+      action.payload
+    )
     const error = responseAndError(e)
-    yield put(privateDispatchSimpleRedux.simpleFailure(tag, { url, error }))
+    yield put(
+      privateDispatchSimpleRedux.simpleFailure(tag, options, { url, error })
+    )
   }
 }
 
@@ -88,16 +105,25 @@ function* handlePost(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
     const saveData = jsonOrString(
       getFirstTag<ISimpleReduxPayloadTag>(action.payload).data
     )
-    const { tag, url, requestConfig } = getFirstTag<ISimpleHttpPayloadTag>(
+    const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
       action.payload
     )
-    const response = yield call(axios.post, url, saveData, requestConfig)
-    const data = responseAndData(response)
-    yield put(dispatchSimpleRedux.simpleMerge(tag, { url, data }))
+    const response = yield call(
+      axios.post,
+      url,
+      saveData,
+      options.requestConfig
+    )
+    const data = responseAndData(response as AxiosResponse)
+    yield put(dispatchSimpleRedux.simpleMerge(tag, options, { url, data }))
   } catch (e) {
-    const { tag, url } = getFirstTag<ISimpleHttpPayloadTag>(action.payload)
+    const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
+      action.payload
+    )
     const error = responseAndError(e)
-    yield put(privateDispatchSimpleRedux.simpleFailure(tag, { url, error }))
+    yield put(
+      privateDispatchSimpleRedux.simpleFailure(tag, options, { url, error })
+    )
   }
 }
 
@@ -107,16 +133,42 @@ function* handlePut(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
     const updateData = jsonOrString(
       getFirstTag<ISimpleReduxPayloadTag>(action.payload).data
     )
-    const { tag, url, requestConfig } = getFirstTag<ISimpleHttpPayloadTag>(
+    const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
       action.payload
     )
-    const response = yield call(axios.put, url, updateData, requestConfig)
+    const response = yield call(
+      axios.put,
+      url,
+      updateData,
+      options.requestConfig
+    )
     const data = responseAndData(response)
-    yield put(dispatchSimpleRedux.simpleMerge(tag, { url, data }))
+    yield put(dispatchSimpleRedux.simpleMerge(tag, options, { url, data }))
   } catch (e) {
-    const { tag, url } = getFirstTag<ISimpleHttpPayloadTag>(action.payload)
+    const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
+      action.payload
+    )
     const error = responseAndError(e)
-    yield put(privateDispatchSimpleRedux.simpleFailure(tag, { url, error }))
+    yield put(
+      privateDispatchSimpleRedux.simpleFailure(tag, options, { url, error })
+    )
+  }
+}
+
+/** Saga handler function to merge payload data */
+function* handleMerge(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
+  try {
+    const { options } = getFirstTag<ISimpleHttpPayloadTag>(action.payload)
+    // New actions are only emitted via optional mergeSaga
+    if (options.mergeSaga) {
+      yield options.mergeSaga(
+        getFirstTag<ISimpleHttpPayloadTag>(action.payload)
+      )
+    }
+  } catch (e) {
+    const { options, tag } = getFirstTag<ISimpleHttpPayloadTag>(action.payload)
+    const error = responseAndError(e)
+    yield put(privateDispatchSimpleRedux.simpleFailure(tag, options, { error }))
   }
 }
 
@@ -128,6 +180,24 @@ export function* watchSimpleReduxSagas(): SimpleReduxSaga {
     takeEvery(SIMPLEREDUX.HTTP_HEAD, handleHttpNoBody),
     takeEvery(SIMPLEREDUX.HTTP_PATCH, handlePatch),
     takeEvery(SIMPLEREDUX.HTTP_POST, handlePost),
-    takeEvery(SIMPLEREDUX.HTTP_PUT, handlePut)
+    takeEvery(SIMPLEREDUX.HTTP_PUT, handlePut),
+    takeEvery(SIMPLEREDUX.MERGE, handleMerge)
   ])
 }
+
+/**
+ * Factories for IDispatchOptions optional mergeSaga
+ */
+
+/** Loops over data from payload path and saves to tag in Redux from  keyLookup */
+export const mapMergeSaga = (
+  payloadPath: string | string[],
+  keyLookup: { [key: string]: string },
+  simpleMergeData: IDispatchSimpleRedux["simpleMergeData"],
+  options: IDispatchOptions = dispatchDefault.options
+) =>
+  function*(payload: ISimpleReduxPayloadTag) {
+    for (const key in get(payload, payloadPath)) {
+      yield simpleMergeData(keyLookup[key], options, payload.data.data[key])
+    }
+  }

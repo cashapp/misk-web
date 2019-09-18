@@ -34,8 +34,8 @@ import {
   mapStateToProps
 } from "src/ducks"
 
-export const SampleFormContainer = (props: IState & IDispatchProps) => {
-  const FormTag = "Expense Report"
+export const ExampleFormContainer = (props: IState & IDispatchProps) => {
+  const FormTag = "ExampleForm"
   const fields = [
     "Name",
     "Price",
@@ -51,13 +51,17 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
   const fieldsData = simpleSelectorPick(props.simpleRedux, fields)
   return (
     <div>
-      <H1>Sample Form Component :: {FormTag}</H1>
+      <H1>Example Form Container :: {FormTag}</H1>
       <Pre>simpleRedux: {JSON.stringify(fieldsData, null, 2)}</Pre>
       <FormGroup>
         <InputGroup
           id="text-input"
           placeholder="Full Name"
-          onChange={onChangeFnCall(props.simpleMergeData, `${FormTag}::Name`)}
+          onChange={onChangeFnCall(
+            props.simpleMergeData,
+            `${FormTag}::Name`,
+            {}
+          )}
         />
         <NumericInput
           leftIcon={IconNames.DOLLAR}
@@ -76,6 +80,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           intent={Intent.PRIMARY}
           onChange={onChangeFnCall(
             props.simpleMergeData,
+            {},
             `${FormTag}::Itemized Receipt`
           )}
           placeholder={"Itemized Receipt"}
@@ -91,6 +96,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
             onChange={onChangeToggleFnCall(
               props.simpleMergeToggle,
               `${FormTag}::CheckAlice`,
+              {},
               props.simpleRedux
             )}
           />
@@ -103,6 +109,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
             onChange={onChangeToggleFnCall(
               props.simpleMergeToggle,
               `${FormTag}::CheckBob`,
+              {},
               props.simpleRedux
             )}
           />
@@ -115,6 +122,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
             onChange={onChangeToggleFnCall(
               props.simpleMergeToggle,
               `${FormTag}::CheckEve`,
+              {},
               props.simpleRedux
             )}
           />
@@ -127,6 +135,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
             onChange={onChangeToggleFnCall(
               props.simpleMergeToggle,
               `${FormTag}::CheckMallory`,
+              {},
               props.simpleRedux
             )}
           />
@@ -139,6 +148,7 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
             onChange={onChangeToggleFnCall(
               props.simpleMergeToggle,
               `${FormTag}::CheckTrent`,
+              {},
               props.simpleRedux
             )}
           />
@@ -159,7 +169,8 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
         <TagInput
           onChange={onChangeTagFnCall(
             props.simpleMergeData,
-            `${FormTag}::Tags`
+            `${FormTag}::Tags`,
+            {}
           )}
           placeholder={"Tags"}
           values={simpleSelectorGet(
@@ -183,7 +194,8 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
           }
           onChange={onChangeFnCall(
             props.simpleMergeData,
-            `${FormTag}::POST_URL`
+            `${FormTag}::POST_URL`,
+            {}
           )}
           type={"url"}
         />
@@ -212,4 +224,4 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SampleFormContainer)
+)(ExampleFormContainer)

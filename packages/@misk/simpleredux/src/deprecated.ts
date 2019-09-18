@@ -71,96 +71,111 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
   simpleNetworkDelete: (
     tag: string,
     url: string,
-    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+    requestConfig: AxiosRequestConfig = dispatchDefault.options.requestConfig
   ) => {
     deprecatedCall(
       "simpleNetworkDelete",
       "simpleHttpDelete(tag, url, requestConfig?)"
     )
-    return dispatchSimpleRedux.simpleHttpDelete(tag, url, requestConfig)
+    return dispatchSimpleRedux.simpleHttpDelete(tag, { requestConfig }, url)
   },
   simpleNetworkFailure: (
     tag: string,
     url: string,
     error: any = dispatchDefault.error,
-    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+    requestConfig: AxiosRequestConfig = dispatchDefault.options.requestConfig
   ) => {
     deprecatedCall("simpleNetworkFailure", "simpleFailure(tag, error)")
-    return privateDispatchSimpleRedux.simpleFailure(tag, error)
+    return privateDispatchSimpleRedux.simpleFailure(
+      tag,
+      { requestConfig },
+      error
+    )
   },
   simpleNetworkGet: (
     tag: string,
     url: string,
-    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+    requestConfig: AxiosRequestConfig = dispatchDefault.options.requestConfig
   ) => {
     deprecatedCall(
       "simpleNetworkGet",
       "simpleHttpGet(tag, url, requestConfig?)"
     )
-    return dispatchSimpleRedux.simpleHttpGet(tag, url, requestConfig)
+    return dispatchSimpleRedux.simpleHttpGet(tag, { requestConfig }, url)
   },
   simpleNetworkHead: (
     tag: string,
     url: string,
-    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+    requestConfig: AxiosRequestConfig = dispatchDefault.options.requestConfig
   ) => {
     deprecatedCall(
       "simpleNetworkHead",
       "simpleHttpHead(tag, url, requestConfig?)"
     )
-    return dispatchSimpleRedux.simpleHttpHead(tag, url, requestConfig)
+    return dispatchSimpleRedux.simpleHttpHead(tag, { requestConfig }, url)
   },
   simpleNetworkPatch: (
     tag: string,
     url: string,
     data: any = dispatchDefault.data,
-    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+    requestConfig: AxiosRequestConfig = dispatchDefault.options.requestConfig
   ) => {
     deprecatedCall(
       "simpleNetworkPatch",
       "simpleHttpPatch(tag, url, data?, requestConfig?)"
     )
-    return dispatchSimpleRedux.simpleHttpPatch(tag, url, data, requestConfig)
+    return dispatchSimpleRedux.simpleHttpPatch(
+      tag,
+      {
+        requestConfig
+      },
+      url,
+      data
+    )
   },
   simpleNetworkPost: (
     tag: string,
     url: string,
     data: any = dispatchDefault.data,
-    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+    requestConfig: AxiosRequestConfig = dispatchDefault.options.requestConfig
   ) => {
     deprecatedCall(
       "simpleNetworkPost",
       "simpleHttpPost(tag, url, data?, requestConfig?)"
     )
-    return dispatchSimpleRedux.simpleHttpPost(tag, url, data, requestConfig)
+    return dispatchSimpleRedux.simpleHttpPost(tag, { requestConfig }, url, data)
   },
   simpleNetworkPut: (
     tag: string,
     url: string,
     data: any = dispatchDefault.data,
-    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+    requestConfig: AxiosRequestConfig = dispatchDefault.options.requestConfig
   ) => {
     deprecatedCall(
       "simpleNetworkPut",
       "simpleHttpPut(tag, url, data?, requestConfig?)"
     )
-    return dispatchSimpleRedux.simpleHttpPut(tag, url, data, requestConfig)
+    return dispatchSimpleRedux.simpleHttpPut(tag, { requestConfig }, url, data)
   },
   simpleNetworkSuccess: (
     tag: string,
     url: string,
     response: AxiosResponse,
-    requestConfig: AxiosRequestConfig = dispatchDefault.requestConfig
+    requestConfig: AxiosRequestConfig = dispatchDefault.options.requestConfig
   ) => {
     deprecatedCall(
       "simpleNetworkSuccess",
       "simpleMergeTag(tag, { requestConfig?, response, url? })"
     )
-    return dispatchSimpleRedux.simpleMerge(tag, {
-      ...requestConfig,
-      ...response,
-      url
-    })
+    return dispatchSimpleRedux.simpleMerge(
+      tag,
+      { requestConfig },
+      {
+        ...requestConfig,
+        ...response,
+        url
+      }
+    )
   }
 }
 
@@ -193,11 +208,11 @@ export interface IDispatchSimpleForm {
 export const dispatchSimpleForm: IDispatchSimpleForm = {
   simpleFormFailure: (tag: string, error: any) => {
     deprecatedCall("simpleFormFailure", "simpleFailure(tag, error)")
-    return privateDispatchSimpleRedux.simpleFailure(tag, error)
+    return privateDispatchSimpleRedux.simpleFailure(tag, {}, error)
   },
   simpleFormInput: (tag: string, data: any) => {
     deprecatedCall("simpleFormInput", "simpleMergeTag(tag, data)")
-    return dispatchSimpleRedux.simpleMergeData(tag, data)
+    return dispatchSimpleRedux.simpleMergeData(tag, {}, data)
   },
   simpleFormNumber: (
     tag: string,
@@ -210,17 +225,18 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
     )
     return dispatchSimpleRedux.simpleMergeNumber(
       tag,
+      {},
       valueAsNumber,
       valueAsString
     )
   },
   simpleFormSuccess: (tag: string, data: any) => {
     deprecatedCall("simpleFormSuccess", "simpleMergeTag(tag, data)")
-    return dispatchSimpleRedux.simpleMerge(tag, data)
+    return dispatchSimpleRedux.simpleMerge(tag, {}, data)
   },
   simpleFormToggle: (tag: string, oldState: any) => {
     deprecatedCall("simpleFormToggle", "simpleMergeToggle(tag, oldState)")
-    return dispatchSimpleRedux.simpleMergeToggle(tag, oldState)
+    return dispatchSimpleRedux.simpleMergeToggle(tag, {}, oldState)
   }
 }
 
