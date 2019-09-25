@@ -59,14 +59,14 @@ function* handleHttpNoBody(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
       options.requestConfig
     )
     const data = responseAndData(response)
-    yield put(dispatchSimpleRedux.simpleMerge(tag, options, { url, data }))
+    yield put(dispatchSimpleRedux.simpleMerge(tag, { url, data }, options))
   } catch (e) {
     const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
       action.payload
     )
     const error = responseAndError(e)
     yield put(
-      privateDispatchSimpleRedux.simpleFailure(tag, options, { url, error })
+      privateDispatchSimpleRedux.simpleFailure(tag, { url, error }, options)
     )
   }
 }
@@ -87,14 +87,14 @@ function* handlePatch(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
       options.requestConfig
     )
     const data = responseAndData(response)
-    yield put(dispatchSimpleRedux.simpleMerge(tag, options, { url, data }))
+    yield put(dispatchSimpleRedux.simpleMerge(tag, { url, data }, options))
   } catch (e) {
     const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
       action.payload
     )
     const error = responseAndError(e)
     yield put(
-      privateDispatchSimpleRedux.simpleFailure(tag, options, { url, error })
+      privateDispatchSimpleRedux.simpleFailure(tag, { url, error }, options)
     )
   }
 }
@@ -115,14 +115,14 @@ function* handlePost(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
       options.requestConfig
     )
     const data = responseAndData(response as AxiosResponse)
-    yield put(dispatchSimpleRedux.simpleMerge(tag, options, { url, data }))
+    yield put(dispatchSimpleRedux.simpleMerge(tag, { url, data }, options))
   } catch (e) {
     const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
       action.payload
     )
     const error = responseAndError(e)
     yield put(
-      privateDispatchSimpleRedux.simpleFailure(tag, options, { url, error })
+      privateDispatchSimpleRedux.simpleFailure(tag, { url, error }, options)
     )
   }
 }
@@ -143,14 +143,14 @@ function* handlePut(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
       options.requestConfig
     )
     const data = responseAndData(response)
-    yield put(dispatchSimpleRedux.simpleMerge(tag, options, { url, data }))
+    yield put(dispatchSimpleRedux.simpleMerge(tag, { url, data }, options))
   } catch (e) {
     const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
       action.payload
     )
     const error = responseAndError(e)
     yield put(
-      privateDispatchSimpleRedux.simpleFailure(tag, options, { url, error })
+      privateDispatchSimpleRedux.simpleFailure(tag, { url, error }, options)
     )
   }
 }
@@ -168,7 +168,7 @@ function* handleMerge(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
   } catch (e) {
     const { options, tag } = getFirstTag<ISimpleHttpPayloadTag>(action.payload)
     const error = responseAndError(e)
-    yield put(privateDispatchSimpleRedux.simpleFailure(tag, options, { error }))
+    yield put(privateDispatchSimpleRedux.simpleFailure(tag, { error }, options))
   }
 }
 
