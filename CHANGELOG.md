@@ -1,5 +1,18 @@
 ## Changelog
 
+## 0.1.20-0
+
+25 Sept 2019 20:40:00 GMT
+
+### @misk/core
+
+- Upstream new `<Table data={data} maxRows={5} />` component from palette-exemplar tab for tables that autogenerate from a list of objects.
+
+### Example Tabs
+
+- New `starter-basic` tab for use in `miskweb new` creation of new tabs. Much simpler bare bones structure making for a less overwhelming start for new tab developers.
+- `palette-exemplar` will remain to showcase more advanced features and use cases
+
 ## 0.1.19
 
 17 Sept 2019 19:19:00 GMT
