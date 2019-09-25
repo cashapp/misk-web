@@ -9,9 +9,9 @@ export const handlerFn = async (...args: any) => {
   )
   logDebug(
     command,
-    "A new-tab.sh script has been downloaded. Run it to build your new tab off of the latest misk-web palette-exemplar."
+    "A new-tab.sh script has been downloaded. Run it to build your new tab off of the latest Starter Basic tab."
   )
-  logDebug(command, "$ ./new-tab.sh")
+  logDebug(command, "$ ./new-tab-starter-basic.sh")
 }
 export const handler = async (yargs: any) =>
   handleCommand(yargs, handlerFn, ["e", "each"])

@@ -4,9 +4,9 @@
   "license": "SEE LICENSE IN https://github.com/cashapp/misk-web",
   "main": "src/index.tsx",
   "scripts": {
-    "build": "npm run-script lib && npm run-script test ",
-    "ci-build": "npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib && npm run-script test ",
-    "dev-build": "npm run-script dev-lib ",
+    "build": "npm run-script lib && npm run-script test && npm run-script zip",
+    "ci-build": "npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib && npm run-script test && npm run-script zip",
+    "dev-build": "npm run-script dev-lib && npm run-script zip",
     "clean": "rm -rf demo lib",
     "clean-build-files": "rm .hash package-lock.json package.json tsconfig.json tslint.json webpack.config.js",
     "lib": "cross-env NODE_ENV=production webpack",
