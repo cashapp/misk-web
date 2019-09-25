@@ -6,7 +6,7 @@ import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects"
 import { StatusCode } from "status-code-enum"
 import { IDispatchSimpleRedux } from "src"
 
-export * from "./onFnCall"
+export * from "./handleDispatch"
 export * from "./simpleSelector"
 
 /**

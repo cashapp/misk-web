@@ -6,7 +6,7 @@ describe("dispatchSimpleNetwork", () => {
   it("simpleNetworkFailure", () => {
     const error = { errorField1: "Null field encountered. Saga failed." }
     expect(dispatchSimpleNetwork.simpleNetworkFailure(tag, url, error)).toEqual(
-      privateDispatchSimpleRedux.simpleFailure(tag, {}, error)
+      privateDispatchSimpleRedux.simpleFailure(tag, error)
     )
   })
 
@@ -18,7 +18,7 @@ describe("dispatchSimpleNetwork", () => {
         headers: []
       })
     ).toEqual(
-      dispatchSimpleRedux.simpleMerge(tag, {}, {
+      dispatchSimpleRedux.simpleMerge(tag, {
         config: null,
         ...data,
         headers: [],
@@ -29,63 +29,63 @@ describe("dispatchSimpleNetwork", () => {
 
   it("simpleNetworkDelete", () => {
     expect(dispatchSimpleNetwork.simpleNetworkDelete(tag, url)).toEqual(
-      dispatchSimpleRedux.simpleHttpDelete(tag,  {},url)
+      dispatchSimpleRedux.simpleHttpDelete(tag, url)
     )
   })
 
   it("simpleNetworkGet", () => {
     expect(dispatchSimpleNetwork.simpleNetworkGet(tag, url)).toEqual(
-      dispatchSimpleRedux.simpleHttpGet(tag,  {},url)
+      dispatchSimpleRedux.simpleHttpGet(tag, url)
     )
   })
 
   it("simpleNetworkHead", () => {
     expect(dispatchSimpleNetwork.simpleNetworkHead(tag, url)).toEqual(
-      dispatchSimpleRedux.simpleHttpHead(tag, {}, url)
+      dispatchSimpleRedux.simpleHttpHead(tag, url)
     )
   })
 
   it("simpleNetworkPatch", () => {
     expect(
       dispatchSimpleNetwork.simpleNetworkPatch(tag, url, requestData)
-    ).toEqual(dispatchSimpleRedux.simpleHttpPatch(tag, {}, url, requestData))
+    ).toEqual(dispatchSimpleRedux.simpleHttpPatch(tag, url, requestData))
   })
 
   it("simpleNetworkPost", () => {
     expect(
       dispatchSimpleNetwork.simpleNetworkPost(tag, url, requestData)
-    ).toEqual(dispatchSimpleRedux.simpleHttpPost(tag, {}, url, requestData))
+    ).toEqual(dispatchSimpleRedux.simpleHttpPost(tag, url, requestData))
   })
 
   it("simpleNetworkPut", () => {
     expect(
       dispatchSimpleNetwork.simpleNetworkPut(tag, url, requestData)
-    ).toEqual(dispatchSimpleRedux.simpleHttpPut(tag, {}, url, requestData))
+    ).toEqual(dispatchSimpleRedux.simpleHttpPut(tag, url, requestData))
   })
 })
 
 describe("dispatchSimpleForm", () => {
   it("simpleFormFailure", () => {
     expect(dispatchSimpleForm.simpleFormFailure(tag, error)).toEqual(
-      privateDispatchSimpleRedux.simpleFailure(tag, {}, error)
+      privateDispatchSimpleRedux.simpleFailure(tag, error)
     )
   })
 
   it("simpleFormSuccess", () => {
     expect(dispatchSimpleForm.simpleFormSuccess(tag, data)).toEqual(
-      dispatchSimpleRedux.simpleMerge(tag, {}, data)
+      dispatchSimpleRedux.simpleMerge(tag, data)
     )
   })
 
   it("simpleFormInput", () => {
     expect(dispatchSimpleForm.simpleFormInput(tag, data)).toEqual(
-      dispatchSimpleRedux.simpleMergeData(tag, {}, data)
+      dispatchSimpleRedux.simpleMergeData(tag, data)
     )
   })
 
   it("simpleFormNumber", () => {
     expect(dispatchSimpleForm.simpleFormNumber(tag, 1234, "1234")).toEqual(
-      dispatchSimpleRedux.simpleMergeNumber(tag, {}, 1234, "1234")
+      dispatchSimpleRedux.simpleMergeNumber(tag, 1234, "1234")
     )
   })
 
@@ -94,7 +94,7 @@ describe("dispatchSimpleForm", () => {
       simpleTag: "simpleRedux"
     }
     expect(dispatchSimpleForm.simpleFormToggle(tag, oldState)).toEqual(
-      dispatchSimpleRedux.simpleMergeToggle(tag, {}, oldState)
+      dispatchSimpleRedux.simpleMergeToggle(tag, oldState)
     )
   })
 
@@ -106,7 +106,7 @@ describe("dispatchSimpleForm", () => {
       }
     }
     expect(dispatchSimpleForm.simpleFormToggle(tag, oldState)).toEqual(
-      dispatchSimpleRedux.simpleMergeToggle(tag, {}, oldState)
+      dispatchSimpleRedux.simpleMergeToggle(tag, oldState)
     )
   })
 
@@ -118,7 +118,7 @@ describe("dispatchSimpleForm", () => {
       }
     }
     expect(dispatchSimpleForm.simpleFormToggle(tag, oldState)).toEqual(
-      dispatchSimpleRedux.simpleMergeToggle(tag, {}, oldState)
+      dispatchSimpleRedux.simpleMergeToggle(tag, oldState)
     )
   })
 })

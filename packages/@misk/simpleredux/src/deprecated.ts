@@ -75,9 +75,9 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
   ) => {
     deprecatedCall(
       "simpleNetworkDelete",
-      "simpleHttpDelete(tag, url, requestConfig?)"
+      "simpleHttpDelete(tag, url, options?)"
     )
-    return dispatchSimpleRedux.simpleHttpDelete(tag, { requestConfig }, url)
+    return dispatchSimpleRedux.simpleHttpDelete(tag, url, { requestConfig })
   },
   simpleNetworkFailure: (
     tag: string,
@@ -85,34 +85,29 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
     error: any = dispatchDefault.error,
     requestConfig: AxiosRequestConfig = dispatchDefault.options.requestConfig
   ) => {
-    deprecatedCall("simpleNetworkFailure", "simpleFailure(tag, error)")
-    return privateDispatchSimpleRedux.simpleFailure(
-      tag,
-      { requestConfig },
-      error
+    deprecatedCall(
+      "simpleNetworkFailure",
+      "simpleFailure(tag, error, options?)"
     )
+    return privateDispatchSimpleRedux.simpleFailure(tag, error, {
+      requestConfig
+    })
   },
   simpleNetworkGet: (
     tag: string,
     url: string,
     requestConfig: AxiosRequestConfig = dispatchDefault.options.requestConfig
   ) => {
-    deprecatedCall(
-      "simpleNetworkGet",
-      "simpleHttpGet(tag, url, requestConfig?)"
-    )
-    return dispatchSimpleRedux.simpleHttpGet(tag, { requestConfig }, url)
+    deprecatedCall("simpleNetworkGet", "simpleHttpGet(tag, url, options?)")
+    return dispatchSimpleRedux.simpleHttpGet(tag, url, { requestConfig })
   },
   simpleNetworkHead: (
     tag: string,
     url: string,
     requestConfig: AxiosRequestConfig = dispatchDefault.options.requestConfig
   ) => {
-    deprecatedCall(
-      "simpleNetworkHead",
-      "simpleHttpHead(tag, url, requestConfig?)"
-    )
-    return dispatchSimpleRedux.simpleHttpHead(tag, { requestConfig }, url)
+    deprecatedCall("simpleNetworkHead", "simpleHttpHead(tag, url, options?)")
+    return dispatchSimpleRedux.simpleHttpHead(tag, url, { requestConfig })
   },
   simpleNetworkPatch: (
     tag: string,
@@ -122,16 +117,11 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
   ) => {
     deprecatedCall(
       "simpleNetworkPatch",
-      "simpleHttpPatch(tag, url, data?, requestConfig?)"
+      "simpleHttpPatch(tag, url, data?, options?)"
     )
-    return dispatchSimpleRedux.simpleHttpPatch(
-      tag,
-      {
-        requestConfig
-      },
-      url,
-      data
-    )
+    return dispatchSimpleRedux.simpleHttpPatch(tag, url, data, {
+      requestConfig
+    })
   },
   simpleNetworkPost: (
     tag: string,
@@ -141,9 +131,9 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
   ) => {
     deprecatedCall(
       "simpleNetworkPost",
-      "simpleHttpPost(tag, url, data?, requestConfig?)"
+      "simpleHttpPost(tag, url, data?, options?)"
     )
-    return dispatchSimpleRedux.simpleHttpPost(tag, { requestConfig }, url, data)
+    return dispatchSimpleRedux.simpleHttpPost(tag, url, data, { requestConfig })
   },
   simpleNetworkPut: (
     tag: string,
@@ -153,9 +143,9 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
   ) => {
     deprecatedCall(
       "simpleNetworkPut",
-      "simpleHttpPut(tag, url, data?, requestConfig?)"
+      "simpleHttpPut(tag, url, data?, options?)"
     )
-    return dispatchSimpleRedux.simpleHttpPut(tag, { requestConfig }, url, data)
+    return dispatchSimpleRedux.simpleHttpPut(tag, url, data, { requestConfig })
   },
   simpleNetworkSuccess: (
     tag: string,
@@ -165,16 +155,16 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
   ) => {
     deprecatedCall(
       "simpleNetworkSuccess",
-      "simpleMergeTag(tag, { requestConfig?, response, url? })"
+      "simpleMergeTag(tag, { requestConfig?, response, url? }, options?)"
     )
     return dispatchSimpleRedux.simpleMerge(
       tag,
-      { requestConfig },
       {
         ...requestConfig,
         ...response,
         url
-      }
+      },
+      { requestConfig }
     )
   }
 }
@@ -207,12 +197,12 @@ export interface IDispatchSimpleForm {
 /** DEPRECATED: Use [dispatchSimpleRedux] instead */
 export const dispatchSimpleForm: IDispatchSimpleForm = {
   simpleFormFailure: (tag: string, error: any) => {
-    deprecatedCall("simpleFormFailure", "simpleFailure(tag, error)")
-    return privateDispatchSimpleRedux.simpleFailure(tag, {}, error)
+    deprecatedCall("simpleFormFailure", "simpleFailure(tag, error, options?)")
+    return privateDispatchSimpleRedux.simpleFailure(tag, error)
   },
   simpleFormInput: (tag: string, data: any) => {
-    deprecatedCall("simpleFormInput", "simpleMergeTag(tag, data)")
-    return dispatchSimpleRedux.simpleMergeData(tag, {}, data)
+    deprecatedCall("simpleFormInput", "simpleMergeTag(tag, data, options?)")
+    return dispatchSimpleRedux.simpleMergeData(tag, data)
   },
   simpleFormNumber: (
     tag: string,
@@ -221,22 +211,24 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
   ) => {
     deprecatedCall(
       "simpleFormNumber",
-      "simpleMergeNumber(tag, valueAsNumber, valueAsString)"
+      "simpleMergeNumber(tag, valueAsNumber, valueAsString, options?)"
     )
     return dispatchSimpleRedux.simpleMergeNumber(
       tag,
-      {},
       valueAsNumber,
       valueAsString
     )
   },
   simpleFormSuccess: (tag: string, data: any) => {
-    deprecatedCall("simpleFormSuccess", "simpleMergeTag(tag, data)")
-    return dispatchSimpleRedux.simpleMerge(tag, {}, data)
+    deprecatedCall("simpleFormSuccess", "simpleMergeTag(tag, data, options?)")
+    return dispatchSimpleRedux.simpleMerge(tag, data)
   },
   simpleFormToggle: (tag: string, oldState: any) => {
-    deprecatedCall("simpleFormToggle", "simpleMergeToggle(tag, oldState)")
-    return dispatchSimpleRedux.simpleMergeToggle(tag, {}, oldState)
+    deprecatedCall(
+      "simpleFormToggle",
+      "simpleMergeToggle(tag, oldState, options?)"
+    )
+    return dispatchSimpleRedux.simpleMergeToggle(tag, oldState)
   }
 }
 
@@ -271,3 +263,80 @@ export const watchSimpleFormSagas = watchSimpleReduxSagas
 
 /** DEPRECATED: Use [watchSimpleReduxSagas] instead */
 export const watchSimpleNetworkSagas = watchSimpleReduxSagas
+
+/**
+ * DEPRECATED
+ * @param callFn: function to be called
+ * @param args: arguments to be passed into the callFn
+ *
+ * ```
+ * <Button onClick={onClickFnCall(props.simpleHttpPut, "PutTag", { ...requestBody })}
+ * ```
+ */
+export const onClickFnCall = (callFn: any, ...args: any) => (event: any) => {
+  deprecatedCall("onClickFnCall", `props.handle${callFn}`)
+  callFn(...args)
+}
+
+/**
+ * DEPRECATED
+ * @param callFn: function to be called
+ * @param args: arguments to be passed into the callFn
+ *
+ * ```
+ * <InputGroup onChange={onChangeFnCall(props.simpleMerge, "FormInputTag")}
+ * ```
+ */
+export const onChangeFnCall = (callFn: any, ...args: any) => (event: any) => {
+  deprecatedCall("onClickFnCall", `props.handle${callFn}`)
+  callFn(...args, event.target.value)
+}
+
+/**
+ * DEPRECATED
+ * @param callFn: function to be called
+ * @param args: arguments to be passed into the callFn
+ *
+ * ```
+ * <Checkbox onChange={onChangeToggleFnCall(props.simpleMergeToggle, "FormToggleTag", props.simpleRedux)}
+ * ```
+ */
+export const onChangeToggleFnCall = (callFn: any, ...args: any) => (
+  event: any
+) => {
+  deprecatedCall("onClickFnCall", `props.handle${callFn}`)
+  callFn(...args, event.target.value)
+}
+
+/**
+ * DEPRECATED
+ * @param callFn: function to be called
+ * @param args: arguments to be passed into the callFn
+ *
+ * ```
+ * <NumberInput onChange={onChangeNumberFnCall(props.simpleMergeNumber, "FormNumberTag")}
+ * ```
+ */
+export const onChangeNumberFnCall = (callFn: any, ...args: any) => (
+  valueAsNumber: number,
+  valueAsString: string
+) => {
+  deprecatedCall("onClickFnCall", `props.handle${callFn}`)
+  callFn(...args, valueAsNumber, valueAsString)
+}
+
+/**
+ * DEPRECATED
+ * @param callFn: function to be called
+ * @param args: arguments to be passed into the callFn
+ *
+ * ```
+ * <TagInput onChange={onChangeTagFnCall(props.simpleMerge, "FormTagsTag")}
+ * ```
+ */
+export const onChangeTagFnCall = (callFn: any, ...args: any) => (
+  values: string[]
+) => {
+  deprecatedCall("onClickFnCall", `props.handle${callFn}`)
+  callFn(...args, values)
+}

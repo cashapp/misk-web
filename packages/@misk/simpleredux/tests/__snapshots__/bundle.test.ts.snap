@@ -34,7 +34,7 @@ export interface IDispatchOptions {
 interface IDispatchDefault {
     data: any;
     error: any;
-    options: IDispatchOptions;
+    options?: IDispatchOptions;
 }
 export declare const dispatchDefault: IDispatchDefault;
 export interface ISimpleCachePayloadTag extends IDefaultState {
@@ -44,7 +44,7 @@ export interface ISimpleCachePayloadTag extends IDefaultState {
     valueAsNumber?: number;
 }
 export interface ISimpleHttpPayloadTag extends IDefaultState, AxiosResponse {
-    options: IDispatchOptions;
+    options?: IDispatchOptions;
     tag: string;
     url: string;
 }
@@ -59,56 +59,56 @@ export interface IDispatchSimpleRedux {
      * @param options configure the dispatch with optional mergeSaga or requestConfig
      * @param data new data that overwrites fields in state[tag]
      */
-    simpleMerge: (tag: string, options: IDispatchOptions, data: any) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
+    simpleMerge: (tag: string, data: any, options?: IDispatchOptions) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
     /**
      * Dispatch state merge action, overwrites entire state
      * @param options configure the dispatch with optional mergeSaga or requestConfig
      * @param data new data that overwrites any fields in state
      */
-    simpleMergeRaw: (options: IDispatchOptions, data: any) => IAction<SIMPLEREDUX.MERGE, any>;
+    simpleMergeRaw: (data: any, options?: IDispatchOptions) => IAction<SIMPLEREDUX.MERGE, any>;
     /**
      * Dispatch state merge action, overwrites state for a specific tag
      * @param tag string to identify domain of state
-     * @param options configure the dispatch with optional mergeSaga or requestConfig
      * @param data new data that overwrites fields in state[tag].data
+     * @param options configure the dispatch with optional mergeSaga or requestConfig
      */
-    simpleMergeData: (tag: string, options: IDispatchOptions, data: any) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
+    simpleMergeData: (tag: string, data: any, options?: IDispatchOptions) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
     /**
      * Dispatch state merge action, overwrites state for a specific tag
      * @param tag string to identify domain of state
-     * @param options configure the dispatch with optional mergeSaga or requestConfig
      * @param valueAsNumber new number value as a number
      * @param valueAsString new number value as a string
+     * @param options configure the dispatch with optional mergeSaga or requestConfig
      */
-    simpleMergeNumber: (tag: string, options: IDispatchOptions, valueAsNumber: number, valueAsString: string) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
+    simpleMergeNumber: (tag: string, valueAsNumber: number, valueAsString: string, options?: IDispatchOptions) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
     /**
      * Dispatch state merge action, overwrites state for a specific tag
      * @param tag string to identify domain of state
-     * @param options configure the dispatch with optional mergeSaga or requestConfig
      * @param oldState old SimpleRedux state, in order to lookup current value of tag
+     * @param options configure the dispatch with optional mergeSaga or requestConfig
      */
-    simpleMergeToggle: (tag: string, options: IDispatchOptions, oldState: any) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
+    simpleMergeToggle: (tag: string, oldState: any, options?: IDispatchOptions) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
     /**
      * Dispatch HTTP Delete action, returns response/failure to a specific tag
      * @param tag string to identify domain of state
-     * @param options configure the dispatch with optional mergeSaga or requestConfig
      * @param url HTTP endpoint to make the request
+     * @param options configure the dispatch with optional mergeSaga or requestConfig
      */
-    simpleHttpDelete: (tag: string, options: IDispatchOptions, url: string) => IAction<SIMPLEREDUX.HTTP_DELETE, ISimpleReduxPayload>;
+    simpleHttpDelete: (tag: string, url: string, options?: IDispatchOptions) => IAction<SIMPLEREDUX.HTTP_DELETE, ISimpleReduxPayload>;
     /**
      * Dispatch HTTP Get action, returns response/failure to a specific tag
      * @param tag string to identify domain of state
      * @param options configure the dispatch with optional mergeSaga or requestConfig
      * @param url HTTP endpoint to make the request
      */
-    simpleHttpGet: (tag: string, options: IDispatchOptions, url: string) => IAction<SIMPLEREDUX.HTTP_GET, ISimpleReduxPayload>;
+    simpleHttpGet: (tag: string, url: string, options?: IDispatchOptions) => IAction<SIMPLEREDUX.HTTP_GET, ISimpleReduxPayload>;
     /**
      * Dispatch HTTP Head action, returns response/failure to a specific tag
      * @param tag string to identify domain of state
      * @param options configure the dispatch with optional mergeSaga or requestConfig
      * @param url HTTP endpoint to make the request
      */
-    simpleHttpHead: (tag: string, options: IDispatchOptions, url: string) => IAction<SIMPLEREDUX.HTTP_HEAD, ISimpleReduxPayload>;
+    simpleHttpHead: (tag: string, url: string, options?: IDispatchOptions) => IAction<SIMPLEREDUX.HTTP_HEAD, ISimpleReduxPayload>;
     /**
      * Dispatch HTTP Patch action, returns response/failure to a specific tag
      * @param tag string to identify domain of state
@@ -116,7 +116,7 @@ export interface IDispatchSimpleRedux {
      * @param url HTTP endpoint to make the request
      * @param data data to include in request body
      */
-    simpleHttpPatch: (tag: string, options: IDispatchOptions, url: string, data: any) => IAction<SIMPLEREDUX.HTTP_PATCH, ISimpleReduxPayload>;
+    simpleHttpPatch: (tag: string, url: string, data: any, options?: IDispatchOptions) => IAction<SIMPLEREDUX.HTTP_PATCH, ISimpleReduxPayload>;
     /**
      * Dispatch HTTP Post action, returns response/failure to a specific tag
      * @param tag string to identify domain of state
@@ -124,7 +124,7 @@ export interface IDispatchSimpleRedux {
      * @param url HTTP endpoint to make the request
      * @param data data to include in request body
      */
-    simpleHttpPost: (tag: string, options: IDispatchOptions, url: string, data: any) => IAction<SIMPLEREDUX.HTTP_POST, ISimpleReduxPayload>;
+    simpleHttpPost: (tag: string, url: string, data: any, options?: IDispatchOptions) => IAction<SIMPLEREDUX.HTTP_POST, ISimpleReduxPayload>;
     /**
      * Dispatch HTTP Put action, returns response/failure to a specific tag
      * @param tag string to identify domain of state
@@ -132,7 +132,7 @@ export interface IDispatchSimpleRedux {
      * @param url HTTP endpoint to make the request
      * @param data data to include in request body
      */
-    simpleHttpPut: (tag: string, options: IDispatchOptions, url: string, data: any) => IAction<SIMPLEREDUX.HTTP_PUT, ISimpleReduxPayload>;
+    simpleHttpPut: (tag: string, url: string, data: any, options?: IDispatchOptions) => IAction<SIMPLEREDUX.HTTP_PUT, ISimpleReduxPayload>;
 }
 interface IPrivateDispatchSimpleRedux extends IDispatchSimpleRedux {
     /**
@@ -140,7 +140,7 @@ interface IPrivateDispatchSimpleRedux extends IDispatchSimpleRedux {
      * @param tag string to identify domain of state
      * @param error object with error fields
      */
-    simpleFailure: (tag: string, options: IDispatchOptions, error: any) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>;
+    simpleFailure: (tag: string, error: any, options?: IDispatchOptions) => IAction<SIMPLEREDUX.FAILURE, ISimpleReduxPayload>;
 }
 /**
  * SimpleRedux Dispatch Object
@@ -188,7 +188,7 @@ export declare function watchSimpleReduxSagas(): SimpleReduxSaga;
 /** Loops over data from payload path and saves to tag in Redux from  keyLookup */
 export declare const mapMergeSaga: (payloadPath: string | string[], keyLookup: {
     [key: string]: string;
-}, simpleMergeData: (tag: string, options: IDispatchOptions, data: any) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>, options?: IDispatchOptions) => (payload: ISimpleReduxPayloadTag) => IterableIterator<IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>>;
+}, simpleMergeData: (tag: string, data: any, options?: IDispatchOptions) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>, options?: IDispatchOptions) => (payload: ISimpleReduxPayloadTag) => IterableIterator<IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>>;
 "
 `;
 
@@ -196,7 +196,7 @@ exports[`Dist bundle utilities/index.d.ts is unchanged 1`] = `
 "import { History, Location } from \\"history\\";
 import { match } from \\"react-router\\";
 import { ForkEffectDescriptor, SimpleEffect } from \\"redux-saga/effects\\";
-export * from \\"./onFnCall\\";
+export * from \\"./handleDispatch\\";
 export * from \\"./simpleSelector\\";
 /**
  * redux-sagas types copied manually in since they are not yet exported
