@@ -1,8 +1,7 @@
-import { simpleSelectorGet } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
-import { HowToComponent, SampleTableComponent } from "src/components"
-import { SampleFormContainer, SampleNetworkContainer } from "src/containers"
+import { HowToComponent } from "src/components"
+import { LoadDataForm, LoadDataTable } from "src/containers"
 import {
   IDispatchProps,
   IState,
@@ -10,34 +9,15 @@ import {
   mapStateToProps
 } from "src/ducks"
 
-class TabContainer extends React.Component<IState & IDispatchProps, IState> {
-  private tableTag = "Cars"
-  private tableUrl =
-    "https://cashapp.github.io/misk-web/examples/data/demo/cars.json"
-
-  componentDidMount() {
-    this.props.simpleHttpGet(this.tableTag, this.tableUrl)
-  }
-
-  render() {
-    return (
-      <div>
-        <SampleTableComponent
-          data={simpleSelectorGet(
-            this.props.simpleRedux,
-            [this.tableTag, "data", "cars"],
-            []
-          )}
-          rows={5}
-          url={this.tableUrl}
-          tag={this.tableTag}
-        />
-        <HowToComponent />
-        <SampleNetworkContainer />
-        <SampleFormContainer />
-      </div>
-    )
-  }
+const TabContainer = (props: IState & IDispatchProps) => {
+  const tag = "LoadData"
+  return (
+    <div>
+      <HowToComponent />
+      <LoadDataForm tag={tag} />
+      <LoadDataTable tag={tag} />
+    </div>
+  )
 }
 
 export default connect(

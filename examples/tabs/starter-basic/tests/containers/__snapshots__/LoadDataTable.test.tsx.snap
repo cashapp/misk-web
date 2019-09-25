@@ -1,18 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SampleTableComponent SampleTableComponent can render with data 1`] = `
+exports[`LoadDataTable LoadDataTable can render with data 1`] = `
 <DocumentFragment>
   <div>
-    <h1
-      class="bp3-heading"
+    <div
+      class="bp3-progress-bar"
     >
-      Sample Table Component :: test tag
-    </h1>
-    <pre
-      class="bp3-code-block"
-    >
-      url: http://test.com/
-    </pre>
+      <div
+        class="bp3-progress-meter"
+      />
+    </div>
     <table
       class="bp3-html-table bp3-html-table-bordered bp3-html-table-striped"
     >
@@ -99,19 +96,16 @@ exports[`SampleTableComponent SampleTableComponent can render with data 1`] = `
 </DocumentFragment>
 `;
 
-exports[`SampleTableComponent SampleTableComponent skeleton UI 1`] = `
+exports[`LoadDataTable LoadDataTable can render with redux 1`] = `
 <DocumentFragment>
   <div>
-    <h1
-      class="bp3-heading"
+    <div
+      class="bp3-progress-bar"
     >
-      Sample Table Component :: test tag
-    </h1>
-    <pre
-      class="bp3-code-block"
-    >
-      url: http://test.com/
-    </pre>
+      <div
+        class="bp3-progress-meter"
+      />
+    </div>
     <table
       class="bp3-html-table bp3-html-table-bordered bp3-html-table-striped"
     >

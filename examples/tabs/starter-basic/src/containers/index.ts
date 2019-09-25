@@ -1,4 +1,4 @@
-import SampleFormContainer from "./SampleFormContainer"
-import SampleNetworkContainer from "./SampleNetworkContainer"
+import LoadDataForm from "./LoadDataForm"
+import LoadDataTable from "./LoadDataTable"
 import TabContainer from "./TabContainer"
-export { SampleFormContainer, SampleNetworkContainer, TabContainer }
+export { LoadDataForm, LoadDataTable, TabContainer }

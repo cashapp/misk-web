@@ -17,21 +17,11 @@ import {
 import { History } from "history"
 import { AnyAction, combineReducers, Reducer } from "redux"
 import { all, fork } from "redux-saga/effects"
-import {
-  dispatchStarterBasic,
-  IDispatchStarterBasic,
-  IStarterBasicImmutableState,
-  IStarterBasicState,
-  StarterBasicReducer,
-  watchStarterBasicSagas
-} from "./starterBasic"
-export * from "./starterBasic"
 
 /**
  * Redux Store State
  */
 export interface IState {
-  starterBasic: IStarterBasicState
   router: Reducer<RouterState, LocationChangeAction>
   simpleRedux: ISimpleReduxState
 }
@@ -40,23 +30,17 @@ export interface IState {
  * Dispatcher
  */
 export interface IDispatchProps
-  extends IDispatchStarterBasic,
-    IDispatchSimpleRedux,
+  extends IDispatchSimpleRedux,
     IRouterProvidedProps {}
 
 export const rootDispatcher: IDispatchProps = {
-  ...dispatchSimpleRedux,
-  ...dispatchStarterBasic
+  ...dispatchSimpleRedux
 }
 
 /**
  * State Selectors
  */
 export const rootSelectors = (state: IState) => ({
-  starterBasic: simpleRootSelector<IState, IStarterBasicImmutableState>(
-    "starterBasic",
-    state
-  ),
   router: state.router,
   simpleRedux: simpleRootSelector<IState, ISimpleReduxImmutableState>(
     "simpleRedux",
@@ -69,7 +53,6 @@ export const rootSelectors = (state: IState) => ({
  */
 export const rootReducer = (history: History): Reducer<any, AnyAction> =>
   combineReducers({
-    starterBasic: StarterBasicReducer,
     router: connectRouter(history),
     simpleRedux: SimpleReduxReducer
   })
@@ -78,7 +61,7 @@ export const rootReducer = (history: History): Reducer<any, AnyAction> =>
  * Sagas
  */
 export function* rootSaga(): SimpleReduxSaga {
-  yield all([fork(watchStarterBasicSagas), fork(watchSimpleReduxSagas)])
+  yield all([fork(watchSimpleReduxSagas)])
 }
 
 /**
