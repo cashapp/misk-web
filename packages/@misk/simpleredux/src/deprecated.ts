@@ -1,14 +1,14 @@
 import { AxiosResponse, AxiosRequestConfig } from "axios"
 import { SIMPLEREDUX } from "./action"
-import { IAction, IRootState } from "./utilities"
 import {
   ISimpleReduxPayload,
   dispatchDefault,
+  dispatchSimpleRedux,
   privateDispatchSimpleRedux
 } from "./dispatch"
-import { dispatchSimpleRedux } from "src"
 import { SimpleReduxReducer } from "./reducer"
 import { watchSimpleReduxSagas } from "./saga"
+import { IAction, IRootState } from "./utilities"
 
 /** All Deprecated APIs live here for long term compatability */
 

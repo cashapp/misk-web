@@ -3,21 +3,21 @@ import { get } from "lodash"
 import { all, call, put, takeEvery } from "redux-saga/effects"
 import { SIMPLEREDUX } from "./action"
 import {
-  IAction,
-  getFirstTag,
-  jsonOrString,
-  SimpleReduxSaga
-} from "./utilities"
-import {
   dispatchDefault,
   dispatchSimpleRedux,
+  IDispatchSimpleRedux,
   ISimpleReduxPayload,
   ISimpleReduxPayloadTag,
   ISimpleHttpPayloadTag,
   privateDispatchSimpleRedux,
   IDispatchOptions
 } from "./dispatch"
-import { IDispatchSimpleRedux } from "src"
+import {
+  IAction,
+  getFirstTag,
+  jsonOrString,
+  SimpleReduxSaga
+} from "./utilities"
 
 /** Map to lookup HTTP library function to handle the network related SimpleRedux action */
 const ActionTypeToHttpCall: { [key: string]: any } = {

@@ -1,6 +1,6 @@
-import { defaultRootState, IAction, IRootState } from "./utilities"
 import { SIMPLEREDUX } from "./action"
 import { ISimpleReduxPayload } from "./dispatch"
+import { defaultRootState, IAction, IRootState } from "./utilities"
 
 /**
  * Key included in SimpleRedux state to identify that it is compatible with @misk/simpleredux

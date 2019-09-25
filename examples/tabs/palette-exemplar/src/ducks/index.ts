@@ -3,8 +3,8 @@ import {
   SimpleReduxSaga,
   simpleRootSelector,
   ISimpleReduxState,
-  dispatchSimpleRedux,
   IDispatchSimpleRedux,
+  dispatchSimpleRedux,
   ISimpleReduxImmutableState,
   SimpleReduxReducer,
   watchSimpleReduxSagas

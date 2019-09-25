@@ -1,11 +1,11 @@
 import { AxiosResponse, AxiosRequestConfig } from "axios"
 import { SIMPLEREDUX } from "./action"
 import {
-  IDefaultState,
-  IAction,
+  booleanToggle,
   createAction,
-  simpleSelectorGet,
-  booleanToggle
+  IAction,
+  IDefaultState,
+  simpleSelectorGet
 } from "./utilities"
 
 /**
