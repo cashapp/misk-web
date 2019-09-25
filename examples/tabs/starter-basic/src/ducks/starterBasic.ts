@@ -13,10 +13,10 @@ import { all, call, put, takeLatest } from "redux-saga/effects"
  * Actions
  * string enum of the defined actions that is used as type enforcement for Reducer and Sagas arguments
  */
-export enum PALETTE {
-  DINOSAUR = "PALETTE_DINOSAUR",
-  SUCCESS = "PALETTE_SUCCESS",
-  FAILURE = "PALETTE_FAILURE"
+export enum STARTERBASIC {
+  DINOSAUR = "STARTERBASIC_DINOSAUR",
+  SUCCESS = "STARTERBASIC_SUCCESS",
+  FAILURE = "STARTERBASIC_FAILURE"
 }
 
 /**
@@ -24,39 +24,56 @@ export enum PALETTE {
  * Object of functions that dispatch Actions with standard defaults and any required passed in input
  * dispatch Object is used within containers to initiate any saga provided functionality
  */
-export interface IPalettePayload {
+export interface IStarterBasicPayload {
   data?: any
   error: any
   loading: boolean
   success: boolean
 }
 
-export interface IDispatchPalette {
-  paletteDinosaur: (
+export interface IDispatchStarterBasic {
+  starterBasicDinosaur: (
     data: any,
     fieldTag: string,
     formTag: string
-  ) => IAction<PALETTE.DINOSAUR, IPalettePayload>
-  paletteFailure: (error: any) => IAction<PALETTE.FAILURE, IPalettePayload>
-  paletteSuccess: (data: any) => IAction<PALETTE.SUCCESS, IPalettePayload>
+  ) => IAction<STARTERBASIC.DINOSAUR, IStarterBasicPayload>
+  starterBasicFailure: (
+    error: any
+  ) => IAction<STARTERBASIC.FAILURE, IStarterBasicPayload>
+  starterBasicSuccess: (
+    data: any
+  ) => IAction<STARTERBASIC.SUCCESS, IStarterBasicPayload>
 }
 
-export const dispatchPalette: IDispatchPalette = {
-  paletteDinosaur: () =>
-    createAction(PALETTE.DINOSAUR, {
-      error: null,
-      loading: true,
-      success: false
-    }),
-  paletteFailure: (error: any) =>
-    createAction(PALETTE.FAILURE, { ...error, loading: false, success: false }),
-  paletteSuccess: (data: any) =>
-    createAction(PALETTE.SUCCESS, {
-      ...data,
-      error: null,
-      loading: false,
-      success: true
-    })
+export const dispatchStarterBasic: IDispatchStarterBasic = {
+  starterBasicDinosaur: () =>
+    createAction<STARTERBASIC.DINOSAUR, IStarterBasicPayload>(
+      STARTERBASIC.DINOSAUR,
+      {
+        error: null,
+        loading: true,
+        success: false
+      }
+    ),
+  starterBasicFailure: (error: any) =>
+    createAction<STARTERBASIC.FAILURE, IStarterBasicPayload>(
+      STARTERBASIC.FAILURE,
+      {
+        ...error,
+        loading: false,
+        success: false
+      }
+    ),
+  starterBasicSuccess: (data: any) =>
+    createAction<STARTERBASIC.SUCCESS, IStarterBasicPayload>(
+      STARTERBASIC.SUCCESS,
+      {
+        ...data,
+        error: null,
+        loading: false,
+        success: true
+      }
+    )
 }
 
 /**
@@ -72,40 +89,40 @@ export const dispatchPalette: IDispatchPalette = {
  *  function to prevent unhelpful errors. Ie. a failed request error is
  *  returned but it actually was just a parsing error within the try/catch.
  */
-function* handleDinosaur() {
+function* handleDinosaur(action: IAction<STARTERBASIC, IStarterBasicPayload>) {
   try {
     const { data } = yield call(
       axios.get,
       "https://jsonplaceholder.typicode.com/posts/"
     )
-    yield put(dispatchPalette.paletteSuccess({ data }))
+    yield put(dispatchStarterBasic.starterBasicSuccess({ data }))
   } catch (e) {
-    yield put(dispatchPalette.paletteFailure({ error: { ...e } }))
+    yield put(dispatchStarterBasic.starterBasicFailure({ error: { ...e } }))
   }
 }
 
-export function* watchPaletteSagas(): SimpleReduxSaga {
-  yield all([takeLatest(PALETTE.DINOSAUR, handleDinosaur)])
+export function* watchStarterBasicSagas(): SimpleReduxSaga {
+  yield all([takeLatest(STARTERBASIC.DINOSAUR, handleDinosaur)])
 }
 
 /**
  * Initial State
  * Reducer merges all changes from dispatched action objects on to this initial state
  */
-const initialState = defaultRootState("palette")
+const initialState = defaultRootState("starterBasic")
 
 /**
  * Duck Reducer
  * Merges dispatched action objects on to the existing (or initial) state to generate new state
  */
-export const PaletteReducer = (
+export const StarterBasicReducer = (
   state = initialState,
-  action: IAction<string, {}>
+  action: IAction<STARTERBASIC, {}>
 ) => {
   switch (action.type) {
-    case PALETTE.DINOSAUR:
-    case PALETTE.FAILURE:
-    case PALETTE.SUCCESS:
+    case STARTERBASIC.DINOSAUR:
+    case STARTERBASIC.FAILURE:
+    case STARTERBASIC.SUCCESS:
       return state.merge(action.payload)
     default:
       return state
@@ -118,10 +135,10 @@ export const PaletteReducer = (
  * Consumed by the root reducer in ./ducks index to update global state
  * Duck state is attached at the root level of global state
  */
-export interface IPaletteState extends IRootState {
+export interface IStarterBasicState extends IRootState {
   [key: string]: any
 }
 
-export interface IPaletteImmutableState extends Map<string, any> {
-  toJS: () => IPaletteState
+export interface IStarterBasicImmutableState extends Map<string, any> {
+  toJS: () => IStarterBasicState
 }

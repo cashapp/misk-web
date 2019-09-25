@@ -4,4 +4,4 @@ import routes from "./routes"
 export * from "./components"
 export * from "./containers"
 
-createIndex("palette", createApp(routes), Ducks)
+createIndex("starter-basic", createApp(routes), Ducks)

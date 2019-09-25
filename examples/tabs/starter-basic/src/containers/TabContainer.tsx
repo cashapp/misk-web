@@ -1,6 +1,7 @@
 import { simpleSelectorGet } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
+import { HowToComponent, SampleTableComponent } from "src/components"
 import { SampleFormContainer, SampleNetworkContainer } from "src/containers"
 import {
   IDispatchProps,
@@ -8,11 +9,6 @@ import {
   mapDispatchToProps,
   mapStateToProps
 } from "src/ducks"
-import {
-  HowToComponent,
-  SampleTableComponent,
-  SampleRouterComponent
-} from "src/components"
 
 class TabContainer extends React.Component<IState & IDispatchProps, IState> {
   private tableTag = "Cars"
@@ -20,7 +16,7 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
     "https://cashapp.github.io/misk-web/examples/data/demo/cars.json"
 
   componentDidMount() {
-    this.props.simpleNetworkGet(this.tableTag, this.tableUrl)
+    this.props.simpleHttpGet(this.tableTag, this.tableUrl)
   }
 
   render() {
@@ -28,7 +24,7 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
       <div>
         <SampleTableComponent
           data={simpleSelectorGet(
-            this.props.simpleNetwork,
+            this.props.simpleRedux,
             [this.tableTag, "data", "cars"],
             []
           )}
@@ -39,11 +35,6 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
         <HowToComponent />
         <SampleNetworkContainer />
         <SampleFormContainer />
-        <SampleRouterComponent
-          history={this.props.history}
-          location={this.props.location}
-          match={this.props.match}
-        />
       </div>
     )
   }
