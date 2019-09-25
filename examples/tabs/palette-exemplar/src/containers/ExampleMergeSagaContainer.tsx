@@ -10,7 +10,8 @@ import {
   mapMergeSaga,
   onChangeFnCall,
   simpleSelectorGet,
-  simpleSelectorPickTransform
+  simpleSelectorPickTransform,
+  handler
 } from "@misk/simpleredux"
 import { invert } from "lodash"
 import * as React from "react"
@@ -18,11 +19,14 @@ import { connect } from "react-redux"
 import {
   IDispatchProps,
   IState,
-  mapDispatchToProps,
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 } from "src/ducks"
 
-export const ExampleMergeSagaContainer = (props: IDispatchProps & IState) => {
+export const ExampleMergeSagaContainer = (
+  props: IDispatchProps & IState & any
+) => {
+  console.log(props)
   const MergeTag = "ExampleMergeSaga"
   // Maintains mapping of keys from the network request keys <=> SimpleRedux tags
   const keyLookup: { [key: string]: string } = {
@@ -57,19 +61,18 @@ export const ExampleMergeSagaContainer = (props: IDispatchProps & IState) => {
         request.
       </p>
       <Button
-        onClick={() => {
-          props.simpleMerge(
-            `${MergeTag}::test-post`,
-            {
-              mergeSaga: mapMergeSaga(
-                "data.data",
-                keyLookup,
-                props.simpleMergeData
-              )
-            },
-            networkResponse
-          )
-        }}
+        onClick={handler.simpleMerge(
+          props,
+          `${MergeTag}::test-post`,
+          {
+            mergeSaga: mapMergeSaga(
+              "data.data",
+              keyLookup,
+              props.simpleMergeData
+            )
+          },
+          networkResponse
+        )}
         intent={Intent.PRIMARY}
         loading={simpleSelectorGet(props.simpleRedux, [
           `${MergeTag}::test-post`,
@@ -83,7 +86,7 @@ export const ExampleMergeSagaContainer = (props: IDispatchProps & IState) => {
           <InputGroup
             id="text-input"
             placeholder={requestKey}
-            onChange={onChangeFnCall(props.simpleMergeData, `${reduxTag}`, {})}
+            onChange={onChangeFnCall(props.simpleMergeData, `${reduxTag}`)}
             value={simpleSelectorGet(props.simpleRedux, [
               `${reduxTag}`,
               "data"

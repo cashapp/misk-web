@@ -1,6 +1,6 @@
 import { SIMPLEREDUX } from "src/action"
 import { dispatchSimpleRedux, privateDispatchSimpleRedux } from "src/dispatch"
-import { data, error, requestData, tag, url } from "./testFixtures"
+import { data, error, requestData, tag, url } from "tests/testFixtures"
 
 describe("dispatchSimpleRedux", () => {
   it("simpleFailure", () => {
@@ -70,23 +70,6 @@ describe("dispatchSimpleRedux", () => {
       }
     }
     expect(dispatchSimpleRedux.simpleMergeData(tag, data)).toEqual(action)
-  })
-
-  it("simpleMergeTag", () => {
-    const action = {
-      type: SIMPLEREDUX.MERGE,
-      payload: {
-        [tag]: {
-          error: null as any,
-          loading: false,
-          options: {},
-          success: true,
-          tag,
-          ...data
-        }
-      }
-    }
-    expect(dispatchSimpleRedux.simpleMerge(tag, data)).toEqual(action)
   })
 
   it("simpleMergeNumber", () => {
