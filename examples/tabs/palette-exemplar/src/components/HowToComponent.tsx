@@ -1,4 +1,4 @@
-import { H1 } from "@blueprintjs/core"
+import { H1, H3 } from "@blueprintjs/core"
 import * as React from "react"
 export const HowToComponent = () => {
   return (
@@ -19,6 +19,11 @@ export const HowToComponent = () => {
           URL requests below
         </li>
       </ol>
+      <H3>
+        Good luck building on Misk-Web! See the{" "}
+        <a href="https://cashapp.github.io/misk-web/">docs</a> or{" "}
+        <a href="https://github.com/cashapp/misk-web">repo</a> to learn more.
+      </H3>
     </div>
   )
 }
