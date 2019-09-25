@@ -36,6 +36,7 @@ $ yarn add @misk/core
 ## Features
 
 - `Navbar`: Related and themeable components to a dashboard styled Navbar
+- `Table`: Basic table that parses heading keys from the array of objects passed in as data props
 
 ## Utilities
 
