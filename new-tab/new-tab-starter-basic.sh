@@ -52,9 +52,15 @@ sh -c "$CMD_SLUG_CASE"
 
 # Set zipOnBuild to false in miskTab.json
 echo "Set zipOnBuild to false in miskTab.json"
-sed -i 's/"zipOnBuild": true,/"zipOnBuild": false,/g' ./${NEW_SLUG_CASE}/miskTab.json
+sed -i -e 's/"zipOnBuild": true,/"zipOnBuild": false,/g' ./${NEW_SLUG_CASE}/miskTab.json
 # Remove sed generated original file
 rm ./${NEW_SLUG_CASE}/miskTab.json-e
+
+# Remove open route in routes/index.ts
+echo "Remove open route in routes/index.ts"
+sed -i -e 's/<Route component={TabContainer} \/>//g' ./${NEW_SLUG_CASE}/src/routes/index.tsx
+# Remove sed generated original file
+rm ./${NEW_SLUG_CASE}/src/routes/index.tsx-e
 
 echo "Remove intermediate new-tab files"
 rm starter-basic.tgz
