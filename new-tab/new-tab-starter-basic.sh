@@ -50,13 +50,13 @@ sh -c "$CMD_SLUG_CASE"
 
 # echo "Recursively updating code from ${OLD_SLUG_CASE} => ${NEW_SLUG_CASE}"
 
-echo "Set zipOnBuild to false in miskTab.json"
-sed -i -e 's/"zipOnBuild": true,/"zipOnBuild": false,/g' ./${NEW_SLUG_CASE}/miskTab.json
+echo "Set output_path to Jar compatible path in miskTab.json"
+sed -i -e "s/\"output_path\": \"lib\",/\"output_path\": \"lib\/web\/_tab\/${NEW_SLUG_CASE}\",/g" ./${NEW_SLUG_CASE}/miskTab.json
 # Remove sed generated original file
 rm ./${NEW_SLUG_CASE}/miskTab.json-e
 
-echo "Set output_path to Jar compatible path in miskTab.json"
-sed -i -e "s/\"output_path\": \"lib\",/\"output_path\": \"lib\/web\/_tab\/${NEW_SLUG_CASE}\",/g" ./${NEW_SLUG_CASE}/miskTab.json
+echo "Set zipOnBuild to false in miskTab.json"
+sed -i -e 's/"zipOnBuild": true,/"zipOnBuild": false,/g' ./${NEW_SLUG_CASE}/miskTab.json
 # Remove sed generated original file
 rm ./${NEW_SLUG_CASE}/miskTab.json-e
 
