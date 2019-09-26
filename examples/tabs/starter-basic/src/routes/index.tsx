@@ -7,6 +7,7 @@ const routes = (
     <Switch>
       <Route path="/_admin/starter-basic/" component={TabContainer} />
       {/* Do not include a Route without a path or it will display during on all tabs */}
+      <Route component={TabContainer} />
     </Switch>
   </div>
 )

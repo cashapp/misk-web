@@ -10,14 +10,8 @@ import {
   execute
 } from "../utils"
 export const command = "pin <pinnedVersion>"
-export const desc = "pin version for all tab Misk Web dependencies\n"
-export const positional = (yargs: any): any => {
-  yargs.positional("pinnedVersion", {
-    describe:
-      "a Misk Web release version. All Misk-Web dependencies in your tab will use this version in package.json",
-    type: "string"
-  })
-}
+export const desc =
+  "pin version for all tab Misk Web dependencies\n<pinnedVersion> a Misk Web release version. All Misk-Web dependencies in your tab will use this version in package.json\n"
 export const handlerFn = async (...args: any) => {
   const { dir, rawArgs } = parseArgs(...args)
   const { pinnedVersion } = rawArgs[0]

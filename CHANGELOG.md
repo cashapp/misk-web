@@ -1,5 +1,18 @@
 ## Changelog
 
+## 0.1.20-1
+
+25 Sept 2019 20:40:00 GMT
+
+### @misk/cli
+
+- `new` command now accepts two positional arguments for `titleCase` and `slugCase` names for the new tab to be generated. The Misk-Web CLI no longer requires manual invocation of `./new-tab.sh`!
+
+### Example Tabs
+
+- Add support to `./new-tab-starter-basic.sh` that allow `starter-basic` to be used in docs site demo and as template for new tabs
+- Add `Palette-Exemplar` and `Palette-LTS` tabs to docs site example demos
+
 ## 0.1.20-0
 
 25 Sept 2019 20:40:00 GMT

@@ -28,6 +28,20 @@ jobs:
       - run:
           name: Building...
           command: node common/scripts/install-run-rush.js rebuild --verbose
+  new:
+    docker:
+      - image: circleci/node:10.15
+    steps:
+      - checkout
+      - run:
+          name: Misk-Web Install...
+          command: sudo npm install -g @misk/cli
+      - run:
+          name: Create test directory...
+          command: mkdir new-tab-ci-test && cd new-tab-ci-test
+      - run:
+          name: miskweb new...
+          command: miskweb new "Alpha Bravo" "alpha-bravo"
   java:
     docker:
       - image: circleci/openjdk:11-jdk
@@ -52,6 +66,10 @@ workflows:
           filters:
             branches:
               ignore: gh-pages
+      - new:
+          filters:
+            branches:
+              ignore: gh-pages
   continuous-testing:
     jobs:
       - node:
@@ -63,6 +81,10 @@ workflows:
             branches:
               ignore: gh-pages
       - docs:
+          filters:
+            branches:
+              ignore: gh-pages
+      - new:
           filters:
             branches:
               ignore: gh-pages

@@ -14,10 +14,13 @@ cat $MW/CHANGELOG.md > $MW/docs/docs/guides/changelog.md
 cat $MW/CONTRIBUTING.md > $MW/docs/docs/guides/contributing.md
 cat $MW/docs/README.md > $MW/docs/docs/guides/contributing-to-the-docs.md
 
-# Copy over Palette demo
-DIR=$EXAMPLES/tabs/palette/demo
-mkdir -p $DIR
-cp -r $MW/examples/tabs/palette/lib/* $DIR
+# Copy over tab demos
+declare -a tabs=("palette-exemplar" "palette-lts" "starter-basic")
+for tab in "${tabs[@]}"; do
+  DIR=$EXAMPLES/tabs/$tab/demo
+  mkdir -p $DIR
+  cp -r $MW/examples/tabs/$tab/lib/* $DIR
+done
 
 # Copy over example data demo
 DIR=$EXAMPLES/data/demo
