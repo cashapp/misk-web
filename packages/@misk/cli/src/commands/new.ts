@@ -1,17 +1,23 @@
-import { logDebug, execute, handleCommand } from "../utils"
-export const command = "new"
-export const desc = "create a new tab in the current directory\n"
+import { execute, handleCommand, logDebug, parseArgs } from "../utils"
+export const command = "new <titleCase> <slugCase>"
+export const desc =
+  'create a new tab in the current directory\n<titleCase> title space case name of new tab, surround with quotes (ex. "Alpha Bravo")\n<slugCase> slug case name of new tab, surround with quotes (ex. "alpha-bravo")\n'
 export const handlerFn = async (...args: any) => {
-  logDebug(command, desc)
+  const cmd = "new"
+  const { rawArgs } = parseArgs(...args)
+
+  logDebug(cmd, desc)
   execute(
     "curl -s https://raw.githubusercontent.com/cashapp/misk-web/master/new-tab/get-new-tab.sh | bash -s",
     ...args
   )
-  logDebug(
-    command,
-    "A new-tab.sh script has been downloaded. Run it to build your new tab off of the latest Starter Basic tab."
-  )
-  logDebug(command, "$ ./new-tab-starter-basic.sh")
+
+  const { titleCase, slugCase } = rawArgs[0]
+  logDebug(cmd, "New tab being created with")
+  logDebug(cmd, `title: ${titleCase}`)
+  logDebug(cmd, `slug: ${slugCase}`)
+
+  execute(`./new-tab-starter-basic.sh "${titleCase}" "${slugCase}"`)
 }
 export const handler = async (yargs: any) =>
   handleCommand(yargs, handlerFn, ["e", "each"])
