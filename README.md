@@ -12,31 +12,31 @@ Misk-Web is still bleeding edge and may have breaking changes up until version `
 
 - [Building a Tab Guide](https://cashapp.github.io/misk-web/docs/guides/building-a-tab)
 - [Integrating with Misk Guide](https://cashapp.github.io/misk-web/docs/guides/integrating-with-misk)
-- [Examples](https://cashapp.github.io/misk-web/docs/examples)
+- [Examples](https://cashapp.github.io/misk-web/examples/)
 - [Changelog](https://cashapp.github.io/misk-web/docs/guides/changelog)
 - [Other Repo Information](https://cashapp.github.io/misk-web/docs/guides)
 
-
 ## NPM Packages
 
--  [![npm](https://img.shields.io/npm/v/@misk/core.svg?label=@misk/core)](https://www.npmjs.com/package/@misk/core) &ndash; [Docs][coreDocs] &ndash; React + Typescript components and utilities
--  [![npm](https://img.shields.io/npm/v/@misk/simpleredux.svg?label=@misk/simpleredux)](https://www.npmjs.com/package/@misk/simpleredux) &ndash; [Docs][simplereduxDocs] &ndash; A simpler way to wire up interactive form, network, and other components with Redux
--  [![npm](https://img.shields.io/npm/v/@misk/common.svg?label=@misk/common)](https://www.npmjs.com/package/@misk/common) &ndash; [Docs][commonDocs] &ndash; Common interfaces, colors, constants
--  [![npm](https://img.shields.io/npm/v/@misk/dev.svg?label=@misk/dev)](https://www.npmjs.com/package/@misk/dev) &ndash; [Docs][devDocs] &ndash; Shared developer build tools
--  [![npm](https://img.shields.io/npm/v/@misk/prettier.svg?label=@misk/prettier)](https://www.npmjs.com/package/@misk/prettier) &ndash; [Docs][prettierDocs] &ndash; Shared [Prettier config](https://prettier.io/docs/en/configuration.html)
--  [![npm](https://img.shields.io/npm/v/@misk/test.svg?label=@misk/test)](https://www.npmjs.com/package/@misk/test) &ndash; [Docs][testDocs] &ndash; Test libraries (Jest) and configuration
--  [![npm](https://img.shields.io/npm/v/@misk/tslint.svg?label=@misk/tslint)](https://www.npmjs.com/package/@misk/tslint) &ndash; [Docs][tslintDocs] &ndash; Standard TSLint configuration and rules
+- [![npm](https://img.shields.io/npm/v/@misk/core.svg?label=@misk/core)](https://www.npmjs.com/package/@misk/core) &ndash; [Docs][coredocs] &ndash; React + Typescript components and utilities
+- [![npm](https://img.shields.io/npm/v/@misk/simpleredux.svg?label=@misk/simpleredux)](https://www.npmjs.com/package/@misk/simpleredux) &ndash; [Docs][simplereduxdocs] &ndash; A simpler way to wire up interactive form, network, and other components with Redux
+- [![npm](https://img.shields.io/npm/v/@misk/common.svg?label=@misk/common)](https://www.npmjs.com/package/@misk/common) &ndash; [Docs][commondocs] &ndash; Common interfaces, colors, constants
+- [![npm](https://img.shields.io/npm/v/@misk/dev.svg?label=@misk/dev)](https://www.npmjs.com/package/@misk/dev) &ndash; [Docs][devdocs] &ndash; Shared developer build tools
+- [![npm](https://img.shields.io/npm/v/@misk/prettier.svg?label=@misk/prettier)](https://www.npmjs.com/package/@misk/prettier) &ndash; [Docs][prettierdocs] &ndash; Shared [Prettier config](https://prettier.io/docs/en/configuration.html)
+- [![npm](https://img.shields.io/npm/v/@misk/test.svg?label=@misk/test)](https://www.npmjs.com/package/@misk/test) &ndash; [Docs][testdocs] &ndash; Test libraries (Jest) and configuration
+- [![npm](https://img.shields.io/npm/v/@misk/tslint.svg?label=@misk/tslint)](https://www.npmjs.com/package/@misk/tslint) &ndash; [Docs][tslintdocs] &ndash; Standard TSLint configuration and rules
 
 #### Deprecated NPM Packages
+
 - [![npm](https://img.shields.io/npm/v/@misk/components.svg?label=@misk/components)](https://www.npmjs.com/package/@misk/components) &ndash; Deprecated, migrated to `@misk/core`
 
 [repo]: https://github.com/cashapp/misk-web/
 [docs]: https://cashapp.github.io/misk-web/
-[coreDocs]: https://cashapp.github.io/misk-web/docs/packages/core/
-[simplereduxDocs]: https://cashapp.github.io/misk-web/docs/packages/simpleredux/
-[commonDocs]: https://cashapp.github.io/misk-web/docs/packages/common/
-[devDocs]: https://cashapp.github.io/misk-web/docs/packages/dev/
-[prettierDocs]: https://cashapp.github.io/misk-web/docs/packages/prettier/
-[testDocs]: https://cashapp.github.io/misk-web/docs/packages/test/
-[tslintDocs]: https://cashapp.github.io/misk-web/docs/packages/tslint/
-[componentsDocs]: https://cashapp.github.io/misk-web/docs/packages/components/
+[coredocs]: https://cashapp.github.io/misk-web/docs/packages/core/
+[simplereduxdocs]: https://cashapp.github.io/misk-web/docs/packages/simpleredux/
+[commondocs]: https://cashapp.github.io/misk-web/docs/packages/common/
+[devdocs]: https://cashapp.github.io/misk-web/docs/packages/dev/
+[prettierdocs]: https://cashapp.github.io/misk-web/docs/packages/prettier/
+[testdocs]: https://cashapp.github.io/misk-web/docs/packages/test/
+[tslintdocs]: https://cashapp.github.io/misk-web/docs/packages/tslint/
+[componentsdocs]: https://cashapp.github.io/misk-web/docs/packages/components/

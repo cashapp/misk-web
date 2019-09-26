@@ -60,6 +60,11 @@ sed -i -e "s/\"output_path\": \"lib\",/\"output_path\": \"lib\/web\/_tab\/${NEW_
 # Remove sed generated original file
 rm ./${NEW_SLUG_CASE}/miskTab.json-e
 
+echo "Set useWebpackExternals to true in miskTab.json"
+sed -i -e 's/"useWebpackExternals": false,/"useWebpackExternals": true,/g' ./${NEW_SLUG_CASE}/miskTab.json
+# Remove sed generated original file
+rm ./${NEW_SLUG_CASE}/miskTab.json-e
+
 echo "Set zipOnBuild to false in miskTab.json"
 sed -i -e 's/"zipOnBuild": true,/"zipOnBuild": false,/g' ./${NEW_SLUG_CASE}/miskTab.json
 # Remove sed generated original file
