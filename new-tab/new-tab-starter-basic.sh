@@ -3,6 +3,9 @@
 OLD_TITLE_SPACE_CASE="Starter Basic"
 OLD_SLUG_CASE="starter-basic"
 
+NEW_TITLE_SPACE_CASE=$1
+NEW_SLUG_CASE=$2
+
 # 1. Make it work through `curl | bash -s` so a local shell file doesn't have to be updated
 
 # 1. Download .zip of starter-basic src code from github
@@ -10,22 +13,24 @@ echo "Downloading fresh Starter Basic tab"
 rm ./starter-basic.tgz
 curl -sL0 https://github.com/cashapp/misk-web/raw/master/examples/tabs/starter-basic/starter-basic.tgz -o starter-basic.tgz
 
-# 1. Prompt for new name in formats: `foo-bar`, `fooBar`, `FooBar`
 echo "Misk-Web: New Tab"
 echo "A new tab will be created in $(pwd)/{new-tab}. If this is not right the directory, re-run this command in the correct directory."
-echo "You will now be guided through the steps to create a new tab based on the starter-basic tab"
-echo "Starter Basic Tab: https://github.com/cashapp/misk-web/tree/master/examples/tabs/starter-basic"
-echo ""
-echo "New Tab Name"
-echo "You'll now be asked how you want your tab name written in different formats (Title With Space Case, slug-case)."
-echo ""
-echo "Example for new dino-food tab"
-echo "Title Space Case: Dino Food"
-echo "slug-case: dino-food"
-echo ""
-read -p "Your new tab name in Title Space Case: " -r NEW_TITLE_SPACE_CASE
-read -p "Your new tab name in slug-case: " -r NEW_SLUG_CASE
-echo ""
+if [ -z "$NEW_TITLE_SPACE_CASE" && -z "$NEW_SLUG_CASE" ]; then
+  # 1. Prompt for new name in formats: `foo-bar`, `fooBar`, `FooBar`
+  echo "You will now be guided through the steps to create a new tab based on the starter-basic tab"
+  echo "Starter Basic Tab: https://github.com/cashapp/misk-web/tree/master/examples/tabs/starter-basic"
+  echo ""
+  echo "New Tab Name"
+  echo "You'll now be asked how you want your tab name written in different formats (Title With Space Case, slug-case)."
+  echo ""
+  echo "Example for new dino-food tab"
+  echo "Title Space Case: Dino Food"
+  echo "slug-case: dino-food"
+  echo ""
+  read -p "Your new tab name in Title Space Case: " -r NEW_TITLE_SPACE_CASE
+  read -p "Your new tab name in slug-case: " -r NEW_SLUG_CASE
+  echo ""
+fi
 echo "Registered NEW_TITLE_SPACE_CASE ${NEW_TITLE_SPACE_CASE}"
 echo "Registered NEW_SLUG_CASE        ${NEW_SLUG_CASE}"
 
