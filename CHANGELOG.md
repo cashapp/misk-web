@@ -1,5 +1,13 @@
 ## Changelog
 
+## 0.1.20-4
+
+25 Sept 2019 12:24:00 GMT
+
+### @misk/simpleredux
+
+- Fix more bugs found using `mergeSagaMapKeysToTags` in different use cases.
+
 ## 0.1.20-3
 
 25 Sept 2019 12:24:00 GMT
