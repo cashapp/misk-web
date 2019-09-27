@@ -1,6 +1,6 @@
 import { Intent, ProgressBar, Slider } from "@blueprintjs/core"
 import { Table } from "@misk/core"
-import { simpleSelectorGet } from "@misk/simpleredux"
+import { simpleSelectorGet, handler } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
 import {
@@ -37,12 +37,8 @@ export const LoadDataTable = (props: IState & IDispatchProps & OwnProps) => {
           stepSize={stepSize}
           labelStepSize={labelStepSize}
           max={responseDataLength}
-          onChange={(value: number) =>
-            props.simpleMergeData(`${tag}::dataMaxRows`, value)
-          }
-          onRelease={(value: number) =>
-            props.simpleMergeData(`${tag}::dataMaxRows`, value)
-          }
+          onChange={handler.simpleMergeData(props, `${tag}::dataMaxRows`)}
+          onRelease={handler.simpleMergeData(props, `${tag}::dataMaxRows`)}
           value={simpleSelectorGet(props.simpleRedux, [
             `${tag}::dataMaxRows`,
             "data"

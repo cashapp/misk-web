@@ -85,7 +85,7 @@ describe("dispatchSimpleForm", () => {
 
   it("simpleFormNumber", () => {
     expect(dispatchSimpleForm.simpleFormNumber(tag, 1234, "1234")).toEqual(
-      dispatchSimpleRedux.simpleMergeNumber(tag, 1234, "1234")
+      dispatchSimpleRedux.simpleMergeData(tag, "1234")
     )
   })
 

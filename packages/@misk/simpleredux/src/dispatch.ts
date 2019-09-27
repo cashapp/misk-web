@@ -91,20 +91,6 @@ export interface IDispatchSimpleRedux {
   /**
    * Dispatch state merge action, overwrites state for a specific tag
    * @param tag string to identify domain of state
-   * @param valueAsNumber new number value as a number
-   * @param valueAsString new number value as a string
-   * @param options configure the dispatch with optional mergeSaga or requestConfig
-   */
-  simpleMergeNumber: (
-    tag: string,
-    valueAsNumber: number,
-    valueAsString: string,
-    options?: IDispatchOptions
-  ) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>
-
-  /**
-   * Dispatch state merge action, overwrites state for a specific tag
-   * @param tag string to identify domain of state
    * @param oldState old SimpleRedux state, in order to lookup current value of tag
    * @param options configure the dispatch with optional mergeSaga or requestConfig
    */
@@ -250,22 +236,6 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
     createAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>(SIMPLEREDUX.MERGE, {
       [tag]: {
         data,
-        error: null,
-        loading: false,
-        options,
-        success: true,
-        tag
-      }
-    }),
-  simpleMergeNumber: (
-    tag: string,
-    valueAsNumber: number,
-    valueAsString: string,
-    options: IDispatchOptions = dispatchDefault.options
-  ) =>
-    createAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>(SIMPLEREDUX.MERGE, {
-      [tag]: {
-        data: valueAsString,
         error: null,
         loading: false,
         options,

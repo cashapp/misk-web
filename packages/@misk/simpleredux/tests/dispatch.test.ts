@@ -72,25 +72,6 @@ describe("dispatchSimpleRedux", () => {
     expect(dispatchSimpleRedux.simpleMergeData(tag, data)).toEqual(action)
   })
 
-  it("simpleMergeNumber", () => {
-    const action = {
-      type: SIMPLEREDUX.MERGE,
-      payload: {
-        [tag]: {
-          data: "1234",
-          error: null as any,
-          loading: false,
-          options: {},
-          success: true,
-          tag
-        }
-      }
-    }
-    expect(dispatchSimpleRedux.simpleMergeNumber(tag, 1234, "1234")).toEqual(
-      action
-    )
-  })
-
   it("simpleMergeToggle: oldState = undefined", () => {
     const oldState = {
       simpleTag: "simpleRedux"

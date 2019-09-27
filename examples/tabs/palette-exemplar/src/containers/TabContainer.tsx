@@ -2,7 +2,7 @@ import { Table } from "@misk/core"
 import { simpleSelectorGet } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
-import { HowToComponent } from "src/components"
+import { HowToComponent, ExampleRouterComponent } from "src/components"
 import {
   IDispatchProps,
   IState,
@@ -39,6 +39,7 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
         />
         <ExampleNetworkContainer />
         <ExampleFormContainer />
+        <ExampleRouterComponent />
       </div>
     )
   }
