@@ -8,7 +8,6 @@ import {
 } from "@blueprintjs/core"
 import {
   mapMergeSaga,
-  onChangeFnCall,
   simpleSelectorGet,
   simpleSelectorPickTransform,
   handler
@@ -26,7 +25,6 @@ import {
 export const ExampleMergeSagaContainer = (
   props: IDispatchProps & IState & any
 ) => {
-  console.log(props)
   const MergeTag = "ExampleMergeSaga"
   // Maintains mapping of keys from the network request keys <=> SimpleRedux tags
   const keyLookup: { [key: string]: string } = {
@@ -86,7 +84,7 @@ export const ExampleMergeSagaContainer = (
           <InputGroup
             id="text-input"
             placeholder={requestKey}
-            onChange={onChangeFnCall(props.simpleMergeData, `${reduxTag}`)}
+            onChange={handler.simpleMergeData(props, `${reduxTag}`)}
             value={simpleSelectorGet(props.simpleRedux, [
               `${reduxTag}`,
               "data"
@@ -99,7 +97,6 @@ export const ExampleMergeSagaContainer = (
         onClick={() => {
           props.simpleMergeData(
             `${MergeTag}::submit`,
-            {},
             simpleSelectorPickTransform(
               props.simpleRedux,
               Object.values(keyLookup),
