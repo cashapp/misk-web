@@ -7,8 +7,8 @@ import { ISimpleReduxState } from "../reducer"
  * <InputGroup onChange={handler.simpleMergeData("my-tag", options)} />
  *
  * Note:
- * - Options and ...overrideInput values are optional
- * - Data will get implicitly passed in by extracting out parseEventInput(...eventInput) from
+ * - Options and ...overrideArgs values are optional
+ * - Data will get implicitly passed in by extracting out parseEventInput(...onChangeArgs) from
  *   the component
  */
 
@@ -42,7 +42,7 @@ export const isSyntheticEvent = (obj: any): boolean => {
  * Provides normalized handling of component onChange varied inputs
  * @param args array of any event input from a component onChange function
  */
-export const parseInput = (...args: any) => {
+export const parseOnChangeArgs = (...args: any) => {
   if (args.length === 1 && args[0] && args[0].target && args[0].target.value) {
     // onChange=(event: { target: { value: any } } ) => ... }
     return args[0].target.value
@@ -57,7 +57,7 @@ export const parseInput = (...args: any) => {
     // onChange={(valueAsNumber: number, valueAsString: string) => ... }
     return args[1]
   } else if (args.length === 1 && !isSyntheticEvent(args[0])) {
-    // overrideInput
+    // overrideArgs
     return args[0]
   } else if (args.length > 1) {
     // args are an array
@@ -74,26 +74,26 @@ export interface IHandler {
    * @param connectedProps Redux connected props that contain dispatchSimpleRedux.simpleMerge
    * @param tag string to identify domain of state
    * @param options? configure the dispatch with optional mergeSaga or requestConfig
-   * @param overrideInput? vararg to override any onChange event input
+   * @param overrideArgs? vararg to override any component onChange args
    */
   simpleMerge: (
     connectedProps: IDispatchSimpleRedux,
     tag: string,
     options?: IDispatchOptions,
-    ...overrideInput: any
-  ) => (...eventInput: any) => void
+    ...overrideArgs: any
+  ) => (...onChangeArgs: any) => void
 
   /**
    * Handle onClick or onChange event to dispatch state merge action, overwrites entire state
    * @param connectedProps Redux connected props that contain dispatchSimpleRedux.simpleMergeRaw
    * @param options? configure the dispatch with optional mergeSaga or requestConfig
-   * @param overrideInput? vararg to override any onChange event input
+   * @param overrideArgs? vararg to override any component onChange args
    */
   simpleMergeRaw: (
     connectedProps: IDispatchSimpleRedux,
     options?: IDispatchOptions,
-    ...overrideInput: any
-  ) => (...eventInput: any) => void
+    ...overrideArgs: any
+  ) => (...onChangeArgs: any) => void
 
   // Redux as UI / Field Input Cache
   /**
@@ -101,14 +101,14 @@ export interface IHandler {
    * @param connectedProps Redux connected props that contain dispatchSimpleRedux.simpleMergeData
    * @param tag string to identify domain of state
    * @param options? configure the dispatch with optional mergeSaga or requestConfig
-   * @param overrideInput? vararg to override any onChange event input
+   * @param overrideArgs? vararg to override any component onChange args
    */
   simpleMergeData: (
     connectedProps: IDispatchSimpleRedux,
     tag: string,
     options?: IDispatchOptions,
-    ...overrideInput: any
-  ) => (...eventInput: any[]) => void
+    ...overrideArgs: any
+  ) => (...onChangeArgs: any[]) => void
 
   /**
    * Handle onClick or onChange event to dispatch state merge action, overwrites state for a specific tag
@@ -121,7 +121,7 @@ export interface IHandler {
     connectedProps: IDispatchSimpleRedux & { simpleRedux: ISimpleReduxState },
     tag: string,
     options?: IDispatchOptions
-  ) => (...eventInput: any) => void
+  ) => (...onChangeArgs: any) => void
 
   // Async HTTP Network Calls
 
@@ -137,7 +137,7 @@ export interface IHandler {
     tag: string,
     url: string,
     options?: IDispatchOptions
-  ) => (...eventInput: any) => void
+  ) => (...onChangeArgs: any) => void
 
   /**
    * Handle onClick or onChange event to dispatch HTTP Get action, returns response/failure to a specific tag
@@ -151,7 +151,7 @@ export interface IHandler {
     tag: string,
     url: string,
     options?: IDispatchOptions
-  ) => (...eventInput: any) => void
+  ) => (...onChangeArgs: any) => void
 
   /**
    * Handle onClick or onChange event to dispatch HTTP Head action, returns response/failure to a specific tag
@@ -165,7 +165,7 @@ export interface IHandler {
     tag: string,
     url: string,
     options?: IDispatchOptions
-  ) => (...eventInput: any) => void
+  ) => (...onChangeArgs: any) => void
 
   /**
    * Handle onClick or onChange event to dispatch HTTP Patch action, returns response/failure to a specific tag
@@ -173,15 +173,15 @@ export interface IHandler {
    * @param tag string to identify domain of state
    * @param url HTTP endpoint to make the request
    * @param options? configure the dispatch with optional mergeSaga or requestConfig
-   * @param overrideInput? vararg to override any onChange event input to be sent as request body
+   * @param overrideArgs? vararg to override any component onChange args to be sent as request body
    */
   simpleHttpPatch: (
     connectedProps: IDispatchSimpleRedux,
     tag: string,
     url: string,
     options?: IDispatchOptions,
-    ...overrideInput: any
-  ) => (...eventInput: any) => void
+    ...overrideArgs: any
+  ) => (...onChangeArgs: any) => void
 
   /**
    * Handle onClick or onChange event to dispatch HTTP Post action, returns response/failure to a specific tag
@@ -189,15 +189,15 @@ export interface IHandler {
    * @param tag string to identify domain of state
    * @param url HTTP endpoint to make the request
    * @param options? configure the dispatch with optional mergeSaga or requestConfig
-   * @param overrideInput? vararg to override any onChange event input to be sent as request body
+   * @param overrideArgs? vararg to override any component onChange args to be sent as request body
    */
   simpleHttpPost: (
     connectedProps: IDispatchSimpleRedux,
     tag: string,
     url: string,
     options?: IDispatchOptions,
-    ...overrideInput: any
-  ) => (...eventInput: any) => void
+    ...overrideArgs: any
+  ) => (...onChangeArgs: any) => void
 
   /**
    * Handle onClick or onChange event to dispatch HTTP Put action, returns response/failure to a specific tag
@@ -205,15 +205,15 @@ export interface IHandler {
    * @param tag string to identify domain of state
    * @param url HTTP endpoint to make the request
    * @param options? configure the dispatch with optional mergeSaga or requestConfig
-   * @param overrideInput? vararg to override any onChange event input to be sent as request body
+   * @param overrideArgs? vararg to override any component onChange args to be sent as request body
    */
   simpleHttpPut: (
     connectedProps: IDispatchSimpleRedux,
     tag: string,
     url: string,
     options?: IDispatchOptions,
-    ...overrideInput: any
-  ) => (...eventInput: any) => void
+    ...overrideArgs: any
+  ) => (...onChangeArgs: any) => void
 }
 
 export const handler: IHandler = {
@@ -221,31 +221,31 @@ export const handler: IHandler = {
     connectedProps: IDispatchSimpleRedux,
     tag: string,
     options?: IDispatchOptions,
-    ...overrideInput: any
-  ) => (...eventInput: any) =>
+    ...overrideArgs: any
+  ) => (...onChangeArgs: any) =>
     connectedProps.simpleMerge(
       tag,
-      parseInput(...overrideInput) || parseInput(...eventInput),
+      parseOnChangeArgs(...overrideArgs) || parseOnChangeArgs(...onChangeArgs),
       options
     ),
   simpleMergeRaw: (
     connectedProps: IDispatchSimpleRedux,
     options?: IDispatchOptions,
-    ...overrideInput: any
-  ) => (...eventInput: any) =>
+    ...overrideArgs: any
+  ) => (...onChangeArgs: any) =>
     connectedProps.simpleMergeRaw(
-      parseInput(...overrideInput) || parseInput(...eventInput),
+      parseOnChangeArgs(...overrideArgs) || parseOnChangeArgs(...onChangeArgs),
       options
     ),
   simpleMergeData: (
     connectedProps: IDispatchSimpleRedux,
     tag: string,
     options?: IDispatchOptions,
-    ...overrideInput: any
-  ) => (...eventInput: any) =>
+    ...overrideArgs: any
+  ) => (...onChangeArgs: any) =>
     connectedProps.simpleMergeData(
       tag,
-      parseInput(...overrideInput) || parseInput(...eventInput),
+      parseOnChangeArgs(...overrideArgs) || parseOnChangeArgs(...onChangeArgs),
       options
     ),
   simpleMergeToggle: (
@@ -277,12 +277,12 @@ export const handler: IHandler = {
     tag: string,
     url: string,
     options?: IDispatchOptions,
-    ...overrideInput: any
-  ) => (...eventInput: any) =>
+    ...overrideArgs: any
+  ) => (...onChangeArgs: any) =>
     connectedProps.simpleHttpPatch(
       tag,
       url,
-      parseInput(...overrideInput) || parseInput(...eventInput),
+      parseOnChangeArgs(...overrideArgs) || parseOnChangeArgs(...onChangeArgs),
       options
     ),
   simpleHttpPost: (
@@ -290,12 +290,12 @@ export const handler: IHandler = {
     tag: string,
     url: string,
     options?: IDispatchOptions,
-    ...overrideInput: any
-  ) => (...eventInput: any) =>
+    ...overrideArgs: any
+  ) => (...onChangeArgs: any) =>
     connectedProps.simpleHttpPost(
       tag,
       url,
-      parseInput(...overrideInput) || parseInput(...eventInput),
+      parseOnChangeArgs(...overrideArgs) || parseOnChangeArgs(...onChangeArgs),
       options
     ),
   simpleHttpPut: (
@@ -303,12 +303,12 @@ export const handler: IHandler = {
     tag: string,
     url: string,
     options?: IDispatchOptions,
-    ...overrideInput: any
-  ) => (...eventInput: any) =>
+    ...overrideArgs: any
+  ) => (...onChangeArgs: any) =>
     connectedProps.simpleHttpPut(
       tag,
       url,
-      parseInput(...overrideInput) || parseInput(...eventInput),
+      parseOnChangeArgs(...overrideArgs) || parseOnChangeArgs(...onChangeArgs),
       options
     )
 }
