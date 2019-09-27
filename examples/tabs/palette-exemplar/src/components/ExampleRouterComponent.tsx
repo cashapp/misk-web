@@ -14,14 +14,14 @@ const LinkComponent = (props: IRouterProvidedProps) => {
     )
   } else {
     return (
-      <a href={"/path/param/alpha/bravo"}>
-        <Button text={"Test Path Parmeter"} />
-      </a>
+      // <a href={"/path/param/alpha/bravo"}>
+      <Button disabled={true} text={"Test Path Parmeter"} />
+      // </a>
     )
   }
 }
 
-export const SampleRouterComponent = (props: IRouterProvidedProps) => (
+export const ExampleRouterComponent = (props: IRouterProvidedProps) => (
   <div>
     <H1>{"Router Path Parameters"}</H1>
     Learn more about these props injected by{" "}
@@ -67,4 +67,4 @@ export const SampleRouterComponent = (props: IRouterProvidedProps) => (
   </div>
 )
 
-export default SampleRouterComponent
+export default ExampleRouterComponent

@@ -699,20 +699,18 @@ exports[`TabContainer TabContainer can render with redux 1`] = `
             </svg>
           </span>
         </button>
-        <a
-          href="/path/param/alpha/bravo"
+        <button
+          class="bp3-button bp3-disabled"
+          disabled=""
+          tabindex="-1"
+          type="button"
         >
-          <button
-            class="bp3-button"
-            type="button"
+          <span
+            class="bp3-button-text"
           >
-            <span
-              class="bp3-button-text"
-            >
-              Test Path Parmeter
-            </span>
-          </button>
-        </a>
+            Test Path Parmeter
+          </span>
+        </button>
         <button
           class="bp3-button bp3-intent-primary"
           type="button"

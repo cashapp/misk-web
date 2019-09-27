@@ -11,7 +11,7 @@ import {
 } from "src/ducks"
 
 interface OwnProps {
-  tag: String
+  tag: string
 }
 
 export const LoadDataTable = (props: IState & IDispatchProps & OwnProps) => {

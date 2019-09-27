@@ -37,7 +37,7 @@ export const ExampleMergeSagaContainer = (
     gary: `${MergeTag}::gary`
   }
   // faked for now to avoid CORS issues
-  const networkResponse = {
+  const mockedNetworkResponse = {
     data: {
       data: {
         alpha: "alpha PingRequest{message=test}",
@@ -65,7 +65,7 @@ export const ExampleMergeSagaContainer = (
           {
             mergeSaga: mergeSagaMapKeysToTags(props, "data.data", keyLookup)
           },
-          networkResponse
+          mockedNetworkResponse
         )}
         intent={Intent.PRIMARY}
         loading={simpleSelectorGet(props.simpleRedux, [
@@ -81,10 +81,11 @@ export const ExampleMergeSagaContainer = (
             id="text-input"
             placeholder={requestKey}
             onChange={handler.simpleMergeData(props, `${reduxTag}`)}
-            value={simpleSelectorGet(props.simpleRedux, [
-              `${reduxTag}`,
-              "data"
-            ])}
+            value={simpleSelectorGet(
+              props.simpleRedux,
+              [`${reduxTag}`, "data"],
+              ""
+            )}
           />
         ))}
       </FormGroup>
