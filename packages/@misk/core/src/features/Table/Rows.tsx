@@ -1,12 +1,12 @@
 import * as React from "react"
 import { Row } from "../Table"
 
-export const Rows = (props: { data: any; maxRows: number }) => {
-  const { data, maxRows } = props
+export const Rows = (props: { data: any; range: number[] }) => {
+  const { data, range } = props
   return (
     <tbody>
-      {data.slice(0, maxRows).map((row: any, index: number) => (
-        <Row key={`row${index}`} data={row} />
+      {data.slice(...range).map((row: any, index: number) => (
+        <Row key={`row${index}`} data={row} index={range[0] + index} />
       ))}
     </tbody>
   )

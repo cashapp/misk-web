@@ -4,11 +4,11 @@ import { Heading, Rows } from "../Table"
 
 export interface ITableProps {
   data: any[]
-  maxRows?: number
+  range?: number[]
 }
 
 export const Table = (props: ITableProps) => {
-  const { data, maxRows = data.length } = props
+  const { data, range = [0, data.length] } = props
   if (data && data.length > 1) {
     /**
      * Data is loaded and ready to be rendered
@@ -17,7 +17,7 @@ export const Table = (props: ITableProps) => {
     return (
       <HTMLTable bordered={true} striped={true}>
         <Heading data={tableData[0]} />
-        <Rows data={tableData} maxRows={maxRows} />
+        <Rows data={tableData} range={range} />
       </HTMLTable>
     )
   } else {

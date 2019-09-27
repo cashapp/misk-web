@@ -17,7 +17,7 @@ export const HowToComponent = () => {
           palette-exemplar tab in Misk-Web repo
         </a>
         , or play around with the palette-exemplar demo in the{" "}
-        <a href="https://cashapp.github.io/misk-web/examples/tabs/palette-exemplar/demo/">
+        <a href="https://cashapp.github.io/misk-web/docs/examples/palette-exemplar">
           docs
         </a>
         .

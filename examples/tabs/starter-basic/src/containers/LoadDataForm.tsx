@@ -25,7 +25,7 @@ export const LoadDataForm = (props: IState & IDispatchProps & OwnProps) => {
               `${tag}::dataUrl`,
               "https://cashapp.github.io/misk-web/examples/data/demo/cars.json"
             )
-            props.simpleMergeData(`${tag}::dataMaxRows`, 5)
+            props.simpleMergeData(`${tag}::dataRange`, [50, 75])
           }}
           text={"Use Example Values"}
         />

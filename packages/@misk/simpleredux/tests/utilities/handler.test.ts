@@ -1,6 +1,10 @@
 import { dispatchSimpleRedux } from "src/dispatch"
 import { event, tag, url } from "tests/testFixtures"
-import { handler, parseInput, isSyntheticEvent } from "src/utilities/handler"
+import {
+  handler,
+  parseOnChangeArgs,
+  isSyntheticEvent
+} from "src/utilities/handler"
 
 describe("isSyntheticEvent", () => {
   it("true if SyntheticEvent", () => {
@@ -28,28 +32,28 @@ describe("isSyntheticEvent", () => {
   })
 })
 
-describe("parseInput handles all components onChange inputs", () => {
+describe("parseOnChangeArgs handles all components onChange inputs", () => {
   it("Generic onChange event.target.value", () => {
-    expect(parseInput({ target: { value: 1234 } })).toEqual(1234)
+    expect(parseOnChangeArgs({ target: { value: 1234 } })).toEqual(1234)
   })
   it("<Slider/> onChange value: number", () => {
-    expect(parseInput(1234)).toEqual(1234)
+    expect(parseOnChangeArgs(1234)).toEqual(1234)
   })
   it("<NumericInput/> onChange valueAsNumber, valueAsString", () => {
-    expect(parseInput(1234, "1234")).toEqual("1234")
+    expect(parseOnChangeArgs(1234, "1234")).toEqual("1234")
   })
   it("<TagInput /> onChange values: string[]", () => {
-    expect(parseInput(["alpha", "bravo", "charlie"])).toEqual([
+    expect(parseOnChangeArgs(["alpha", "bravo", "charlie"])).toEqual([
       "alpha",
       "bravo",
       "charlie"
     ])
   })
   it("override input as array", () => {
-    expect(parseInput([1, 2, 3, 4])).toEqual([1, 2, 3, 4])
+    expect(parseOnChangeArgs([1, 2, 3, 4])).toEqual([1, 2, 3, 4])
   })
   it("override input", () => {
-    expect(parseInput(1234)).toEqual(1234)
+    expect(parseOnChangeArgs(1234)).toEqual(1234)
   })
 })
 

@@ -1,12 +1,12 @@
 export const stateWithData = {
   simpleRedux: {
     success: false,
-    "LoadData::dataMaxRows": {
+    "LoadData::dataRange": {
       data: 5,
       error: null as any,
       loading: false,
       success: true,
-      tag: "LoadData::dataMaxRows"
+      tag: "LoadData::dataRange"
     },
     "LoadData::dataKey": {
       data: "cars",
