@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import { IDispatchProps, IState } from "src/ducks";
 interface OwnProps {
-    tag: String;
+    tag: string;
 }
 export declare const LoadDataForm: (props: IState & IDispatchProps & OwnProps) => JSX.Element;
 declare const _default;
