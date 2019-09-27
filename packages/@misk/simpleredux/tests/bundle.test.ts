@@ -41,12 +41,12 @@ describe("Dist bundle", () => {
     )
     expect(file).toMatchSnapshot()
   })
-  it("utilities/handleDispatch.d.ts is unchanged", () => {
+  it("utilities/handler.d.ts is unchanged", () => {
     const file = readFileSync(
       join(
         __dirname,
         "..",
-        "lib/web/@misk/simpleredux/src/utilities/handleDispatch.d.ts"
+        "lib/web/@misk/simpleredux/src/utilities/handler.d.ts"
       ),
       "utf8"
     )

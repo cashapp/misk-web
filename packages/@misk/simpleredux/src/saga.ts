@@ -198,6 +198,6 @@ export const mapMergeSaga = (
 ) =>
   function*(payload: ISimpleReduxPayloadTag) {
     for (const key in get(payload, payloadPath)) {
-      yield simpleMergeData(keyLookup[key], options, payload.data.data[key])
+      yield simpleMergeData(keyLookup[key], payload.data.data[key], options)
     }
   }
