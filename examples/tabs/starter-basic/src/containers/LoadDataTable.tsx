@@ -1,6 +1,6 @@
-import { Intent, ProgressBar, Slider } from "@blueprintjs/core"
+import { Intent, ProgressBar, RangeSlider } from "@blueprintjs/core"
 import { Table } from "@misk/core"
-import { simpleSelectorGet } from "@misk/simpleredux"
+import { simpleSelectorGet, handler } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
 import {
@@ -11,7 +11,7 @@ import {
 } from "src/ducks"
 
 interface OwnProps {
-  tag: String
+  tag: string
 }
 
 export const LoadDataTable = (props: IState & IDispatchProps & OwnProps) => {
@@ -26,25 +26,19 @@ export const LoadDataTable = (props: IState & IDispatchProps & OwnProps) => {
     []
   )
   const responseDataLength = responseData.length
-  const stepSize = Math.round(responseDataLength / 100)
-  const labelStepSize = Math.max(1, Math.round(stepSize * 4))
+  const labelStepSize = Math.max(1, Math.round(responseDataLength / 25))
   return (
     <div>
       {responseDataLength == 0 ? (
-        <ProgressBar animate={true} stripes={true} intent={Intent.NONE} />
+        <ProgressBar animate={false} stripes={true} intent={Intent.NONE} />
       ) : (
-        <Slider
-          stepSize={stepSize}
+        <RangeSlider
           labelStepSize={labelStepSize}
           max={responseDataLength}
-          onChange={(value: number) =>
-            props.simpleMergeData(`${tag}::dataMaxRows`, value)
-          }
-          onRelease={(value: number) =>
-            props.simpleMergeData(`${tag}::dataMaxRows`, value)
-          }
+          onChange={handler.simpleMergeData(props, `${tag}::dataRange`)}
+          onRelease={handler.simpleMergeData(props, `${tag}::dataRange`)}
           value={simpleSelectorGet(props.simpleRedux, [
-            `${tag}::dataMaxRows`,
+            `${tag}::dataRange`,
             "data"
           ])}
         />
@@ -60,8 +54,8 @@ export const LoadDataTable = (props: IState & IDispatchProps & OwnProps) => {
           ],
           []
         )}
-        maxRows={simpleSelectorGet(props.simpleRedux, [
-          `${tag}::dataMaxRows`,
+        range={simpleSelectorGet(props.simpleRedux, [
+          `${tag}::dataRange`,
           "data"
         ])}
       />

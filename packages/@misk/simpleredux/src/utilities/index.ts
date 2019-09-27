@@ -4,9 +4,10 @@ import { fromJS, List } from "immutable"
 import { match } from "react-router"
 import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects"
 import { StatusCode } from "status-code-enum"
-import { IDispatchSimpleRedux } from "src"
+import { IDispatchSimpleRedux } from "../dispatch"
 
-export * from "./onFnCall"
+export * from "./handler"
+export * from "./mergeSaga"
 export * from "./simpleSelector"
 
 /**

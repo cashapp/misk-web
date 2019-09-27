@@ -1,5 +1,39 @@
 ## Changelog
 
+## 0.1.20-4
+
+25 Sept 2019 12:24:00 GMT
+
+### @misk/simpleredux
+
+- Fix more bugs found using `mergeSagaMapKeysToTags` in different use cases.
+
+## 0.1.20-3
+
+25 Sept 2019 12:24:00 GMT
+
+### @misk/simpleredux
+
+- New dedicated `mergeSaga` file for all library provided generic `mergeSaga` that can optionally be used in `dispatchSimpleRedux` calls to add post call asynchronous functionality
+- Rename `mapMergeSaga` to `mergeSagaMapKeysToTags` and move to separate `mergeSaga` file
+- Add documentation and stub out test for `mergeSagaMapKeysToTags`
+
+## 0.1.20-2
+
+27 Sept 2019 11:24:00 GMT
+
+### @misk/core
+
+- `Table` component now takes a range `[start: number, end: number]` to signify the rows to display. This replaces the `maxRows` props.
+
+### @misk/simpleredux
+
+- `simpleSelectorPickTransform` extends existing `simpleSelectorPick` (which matches [Lodash's Pick API](https://lodash.com/docs#pick)) to allow for reshaping the object with picked keys.
+- `dispatchSimpleRedux` functions now take an options object that allows for named passing in of `requestConfig` and `mergeSaga`. `mergeSaga` accepts a generator function Saga that will run after the dispatch function's action is executed. This means that a `simpleHttpGet` will execute first and then the response will be included in the payload that the `mergeSaga` has access to. `mergeSaga` is then responsible to choose whether to emit any additional state update events or handle other asynchronous computation. Since it is a full saga and a generating function, the block of computation is asynchronous and follow up network requests or large computation can be done without risk of blocking render. See a full example of this in the new `ExampleMergeSagaContainer` in `palette-exemplar`.
+- Universal `handler`. Many components allow for passing in an `onChange` handler that is a function accepting user event driven input and executing side effects. For example, an `<InputGroup/>` returns the latest text in the text box, and a simple `onChange` handler would persist the latest text in a tagged spot in Redux. Components though do not have a universal form of input they provide to their `onChange` handler. Instead of developers having to keep track of what function signature the component `onChange` props is expecting, `@misk/simpleredux` now has a universal `handler` that provides the same function names as `dispatchSimpleRedux` (ie. `handler.simpleMergeData`, `handler.simpleHttpGet`...) but can handle directly input from an component `onChange` or `onClick` props.
+- The universal `handler` can handle input from any `onChange` or `onClick` props because of a new `parseOnChangeArgs` engine that identifies the format of input from `onChange` and returns it in a format that the `dispatchSimpleRedux` functions can use. See examples of `handler` in both `starter-basic` and `palette-exemplar` tabs.
+- `onFn[Click,Change,Toggle,Tags]Call` functions are deprecated in favor of `handler`.
+
 ## 0.1.20-1
 
 25 Sept 2019 20:40:00 GMT

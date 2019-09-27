@@ -1,18 +1,15 @@
+import { Table } from "@misk/core"
 import { simpleSelectorGet } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
-import { SampleFormContainer, SampleNetworkContainer } from "src/containers"
+import { ExampleFormContainer, ExampleNetworkContainer } from "src/containers"
 import {
   IDispatchProps,
   IState,
   mapDispatchToProps,
   mapStateToProps
 } from "src/ducks"
-import {
-  HowToComponent,
-  SampleTableComponent,
-  SampleRouterComponent
-} from "src/components"
+import { HowToComponent, ExampleRouterComponent } from "src/components"
 
 class TabContainer extends React.Component<IState & IDispatchProps, IState> {
   private tableTag = "Cars"
@@ -26,20 +23,18 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
   render() {
     return (
       <div>
-        <SampleTableComponent
+        <HowToComponent />
+        <Table
           data={simpleSelectorGet(
             this.props.simpleNetwork,
             [this.tableTag, "data", "cars"],
             []
           )}
-          rows={5}
-          url={this.tableUrl}
-          tag={this.tableTag}
+          range={[0, 5]}
         />
-        <HowToComponent />
-        <SampleNetworkContainer />
-        <SampleFormContainer />
-        <SampleRouterComponent
+        <ExampleNetworkContainer />
+        <ExampleFormContainer />
+        <ExampleRouterComponent
           history={this.props.history}
           location={this.props.location}
           match={this.props.match}

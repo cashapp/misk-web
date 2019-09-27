@@ -1,10 +1,6 @@
 import { SIMPLEREDUX } from "src/action"
-import {
-  dispatchSimpleRedux,
-  dispatchDefault,
-  privateDispatchSimpleRedux
-} from "src/dispatch"
-import { data, error, requestData, tag, url } from "./testFixtures"
+import { dispatchSimpleRedux, privateDispatchSimpleRedux } from "src/dispatch"
+import { data, error, requestData, tag, url } from "tests/testFixtures"
 
 describe("dispatchSimpleRedux", () => {
   it("simpleFailure", () => {
@@ -16,6 +12,7 @@ describe("dispatchSimpleRedux", () => {
           config: null as any,
           headers: null as any,
           loading: false,
+          options: {},
           status: 0,
           statusText: "",
           success: false,
@@ -33,6 +30,7 @@ describe("dispatchSimpleRedux", () => {
       payload: {
         error: null as any,
         loading: false,
+        options: {},
         success: true,
         ...data
       }
@@ -47,6 +45,7 @@ describe("dispatchSimpleRedux", () => {
         [tag]: {
           error: null as any,
           loading: false,
+          options: {},
           success: true,
           tag,
           ...data
@@ -64,46 +63,13 @@ describe("dispatchSimpleRedux", () => {
           data,
           error: null as any,
           loading: false,
+          options: {},
           success: true,
           tag
         }
       }
     }
     expect(dispatchSimpleRedux.simpleMergeData(tag, data)).toEqual(action)
-  })
-
-  it("simpleMergeTag", () => {
-    const action = {
-      type: SIMPLEREDUX.MERGE,
-      payload: {
-        [tag]: {
-          error: null as any,
-          loading: false,
-          success: true,
-          tag,
-          ...data
-        }
-      }
-    }
-    expect(dispatchSimpleRedux.simpleMerge(tag, data)).toEqual(action)
-  })
-
-  it("simpleMergeNumber", () => {
-    const action = {
-      type: SIMPLEREDUX.MERGE,
-      payload: {
-        [tag]: {
-          data: "1234",
-          error: null as any,
-          loading: false,
-          success: true,
-          tag
-        }
-      }
-    }
-    expect(dispatchSimpleRedux.simpleMergeNumber(tag, 1234, "1234")).toEqual(
-      action
-    )
   })
 
   it("simpleMergeToggle: oldState = undefined", () => {
@@ -117,6 +83,7 @@ describe("dispatchSimpleRedux", () => {
           data: true,
           error: null as any,
           loading: false,
+          options: {},
           success: true,
           tag
         }
@@ -139,6 +106,7 @@ describe("dispatchSimpleRedux", () => {
           data: true,
           error: null as any,
           loading: false,
+          options: {},
           success: true,
           tag
         }
@@ -161,6 +129,7 @@ describe("dispatchSimpleRedux", () => {
           data: false,
           error: null as any,
           loading: false,
+          options: {},
           success: true,
           tag
         }
@@ -179,7 +148,7 @@ describe("dispatchSimpleRedux", () => {
           error: null as any,
           headers: null as any,
           loading: true,
-          requestConfig: dispatchDefault.requestConfig,
+          options: {},
           status: 0,
           statusText: "",
           success: false,
@@ -201,7 +170,7 @@ describe("dispatchSimpleRedux", () => {
           error: null as any,
           headers: null as any,
           loading: true,
-          requestConfig: dispatchDefault.requestConfig,
+          options: {},
           status: 0,
           statusText: "",
           success: false,
@@ -223,7 +192,7 @@ describe("dispatchSimpleRedux", () => {
           error: null as any,
           headers: null as any,
           loading: true,
-          requestConfig: dispatchDefault.requestConfig,
+          options: {},
           status: 0,
           statusText: "",
           success: false,
@@ -245,7 +214,7 @@ describe("dispatchSimpleRedux", () => {
           error: null as any,
           headers: null as any,
           loading: true,
-          requestConfig: dispatchDefault.requestConfig,
+          options: {},
           status: 0,
           statusText: "",
           success: false,
@@ -269,7 +238,7 @@ describe("dispatchSimpleRedux", () => {
           error: null as any,
           headers: null as any,
           loading: true,
-          requestConfig: dispatchDefault.requestConfig,
+          options: {},
           status: 0,
           statusText: "",
           success: false,
@@ -293,7 +262,7 @@ describe("dispatchSimpleRedux", () => {
           error: null as any,
           headers: null as any,
           loading: true,
-          requestConfig: dispatchDefault.requestConfig,
+          options: {},
           status: 0,
           statusText: "",
           success: false,

@@ -9,4 +9,8 @@ describe("Table Component", () => {
     const { asFragment } = render(<Table data={cars} />)
     expect(asFragment()).toMatchSnapshot()
   })
+  it("Table can render with range", () => {
+    const { asFragment } = render(<Table data={cars} range={[2, 4]} />)
+    expect(asFragment()).toMatchSnapshot()
+  })
 })
