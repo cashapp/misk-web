@@ -1,7 +1,7 @@
 import * as React from "react"
 import { connect } from "react-redux"
 import { HowToComponent } from "src/components"
-import { LoadDataForm, LoadDataTable } from "src/containers"
+import { LoadDataFormContainer, LoadDataTableContainer } from "src/containers"
 import {
   IDispatchProps,
   IState,
@@ -14,8 +14,8 @@ const TabContainer = (props: IState & IDispatchProps) => {
   return (
     <div>
       <HowToComponent />
-      <LoadDataForm tag={tag} />
-      <LoadDataTable tag={tag} />
+      <LoadDataFormContainer tag={tag} />
+      <LoadDataTableContainer tag={tag} />
     </div>
   )
 }

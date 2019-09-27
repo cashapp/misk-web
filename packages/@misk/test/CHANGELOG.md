@@ -1,6 +1,11 @@
 # Change Log - @misk/test
 
-This log was last generated on Tue, 17 Sep 2019 19:16:00 GMT and should not be manually modified.
+This log was last generated on Fri, 27 Sep 2019 19:24:44 GMT and should not be manually modified.
+
+## 0.1.20
+Fri, 27 Sep 2019 19:24:44 GMT
+
+*Version update only*
 
 ## 0.1.19
 Tue, 17 Sep 2019 19:16:00 GMT

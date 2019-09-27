@@ -1,8 +1,14 @@
 ## Changelog
 
+## 0.1.20
+
+25 Sept 2019 15:24:00 GMT
+
+Stable release including all the changes of `0.1.20-*` alpha releases.
+
 ## 0.1.20-4
 
-25 Sept 2019 12:24:00 GMT
+25 Sept 2019 15:24:00 GMT
 
 ### @misk/simpleredux
 
@@ -10,7 +16,7 @@
 
 ## 0.1.20-3
 
-25 Sept 2019 12:24:00 GMT
+25 Sept 2019 14:24:00 GMT
 
 ### @misk/simpleredux
 
