@@ -1,7 +1,7 @@
 export declare const stateWithData: {
     simpleRedux: {
         success: boolean;
-        "LoadData::dataMaxRows": {
+        "LoadData::dataRange": {
             data: number;
             error: any;
             loading: boolean;

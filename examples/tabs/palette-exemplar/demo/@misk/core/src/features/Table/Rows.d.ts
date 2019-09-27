@@ -1,5 +1,5 @@
 /// <reference types="react" />
 export declare const Rows: (props: {
     data: any;
-    maxRows: number;
+    range: number[];
 }) => JSX.Element;

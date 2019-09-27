@@ -1,6 +1,6 @@
-import { IAction, IRootState } from "./utilities";
 import { SIMPLEREDUX } from "./action";
 import { ISimpleReduxPayload } from "./dispatch";
+import { IAction, IRootState } from "./utilities";
 /**
  * Merges dispatched action objects on to the existing (or initial) state to generate new state
  */

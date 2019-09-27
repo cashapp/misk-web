@@ -1,4 +1,4 @@
-import SampleFormContainer from "./SampleFormContainer";
-import SampleNetworkContainer from "./SampleNetworkContainer";
+import ExampleFormContainer from "./ExampleFormContainer";
+import ExampleNetworkContainer from "./ExampleNetworkContainer";
 import TabContainer from "./TabContainer";
-export { SampleFormContainer, SampleNetworkContainer, TabContainer };
+export { ExampleFormContainer, ExampleNetworkContainer, TabContainer };

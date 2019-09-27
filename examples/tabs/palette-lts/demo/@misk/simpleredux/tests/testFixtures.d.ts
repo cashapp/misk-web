@@ -6,6 +6,11 @@ export declare const data: {
 export declare const error: {
     errorField1: string;
 };
+export declare const event: {
+    target: {
+        value: string;
+    };
+};
 export declare const requestData: {
     searchKey: string;
 };

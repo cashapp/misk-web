@@ -1,9 +1,9 @@
 import { AxiosResponse, AxiosRequestConfig } from "axios";
 import { SIMPLEREDUX } from "./action";
-import { IAction, IRootState } from "./utilities";
 import { ISimpleReduxPayload } from "./dispatch";
 import { SimpleReduxReducer } from "./reducer";
 import { watchSimpleReduxSagas } from "./saga";
+import { IAction, IRootState } from "./utilities";
 /** DEPRECATED: Use [dispatchSimpleRedux] instead */
 export interface IDispatchSimpleNetwork {
     simpleNetworkDelete: (tag: string, url: string, requestConfig?: AxiosRequestConfig) => IAction<SIMPLEREDUX.HTTP_DELETE, ISimpleReduxPayload>;
@@ -51,3 +51,53 @@ export interface ISimpleFormImmutableState {
 export declare const watchSimpleFormSagas: typeof watchSimpleReduxSagas;
 /** DEPRECATED: Use [watchSimpleReduxSagas] instead */
 export declare const watchSimpleNetworkSagas: typeof watchSimpleReduxSagas;
+/**
+ * DEPRECATED
+ * @param callFn: function to be called
+ * @param args: arguments to be passed into the callFn
+ *
+ * ```
+ * <Button onClick={onClickFnCall(props.simpleHttpPut, "PutTag", { ...requestBody })}
+ * ```
+ */
+export declare const onClickFnCall: (callFn: any, ...args: any) => (event: any) => void;
+/**
+ * DEPRECATED
+ * @param callFn: function to be called
+ * @param args: arguments to be passed into the callFn
+ *
+ * ```
+ * <InputGroup onChange={onChangeFnCall(props.simpleMerge, "FormInputTag")}
+ * ```
+ */
+export declare const onChangeFnCall: (callFn: any, ...args: any) => (event: any) => void;
+/**
+ * DEPRECATED
+ * @param callFn: function to be called
+ * @param args: arguments to be passed into the callFn
+ *
+ * ```
+ * <Checkbox onChange={onChangeToggleFnCall(props.simpleMergeToggle, "FormToggleTag", props.simpleRedux)}
+ * ```
+ */
+export declare const onChangeToggleFnCall: (callFn: any, ...args: any) => (event: any) => void;
+/**
+ * DEPRECATED
+ * @param callFn: function to be called
+ * @param args: arguments to be passed into the callFn
+ *
+ * ```
+ * <NumberInput onChange={onChangeNumberFnCall(props.simpleMergeNumber, "FormNumberTag")}
+ * ```
+ */
+export declare const onChangeNumberFnCall: (callFn: any, ...args: any) => (valueAsNumber: number, valueAsString: string) => void;
+/**
+ * DEPRECATED
+ * @param callFn: function to be called
+ * @param args: arguments to be passed into the callFn
+ *
+ * ```
+ * <TagInput onChange={onChangeTagFnCall(props.simpleMerge, "FormTagsTag")}
+ * ```
+ */
+export declare const onChangeTagFnCall: (callFn: any, ...args: any) => (values: string[]) => void;

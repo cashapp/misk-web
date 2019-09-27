@@ -53,7 +53,7 @@ export declare const createSimpleSelectorGet: <ISubState extends {
     [key: string]: any;
 }, ISubPayload extends {
     [key: string]: any;
-}>(subStateSelector: (state: any) => ISubState, path: string | string[], defaultValue?: any) => ParametricSelector<ISubState, string | string[], any | ISubPayload | ISubPayload[]>;
+}>(subStateSelector: (state: any) => ISubState, defaultValue?: any) => ParametricSelector<ISubState, string | string[], any | ISubPayload | ISubPayload[]>;
 /**
  * Cached Redux Selector using Lodash Pick API to select parts of the state
  * https://lodash.com/docs#pick
@@ -69,4 +69,28 @@ export declare const createSimpleSelectorPick: <ISubState extends {
     [key: string]: any;
 }, ISubPayload extends {
     [key: string]: any;
-}>(subStateSelector: (state: any) => ISubState, paths: string | string[]) => ParametricSelector<ISubState, string | String[], any | ISubPayload | ISubPayload[]>;
+}>(subStateSelector: (state: any) => ISubState) => ParametricSelector<ISubState, string | String[], any | ISubPayload | ISubPayload[]>;
+/**
+ * Cached Redux Selector using Lodash Pick API that flattens resulting object and renames keys
+ * https://lodash.com/docs#pick
+ */
+export declare const simpleSelectorPickTransform: <IState extends {
+    [key: string]: any;
+}, ISubState extends {
+    [key: string]: any;
+}, ISubPayload extends {
+    [key: string]: any;
+}>(subState: any, paths: string | string[], keyLookup: {
+    [key: string]: string;
+}, keyPathLookup: string | {
+    [key: string]: string;
+}) => any;
+export declare const createSimpleSelectorPickTransform: <ISubState extends {
+    [key: string]: any;
+}, ISubPayload extends {
+    [key: string]: any;
+}>(subStateSelector: (state: any) => ISubState, keyLookup: {
+    [key: string]: string;
+}, keyPathLookup: {
+    [key: string]: string;
+} | string) => ParametricSelector<ISubState, string | String[], any | ISubPayload | ISubPayload[]>;

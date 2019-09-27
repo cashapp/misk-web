@@ -1,7 +1,8 @@
 import { History, Location } from "history";
 import { match } from "react-router";
 import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects";
-export * from "./onFnCall";
+export * from "./handler";
+export * from "./mergeSaga";
 export * from "./simpleSelector";
 /**
  * redux-sagas types copied manually in since they are not yet exported

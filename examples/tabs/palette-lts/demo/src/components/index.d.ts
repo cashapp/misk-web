@@ -1,4 +1,3 @@
 import HowToComponent from "./HowToComponent";
-import SampleRouterComponent from "./SampleRouterComponent";
-import SampleTableComponent from "./SampleTableComponent";
-export { HowToComponent, SampleRouterComponent, SampleTableComponent };
+import ExampleRouterComponent from "./ExampleRouterComponent";
+export { HowToComponent, ExampleRouterComponent };
