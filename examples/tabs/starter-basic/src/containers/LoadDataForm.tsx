@@ -1,9 +1,5 @@
 import { Button, FormGroup, Intent, InputGroup } from "@blueprintjs/core"
-import {
-  onChangeFnCall,
-  onClickFnCall,
-  simpleSelectorGet
-} from "@misk/simpleredux"
+import { simpleSelectorGet, handler } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
 import {
@@ -37,7 +33,7 @@ export const LoadDataForm = (props: IState & IDispatchProps & OwnProps) => {
           placeholder={
             "data endpoint URL (example: https://cashapp.github.io/misk-web/examples/data/demo/cars.json"
           }
-          onChange={onChangeFnCall(props.simpleMergeData, `${tag}::dataUrl`)}
+          onChange={handler.simpleMergeData(props, `${tag}::dataUrl`)}
           value={simpleSelectorGet(props.simpleRedux, [
             `${tag}::dataUrl`,
             "data"
@@ -46,15 +42,15 @@ export const LoadDataForm = (props: IState & IDispatchProps & OwnProps) => {
         />
         <InputGroup
           placeholder={"network response data object key (example: cars)"}
-          onChange={onChangeFnCall(props.simpleMergeData, `${tag}::dataKey`)}
+          onChange={handler.simpleMergeData(props, `${tag}::dataKey`)}
           value={simpleSelectorGet(props.simpleRedux, [
             `${tag}::dataKey`,
             "data"
           ])}
         />
         <Button
-          onClick={onClickFnCall(
-            props.simpleHttpGet,
+          onClick={handler.simpleHttpGet(
+            props,
             `${tag}::dataRequest`,
             simpleSelectorGet(props.simpleRedux, [`${tag}::dataUrl`, "data"])
           )}

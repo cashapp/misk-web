@@ -8,10 +8,9 @@ import {
   Pre
 } from "@blueprintjs/core"
 import {
-  onClickFnCall,
-  onChangeFnCall,
   simpleSelectorGet,
-  simpleSelectorPick
+  simpleSelectorPick,
+  handler
 } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
@@ -38,28 +37,19 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
       </Pre>
       <InputGroup
         placeholder={"Request URL: http://your.url.com/to/send/a/request/to/"}
-        onChange={onChangeFnCall(
-          props.simpleMergeData,
-          `${NetworkTag}::url`,
-          {}
-        )}
+        onChange={handler.simpleMergeData(props, `${NetworkTag}::url`)}
         type={"url"}
       />
       <TextArea
         fill={true}
-        onChange={onChangeFnCall(
-          props.simpleMergeData,
-          `${NetworkTag}::data`,
-          {}
-        )}
+        onChange={handler.simpleMergeData(props, `${NetworkTag}::data`)}
         placeholder={"Request Body (JSON or Text)"}
       />
       <ButtonGroup>
         <Button
-          onClick={onClickFnCall(
-            props.simpleHttpGet,
+          onClick={handler.simpleHttpDelete(
+            props,
             `${NetworkTag}::DELETE`,
-            {},
             simpleSelectorGet(props.simpleRedux, [`${NetworkTag}::url`, "data"])
           )}
           intent={Intent.DANGER}
@@ -70,10 +60,9 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
           text={"DELETE"}
         />
         <Button
-          onClick={onClickFnCall(
-            props.simpleHttpGet,
+          onClick={handler.simpleHttpGet(
+            props,
             `${NetworkTag}::GET`,
-            {},
             simpleSelectorGet(props.simpleRedux, [`${NetworkTag}::url`, "data"])
           )}
           intent={Intent.SUCCESS}
@@ -84,10 +73,9 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
           text={"GET"}
         />
         <Button
-          onClick={onClickFnCall(
-            props.simpleHttpHead,
+          onClick={handler.simpleHttpHead(
+            props,
             `${NetworkTag}::HEAD`,
-            {},
             simpleSelectorGet(props.simpleRedux, [`${NetworkTag}::url`, "data"])
           )}
           intent={Intent.NONE}
@@ -98,14 +86,14 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
           text={"HEAD"}
         />
         <Button
-          onClick={onClickFnCall(
-            props.simpleHttpPatch,
+          onClick={handler.simpleHttpPatch(
+            props,
             `${NetworkTag}::PATCH`,
-            {},
             simpleSelectorGet(props.simpleRedux, [
               `${NetworkTag}::url`,
               "data"
             ]),
+            {},
             simpleSelectorGet(props.simpleRedux, [
               `${NetworkTag}::data`,
               "data"
@@ -119,14 +107,14 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
           text={"PATCH"}
         />
         <Button
-          onClick={onClickFnCall(
-            props.simpleHttpPost,
+          onClick={handler.simpleHttpPost(
+            props,
             `${NetworkTag}::POST`,
-            {},
             simpleSelectorGet(props.simpleRedux, [
               `${NetworkTag}::url`,
               "data"
             ]),
+            {},
             simpleSelectorGet(props.simpleRedux, [
               `${NetworkTag}::data`,
               "data"
@@ -140,14 +128,15 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
           text={"POST"}
         />
         <Button
-          onClick={onClickFnCall(
-            props.simpleHttpPut,
+          onClick={handler.simpleHttpPut(
+            props,
             `${NetworkTag}::PUT`,
-            {},
+
             simpleSelectorGet(props.simpleRedux, [
               `${NetworkTag}::url`,
               "data"
             ]),
+            {},
             simpleSelectorGet(props.simpleRedux, [
               `${NetworkTag}::data`,
               "data"

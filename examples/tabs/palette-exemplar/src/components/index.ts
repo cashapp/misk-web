@@ -1,2 +1,3 @@
+import ExampleRouterComponent from "./ExampleRouterComponent"
 import HowToComponent from "./HowToComponent"
-export { HowToComponent }
+export { ExampleRouterComponent, HowToComponent }

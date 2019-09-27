@@ -213,11 +213,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
       "simpleFormNumber",
       "simpleMergeNumber(tag, valueAsNumber, valueAsString, options?)"
     )
-    return dispatchSimpleRedux.simpleMergeNumber(
-      tag,
-      valueAsNumber,
-      valueAsString
-    )
+    return dispatchSimpleRedux.simpleMergeData(tag, valueAsString)
   },
   simpleFormSuccess: (tag: string, data: any) => {
     deprecatedCall("simpleFormSuccess", "simpleMergeTag(tag, data, options?)")
@@ -274,7 +270,7 @@ export const watchSimpleNetworkSagas = watchSimpleReduxSagas
  * ```
  */
 export const onClickFnCall = (callFn: any, ...args: any) => (event: any) => {
-  deprecatedCall("onClickFnCall", `props.handle${callFn}`)
+  deprecatedCall("onClickFnCall", `handler.simple...(props, tag, ...)`)
   callFn(...args)
 }
 
@@ -288,7 +284,7 @@ export const onClickFnCall = (callFn: any, ...args: any) => (event: any) => {
  * ```
  */
 export const onChangeFnCall = (callFn: any, ...args: any) => (event: any) => {
-  deprecatedCall("onClickFnCall", `props.handle${callFn}`)
+  deprecatedCall("onChangeFnCall", `handler.simple...(props, tag, ...)`)
   callFn(...args, event.target.value)
 }
 
@@ -304,7 +300,7 @@ export const onChangeFnCall = (callFn: any, ...args: any) => (event: any) => {
 export const onChangeToggleFnCall = (callFn: any, ...args: any) => (
   event: any
 ) => {
-  deprecatedCall("onClickFnCall", `props.handle${callFn}`)
+  deprecatedCall("onChangeToggleFnCall", `handler.simple...(props, tag, ...)`)
   callFn(...args, event.target.value)
 }
 
@@ -321,7 +317,7 @@ export const onChangeNumberFnCall = (callFn: any, ...args: any) => (
   valueAsNumber: number,
   valueAsString: string
 ) => {
-  deprecatedCall("onClickFnCall", `props.handle${callFn}`)
+  deprecatedCall("onChangeNumberFnCall", `handler.simple...(props, tag, ...)`)
   callFn(...args, valueAsNumber, valueAsString)
 }
 
@@ -337,6 +333,6 @@ export const onChangeNumberFnCall = (callFn: any, ...args: any) => (
 export const onChangeTagFnCall = (callFn: any, ...args: any) => (
   values: string[]
 ) => {
-  deprecatedCall("onClickFnCall", `props.handle${callFn}`)
+  deprecatedCall("onChangeTagFnCall", `handler.simple...(props, tag, ...)`)
   callFn(...args, values)
 }

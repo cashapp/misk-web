@@ -35,7 +35,7 @@ import {
   mapStateToProps
 } from "src/ducks"
 
-export const SampleFormContainer = (props: IState & IDispatchProps) => {
+export const ExampleFormContainer = (props: IState & IDispatchProps) => {
   const FormTag = "Expense Report"
   const fields = [
     "Name",
@@ -188,4 +188,4 @@ export const SampleFormContainer = (props: IState & IDispatchProps) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SampleFormContainer)
+)(ExampleFormContainer)

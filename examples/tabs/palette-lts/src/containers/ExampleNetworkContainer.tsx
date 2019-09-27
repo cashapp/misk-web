@@ -23,7 +23,7 @@ import {
   mapStateToProps
 } from "src/ducks"
 
-export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
+export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
   const FormTag = "SampleNetwork"
   const fields = ["DELETE", "GET", "HEAD", "PATCH", "POST", "PUT"].map(
     (f: string) => `${FormTag}::${f}`
@@ -31,7 +31,7 @@ export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
   const filteredSimpleNetwork = simpleSelectorPick(props.simpleNetwork, fields)
   return (
     <div>
-      <H1>Sample Network Component</H1>
+      <H1>Example Network Component</H1>
       <Pre>simpleNetwork: {JSON.stringify(filteredSimpleNetwork, null, 2)}</Pre>
       <Pre>
         simpleForm:
@@ -144,4 +144,4 @@ export const SampleNetworkContainer = (props: IDispatchProps & IState) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SampleNetworkContainer)
+)(ExampleNetworkContainer)
