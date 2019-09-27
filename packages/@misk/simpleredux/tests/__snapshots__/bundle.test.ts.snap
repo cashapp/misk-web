@@ -28,7 +28,7 @@ import { IAction, IDefaultState } from \\"./utilities\\";
  * @param requestConfig: [AxiosRequestConfig] to configure the Axios request
  */
 export interface IDispatchOptions {
-    mergeSaga?: (payload: ISimpleReduxPayloadTag) => void;
+    mergeSaga?: (action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) => void;
     requestConfig?: AxiosRequestConfig;
 }
 interface IDispatchDefault {
@@ -385,7 +385,9 @@ export declare const HTTPMethodDispatch: any;
 `;
 
 exports[`Dist bundle utilities/mergeSaga.d.ts is unchanged 1`] = `
-"import { IDispatchOptions, ISimpleReduxPayloadTag } from \\"../dispatch\\";
+"import { SIMPLEREDUX } from \\"../action\\";
+import { IDispatchOptions, ISimpleReduxPayload } from \\"../dispatch\\";
+import { IAction } from \\"../utilities\\";
 /**
  * Factories for IDispatchOptions optional mergeSaga
  */
@@ -398,10 +400,10 @@ exports[`Dist bundle utilities/mergeSaga.d.ts is unchanged 1`] = `
  * @param options configure the dispatch with optional mergeSaga or requestConfig
  */
 export declare const mergeSagaMapKeysToTags: (connectedProps: {
-    simpleMergeData: (tag: string, data: any, options?: IDispatchOptions) => import(\\".\\").IAction<import(\\"..\\").SIMPLEREDUX.MERGE, import(\\"../dispatch\\").ISimpleReduxPayload>;
+    simpleMergeData: (tag: string, data: any, options?: IDispatchOptions) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
 }, payloadPath: string | string[], keyTagLookup: {
     [key: string]: string;
-}, options?: IDispatchOptions) => (payload: ISimpleReduxPayloadTag) => IterableIterator<import(\\".\\").IAction<import(\\"..\\").SIMPLEREDUX.MERGE, import(\\"../dispatch\\").ISimpleReduxPayload>>;
+}, options?: IDispatchOptions) => (action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) => IterableIterator<IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>>;
 "
 `;
 

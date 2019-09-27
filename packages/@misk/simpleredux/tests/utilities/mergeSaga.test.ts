@@ -21,6 +21,7 @@ describe("mergeSaga", () => {
       },
       type: SIMPLEREDUX.MERGE
     }
+    expect(action).toBeDefined()
     const tag = "tag"
     const keyTagLookup: { [key: string]: string } = {
       alpha: `${tag}::alpha`,
@@ -38,5 +39,6 @@ describe("mergeSaga", () => {
       keyTagLookup
     )
     expect(saga).toBeDefined()
+    // TODO add in further functionality tests to prove that it does and emits expected actions https://redux-saga.js.org/docs/advanced/Testing.html
   })
 })

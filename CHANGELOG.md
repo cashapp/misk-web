@@ -1,8 +1,18 @@
 ## Changelog
 
+## 0.1.20-3
+
+25 Sept 2019 12:24:00 GMT
+
+### @misk/simpleredux
+
+- New dedicated `mergeSaga` file for all library provided generic `mergeSaga` that can optionally be used in `dispatchSimpleRedux` calls to add post call asynchronous functionality
+- Rename `mapMergeSaga` to `mergeSagaMapKeysToTags` and move to separate `mergeSaga` file
+- Add documentation and stub out test for `mergeSagaMapKeysToTags`
+
 ## 0.1.20-2
 
-25 Sept 2019 20:40:00 GMT
+27 Sept 2019 11:24:00 GMT
 
 ### @misk/core
 
