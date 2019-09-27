@@ -1,6 +1,6 @@
 # Getting Started
 
-Here's how to get started building a new Misk-Web tab in the current directory.
+Here's how to make a new Misk-Web tab in the current directory.
 
 ```
 $ pwd
@@ -9,6 +9,17 @@ $ npm install -g @misk/cli              # Install Misk-Web CLI
 $ miskweb new "My New Tab" "my-new-tab" # create my-new-tab
 $ cd my-new-tab               # Change directory to new tab
 $ miskweb ci-build            # ci-build command installs NPM dependencies and builds
+$ miskweb start               # start command starts Webpack Dev ...Server starts at port in miskTab.json...
+...open browser to http://localhost:{port}...
+```
+
+Here's how to build a tab that already exists.
+
+```
+$ pwd
+    /Users/dino/dev/dino-service/service/web/tabs/my-new-tab
+$ npm install -g @ misk/cli             # Install Misk-Web CLI
+$ miskweb ci-build              # ci-build command installs NPM dependencies and builds
 $ miskweb start               # start command starts Webpack Dev ...Server starts at port in miskTab.json...
 ...open browser to http://localhost:{port}...
 ```
