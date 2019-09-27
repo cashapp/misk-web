@@ -30,7 +30,7 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
             [this.tableTag, "data", "cars"],
             []
           )}
-          maxRows={5}
+          range={[0, 5]}
         />
         <ExampleNetworkContainer />
         <ExampleFormContainer />
