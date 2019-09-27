@@ -17,7 +17,7 @@ interface OwnProps {
   tag: string
 }
 
-export const LoadDataForm = (props: IState & IDispatchProps & OwnProps) => {
+export const LoadDataFormContainer = (props: IState & IDispatchProps & OwnProps) => {
   const { tag } = props
   const seedData = {
     key: "cars",
@@ -85,4 +85,4 @@ export const LoadDataForm = (props: IState & IDispatchProps & OwnProps) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LoadDataForm)
+)(LoadDataFormContainer)

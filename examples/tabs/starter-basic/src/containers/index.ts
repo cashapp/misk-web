@@ -1,4 +1,4 @@
-import LoadDataForm from "./LoadDataForm"
-import LoadDataTable from "./LoadDataTable"
+import LoadDataFormContainer from "./LoadDataFormContainer"
+import LoadDataTableContainer from "./LoadDataTableContainer"
 import TabContainer from "./TabContainer"
-export { LoadDataForm, LoadDataTable, TabContainer }
+export { LoadDataFormContainer, LoadDataTableContainer, TabContainer }
