@@ -169,18 +169,9 @@ export interface ISimpleReduxImmutableState {
 `;
 
 exports[`Dist bundle saga.d.ts is unchanged 1`] = `
-"import { SIMPLEREDUX } from \\"./action\\";
-import { ISimpleReduxPayload, ISimpleReduxPayloadTag, IDispatchOptions } from \\"./dispatch\\";
-import { IAction, SimpleReduxSaga } from \\"./utilities\\";
+"import { SimpleReduxSaga } from \\"./utilities\\";
 /** Root Saga for SimpleRedux */
 export declare function watchSimpleReduxSagas(): SimpleReduxSaga;
-/**
- * Factories for IDispatchOptions optional mergeSaga
- */
-/** Loops over data from payload path and saves to tag in Redux from  keyLookup */
-export declare const mapMergeSaga: (payloadPath: string | string[], keyLookup: {
-    [key: string]: string;
-}, simpleMergeData: (tag: string, data: any, options?: IDispatchOptions) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>, options?: IDispatchOptions) => (payload: ISimpleReduxPayloadTag) => IterableIterator<IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>>;
 "
 `;
 
@@ -299,6 +290,7 @@ exports[`Dist bundle utilities/index.d.ts is unchanged 1`] = `
 import { match } from \\"react-router\\";
 import { ForkEffectDescriptor, SimpleEffect } from \\"redux-saga/effects\\";
 export * from \\"./handler\\";
+export * from \\"./mergeSaga\\";
 export * from \\"./simpleSelector\\";
 /**
  * redux-sagas types copied manually in since they are not yet exported
@@ -389,6 +381,27 @@ export declare const getFirstTag: <T = {
 export declare const jsonOrString: (json: string) => any;
 /** Lookup of HTTP Dispatch method */
 export declare const HTTPMethodDispatch: any;
+"
+`;
+
+exports[`Dist bundle utilities/mergeSaga.d.ts is unchanged 1`] = `
+"import { IDispatchOptions, ISimpleReduxPayloadTag } from \\"../dispatch\\";
+/**
+ * Factories for IDispatchOptions optional mergeSaga
+ */
+/**
+ * Loops over data from payload path and saves to tag in Redux
+ *
+ * @param connectedProps: Redux connected props with dispatchSimpleRedux.simpleMergeData
+ * @param payloadPath: path inside of incoming Redux action payload to look to start iterating over payload keys that will be expanded to separate Redux tags
+ * @param keyTagLookup: object that maps from action payload keys to the new Redux tags
+ * @param options configure the dispatch with optional mergeSaga or requestConfig
+ */
+export declare const mergeSagaMapKeysToTags: (connectedProps: {
+    simpleMergeData: (tag: string, data: any, options?: IDispatchOptions) => import(\\".\\").IAction<import(\\"..\\").SIMPLEREDUX.MERGE, import(\\"../dispatch\\").ISimpleReduxPayload>;
+}, payloadPath: string | string[], keyTagLookup: {
+    [key: string]: string;
+}, options?: IDispatchOptions) => (payload: ISimpleReduxPayloadTag) => IterableIterator<import(\\".\\").IAction<import(\\"..\\").SIMPLEREDUX.MERGE, import(\\"../dispatch\\").ISimpleReduxPayload>>;
 "
 `;
 

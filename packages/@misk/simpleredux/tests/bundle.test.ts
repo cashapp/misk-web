@@ -52,6 +52,17 @@ describe("Dist bundle", () => {
     )
     expect(file).toMatchSnapshot()
   })
+  it("utilities/mergeSaga.d.ts is unchanged", () => {
+    const file = readFileSync(
+      join(
+        __dirname,
+        "..",
+        "lib/web/@misk/simpleredux/src/utilities/mergeSaga.d.ts"
+      ),
+      "utf8"
+    )
+    expect(file).toMatchSnapshot()
+  })
   it("utilities/simpleSelector.d.ts is unchanged", () => {
     const file = readFileSync(
       join(

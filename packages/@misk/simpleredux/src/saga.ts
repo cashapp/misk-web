@@ -1,16 +1,12 @@
 import axios, { AxiosResponse } from "axios"
-import { get } from "lodash"
 import { all, call, put, takeEvery } from "redux-saga/effects"
 import { SIMPLEREDUX } from "./action"
 import {
-  dispatchDefault,
   dispatchSimpleRedux,
-  IDispatchSimpleRedux,
   ISimpleReduxPayload,
   ISimpleReduxPayloadTag,
   ISimpleHttpPayloadTag,
-  privateDispatchSimpleRedux,
-  IDispatchOptions
+  privateDispatchSimpleRedux
 } from "./dispatch"
 import {
   IAction,
@@ -161,9 +157,7 @@ function* handleMerge(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
     const { options } = getFirstTag<ISimpleHttpPayloadTag>(action.payload)
     // New actions are only emitted via optional mergeSaga
     if (options.mergeSaga) {
-      yield options.mergeSaga(
-        getFirstTag<ISimpleHttpPayloadTag>(action.payload)
-      )
+      yield options.mergeSaga(action)
     }
   } catch (e) {
     const { options, tag } = getFirstTag<ISimpleHttpPayloadTag>(action.payload)
@@ -184,20 +178,3 @@ export function* watchSimpleReduxSagas(): SimpleReduxSaga {
     takeEvery(SIMPLEREDUX.MERGE, handleMerge)
   ])
 }
-
-/**
- * Factories for IDispatchOptions optional mergeSaga
- */
-
-/** Loops over data from payload path and saves to tag in Redux from  keyLookup */
-export const mapMergeSaga = (
-  payloadPath: string | string[],
-  keyLookup: { [key: string]: string },
-  simpleMergeData: IDispatchSimpleRedux["simpleMergeData"],
-  options: IDispatchOptions = dispatchDefault.options
-) =>
-  function*(payload: ISimpleReduxPayloadTag) {
-    for (const key in get(payload, payloadPath)) {
-      yield simpleMergeData(keyLookup[key], payload.data.data[key], options)
-    }
-  }

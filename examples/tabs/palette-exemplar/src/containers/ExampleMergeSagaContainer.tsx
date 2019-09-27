@@ -7,7 +7,7 @@ import {
   Pre
 } from "@blueprintjs/core"
 import {
-  mapMergeSaga,
+  mergeSagaMapKeysToTags,
   simpleSelectorGet,
   simpleSelectorPickTransform,
   handler
@@ -63,11 +63,7 @@ export const ExampleMergeSagaContainer = (
           props,
           `${MergeTag}::test-post`,
           {
-            mergeSaga: mapMergeSaga(
-              "data.data",
-              keyLookup,
-              props.simpleMergeData
-            )
+            mergeSaga: mergeSagaMapKeysToTags(props, "data.data", keyLookup)
           },
           networkResponse
         )}

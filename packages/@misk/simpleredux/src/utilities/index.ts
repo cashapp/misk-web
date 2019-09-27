@@ -7,6 +7,7 @@ import { StatusCode } from "status-code-enum"
 import { IDispatchSimpleRedux } from "../dispatch"
 
 export * from "./handler"
+export * from "./mergeSaga"
 export * from "./simpleSelector"
 
 /**

@@ -14,7 +14,7 @@ import {
  * @param requestConfig: [AxiosRequestConfig] to configure the Axios request
  */
 export interface IDispatchOptions {
-  mergeSaga?: (payload: ISimpleReduxPayloadTag) => void
+  mergeSaga?: (action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) => void
   requestConfig?: AxiosRequestConfig
 }
 
