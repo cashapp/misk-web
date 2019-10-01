@@ -17,7 +17,9 @@ interface OwnProps {
   tag: string
 }
 
-export const LoadDataFormContainer = (props: IState & IDispatchProps & OwnProps) => {
+export const LoadDataFormContainer = (
+  props: IState & IDispatchProps & OwnProps
+) => {
   const { tag } = props
   const seedData = {
     key: "cars",
@@ -33,14 +35,10 @@ export const LoadDataFormContainer = (props: IState & IDispatchProps & OwnProps)
     <div>
       <FormGroup>
         <Button
-          onClick={handler.simpleMergeData(
-            props,
-            tag,
-            {
-              mergeSaga: mergeSagaMapKeysToTags(props, "data", keyTagLookup)
-            },
-            seedData
-          )}
+          onClick={handler.simpleMergeData(props, tag, {
+            mergeSaga: mergeSagaMapKeysToTags(props, "data", keyTagLookup),
+            overrideArgs: seedData
+          })}
           text={"Use Example Values"}
         />
         <InputGroup

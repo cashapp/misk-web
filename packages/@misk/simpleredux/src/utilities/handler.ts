@@ -1,3 +1,4 @@
+import get from "lodash/get"
 import { IDispatchOptions, IDispatchSimpleRedux } from "../dispatch"
 import { ISimpleReduxState } from "../reducer"
 
@@ -7,10 +8,18 @@ import { ISimpleReduxState } from "../reducer"
  * <InputGroup onChange={handler.simpleMergeData("my-tag", options)} />
  *
  * Note:
- * - Options and ...overrideArgs values are optional
+ * - Options and ...options.overrideArgs values are optional
  * - Data will get implicitly passed in by extracting out parseEventInput(...onChangeArgs) from
  *   the component
  */
+
+/**
+ * IHandlerOptions extends IDispatchOptions by adding an overrideArgs field that,
+ * if present, is used instead of the onChange event provided args
+ */
+export interface IHandlerOptions extends IDispatchOptions {
+  overrideArgs?: any
+}
 
 /** Don't persist raw React events thinking they are deliberate objects */
 export const isSyntheticEvent = (obj: any): boolean => {
@@ -79,8 +88,7 @@ export interface IHandler {
   simpleMerge: (
     connectedProps: IDispatchSimpleRedux,
     tag: string,
-    options?: IDispatchOptions,
-    ...overrideArgs: any
+    options?: IHandlerOptions
   ) => (...onChangeArgs: any) => void
 
   /**
@@ -91,8 +99,7 @@ export interface IHandler {
    */
   simpleMergeRaw: (
     connectedProps: IDispatchSimpleRedux,
-    options?: IDispatchOptions,
-    ...overrideArgs: any
+    options?: IHandlerOptions
   ) => (...onChangeArgs: any) => void
 
   // Redux as UI / Field Input Cache
@@ -106,8 +113,7 @@ export interface IHandler {
   simpleMergeData: (
     connectedProps: IDispatchSimpleRedux,
     tag: string,
-    options?: IDispatchOptions,
-    ...overrideArgs: any
+    options?: IHandlerOptions
   ) => (...onChangeArgs: any[]) => void
 
   /**
@@ -179,8 +185,7 @@ export interface IHandler {
     connectedProps: IDispatchSimpleRedux,
     tag: string,
     url: string,
-    options?: IDispatchOptions,
-    ...overrideArgs: any
+    options?: IHandlerOptions
   ) => (...onChangeArgs: any) => void
 
   /**
@@ -195,8 +200,7 @@ export interface IHandler {
     connectedProps: IDispatchSimpleRedux,
     tag: string,
     url: string,
-    options?: IDispatchOptions,
-    ...overrideArgs: any
+    options?: IHandlerOptions
   ) => (...onChangeArgs: any) => void
 
   /**
@@ -211,8 +215,7 @@ export interface IHandler {
     connectedProps: IDispatchSimpleRedux,
     tag: string,
     url: string,
-    options?: IDispatchOptions,
-    ...overrideArgs: any
+    options?: IHandlerOptions
   ) => (...onChangeArgs: any) => void
 }
 
@@ -220,32 +223,29 @@ export const handler: IHandler = {
   simpleMerge: (
     connectedProps: IDispatchSimpleRedux,
     tag: string,
-    options?: IDispatchOptions,
-    ...overrideArgs: any
+    options?: IHandlerOptions
   ) => (...onChangeArgs: any) =>
     connectedProps.simpleMerge(
       tag,
-      parseOnChangeArgs(...overrideArgs) || parseOnChangeArgs(...onChangeArgs),
+      parseOnChangeArgs(...get(options, "overrideArgs", onChangeArgs)),
       options
     ),
   simpleMergeRaw: (
     connectedProps: IDispatchSimpleRedux,
-    options?: IDispatchOptions,
-    ...overrideArgs: any
+    options?: IHandlerOptions
   ) => (...onChangeArgs: any) =>
     connectedProps.simpleMergeRaw(
-      parseOnChangeArgs(...overrideArgs) || parseOnChangeArgs(...onChangeArgs),
+      parseOnChangeArgs(...get(options, "overrideArgs", onChangeArgs)),
       options
     ),
   simpleMergeData: (
     connectedProps: IDispatchSimpleRedux,
     tag: string,
-    options?: IDispatchOptions,
-    ...overrideArgs: any
+    options?: IHandlerOptions
   ) => (...onChangeArgs: any) =>
     connectedProps.simpleMergeData(
       tag,
-      parseOnChangeArgs(...overrideArgs) || parseOnChangeArgs(...onChangeArgs),
+      parseOnChangeArgs(...get(options, "overrideArgs", onChangeArgs)),
       options
     ),
   simpleMergeToggle: (
@@ -276,39 +276,36 @@ export const handler: IHandler = {
     connectedProps: IDispatchSimpleRedux,
     tag: string,
     url: string,
-    options?: IDispatchOptions,
-    ...overrideArgs: any
+    options?: IHandlerOptions
   ) => (...onChangeArgs: any) =>
     connectedProps.simpleHttpPatch(
       tag,
       url,
-      parseOnChangeArgs(...overrideArgs) || parseOnChangeArgs(...onChangeArgs),
+      parseOnChangeArgs(...get(options, "overrideArgs", onChangeArgs)),
       options
     ),
   simpleHttpPost: (
     connectedProps: IDispatchSimpleRedux,
     tag: string,
     url: string,
-    options?: IDispatchOptions,
-    ...overrideArgs: any
+    options?: IHandlerOptions
   ) => (...onChangeArgs: any) =>
     connectedProps.simpleHttpPost(
       tag,
       url,
-      parseOnChangeArgs(...overrideArgs) || parseOnChangeArgs(...onChangeArgs),
+      parseOnChangeArgs(...get(options, "overrideArgs", onChangeArgs)),
       options
     ),
   simpleHttpPut: (
     connectedProps: IDispatchSimpleRedux,
     tag: string,
     url: string,
-    options?: IDispatchOptions,
-    ...overrideArgs: any
+    options?: IHandlerOptions
   ) => (...onChangeArgs: any) =>
     connectedProps.simpleHttpPut(
       tag,
       url,
-      parseOnChangeArgs(...overrideArgs) || parseOnChangeArgs(...onChangeArgs),
+      parseOnChangeArgs(...get(options, "overrideArgs", onChangeArgs)),
       options
     )
 }

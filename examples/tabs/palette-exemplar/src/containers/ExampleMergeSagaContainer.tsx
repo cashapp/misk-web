@@ -59,14 +59,10 @@ export const ExampleMergeSagaContainer = (
         request.
       </p>
       <Button
-        onClick={handler.simpleMerge(
-          props,
-          `${MergeTag}::test-post`,
-          {
-            mergeSaga: mergeSagaMapKeysToTags(props, "data.data", keyLookup)
-          },
-          mockedNetworkResponse
-        )}
+        onClick={handler.simpleMerge(props, `${MergeTag}::test-post`, {
+          mergeSaga: mergeSagaMapKeysToTags(props, "data.data", keyLookup),
+          overrideArgs: mockedNetworkResponse
+        })}
         intent={Intent.PRIMARY}
         loading={simpleSelectorGet(props.simpleRedux, [
           `${MergeTag}::test-post`,
