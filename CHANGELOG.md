@@ -8,7 +8,7 @@
 
 Update `handler` functions to accept `overrideArgs` in the options object, instead of as a seperate function parameter. This specifically improves the usage for onClick functions as outlined below where empty options object no longer need to be used to reach the `overrideArgs` parameter.
 
-```tsx
+```jsx
 // Old
 <Button onClick={handler.simpleMergeData(props, "my-tag", {}, data)}/>
 
