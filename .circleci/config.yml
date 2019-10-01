@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Build
           command: cd docs && npm run-script build
-  node:
+  node10LTS:
     docker:
       - image: circleci/node:10.15
     steps:
@@ -27,10 +27,41 @@ jobs:
           command: node common/scripts/install-run-rush.js update
       - run:
           name: Building...
-          command: node common/scripts/install-run-rush.js rebuild --verbose
-  new:
+          command: node common/scripts/install-run-rush.js build --verbose
+  node12_9:
+    docker:
+      - image: circleci/node:12.9
+    steps:
+      - checkout
+      - run:
+          name: Misk-Web Prebuild...
+          command: sudo npm install -g @misk/cli && miskweb prebuild -e
+      - run:
+          name: Checking for inconsistent dependency versions
+          command: node common/scripts/install-run-rush.js check
+      - run:
+          name: Installing...
+          command: node common/scripts/install-run-rush.js update
+      - run:
+          name: Building...
+          command: node common/scripts/install-run-rush.js build --verbose
+  new10LTS:
     docker:
       - image: circleci/node:10.15
+    steps:
+      - checkout
+      - run:
+          name: Misk-Web Install...
+          command: sudo npm install -g @misk/cli
+      - run:
+          name: Create test directory...
+          command: mkdir new-tab-ci-test && cd new-tab-ci-test
+      - run:
+          name: miskweb new...
+          command: miskweb new "Alpha Bravo" "alpha-bravo"
+  new12_9:
+    docker:
+      - image: circleci/node:12.9
     steps:
       - checkout
       - run:
@@ -54,7 +85,11 @@ workflows:
   version: 2
   commit:
     jobs:
-      - node:
+      - node10LTS:
+          filters:
+            branches:
+              ignore: gh-pages
+      - node12_9:
           filters:
             branches:
               ignore: gh-pages
@@ -66,13 +101,21 @@ workflows:
           filters:
             branches:
               ignore: gh-pages
-      - new:
+      - new10LTS:
+          filters:
+            branches:
+              ignore: gh-pages
+      - new12_9:
           filters:
             branches:
               ignore: gh-pages
   continuous-testing:
     jobs:
-      - node:
+      - node10LTS:
+          filters:
+            branches:
+              ignore: gh-pages
+      - node12_9:
           filters:
             branches:
               ignore: gh-pages
@@ -84,7 +127,11 @@ workflows:
           filters:
             branches:
               ignore: gh-pages
-      - new:
+      - new10LTS:
+          filters:
+            branches:
+              ignore: gh-pages
+      - new12_9:
           filters:
             branches:
               ignore: gh-pages
