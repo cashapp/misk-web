@@ -28,7 +28,7 @@ jobs:
       - run:
           name: Building...
           command: node common/scripts/install-run-rush.js build --verbose
-  node12_9:
+  node12:
     docker:
       - image: circleci/node:12.10
     steps:
@@ -59,7 +59,7 @@ jobs:
       - run:
           name: miskweb new...
           command: miskweb new "Alpha Bravo" "alpha-bravo"
-  new12_9:
+  new12:
     docker:
       - image: circleci/node:12.10
     steps:
@@ -89,7 +89,7 @@ workflows:
           filters:
             branches:
               ignore: gh-pages
-      - node12_9:
+      - node12:
           filters:
             branches:
               ignore: gh-pages
@@ -105,7 +105,7 @@ workflows:
           filters:
             branches:
               ignore: gh-pages
-      - new12_9:
+      - new12:
           filters:
             branches:
               ignore: gh-pages
@@ -115,7 +115,7 @@ workflows:
           filters:
             branches:
               ignore: gh-pages
-      - node12_9:
+      - node12:
           filters:
             branches:
               ignore: gh-pages
@@ -131,7 +131,7 @@ workflows:
           filters:
             branches:
               ignore: gh-pages
-      - new12_9:
+      - new12:
           filters:
             branches:
               ignore: gh-pages
