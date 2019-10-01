@@ -14,7 +14,9 @@ interface OwnProps {
   tag: string
 }
 
-export const LoadDataTableContainer = (props: IState & IDispatchProps & OwnProps) => {
+export const LoadDataTableContainer = (
+  props: IState & IDispatchProps & OwnProps
+) => {
   const { tag } = props
   const responseData = simpleSelectorGet(
     props.simpleRedux,

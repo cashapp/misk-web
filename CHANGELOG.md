@@ -1,10 +1,27 @@
 ## Changelog
 
+## 0.1.21
+
+1 Oct 2019 15:24:00 GMT
+
+### @misk/simpleredux
+
+Update `handler` functions to accept `overrideArgs` in the options object, instead of as a seperate function parameter. This specifically improves the usage for onClick functions as outlined below where empty options object no longer need to be used to reach the `overrideArgs` parameter.
+
+```tsx
+// Old
+<Button onClick={handler.simpleMergeData(props, "my-tag", {}, data)}/>
+
+// New
+<Button onClick={handler.simpleMergeData(props, "my-tag", { overrideArgs: data })}/>
+```
+
 ## 0.1.20
 
-25 Sept 2019 15:24:00 GMT
+25 Sept 2019 16:24:00 GMT
 
-Stable release including all the changes of `0.1.20-*` alpha releases.
+Stable release including all the changes of `0.1.20-*` al
+pha releases.
 
 ## 0.1.20-4
 
