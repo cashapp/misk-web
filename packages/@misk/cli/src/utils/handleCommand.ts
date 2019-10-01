@@ -54,10 +54,10 @@ export const handleCommand = async (
 ) => {
   // Node version check
   const { node: nodeVersion } = process.versions
-  if (parseInt(nodeVersion.split(".")[0]) !== 10) {
+  if (parseInt(nodeVersion.split(".")[0]) < 10) {
     formattedLog(
       "Warn",
-      `Node version is ${nodeVersion}. Recommended is 10 LTS (10 <= 10 LTS < 11).`,
+      `Node version is ${nodeVersion}. Recommended is 10.13 LTS or above.`,
       "Node"
     )
   }
