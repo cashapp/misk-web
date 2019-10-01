@@ -5941,10 +5941,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-rmTZ9kz+f3rCvK2TD1Ue/oZlns7OGoIWP4fc3llxxRXlOkHKoWPPWJOfFYpITabSow43QJbRIoHQXtt10VldyQ==
-  /node-forge/0.8.2:
+  /node-forge/0.9.0:
     dev: false
+    engines:
+      node: '>= 4.5.0'
     resolution:
-      integrity: sha512-mXQ9GBq1N3uDCyV1pdSzgIguwgtVpM7f5/5J4ipz12PKWElmPpVWLDuWl8iXmhysr21+WmX/OJ5UKx82wjomgg==
+      integrity: sha512-7ASaDa3pD+lJ3WvXFsxekJQelBKRpne+GOVbLbtHYdd7pFspyeuJHnWfLplGf3SwKGbfs/aYl5V/JCIaHVUKKQ==
   /node-gyp/3.8.0:
     dependencies:
       fstream: 1.0.12
@@ -7899,12 +7901,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo=
-  /selfsigned/1.10.6:
+  /selfsigned/1.10.7:
     dependencies:
-      node-forge: 0.8.2
+      node-forge: 0.9.0
     dev: false
     resolution:
-      integrity: sha512-i3+CeqxL7DpAazgVpAGdKMwHuL63B5nhJMh9NQ7xmChGkA3jNFflq6Jyo1LLJYcr3idWiNOPWHCrm4zMayLG4w==
+      integrity: sha512-8M3wBCzeWIJnQfl43IKwOmC4H/RAp50S8DF60znzjW5GVqTcSe2vWclt7hmYVPkKPlHWOu5EaWOMZ2Y6W8ZXTA==
   /semver/5.3.0:
     dev: false
     hasBin: true
@@ -9370,7 +9372,7 @@ packages:
       p-retry: 3.0.1
       portfinder: 1.0.24
       schema-utils: 1.0.0
-      selfsigned: 1.10.6
+      selfsigned: 1.10.7
       semver: 6.3.0
       serve-index: 1.9.1
       sockjs: 0.3.19

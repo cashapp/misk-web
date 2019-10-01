@@ -27,7 +27,7 @@ jobs:
           command: node common/scripts/install-run-rush.js update
       - run:
           name: Building...
-          command: node common/scripts/install-run-rush.js rebuild --verbose
+          command: node common/scripts/install-run-rush.js build --verbose
   new:
     docker:
       - image: circleci/node:10.15
