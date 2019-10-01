@@ -93,11 +93,12 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
               `${NetworkTag}::url`,
               "data"
             ]),
-            {},
-            simpleSelectorGet(props.simpleRedux, [
-              `${NetworkTag}::data`,
-              "data"
-            ])
+            {
+              overrideArgs: simpleSelectorGet(props.simpleRedux, [
+                `${NetworkTag}::data`,
+                "data"
+              ])
+            }
           )}
           intent={Intent.PRIMARY}
           loading={simpleSelectorGet(props.simpleRedux, [
@@ -114,11 +115,12 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
               `${NetworkTag}::url`,
               "data"
             ]),
-            {},
-            simpleSelectorGet(props.simpleRedux, [
-              `${NetworkTag}::data`,
-              "data"
-            ])
+            {
+              overrideArgs: simpleSelectorGet(props.simpleRedux, [
+                `${NetworkTag}::data`,
+                "data"
+              ])
+            }
           )}
           intent={Intent.PRIMARY}
           loading={simpleSelectorGet(props.simpleRedux, [
@@ -136,11 +138,12 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
               `${NetworkTag}::url`,
               "data"
             ]),
-            {},
-            simpleSelectorGet(props.simpleRedux, [
-              `${NetworkTag}::data`,
-              "data"
-            ])
+            {
+              overrideArgs: simpleSelectorGet(props.simpleRedux, [
+                `${NetworkTag}::data`,
+                "data"
+              ])
+            }
           )}
           intent={Intent.WARNING}
           loading={simpleSelectorGet(props.simpleRedux, [

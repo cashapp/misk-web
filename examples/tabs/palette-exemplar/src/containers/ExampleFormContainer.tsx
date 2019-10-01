@@ -171,8 +171,7 @@ export const ExampleFormContainer = (props: IState & IDispatchProps) => {
               `${FormTag}::POST_URL`,
               "data"
             ]),
-            {},
-            fieldsData
+            { overrideArgs: fieldsData }
           )}
           intent={Intent.PRIMARY}
           loading={simpleSelectorGet(props.simpleRedux, [
