@@ -18,17 +18,16 @@ Misk-Web is still bleeding edge and may have breaking changes up until version `
 
 ## NPM Packages
 
-- [![npm](https://img.shields.io/npm/v/@misk/core.svg?label=@misk/core)](https://www.npmjs.com/package/@misk/core) &ndash; [Docs][coredocs] &ndash; React + Typescript components and utilities
-- [![npm](https://img.shields.io/npm/v/@misk/simpleredux.svg?label=@misk/simpleredux)](https://www.npmjs.com/package/@misk/simpleredux) &ndash; [Docs][simplereduxdocs] &ndash; A simpler way to wire up interactive form, network, and other components with Redux
-- [![npm](https://img.shields.io/npm/v/@misk/common.svg?label=@misk/common)](https://www.npmjs.com/package/@misk/common) &ndash; [Docs][commondocs] &ndash; Common interfaces, colors, constants
-- [![npm](https://img.shields.io/npm/v/@misk/dev.svg?label=@misk/dev)](https://www.npmjs.com/package/@misk/dev) &ndash; [Docs][devdocs] &ndash; Shared developer build tools
-- [![npm](https://img.shields.io/npm/v/@misk/prettier.svg?label=@misk/prettier)](https://www.npmjs.com/package/@misk/prettier) &ndash; [Docs][prettierdocs] &ndash; Shared [Prettier config](https://prettier.io/docs/en/configuration.html)
-- [![npm](https://img.shields.io/npm/v/@misk/test.svg?label=@misk/test)](https://www.npmjs.com/package/@misk/test) &ndash; [Docs][testdocs] &ndash; Test libraries (Jest) and configuration
-- [![npm](https://img.shields.io/npm/v/@misk/tslint.svg?label=@misk/tslint)](https://www.npmjs.com/package/@misk/tslint) &ndash; [Docs][tslintdocs] &ndash; Standard TSLint configuration and rules
-
-#### Deprecated NPM Packages
-
-- [![npm](https://img.shields.io/npm/v/@misk/components.svg?label=@misk/components)](https://www.npmjs.com/package/@misk/components) &ndash; Deprecated, migrated to `@misk/core`
+| NPM Package                                                                                                                           | Docs                    | Description                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ----------------------------------------------------------------------------------- |
+| [![npm](https://img.shields.io/npm/v/@misk/core.svg?label=@misk/core)](https://www.npmjs.com/package/@misk/core)                      | [Docs][coredocs]        | React + Typescript components and utilities                                         |
+| [![npm](https://img.shields.io/npm/v/@misk/simpleredux.svg?label=@misk/simpleredux)](https://www.npmjs.com/package/@misk/simpleredux) | [Docs][simplereduxdocs] | A simpler way to wire up interactive form, network, and other components with Redux |
+| [![npm](https://img.shields.io/npm/v/@misk/common.svg?label=@misk/common)](https://www.npmjs.com/package/@misk/common)                | [Docs][commondocs]      | Common interfaces, colors, constants                                                |
+| [![npm](https://img.shields.io/npm/v/@misk/dev.svg?label=@misk/dev)](https://www.npmjs.com/package/@misk/dev)                         | [Docs][devdocs]         | Shared developer build tools                                                        |
+| [![npm](https://img.shields.io/npm/v/@misk/prettier.svg?label=@misk/prettier)](https://www.npmjs.com/package/@misk/prettier)          | [Docs][prettierdocs]    | Shared [Prettier config](https://prettier.io/docs/en/configuration.html)            |
+| [![npm](https://img.shields.io/npm/v/@misk/test.svg?label=@misk/test)](https://www.npmjs.com/package/@misk/test)                      | [Docs][testdocs]        | Test libraries (Jest) and configuration                                             |
+| [![npm](https://img.shields.io/npm/v/@misk/tslint.svg?label=@misk/tslint)](https://www.npmjs.com/package/@misk/tslint)                | [Docs][tslintdocs]      | Standard TSLint configuration and rules                                             |
+| [![npm](https://img.shields.io/npm/v/@misk/components.svg?label=@misk/components)](https://www.npmjs.com/package/@misk/components)    | [Deprecated]            | Migrated to `@misk/core`                                                            |
 
 [repo]: https://github.com/cashapp/misk-web/
 [docs]: https://cashapp.github.io/misk-web/
