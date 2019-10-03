@@ -201,7 +201,7 @@ export declare const isSyntheticEvent: (obj: any) => boolean;
  * Provides normalized handling of component onChange varied inputs
  * @param args array of any event input from a component onChange function
  */
-export declare const parseOnChangeArgs: (...args: any) => any;
+export declare const parseOnChangeArgs: (args: any) => any;
 export interface IHandler {
     /**
      * Handle onClick or onChange event to dispatch state merge action, overwrites state for a specific tag

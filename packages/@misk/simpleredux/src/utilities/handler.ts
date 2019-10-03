@@ -51,13 +51,13 @@ export const isSyntheticEvent = (obj: any): boolean => {
  * Provides normalized handling of component onChange varied inputs
  * @param args array of any event input from a component onChange function
  */
-export const parseOnChangeArgs = (...args: any) => {
-  if (args.length === 1 && args[0] && args[0].target && args[0].target.value) {
-    // onChange=(event: { target: { value: any } } ) => ... }
+export const parseOnChangeArgs = (args: any) => {
+  if (args[0] && args[0].target && args[0].target.value) {
+    // onChange=(event: [{ target: { value: any } }] ) => ... }
     return args[0].target.value
-  } else if (args.length === 1 && typeof args[0] === "number") {
+  } else if (args && args.target && args.target.value) {
     // onChange={(value: number) => ... }
-    return args[0]
+    return args.target.value
   } else if (
     args.length === 2 &&
     typeof args[0] === "number" &&
@@ -70,6 +70,13 @@ export const parseOnChangeArgs = (...args: any) => {
     return args[0]
   } else if (args.length > 1) {
     // args are an array
+    return args
+  } else if (
+    typeof args === "object" ||
+    typeof args === "number" ||
+    typeof args === "string"
+  ) {
+    // args are an object, number, or string
     return args
   } else {
     return null
@@ -227,7 +234,7 @@ export const handler: IHandler = {
   ) => (...onChangeArgs: any) =>
     connectedProps.simpleMerge(
       tag,
-      parseOnChangeArgs(...get(options, "overrideArgs", onChangeArgs)),
+      parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
       options
     ),
   simpleMergeRaw: (
@@ -235,7 +242,7 @@ export const handler: IHandler = {
     options?: IHandlerOptions
   ) => (...onChangeArgs: any) =>
     connectedProps.simpleMergeRaw(
-      parseOnChangeArgs(...get(options, "overrideArgs", onChangeArgs)),
+      parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
       options
     ),
   simpleMergeData: (
@@ -245,7 +252,7 @@ export const handler: IHandler = {
   ) => (...onChangeArgs: any) =>
     connectedProps.simpleMergeData(
       tag,
-      parseOnChangeArgs(...get(options, "overrideArgs", onChangeArgs)),
+      parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
       options
     ),
   simpleMergeToggle: (
@@ -281,7 +288,7 @@ export const handler: IHandler = {
     connectedProps.simpleHttpPatch(
       tag,
       url,
-      parseOnChangeArgs(...get(options, "overrideArgs", onChangeArgs)),
+      parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
       options
     ),
   simpleHttpPost: (
@@ -293,7 +300,7 @@ export const handler: IHandler = {
     connectedProps.simpleHttpPost(
       tag,
       url,
-      parseOnChangeArgs(...get(options, "overrideArgs", onChangeArgs)),
+      parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
       options
     ),
   simpleHttpPut: (
@@ -305,7 +312,7 @@ export const handler: IHandler = {
     connectedProps.simpleHttpPut(
       tag,
       url,
-      parseOnChangeArgs(...get(options, "overrideArgs", onChangeArgs)),
+      parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
       options
     )
 }
