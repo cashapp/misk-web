@@ -27,7 +27,6 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
   render() {
     return (
       <div>
-        <ExampleMergeSagaContainer />
         <HowToComponent />
         <Table
           data={simpleSelectorGet(
@@ -39,6 +38,7 @@ class TabContainer extends React.Component<IState & IDispatchProps, IState> {
         />
         <ExampleNetworkContainer />
         <ExampleFormContainer />
+        <ExampleMergeSagaContainer />
         <ExampleRouterComponent />
       </div>
     )
