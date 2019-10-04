@@ -40,7 +40,7 @@ describe("parseOnChangeArgs handles all components onChange inputs", () => {
     expect(parseOnChangeArgs(1234)).toEqual(1234)
   })
   it("<NumericInput/> onChange valueAsNumber, valueAsString", () => {
-    expect(parseOnChangeArgs(1234, "1234")).toEqual("1234")
+    expect(parseOnChangeArgs([1234, "1234"])).toEqual("1234")
   })
   it("<TagInput /> onChange values: string[]", () => {
     expect(parseOnChangeArgs(["alpha", "bravo", "charlie"])).toEqual([

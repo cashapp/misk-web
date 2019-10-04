@@ -1,6 +1,12 @@
 # Change Log - @misk/dev
 
-This log was last generated on Tue, 01 Oct 2019 15:21:24 GMT and should not be manually modified.
+This log was last generated on Fri, 04 Oct 2019 13:57:44 GMT and should not be manually modified.
+
+## 0.1.22
+
+Fri, 04 Oct 2019 13:57:44 GMT
+
+_Version update only_
 
 ## 0.1.21
 

@@ -1,5 +1,13 @@
 ## Changelog
 
+## 0.1.22
+
+1 Oct 2019 15:24:00 GMT
+
+### @misk/simpleredux
+
+Fix bug in `handler` parsing of `options.overrideArgs`.
+
 ## 0.1.21
 
 1 Oct 2019 15:24:00 GMT
