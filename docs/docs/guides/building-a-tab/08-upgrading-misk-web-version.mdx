@@ -3,8 +3,10 @@
 Take advantage of the Misk-Web CLI to upgrade all of your tabs in a single command.
 
 ``` bash
-$ export NEW_MISK_WEB_VERSION=0.1.15
-$ miskweb pin $NEW_MISK_WEB_VERSION -e
+$ export NEW_MISK_WEB_VERSION=0.1.22      # Get the latest Misk-Web version from https://cashapp.github.io/misk-web/docs/guides/changelog
+$ miskweb pin $NEW_MISK_WEB_VERSION -e    # Pin all miskTab.json versions
+$ miskweb prebuild -e                     # Regenerate all build files including package.json with latest version from miskTab.json
+$ miskweb ci-build -e                     # Runs necessary install, prebuild, build, test tasks
 ```
 
 Note: the `-e` flag recursively applies the command in every downstream tab found in the filesystem.
