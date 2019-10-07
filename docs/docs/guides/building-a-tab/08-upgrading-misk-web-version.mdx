@@ -1,10 +1,18 @@
 # Upgrading to a new Misk-Web Version
 
-Take advantage of the Misk-Web CLI to upgrade all of your tabs in a single command.
+Take advantage of the Misk-Web CLI to upgrade all of your tabs in a single command. Find the latest version in the [changelog](https://cashapp.github.io/misk-web/docs/guides/changelog)
 
 ``` bash
-$ export NEW_MISK_WEB_VERSION=0.1.15
+$ export NEW_MISK_WEB_VERSION=0.1.22
 $ miskweb pin $NEW_MISK_WEB_VERSION -e
 ```
 
 Note: the `-e` flag recursively applies the command in every downstream tab found in the filesystem.
+
+After this, run the following commands to update your projects.
+
+```bash
+$ miskweb prebuild
+$ miskweb install
+$miskweb start
+```
