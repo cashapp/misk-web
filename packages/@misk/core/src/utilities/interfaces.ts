@@ -17,12 +17,16 @@ export interface IDashboardTab extends IWebTab {
 
 export interface IAdminDashboardTab extends IDashboardTab {}
 
+export interface IDashboardMetadata {
+  home_url: string
+  navbar_items: Array<string | Element | JSX.Element>
+  navbar_status: string | Element | JSX.Element
+  tabs: IDashboardTab[]
+}
+
 export interface IServiceMetadata {
-  admin_dashboard_url: string
   app_name: string
   environment: Environment
-  navbar_items?: Array<string | Element | JSX.Element>
-  navbar_status?: string | Element | JSX.Element
 }
 
 /**

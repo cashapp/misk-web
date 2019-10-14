@@ -46,7 +46,6 @@ export const initialResponseState = () => {
  *   }
  * }
  */
-
 export const get = async (url: string, config: AxiosRequestConfig = {}) => {
   try {
     const { data } = await axios.get(url, config)
