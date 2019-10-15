@@ -1,5 +1,13 @@
 ## Changelog
 
+## 0.1.23-0
+
+1 Oct 2019 15:24:00 GMT
+
+### @misk/core
+
+* Update `MiskContainer` to support Misk API changes to `DashboardMetadataAction` and `ServiceMetadataAction`
+
 ## 0.1.22
 
 1 Oct 2019 15:24:00 GMT
