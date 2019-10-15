@@ -21,7 +21,7 @@ export interface IMiskNavbarContainerProps {
 }
 
 export const miskDashboardMetadataUrl = (dashboardId: string) =>
-  `/api/dashboard/metadata/${dashboardId}`
+  `/api/dashboard/${dashboardId}/metadata`
 export const miskServiceMetadataUrl = "/api/service/metadata"
 export const testAdminDashboardTabsUrl =
   "https://cashapp.github.io/misk-web/examples/data/demo/adminDashboardTabs.json"
