@@ -30,7 +30,7 @@ jobs:
           command: node common/scripts/install-run-rush.js build --verbose
   node12:
     docker:
-      - image: circleci/node:12.11
+      - image: circleci/node:12.12
     steps:
       - checkout
       - run:
@@ -61,7 +61,7 @@ jobs:
           command: miskweb new "Alpha Bravo" "alpha-bravo"
   new12:
     docker:
-      - image: circleci/node:12.11
+      - image: circleci/node:12.12
     steps:
       - checkout
       - run:
