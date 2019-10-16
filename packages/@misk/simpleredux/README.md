@@ -86,6 +86,17 @@ $ npm install @misk/simpleredux
     - Example: `["Dino::Name.data", "Dino::Price.data"]`
     - Same as parameter in [Lodash/Pick](https://lodash.com/docs#pick)
 
+## Merge and Failure Sagas
+
+Dispatched actions can include an options object that has two very powerful keys:
+
+- `mergeSaga`
+- `failureSaga`
+
+These are Redux sagas that are run on merge (success) or failure and allow for an additional async block of computation that include other network calls, seeding to many fields parts of the network response data, and anything else.
+
+Both `mergeSaga` and `failureSaga` follow the same generic Redux Saga API. Consider looking at the [`src/saga.ts`](https://github.com/cashapp/misk-web/blob/master/packages/%40misk/simpleredux/src/saga.ts) or [`src/utilities/mergeSaga.ts`](https://github.com/cashapp/misk-web/blob/master/packages/%40misk/simpleredux/src/utilities/mergeSaga.ts) code to find examples of sagas already part of `@misk/simpleredux`.
+
 ## Resources
 
 - [Example Form Code](https://github.com/cashapp/misk-web/blob/master/examples/tabs/palette-exemplar/src/containers/SampleFormContainer.tsx)
