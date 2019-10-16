@@ -505,16 +505,30 @@ exports[`TabContainer TabContainer can render with redux 1`] = `
       <p>
         Showcase using a custom mergeSaga to seed form fields from a network request.
       </p>
-      <button
-        class="bp3-button bp3-intent-primary"
-        type="button"
+      <div
+        class="bp3-button-group"
       >
-        <span
-          class="bp3-button-text"
+        <button
+          class="bp3-button bp3-intent-primary"
+          type="button"
         >
-          Seed Fields
-        </span>
-      </button>
+          <span
+            class="bp3-button-text"
+          >
+            Seed Fields
+          </span>
+        </button>
+        <button
+          class="bp3-button bp3-intent-primary"
+          type="button"
+        >
+          <span
+            class="bp3-button-text"
+          >
+            Fail to Seed Fields
+          </span>
+        </button>
+      </div>
       <div
         class="bp3-form-group"
       >
