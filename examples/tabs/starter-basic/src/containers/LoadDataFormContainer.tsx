@@ -1,8 +1,8 @@
 import { Button, FormGroup, Intent, InputGroup } from "@blueprintjs/core"
 import {
-  simpleSelectorGet,
   handler,
-  mergeSagaMapKeysToTags
+  mergeSagaMapKeysToTags,
+  simpleSelectorGet
 } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"

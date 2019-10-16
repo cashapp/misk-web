@@ -1,5 +1,14 @@
 ## Changelog
 
+## 0.1.23-2
+
+16 Oct 2019 14:40:00 GMT
+
+### @misk/simpleredux
+
+- Plumb out `failureSaga` option for similar purpose to `mergeSaga` except for in failure cases
+- For example, a `failureSaga` could be added to a `simpleHttpPost` call that on call failure, issues a network request retry or other action
+
 ## 0.1.23-1
 
 15 Oct 2019 17:24:00 GMT

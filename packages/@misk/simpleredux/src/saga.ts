@@ -166,6 +166,21 @@ function* handleMerge(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
   }
 }
 
+/** Saga handler function for saga failures */
+function* handleFailure(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
+  try {
+    const { options } = getFirstTag<ISimpleHttpPayloadTag>(action.payload)
+    // New actions are only emitted via optional failureSaga
+    if (options.failureSaga) {
+      yield options.failureSaga(action)
+    }
+  } catch (e) {
+    const { options, tag } = getFirstTag<ISimpleHttpPayloadTag>(action.payload)
+    const error = responseAndError(e)
+    yield put(privateDispatchSimpleRedux.simpleFailure(tag, { error }, options))
+  }
+}
+
 /** Root Saga for SimpleRedux */
 export function* watchSimpleReduxSagas(): SimpleReduxSaga {
   yield all([
@@ -175,6 +190,7 @@ export function* watchSimpleReduxSagas(): SimpleReduxSaga {
     takeEvery(SIMPLEREDUX.HTTP_PATCH, handlePatch),
     takeEvery(SIMPLEREDUX.HTTP_POST, handlePost),
     takeEvery(SIMPLEREDUX.HTTP_PUT, handlePut),
+    takeEvery(SIMPLEREDUX.FAILURE, handleFailure),
     takeEvery(SIMPLEREDUX.MERGE, handleMerge)
   ])
 }

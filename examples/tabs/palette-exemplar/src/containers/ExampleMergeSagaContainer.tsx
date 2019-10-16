@@ -1,5 +1,6 @@
 import {
   Button,
+  ButtonGroup,
   FormGroup,
   InputGroup,
   H1,
@@ -10,7 +11,13 @@ import {
   mergeSagaMapKeysToTags,
   simpleSelectorGet,
   simpleSelectorPickTransform,
-  handler
+  handler,
+  IDispatchSimpleRedux,
+  IDispatchOptions,
+  dispatchDefault,
+  IAction,
+  SIMPLEREDUX,
+  ISimpleReduxPayload
 } from "@misk/simpleredux"
 import { invert } from "lodash"
 import * as React from "react"
@@ -21,6 +28,18 @@ import {
   mapStateToProps,
   mapDispatchToProps
 } from "src/ducks"
+
+export const failureSagaMapKeysToTags = (
+  connectedProps: { simpleMergeData: IDispatchSimpleRedux["simpleMergeData"] },
+  keyTagLookup: { [key: string]: string },
+  options: IDispatchOptions = dispatchDefault.options
+) =>
+  function*(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
+    for (const tag in keyTagLookup) {
+      const value = "uh oh it didn't work!"
+      yield connectedProps.simpleMergeData(keyTagLookup[tag], value, options)
+    }
+  }
 
 export const ExampleMergeSagaContainer = (
   props: IDispatchProps & IState & any
@@ -58,18 +77,36 @@ export const ExampleMergeSagaContainer = (
         Showcase using a custom mergeSaga to seed form fields from a network
         request.
       </p>
-      <Button
-        onClick={handler.simpleMerge(props, `${MergeTag}::test-post`, {
-          mergeSaga: mergeSagaMapKeysToTags(props, "data.data", keyLookup),
-          overrideArgs: mockedNetworkResponse
-        })}
-        intent={Intent.PRIMARY}
-        loading={simpleSelectorGet(props.simpleRedux, [
-          `${MergeTag}::test-post`,
-          "loading"
-        ])}
-        text={"Seed Fields"}
-      />
+      <ButtonGroup>
+        <Button
+          onClick={handler.simpleMerge(props, `${MergeTag}::test-post`, {
+            mergeSaga: mergeSagaMapKeysToTags(props, "data.data", keyLookup),
+            overrideArgs: mockedNetworkResponse
+          })}
+          intent={Intent.PRIMARY}
+          loading={simpleSelectorGet(props.simpleRedux, [
+            `${MergeTag}::test-post`,
+            "loading"
+          ])}
+          text={"Seed Fields"}
+        />
+        <Button
+          onClick={handler.simpleHttpGet(
+            props,
+            `${MergeTag}::fail-post`,
+            "https://adrw.ch/api/404",
+            {
+              failureSaga: failureSagaMapKeysToTags(props, keyLookup)
+            }
+          )}
+          intent={Intent.PRIMARY}
+          loading={simpleSelectorGet(props.simpleRedux, [
+            `${MergeTag}::fail-post`,
+            "loading"
+          ])}
+          text={"Fail to Seed Fields"}
+        />
+      </ButtonGroup>
       {/* Fields that will be seeded */}
       <FormGroup>
         {Object.entries(keyLookup).map(([requestKey, reduxTag]) => (

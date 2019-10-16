@@ -42,6 +42,24 @@ $ rush build
 
 - 🎉 All packages will now be live on NPM!
 
+- Update `CHANGELOG.md` with the changes included in this published version.
+
+- Now update the example tabs `miskTab.json`, update Rush's NPM version lockfile, and confirm that everything still builds.
+
+  ```Bash
+  $ miskweb pin 0.1.3-4 -e
+  $ miskweb prebuild -e
+  $ rush update --full
+  $ rush build
+  ```
+
+- Deploy fresh version of docs site that includes the latest `CHANGELOG.md`.
+
+  ```Bash
+  $ cd docs
+  $ yarn deploy
+  ```
+
 - Commit all code changes with a commit message starting with `[RELEASE] 0.1.3-4.`
 
 ### Optional use of Rush Change for formatted changelog
