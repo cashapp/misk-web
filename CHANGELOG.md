@@ -1,5 +1,21 @@
 ## Changelog
 
+## 0.1.23-1
+
+15 Oct 2019 17:24:00 GMT
+
+### @misk/core
+
+- Update `DashboardMetadataAction` path to `/api/dashboard/{dashboardId}/metadata`
+
+## 0.1.23-0
+
+15 Oct 2019 17:24:00 GMT
+
+### @misk/core
+
+- Update `MiskContainer` to support Misk API changes to `DashboardMetadataAction` and `ServiceMetadataAction`
+
 ## 0.1.22
 
 1 Oct 2019 15:24:00 GMT

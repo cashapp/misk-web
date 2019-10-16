@@ -15,7 +15,7 @@ describe("Misk Navbar Container", () => {
   it("Container renders with remote data", () => {
     const { asFragment } = render(
       <MiskNavbarContainer
-        adminDashboardTabsUrl={testAdminDashboardTabsUrl}
+        dashboardMetadataUrl={testAdminDashboardTabsUrl}
         serviceMetadataUrl={testServiceMetadataUrl}
       />
     )

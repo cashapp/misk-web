@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react"
 import { Spinner } from "@blueprintjs/core"
+import React, { useEffect, useState } from "react"
 import { ResponsiveAppContainer } from "src/cssContainers"
 import { TabLoaderComponent } from "src/components"
 import { INavbarProps, Navbar, choose } from "src/features/Navbar"
@@ -9,18 +9,19 @@ import {
   defaultEnvironmentIndicatorsVisible,
   defaultTheme,
   IServiceMetadata,
-  IDashboardTab
+  IDashboardMetadata
 } from "src/utilities"
 
 export interface IMiskNavbarContainerProps {
-  adminDashboardTabsUrl?: string
   children?: any
+  dashboardMetadataUrl?: string
   loadingSpinner?: boolean
   propsOverrideRemoteData?: boolean
   serviceMetadataUrl?: string
 }
 
-export const miskAdminDashboardTabsUrl = "/api/admindashboardtabs"
+export const miskDashboardMetadataUrl = (dashboardSlug: string) =>
+  `/api/dashboard/${dashboardSlug}/metadata`
 export const miskServiceMetadataUrl = "/api/service/metadata"
 export const testAdminDashboardTabsUrl =
   "https://cashapp.github.io/misk-web/examples/data/demo/adminDashboardTabs.json"
@@ -37,7 +38,7 @@ export const MiskNavbarContainer = (
   props: IMiskNavbarContainerProps & INavbarProps
 ) => {
   const {
-    adminDashboardTabsUrl,
+    dashboardMetadataUrl,
     children,
     loadingSpinner = true,
     propsOverrideRemoteData = false,
@@ -62,19 +63,19 @@ export const MiskNavbarContainer = (
 
   // State initialization
   const [loading, setLoading] = useState(false)
-  const [adminDashboardTabs, setAdminDashboardTabs] = useState(
-    [] as IDashboardTab[]
+  const [dashboardMetadata, setDashboardMetadata] = useState(
+    {} as IDashboardMetadata
   )
   const [serviceMetadata, setServiceMetadata] = useState({} as IServiceMetadata)
 
-  // Network calls to get adminDashboardTabs and serviceMetadata
-  const getAdminDashboardTabs = async () => {
-    const { data, error } = await get(adminDashboardTabsUrl)
+  // Network calls to get dashboardMetadata and serviceMetadata
+  const getDashboardMetadata = async () => {
+    const { data, error } = await get(dashboardMetadataUrl)
     if (error) {
-      console.error(`Failed to GET ${adminDashboardTabsUrl}`, error)
+      console.error(`Failed to GET ${dashboardMetadataUrl}`, error)
       setLoading(true)
     } else {
-      setAdminDashboardTabs(data.adminDashboardTabs)
+      setDashboardMetadata(data.dashboardMetadata)
       setLoading(false)
     }
   }
@@ -90,9 +91,9 @@ export const MiskNavbarContainer = (
   }
 
   useEffect(() => {
-    if (adminDashboardTabsUrl) {
+    if (dashboardMetadataUrl) {
       setLoading(true)
-      getAdminDashboardTabs()
+      getDashboardMetadata()
     }
     if (serviceMetadataUrl) {
       setLoading(true)
@@ -119,10 +120,10 @@ export const MiskNavbarContainer = (
         homeUrl={choose(
           propsOverrideRemoteData,
           homeUrl,
-          serviceMetadata.admin_dashboard_url
+          dashboardMetadata.home_url
         )}
         linkComponent={linkComponent}
-        links={choose(propsOverrideRemoteData, links, adminDashboardTabs)}
+        links={choose(propsOverrideRemoteData, links, dashboardMetadata.tabs)}
         menuIcon={menuIcon}
         menuOpenIcon={menuOpenIcon}
         menuButtonAsLink={menuButtonAsLink}
@@ -130,18 +131,18 @@ export const MiskNavbarContainer = (
         navbar_items={choose(
           propsOverrideRemoteData,
           navbar_items,
-          serviceMetadata.navbar_items
+          dashboardMetadata.navbar_items
         )}
         status={choose(
           propsOverrideRemoteData,
           status,
-          serviceMetadata.navbar_status
+          dashboardMetadata.navbar_status
         )}
         theme={theme}
       />
       <ResponsiveAppContainer>
         {loadingSpinner && loading && <Spinner />}
-        <TabLoaderComponent tabs={adminDashboardTabs} />
+        <TabLoaderComponent tabs={dashboardMetadata.tabs} />
         {children}
       </ResponsiveAppContainer>
     </>
