@@ -1,5 +1,5 @@
 export const testPackageScript = {
-  test: "jest --passWithNoTests"
+  test: "jest --passWithNoTests --maxWorkers=2"
 }
 
 export const testPackageJson = {
