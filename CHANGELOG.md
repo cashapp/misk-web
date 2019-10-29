@@ -1,5 +1,13 @@
 ## Changelog
 
+## 0.1.23-3
+
+29 Oct 2019 19:58:00 GMT
+
+### @misk/test
+
+- Add max workers to Jest configuration to prevent CircleCI out of memory errors
+
 ## 0.1.23-2
 
 16 Oct 2019 14:40:00 GMT
