@@ -1,5 +1,11 @@
 ## Changelog
 
+## 0.1.23
+
+4 Nov 2019 14:36:00 GMT
+
+Stable release including all the changes of `0.1.23-*` alpha releases.
+
 ## 0.1.23-4
 
 4 Nov 2019 14:23:00 GMT
@@ -69,8 +75,7 @@ Update `handler` functions to accept `overrideArgs` in the options object, inste
 
 25 Sept 2019 16:24:00 GMT
 
-Stable release including all the changes of `0.1.20-*` al
-pha releases.
+Stable release including all the changes of `0.1.20-*` alpha releases.
 
 ## 0.1.20-4
 
