@@ -6,7 +6,7 @@ The admin dashboard comes with tabs like Config and Web-Actions that provide vis
 
 The admin dashboard is also extensible! You can add custom tabs to provide service specific operational or adminsitrative tools with the multibindings outlined below.
 
-Get all the multibindings for your tab with the included Misk-Web CLI command
+**Generate all the multibindings for your tab with the included Misk-Web CLI command**
 
 ```
 $ miskweb misk
@@ -33,7 +33,7 @@ Example Dashboard Tab Binding. Generate your tab's bindings with `$ miskweb misk
 ```kotlin
 // DinoAdminDashboardModule.kt
 
-multibind<DashboardTab, AdminDashboardTab>().toInstance(DashboardTab(
+multibind<DashboardTab>().toProvider(DashboardTabProvider<AdminDashboard>(
   name = "Dino Tab",
   slug = "dino-tab",
   url_path_prefix = "/_admin/dino-tab/",
@@ -65,8 +65,8 @@ To use an Access Annotation to set the same authentication on web actions and da
 ```kotlin
 // DinoAdminDashboardModule.kt
 
-multibind<DashboardTab, AdminDashboardTab>().toProvider(
-  DashboardTabProvider<DinoServiceAdministratorAccess>(
+multibind<DashboardTab>().toProvider(
+  DashboardTabProvider<AdminDashboard, DinoServiceAdministratorAccess>(
     name = "Dino Tab",
     slug = "dino-tab",
     url_path_prefix = "/_admin/dino-tab/",

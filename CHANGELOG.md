@@ -1,5 +1,13 @@
 ## Changelog
 
+## 0.1.23-4
+
+4 Nov 2019 14:23:00 GMT
+
+### @misk/cli
+
+- Update Misk Admin Dashboard multibindings generated in CLI `misk` command
+
 ## 0.1.23-3
 
 29 Oct 2019 19:58:00 GMT

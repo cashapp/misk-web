@@ -13,18 +13,20 @@ export const handlerFn = async (...args: any) => {
   const { dir } = parseArgs(...args)
   const miskTab: IMiskTabJSON = readMiskTabJson(dir)
   const dashboardTabBinding = `
-    multibind<DashboardTab, AdminDashboardTab>().toInstance(DashboardTab(
-      name = "${miskTab.name}",
-      slug = "${miskTab.slug}",
-      url_path_prefix = "/_admin/${miskTab.slug}/",
-      category = "{add menu category to group the tab}",
-      capabilities = setOf("optional list", "of authenticated capabilities",
-        "who can see the tab")
-    ))
+    multibind<DashboardTab>().toProvider(
+      DashboardTabProvider<AdminDashboard>(
+        name = "${miskTab.name}",
+        slug = "${miskTab.slug}",
+        url_path_prefix = "/_admin/${miskTab.slug}/",
+        category = "{add menu category to group the tab}",
+        capabilities = setOf("optional list", "of authenticated capabilities",
+          "who can see the tab")
+      )
+    )
   `
   const dashboardTabProviderBinding = `
-    multibind<DashboardTab, AdminDashboardTab>().toProvider(
-      DashboardTabProvider<YOUR_CUSTOM_ACCESS_ANNOTATION>(
+    multibind<DashboardTab>().toProvider(
+      DashboardTabProvider<AdminDashboard, YOUR_CUSTOM_ACCESS_ANNOTATION>(
         name = "${miskTab.name}",
         slug = "${miskTab.slug}",
         url_path_prefix = "/_admin/${miskTab.slug}/",
@@ -42,7 +44,7 @@ export const handlerFn = async (...args: any) => {
       : `,
       url_path_prefix = "/${miskTab.relative_path_prefix}",
       resourcePath = "classpath:/web/${miskTab.relative_path_prefix}"`
-    }
+  }
     ))
   `
   const multibindingsMessage = `
@@ -75,8 +77,6 @@ Gradle configuration for '${miskTab.slug}':
 service/build.gradle (Groovy)
 --------------------------------------------------------------------------------
 sourceSets {
-  main.java.srcDirs += 'src/main/kotlin/'
-  test.java.srcDirs += 'src/test/kotlin/'
   main.resources {
     srcDirs += [
             'web/tabs/${miskTab.slug}/lib'
