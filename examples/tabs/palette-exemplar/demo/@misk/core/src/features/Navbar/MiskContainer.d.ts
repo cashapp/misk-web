@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { INavbarProps } from "src/features/Navbar";
 export interface IMiskNavbarContainerProps {
     children?: any;

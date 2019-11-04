@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { IconName } from "@blueprintjs/icons";
 import { IError } from "./ErrorCalloutComponent";
 export interface IOfflineProps {

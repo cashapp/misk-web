@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { IDashboardTab } from "../utilities";
 interface ISidebarProps {
     tabs: IDashboardTab[];

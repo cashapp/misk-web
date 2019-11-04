@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { IDispatchProps, IState } from "src/ducks";
 interface OwnProps {
     tag: string;

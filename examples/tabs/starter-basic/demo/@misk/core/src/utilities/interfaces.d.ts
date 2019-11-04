@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export interface IWebTab {
     slug: string;
     url_path_prefix: string;

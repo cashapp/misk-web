@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { IDispatchOptions, IAction, SIMPLEREDUX, ISimpleReduxPayload } from "@misk/simpleredux";
 export declare const failureSagaMapKeysToTags: (connectedProps: {
     simpleMergeData: (tag: string, data: any, options?: IDispatchOptions) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;

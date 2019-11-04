@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { IconName } from "@blueprintjs/core";
 import { IThemeProps } from "./DimensionAwareNavbar";
 export interface IMenuButtonExternalProps extends IThemeProps {
