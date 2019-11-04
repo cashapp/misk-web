@@ -1,6 +1,11 @@
 # Change Log - @misk/tslint
 
-This log was last generated on Fri, 04 Oct 2019 13:57:44 GMT and should not be manually modified.
+This log was last generated on Mon, 04 Nov 2019 14:27:10 GMT and should not be manually modified.
+
+## 0.1.23
+Mon, 04 Nov 2019 14:27:10 GMT
+
+*Version update only*
 
 ## 0.1.22
 Fri, 04 Oct 2019 13:57:44 GMT
