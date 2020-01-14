@@ -46,10 +46,7 @@ const rawSubStateSelector: <IState extends Map<string, any>, ISubState>(
 >(
   domain: string
 ) =>
-  createSelector(
-    selectRawSubState<IState, ISubState>(domain),
-    state => state
-  )
+  createSelector(selectRawSubState<IState, ISubState>(domain), state => state)
 
 const immutableSubStateSelector: <
   IState extends { [key: string]: ISubState & any },
@@ -62,9 +59,8 @@ const immutableSubStateSelector: <
 >(
   domain: string
 ) =>
-  createSelector(
-    selectSubState<IState, ISubState>(domain),
-    state => state.toJS()
+  createSelector(selectSubState<IState, ISubState>(domain), state =>
+    state.toJS()
   )
 
 /**
