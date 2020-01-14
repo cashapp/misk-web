@@ -1,6 +1,11 @@
 # Change Log - @misk/common
 
-This log was last generated on Mon, 04 Nov 2019 14:27:10 GMT and should not be manually modified.
+This log was last generated on Tue, 14 Jan 2020 19:22:06 GMT and should not be manually modified.
+
+## 0.1.24
+Tue, 14 Jan 2020 19:22:06 GMT
+
+*Version update only*
 
 ## 0.1.23
 Mon, 04 Nov 2019 14:27:10 GMT
