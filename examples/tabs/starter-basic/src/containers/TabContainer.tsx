@@ -20,7 +20,4 @@ const TabContainer = (props: IState & IDispatchProps) => {
   )
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TabContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(TabContainer)
