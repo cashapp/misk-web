@@ -2,31 +2,31 @@
 
 exports[`Navbar Component Navbar can render 1`] = `
 <DocumentFragment>
-  .emotion-10 {
+  .emotion-11 {
   background-color: #29333a !important;
   padding-top: 10px !important;
   padding-bottom: 60px !important;
   position: fixed !important;
 }
 
-.emotion-2 {
+.emotion-3 {
   margin: 0 auto;
 }
 
 @media (min-width:768px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 750px;
   }
 }
 
 @media (min-width:992px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 970px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 1170px;
   }
 }
@@ -89,7 +89,7 @@ exports[`Navbar Component Navbar can render 1`] = `
   text-decoration: none;
 }
 
-.emotion-4 {
+.emotion-5 {
   background-color: #29333a !important;
   box-shadow: none !important;
   background-image: none !important;
@@ -99,21 +99,21 @@ exports[`Navbar Component Navbar can render 1`] = `
   z-index: 1020;
 }
 
-.emotion-3 {
+.emotion-4 {
   color: #7a7e82 !important;
 }
 
-.emotion-3:hover {
+.emotion-4:hover {
   color: white;
 }
 
-.emotion-9 {
+.emotion-10 {
   background-color: #29333a;
   display: block;
   margin: 60px -20px 0 -20px;
 }
 
-.emotion-8 {
+.emotion-9 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
@@ -121,16 +121,16 @@ exports[`Navbar Component Navbar can render 1`] = `
 }
 
 @media (max-width:768px) {
-  .emotion-8 {
+  .emotion-9 {
     padding: 50px 20px;
   }
 }
 
-.emotion-6 {
+.emotion-7 {
   display: inline-block;
 }
 
-.emotion-5 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -143,7 +143,7 @@ exports[`Navbar Component Navbar can render 1`] = `
   flex-wrap: wrap;
 }
 
-.emotion-5 * {
+.emotion-6 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -154,10 +154,10 @@ exports[`Navbar Component Navbar can render 1`] = `
 }
 
 <div
-    class="bp3-navbar emotion-10"
+    class="bp3-navbar emotion-11"
   >
     <div
-      class="emotion-2"
+      class="emotion-3"
     >
       <div
         class="bp3-navbar-group bp3-align-left bp3-dark emotion-1"
@@ -168,17 +168,20 @@ exports[`Navbar Component Navbar can render 1`] = `
           Misk
         </span>
       </div>
+      <div
+        class="bp3-navbar-group bp3-align-left bp3-dark emotion-1"
+      />
     </div>
     <div>
       <button
-        class="bp3-button emotion-4"
+        class="bp3-button emotion-5"
         type="button"
       >
         <span
           class="bp3-button-text"
         >
           <span
-            class="bp3-icon bp3-icon-menu emotion-3"
+            class="bp3-icon bp3-icon-menu emotion-4"
             icon="menu"
           >
             <svg
@@ -199,7 +202,7 @@ exports[`Navbar Component Navbar can render 1`] = `
         </span>
       </button>
       <div
-        class="emotion-9"
+        class="emotion-10"
       >
         <div
           class="bp3-collapse"
@@ -210,16 +213,16 @@ exports[`Navbar Component Navbar can render 1`] = `
             style="transform: translateY(-0px);"
           >
             <div
-              class="emotion-8"
+              class="emotion-9"
             >
               <div
-                class="emotion-2"
+                class="emotion-3"
               >
                 <div
-                  class="emotion-6"
+                  class="emotion-7"
                 >
                   <div
-                    class="emotion-5"
+                    class="emotion-6"
                   >
                     <span>
                       <span />
@@ -240,24 +243,24 @@ exports[`Navbar Component Navbar can render 1`] = `
 
 exports[`Navbar Component Navbar can render with theme override using color 1`] = `
 <DocumentFragment>
-  .emotion-2 {
+  .emotion-3 {
   margin: 0 auto;
 }
 
 @media (min-width:768px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 750px;
   }
 }
 
 @media (min-width:992px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 970px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 1170px;
   }
 }
@@ -320,15 +323,15 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
   text-decoration: none;
 }
 
-.emotion-3 {
+.emotion-4 {
   color: #7a7e82 !important;
 }
 
-.emotion-3:hover {
+.emotion-4:hover {
   color: white;
 }
 
-.emotion-8 {
+.emotion-9 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
@@ -336,16 +339,16 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
 }
 
 @media (max-width:768px) {
-  .emotion-8 {
+  .emotion-9 {
     padding: 50px 20px;
   }
 }
 
-.emotion-6 {
+.emotion-7 {
   display: inline-block;
 }
 
-.emotion-5 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -358,7 +361,7 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
   flex-wrap: wrap;
 }
 
-.emotion-5 * {
+.emotion-6 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -368,14 +371,14 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
   white-space: nowrap;
 }
 
-.emotion-10 {
+.emotion-11 {
   background-color: #7250a1 !important;
   padding-top: 10px !important;
   padding-bottom: 60px !important;
   position: fixed !important;
 }
 
-.emotion-4 {
+.emotion-5 {
   background-color: #7250a1 !important;
   box-shadow: none !important;
   background-image: none !important;
@@ -385,17 +388,17 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
   z-index: 1020;
 }
 
-.emotion-9 {
+.emotion-10 {
   background-color: #7250a1;
   display: block;
   margin: 60px -20px 0 -20px;
 }
 
 <div
-    class="bp3-navbar emotion-10"
+    class="bp3-navbar emotion-11"
   >
     <div
-      class="emotion-2"
+      class="emotion-3"
     >
       <div
         class="bp3-navbar-group bp3-align-left bp3-dark emotion-1"
@@ -406,17 +409,20 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
           Misk
         </span>
       </div>
+      <div
+        class="bp3-navbar-group bp3-align-left bp3-dark emotion-1"
+      />
     </div>
     <div>
       <button
-        class="bp3-button emotion-4"
+        class="bp3-button emotion-5"
         type="button"
       >
         <span
           class="bp3-button-text"
         >
           <span
-            class="bp3-icon bp3-icon-menu emotion-3"
+            class="bp3-icon bp3-icon-menu emotion-4"
             icon="menu"
           >
             <svg
@@ -437,7 +443,7 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
         </span>
       </button>
       <div
-        class="emotion-9"
+        class="emotion-10"
       >
         <div
           class="bp3-collapse"
@@ -448,16 +454,16 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
             style="transform: translateY(-0px);"
           >
             <div
-              class="emotion-8"
+              class="emotion-9"
             >
               <div
-                class="emotion-2"
+                class="emotion-3"
               >
                 <div
-                  class="emotion-6"
+                  class="emotion-7"
                 >
                   <div
-                    class="emotion-5"
+                    class="emotion-6"
                   >
                     <span>
                       <span />
@@ -478,24 +484,24 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
 
 exports[`Navbar Component Navbar can render with theme override using string 1`] = `
 <DocumentFragment>
-  .emotion-2 {
+  .emotion-3 {
   margin: 0 auto;
 }
 
 @media (min-width:768px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 750px;
   }
 }
 
 @media (min-width:992px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 970px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 1170px;
   }
 }
@@ -558,15 +564,15 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
   text-decoration: none;
 }
 
-.emotion-3 {
+.emotion-4 {
   color: #7a7e82 !important;
 }
 
-.emotion-3:hover {
+.emotion-4:hover {
   color: white;
 }
 
-.emotion-8 {
+.emotion-9 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
@@ -574,16 +580,16 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
 }
 
 @media (max-width:768px) {
-  .emotion-8 {
+  .emotion-9 {
     padding: 50px 20px;
   }
 }
 
-.emotion-6 {
+.emotion-7 {
   display: inline-block;
 }
 
-.emotion-5 {
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -596,7 +602,7 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
   flex-wrap: wrap;
 }
 
-.emotion-5 * {
+.emotion-6 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -606,14 +612,14 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
   white-space: nowrap;
 }
 
-.emotion-10 {
+.emotion-11 {
   background-color: purple !important;
   padding-top: 10px !important;
   padding-bottom: 60px !important;
   position: fixed !important;
 }
 
-.emotion-4 {
+.emotion-5 {
   background-color: purple !important;
   box-shadow: none !important;
   background-image: none !important;
@@ -623,17 +629,17 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
   z-index: 1020;
 }
 
-.emotion-9 {
+.emotion-10 {
   background-color: purple;
   display: block;
   margin: 60px -20px 0 -20px;
 }
 
 <div
-    class="bp3-navbar emotion-10"
+    class="bp3-navbar emotion-11"
   >
     <div
-      class="emotion-2"
+      class="emotion-3"
     >
       <div
         class="bp3-navbar-group bp3-align-left bp3-dark emotion-1"
@@ -644,17 +650,20 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
           Misk
         </span>
       </div>
+      <div
+        class="bp3-navbar-group bp3-align-left bp3-dark emotion-1"
+      />
     </div>
     <div>
       <button
-        class="bp3-button emotion-4"
+        class="bp3-button emotion-5"
         type="button"
       >
         <span
           class="bp3-button-text"
         >
           <span
-            class="bp3-icon bp3-icon-menu emotion-3"
+            class="bp3-icon bp3-icon-menu emotion-4"
             icon="menu"
           >
             <svg
@@ -675,7 +684,7 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
         </span>
       </button>
       <div
-        class="emotion-9"
+        class="emotion-10"
       >
         <div
           class="bp3-collapse"
@@ -686,16 +695,16 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
             style="transform: translateY(-0px);"
           >
             <div
-              class="emotion-8"
+              class="emotion-9"
             >
               <div
-                class="emotion-2"
+                class="emotion-3"
               >
                 <div
-                  class="emotion-6"
+                  class="emotion-7"
                 >
                   <div
-                    class="emotion-5"
+                    class="emotion-6"
                   >
                     <span>
                       <span />

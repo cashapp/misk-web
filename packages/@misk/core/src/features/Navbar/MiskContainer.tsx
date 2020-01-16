@@ -1,4 +1,4 @@
-import { Spinner } from "@blueprintjs/core"
+import { Spinner, Alignment } from "@blueprintjs/core"
 import React, { useEffect, useState } from "react"
 import { ResponsiveAppContainer } from "src/cssContainers"
 import { TabLoaderComponent } from "src/components"
@@ -37,6 +37,11 @@ export const testServiceMetadataUrl =
 export const MiskNavbarContainer = (
   props: IMiskNavbarContainerProps & INavbarProps
 ) => {
+  let alignment: Alignment = Alignment.LEFT
+  if (props.items_alignment) {
+    alignment = props.items_alignment
+  }
+
   const {
     dashboardMetadataUrl,
     children,
@@ -58,7 +63,8 @@ export const MiskNavbarContainer = (
     menuShowButton,
     navbar_items,
     status,
-    theme = defaultTheme
+    theme = defaultTheme,
+    items_alignment = alignment
   } = props
 
   // State initialization
@@ -133,6 +139,7 @@ export const MiskNavbarContainer = (
           navbar_items,
           dashboardMetadata.navbar_items
         )}
+        items_alignment={items_alignment}
         status={choose(
           propsOverrideRemoteData,
           status,

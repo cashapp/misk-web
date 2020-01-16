@@ -6,6 +6,7 @@ export * from "./DimensionAwareNavbar"
 export * from "./HomeLink"
 export * from "./Menu"
 export * from "./processNavbarItems"
+export * from "./MiskNavbarGroup"
 
 // Choose between remote data and props provided based on override configuration
 export const choose = <T>(

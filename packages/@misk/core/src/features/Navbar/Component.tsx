@@ -66,7 +66,8 @@ export class Navbar extends React.Component<INavbarProps, {}> {
       menuShowButton,
       navbar_items,
       status,
-      theme = defaultTheme
+      theme = defaultTheme,
+      items_alignment,
     } = this.props
     const { height, width } = this.state
     return (
@@ -87,6 +88,7 @@ export class Navbar extends React.Component<INavbarProps, {}> {
           menuButtonAsLink={menuButtonAsLink}
           menuShowButton={menuShowButton}
           navbar_items={navbar_items}
+          items_alignment={items_alignment}
           status={status}
           theme={theme}
         />

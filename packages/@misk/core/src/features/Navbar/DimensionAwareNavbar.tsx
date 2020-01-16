@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Alignment, Navbar, NavbarGroup } from "@blueprintjs/core"
+import { Alignment, Navbar } from "@blueprintjs/core"
 import { css, jsx } from "@emotion/core"
 import * as React from "react"
 import { Link } from "react-router-dom"
@@ -11,6 +11,7 @@ import {
   IDimensionAwareProps,
   IMenuExternalProps,
   Menu,
+  MiskNavbarGroup,
   processNavbarItems,
   truncateNavbarItemsByScreenWidth
 } from "../Navbar"
@@ -42,6 +43,7 @@ export interface INavbarProps
   homeName?: string | Element | JSX.Element
   homeUrl?: string
   navbar_items?: Array<string | Element | JSX.Element>
+  items_alignment?: Alignment
 }
 
 export interface IThemeProps {
@@ -53,23 +55,6 @@ const cssNavbar = (theme: ITheme) => css`
   padding-top: 10px !important;
   padding-bottom: 60px !important;
   position: fixed !important;
-`
-
-const cssNavbarGroup = (theme: ITheme) => css`
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  position: relative;
-  padding-top: 25px;
-  padding-bottom: 27px;
-  @media (max-width: 870px) {
-    padding-left: 60px;
-  }
-  @media (min-width: 992px) and (max-width: 1085px) {
-    padding-left: 60px;
-  }
-  @media (min-width: 1200px) and (max-width: 1285px) {
-    padding-left: 60px;
-  }
 `
 
 export class DimensionAwareNavbar extends React.Component<
@@ -109,19 +94,17 @@ export class DimensionAwareNavbar extends React.Component<
     return (
       <Navbar css={cssNavbar(theme)}>
         <ResponsiveContainer>
-          <NavbarGroup
-            align={Alignment.LEFT}
-            className="bp3-dark"
-            css={cssNavbarGroup(theme)}
-          >
+          <MiskNavbarGroup align={Alignment.LEFT}>
             <HomeLink
               linkComponent={linkComponent}
               homeName={homeName}
               homeUrl={homeUrl}
               theme={theme}
             />
+          </MiskNavbarGroup>
+          <MiskNavbarGroup align={this.props.items_alignment}>
             {truncateNavbarItemsByScreenWidth(width, processedNavbarItems)}
-          </NavbarGroup>
+          </MiskNavbarGroup>
         </ResponsiveContainer>
         <Menu
           processedNavbarItems={processedNavbarItems}
