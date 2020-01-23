@@ -8,12 +8,14 @@ import {
   Intent,
   InputGroup,
   NumericInput,
+  Position,
   Pre,
   RadioGroup,
   Radio,
   TagInput,
   TextArea
 } from "@blueprintjs/core"
+import { DateInput } from "@blueprintjs/datetime"
 import { IconNames } from "@blueprintjs/icons"
 import { FlexContainer } from "@misk/core"
 import {
@@ -35,6 +37,7 @@ export const ExampleFormContainer = (props: IState & IDispatchProps) => {
   const fields = [
     "Name",
     "Price",
+    "Date",
     "Itemized Receipt",
     "CheckAlice",
     "CheckBob",
@@ -63,6 +66,13 @@ export const ExampleFormContainer = (props: IState & IDispatchProps) => {
             `${FormTag}::Price`,
             "data"
           ])}
+        />
+        <DateInput
+          formatDate={(date, _) => date.toDateString()}
+          parseDate={s => new Date(s)}
+          placeholder="YYYY/MM/DD"
+          popoverProps={{ position: Position.RIGHT }}
+          onChange={handler.simpleMergeData(props, `${FormTag}::Date`)}
         />
         <TextArea
           fill={true}
@@ -147,6 +157,7 @@ export const ExampleFormContainer = (props: IState & IDispatchProps) => {
             []
           )}
         />
+        <br />
         <H3>Form Submission</H3>
         <Pre>
           submit form network request:{" "}

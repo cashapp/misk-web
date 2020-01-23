@@ -65,6 +65,14 @@ export const parseOnChangeArgs = (args: any) => {
   ) {
     // onChange={(valueAsNumber: number, valueAsString: string) => ... }
     return args[1]
+  } else if (
+    args.length === 2 &&
+    args[0] instanceof Date &&
+    typeof args[1] === "boolean"
+  ) {
+    // onChange={(selectedDate: Date, isUserChange: boolean) => ... }
+    // We just want the Date, we don't really care how we got it.
+    return args[0]
   } else if (args.length === 1 && !isSyntheticEvent(args[0])) {
     // overrideArgs
     return args[0]
