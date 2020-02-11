@@ -11,7 +11,7 @@ jobs:
         node: [10, 12, 13]
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Install Misk-Web
         run: sudo npm install -g @misk/cli
       - name: Misk-Web Prebuild
