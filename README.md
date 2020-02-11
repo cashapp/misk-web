@@ -1,10 +1,10 @@
 <img src="https://raw.githubusercontent.com/cashapp/misk/master/misk.png" width="300"/>
 
-[![CircleCI](https://circleci.com/gh/cashapp/misk-web.svg?style=svg)](https://circleci.com/gh/cashapp/misk-web)
-
 See the [project website][docs] for documentation and APIs.
 
-[Misk-Web][repo] is a new micro-frontends Typescript + React web framework from Cash App. It also happens to work seamlessly with [Misk](https://github.com/cashapp/misk)!
+[Misk-Web][repo] is a new micro-frontends Typescript + React web framework from Cash App.
+
+It also happens to work seamlessly with [Misk](https://github.com/cashapp/misk)!
 
 Misk-Web is still bleeding edge and may have breaking changes up until version `1.0.0`.
 
