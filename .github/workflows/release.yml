@@ -36,7 +36,7 @@ jobs:
         env:
           NPM_PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
       - name: Install strip-json-comments-cli && jq
-        run: npm install --global strip-json-comments-cli && sudo apt-get install jq
+        run: sudo npm install -g strip-json-comments-cli && sudo apt-get install jq
       - name: Commit version changes
         uses: stefanzweifel/git-auto-commit-action@v3.0.0
         with:
