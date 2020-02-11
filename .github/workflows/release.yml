@@ -48,7 +48,7 @@ jobs:
           NEW_VERSION=$(cat NEW_VERSION)
           rm NEW_VERSION
           echo $NEW_VERSION
-          git status
-          git add .
-          git commit -m "[ALPHA-RELEASE] ${NEW_VERSION}"
-          git push origin
+          sudo git status
+          sudo git add .
+          sudo git commit -m "[ALPHA-RELEASE] ${NEW_VERSION}"
+          sudo git push origin
