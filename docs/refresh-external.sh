@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "[WARN] This deploys the current local state of docs, consider a Rush rebuild!"
 
@@ -17,9 +17,9 @@ cat $MW/docs/README.md > $MW/docs/docs/guides/contributing-to-the-docs.md
 # Copy over tab demos
 declare -a tabs=("palette-exemplar" "palette-lts" "starter-basic")
 for tab in "${tabs[@]}"; do
-  DIR=$EXAMPLES/tabs/$tab/demo
-  mkdir -p $DIR
-  cp -r $MW/examples/tabs/$tab/lib/* $DIR
+    DIR=$EXAMPLES/tabs/$tab/demo
+    mkdir -p $DIR
+    cp -r $MW/examples/tabs/$tab/lib/* $DIR
 done
 
 # Copy over example data demo
@@ -29,7 +29,7 @@ cp -r $MW/examples/data/demo/* $DIR
 
 # Copy over documentation from @misk/* packages
 for dir in $MW/packages/@misk/*/; do
-  dir=${dir%*/}      # remove the trailing "/"
-  PKG=${dir##*/}    # print everything after the final "/"
-  cp $dir/*.md $MW/docs/docs/packages/$PKG/
+    dir=${dir%*/}      # remove the trailing "/"
+    PKG=${dir##*/}    # print everything after the final "/"
+    cp $dir/*.md $MW/docs/docs/packages/$PKG/
 done

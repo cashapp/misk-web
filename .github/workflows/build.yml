@@ -1,0 +1,28 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [10, 12, 13]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install Misk-Web
+        run: sudo npm install -g @misk/cli
+      - name: Misk-Web Prebuild
+        run: miskweb prebuild -e
+      - name: Rush check for inconsistent dependency versions
+        run: node common/scripts/install-run-rush.js check
+      - name: Rush install
+        run: node common/scripts/install-run-rush.js update
+      - name: Rush build
+        run: node common/scripts/install-run-rush.js build --verbose
+      - name: miskweb new (using branch built CLI)
+        run: |
+          mkdir branch-cli-new-test && cd branch-cli-new-test
+          node ../packages/@misk/cli/lib/src/index.js new "Alpha Bravo" "alpha-bravo"

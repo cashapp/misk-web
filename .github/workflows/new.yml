@@ -1,0 +1,20 @@
+name: New
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [10, 12, 13]
+
+    steps:
+      - name: Install Misk-Web
+        run: sudo npm install -g @misk/cli
+      - name: miskweb new (using published CLI)
+        run: |
+          cd ..
+          mkdir release-cli-new-test && cd release-cli-new-test
+          miskweb new "Alpha Bravo" "alpha-bravo"
