@@ -40,6 +40,9 @@ jobs:
       - name: Parse new version
         run: NEW_VERSION=$(cat common/config/rush/version-policies.json | strip-json-comments | jq '.[0].version' | sed 's/"//g') && echo $NEW_VERSION
       - name: Commit version changes
-        uses: stefanzweifel/git-auto-commit-action@v3.0.0
-        with:
-          commit_message: "[ALPHA-RELEASE ${NEW_VERSION}]"
+        run: |
+          sudo git add .
+          COMMIT_MESSAGE=$("[ALPHA-RELEASE ${NEW_VERSION}]")
+          echo $COMMIT_MESSAGE
+          sudo git commit -am "$COMMIT_MESSAGE"
+          sudo git push
