@@ -38,11 +38,17 @@ jobs:
       - name: Install strip-json-comments-cli && jq
         run: sudo npm install -g strip-json-comments-cli && sudo apt-get install jq
       - name: Parse new version
-        run: NEW_VERSION=$(cat common/config/rush/version-policies.json | strip-json-comments | jq '.[0].version' | sed 's/"//g') && echo $NEW_VERSION
+        run: NEW_VERSION=$(cat common/config/rush/version-policies.json | strip-json-comments | jq '.[0].version' | sed 's/"//g') && echo $NEW_VERSION >> NEW_VERSION
+      - name: Update Misk-Web versions and prebuild
+        run: miskweb pin $(cat NEW_VERSION) -e
+      - name: Update Rush lockfiles
+        run: node common/scripts/install-run-rush.js update
       - name: Commit version changes
         run: |
-          sudo git add .
-          COMMIT_MESSAGE=$("[ALPHA-RELEASE ${NEW_VERSION}]")
-          echo $COMMIT_MESSAGE
-          sudo git commit -am "$COMMIT_MESSAGE"
-          sudo git push
+          NEW_VERSION=$(cat NEW_VERSION)
+          rm NEW_VERSION
+          echo $NEW_VERSION
+          git status
+          git add .
+          git commit -m "[ALPHA-RELEASE] ${NEW_VERSION}"
+          git push origin
