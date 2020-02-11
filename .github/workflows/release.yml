@@ -37,7 +37,9 @@ jobs:
           NPM_PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
       - name: Install strip-json-comments-cli && jq
         run: sudo npm install -g strip-json-comments-cli && sudo apt-get install jq
+      - name: Parse new version
+        run: NEW_VERSION=$(cat common/config/rush/version-policies.json | strip-json-comments | jq '.version') && echo $NEW_VERSION
       - name: Commit version changes
         uses: stefanzweifel/git-auto-commit-action@v3.0.0
         with:
-          commit_message: "[ALPHA-RELEASE $(cat common/config/rush/version-policies.json | strip-json-comments | jq '.version')]"
+          commit_message: "[ALPHA-RELEASE ${NEW_VERSION}]"
