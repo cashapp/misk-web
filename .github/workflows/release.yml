@@ -1,0 +1,33 @@
+name: Alpha-Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [12]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install Misk-Web
+        run: sudo npm install -g @misk/cli
+      - name: Misk-Web Prebuild
+        run: miskweb prebuild -e
+      - name: Rush check for inconsistent dependency versions
+        run: node common/scripts/install-run-rush.js check
+      - name: Rush install
+        run: node common/scripts/install-run-rush.js update
+      - name: Rush build
+        run: node common/scripts/install-run-rush.js build --verbose
+      - name: Rush bump version
+        run: node common/scripts/install-run-rush.js version --bump
+      - name: Rush publish
+        run: node common/scripts/install-run-rush.js publish --include-all -a -p -n ${NPM_PUBLISH_TOKEN}
+        env:
+          NPM_PUBLISH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
