@@ -1,6 +1,14 @@
-## Releasing a `@Misk/` Package on NPM
+# Releasing `@Misk` Packages on NPM
 
-This outlines the steps necessary to release new `@misk` packages on NPM.
+Alpha releases happen automatically after each merge to `master` branch. Check the commit history for commits by `Misk-Web Alpha Release Bot` for examples.
+
+Alphas releases are denoted by the trailing additional version added to the regular SemVar version of format `major.minor.patch-alpha`. For example, `0.1.25-5` is the `-5` alpha build of upcoming `0.1.25` stable release.
+
+As a result of Alpha releases happening automatically, any merged changes or bumped dependencies end up in usable, published NPM packages shortly after the PR being merged. To update tabs to latest alpha release, follow the linked steps to use [\$ miskweb pin](https://cashapp.github.io/misk-web/docs/guides/building-a-tab/08-upgrading-misk-web-version).
+
+## Manual Releasing `@Misk` Packages on NPM
+
+This outlines the steps necessary to manually release new `@misk` packages on NPM.
 
 ## NPM Setup
 
