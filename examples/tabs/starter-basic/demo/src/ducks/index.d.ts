@@ -19,13 +19,13 @@ export declare const rootDispatcher: IDispatchProps;
  * State Selectors
  */
 export declare const rootSelectors: (state: IState) => {
-    router: Reducer<RouterState, LocationChangeAction>;
+    router: Reducer<RouterState<{}>, LocationChangeAction<{}>>;
     simpleRedux: any;
 };
 /**
  * Reducers
  */
-export declare const rootReducer: (history: History<any>) => Reducer<any, AnyAction>;
+export declare const rootReducer: (history: History<{}>) => Reducer<any, AnyAction>;
 /**
  * Sagas
  */
@@ -34,7 +34,7 @@ export declare function rootSaga(): SimpleReduxSaga;
  * Map Dispatch/State to Props
  */
 export declare const mapStateToProps: (state: IState) => {
-    router: Reducer<RouterState, LocationChangeAction>;
+    router: Reducer<RouterState<{}>, LocationChangeAction<{}>>;
     simpleRedux: any;
 };
 export declare const mapDispatchToProps: IDispatchProps;
