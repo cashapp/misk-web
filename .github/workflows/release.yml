@@ -38,7 +38,7 @@ jobs:
       - name: Install strip-json-comments-cli && jq
         run: sudo npm install -g strip-json-comments-cli && sudo apt-get install jq
       - name: Parse new version
-        run: NEW_VERSION=$(cat common/config/rush/version-policies.json | strip-json-comments | jq '.version') && echo $NEW_VERSION
+        run: NEW_VERSION=$(cat common/config/rush/version-policies.json | strip-json-comments | jq '.[0].version' | sed 's/"//g') && echo $NEW_VERSION
       - name: Commit version changes
         uses: stefanzweifel/git-auto-commit-action@v3.0.0
         with:
