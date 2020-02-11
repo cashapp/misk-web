@@ -1,5 +1,11 @@
 ## Changelog
 
+## 0.1.25
+
+14 Jan 2020 14:36:00 GMT
+
+Stable release including all the changes of `0.1.25-*` alpha releases.
+
 ## 0.1.24
 
 14 Jan 2020 14:36:00 GMT
