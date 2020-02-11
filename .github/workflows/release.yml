@@ -25,6 +25,8 @@ jobs:
           sudo git config --global user.email "misk-web+robots@squareup.com"
       - name: Rush bump version
         run: node common/scripts/install-run-rush.js version --bump
+      - name: Rush install
+        run: node common/scripts/install-run-rush.js update
       - name: Rush publish
         run: node common/scripts/install-run-rush.js publish --include-all -a -p -n ${NPM_PUBLISH_TOKEN}
         env:
