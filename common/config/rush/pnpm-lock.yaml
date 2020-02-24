@@ -7,13 +7,13 @@ dependencies:
   '@blueprintjs/timezone': 3.6.1_react-dom@16.12.0+react@16.12.0
   '@emotion/core': 10.0.22_react@16.12.0
   '@emotion/styled': 10.0.23_b72901fefb9c28f220e25710e5576e8f
-  '@misk/common': 0.1.26-16_@types+react@16.9.22
-  '@misk/core': 0.1.26-16_@types+react@16.9.22
-  '@misk/dev': 0.1.26-16
-  '@misk/prettier': 0.1.26-16
-  '@misk/simpleredux': 0.1.26-16_@types+react@16.9.22
-  '@misk/test': 0.1.26-16_react-dom@16.12.0+react@16.12.0
-  '@misk/tslint': 0.1.26-16
+  '@misk/common': 0.1.26-17_@types+react@16.9.22
+  '@misk/core': 0.1.26-17_@types+react@16.9.22
+  '@misk/dev': 0.1.26-17
+  '@misk/prettier': 0.1.26-17
+  '@misk/simpleredux': 0.1.26-17_@types+react@16.9.22
+  '@misk/test': 0.1.26-17_react-dom@16.12.0+react@16.12.0
+  '@misk/tslint': 0.1.26-17
   '@redux-saga/core': 1.1.3
   '@rush-temp/cli': 'file:projects/cli.tgz_react-dom@16.12.0+react@16.12.0'
   '@rush-temp/common': 'file:projects/common.tgz'
@@ -709,7 +709,7 @@ packages:
       node: '>= 8.3'
     resolution:
       integrity: sha512-VpOtt7tCrgvamWZh1reVsGADujKigBUFTi19mlRjqEGsE8qH4r3s+skY33dNdXOwyZIvuftZ5tqdF1IgsMejMA==
-  /@misk/common/0.1.26-16_@types+react@16.9.22:
+  /@misk/common/0.1.26-17_@types+react@16.9.22:
     dependencies:
       '@blueprintjs/core': 3.19.1_react-dom@16.12.0+react@16.12.0
       '@blueprintjs/datetime': 3.13.0_react-dom@16.12.0+react@16.12.0
@@ -749,8 +749,8 @@ packages:
     peerDependencies:
       '@types/react': '*'
     resolution:
-      integrity: sha512-XHh/W601e0A4Kcwyvgp3MykyTlhQTdI4sohagy/iVdSNLVIhbWAup0ltmxcAuYdnv5A84UpfG346QagxWLEzjQ==
-  /@misk/core/0.1.26-16_@types+react@16.9.22:
+      integrity: sha512-Nmku2sy+dVyugSvA3mQrg2hBeiaH9mlcoJiJd0VNVkELKBUUuTBQ1UKW0aGZ7C0l1aImihCTSpD3rJ4FqTZ3xg==
+  /@misk/core/0.1.26-17_@types+react@16.9.22:
     dependencies:
       '@blueprintjs/core': 3.19.1_react-dom@16.12.0+react@16.12.0
       '@blueprintjs/datetime': 3.13.0_react-dom@16.12.0+react@16.12.0
@@ -760,8 +760,8 @@ packages:
       '@blueprintjs/timezone': 3.6.1_react-dom@16.12.0+react@16.12.0
       '@emotion/core': 10.0.22_react@16.12.0
       '@emotion/styled': 10.0.23_b72901fefb9c28f220e25710e5576e8f
-      '@misk/common': 0.1.26-16_@types+react@16.9.22
-      '@misk/simpleredux': 0.1.26-16_@types+react@16.9.22
+      '@misk/common': 0.1.26-17_@types+react@16.9.22
+      '@misk/simpleredux': 0.1.26-17_@types+react@16.9.22
       '@redux-saga/core': 1.1.3
       axios: 0.19.2
       connected-react-router: 6.6.1_10353c84a6a62d085ccdb40bb4a905d4
@@ -791,13 +791,13 @@ packages:
     peerDependencies:
       '@types/react': '*'
     resolution:
-      integrity: sha512-hrPuucik2kXnI3YIzfuOmsqzu2h2RHNgZxL8YMtaEV7gfCE0tQmopI611a2BcTX+PGrrP0ZHKYgofqBOS5Lk+Q==
-  /@misk/dev/0.1.26-16:
+      integrity: sha512-jTN62G1owcsTmSC954/hf0TkZ2DaRyI61PdnQEZGwhXkWVdsHhW8yXyxqxOfC2jSGYp7MwgihsfwLhJwDRMUPA==
+  /@misk/dev/0.1.26-17:
     dependencies:
       '@types/history': 4.7.5
       '@types/lodash': 4.14.149
       '@types/node': 11.13.1
-      '@types/react': 16.9.19
+      '@types/react': 16.9.22
       '@types/react-dom': 16.9.5
       '@types/react-helmet': 5.0.15
       '@types/react-hot-loader': 4.1.0
@@ -834,14 +834,14 @@ packages:
       webpack-merge: 4.2.2
     dev: false
     resolution:
-      integrity: sha512-6HSqVoafcvorSW2XOHGF0Lno1df6H4oI2LToyWA2BiCysDZEGgZGkf+kDTJ4Rj9JLQNBb0xrdcC2NvPxRZybAA==
-  /@misk/prettier/0.1.26-16:
+      integrity: sha512-5wS8Ec6N7S7dYDCKiRtU0aphMa2/svOibBEx7xkhW3SMxIIFxDccXm9kLGlUh8ArbLrA+7KYDIH7ManPtw7Ocw==
+  /@misk/prettier/0.1.26-17:
     dependencies:
       prettier: 1.19.1
     dev: false
     resolution:
-      integrity: sha512-8+jArvWKE1+kE2FcGdiOCc+cg4S6I4ADgUv6tVKZiO8+jFE3JWWSLwK8GWEhIWGEqd30uov9tbenLv3uh8fp8Q==
-  /@misk/simpleredux/0.1.26-16_@types+react@16.9.22:
+      integrity: sha512-u8Wn5A27MHTfO367c2rN+9aes5uMrfabFjNLsdPFPiOHYTNM9btNgBwXZKNOoZAiybW1HFXS5dSokynjFKEXEw==
+  /@misk/simpleredux/0.1.26-17_@types+react@16.9.22:
     dependencies:
       '@blueprintjs/core': 3.19.1_react-dom@16.12.0+react@16.12.0
       '@blueprintjs/datetime': 3.13.0_react-dom@16.12.0+react@16.12.0
@@ -849,7 +849,7 @@ packages:
       '@blueprintjs/select': 3.11.2_react-dom@16.12.0+react@16.12.0
       '@blueprintjs/table': 3.8.3_react-dom@16.12.0+react@16.12.0
       '@blueprintjs/timezone': 3.6.1_react-dom@16.12.0+react@16.12.0
-      '@misk/common': 0.1.26-16_@types+react@16.9.22
+      '@misk/common': 0.1.26-17_@types+react@16.9.22
       '@redux-saga/core': 1.1.3
       axios: 0.19.2
       connected-react-router: 6.6.1_10353c84a6a62d085ccdb40bb4a905d4
@@ -880,8 +880,8 @@ packages:
     peerDependencies:
       '@types/react': '*'
     resolution:
-      integrity: sha512-0mst5xZ1aQ2GB7HyROxckVu35QM5tQaFnh0Uz/oayxKWdxiNhs1momTf+0D7seQUF736Zd/wx5Jhy9aWyiOP5w==
-  /@misk/test/0.1.26-16_react-dom@16.12.0+react@16.12.0:
+      integrity: sha512-S1xgvmEBDI27XwVhupmFBXM4RbMYzoTpoZbatvscuUsydtH7IP1Fm/aMOUDBMi/F8QOr9rCd+sAz1Tr/miI6Kw==
+  /@misk/test/0.1.26-17_react-dom@16.12.0+react@16.12.0:
     dependencies:
       '@testing-library/dom': 6.12.2
       '@testing-library/react': 9.1.1_react-dom@16.12.0+react@16.12.0
@@ -898,8 +898,8 @@ packages:
       react: '*'
       react-dom: '*'
     resolution:
-      integrity: sha512-9vl8I58znJci2ttVkPpt16lkoTVhjP9VNQ+v1ik5k3S7/JVqqB829rAMtc2ChSgMorCSPNAjN8StON3QpOCvrw==
-  /@misk/tslint/0.1.26-16:
+      integrity: sha512-3iDi9JeZuVE7xnuq1hcLTpfs2dHw9TwnNGyg6xHsiqUXpk1XzpzJM0fh73N40JPt7sZ79ZCk/PWE7S2GaI4T+g==
+  /@misk/tslint/0.1.26-17:
     dependencies:
       tslint: 5.20.1_typescript@3.5.3
       tslint-blueprint: 0.1.0
@@ -913,7 +913,7 @@ packages:
       typescript: 3.5.3
     dev: false
     resolution:
-      integrity: sha512-oTJ7ycDpD2cS7vENdavaeV9Hwag2tFk1JtBQxQ+E5U8RwPUpCIV3olaaCoI2g6GRy1zKjtw/Rzlq4zRSvHgRjQ==
+      integrity: sha512-SPlZgYLmoaUvlWrUgP01Njsb+KCsz7iLVaSJFQDlzfWjp/z2IPDg1lQKt6DwkK5i3ruiDQa5fzFpqectjMVFAg==
   /@nodelib/fs.scandir/2.1.3:
     dependencies:
       '@nodelib/fs.stat': 2.0.3
@@ -10577,7 +10577,7 @@ packages:
       react: '*'
       react-dom: '*'
     resolution:
-      integrity: sha512-/169pHbrnSQBbWH3rQU9WOoqYXomlI+/xMu9b8zLElZQQDvEPWZXgy88piSB/NZnY2SBER85Jn4sGa6+84Ggvw==
+      integrity: sha512-fNwK5Ffdj6BC14ZVb4lQV0zIezyBrcL0d5aCDEynWPEXFtrJoJjJqmDW+1dbqEmiAQSzcaTeJMwr31HvLfROTg==
       tarball: 'file:projects/cli.tgz'
     version: 0.0.0
   'file:projects/common.tgz':
@@ -10655,7 +10655,7 @@ packages:
     dev: false
     name: '@rush-temp/common'
     resolution:
-      integrity: sha512-t8KOdatWfP7+a0OYMTHZVCiZKq42wLnU+7mTKtmOsdFJ/W6OstOco+OBe9M/LB1fOBwtdmFSqdO9EwB5Bu4BjQ==
+      integrity: sha512-jo8mIRfcqOs9tPM+IbgOKZP5Uy64nesA+Z3p1lVPH0vQ3b3jc8iNm000LGexbUiYYcScl9phWfzz+Pe99vk/gw==
       tarball: 'file:projects/common.tgz'
     version: 0.0.0
   'file:projects/core.tgz':
@@ -10738,7 +10738,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-FgQkgnfM8Ifo6UucUEuEvIpWLkMLBUWAVwwoyQ0AzBOcCWDwFPjwtgDWjVuApYAT8PLoQPxiiNFyP/7KK5CcKg==
+      integrity: sha512-FyrhWw3z6Sj/i4vbjraTbuCGf3iBUkQxkzRoQ1mSsAiulTbtlhUDerKFO2jD9f2ZxCyvmxtDb5BphIq4OosuDg==
       tarball: 'file:projects/core.tgz'
     version: 0.0.0
   'file:projects/dev.tgz':
@@ -10784,7 +10784,7 @@ packages:
     dev: false
     name: '@rush-temp/dev'
     resolution:
-      integrity: sha512-lQuulY/8HmU6JEfan43YsoxwdOtAMVBI0jmDKiVIfiBAHUCBCOdJUNzvYbrgf+9FokePaMWkreEWhk39IccPuA==
+      integrity: sha512-m43R/rXLh2OfJQR/jzGcpyeZ1FWtI11VUubJGXqxnKNncPZ1il+0tf9wWwmRKSs7dwHFk3f9suv5UO3NDXfUfg==
       tarball: 'file:projects/dev.tgz'
     version: 0.0.0
   'file:projects/misk-web-examples-data.tgz':
@@ -10800,7 +10800,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-examples-data'
     resolution:
-      integrity: sha512-mK1sOF2fO++7FfoL/N+x5Ix6S+vBVqhKX9o2YqCnC9X/b9RHEBMw/4zVWmnL1IzlQIOQg/lwbTv8xM+TEgVc/w==
+      integrity: sha512-LQSH70B7WgBS+tpGdnZmrr4GiPmYiO3f36j756rX7ncjEdYUEz3Zl+zpyoTVepuOPx8ZfQBY+9t9M+Wl/Dy7ig==
       tarball: 'file:projects/misk-web-examples-data.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-dashboard.tgz':
@@ -10881,7 +10881,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-dashboard'
     resolution:
-      integrity: sha512-yfgDIBC9INT0s7hJUS6k8NtDGZ4J+1g18UD28/qFsVpRMEmKNSHGwHjIAG12k9ctNXQC6xUym1fml+pPT9dW7Q==
+      integrity: sha512-UBdmNgXBdG+NpNw9ShIBJvmyJYJVPoE6MRMYpFsdxWY0QX9HJhlE+5ojHRoFNI0hsRbozclAahmwYJecVoS2mQ==
       tarball: 'file:projects/misk-web-tab-dashboard.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette-exemplar.tgz':
@@ -10965,7 +10965,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-rPe5y0J/P7QTn2lMgDWFxIoUgPI/JcBxqjpZKuUkwepxrAFBBYzqN4K75P+wi2EDUdXoJs1si4//fSPIobM85Q==
+      integrity: sha512-Nwrt+b8xBp1Q15KY4kEjE4lMHm/fe2PbtOjFNTuRI8WNwfPCetgfjBTeyMUcO99W0dKNRpkuKQdbGnhBTZ+pMw==
       tarball: 'file:projects/misk-web-tab-palette-exemplar.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette-lts.tgz':
@@ -11048,7 +11048,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-lts'
     resolution:
-      integrity: sha512-ZUPXGNlvta+BGl0w+XYgXuatSI3aWwQjEbIdHEU4SKFETwSMyl+NihANxWysmjvr285Xn41df6muEhsDmgL04w==
+      integrity: sha512-GFfHvzAHvfi2XUkkSaCuKOSqttMhHQFX280qKW26egsJM4586CYr8tcRCCkcI7eMW3YLkR5W428zzrhgIBgvUQ==
       tarball: 'file:projects/misk-web-tab-palette-lts.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-starter-basic.tgz':
@@ -11059,13 +11059,13 @@ packages:
       '@blueprintjs/select': 3.11.2_react-dom@16.12.0+react@16.12.0
       '@blueprintjs/table': 3.8.3_react-dom@16.12.0+react@16.12.0
       '@blueprintjs/timezone': 3.6.1_react-dom@16.12.0+react@16.12.0
-      '@misk/common': 0.1.26-16_@types+react@16.9.22
-      '@misk/core': 0.1.26-16_@types+react@16.9.22
-      '@misk/dev': 0.1.26-16
-      '@misk/prettier': 0.1.26-16
-      '@misk/simpleredux': 0.1.26-16_@types+react@16.9.22
-      '@misk/test': 0.1.26-16_react-dom@16.12.0+react@16.12.0
-      '@misk/tslint': 0.1.26-16
+      '@misk/common': 0.1.26-17_@types+react@16.9.22
+      '@misk/core': 0.1.26-17_@types+react@16.9.22
+      '@misk/dev': 0.1.26-17
+      '@misk/prettier': 0.1.26-17
+      '@misk/simpleredux': 0.1.26-17_@types+react@16.9.22
+      '@misk/test': 0.1.26-17_react-dom@16.12.0+react@16.12.0
+      '@misk/tslint': 0.1.26-17
       '@redux-saga/core': 1.1.3
       '@testing-library/dom': 6.12.2
       '@testing-library/react': 9.1.1_react-dom@16.12.0+react@16.12.0
@@ -11139,7 +11139,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-starter-basic'
     resolution:
-      integrity: sha512-gpBlx5Ahtdx0IgT15H3EuiIGM2FRZYBObv+JmYJC6ej6Cg2uWOS/dndvfma6roLRc1FO04CBPlPuvmvRdUGd/g==
+      integrity: sha512-Lpryf60Pf2fRrwUzjnlB7Xyp5bsZDWZAGnr7xlQwWdMUvXajB4SXNmvrycKwz41YYBttyOVjWrDOzkd5I/0BxQ==
       tarball: 'file:projects/misk-web-tab-starter-basic.tgz'
     version: 0.0.0
   'file:projects/prettier.tgz':
@@ -11231,7 +11231,7 @@ packages:
     dev: false
     name: '@rush-temp/simpleredux'
     resolution:
-      integrity: sha512-+xb48jcngAmNUcR1Rggpjx6T6kM7FlYb7BDo7pmHvBiDlydKubKxxtyutbhGPiHgiq0pm2HLtcpFUAfersVk4A==
+      integrity: sha512-f+XQRz9UQTudoGxTElTEuT7KF5AURVJwPDXwbIV2Y8Jo6jtag+xclgc52mWao4tCC520jGO97vpExAQ8SJGyvg==
       tarball: 'file:projects/simpleredux.tgz'
     version: 0.0.0
   'file:projects/test.tgz_react-dom@16.12.0+react@16.12.0':
@@ -11253,7 +11253,7 @@ packages:
       react: '*'
       react-dom: '*'
     resolution:
-      integrity: sha512-eBi1J7tabUqoqf/y6csd03mh/HSHqOL/zOcAty1wYnBLmKbEr6milPj8/esXWDMaTpJpF+dfsLDUFKjdlqvIRg==
+      integrity: sha512-8EmCfgvZcFkPqDE2Ff+U/xrBoCdy46gPqkK+T9Au6kfVrDGsyE7MpBnzo2WPBTMb0hHfVFpe9cmD7oA3jesnkA==
       tarball: 'file:projects/test.tgz'
     version: 0.0.0
   'file:projects/tslint.tgz':
@@ -11284,13 +11284,13 @@ specifiers:
   '@blueprintjs/timezone': 3.6.1
   '@emotion/core': 10.0.22
   '@emotion/styled': 10.0.23
-  '@misk/common': 0.1.26-16
-  '@misk/core': 0.1.26-16
-  '@misk/dev': 0.1.26-16
-  '@misk/prettier': 0.1.26-16
-  '@misk/simpleredux': 0.1.26-16
-  '@misk/test': 0.1.26-16
-  '@misk/tslint': 0.1.26-16
+  '@misk/common': 0.1.26-17
+  '@misk/core': 0.1.26-17
+  '@misk/dev': 0.1.26-17
+  '@misk/prettier': 0.1.26-17
+  '@misk/simpleredux': 0.1.26-17
+  '@misk/test': 0.1.26-17
+  '@misk/tslint': 0.1.26-17
   '@redux-saga/core': 1.1.3
   '@rush-temp/cli': 'file:./projects/cli.tgz'
   '@rush-temp/common': 'file:./projects/common.tgz'
