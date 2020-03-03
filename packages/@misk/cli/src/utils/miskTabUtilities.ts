@@ -18,7 +18,7 @@ import {
 const tag = "migrate"
 
 const moveOldBuildFile = async (dir: string, filename: Files) => {
-  if (await fs.existsSync(makePath(dir, filename))) {
+  if (fs.existsSync(makePath(dir, filename))) {
     fs.move(makePath(dir, filename), makePath(dir, Files.old, filename))
   }
 }
@@ -77,7 +77,7 @@ export const migrateBuildFiles = (...args: any) => {
   // Verify valid build files or migrate old build files to new miskweb generated build files
   let pkgMiskTab: IMiskTabJSON = null
 
-  // Use existing package.json field if it exists
+  // Use existing package.json file if it exists
   if (fs.existsSync(makePath(dir, Files.package))) {
     let pkg = null
     try {
