@@ -8,8 +8,8 @@ export interface ITableProps {
 }
 
 export const Table = (props: ITableProps) => {
-  const { data, range = [0, data.length] } = props
-  if (data && data.length > 1) {
+  const { data, range = [0, data && data.length] } = props
+  if (data && data.length > 0) {
     /**
      * Data is loaded and ready to be rendered
      */
