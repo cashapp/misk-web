@@ -184,3 +184,16 @@ See below for an example service project structure with a few tabs.
             package.json
             ...
 ```
+
+## Navbar Link
+
+Misk Admin Dashboard comes with some default links that show up in the top navbar.
+
+You can add your tab to that list with the following multibinding, ensure that the order number is less than 100 so it shows up before the default Misk tabs.
+
+```kotlin
+multibind<DashboardNavbarItem>().toInstance(DashboardNavbarItem<AdminDashboard>(
+  item = "<a href=\"/_admin/dino-tab/\">Dino Tab</a>",
+  order = 1
+))
+```
