@@ -36,8 +36,8 @@ import { ITheme, defaultTheme } from "src/utilities/theme"
 
 export interface INavbarProps
   extends IBannerExternalProps,
-  IMenuExternalProps,
-  IThemeProps {
+    IMenuExternalProps,
+    IThemeProps {
   environmentNavbarVisible?: Environment[]
   homeName?: string | Element | JSX.Element
   homeUrl?: string
