@@ -12,7 +12,7 @@ import {
   IMenuExternalProps,
   Menu,
   processNavbarItems,
-  truncateNavbarItemsByScreenWidth
+  calculateNavbarItemsByScreenWidth
 } from "../Navbar"
 import { Environment } from "../../utilities"
 import { ITheme, defaultTheme } from "src/utilities/theme"
@@ -36,12 +36,13 @@ import { ITheme, defaultTheme } from "src/utilities/theme"
 
 export interface INavbarProps
   extends IBannerExternalProps,
-    IMenuExternalProps,
-    IThemeProps {
+  IMenuExternalProps,
+  IThemeProps {
   environmentNavbarVisible?: Environment[]
   homeName?: string | Element | JSX.Element
   homeUrl?: string
   navbar_items?: Array<string | Element | JSX.Element>
+  navbarItemsToDisplay?: number
 }
 
 export interface IThemeProps {
@@ -96,6 +97,7 @@ export class DimensionAwareNavbar extends React.Component<
       menuButtonAsLink,
       menuShowButton,
       navbar_items,
+      navbarItemsToDisplay = null,
       status,
       theme = defaultTheme,
       width
@@ -106,6 +108,10 @@ export class DimensionAwareNavbar extends React.Component<
       environmentNavbarVisible,
       navbar_items
     )
+    const numberOfNavbarItemsToDisplay =
+      navbarItemsToDisplay == null
+        ? calculateNavbarItemsByScreenWidth(width)
+        : navbarItemsToDisplay
     return (
       <Navbar css={cssNavbar(theme)}>
         <ResponsiveContainer>
@@ -120,7 +126,7 @@ export class DimensionAwareNavbar extends React.Component<
               homeUrl={homeUrl}
               theme={theme}
             />
-            {truncateNavbarItemsByScreenWidth(width, processedNavbarItems)}
+            {processedNavbarItems.slice(0, numberOfNavbarItemsToDisplay)}
           </NavbarGroup>
         </ResponsiveContainer>
         <Menu
