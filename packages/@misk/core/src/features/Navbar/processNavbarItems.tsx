@@ -52,7 +52,5 @@ export const processNavbarItems = (
     renderNavbarItems(theme, navbar_items)
   )
 
-export const truncateNavbarItemsByScreenWidth = (
-  width: number,
-  navbar_items?: Array<string | Element | JSX.Element>
-) => navbar_items.slice(0, Math.floor(Math.min(width - 300, 1800) / 400))
+export const calculateNavbarItemsByScreenWidth = (width: number) =>
+  Math.floor(Math.min(width - 300, 1800) / 400)

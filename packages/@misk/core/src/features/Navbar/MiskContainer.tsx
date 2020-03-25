@@ -57,6 +57,7 @@ export const MiskNavbarContainer = (
     menuButtonAsLink,
     menuShowButton,
     navbar_items,
+    navbarItemsToDisplay = null,
     status,
     theme = defaultTheme
   } = props
@@ -133,6 +134,7 @@ export const MiskNavbarContainer = (
           navbar_items,
           dashboardMetadata.navbar_items
         )}
+        navbarItemsToDisplay={navbarItemsToDisplay}
         status={choose(
           propsOverrideRemoteData,
           status,

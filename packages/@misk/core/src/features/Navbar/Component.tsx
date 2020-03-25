@@ -65,6 +65,7 @@ export class Navbar extends React.Component<INavbarProps, {}> {
       menuButtonAsLink,
       menuShowButton,
       navbar_items,
+      navbarItemsToDisplay = null,
       status,
       theme = defaultTheme
     } = this.props
@@ -87,6 +88,7 @@ export class Navbar extends React.Component<INavbarProps, {}> {
           menuButtonAsLink={menuButtonAsLink}
           menuShowButton={menuShowButton}
           navbar_items={navbar_items}
+          navbarItemsToDisplay={navbarItemsToDisplay}
           status={status}
           theme={theme}
         />
