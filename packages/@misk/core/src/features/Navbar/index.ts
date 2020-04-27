@@ -12,4 +12,7 @@ export const choose = <T>(
   propsOverrideRemote: boolean,
   prop: T,
   remote: T
-): T => (propsOverrideRemote && prop) || remote || prop
+): T =>
+  (propsOverrideRemote && prop != null && prop != undefined && prop) ||
+  remote ||
+  prop

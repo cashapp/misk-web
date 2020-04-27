@@ -57,7 +57,7 @@ export class Banner extends React.Component<IBannerExternalProps, {}> {
       environmentBannerVisible.includes(environment)
     ) {
       return (
-        <span css={css(cssNavbarBanner(environment, theme))}>
+        <span css={cssNavbarBanner(environment, theme)}>
           <ResponsiveContainer>
             <FlexContainer>
               <TextHTMLOrElementComponent>{status}</TextHTMLOrElementComponent>

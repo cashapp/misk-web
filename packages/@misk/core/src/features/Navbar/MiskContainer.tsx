@@ -44,7 +44,6 @@ export const MiskNavbarContainer = (
     propsOverrideRemoteData = false,
     serviceMetadataUrl,
     // INavbarProps
-    environment = defaultEnvironment,
     environmentBannerVisible = defaultEnvironmentIndicatorsVisible,
     environmentNavbarVisible = defaultEnvironmentIndicatorsVisible,
     error,
@@ -105,11 +104,7 @@ export const MiskNavbarContainer = (
   return (
     <>
       <Navbar
-        environment={choose(
-          propsOverrideRemoteData,
-          environment,
-          serviceMetadata.environment
-        )}
+        environment={serviceMetadata.environment || defaultEnvironment}
         environmentBannerVisible={environmentBannerVisible}
         environmentNavbarVisible={environmentNavbarVisible}
         error={error}
