@@ -1,87 +1,87 @@
 {
-  "name": "@misk/cli",
-  "version": "0.1.26",
-  "license": "SEE LICENSE IN https://github.com/cashapp/misk-web",
-  "description": "Misk-Web CLI Build Tool",
-  "author": "CashApp/Misk-Web Authors (https://github.com/cashapp/misk-web/graphs/contributors)",
-  "main": "lib/src/index.js",
-  "bin": {
-    "miskweb": "lib/src/index.js"
-  },
-  "files": [
-    "lib"
-  ],
-  "engines": {
-    "node": ">= 0.2.0"
-  },
-  "preferGlobal": true,
-  "scripts": {
-    "clean": "rm -rf lib",
-    "ci-build": "npm run-script clean && npm run-script lib",
-    "lib": "npm run-script build",
-    "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
-    "start": "node lib/src/index.js",
-    "watch": "./node_modules/.bin/tsc -w",
-    "build": "npm run-script clean && npm run-script buildcli && npm run test",
-    "buildcli": "./node_modules/.bin/tsc",
-    "buildrun": "npm run-script build && npm run-script start",
-    "prepare": "npm run-script ci-build && npm run-script buildcli",
-    "precommit": "npm run-script lint",
-    "smooth-release": "smooth-release",
-    "test": "jest --passWithNoTests  --maxWorkers=2"
-  },
-  "dependencies": {
-    "@misk/prettier": "0.1.26",
-    "@misk/test": "0.1.26",
-    "axios": "0.19.2",
-    "dayjs": "1.8.25",
-    "fs-extra": "9.0.0",
-    "klaw": "3.0.0",
-    "lodash": "4.17.15",
-    "pkg": "4.4.7",
-    "prettier": "1.19.1",
-    "progress": "2.0.3",
-    "root-require": "0.3.1",
-    "shelljs": "0.8.3",
-    "tslib": "1.11.1",
-    "typescript": "3.5.3",
-    "yargs": "15.3.1"
-  },
-  "devDependencies": {
-    "@misk/dev": "0.1.26",
-    "@misk/tslint": "0.1.26",
-    "@testing-library/dom": "7.2.2",
-    "@testing-library/react": "9.1.1",
-    "@types/fs-extra": "8.1.0",
-    "@types/jest": "25.2.1",
-    "@types/klaw": "3.0.1",
-    "@types/lodash": "4.14.150",
-    "@types/node": "11.13.1",
-    "@types/shelljs": "0.8.7",
-    "@types/yargs": "15.0.4",
-    "jest": "24.9.0",
-    "jest-emotion": "10.0.14",
-    "jest-serializer-html": "7.0.0",
-    "ts-jest": "24.3.0"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "json",
-      "jsx"
-    ]
-  },
-  "prettier": "@misk/prettier",
-  "miskTab": {
-    "name": "@misk/cli",
-    "outDir": "./lib",
-    "slug": "@misk/cli"
-  }
+	"name": "@misk/cli",
+	"version": "0.1.26",
+	"license": "SEE LICENSE IN https://github.com/cashapp/misk-web",
+	"description": "Misk-Web CLI Build Tool",
+	"author": "CashApp/Misk-Web Authors (https://github.com/cashapp/misk-web/graphs/contributors)",
+	"main": "lib/src/index.js",
+	"bin": {
+		"miskweb": "lib/src/index.js"
+	},
+	"files": [
+		"lib"
+	],
+	"engines": {
+		"node": ">= 0.2.0"
+	},
+	"preferGlobal": true,
+	"scripts": {
+		"clean": "rm -rf lib",
+		"ci-build": "npm run-script clean && npm run-script lib",
+		"lib": "npm run-script build",
+		"lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
+		"start": "node lib/src/index.js",
+		"watch": "./node_modules/.bin/tsc -w",
+		"build": "npm run-script clean && npm run-script buildcli && npm run test",
+		"buildcli": "./node_modules/.bin/tsc",
+		"buildrun": "npm run-script build && npm run-script start",
+		"prepare": "npm run-script ci-build && npm run-script buildcli",
+		"precommit": "npm run-script lint",
+		"smooth-release": "smooth-release",
+		"test": "jest --passWithNoTests  --maxWorkers=2"
+	},
+	"dependencies": {
+		"@misk/prettier": "0.1.26",
+		"@misk/test": "0.1.26",
+		"axios": "0.19.2",
+		"dayjs": "1.8.25",
+		"fs-extra": "9.0.0",
+		"klaw": "3.0.0",
+		"lodash": "4.17.15",
+		"pkg": "4.4.7",
+		"prettier": "1.19.1",
+		"progress": "2.0.3",
+		"root-require": "0.3.1",
+		"shelljs": "0.8.3",
+		"tslib": "1.11.1",
+		"typescript": "3.5.3",
+		"yargs": "15.3.1"
+	},
+	"devDependencies": {
+		"@misk/dev": "0.1.26",
+		"@misk/tslint": "0.1.26",
+		"@testing-library/dom": "7.2.2",
+		"@testing-library/react": "9.1.1",
+		"@types/fs-extra": "8.1.0",
+		"@types/jest": "25.2.1",
+		"@types/klaw": "3.0.1",
+		"@types/lodash": "4.14.150",
+		"@types/node": "11.13.1",
+		"@types/shelljs": "0.8.7",
+		"@types/yargs": "15.0.4",
+		"jest": "24.9.0",
+		"jest-emotion": "10.0.14",
+		"jest-serializer-html": "7.0.0",
+		"ts-jest": "24.3.0"
+	},
+	"jest": {
+		"testEnvironment": "node",
+		"transform": {
+			"^.+\\.tsx?$": "ts-jest"
+		},
+		"testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+		"moduleFileExtensions": [
+			"ts",
+			"tsx",
+			"js",
+			"json",
+			"jsx"
+		]
+	},
+	"prettier": "@misk/prettier",
+	"miskTab": {
+		"name": "@misk/cli",
+		"outDir": "./lib",
+		"slug": "@misk/cli"
+	}
 }
