@@ -1,6 +1,11 @@
 # Change Log - @misk/prettier
 
-This log was last generated on Tue, 11 Feb 2020 15:27:05 GMT and should not be manually modified.
+This log was last generated on Tue, 28 Apr 2020 13:54:35 GMT and should not be manually modified.
+
+## 0.1.26
+Tue, 28 Apr 2020 13:54:35 GMT
+
+*Version update only*
 
 ## 0.1.25
 Tue, 11 Feb 2020 15:27:05 GMT
