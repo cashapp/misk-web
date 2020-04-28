@@ -6,6 +6,9 @@ const NPM_LATEST = "0.1.9"
 const LOCAL_CLI_PACKAGE_VERSION = "0.1.5"
 
 describe("Test versionResolver logic to ensure SemVar version always returned", () => {
+  // Set longer timeout since we're actually doing network calls
+  jest.setTimeout(15000)
+  
   it("Online valid SemVar version returns itself", async () => {
     expect(
       versionResolver(

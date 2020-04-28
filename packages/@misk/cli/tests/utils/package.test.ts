@@ -3,6 +3,9 @@ import { createPackage } from "../../src/utils/templates"
 import { testPackageJson } from "@misk/test"
 
 describe("createPackage", () => {
+  // Set longer timeout since we're actually doing network calls
+  jest.setTimeout(15000)
+
   const pkg = {}
 
   it("creates the package.json from a template", async () => {

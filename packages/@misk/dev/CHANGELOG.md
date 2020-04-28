@@ -1,6 +1,12 @@
 # Change Log - @misk/dev
 
-This log was last generated on Tue, 11 Feb 2020 15:27:05 GMT and should not be manually modified.
+This log was last generated on Tue, 28 Apr 2020 13:46:34 GMT and should not be manually modified.
+
+## 0.1.26
+
+Tue, 28 Apr 2020 13:46:34 GMT
+
+_Version update only_
 
 ## 0.1.25
 

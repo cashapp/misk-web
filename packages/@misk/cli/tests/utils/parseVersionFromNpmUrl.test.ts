@@ -1,6 +1,9 @@
 import { isSemVar, parseAtPkgVersionFromNpmUrl } from "../../src/utils"
 
 describe("Test parseVersionFromNpmUrl ability to parse out SemVar version from unpkg.com URL", () => {
+  // Set longer timeout since we're actually doing network calls
+  jest.setTimeout(15000)
+
   it("https://unpkg.com/@misk/core@2/lib/", () => {
     expect(
       isSemVar(
