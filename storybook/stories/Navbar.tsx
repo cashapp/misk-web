@@ -1,11 +1,7 @@
 import React from "react"
 import { BrowserRouter } from "react-router-dom"
+import { action } from "@storybook/addon-actions"
 import { Navbar, Environment } from "@misk/core"
-
-export default {
-  title: "Navbar",
-  component: Production
-}
 
 export const Production = () => (
   <BrowserRouter>
@@ -16,10 +12,21 @@ export const Production = () => (
       links={[
         {
           name: "First Tab",
-          category: "First Category"
+          slug: "first-tab",
+          url_path_prefix: "/first-tab/",
+          category: "Demo"
+        },
+        {
+          name: "Second Tab",
+          slug: "second-tab",
+          url_path_prefix: "/second-tab/",
+          category: "Demo"
         }
       ]}
-      navbar_items={["First Item", "Second Item"]}
+      navbar_items={[
+        <a onClick={action('click-first-item')}>First Item</a>, 
+        "Second Item"
+      ]}
       status={"Status Text"}
     />
   </BrowserRouter>
@@ -34,7 +41,15 @@ export const Staging = () => (
       links={[
         {
           name: "First Tab",
-          category: "First Category"
+          slug: "first-tab",
+          url_path_prefix: "/first-tab/",
+          category: "Demo"
+        },
+        {
+          name: "Second Tab",
+          slug: "second-tab",
+          url_path_prefix: "/second-tab/",
+          category: "Demo"
         }
       ]}
       navbar_items={["First Item", "Second Item"]}
@@ -52,7 +67,15 @@ export const Development = () => (
       links={[
         {
           name: "First Tab",
-          category: "First Category"
+          slug: "first-tab",
+          url_path_prefix: "/first-tab/",
+          category: "Demo"
+        },
+        {
+          name: "Second Tab",
+          slug: "second-tab",
+          url_path_prefix: "/second-tab/",
+          category: "Demo"
         }
       ]}
       navbar_items={["First Item", "Second Item"]}
@@ -60,3 +83,8 @@ export const Development = () => (
     />
   </BrowserRouter>
 )
+
+export default {
+  title: "Navbar",
+  component: Production
+}
