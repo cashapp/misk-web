@@ -1,7 +1,4 @@
 const CopyWebpackPlugin = require("copy-webpack-plugin")
-const StyledComponentsTransformerPlugin = require("typescript-plugin-styled-components")
-const createStyledComponentsTransformer =
-  StyledComponentsTransformerPlugin.default
 module.exports = {
   stories: ["../stories/**/*.tsx"],
   addons: ["@storybook/addon-actions", "@storybook/addon-links"],
@@ -14,7 +11,6 @@ module.exports = {
       ],
       { copyUnmodified: true }
     )
-    const StyledComponentsTransformer = createStyledComponentsTransformer()
     return {
       ...config,
       module: { ...config.module, rules: [
@@ -25,9 +21,6 @@ module.exports = {
             {
               loader: require.resolve('ts-loader'),
               options: {
-                getCustomTransformers: () => ({
-                  before: [StyledComponentsTransformer]
-                })
               }
             },
           ],
