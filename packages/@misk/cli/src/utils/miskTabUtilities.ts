@@ -33,6 +33,7 @@ export const defaultMiskTabJson = async (
   rawIndex: false,
   rawPackageJson: {},
   rawTsconfig: {},
+  rawTsconfigInclude: [],
   rawTslint: {},
   rawWebpackConfig: {},
   relative_path_prefix: "",
