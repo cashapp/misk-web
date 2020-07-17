@@ -24,7 +24,8 @@ export interface IMiskTabJSON {
   rawGitginore: string // prebuild permanent add to .gitignore file
   rawIndex: boolean // ignore Webpack injection of source links to index.html
   rawPackageJson: any // prebuild permanent add/override to package.json file
-  rawTsconfig: any // prebuild permanent add/override to tsconfig.json file
+  rawTsconfig: any // prebuild permanent add/override to tsconfig.json file compilerOptions key
+  rawTsconfigInclude: any // prebuild permanent add/override to tsconfig.json file include key
   rawTslint: any // prebuild permanent add/override to tslint.json file
   rawWebpackConfig: any // prebuild permanent add to webpack.config.js file
   relative_path_prefix: string // override default URL for tab: /_tab/{slug}/

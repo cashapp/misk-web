@@ -7,13 +7,20 @@
   "rawPackageJson": {
     "name": "storybook",
     "main": "index.js",
-    "license": "ISC"
+    "license": "ISC",
+    "scripts": {
+      "build": "build-storybook",
+      "storybook": "start-storybook -p 6006"
+    }
   },
   "rawTsconfig": {
     "rootDirs": [
       "stories"
     ]
   },
+  "rawTsconfigInclude": [
+    "stories/**/*"
+  ],
   "rawTslint": {},
   "rawWebpackConfig": {},
   "relative_path_prefix": "",
