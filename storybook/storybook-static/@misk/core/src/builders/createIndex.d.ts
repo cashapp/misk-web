@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { CombinatorEffect } from "@misk/simpleredux";
 import { History } from "history";
 import { AnyAction, Reducer } from "redux";

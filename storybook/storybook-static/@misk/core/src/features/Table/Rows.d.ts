@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export declare const Rows: (props: {
     data: any;
     range: number[];

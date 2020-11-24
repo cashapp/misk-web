@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export interface ITableProps {
     data: any[];
     range?: number[];

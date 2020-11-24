@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { IWebTab } from "src/utilities";
 export interface ITabLoaderProps {
     tabs: IWebTab[];

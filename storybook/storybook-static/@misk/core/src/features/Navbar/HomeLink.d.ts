@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { IThemeProps } from "./DimensionAwareNavbar";
 export interface IHomeLinkProps extends IThemeProps {
     homeName?: string | Element | JSX.Element;

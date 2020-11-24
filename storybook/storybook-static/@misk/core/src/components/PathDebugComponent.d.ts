@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export interface IPathDebugProps {
     hash: string;
     pathname: string;
