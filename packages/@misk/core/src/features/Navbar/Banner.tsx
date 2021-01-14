@@ -54,7 +54,7 @@ export class Banner extends React.Component<IBannerExternalProps, {}> {
     } = this.props
     if (
       (environmentBannerVisible &&
-      environmentBannerVisible.includes(environment)) ||
+        environmentBannerVisible.includes(environment)) ||
       (status && status != "")
     ) {
       return (
