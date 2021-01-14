@@ -53,8 +53,9 @@ export class Banner extends React.Component<IBannerExternalProps, {}> {
       theme = defaultTheme
     } = this.props
     if (
-      environmentBannerVisible &&
-      environmentBannerVisible.includes(environment)
+      (environmentBannerVisible &&
+      environmentBannerVisible.includes(environment)) ||
+      (status && status != "")
     ) {
       return (
         <span css={cssNavbarBanner(environment, theme)}>
