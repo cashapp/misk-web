@@ -1,5 +1,7 @@
+/** @jsx jsx */
 import { Button, ControlGroup, Intent, H1, H3 } from "@blueprintjs/core"
 import { IconNames } from "@blueprintjs/icons"
+import { jsx } from "@emotion/react"
 import { IRouterProvidedProps } from "@misk/simpleredux"
 import * as React from "react"
 import { Link } from "react-router-dom"

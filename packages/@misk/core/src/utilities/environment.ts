@@ -4,7 +4,7 @@ export const defaultEnvironment = Environment.PRODUCTION
 export const defaultEnvironmentIndicatorsVisible = [
   Environment.DEVELOPMENT,
   Environment.STAGING,
-  Environment.TESTING
+  Environment.TESTING,
 ]
 
 export interface IEnvironmentToColorLookup {
@@ -20,7 +20,7 @@ export const defaultEnvironmentToColorLookup: IEnvironmentToColorLookup = {
   DEVELOPMENT: color.blue,
   TESTING: color.indigo,
   STAGING: color.green,
-  PRODUCTION: color.red
+  PRODUCTION: color.red,
 }
 
 export const environmentToColor = (colorLookup: IEnvironmentToColorLookup) => (

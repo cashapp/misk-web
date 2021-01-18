@@ -11,7 +11,7 @@ export const cars = [
     longitude: -8.4787949,
     manufactured_date: "4/17/2018",
     created_at: "3:19:26.000",
-    updated_at: "6:44:28.000"
+    updated_at: "6:44:28.000",
   },
   {
     id: "2545bae7-dcf7-4082-ad9c-9e68a68d579a",
@@ -25,7 +25,7 @@ export const cars = [
     longitude: 30.3414908,
     manufactured_date: "3/21/2018",
     created_at: "15:11:57.000",
-    updated_at: "13:07:56.000"
+    updated_at: "13:07:56.000",
   },
   {
     id: "2f0909dd-1298-4469-ac86-e96269009ee8",
@@ -39,7 +39,7 @@ export const cars = [
     longitude: -91.7270911,
     manufactured_date: "4/15/2018",
     created_at: "9:55:18.000",
-    updated_at: "2:45:01.000"
+    updated_at: "2:45:01.000",
   },
   {
     id: "e76594d6-e59c-4cec-ae98-560a41b7066e",
@@ -53,7 +53,7 @@ export const cars = [
     longitude: 120.839842,
     manufactured_date: "4/4/2018",
     created_at: "5:22:24.000",
-    updated_at: "14:04:49.000"
+    updated_at: "14:04:49.000",
   },
   {
     id: "a4145f72-a953-4c1d-8cdd-1b4dd9fc7e1a",
@@ -67,7 +67,7 @@ export const cars = [
     longitude: 29.2814687,
     manufactured_date: "11/11/2018",
     created_at: "4:55:37.000",
-    updated_at: "5:22:04.000"
+    updated_at: "5:22:04.000",
   },
   {
     id: "90688155-b258-408b-b5af-d1631101a119",
@@ -81,6 +81,6 @@ export const cars = [
     longitude: 120.409835,
     manufactured_date: "5/29/2018",
     created_at: "11:54:06.000",
-    updated_at: "20:53:58.000"
-  }
+    updated_at: "20:53:58.000",
+  },
 ]

@@ -4,7 +4,7 @@ const vscodeSettings = require("./vscode.settings")
 const {
   createExternals,
   vendorExternals,
-  miskExternals
+  miskExternals,
 } = require("./externals")
 module.exports = {
   createTabWebpack,
@@ -12,5 +12,5 @@ module.exports = {
   vscodeSettings,
   createExternals,
   vendorExternals,
-  miskExternals
+  miskExternals,
 }

@@ -3,10 +3,103 @@
 exports[`Navbar Component Navbar can render 1`] = `
 <DocumentFragment>
   .emotion-10 {
-  background-color: #29333a !important;
-  padding-top: 10px !important;
-  padding-bottom: 60px !important;
-  position: fixed !important;
+  background-color: #29333a!important;
+  padding-top: 10px!important;
+  padding-bottom: 60px!important;
+  position: fixed!important;
+}
+
+.emotion-1 {
+  font-size: 13px!important;
+  font-weight: 600!important;
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 27px;
+}
+
+@media (max-width: 870px) {
+  .emotion-1 {
+    padding-left: 60px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1085px) {
+  .emotion-1 {
+    padding-left: 60px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1285px) {
+  .emotion-1 {
+    padding-left: 60px;
+  }
+}
+
+.emotion-0 {
+  font-size: 24px!important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+.emotion-0 a {
+  color: #cecece!important;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0 a:hover {
+  color: white!important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-4 {
+  background-color: #29333a!important;
+  box-shadow: none!important;
+  background-image: none!important;
+  top: 15px;
+  left: 15px;
+  position: absolute;
+  z-index: 1020;
+}
+
+.emotion-3 {
+  color: #7a7e82!important;
+}
+
+.emotion-3:hover {
+  color: white;
+}
+
+.emotion-9 {
+  background-color: #29333a;
+  display: block;
+  margin: 60px -20px 0 -20px;
+}
+
+.emotion-8 {
+  min-height: 250px;
+  padding: 50px 0px;
+  overflow-y: scroll;
+  max-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .emotion-8 {
+    padding: 50px 20px;
+  }
+}
+
+.emotion-6 {
+  display: inline-block;
 }
 
 .emotion-2 {
@@ -29,105 +122,6 @@ exports[`Navbar Component Navbar can render 1`] = `
   .emotion-2 {
     width: 1170px;
   }
-}
-
-.emotion-1 {
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  position: relative;
-  padding-top: 25px;
-  padding-bottom: 27px;
-}
-
-@media (max-width:870px) {
-  .emotion-1 {
-    padding-left: 60px;
-  }
-}
-
-@media (min-width:992px) and (max-width:1085px) {
-  .emotion-1 {
-    padding-left: 60px;
-  }
-}
-
-@media (min-width:1200px) and (max-width:1285px) {
-  .emotion-1 {
-    padding-left: 60px;
-  }
-}
-
-.emotion-0 {
-  font-size: 24px !important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  -webkit-letter-spacing: 0px;
-  -moz-letter-spacing: 0px;
-  -ms-letter-spacing: 0px;
-  letter-spacing: 0px;
-  margin-right: 30px;
-  color: #cecece;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-}
-
-.emotion-0 a {
-  color: #cecece !important;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-0 a:hover {
-  color: white !important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-4 {
-  background-color: #29333a !important;
-  box-shadow: none !important;
-  background-image: none !important;
-  top: 15px;
-  left: 15px;
-  position: absolute;
-  z-index: 1020;
-}
-
-.emotion-3 {
-  color: #7a7e82 !important;
-}
-
-.emotion-3:hover {
-  color: white;
-}
-
-.emotion-9 {
-  background-color: #29333a;
-  display: block;
-  margin: 60px -20px 0 -20px;
-}
-
-.emotion-8 {
-  min-height: 250px;
-  padding: 50px 0px;
-  overflow-y: scroll;
-  max-height: 100vh;
-}
-
-@media (max-width:768px) {
-  .emotion-8 {
-    padding: 50px 20px;
-  }
-}
-
-.emotion-6 {
-  display: inline-block;
 }
 
 .emotion-5 {
@@ -207,7 +201,7 @@ exports[`Navbar Component Navbar can render 1`] = `
           <div
             aria-hidden="true"
             class="bp3-collapse-body"
-            style="transform: translateY(-0px);"
+            style="transform: translateY(-undefinedpx);"
           >
             <div
               class="emotion-8"
@@ -240,7 +234,107 @@ exports[`Navbar Component Navbar can render 1`] = `
 
 exports[`Navbar Component Navbar can render with theme override using color 1`] = `
 <DocumentFragment>
-  .emotion-2 {
+  .emotion-1 {
+  font-size: 13px!important;
+  font-weight: 600!important;
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 27px;
+}
+
+@media (max-width: 870px) {
+  .emotion-1 {
+    padding-left: 60px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1085px) {
+  .emotion-1 {
+    padding-left: 60px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1285px) {
+  .emotion-1 {
+    padding-left: 60px;
+  }
+}
+
+.emotion-0 {
+  font-size: 24px!important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+.emotion-0 a {
+  color: #cecece!important;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0 a:hover {
+  color: white!important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-3 {
+  color: #7a7e82!important;
+}
+
+.emotion-3:hover {
+  color: white;
+}
+
+.emotion-8 {
+  min-height: 250px;
+  padding: 50px 0px;
+  overflow-y: scroll;
+  max-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .emotion-8 {
+    padding: 50px 20px;
+  }
+}
+
+.emotion-6 {
+  display: inline-block;
+}
+
+.emotion-10 {
+  background-color: #7250a1!important;
+  padding-top: 10px!important;
+  padding-bottom: 60px!important;
+  position: fixed!important;
+}
+
+.emotion-4 {
+  background-color: #7250a1!important;
+  box-shadow: none!important;
+  background-image: none!important;
+  top: 15px;
+  left: 15px;
+  position: absolute;
+  z-index: 1020;
+}
+
+.emotion-9 {
+  background-color: #7250a1;
+  display: block;
+  margin: 60px -20px 0 -20px;
+}
+
+.emotion-2 {
   margin: 0 auto;
 }
 
@@ -260,89 +354,6 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
   .emotion-2 {
     width: 1170px;
   }
-}
-
-.emotion-1 {
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  position: relative;
-  padding-top: 25px;
-  padding-bottom: 27px;
-}
-
-@media (max-width:870px) {
-  .emotion-1 {
-    padding-left: 60px;
-  }
-}
-
-@media (min-width:992px) and (max-width:1085px) {
-  .emotion-1 {
-    padding-left: 60px;
-  }
-}
-
-@media (min-width:1200px) and (max-width:1285px) {
-  .emotion-1 {
-    padding-left: 60px;
-  }
-}
-
-.emotion-0 {
-  font-size: 24px !important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  -webkit-letter-spacing: 0px;
-  -moz-letter-spacing: 0px;
-  -ms-letter-spacing: 0px;
-  letter-spacing: 0px;
-  margin-right: 30px;
-  color: #cecece;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-}
-
-.emotion-0 a {
-  color: #cecece !important;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-0 a:hover {
-  color: white !important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-3 {
-  color: #7a7e82 !important;
-}
-
-.emotion-3:hover {
-  color: white;
-}
-
-.emotion-8 {
-  min-height: 250px;
-  padding: 50px 0px;
-  overflow-y: scroll;
-  max-height: 100vh;
-}
-
-@media (max-width:768px) {
-  .emotion-8 {
-    padding: 50px 20px;
-  }
-}
-
-.emotion-6 {
-  display: inline-block;
 }
 
 .emotion-5 {
@@ -366,29 +377,6 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.emotion-10 {
-  background-color: #7250a1 !important;
-  padding-top: 10px !important;
-  padding-bottom: 60px !important;
-  position: fixed !important;
-}
-
-.emotion-4 {
-  background-color: #7250a1 !important;
-  box-shadow: none !important;
-  background-image: none !important;
-  top: 15px;
-  left: 15px;
-  position: absolute;
-  z-index: 1020;
-}
-
-.emotion-9 {
-  background-color: #7250a1;
-  display: block;
-  margin: 60px -20px 0 -20px;
 }
 
 <div
@@ -445,7 +433,7 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
           <div
             aria-hidden="true"
             class="bp3-collapse-body"
-            style="transform: translateY(-0px);"
+            style="transform: translateY(-undefinedpx);"
           >
             <div
               class="emotion-8"
@@ -478,7 +466,107 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
 
 exports[`Navbar Component Navbar can render with theme override using string 1`] = `
 <DocumentFragment>
-  .emotion-2 {
+  .emotion-1 {
+  font-size: 13px!important;
+  font-weight: 600!important;
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 27px;
+}
+
+@media (max-width: 870px) {
+  .emotion-1 {
+    padding-left: 60px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1085px) {
+  .emotion-1 {
+    padding-left: 60px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1285px) {
+  .emotion-1 {
+    padding-left: 60px;
+  }
+}
+
+.emotion-0 {
+  font-size: 24px!important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+.emotion-0 a {
+  color: #cecece!important;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0 a:hover {
+  color: white!important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-3 {
+  color: #7a7e82!important;
+}
+
+.emotion-3:hover {
+  color: white;
+}
+
+.emotion-8 {
+  min-height: 250px;
+  padding: 50px 0px;
+  overflow-y: scroll;
+  max-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .emotion-8 {
+    padding: 50px 20px;
+  }
+}
+
+.emotion-6 {
+  display: inline-block;
+}
+
+.emotion-10 {
+  background-color: purple!important;
+  padding-top: 10px!important;
+  padding-bottom: 60px!important;
+  position: fixed!important;
+}
+
+.emotion-4 {
+  background-color: purple!important;
+  box-shadow: none!important;
+  background-image: none!important;
+  top: 15px;
+  left: 15px;
+  position: absolute;
+  z-index: 1020;
+}
+
+.emotion-9 {
+  background-color: purple;
+  display: block;
+  margin: 60px -20px 0 -20px;
+}
+
+.emotion-2 {
   margin: 0 auto;
 }
 
@@ -498,89 +586,6 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
   .emotion-2 {
     width: 1170px;
   }
-}
-
-.emotion-1 {
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  position: relative;
-  padding-top: 25px;
-  padding-bottom: 27px;
-}
-
-@media (max-width:870px) {
-  .emotion-1 {
-    padding-left: 60px;
-  }
-}
-
-@media (min-width:992px) and (max-width:1085px) {
-  .emotion-1 {
-    padding-left: 60px;
-  }
-}
-
-@media (min-width:1200px) and (max-width:1285px) {
-  .emotion-1 {
-    padding-left: 60px;
-  }
-}
-
-.emotion-0 {
-  font-size: 24px !important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  -webkit-letter-spacing: 0px;
-  -moz-letter-spacing: 0px;
-  -ms-letter-spacing: 0px;
-  letter-spacing: 0px;
-  margin-right: 30px;
-  color: #cecece;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-}
-
-.emotion-0 a {
-  color: #cecece !important;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-0 a:hover {
-  color: white !important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-3 {
-  color: #7a7e82 !important;
-}
-
-.emotion-3:hover {
-  color: white;
-}
-
-.emotion-8 {
-  min-height: 250px;
-  padding: 50px 0px;
-  overflow-y: scroll;
-  max-height: 100vh;
-}
-
-@media (max-width:768px) {
-  .emotion-8 {
-    padding: 50px 20px;
-  }
-}
-
-.emotion-6 {
-  display: inline-block;
 }
 
 .emotion-5 {
@@ -604,29 +609,6 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.emotion-10 {
-  background-color: purple !important;
-  padding-top: 10px !important;
-  padding-bottom: 60px !important;
-  position: fixed !important;
-}
-
-.emotion-4 {
-  background-color: purple !important;
-  box-shadow: none !important;
-  background-image: none !important;
-  top: 15px;
-  left: 15px;
-  position: absolute;
-  z-index: 1020;
-}
-
-.emotion-9 {
-  background-color: purple;
-  display: block;
-  margin: 60px -20px 0 -20px;
 }
 
 <div
@@ -683,7 +665,7 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
           <div
             aria-hidden="true"
             class="bp3-collapse-body"
-            style="transform: translateY(-0px);"
+            style="transform: translateY(-undefinedpx);"
           >
             <div
               class="emotion-8"

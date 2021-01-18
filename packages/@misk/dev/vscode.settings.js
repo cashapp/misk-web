@@ -15,7 +15,7 @@ module.exports = () => {
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "search.exclude": {
-      "node_modules/**": true
+      "node_modules/**": true,
     },
     "terminal.integrated.shell.linux": "/bin/zsh",
     "terminal.integrated.shell.osx": "/bin/zsh",
@@ -23,6 +23,6 @@ module.exports = () => {
     "typescript.updateImportsOnFileMove.enabled": "always",
     "window.zoomLevel": 0,
     "workbench.colorTheme": "Blueprint",
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
   }
 }

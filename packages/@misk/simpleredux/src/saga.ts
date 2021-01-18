@@ -6,13 +6,13 @@ import {
   ISimpleReduxPayload,
   ISimpleReduxPayloadTag,
   ISimpleHttpPayloadTag,
-  privateDispatchSimpleRedux
+  privateDispatchSimpleRedux,
 } from "./dispatch"
 import {
   IAction,
   getFirstTag,
   jsonOrString,
-  SimpleReduxSaga
+  SimpleReduxSaga,
 } from "./utilities"
 
 /** Map to lookup HTTP library function to handle the network related SimpleRedux action */
@@ -22,7 +22,7 @@ const ActionTypeToHttpCall: { [key: string]: any } = {
   [SIMPLEREDUX.HTTP_HEAD]: axios.head,
   [SIMPLEREDUX.HTTP_PATCH]: axios.patch,
   [SIMPLEREDUX.HTTP_POST]: axios.post,
-  [SIMPLEREDUX.HTTP_PUT]: axios.put
+  [SIMPLEREDUX.HTTP_PUT]: axios.put,
 }
 
 /** Include response and data in the new state */
@@ -35,7 +35,7 @@ const responseAndData = (response: AxiosResponse) => {
 /** Include response and error in the new state */
 const responseAndError = (error: { response: AxiosResponse }) => ({
   ...error,
-  ...error.response
+  ...error.response,
 })
 
 /**
@@ -191,6 +191,6 @@ export function* watchSimpleReduxSagas(): SimpleReduxSaga {
     takeEvery(SIMPLEREDUX.HTTP_POST, handlePost),
     takeEvery(SIMPLEREDUX.HTTP_PUT, handlePut),
     takeEvery(SIMPLEREDUX.FAILURE, handleFailure),
-    takeEvery(SIMPLEREDUX.MERGE, handleMerge)
+    takeEvery(SIMPLEREDUX.MERGE, handleMerge),
   ])
 }

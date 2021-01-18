@@ -5,14 +5,14 @@ import {
   dispatchSimpleRedux,
   IDispatchOptions,
   IDispatchSimpleRedux,
-  ISimpleReduxPayload
+  ISimpleReduxPayload,
 } from "./dispatch"
 export {
   dispatchDefault,
   dispatchSimpleRedux,
   IDispatchOptions,
   IDispatchSimpleRedux,
-  ISimpleReduxPayload
+  ISimpleReduxPayload,
 }
 export * from "./saga"
 export * from "./reducer"

@@ -12,7 +12,7 @@ import {
   remove,
   makePath,
   parseArgs,
-  getSemVarPackageVersionOnNPM
+  getSemVarPackageVersionOnNPM,
 } from "../utils"
 
 const tag = "migrate"
@@ -42,7 +42,7 @@ export const defaultMiskTabJson = async (
   version: await getSemVarPackageVersionOnNPM(),
   zipOnBuild: false,
   ___DeprecatedKeys:
-    "Any keys below this point in your miskTab.json are deprecated and can be safely removed."
+    "Any keys below this point in your miskTab.json are deprecated and can be safely removed.",
 })
 
 export const readMiskTabJson = (dir: string): IMiskTabJSON => {
@@ -65,7 +65,7 @@ export const generateMiskTabJson = async (
     {
       ...(await defaultMiskTabJson(miskTab.slug)),
       ...miskTab,
-      ...newMiskTab
+      ...newMiskTab,
     },
     JsonOptions
   )

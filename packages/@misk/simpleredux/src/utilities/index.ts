@@ -24,7 +24,7 @@ export type CombinatorEffectDescriptor<E> = { [key: string]: E } | E[]
 
 /** Type definition for SimpleRedux root Saga: [watchSimpleReduxSagas] */
 export type SimpleReduxSaga = IterableIterator<
-  CombinatorEffect<"ALL", SimpleEffect<"FORK", ForkEffectDescriptor>>
+  CombinatorEffect<"ALL", SimpleEffect<"FORK", ForkEffectDescriptor<any>>>
 >
 
 /**
@@ -60,7 +60,7 @@ export const defaultState = fromJS({
   data: List([]),
   error: null,
   loading: false,
-  success: false
+  success: false,
 })
 
 /**
@@ -76,7 +76,7 @@ export const defaultState = fromJS({
 export const defaultRootState = (simpleTag: string) =>
   fromJS({
     simpleTag,
-    ...defaultState.toJS()
+    ...defaultState.toJS(),
   })
 
 /** Interface for read only Redux Action */
@@ -168,5 +168,5 @@ export const HTTPMethodDispatch: any = (props: IDispatchSimpleRedux) => ({
   [HTTPMethod.PATCH]: props.simpleHttpPatch,
   [HTTPMethod.POST]: props.simpleHttpPost,
   [HTTPMethod.PUT]: props.simpleHttpPut,
-  [HTTPMethod.TRACE]: props.simpleHttpGet
+  [HTTPMethod.TRACE]: props.simpleHttpGet,
 })

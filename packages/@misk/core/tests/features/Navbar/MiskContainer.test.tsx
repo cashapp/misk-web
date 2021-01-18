@@ -3,7 +3,7 @@ import { cleanup, render } from "@testing-library/react"
 import {
   MiskNavbarContainer,
   testAdminDashboardTabsUrl,
-  testServiceMetadataUrl
+  testServiceMetadataUrl,
 } from "src/features/Navbar"
 
 describe("Misk Navbar Container", () => {

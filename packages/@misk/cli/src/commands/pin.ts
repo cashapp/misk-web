@@ -7,7 +7,7 @@ import {
   packageVersionExistsOnNPM,
   offlineOrNotFoundMessage,
   npmRunScript,
-  execute
+  execute,
 } from "../utils"
 export const command = "pin <pinnedVersion>"
 export const desc =
@@ -24,7 +24,7 @@ export const handlerFn = async (...args: any) => {
   }
   generateMiskTabJson(dir, {
     ...miskTab,
-    version: versionExistsOnNPM || pinnedVersion
+    version: versionExistsOnNPM || pinnedVersion,
   })
   execute(npmRunScript("prebuild", true), ...args)
 }

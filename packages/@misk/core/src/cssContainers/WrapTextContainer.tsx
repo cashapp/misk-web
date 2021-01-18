@@ -4,11 +4,14 @@ import styled, { StyledComponent } from "@emotion/styled"
  * <WrapTextContainer>Long Text</WrapTextContainer>
  */
 export const WrapTextContainer: StyledComponent<
-  React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
+  React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLSpanElement>,
+    HTMLSpanElement
+  >,
   Pick<
     React.DetailedHTMLProps<
-      React.HTMLAttributes<HTMLDivElement>,
-      HTMLDivElement
+      React.HTMLAttributes<HTMLSpanElement>,
+      HTMLSpanElement
     >,
     any
   >,

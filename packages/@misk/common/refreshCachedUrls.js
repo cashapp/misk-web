@@ -18,7 +18,7 @@ const downloadUrlToFile = (url, filepath) => {
   axios({
     method: "GET",
     url: url,
-    responseType: "stream"
+    responseType: "stream",
   })
     .then(response => {
       response.data.pipe(fs.createWriteStream(filepath))

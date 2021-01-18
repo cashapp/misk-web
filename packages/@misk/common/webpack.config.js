@@ -7,7 +7,7 @@ module.exports = {
   name: "library",
   mode: "production",
   entry: {
-    common: path.resolve(__dirname, "src/index.ts")
+    common: path.resolve(__dirname, "src/index.ts"),
   },
   devtool: "source-map",
   output: {
@@ -20,18 +20,18 @@ module.exports = {
      * without below globalObject: library binding to browser `window`
      *    fails when run in Node or other non-browser
      */
-    globalObject: "typeof window !== 'undefined' ? window : this"
+    globalObject: "typeof window !== 'undefined' ? window : this",
   },
   module: {
     rules: [
       {
         test: /\.(ts|tsx)?$/,
-        loader: "ts-loader"
-      }
-    ]
+        loader: "ts-loader",
+      },
+    ],
   },
   resolve: {
-    extensions: [".ts", ".tsx"]
+    extensions: [".ts", ".tsx"],
   },
   plugins: bundleAnalyzer
     ? [
@@ -40,8 +40,8 @@ module.exports = {
           reportFilename: "bundle-analyzer-report-common.html",
           statsFilename: "bundle-analyzer-report-common.json",
           generateStatsFile: true,
-          openAnalyzer: false
-        })
+          openAnalyzer: false,
+        }),
       ]
-    : []
+    : [],
 }

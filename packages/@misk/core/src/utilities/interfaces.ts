@@ -36,7 +36,7 @@ export const enum Environment {
   TESTING = "TESTING",
   DEVELOPMENT = "DEVELOPMENT",
   STAGING = "STAGING",
-  PRODUCTION = "PRODUCTION"
+  PRODUCTION = "PRODUCTION",
 }
 
 /**
@@ -52,7 +52,7 @@ export const enum DateFormat {
   millisecond = "YYYY-MM-DD HH:mm:ss:SSS",
   minuteAMPM = "YYYY-MM-DD hh:mm A",
   secondAMPM = "YYYY-MM-DD hh:mm:ss A",
-  millisecondAMPM = "YYYY-MM-DD hh:mm:ss:SSS A"
+  millisecondAMPM = "YYYY-MM-DD hh:mm:ss:SSS A",
 }
 
 /**
@@ -60,7 +60,7 @@ export const enum DateFormat {
  */
 export const enum IBinderKeys {
   NavNavbarMenu = "NavNavbarMenu",
-  TabEntry = "TabEntry"
+  TabEntry = "TabEntry",
 }
 
 export interface IBinder {

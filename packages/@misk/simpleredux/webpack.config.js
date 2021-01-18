@@ -31,18 +31,32 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: "ts-loader",
-        options: {
-          getCustomTransformers: () => ({
-            before: [StyledComponentsTransformer]
-          })
-        }
+        use: [
+          {
+            loader: "ts-loader",
+            options: {
+              getCustomTransformers: () => ({
+                before: [StyledComponentsTransformer]
+              })
+            }
+          }
+        ],
       },
       {
         test: /\.(scss|sass|css)$/,
-        loader: ["style-loader", "css-loader?minimize=true", "sass-loader"]
-      }
-    ]
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader?minimize=true"
+          },
+          {
+            loader: "sass-loader"
+          }
+        ],
+      },
+    ],
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],

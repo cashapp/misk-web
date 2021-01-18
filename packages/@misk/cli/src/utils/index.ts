@@ -14,7 +14,7 @@ export enum MiskPkg {
   "prettier" = "@misk/prettier",
   "simpleredux" = "@misk/simpleredux",
   "test" = "@misk/test",
-  "tslint" = "@misk/tslint"
+  "tslint" = "@misk/tslint",
 }
 
 export interface IMiskTabJSON {
@@ -48,7 +48,7 @@ export enum Files {
   "tsconfig" = "tsconfig.json",
   "tslint" = "tslint.json",
   "webpack" = "webpack.config.js",
-  "yarnLock" = "yarn.lock"
+  "yarnLock" = "yarn.lock",
 }
 
 export const JsonOptions = { spaces: 2 }
@@ -57,11 +57,7 @@ export const logFormatter = (
   tag: string,
   msg?: string,
   dir: string = pwd().stdout
-) =>
-  `[${tag.toUpperCase()}][${dir
-    .split("/")
-    .pop()
-    .toUpperCase()}] ${msg}`
+) => `[${tag.toUpperCase()}][${dir.split("/").pop().toUpperCase()}] ${msg}`
 
 export const logDebug = (
   tag: string,
@@ -73,7 +69,7 @@ export const makePath = (...segments: string[]) => `${segments.join("/")}`
 
 export const parseArgs = (...args: any): { dir: string; rawArgs: any } => ({
   dir: pwd().stdout,
-  rawArgs: args
+  rawArgs: args,
 })
 
 export const remove = async (path: string) => {

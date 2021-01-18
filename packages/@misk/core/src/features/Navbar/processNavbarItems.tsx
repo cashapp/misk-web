@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/core"
+import { jsx } from "@emotion/react"
 import { TextHTMLOrElementComponent } from "../../components"
 import { Environment, ITheme } from "src/utilities"
 import { cssNavbarHeadingEnvironment, cssNavbarHeading } from "./Common"

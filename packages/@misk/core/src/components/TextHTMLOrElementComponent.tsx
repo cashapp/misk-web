@@ -9,7 +9,7 @@ import * as React from "react"
  */
 
 export interface ITextHTMLOrElementProps {
-  children: string | Element | JSX.Element
+  children: string | Element | JSX.Element | never[]
 }
 
 export const TextHTMLOrElementComponent = (

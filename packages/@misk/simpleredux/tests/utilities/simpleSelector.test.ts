@@ -2,7 +2,7 @@ import { get, invert, pick } from "lodash"
 import {
   simpleSelectorGet,
   simpleSelectorPick,
-  simpleSelectorPickTransform
+  simpleSelectorPickTransform,
 } from "src/utilities/simpleSelector"
 
 const state = {
@@ -11,34 +11,34 @@ const state = {
     alpha: {
       bravo: {
         data: "John Doe",
-        loading: "maybe"
-      }
+        loading: "maybe",
+      },
     },
     charlie: {
       delta: {
         data: "Jane Bond",
-        loading: "maybe not"
-      }
+        loading: "maybe not",
+      },
     },
     echo: {
       data: "Goldfinger",
-      loading: "maybe"
+      loading: "maybe",
     },
     foxtrot: {
       data: "M",
-      loading: "maybe not"
+      loading: "maybe not",
     },
     golf: {
       response: {
-        data: "Q"
-      }
+        data: "Q",
+      },
     },
     hotel: {
       response: {
-        data: "California"
-      }
-    }
-  }
+        data: "California",
+      },
+    },
+  },
 }
 
 describe("Test simpleSelector functions mirror equivalent lodash functions", () => {
@@ -128,11 +128,11 @@ describe("Test simpleSelector functions mirror equivalent lodash functions", () 
     const paths = ["echo", "foxtrot"]
     const keyLookup = invert({
       ECHO: "echo",
-      FOXTROT: "foxtrot"
+      FOXTROT: "foxtrot",
     })
     const keyPathLookup = {
       echo: "data",
-      foxtrot: "data"
+      foxtrot: "data",
     }
     const matched = simpleSelectorPickTransform(
       state.playground,
@@ -142,7 +142,7 @@ describe("Test simpleSelector functions mirror equivalent lodash functions", () 
     )
     const expected = {
       ECHO: "Goldfinger",
-      FOXTROT: "M"
+      FOXTROT: "M",
     }
     expect(matched).toEqual(expected)
   })
@@ -151,7 +151,7 @@ describe("Test simpleSelector functions mirror equivalent lodash functions", () 
     const paths = ["echo", "foxtrot"]
     const keyLookup = invert({
       ECHO: "echo",
-      FOXTROT: "foxtrot"
+      FOXTROT: "foxtrot",
     })
     const keyPathLookup = "data"
     const matched = simpleSelectorPickTransform(
@@ -162,7 +162,7 @@ describe("Test simpleSelector functions mirror equivalent lodash functions", () 
     )
     const expected = {
       ECHO: "Goldfinger",
-      FOXTROT: "M"
+      FOXTROT: "M",
     }
     expect(matched).toEqual(expected)
   })
@@ -171,7 +171,7 @@ describe("Test simpleSelector functions mirror equivalent lodash functions", () 
     const paths = ["golf", "hotel"]
     const keyLookup = invert({
       GOLF: "golf",
-      HOTEL: "hotel"
+      HOTEL: "hotel",
     })
     const keyPathLookup = "response.data"
     const matched = simpleSelectorPickTransform(
@@ -182,7 +182,7 @@ describe("Test simpleSelector functions mirror equivalent lodash functions", () 
     )
     const expected = {
       GOLF: "Q",
-      HOTEL: "California"
+      HOTEL: "California",
     }
     expect(matched).toEqual(expected)
   })
@@ -191,11 +191,11 @@ describe("Test simpleSelector functions mirror equivalent lodash functions", () 
     const paths = ["alpha", "charlie"]
     const keyLookup = invert({
       ALPHA: "alpha",
-      CHARLIE: "charlie"
+      CHARLIE: "charlie",
     })
     const keyPathLookup = {
       alpha: "bravo.data",
-      charlie: "delta.data"
+      charlie: "delta.data",
     }
     const matched = simpleSelectorPickTransform(
       state.playground,
@@ -205,7 +205,7 @@ describe("Test simpleSelector functions mirror equivalent lodash functions", () 
     )
     const expected = {
       ALPHA: "John Doe",
-      CHARLIE: "Jane Bond"
+      CHARLIE: "Jane Bond",
     }
     expect(matched).toEqual(expected)
   })

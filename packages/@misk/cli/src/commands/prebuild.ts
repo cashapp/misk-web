@@ -2,7 +2,7 @@ import {
   logDebug,
   generateBuildFiles,
   handleCommand,
-  migrateBuildFiles
+  migrateBuildFiles,
 } from "../utils"
 export const command = "prebuild"
 export const desc = "use miskTab.json to generate build files\n"

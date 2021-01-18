@@ -7,7 +7,7 @@ const { version: packageVersion } = require("root-require")("package.json")
 import {
   packageVersionExistsOnNPM,
   logDebug as formattedLog,
-  execute
+  execute,
 } from "../utils"
 import { PackageVersionStatus } from "./resolveNpmVersion"
 
@@ -33,8 +33,9 @@ export const autoUpdate = async () => {
   ) {
     formattedLog(
       "Auto-Update",
-      `updating miskweb CLI from ${packageVersion} to ${latestOnlineVersion ||
-        "latest"}`,
+      `updating miskweb CLI from ${packageVersion} to ${
+        latestOnlineVersion || "latest"
+      }`,
       "NPM"
     )
     execute("npm install -g @misk/cli")
@@ -69,8 +70,9 @@ export const handleCommand = async (
     latestOnlineVersion !== PackageVersionStatus.OFFLINE
   ) {
     console.log(
-      `[ALERT] Upgrade miskweb CLI from ${packageVersion} to ${latestOnlineVersion ||
-        "latest"} with '$ miskweb update'`
+      `[ALERT] Upgrade miskweb CLI from ${packageVersion} to ${
+        latestOnlineVersion || "latest"
+      } with '$ miskweb update'`
     )
   }
 
@@ -89,11 +91,7 @@ export const handleCommand = async (
         opt => `-${opt} `
       )} option with command ${args._[0]}.`
     )
-    yargs
-      .hide(invalidOptions[0])
-      .hide("help")
-      .hide("version")
-      .showHelp()
+    yargs.hide(invalidOptions[0]).hide("help").hide("version").showHelp()
   } else if (args.each) {
     // Find all downstream tabs and execute command in that tab directory
     let bar: any = null
@@ -102,13 +100,13 @@ export const handleCommand = async (
         complete: "=",
         incomplete: " ",
         width: 80,
-        total: 10
+        total: 10,
       })
     }
 
     const tabs: string[] = []
     klaw(".", { filter: filterFunc })
-      .on("data", (item: any) => {
+      .on("data", item => {
         if (item.stats.isFile() && item.path.includes("/miskTab.json")) {
           if (!args.hideProgress && tabs.length < 10) bar.tick(1)
           tabs.push(item.path.split("/miskTab.json")[0])

@@ -4,15 +4,17 @@ const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const bundleAnalyzer = false
 
-const CopyWebpackPluginConfig = new CopyWebpackPlugin(
-  [{ from: "./src/static/" }],
-  { copyUnmodified: true }
-)
+const CopyWebpackPluginConfig = new CopyWebpackPlugin({
+  patterns: [
+    { from: "./src/static/" }
+  ],
+  // options: { copyUnmodified: true }
+})
 
 module.exports = {
   mode: "production",
   entry: {
-    core: path.resolve(__dirname, "src/index.ts")
+    core: path.resolve(__dirname, "src/index.ts"),
   },
   devtool: "source-map",
   output: {
@@ -25,26 +27,40 @@ module.exports = {
      * without below globalObject: library binding to browser `window`
      *    fails when run in Node or other non-browser
      */
-    globalObject: "typeof self !== 'undefined' ? self : this"
+    globalObject: "typeof self !== 'undefined' ? self : this",
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: "ts-loader"
+        use: [
+          {
+            loader: "ts-loader"
+          }
+        ],
       },
       {
         test: /\.(scss|sass|css)$/,
-        loader: ["style-loader", "css-loader?minimize=true", "sass-loader"]
-      }
-    ]
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader?minimize=true"
+          },
+          {
+            loader: "sass-loader"
+          }
+        ],
+      },
+    ],
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
     alias: {
       src: path.resolve(__dirname, "./src/"),
-      tests: path.resolve(__dirname, "./tests/")
-    }
+      tests: path.resolve(__dirname, "./tests/"),
+    },
   },
   plugins: [CopyWebpackPluginConfig].concat(
     bundleAnalyzer
@@ -54,10 +70,10 @@ module.exports = {
             reportFilename: "bundle-analyzer-report-common.html",
             statsFilename: "bundle-analyzer-report-common.json",
             generateStatsFile: true,
-            openAnalyzer: false
-          })
+            openAnalyzer: false,
+          }),
         ]
       : []
   ),
-  externals: MiskDev.vendorExternals
+  externals: MiskDev.vendorExternals,
 }

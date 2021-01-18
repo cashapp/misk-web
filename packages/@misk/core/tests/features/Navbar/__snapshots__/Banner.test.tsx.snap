@@ -9,16 +9,16 @@ exports[`Navbar Banner can render empty 1`] = `
 exports[`Navbar Banner can render with props and banner is set to visible 1`] = `
 <DocumentFragment>
   .emotion-2 {
-  background-color: #49a4d5 !important;
-  color: #eceef1 !important;
+  background-color: #49a4d5!important;
+  color: #eceef1!important;
   text-align: center;
   font-weight: 600;
   padding: 5px 10px;
-  position: fixed !important;
+  position: fixed!important;
   width: 100%;
   top: 70px;
   left: 0px;
-  z-index: 1010 !important;
+  z-index: 1010!important;
 }
 
 .emotion-2 a {
@@ -26,9 +26,6 @@ exports[`Navbar Banner can render with props and banner is set to visible 1`] = 
   color: #eceef1;
   -webkit-text-decoration: underline;
   text-decoration: underline;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
   letter-spacing: 1px;
 }
 
@@ -108,16 +105,16 @@ exports[`Navbar Banner can render with props but banner is not set as visible 1`
 exports[`Navbar Banner can render with props, banner is set to visible, and status is displayed 1`] = `
 <DocumentFragment>
   .emotion-2 {
-  background-color: #49a4d5 !important;
-  color: #eceef1 !important;
+  background-color: #49a4d5!important;
+  color: #eceef1!important;
   text-align: center;
   font-weight: 600;
   padding: 5px 10px;
-  position: fixed !important;
+  position: fixed!important;
   width: 100%;
   top: 70px;
   left: 0px;
-  z-index: 1010 !important;
+  z-index: 1010!important;
 }
 
 .emotion-2 a {
@@ -125,9 +122,6 @@ exports[`Navbar Banner can render with props, banner is set to visible, and stat
   color: #eceef1;
   -webkit-text-decoration: underline;
   text-decoration: underline;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
   letter-spacing: 1px;
 }
 
@@ -202,7 +196,34 @@ exports[`Navbar Banner can render with props, banner is set to visible, and stat
 
 exports[`Navbar Banner renders with theme colors 1`] = `
 <DocumentFragment>
-  .emotion-1 {
+  .emotion-2 {
+  background-color: #49a4d5!important;
+  color: #7250a1!important;
+  text-align: center;
+  font-weight: 600;
+  padding: 5px 10px;
+  position: fixed!important;
+  width: 100%;
+  top: 70px;
+  left: 0px;
+  z-index: 1010!important;
+}
+
+.emotion-2 a {
+  font-weight: 300;
+  color: #7250a1;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  letter-spacing: 1px;
+}
+
+.emotion-2 a:hover {
+  color: white;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-1 {
   margin: 0 auto;
 }
 
@@ -245,36 +266,6 @@ exports[`Navbar Banner renders with theme colors 1`] = `
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.emotion-2 {
-  background-color: #49a4d5 !important;
-  color: #7250a1 !important;
-  text-align: center;
-  font-weight: 600;
-  padding: 5px 10px;
-  position: fixed !important;
-  width: 100%;
-  top: 70px;
-  left: 0px;
-  z-index: 1010 !important;
-}
-
-.emotion-2 a {
-  font-weight: 300;
-  color: #7250a1;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
-  letter-spacing: 1px;
-}
-
-.emotion-2 a:hover {
-  color: white;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
 }
 
 <span

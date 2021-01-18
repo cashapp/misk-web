@@ -2,7 +2,7 @@ import { color } from "./css"
 import { Environment } from "./interfaces"
 import {
   environmentToColor,
-  defaultEnvironmentToColorLookup
+  defaultEnvironmentToColorLookup,
 } from "./environment"
 
 /**
@@ -35,5 +35,5 @@ export const defaultTheme: ITheme = {
   environmentToColor: environmentToColor(defaultEnvironmentToColorLookup),
   navbarBackground: color.cadet,
   navbarLinkHover: color.white,
-  navbarText: color.platinum
+  navbarText: color.platinum,
 }

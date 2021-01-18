@@ -1,5 +1,6 @@
 export * from "./generatedByCLI"
 export * from "./gitignore"
+export * from "./migrations"
 export * from "./package"
 export * from "./prettier"
 export * from "./tsconfig"

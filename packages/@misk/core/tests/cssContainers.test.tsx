@@ -9,7 +9,7 @@ import {
   MobileOnlyContainer,
   ResponsiveContainer,
   WrapTextContainer,
-  ResponsiveAppContainer
+  ResponsiveAppContainer,
 } from "../src/cssContainers"
 
 const TestChildren = () => (
