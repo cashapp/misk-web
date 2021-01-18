@@ -8,7 +8,7 @@ const createStyledComponentsTransformer =
 const path = require("path")
 const webpack = require("webpack")
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
-const { merge } = require("webpack-merge")
+const merge = require("webpack-merge")
 
 module.exports = (env, argv) => {
   const { dirname, miskTab } = argv
