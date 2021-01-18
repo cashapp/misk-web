@@ -34,7 +34,6 @@ export const defaultMiskTabJson = async (
   rawPackageJson: {},
   rawTsconfig: {},
   rawTsconfigInclude: [],
-  rawTslint: {},
   rawWebpackConfig: {},
   relative_path_prefix: "",
   slug: "",
@@ -124,7 +123,6 @@ export const migrateBuildFiles = (...args: any) => {
     moveOldBuildFile(dir, Files.gitignore)
     moveOldBuildFile(dir, Files.prettier)
     moveOldBuildFile(dir, Files.tsconfig)
-    moveOldBuildFile(dir, Files.tslint)
     moveOldBuildFile(dir, Files.webpack)
     remove(makePath(dir, Files.packageLock))
     remove(makePath(dir, Files.yarnLock))

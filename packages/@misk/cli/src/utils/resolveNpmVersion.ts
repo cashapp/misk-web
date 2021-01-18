@@ -25,11 +25,13 @@ export const packageVersionExistsOnNPM = async (
 ) => {
   try {
     return parseAtPkgVersionFromNpmUrl(
-      (await axios.get(
-        version
-          ? `https://unpkg.com/${pkg}@${version}`
-          : `https://unpkg.com/${pkg}`
-      )).request.path
+      (
+        await axios.get(
+          version
+            ? `https://unpkg.com/${pkg}@${version}`
+            : `https://unpkg.com/${pkg}`
+        )
+      ).request.path
     )
   } catch (e) {
     if (e.code === "ENOTFOUND") {
