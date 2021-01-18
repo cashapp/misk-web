@@ -1,5 +1,5 @@
 import { testPackageJson, testPackageScript } from "@misk/test"
-import { merge, reduce } from "lodash"
+import { merge, reduce, unset } from "lodash"
 import { IMiskTabJSON, Files, getSemVarPackageVersionOnNPM } from "../../utils"
 import { generatedByCLI, prettier } from "../templates"
 import { MiskPkg } from "../../utils"
@@ -22,7 +22,7 @@ const scripts = (miskTab: IMiskTabJSON) => ({
     }`,
     clean: "rm -rf demo lib",
     "clean-build-files":
-      "rm .hash package-lock.json package.json tsconfig.json tslint.json webpack.config.js",
+      "rm .hash package-lock.json package.json tsconfig.json webpack.config.js",
     lib: "cross-env NODE_ENV=production webpack",
     "dev-lib": "cross-env NODE_ENV=development webpack",
     lint:
@@ -39,7 +39,6 @@ const scripts = (miskTab: IMiskTabJSON) => ({
       Files.packageLock,
       Files.prettier,
       Files.tsconfig,
-      Files.tslint,
       Files.webpack,
       Files.yarnLock,
       "demo",
@@ -84,15 +83,19 @@ const dependencies = async (miskTab: IMiskTabJSON, pkg: any) => ({
   }
 })
 
-const devDependencies = async (miskTab: IMiskTabJSON, pkg: any) => ({
-  devDependencies: {
-    ...pkg.devDependencies,
-    ...(await createMiskPackageJson(
-      [MiskPkg.dev, MiskPkg.prettier, MiskPkg.test, MiskPkg.tslint],
-      miskTab
-    ))
+const devDependencies = async (miskTab: IMiskTabJSON, pkg: any) => {
+  let existingDevDeps = pkg.devDependencies
+  unset(existingDevDeps, "@misk/tslint")
+  return {
+    devDependencies: {
+      ...existingDevDeps,
+      ...(await createMiskPackageJson(
+        [MiskPkg.dev, MiskPkg.prettier, MiskPkg.test],
+        miskTab
+      ))
+    }
   }
-})
+}
 
 const jestConfiguration = (miskTab: IMiskTabJSON) => ({
   // Values from testPackageJson will be used if no jest stanza is present
