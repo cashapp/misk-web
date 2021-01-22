@@ -72,7 +72,11 @@ const runMigration = async (
       )
     }
     if (fileStringToWrite != fileStringRaw) {
-      logDebug("Code Migration", migration.description + " => " + filePath, slug)
+      logDebug(
+        "Code Migration",
+        migration.description + " => " + filePath,
+        slug
+      )
       await fs.writeFile(filePath, fileStringToWrite)
     }
   } catch (err) {
