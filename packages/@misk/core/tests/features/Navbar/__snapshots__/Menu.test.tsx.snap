@@ -2,7 +2,7 @@
 
 exports[`Navbar Menu Menu can render 1`] = `
 <DocumentFragment>
-  .emotion-1 {
+  .emotion-0 {
   background-color: #29333a!important;
   box-shadow: none!important;
   background-image: none!important;
@@ -12,21 +12,21 @@ exports[`Navbar Menu Menu can render 1`] = `
   z-index: 1020;
 }
 
-.emotion-0 {
-  color: #7a7e82!important;
-}
-
-.emotion-0:hover {
+.emotion-1:hover {
   color: white;
 }
 
-.emotion-6 {
+.emotion-1 {
+  color: #7a7e82!important;
+}
+
+.emotion-2 {
   background-color: #29333a;
   display: block;
   margin: 60px -20px 0 -20px;
 }
 
-.emotion-5 {
+.emotion-3 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
@@ -34,13 +34,9 @@ exports[`Navbar Menu Menu can render 1`] = `
 }
 
 @media (max-width: 768px) {
-  .emotion-5 {
+  .emotion-3 {
     padding: 50px 20px;
   }
-}
-
-.emotion-3 {
-  display: inline-block;
 }
 
 .emotion-4 {
@@ -65,7 +61,11 @@ exports[`Navbar Menu Menu can render 1`] = `
   }
 }
 
-.emotion-2 {
+.emotion-5 {
+  display: inline-block;
+}
+
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -78,7 +78,7 @@ exports[`Navbar Menu Menu can render 1`] = `
   flex-wrap: wrap;
 }
 
-.emotion-2 * {
+.emotion-6 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -90,14 +90,14 @@ exports[`Navbar Menu Menu can render 1`] = `
 
 <div>
     <button
-      class="bp3-button emotion-1"
+      class="bp3-button emotion-0"
       type="button"
     >
       <span
         class="bp3-button-text"
       >
         <span
-          class="bp3-icon bp3-icon-menu emotion-0"
+          class="bp3-icon bp3-icon-menu emotion-1"
           icon="menu"
         >
           <svg
@@ -118,7 +118,7 @@ exports[`Navbar Menu Menu can render 1`] = `
       </span>
     </button>
     <div
-      class="emotion-6"
+      class="emotion-2"
     >
       <div
         class="bp3-collapse"
@@ -129,16 +129,16 @@ exports[`Navbar Menu Menu can render 1`] = `
           style="transform: translateY(-undefinedpx);"
         >
           <div
-            class="emotion-5"
+            class="emotion-3"
           >
             <div
               class="emotion-4"
             >
               <div
-                class="emotion-3"
+                class="emotion-5"
               >
                 <div
-                  class="emotion-2"
+                  class="emotion-6"
                 />
               </div>
               <span />
@@ -153,7 +153,7 @@ exports[`Navbar Menu Menu can render 1`] = `
 
 exports[`Navbar Menu Menu can render with error 1`] = `
 <DocumentFragment>
-  .emotion-1 {
+  .emotion-0 {
   background-color: #29333a!important;
   box-shadow: none!important;
   background-image: none!important;
@@ -163,21 +163,21 @@ exports[`Navbar Menu Menu can render with error 1`] = `
   z-index: 1020;
 }
 
-.emotion-0 {
+.emotion-1 {
   color: #7a7e82!important;
 }
 
-.emotion-0:hover {
+.emotion-1:hover {
   color: white;
 }
 
-.emotion-8 {
+.emotion-2 {
   background-color: #29333a;
   display: block;
   margin: 60px -20px 0 -20px;
 }
 
-.emotion-7 {
+.emotion-3 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
@@ -185,42 +185,38 @@ exports[`Navbar Menu Menu can render with error 1`] = `
 }
 
 @media (max-width: 768px) {
-  .emotion-7 {
+  .emotion-3 {
     padding: 50px 20px;
   }
 }
 
-.emotion-3 {
-  display: inline-block;
-}
-
-.emotion-5 {
-  margin: 20px 0;
-}
-
-.emotion-6 {
+.emotion-4 {
   margin: 0 auto;
 }
 
 @media (min-width:768px) {
-  .emotion-6 {
+  .emotion-4 {
     width: 750px;
   }
 }
 
 @media (min-width:992px) {
-  .emotion-6 {
+  .emotion-4 {
     width: 970px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-6 {
+  .emotion-4 {
     width: 1170px;
   }
 }
 
-.emotion-2 {
+.emotion-5 {
+  display: inline-block;
+}
+
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -233,7 +229,7 @@ exports[`Navbar Menu Menu can render with error 1`] = `
   flex-wrap: wrap;
 }
 
-.emotion-2 * {
+.emotion-6 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -243,20 +239,24 @@ exports[`Navbar Menu Menu can render with error 1`] = `
   white-space: nowrap;
 }
 
-.emotion-4 {
+.emotion-7 {
+  margin: 20px 0;
+}
+
+.emotion-8 {
   text-align: left;
 }
 
 <div>
     <button
-      class="bp3-button emotion-1"
+      class="bp3-button emotion-0"
       type="button"
     >
       <span
         class="bp3-button-text"
       >
         <span
-          class="bp3-icon bp3-icon-menu emotion-0"
+          class="bp3-icon bp3-icon-menu emotion-1"
           icon="menu"
         >
           <svg
@@ -277,7 +277,7 @@ exports[`Navbar Menu Menu can render with error 1`] = `
       </span>
     </button>
     <div
-      class="emotion-8"
+      class="emotion-2"
     >
       <div
         class="bp3-collapse"
@@ -288,20 +288,20 @@ exports[`Navbar Menu Menu can render with error 1`] = `
           style="transform: translateY(-undefinedpx);"
         >
           <div
-            class="emotion-7"
+            class="emotion-3"
           >
             <div
-              class="emotion-6"
+              class="emotion-4"
             >
               <div
-                class="emotion-3"
+                class="emotion-5"
               >
                 <div
-                  class="emotion-2"
+                  class="emotion-6"
                 />
               </div>
               <div
-                class="bp3-callout bp3-intent-danger bp3-callout-icon emotion-5"
+                class="bp3-callout bp3-intent-danger bp3-callout-icon emotion-7"
               >
                 <span
                   class="bp3-icon bp3-icon-error"
@@ -328,7 +328,7 @@ exports[`Navbar Menu Menu can render with error 1`] = `
                   [401]  Not authorized. 
                 </h4>
                 <pre
-                  class="emotion-4"
+                  class="emotion-8"
                 >
                   {
   "response": {
@@ -350,7 +350,7 @@ exports[`Navbar Menu Menu can render with error 1`] = `
 
 exports[`Navbar Menu Menu can render with links 1`] = `
 <DocumentFragment>
-  .emotion-1 {
+  .emotion-0 {
   background-color: #29333a!important;
   box-shadow: none!important;
   background-image: none!important;
@@ -360,21 +360,21 @@ exports[`Navbar Menu Menu can render with links 1`] = `
   z-index: 1020;
 }
 
-.emotion-0 {
-  color: #7a7e82!important;
-}
-
-.emotion-0:hover {
+.emotion-1:hover {
   color: white;
 }
 
-.emotion-12 {
+.emotion-1 {
+  color: #7a7e82!important;
+}
+
+.emotion-2 {
   background-color: #29333a;
   display: block;
   margin: 60px -20px 0 -20px;
 }
 
-.emotion-11 {
+.emotion-3 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
@@ -382,60 +382,38 @@ exports[`Navbar Menu Menu can render with links 1`] = `
 }
 
 @media (max-width: 768px) {
-  .emotion-11 {
+  .emotion-3 {
     padding: 50px 20px;
   }
 }
 
-.emotion-3 {
-  display: inline-block;
-}
-
-.emotion-8 {
-  padding-bottom: 35px;
-}
-
-.emotion-4 {
-  color: #cecece;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  -webkit-flex-basis: 300px;
-  -ms-flex-preferred-size: 300px;
-  flex-basis: 300px;
-  padding: 5px 0;
-  color: #cecece;
-}
-
-.emotion-4:hover {
-  color: white;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-10 {
-  margin: 0 auto;
-}
-
-@media (min-width:768px) {
-  .emotion-10 {
-    width: 750px;
-  }
-}
-
 @media (min-width:992px) {
-  .emotion-10 {
+  .emotion-4 {
     width: 970px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-10 {
+  .emotion-4 {
     width: 1170px;
   }
 }
 
-.emotion-2 {
+.emotion-4 {
+  margin: 0 auto;
+}
+
+@media (min-width:768px) {
+  .emotion-4 {
+    width: 750px;
+  }
+}
+
+.emotion-5 {
+  display: inline-block;
+}
+
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -448,7 +426,7 @@ exports[`Navbar Menu Menu can render with links 1`] = `
   flex-wrap: wrap;
 }
 
-.emotion-2 * {
+.emotion-6 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -458,16 +436,38 @@ exports[`Navbar Menu Menu can render with links 1`] = `
   white-space: nowrap;
 }
 
+.emotion-7 {
+  padding-bottom: 35px;
+}
+
+.emotion-9:hover {
+  color: white;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-9 {
+  color: #cecece;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  -webkit-flex-basis: 300px;
+  -ms-flex-preferred-size: 300px;
+  flex-basis: 300px;
+  padding: 5px 0;
+  color: #cecece;
+}
+
 <div>
     <button
-      class="bp3-button emotion-1"
+      class="bp3-button emotion-0"
       type="button"
     >
       <span
         class="bp3-button-text"
       >
         <span
-          class="bp3-icon bp3-icon-menu emotion-0"
+          class="bp3-icon bp3-icon-menu emotion-1"
           icon="menu"
         >
           <svg
@@ -488,7 +488,7 @@ exports[`Navbar Menu Menu can render with links 1`] = `
       </span>
     </button>
     <div
-      class="emotion-12"
+      class="emotion-2"
     >
       <div
         class="bp3-collapse"
@@ -499,43 +499,43 @@ exports[`Navbar Menu Menu can render with links 1`] = `
           style="transform: translateY(-undefinedpx);"
         >
           <div
-            class="emotion-11"
+            class="emotion-3"
           >
             <div
-              class="emotion-10"
+              class="emotion-4"
             >
               <div
-                class="emotion-3"
+                class="emotion-5"
               >
                 <div
-                  class="emotion-2"
+                  class="emotion-6"
                 />
               </div>
               <div>
                 <span />
                 <div
-                  class="emotion-8 emotion-2"
+                  class="emotion-7 emotion-6"
                 >
                   <a
-                    class="emotion-4"
+                    class="emotion-9"
                     href="/first-tab/"
                   >
                     First Tab
                   </a>
                   <a
-                    class="emotion-4"
+                    class="emotion-9"
                     href="https://github.com/cashapp/misk-web"
                   >
                     Misk Web Repo
                   </a>
                   <a
-                    class="emotion-4"
+                    class="emotion-9"
                     href="/palette/"
                   >
                     Palette
                   </a>
                   <a
-                    class="emotion-4"
+                    class="emotion-9"
                     href="/second-tab/"
                   >
                     Second Tab
@@ -553,7 +553,7 @@ exports[`Navbar Menu Menu can render with links 1`] = `
 
 exports[`Navbar Menu Menu can render with links and rendered navbar items 1`] = `
 <DocumentFragment>
-  .emotion-1 {
+  .emotion-0 {
   background-color: #29333a!important;
   box-shadow: none!important;
   background-image: none!important;
@@ -563,21 +563,21 @@ exports[`Navbar Menu Menu can render with links and rendered navbar items 1`] = 
   z-index: 1020;
 }
 
-.emotion-0 {
-  color: #7a7e82!important;
-}
-
-.emotion-0:hover {
+.emotion-1:hover {
   color: white;
 }
 
-.emotion-12 {
+.emotion-1 {
+  color: #7a7e82!important;
+}
+
+.emotion-2 {
   background-color: #29333a;
   display: block;
   margin: 60px -20px 0 -20px;
 }
 
-.emotion-11 {
+.emotion-3 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
@@ -585,60 +585,38 @@ exports[`Navbar Menu Menu can render with links and rendered navbar items 1`] = 
 }
 
 @media (max-width: 768px) {
-  .emotion-11 {
+  .emotion-3 {
     padding: 50px 20px;
   }
 }
 
-.emotion-3 {
-  display: inline-block;
-}
-
-.emotion-8 {
-  padding-bottom: 35px;
-}
-
-.emotion-4 {
-  color: #cecece;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  font-size: 16px;
-  -webkit-flex-basis: 300px;
-  -ms-flex-preferred-size: 300px;
-  flex-basis: 300px;
-  padding: 5px 0;
-  color: #cecece;
-}
-
-.emotion-4:hover {
-  color: white;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-10 {
-  margin: 0 auto;
-}
-
-@media (min-width:768px) {
-  .emotion-10 {
-    width: 750px;
-  }
-}
-
 @media (min-width:992px) {
-  .emotion-10 {
+  .emotion-4 {
     width: 970px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-10 {
+  .emotion-4 {
     width: 1170px;
   }
 }
 
-.emotion-2 {
+.emotion-4 {
+  margin: 0 auto;
+}
+
+@media (min-width:768px) {
+  .emotion-4 {
+    width: 750px;
+  }
+}
+
+.emotion-5 {
+  display: inline-block;
+}
+
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -651,7 +629,7 @@ exports[`Navbar Menu Menu can render with links and rendered navbar items 1`] = 
   flex-wrap: wrap;
 }
 
-.emotion-2 * {
+.emotion-6 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -661,16 +639,38 @@ exports[`Navbar Menu Menu can render with links and rendered navbar items 1`] = 
   white-space: nowrap;
 }
 
+.emotion-7 {
+  padding-bottom: 35px;
+}
+
+.emotion-9:hover {
+  color: white;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-9 {
+  color: #cecece;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-size: 16px;
+  -webkit-flex-basis: 300px;
+  -ms-flex-preferred-size: 300px;
+  flex-basis: 300px;
+  padding: 5px 0;
+  color: #cecece;
+}
+
 <div>
     <button
-      class="bp3-button emotion-1"
+      class="bp3-button emotion-0"
       type="button"
     >
       <span
         class="bp3-button-text"
       >
         <span
-          class="bp3-icon bp3-icon-menu emotion-0"
+          class="bp3-icon bp3-icon-menu emotion-1"
           icon="menu"
         >
           <svg
@@ -691,7 +691,7 @@ exports[`Navbar Menu Menu can render with links and rendered navbar items 1`] = 
       </span>
     </button>
     <div
-      class="emotion-12"
+      class="emotion-2"
     >
       <div
         class="bp3-collapse"
@@ -702,16 +702,16 @@ exports[`Navbar Menu Menu can render with links and rendered navbar items 1`] = 
           style="transform: translateY(-undefinedpx);"
         >
           <div
-            class="emotion-11"
+            class="emotion-3"
           >
             <div
-              class="emotion-10"
+              class="emotion-4"
             >
               <div
-                class="emotion-3"
+                class="emotion-5"
               >
                 <div
-                  class="emotion-2"
+                  class="emotion-6"
                 >
                   <span>
                     <span>
@@ -728,28 +728,28 @@ exports[`Navbar Menu Menu can render with links and rendered navbar items 1`] = 
               <div>
                 <span />
                 <div
-                  class="emotion-8 emotion-2"
+                  class="emotion-7 emotion-6"
                 >
                   <a
-                    class="emotion-4"
+                    class="emotion-9"
                     href="/first-tab/"
                   >
                     First Tab
                   </a>
                   <a
-                    class="emotion-4"
+                    class="emotion-9"
                     href="https://github.com/cashapp/misk-web"
                   >
                     Misk Web Repo
                   </a>
                   <a
-                    class="emotion-4"
+                    class="emotion-9"
                     href="/palette/"
                   >
                     Palette
                   </a>
                   <a
-                    class="emotion-4"
+                    class="emotion-9"
                     href="/second-tab/"
                   >
                     Second Tab
@@ -767,7 +767,7 @@ exports[`Navbar Menu Menu can render with links and rendered navbar items 1`] = 
 
 exports[`Navbar Menu Menu can render with rendered navbar items 1`] = `
 <DocumentFragment>
-  .emotion-1 {
+  .emotion-0 {
   background-color: #29333a!important;
   box-shadow: none!important;
   background-image: none!important;
@@ -777,21 +777,21 @@ exports[`Navbar Menu Menu can render with rendered navbar items 1`] = `
   z-index: 1020;
 }
 
-.emotion-0 {
-  color: #7a7e82!important;
-}
-
-.emotion-0:hover {
+.emotion-1:hover {
   color: white;
 }
 
-.emotion-6 {
+.emotion-1 {
+  color: #7a7e82!important;
+}
+
+.emotion-2 {
   background-color: #29333a;
   display: block;
   margin: 60px -20px 0 -20px;
 }
 
-.emotion-5 {
+.emotion-3 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
@@ -799,13 +799,9 @@ exports[`Navbar Menu Menu can render with rendered navbar items 1`] = `
 }
 
 @media (max-width: 768px) {
-  .emotion-5 {
+  .emotion-3 {
     padding: 50px 20px;
   }
-}
-
-.emotion-3 {
-  display: inline-block;
 }
 
 .emotion-4 {
@@ -830,7 +826,11 @@ exports[`Navbar Menu Menu can render with rendered navbar items 1`] = `
   }
 }
 
-.emotion-2 {
+.emotion-5 {
+  display: inline-block;
+}
+
+.emotion-6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -843,7 +843,7 @@ exports[`Navbar Menu Menu can render with rendered navbar items 1`] = `
   flex-wrap: wrap;
 }
 
-.emotion-2 * {
+.emotion-6 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -855,14 +855,14 @@ exports[`Navbar Menu Menu can render with rendered navbar items 1`] = `
 
 <div>
     <button
-      class="bp3-button emotion-1"
+      class="bp3-button emotion-0"
       type="button"
     >
       <span
         class="bp3-button-text"
       >
         <span
-          class="bp3-icon bp3-icon-menu emotion-0"
+          class="bp3-icon bp3-icon-menu emotion-1"
           icon="menu"
         >
           <svg
@@ -883,7 +883,7 @@ exports[`Navbar Menu Menu can render with rendered navbar items 1`] = `
       </span>
     </button>
     <div
-      class="emotion-6"
+      class="emotion-2"
     >
       <div
         class="bp3-collapse"
@@ -894,16 +894,16 @@ exports[`Navbar Menu Menu can render with rendered navbar items 1`] = `
           style="transform: translateY(-undefinedpx);"
         >
           <div
-            class="emotion-5"
+            class="emotion-3"
           >
             <div
               class="emotion-4"
             >
               <div
-                class="emotion-3"
+                class="emotion-5"
               >
                 <div
-                  class="emotion-2"
+                  class="emotion-6"
                 >
                   <span>
                     <span>

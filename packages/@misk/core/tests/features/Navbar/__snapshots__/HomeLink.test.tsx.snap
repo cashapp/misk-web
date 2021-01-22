@@ -75,6 +75,21 @@ exports[`Navbar HomeLink HomeLink can render with homeName 1`] = `
 exports[`Navbar HomeLink HomeLink can render with homeName and homeUrl 1`] = `
 <DocumentFragment>
   .emotion-0 {
+  color: #cecece;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+.emotion-0:hover {
+  color: white;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-1 {
   font-size: 24px!important;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -87,40 +102,25 @@ exports[`Navbar HomeLink HomeLink can render with homeName and homeUrl 1`] = `
   min-width: fit-content;
 }
 
-.emotion-0 a {
+.emotion-1 a {
   color: #cecece!important;
   letter-spacing: 1px;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-0 a:hover {
+.emotion-1 a:hover {
   color: white!important;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-1 {
-  color: #cecece;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-}
-
-.emotion-1:hover {
-  color: white;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 <a
-    class="emotion-1"
+    class="emotion-0"
     href="/http://home.com/"
   >
     <span
-      class="emotion-0"
+      class="emotion-1"
     >
       Test Service
     </span>
