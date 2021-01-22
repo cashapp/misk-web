@@ -1,5 +1,7 @@
 ## Misk TsLint
 
+# Misk TsLint package is deprecated, a replacement using EsLint will be released soon
+
 ![](https://raw.githubusercontent.com/cashapp/misk/master/misk.png)
 This package provides shared TsLint linting across Misk tab repos.
 
