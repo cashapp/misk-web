@@ -5,7 +5,7 @@ export const testPackageScript = {
 export const testPackageJson = {
   jest: {
     testEnvironment: "jsdom",
-    snapshotSerializers: ["jest-serializer-html", "jest-emotion"],
+    snapshotSerializers: ["jest-serializer-html", "@emotion/jest"],
     transform: {
       "^.+\\.tsx?$": "ts-jest"
     },
