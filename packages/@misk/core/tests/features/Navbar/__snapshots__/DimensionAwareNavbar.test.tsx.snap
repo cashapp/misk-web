@@ -9,32 +9,26 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar can render 1`] = `
   position: fixed!important;
 }
 
-.emotion-1 {
-  margin: 0 auto;
-}
-
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .emotion-1 {
     width: 750px;
   }
 }
 
-@media (min-width:992px) {
+@media (min-width: 992px) {
   .emotion-1 {
     width: 970px;
   }
 }
 
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
   .emotion-1 {
     width: 1170px;
   }
 }
 
-@media (max-width: 870px) {
-  .emotion-2 {
-    padding-left: 60px;
-  }
+.emotion-1 {
+  margin: 0 auto;
 }
 
 .emotion-2 {
@@ -45,7 +39,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar can render 1`] = `
   padding-bottom: 27px;
 }
 
-@media (min-width: 1200px) and (max-width: 1285px) {
+@media (max-width: 870px) {
   .emotion-2 {
     padding-left: 60px;
   }
@@ -57,11 +51,10 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar can render 1`] = `
   }
 }
 
-.emotion-3 a {
-  color: #cecece!important;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
+@media (min-width: 1200px) and (max-width: 1285px) {
+  .emotion-2 {
+    padding-left: 60px;
+  }
 }
 
 .emotion-3 {
@@ -75,6 +68,13 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar can render 1`] = `
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
+}
+
+.emotion-3 a {
+  color: #cecece!important;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-3 a:hover {
@@ -107,17 +107,17 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar can render 1`] = `
   margin: 60px -20px 0 -20px;
 }
 
-@media (max-width: 768px) {
-  .emotion-7 {
-    padding: 50px 20px;
-  }
-}
-
 .emotion-7 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
   max-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .emotion-7 {
+    padding: 50px 20px;
+  }
 }
 
 .emotion-9 {
@@ -132,6 +132,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar can render 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -241,35 +242,35 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount
   position: fixed!important;
 }
 
-.emotion-1 {
-  margin: 0 auto;
-}
-
-@media (min-width:768px) {
-  .emotion-1 {
-    width: 750px;
-  }
-}
-
-@media (min-width:1200px) {
-  .emotion-1 {
-    width: 1170px;
-  }
-}
-
-@media (min-width:992px) {
+@media (min-width: 992px) {
   .emotion-1 {
     width: 970px;
   }
 }
 
-@media (min-width: 992px) and (max-width: 1085px) {
+@media (min-width: 1200px) {
+  .emotion-1 {
+    width: 1170px;
+  }
+}
+
+@media (min-width: 768px) {
+  .emotion-1 {
+    width: 750px;
+  }
+}
+
+.emotion-1 {
+  margin: 0 auto;
+}
+
+@media (max-width: 870px) {
   .emotion-2 {
     padding-left: 60px;
   }
 }
 
-@media (max-width: 870px) {
+@media (min-width: 992px) and (max-width: 1085px) {
   .emotion-2 {
     padding-left: 60px;
   }
@@ -296,6 +297,12 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount
   text-decoration: none;
 }
 
+.emotion-3 a:hover {
+  color: white!important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .emotion-3 {
   font-size: 24px!important;
   -webkit-text-decoration: none;
@@ -307,12 +314,6 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
-}
-
-.emotion-3 a:hover {
-  color: white!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
 }
 
 .emotion-4 a:hover {
@@ -379,12 +380,12 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount
   z-index: 1020;
 }
 
-.emotion-8 {
-  color: #7a7e82!important;
-}
-
 .emotion-8:hover {
   color: white;
+}
+
+.emotion-8 {
+  color: #7a7e82!important;
 }
 
 .emotion-9 {
@@ -393,17 +394,17 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount
   margin: 60px -20px 0 -20px;
 }
 
+@media (max-width: 768px) {
+  .emotion-10 {
+    padding: 50px 20px;
+  }
+}
+
 .emotion-10 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
   max-height: 100vh;
-}
-
-@media (max-width: 768px) {
-  .emotion-10 {
-    padding: 50px 20px;
-  }
 }
 
 .emotion-12 {
@@ -418,6 +419,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -433,18 +435,18 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount
   white-space: nowrap;
 }
 
-.emotion-21 a:hover {
-  color: white;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
 .emotion-21 a {
   font-weight: 300;
   color: #eceef1;
   -webkit-text-decoration: underline;
   text-decoration: underline;
   letter-spacing: 1px;
+}
+
+.emotion-21 a:hover {
+  color: white;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 .emotion-21 {
@@ -643,25 +645,39 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   position: fixed!important;
 }
 
-.emotion-1 {
-  margin: 0 auto;
-}
-
-@media (min-width:768px) {
-  .emotion-1 {
-    width: 750px;
-  }
-}
-
-@media (min-width:992px) {
+@media (min-width: 992px) {
   .emotion-1 {
     width: 970px;
   }
 }
 
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
   .emotion-1 {
     width: 1170px;
+  }
+}
+
+@media (min-width: 768px) {
+  .emotion-1 {
+    width: 750px;
+  }
+}
+
+.emotion-1 {
+  margin: 0 auto;
+}
+
+.emotion-2 {
+  font-size: 13px!important;
+  font-weight: 600!important;
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 27px;
+}
+
+@media (max-width: 870px) {
+  .emotion-2 {
+    padding-left: 60px;
   }
 }
 
@@ -677,18 +693,17 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   }
 }
 
-@media (max-width: 870px) {
-  .emotion-2 {
-    padding-left: 60px;
-  }
+.emotion-3 a {
+  color: #cecece!important;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
-.emotion-2 {
-  font-size: 13px!important;
-  font-weight: 600!important;
-  position: relative;
-  padding-top: 25px;
-  padding-bottom: 27px;
+.emotion-3 a:hover {
+  color: white!important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-3 {
@@ -704,13 +719,13 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   min-width: fit-content;
 }
 
-.emotion-3 a:hover {
+.emotion-4 a:hover {
   color: white!important;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-3 a {
+.emotion-4 a {
   color: #cecece!important;
   letter-spacing: 1px;
   -webkit-text-decoration: none;
@@ -732,19 +747,6 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   min-width: 0;
 }
 
-.emotion-4 a {
-  color: #cecece!important;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-4 a:hover {
-  color: white!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 .emotion-5 {
   background-color: #29333a!important;
   box-shadow: none!important;
@@ -755,12 +757,12 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   z-index: 1020;
 }
 
-.emotion-6 {
-  color: #7a7e82!important;
-}
-
 .emotion-6:hover {
   color: white;
+}
+
+.emotion-6 {
+  color: #7a7e82!important;
 }
 
 .emotion-7 {
@@ -794,6 +796,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -809,20 +812,6 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   white-space: nowrap;
 }
 
-.emotion-13 a:hover {
-  color: white;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.emotion-13 a {
-  font-weight: 300;
-  color: #eceef1;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  letter-spacing: 1px;
-}
-
 .emotion-13 {
   background-color: #49a4d5!important;
   color: #eceef1!important;
@@ -834,6 +823,20 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   top: 70px;
   left: 0px;
   z-index: 1010!important;
+}
+
+.emotion-13 a {
+  font-weight: 300;
+  color: #eceef1;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  letter-spacing: 1px;
+}
+
+.emotion-13 a:hover {
+  color: white;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 <div
@@ -954,25 +957,39 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
   position: fixed!important;
 }
 
-.emotion-1 {
-  margin: 0 auto;
-}
-
-@media (min-width:768px) {
-  .emotion-1 {
-    width: 750px;
-  }
-}
-
-@media (min-width:992px) {
+@media (min-width: 992px) {
   .emotion-1 {
     width: 970px;
   }
 }
 
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
   .emotion-1 {
     width: 1170px;
+  }
+}
+
+@media (min-width: 768px) {
+  .emotion-1 {
+    width: 750px;
+  }
+}
+
+.emotion-1 {
+  margin: 0 auto;
+}
+
+.emotion-2 {
+  font-size: 13px!important;
+  font-weight: 600!important;
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 27px;
+}
+
+@media (max-width: 870px) {
+  .emotion-2 {
+    padding-left: 60px;
   }
 }
 
@@ -988,18 +1005,17 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
   }
 }
 
-@media (max-width: 870px) {
-  .emotion-2 {
-    padding-left: 60px;
-  }
+.emotion-3 a {
+  color: #cecece!important;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
-.emotion-2 {
-  font-size: 13px!important;
-  font-weight: 600!important;
-  position: relative;
-  padding-top: 25px;
-  padding-bottom: 27px;
+.emotion-3 a:hover {
+  color: white!important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-3 {
@@ -1015,13 +1031,13 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
   min-width: fit-content;
 }
 
-.emotion-3 a:hover {
+.emotion-4 a:hover {
   color: white!important;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-3 a {
+.emotion-4 a {
   color: #cecece!important;
   letter-spacing: 1px;
   -webkit-text-decoration: none;
@@ -1043,19 +1059,6 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
   min-width: 0;
 }
 
-.emotion-4 a {
-  color: #cecece!important;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-4 a:hover {
-  color: white!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 .emotion-5 {
   background-color: #29333a!important;
   box-shadow: none!important;
@@ -1066,12 +1069,12 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
   z-index: 1020;
 }
 
-.emotion-6 {
-  color: #7a7e82!important;
-}
-
 .emotion-6:hover {
   color: white;
+}
+
+.emotion-6 {
+  color: #7a7e82!important;
 }
 
 .emotion-7 {
@@ -1105,6 +1108,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -1120,20 +1124,6 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
   white-space: nowrap;
 }
 
-.emotion-13 a:hover {
-  color: white;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.emotion-13 a {
-  font-weight: 300;
-  color: #eceef1;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  letter-spacing: 1px;
-}
-
 .emotion-13 {
   background-color: #49a4d5!important;
   color: #eceef1!important;
@@ -1145,6 +1135,20 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`
   top: 70px;
   left: 0px;
   z-index: 1010!important;
+}
+
+.emotion-13 a {
+  font-weight: 300;
+  color: #eceef1;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  letter-spacing: 1px;
+}
+
+.emotion-13 a:hover {
+  color: white;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 <div
@@ -1265,35 +1269,35 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amoun
   position: fixed!important;
 }
 
-.emotion-1 {
-  margin: 0 auto;
-}
-
-@media (min-width:768px) {
-  .emotion-1 {
-    width: 750px;
-  }
-}
-
-@media (min-width:1200px) {
-  .emotion-1 {
-    width: 1170px;
-  }
-}
-
-@media (min-width:992px) {
+@media (min-width: 992px) {
   .emotion-1 {
     width: 970px;
   }
 }
 
-@media (min-width: 992px) and (max-width: 1085px) {
+@media (min-width: 1200px) {
+  .emotion-1 {
+    width: 1170px;
+  }
+}
+
+@media (min-width: 768px) {
+  .emotion-1 {
+    width: 750px;
+  }
+}
+
+.emotion-1 {
+  margin: 0 auto;
+}
+
+@media (max-width: 870px) {
   .emotion-2 {
     padding-left: 60px;
   }
 }
 
-@media (max-width: 870px) {
+@media (min-width: 992px) and (max-width: 1085px) {
   .emotion-2 {
     padding-left: 60px;
   }
@@ -1320,6 +1324,12 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amoun
   text-decoration: none;
 }
 
+.emotion-3 a:hover {
+  color: white!important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .emotion-3 {
   font-size: 24px!important;
   -webkit-text-decoration: none;
@@ -1331,12 +1341,6 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amoun
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
-}
-
-.emotion-3 a:hover {
-  color: white!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
 }
 
 .emotion-4 a:hover {
@@ -1403,12 +1407,12 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amoun
   z-index: 1020;
 }
 
-.emotion-10 {
-  color: #7a7e82!important;
-}
-
 .emotion-10:hover {
   color: white;
+}
+
+.emotion-10 {
+  color: #7a7e82!important;
 }
 
 .emotion-11 {
@@ -1417,17 +1421,17 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amoun
   margin: 60px -20px 0 -20px;
 }
 
+@media (max-width: 768px) {
+  .emotion-12 {
+    padding: 50px 20px;
+  }
+}
+
 .emotion-12 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
   max-height: 100vh;
-}
-
-@media (max-width: 768px) {
-  .emotion-12 {
-    padding: 50px 20px;
-  }
 }
 
 .emotion-14 {
@@ -1442,6 +1446,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amoun
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -1457,18 +1462,18 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amoun
   white-space: nowrap;
 }
 
-.emotion-23 a:hover {
-  color: white;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
 .emotion-23 a {
   font-weight: 300;
   color: #eceef1;
   -webkit-text-decoration: underline;
   text-decoration: underline;
   letter-spacing: 1px;
+}
+
+.emotion-23 a:hover {
+  color: white;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 .emotion-23 {

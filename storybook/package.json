@@ -101,13 +101,14 @@
     "webpack-cli": "4.4.0",
     "webpack-bundle-analyzer": "4.4.0",
     "webpack-dev-server": "3.11.2",
-    "webpack-merge": "5.7.3"
+    "webpack-merge": "5.7.3",
+    "@misk/tslint": "0.2.0-4"
   },
   "jest": {
     "testEnvironment": "jsdom",
     "snapshotSerializers": [
       "jest-serializer-html",
-      "@emotion/jest/serializer"
+      "jest-emotion"
     ],
     "transform": {
       "^.+\\.tsx?$": "ts-jest"

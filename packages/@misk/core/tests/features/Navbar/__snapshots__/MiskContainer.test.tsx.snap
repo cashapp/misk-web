@@ -9,32 +9,26 @@ exports[`Misk Navbar Container Container can render 1`] = `
   position: fixed!important;
 }
 
-.emotion-1 {
-  margin: 0 auto;
-}
-
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .emotion-1 {
     width: 750px;
   }
 }
 
-@media (min-width:992px) {
+@media (min-width: 992px) {
   .emotion-1 {
     width: 970px;
   }
 }
 
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
   .emotion-1 {
     width: 1170px;
   }
 }
 
-@media (max-width: 870px) {
-  .emotion-2 {
-    padding-left: 60px;
-  }
+.emotion-1 {
+  margin: 0 auto;
 }
 
 .emotion-2 {
@@ -45,7 +39,7 @@ exports[`Misk Navbar Container Container can render 1`] = `
   padding-bottom: 27px;
 }
 
-@media (min-width: 1200px) and (max-width: 1285px) {
+@media (max-width: 870px) {
   .emotion-2 {
     padding-left: 60px;
   }
@@ -57,11 +51,10 @@ exports[`Misk Navbar Container Container can render 1`] = `
   }
 }
 
-.emotion-3 a {
-  color: #cecece!important;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
+@media (min-width: 1200px) and (max-width: 1285px) {
+  .emotion-2 {
+    padding-left: 60px;
+  }
 }
 
 .emotion-3 {
@@ -75,6 +68,13 @@ exports[`Misk Navbar Container Container can render 1`] = `
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
+}
+
+.emotion-3 a {
+  color: #cecece!important;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-3 a:hover {
@@ -107,17 +107,17 @@ exports[`Misk Navbar Container Container can render 1`] = `
   margin: 60px -20px 0 -20px;
 }
 
-@media (max-width: 768px) {
-  .emotion-7 {
-    padding: 50px 20px;
-  }
-}
-
 .emotion-7 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
   max-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .emotion-7 {
+    padding: 50px 20px;
+  }
 }
 
 .emotion-9 {
@@ -132,6 +132,7 @@ exports[`Misk Navbar Container Container can render 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -236,19 +237,19 @@ exports[`Misk Navbar Container Container can render 1`] = `
   margin: 0 auto;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .emotion-0 {
     width: 750px;
   }
 }
 
-@media (min-width:992px) {
+@media (min-width: 992px) {
   .emotion-0 {
     width: 970px;
   }
 }
 
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
   .emotion-0 {
     width: 1170px;
   }
@@ -271,32 +272,26 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
   position: fixed!important;
 }
 
-.emotion-1 {
-  margin: 0 auto;
-}
-
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .emotion-1 {
     width: 750px;
   }
 }
 
-@media (min-width:992px) {
+@media (min-width: 992px) {
   .emotion-1 {
     width: 970px;
   }
 }
 
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
   .emotion-1 {
     width: 1170px;
   }
 }
 
-@media (max-width: 870px) {
-  .emotion-2 {
-    padding-left: 60px;
-  }
+.emotion-1 {
+  margin: 0 auto;
 }
 
 .emotion-2 {
@@ -307,7 +302,7 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
   padding-bottom: 27px;
 }
 
-@media (min-width: 1200px) and (max-width: 1285px) {
+@media (max-width: 870px) {
   .emotion-2 {
     padding-left: 60px;
   }
@@ -319,11 +314,10 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
   }
 }
 
-.emotion-3 a {
-  color: #cecece!important;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
+@media (min-width: 1200px) and (max-width: 1285px) {
+  .emotion-2 {
+    padding-left: 60px;
+  }
 }
 
 .emotion-3 {
@@ -337,6 +331,13 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
+}
+
+.emotion-3 a {
+  color: #cecece!important;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .emotion-3 a:hover {
@@ -369,17 +370,17 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
   margin: 60px -20px 0 -20px;
 }
 
-@media (max-width: 768px) {
-  .emotion-7 {
-    padding: 50px 20px;
-  }
-}
-
 .emotion-7 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
   max-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .emotion-7 {
+    padding: 50px 20px;
+  }
 }
 
 .emotion-9 {
@@ -394,6 +395,7 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -498,19 +500,19 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
   margin: 0 auto;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .emotion-0 {
     width: 750px;
   }
 }
 
-@media (min-width:992px) {
+@media (min-width: 992px) {
   .emotion-0 {
     width: 970px;
   }
 }
 
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
   .emotion-0 {
     width: 1170px;
   }
