@@ -53,6 +53,7 @@ const migrations: IMigration[] = [
 ]
 
 const runMigration = async (
+  slug: string,
   version: semver.SemVer,
   filePath: string,
   migration: IMigration
@@ -60,19 +61,18 @@ const runMigration = async (
   try {
     const fileStringRaw = fs.readFileSync(filePath).toString()
     let fileStringToWrite = fileStringRaw
-    // const shouldRunMigration =
-    //   semver.satisfies(version, migration.versionRange) &&
-    //   migration.filePathIncludesFilter &&
-    //   migration.filePathIncludesFilter != "" &&
-    //   filePath.includes(migration.filePathIncludesFilter)
-    if (semver.satisfies(version, migration.versionRange)) {
+    const shouldRunMigration =
+      semver.satisfies(version, migration.versionRange) &&
+      migration.filePathFilter &&
+      migration.filePathFilter.test(filePath)
+    if (shouldRunMigration) {
       fileStringToWrite = fileStringToWrite.replace(
         migration.find,
         migration.replace
       )
     }
     if (fileStringToWrite != fileStringRaw) {
-      console.log("Differences found, writing migrated code to file", filePath)
+      logDebug("Code Migration", migration.description + " => " + filePath, slug)
       await fs.writeFile(filePath, fileStringToWrite)
     }
   } catch (err) {
@@ -89,13 +89,7 @@ export const runMigrationsOnTabCodebase = async (dir: string, slug: string) => {
       if (item.stats.isFile() && item.path.includes("/miskTab.json")) {
         miskTabPath = item.path
       }
-      if (
-        item.stats.isFile()
-        // &&
-        // (item.path.includes("/src/") ||
-        //   item.path.includes("/tests/") ||
-        //   item.path.includes("/test/"))
-      ) {
+      if (item.stats.isFile()) {
         codeFiles = [...codeFiles, item.path]
       }
     })
@@ -104,9 +98,8 @@ export const runMigrationsOnTabCodebase = async (dir: string, slug: string) => {
       const miskTabJson: IMiskTabJSON = fs.readJSONSync(miskTabPath)
       const tabVersion = semver.coerce(miskTabJson.version)
       migrations.forEach(migration => {
-        logDebug("Code Migration", migration.description, slug)
         codeFiles.forEach(filePath => {
-          runMigration(tabVersion, filePath, migration)
+          runMigration(slug, tabVersion, filePath, migration)
         })
       })
     })
