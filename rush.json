@@ -299,11 +299,13 @@
       "projectFolder": "examples/tabs/palette-lts",
       "shouldPublish": false
     },
-    {
-      "packageName": "storybook",
-      "projectFolder": "storybook",
-      "shouldPublish": false
-    }
+    // TODO add Storybook back once they release 7.0 with Webpack 5 support
+    // https://github.com/storybookjs/storybook/issues/13491
+    // {
+    //   "packageName": "storybook",
+    //   "projectFolder": "storybook",
+    //   "shouldPublish": false
+    // }
     // {
     //   /**
     //    * The NPM package name of the project (must match package.json)
