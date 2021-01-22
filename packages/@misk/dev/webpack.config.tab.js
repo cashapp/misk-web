@@ -60,20 +60,18 @@ module.exports = (env, argv) => {
     openAnalyzer: false,
   })
 
-  const CopyWebpackPluginConfig = new CopyWebpackPlugin(
-    [
+  const CopyWebpackPluginConfig = new CopyWebpackPlugin({
+    patterns: [
       { from: "./node_modules/@misk/common/lib/web/" },
       { from: "./node_modules/@misk/core/lib/web/" },
       { from: "./node_modules/@misk/simpleredux/lib/web/" },
       { from: "./src/static/" },
     ],
-    { copyUnmodified: true }
-  )
+  })
 
-  const CopyRawIndexHtmlConfig = new CopyWebpackPlugin(
-    [{ from: "./src/index.html" }],
-    { copyUnmodified: true }
-  )
+  const CopyRawIndexHtmlConfig = new CopyWebpackPlugin({
+    patterns: [{ from: "./src/index.html" }],
+  })
 
   const HTMLWebpackHarddiskPluginConfig = new HTMLWebpackHarddiskPlugin()
 
@@ -123,12 +121,16 @@ module.exports = (env, argv) => {
         {
           test: /\.(tsx|ts)$/,
           exclude: /node_modules/,
-          loader: "ts-loader",
-          options: {
-            getCustomTransformers: () => ({
-              before: [StyledComponentsTransformer],
-            }),
-          },
+          use: [
+            {
+              loader: "ts-loader",
+              options: {
+                getCustomTransformers: () => ({
+                  before: [StyledComponentsTransformer],
+                }),
+              },
+            },
+          ],
         },
         {
           enforce: "pre",
@@ -136,8 +138,18 @@ module.exports = (env, argv) => {
           loader: "source-map-loader",
         },
         {
-          test: /\.scss$/,
-          loader: "style-loader!css-loader!sass-loader",
+          test: /\.(scss|sass|css)$/,
+          use: [
+            {
+              loader: "style-loader",
+            },
+            {
+              loader: "css-loader?minimize=true",
+            },
+            {
+              loader: "sass-loader",
+            },
+          ],
         },
         {
           test: /\.(jpe?g|png|gif|svg)$/i,

@@ -8,7 +8,6 @@ const CopyWebpackPluginConfig = new CopyWebpackPlugin({
   patterns: [
     { from: "./src/static/" }
   ],
-  // options: { copyUnmodified: true }
 })
 
 module.exports = {

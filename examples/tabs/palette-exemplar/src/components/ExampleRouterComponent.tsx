@@ -1,7 +1,5 @@
-/** @jsx jsx */
 import { Button, ControlGroup, Intent, H1, H3 } from "@blueprintjs/core"
 import { IconNames } from "@blueprintjs/icons"
-import { jsx } from "@emotion/react"
 import { IRouterProvidedProps } from "@misk/simpleredux"
 import * as React from "react"
 import { Link } from "react-router-dom"
@@ -53,7 +51,7 @@ export const ExampleRouterComponent = (props: IRouterProvidedProps) => (
     <ControlGroup>
       <Button
         icon={IconNames.RESET}
-        onClick={(props.history && props.history.goBack) || null}
+        onClick={(props.history && props.history.back) || null}
       ></Button>
       <LinkComponent {...props} />
       <Button

@@ -51,7 +51,8 @@ export const SampleRouterComponent = (props: IRouterProvidedProps) => (
     <ControlGroup>
       <Button
         icon={IconNames.RESET}
-        onClick={(props.history && props.history.goBack) || null}
+        // TODO add this to code migration
+        onClick={(props.history && props.history.back) || null}
       ></Button>
       <LinkComponent {...props} />
       <Button
