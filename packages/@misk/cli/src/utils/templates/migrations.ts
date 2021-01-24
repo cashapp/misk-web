@@ -31,21 +31,21 @@ interface IMigration {
 const migrations: IMigration[] = [
   {
     description: "Emotion 11.x Core Package Rename",
-    versionRange: "<0.2.0",
+    versionRange: "<0.3.0",
     find: RegExp(`@emotion\/core`),
     replace: "@emotion/react",
     filePathFilter: RegExp(`\/src\/.*\.ts`),
   },
   {
     description: "Emotion 11.x Jest Package Rename",
-    versionRange: "<0.2.0",
+    versionRange: "<0.3.0",
     find: RegExp(`jest-emotion`),
     replace: "@emotion/jest",
     filePathFilter: RegExp(`\/tests\/.*\.test\.ts`),
   },
   {
     description: "React 17.x props.history.goBack Rename",
-    versionRange: "<0.2.0",
+    versionRange: "<0.3.0",
     find: RegExp(`props.history.goBack`),
     replace: "props.history.back",
     filePathFilter: RegExp(`\/src\/.*\.ts`),
