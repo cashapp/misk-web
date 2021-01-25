@@ -19,7 +19,7 @@ jobs:
       - name: Rush check for inconsistent dependency versions
         run: node common/scripts/install-run-rush.js check
       - name: Rush install
-        run: node common/scripts/install-run-rush.js update
+        run: node common/scripts/install-run-rush.js install
       - name: Rush build
         run: node common/scripts/install-run-rush.js build --verbose
       - name: miskweb new (using branch built CLI)
