@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "build-storybook",
+    "lint": "mkdir -p src tests && prettier --write --config package.json \"{src/**/,tests/**/,.}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
     "storybook": "start-storybook -p 6006"
   },
   "dependencies": {

@@ -5,7 +5,7 @@ import {
   InputGroup,
   H1,
   Intent,
-  Pre
+  Pre,
 } from "@blueprintjs/core"
 import {
   mergeSagaMapKeysToTags,
@@ -17,7 +17,7 @@ import {
   dispatchDefault,
   IAction,
   SIMPLEREDUX,
-  ISimpleReduxPayload
+  ISimpleReduxPayload,
 } from "@misk/simpleredux"
 import { invert } from "lodash"
 import * as React from "react"
@@ -26,7 +26,7 @@ import {
   IDispatchProps,
   IState,
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 } from "src/ducks"
 
 export const failureSagaMapKeysToTags = (
@@ -34,7 +34,7 @@ export const failureSagaMapKeysToTags = (
   keyTagLookup: { [key: string]: string },
   options: IDispatchOptions = dispatchDefault.options
 ) =>
-  function*(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
+  function* (action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
     for (const tag in keyTagLookup) {
       const value = "uh oh it didn't work!"
       yield connectedProps.simpleMergeData(keyTagLookup[tag], value, options)
@@ -53,7 +53,7 @@ export const ExampleMergeSagaContainer = (
     delta: `${MergeTag}::delta`,
     echo: `${MergeTag}::echo`,
     foxtrot: `${MergeTag}::foxtrot`,
-    gary: `${MergeTag}::gary`
+    gary: `${MergeTag}::gary`,
   }
   // faked for now to avoid CORS issues
   const mockedNetworkResponse = {
@@ -65,9 +65,9 @@ export const ExampleMergeSagaContainer = (
         delta: "delta",
         echo: "echo",
         foxtrot: "foxtrot",
-        gary: "gary"
-      }
-    }
+        gary: "gary",
+      },
+    },
   }
 
   return (
@@ -81,12 +81,12 @@ export const ExampleMergeSagaContainer = (
         <Button
           onClick={handler.simpleMerge(props, `${MergeTag}::test-post`, {
             mergeSaga: mergeSagaMapKeysToTags(props, "data.data", keyLookup),
-            overrideArgs: mockedNetworkResponse
+            overrideArgs: mockedNetworkResponse,
           })}
           intent={Intent.PRIMARY}
           loading={simpleSelectorGet(props.simpleRedux, [
             `${MergeTag}::test-post`,
-            "loading"
+            "loading",
           ])}
           text={"Seed Fields"}
         />
@@ -96,13 +96,13 @@ export const ExampleMergeSagaContainer = (
             `${MergeTag}::fail-post`,
             "https://adrw.ch/api/404",
             {
-              failureSaga: failureSagaMapKeysToTags(props, keyLookup)
+              failureSaga: failureSagaMapKeysToTags(props, keyLookup),
             }
           )}
           intent={Intent.PRIMARY}
           loading={simpleSelectorGet(props.simpleRedux, [
             `${MergeTag}::fail-post`,
-            "loading"
+            "loading",
           ])}
           text={"Fail to Seed Fields"}
         />
@@ -138,7 +138,7 @@ export const ExampleMergeSagaContainer = (
         intent={Intent.PRIMARY}
         loading={simpleSelectorGet(props.simpleRedux, [
           `${MergeTag}::test-post`,
-          "loading"
+          "loading",
         ])}
         text={"Submit Form"}
       />

@@ -13,7 +13,7 @@ import {
   RadioGroup,
   Radio,
   TagInput,
-  TextArea
+  TextArea,
 } from "@blueprintjs/core"
 import { DateInput } from "@blueprintjs/datetime"
 import { IconNames } from "@blueprintjs/icons"
@@ -21,7 +21,7 @@ import { FlexContainer } from "@misk/core"
 import {
   simpleSelectorGet,
   simpleSelectorPick,
-  handler
+  handler,
 } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
@@ -29,7 +29,7 @@ import {
   IDispatchProps,
   IState,
   mapDispatchToProps,
-  mapStateToProps
+  mapStateToProps,
 } from "src/ducks"
 
 export const ExampleFormContainer = (props: IState & IDispatchProps) => {
@@ -45,7 +45,7 @@ export const ExampleFormContainer = (props: IState & IDispatchProps) => {
     "CheckMallory",
     "CheckTrent",
     "Meal",
-    "Tags"
+    "Tags",
   ].map((f: string) => `${FormTag}::${f}.data`)
   const fieldsData = simpleSelectorPick(props.simpleRedux, fields)
   return (
@@ -64,7 +64,7 @@ export const ExampleFormContainer = (props: IState & IDispatchProps) => {
           onValueChange={handler.simpleMergeData(props, `${FormTag}::Price`)}
           value={simpleSelectorGet(props.simpleRedux, [
             `${FormTag}::Price`,
-            "data"
+            "data",
           ])}
         />
         <DateInput
@@ -88,7 +88,7 @@ export const ExampleFormContainer = (props: IState & IDispatchProps) => {
           <Checkbox
             checked={simpleSelectorGet(props.simpleRedux, [
               `${FormTag}::CheckAlice`,
-              "data"
+              "data",
             ])}
             label={"Alice"}
             onChange={handler.simpleMergeToggle(
@@ -99,7 +99,7 @@ export const ExampleFormContainer = (props: IState & IDispatchProps) => {
           <Checkbox
             checked={simpleSelectorGet(props.simpleRedux, [
               `${FormTag}::CheckBob`,
-              "data"
+              "data",
             ])}
             label={"Bob"}
             onChange={handler.simpleMergeToggle(props, `${FormTag}::CheckBob`)}
@@ -107,7 +107,7 @@ export const ExampleFormContainer = (props: IState & IDispatchProps) => {
           <Checkbox
             checked={simpleSelectorGet(props.simpleRedux, [
               `${FormTag}::CheckEve`,
-              "data"
+              "data",
             ])}
             label={"Eve"}
             onChange={handler.simpleMergeToggle(props, `${FormTag}::CheckEve`)}
@@ -115,7 +115,7 @@ export const ExampleFormContainer = (props: IState & IDispatchProps) => {
           <Checkbox
             checked={simpleSelectorGet(props.simpleRedux, [
               `${FormTag}::CheckMallory`,
-              "data"
+              "data",
             ])}
             label={"Mallory"}
             onChange={handler.simpleMergeToggle(
@@ -126,7 +126,7 @@ export const ExampleFormContainer = (props: IState & IDispatchProps) => {
           <Checkbox
             checked={simpleSelectorGet(props.simpleRedux, [
               `${FormTag}::CheckTrent`,
-              "data"
+              "data",
             ])}
             label={"Trent"}
             onChange={handler.simpleMergeToggle(
@@ -141,7 +141,7 @@ export const ExampleFormContainer = (props: IState & IDispatchProps) => {
           onChange={handler.simpleMergeData(props, `${FormTag}::Meal`)}
           selectedValue={simpleSelectorGet(props.simpleRedux, [
             `${FormTag}::Meal`,
-            "data"
+            "data",
           ])}
         >
           <Radio label="Breakfast" value="breakfast" />
@@ -180,14 +180,14 @@ export const ExampleFormContainer = (props: IState & IDispatchProps) => {
             `${FormTag}::POST`,
             simpleSelectorGet(props.simpleRedux, [
               `${FormTag}::POST_URL`,
-              "data"
+              "data",
             ]),
             { overrideArgs: fieldsData }
           )}
           intent={Intent.PRIMARY}
           loading={simpleSelectorGet(props.simpleRedux, [
             `${FormTag}::POST`,
-            "loading"
+            "loading",
           ])}
           text={"POST"}
         />
