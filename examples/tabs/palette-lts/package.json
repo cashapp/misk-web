@@ -19,9 +19,9 @@
     "zip": "tar --exclude='.gitignore' --exclude='.old_build_files' --exclude='package.json' --exclude='package-lock.json' --exclude='prettier.config.js' --exclude='tsconfig.json' --exclude='webpack.config.js' --exclude='yarn.lock' --exclude='demo' --exclude='lib' --exclude='.DS_Store' --exclude='*.log' --exclude='node_modules' --exclude='palette-lts.tgz' -czvf palette-lts.tgz ./"
   },
   "dependencies": {
-    "@misk/common": "0.2.0-7",
-    "@misk/core": "0.2.0-7",
-    "@misk/simpleredux": "0.2.0-7",
+    "@misk/common": "0.2.0-8",
+    "@misk/core": "0.2.0-8",
+    "@misk/simpleredux": "0.2.0-8",
     "@blueprintjs/core": "3.36.0",
     "@blueprintjs/datetime": "3.20.0",
     "@blueprintjs/icons": "3.23.0",
@@ -54,9 +54,9 @@
     "styled-components": "5.2.1"
   },
   "devDependencies": {
-    "@misk/dev": "0.2.0-7",
-    "@misk/prettier": "0.2.0-7",
-    "@misk/test": "0.2.0-7",
+    "@misk/dev": "0.2.0-8",
+    "@misk/prettier": "0.2.0-8",
+    "@misk/test": "0.2.0-8",
     "@testing-library/dom": "7.29.4",
     "@testing-library/react": "11.2.3",
     "@types/history": "4.7.8",
