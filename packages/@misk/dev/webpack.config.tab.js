@@ -67,6 +67,9 @@ module.exports = (env, argv) => {
       { from: "./node_modules/@misk/simpleredux/lib/web/" },
       { from: "./src/static/" },
     ],
+    options: {
+      noErrorOnMissing: true
+    }
   })
 
   const CopyRawIndexHtmlConfig = new CopyWebpackPlugin({
