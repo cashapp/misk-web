@@ -1,5 +1,10 @@
-import { testPackageJson, testPackageScript } from "@misk/test"
+import {
+  testPackageJson,
+  testPackageJson_0_1_x,
+  testPackageScript,
+} from "@misk/test"
 import { merge, reduce, unset } from "lodash"
+import semver from "semver"
 import { IMiskTabJSON, Files, getSemVarPackageVersionOnNPM } from "../../utils"
 import { generatedByCLI, prettier } from "../templates"
 import { MiskPkg } from "../../utils"
@@ -97,11 +102,19 @@ const devDependencies = async (miskTab: IMiskTabJSON, pkg: any) => {
   }
 }
 
-const jestConfiguration = (miskTab: IMiskTabJSON) => ({
-  // Values from testPackageJson will be used if no jest stanza is present
-  // in the miskTab.rawPackageJson
-  jest: merge(miskTab.rawPackageJson.jest, testPackageJson.jest),
-})
+const jestConfiguration = (miskTab: IMiskTabJSON) =>
+  // Use old jest-emotion jest package.json stanza for <0.2.0 Misk Tab versions
+  semver.satisfies(semver.coerce(miskTab.version), "<0.2.0")
+    ? {
+        // Values from testPackageJson will be used if no jest stanza is present
+        // in the miskTab.rawPackageJson
+        jest: merge(miskTab.rawPackageJson.jest, testPackageJson_0_1_x.jest),
+      }
+    : {
+        // Values from testPackageJson will be used if no jest stanza is present
+        // in the miskTab.rawPackageJson
+        jest: merge(miskTab.rawPackageJson.jest, testPackageJson.jest),
+      }
 
 /**
  * Creates a package.json object with a default configuration.
