@@ -65,11 +65,11 @@ module.exports = (env, argv) => {
       { from: "./node_modules/@misk/common/lib/web/" },
       { from: "./node_modules/@misk/core/lib/web/" },
       { from: "./node_modules/@misk/simpleredux/lib/web/" },
-      { from: "./src/static/" },
+      {
+        from: "./src/static/",
+        noErrorOnMissing: true,
+      },
     ],
-    options: {
-      noErrorOnMissing: true
-    }
   })
 
   const CopyRawIndexHtmlConfig = new CopyWebpackPlugin({
