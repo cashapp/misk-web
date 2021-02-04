@@ -11,7 +11,7 @@
     "clean-build-files": "rm .hash package-lock.json package.json tsconfig.json webpack.config.js",
     "lib": "cross-env NODE_ENV=production webpack",
     "dev-lib": "cross-env NODE_ENV=development webpack",
-    "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,scss,less,json,js,jsx,ts,tsx}\"",
+    "lint": "mkdir -p src tests && prettier --write --config package.json \"{src/**/,tests/**/,.}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
     "prebuild": "npm run-script lint",
     "reinstall": "rm -rf node_modules && npm run-script install",
     "start": "npm run-script prebuild && cross-env NODE_ENV=development webpack-dev-server",
@@ -19,9 +19,9 @@
     "zip": "tar --exclude='.gitignore' --exclude='.old_build_files' --exclude='package.json' --exclude='package-lock.json' --exclude='prettier.config.js' --exclude='tsconfig.json' --exclude='webpack.config.js' --exclude='yarn.lock' --exclude='demo' --exclude='lib' --exclude='.DS_Store' --exclude='*.log' --exclude='node_modules' --exclude='palette-exemplar.tgz' -czvf palette-exemplar.tgz ./"
   },
   "dependencies": {
-    "@misk/common": "0.1.28-1",
-    "@misk/core": "0.1.28-1",
-    "@misk/simpleredux": "0.1.28-1",
+    "@misk/common": "0.1.28-2",
+    "@misk/core": "0.1.28-2",
+    "@misk/simpleredux": "0.1.28-2",
     "@blueprintjs/core": "3.19.1",
     "@blueprintjs/datetime": "3.13.0",
     "@blueprintjs/icons": "3.13.0",
@@ -54,9 +54,9 @@
     "styled-components": "5.2.1"
   },
   "devDependencies": {
-    "@misk/dev": "0.1.28-1",
-    "@misk/prettier": "0.1.28-1",
-    "@misk/test": "0.1.28-1",
+    "@misk/dev": "0.1.28-2",
+    "@misk/prettier": "0.1.28-2",
+    "@misk/test": "0.1.28-2",
     "jest-emotion": "10.0.14",
     "@testing-library/dom": "7.22.2",
     "@testing-library/react": "10.4.8",
