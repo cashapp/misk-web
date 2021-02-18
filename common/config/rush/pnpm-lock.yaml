@@ -8,12 +8,6 @@ dependencies:
   '@blueprintjs/timezone': 3.8.4_react-dom@17.0.1+react@17.0.1
   '@emotion/core': 10.0.28_react@17.0.1
   '@emotion/styled': 10.0.23_b1746f190620323e5d209e19c87f5d8e
-  '@misk/common': 0.1.28-26_bb67eaa38cc640ca4c76533ca8e4b551
-  '@misk/core': 0.1.28-26_bb67eaa38cc640ca4c76533ca8e4b551
-  '@misk/dev': 0.1.28-26
-  '@misk/prettier': 0.1.28-26
-  '@misk/simpleredux': 0.1.28-26_bb67eaa38cc640ca4c76533ca8e4b551
-  '@misk/test': 0.1.28-26_react-dom@17.0.1+react@17.0.1
   '@redux-saga/core': 1.1.3
   '@rush-temp/cli': 'file:projects/cli.tgz_react-dom@17.0.1+react@17.0.1'
   '@rush-temp/common': 'file:projects/common.tgz_react-is@17.0.1'
@@ -59,7 +53,7 @@ dependencies:
   axios: 0.21.1
   babel-loader: 8.2.2_8b641f67c0f150ab1994d58a4911015e
   connected-react-router: 6.8.0_5dbdfb8a8ed5d74ca248b48b989d1cc1
-  copy-webpack-plugin: 5.1.1_webpack@4.44.2
+  copy-webpack-plugin: 5.1.2_webpack@4.44.2
   cross-env: 7.0.3
   css-loader: 5.0.2_webpack@4.44.2
   dayjs: 1.10.4
@@ -5902,6 +5896,28 @@ packages:
       webpack: ^4.0.0 || ^5.0.0
     resolution:
       integrity: sha512-P15M5ZC8dyCjQHWwd4Ia/dm0SgVvZJMYeykVIVYXbGyqO4dWB5oyPHp9i7wjwo5LhtlhKbiBCdS2NvM07Wlybg==
+  /copy-webpack-plugin/5.1.2_webpack@4.44.2:
+    dependencies:
+      cacache: 12.0.4
+      find-cache-dir: 2.1.0
+      glob-parent: 3.1.0
+      globby: 7.1.1
+      is-glob: 4.0.1
+      loader-utils: 1.4.0
+      minimatch: 3.0.4
+      normalize-path: 3.0.0
+      p-limit: 2.3.0
+      schema-utils: 1.0.0
+      serialize-javascript: 4.0.0
+      webpack: 4.44.2_webpack-cli@4.1.0
+      webpack-log: 2.0.0
+    dev: false
+    engines:
+      node: '>= 6.9.0'
+    peerDependencies:
+      webpack: ^4.0.0 || ^5.0.0
+    resolution:
+      integrity: sha512-Uh7crJAco3AjBvgAy9Z75CjK8IG+gxaErro71THQ+vv/bl4HaQcpkexAY8KVW/T6D2W2IRr+couF/knIRkZMIQ==
   /core-js-compat/3.7.0:
     dependencies:
       browserslist: 4.14.7
@@ -16370,7 +16386,7 @@ packages:
       '@types/webpack-env': 1.16.0
       axios: 0.21.1
       connected-react-router: 6.8.0_5dbdfb8a8ed5d74ca248b48b989d1cc1
-      copy-webpack-plugin: 5.1.1_webpack@4.44.2
+      copy-webpack-plugin: 5.1.2_webpack@4.44.2
       cross-env: 7.0.3
       css-loader: 5.0.2_webpack@4.44.2
       dayjs: 1.10.4
@@ -16422,7 +16438,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-ahoVwToH9czgt8sHEnrivx5mamdVzr+2pSOKnwZJFHRSYcd+212NNewmv3CRVscSvzGEvNAVOcn984L4skf6VA==
+      integrity: sha512-v9YbhHv0YV7JV0HM+Zg/sisdq6/Rif5yRCtOfWr2E3Fa6UnTS5zLwEGU8f4NMb20WOO3x5/rL3KYq4pcwHBBNg==
       tarball: 'file:projects/common.tgz'
     version: 0.0.0
   'file:projects/core.tgz':
@@ -16454,7 +16470,7 @@ packages:
       '@types/webpack-env': 1.16.0
       axios: 0.21.1
       connected-react-router: 6.8.0_5dbdfb8a8ed5d74ca248b48b989d1cc1
-      copy-webpack-plugin: 5.1.1_webpack@4.44.2
+      copy-webpack-plugin: 5.1.2_webpack@4.44.2
       cross-env: 7.0.3
       css-loader: 5.0.2_webpack@4.44.2
       dayjs: 1.10.4
@@ -16505,7 +16521,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-1CnxszRjcRyV+4hVmlAkYCGrHozdTiZzeZGR1Mqwo5gfFPBy2fcOKhS/kIme/B8wA7SFioGOHh9bOXG0aRlkYw==
+      integrity: sha512-4zWtKtqcOcRohalLb1pKzy+9XZ/1XKz5q/WJq0KpqosXngnet5PfykaAQKbAWWRHaNZVZAKWIom8NgL0PfpcTA==
       tarball: 'file:projects/core.tgz'
     version: 0.0.0
   'file:projects/dev.tgz':
@@ -16523,7 +16539,7 @@ packages:
       '@types/styled-components': 5.1.7
       '@types/webpack': 4.41.26
       '@types/webpack-env': 1.16.0
-      copy-webpack-plugin: 5.1.1_webpack@4.44.2
+      copy-webpack-plugin: 5.1.2_webpack@4.44.2
       cross-env: 7.0.3
       css-loader: 5.0.2_webpack@4.44.2
       fibers: 5.0.0
@@ -16551,7 +16567,7 @@ packages:
     dev: false
     name: '@rush-temp/dev'
     resolution:
-      integrity: sha512-F17pHuaayNRIgI/kBUyMEx/Ew5jiPBmPuGZiFXE/7vYS2FONycjDlDOtH+wS9Pz7kAeR7a/jGc0RI4S9fFqcGQ==
+      integrity: sha512-FcXp/jwzhAGB2LbBPwRnEcYr6d/Mx6tW6Vv2h+enxzu1Y8TmNqTuDMpoQFmw4kT5G5PCAtBmmci/fNDfQ8Vi1Q==
       tarball: 'file:projects/dev.tgz'
     version: 0.0.0
   'file:projects/misk-web-examples-data.tgz':
@@ -16596,7 +16612,7 @@ packages:
       '@types/webpack-env': 1.16.0
       axios: 0.21.1
       connected-react-router: 6.8.0_5dbdfb8a8ed5d74ca248b48b989d1cc1
-      copy-webpack-plugin: 5.1.1_webpack@4.44.2
+      copy-webpack-plugin: 5.1.2_webpack@4.44.2
       cross-env: 7.0.3
       css-loader: 5.0.2_webpack@4.44.2
       dayjs: 1.10.4
@@ -16651,7 +16667,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-H0nlZ2C/cffHWnUxLZwD3F+2/GmYnYzRNh8Rf+foOsrhTCuNk7wX3qI1MzuHjUyR9CY/TS7Enbd2r30W/umrzA==
+      integrity: sha512-JgyfFwdMAtCRhLwoqI7XqledtPRx4xzaMOJU5itlfSF3O8p/e9ZFBZt2STGryYymHxNn2UEFjbMiWJHgjyQKgQ==
       tarball: 'file:projects/misk-web-tab-dashboard.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette-exemplar.tgz_react-is@17.0.1':
@@ -16681,7 +16697,7 @@ packages:
       '@types/webpack-env': 1.16.0
       axios: 0.21.1
       connected-react-router: 6.8.0_5dbdfb8a8ed5d74ca248b48b989d1cc1
-      copy-webpack-plugin: 5.1.1_webpack@4.44.2
+      copy-webpack-plugin: 5.1.2_webpack@4.44.2
       cross-env: 7.0.3
       css-loader: 5.0.2_webpack@4.44.2
       dayjs: 1.10.4
@@ -16738,7 +16754,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-q4Hg0bmSMODcFC/x7YOCBjrx5GPGu67fX1xyBwuH0n9syvJ9pcA8iXyqZ4GDu5+iitYm4RebqBzu6qB7Mi7IWA==
+      integrity: sha512-jnhDe+0jKxdGRI0TwO/uncaaSRzI8uo3CZiLp3Nity5r2Lo9Lmqntbh/Gt7Z5pFe5alERfH+b8eP2fgZ+tzUEQ==
       tarball: 'file:projects/misk-web-tab-palette-exemplar.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette-lts.tgz_react-is@17.0.1':
@@ -16768,7 +16784,7 @@ packages:
       '@types/webpack-env': 1.16.0
       axios: 0.21.1
       connected-react-router: 6.8.0_5dbdfb8a8ed5d74ca248b48b989d1cc1
-      copy-webpack-plugin: 5.1.1_webpack@4.44.2
+      copy-webpack-plugin: 5.1.2_webpack@4.44.2
       cross-env: 7.0.3
       css-loader: 5.0.2_webpack@4.44.2
       dayjs: 1.10.4
@@ -16824,7 +16840,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-YttUQCYGv1lKX8hCWtH2npC3kSoScMGO3zqeUuCnnGHD5+J6uDglKixPqhzwGZWnH///dy71D3/dRXidq2V4+A==
+      integrity: sha512-/yfMMH3MB9wuEekehKFI5cF7gDdZCdpW2i2FHnWMXk0aqOvw59D2MokkZ3uSTlhixrB+C2kr0Em5DGz6UGZAYA==
       tarball: 'file:projects/misk-web-tab-palette-lts.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-starter-basic.tgz_react-is@17.0.1':
@@ -16861,7 +16877,7 @@ packages:
       '@types/webpack-env': 1.16.0
       axios: 0.21.1
       connected-react-router: 6.8.0_5dbdfb8a8ed5d74ca248b48b989d1cc1
-      copy-webpack-plugin: 5.1.1_webpack@4.44.2
+      copy-webpack-plugin: 5.1.2_webpack@4.44.2
       cross-env: 7.0.3
       css-loader: 5.0.2_webpack@4.44.2
       dayjs: 1.10.4
@@ -16918,7 +16934,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-gcJ0zFE87OYusn6g4mLPsehJm2m/+oHmg5VKdUVxkjXmGqB9dLhyZkjkpH1U7dWiY7K1pyo0h+iUAFF79vTXRg==
+      integrity: sha512-NdHoSXnSQKqyCU59WLbWAwM/NRwgJNMtBB6OP1LNNQVXmJ4tr5+eCfsdsCjW8xU+4W1E90p0pm8mBVRjrFB4Sw==
       tarball: 'file:projects/misk-web-tab-starter-basic.tgz'
     version: 0.0.0
   'file:projects/prettier.tgz':
@@ -16957,7 +16973,7 @@ packages:
       '@types/webpack-env': 1.16.0
       axios: 0.21.1
       connected-react-router: 6.8.0_5dbdfb8a8ed5d74ca248b48b989d1cc1
-      copy-webpack-plugin: 5.1.1_webpack@4.44.2
+      copy-webpack-plugin: 5.1.2_webpack@4.44.2
       cross-env: 7.0.3
       css-loader: 5.0.2_webpack@4.44.2
       dayjs: 1.10.4
@@ -17013,7 +17029,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-iBUlEnmgHgMDT3bgg+9vxXnbKRBdNJsJjiIcgP5xS4nhfOF4TE6P8iZvlk3b9nUSLJCVQGkfKJ+ttLQZ89mICw==
+      integrity: sha512-1AiU4iqujEnwxTXlFimKUKMvCjpX+UoIdSXlQnU84ZaPQXuy1eq1dorF1nWzJVm6+D5Q3kNYIVPBSoLe8w2C5A==
       tarball: 'file:projects/simpleredux.tgz'
     version: 0.0.0
   'file:projects/storybook.tgz':
@@ -17051,7 +17067,7 @@ packages:
       axios: 0.21.1
       babel-loader: 8.2.2_8b641f67c0f150ab1994d58a4911015e
       connected-react-router: 6.8.0_5dbdfb8a8ed5d74ca248b48b989d1cc1
-      copy-webpack-plugin: 5.1.1_webpack@4.44.2
+      copy-webpack-plugin: 5.1.2_webpack@4.44.2
       cross-env: 7.0.3
       css-loader: 5.0.2_webpack@4.44.2
       dayjs: 1.10.4
@@ -17107,7 +17123,7 @@ packages:
     dev: false
     name: '@rush-temp/storybook'
     resolution:
-      integrity: sha512-N8ZQaHfZxvoFgykL0g9t9Q9MbLVg7pqSCS06ur/1EVLsb4Q2FOywGYusfD6wp2Q1b8djjvdTDinK4dlBQLBCEA==
+      integrity: sha512-bL33R+4obz56wCEszcX8jgGAPdYQxAQxQ9g/d0p3kvwXVX5yARzRMfrVZZIrNXevOPkmv4AzM0icleVElrEisw==
       tarball: 'file:projects/storybook.tgz'
     version: 0.0.0
   'file:projects/test.tgz_react-dom@17.0.1+react@17.0.1':
@@ -17160,12 +17176,6 @@ specifiers:
   '@blueprintjs/timezone': 3.8.4
   '@emotion/core': 10.0.28
   '@emotion/styled': 10.0.23
-  '@misk/common': 0.1.28-26
-  '@misk/core': 0.1.28-26
-  '@misk/dev': 0.1.28-26
-  '@misk/prettier': 0.1.28-26
-  '@misk/simpleredux': 0.1.28-26
-  '@misk/test': 0.1.28-26
   '@redux-saga/core': 1.1.3
   '@rush-temp/cli': 'file:./projects/cli.tgz'
   '@rush-temp/common': 'file:./projects/common.tgz'
@@ -17211,7 +17221,7 @@ specifiers:
   axios: 0.21.1
   babel-loader: 8.2.2
   connected-react-router: 6.8.0
-  copy-webpack-plugin: 5.1.1
+  copy-webpack-plugin: 5.1.2
   cross-env: 7.0.3
   css-loader: 5.0.2
   dayjs: 1.10.4
