@@ -1,0 +1,33 @@
+{
+  "name": "Storybook",
+  "output_path": "build/lib",
+  "port": "3160",
+  "rawGitginore": "",
+  "rawIndex": false,
+  "rawPackageJson": {
+    "name": "storybook",
+    "main": "index.js",
+    "license": "ISC",
+    "scripts": {
+      "build": "build-storybook",
+      "storybook": "start-storybook -p 6006"
+    }
+  },
+  "rawTsconfig": {
+    "rootDirs": [
+      "stories"
+    ]
+  },
+  "rawTsconfigInclude": [
+    "stories/**/*"
+  ],
+  "rawWebpackConfig": {},
+  "relative_path_prefix": "",
+  "slug": "storybook",
+  "useWebpackBundleAnalyzer": false,
+  "useWebpackExternals": false,
+  "version": "0.1.28-45",
+  "zipOnBuild": false,
+  "___DeprecatedKeys": "Any keys below this point in your miskTab.json are deprecated and can be safely removed.",
+  "rawTslint": {}
+}

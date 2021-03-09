@@ -35,5 +35,5 @@ export const createTsconfig = (miskTab: IMiskTabJSON) => ({
     types: ["jest", "node"],
     ...miskTab.rawTsconfig
   },
-  include: ["src/**/*", "tests/**/*"]
+  include: ["src/**/*", "tests/**/*", ...miskTab.rawTsconfigInclude]
 })
