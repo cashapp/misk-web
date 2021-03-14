@@ -8,12 +8,6 @@ dependencies:
   '@blueprintjs/timezone': 3.8.8_react-dom@17.0.1+react@17.0.1
   '@emotion/core': 10.0.28_react@17.0.1
   '@emotion/styled': 10.0.23_b1746f190620323e5d209e19c87f5d8e
-  '@misk/common': 0.1.28-55_b204f3d92b8a79d78475bbaa4ef7b7b4
-  '@misk/core': 0.1.28-55_b204f3d92b8a79d78475bbaa4ef7b7b4
-  '@misk/dev': 0.1.28-55
-  '@misk/prettier': 0.1.28-55
-  '@misk/simpleredux': 0.1.28-55_b204f3d92b8a79d78475bbaa4ef7b7b4
-  '@misk/test': 0.1.28-55_react-dom@17.0.1+react@17.0.1
   '@redux-saga/core': 1.1.3
   '@rush-temp/cli': 'file:projects/cli.tgz_react-dom@17.0.1+react@17.0.1'
   '@rush-temp/common': 'file:projects/common.tgz_react-is@17.0.1'
@@ -77,7 +71,7 @@ dependencies:
   jest-emotion: 10.0.14
   jest-serializer-html: 7.0.0
   klaw: 3.0.0
-  lodash: 4.17.20
+  lodash: 4.17.21
   mini-css-extract-plugin: 1.3.8_webpack@4.44.2
   node-sass: 5.0.0
   optimize-css-assets-webpack-plugin: 5.0.4_webpack@4.44.2
@@ -10458,6 +10452,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
+  /lodash/4.17.21:
+    dev: false
+    resolution:
+      integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
   /log-symbols/2.2.0:
     dependencies:
       chalk: 2.4.2
@@ -16500,7 +16498,7 @@ packages:
       jest-emotion: 10.0.14
       jest-serializer-html: 7.0.0
       klaw: 3.0.0
-      lodash: 4.17.20
+      lodash: 4.17.21
       pkg: 4.4.9
       prettier: 1.19.1
       progress: 2.0.3
@@ -16517,7 +16515,7 @@ packages:
       react: '*'
       react-dom: '*'
     resolution:
-      integrity: sha512-DGeUUlOfhndpEtxFXu8XcsP9qHNacrsmE/loLIFEMWruRXrtF8FObA80F2a50T8FBepCJ8AWWb/FdF2FkS6BAQ==
+      integrity: sha512-qKSUaFAsT4fmHUOR3Yh0qa8PyWliaqFONcRe7kasIVcYIzQplFogTkn9bZxleAs4Gl9Xc0jt50PHL83M6gWXSg==
       tarball: 'file:projects/cli.tgz'
     version: 0.0.0
   'file:projects/common.tgz_react-is@17.0.1':
@@ -16558,7 +16556,7 @@ packages:
       html-webpack-plugin: 5.3.1_webpack@4.44.2
       http-method-enum: 1.0.0
       immutable: 4.0.0-rc.12
-      lodash: 4.17.20
+      lodash: 4.17.21
       mini-css-extract-plugin: 1.3.8_webpack@4.44.2
       node-sass: 5.0.0
       optimize-css-assets-webpack-plugin: 5.0.4_webpack@4.44.2
@@ -16598,7 +16596,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-RS+qWtP8bUSfSbgOPBk24FcRqk+PTNIJ2HKP6h4R1DODKLv6yCBrwmN+vkGTSvHQ7e1XdShrLU+kj1BdiAoSDA==
+      integrity: sha512-fpjUNhg0kOQMWHzekU67L3Pz1rMCch4iGlWslEecUwMZlEDgkDGxmwC3bIT8WnjrbKJF12T0nLWOWushFTKF2g==
       tarball: 'file:projects/common.tgz'
     version: 0.0.0
   'file:projects/core.tgz':
@@ -16645,7 +16643,7 @@ packages:
       jest: 24.9.0
       jest-emotion: 10.0.14
       jest-serializer-html: 7.0.0
-      lodash: 4.17.20
+      lodash: 4.17.21
       mini-css-extract-plugin: 1.3.8_webpack@4.44.2
       node-sass: 5.0.0
       optimize-css-assets-webpack-plugin: 5.0.4_webpack@4.44.2
@@ -16681,7 +16679,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-FVkY/itJzjLnSG9a8trddKwJyiTMciLiEcRBUIYQFBza4gfEtQu5kCiwXcQ9Wb51tqX+d/aEal1K+4ojWj1rWw==
+      integrity: sha512-4gywBnphKNcAg5Kqn4CURszILzyg1Zpv61ViFYYiqNup4Ig8ZpGmcC9ZMPk+FTn/NXxkV6UbcHahOskqz+o8xQ==
       tarball: 'file:projects/core.tgz'
     version: 0.0.0
   'file:projects/dev.tgz':
@@ -16873,7 +16871,7 @@ packages:
       jest: 24.9.0
       jest-emotion: 10.0.14
       jest-serializer-html: 7.0.0
-      lodash: 4.17.20
+      lodash: 4.17.21
       mini-css-extract-plugin: 1.3.8_webpack@4.44.2
       node-sass: 5.0.0
       optimize-css-assets-webpack-plugin: 5.0.4_webpack@4.44.2
@@ -16914,7 +16912,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-cPclHwOQbsm2jy0O7eUiFls2bbHcUIVbvAr6lGxEE22CS94aueJhM7iIJWWGNCL+osoRclbEf+BOdcXHhlkCzA==
+      integrity: sha512-Ei+SohKu68TwjApEZz9eZ0KoDThYq+xVyYlUIybMgzaPBWd8GnfQ5IV0fIIXu/s3iLt0I1pSnIqI1GynSFlWNA==
       tarball: 'file:projects/misk-web-tab-palette-exemplar.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-palette-lts.tgz_react-is@17.0.1':
@@ -16959,7 +16957,7 @@ packages:
       immutable: 4.0.0-rc.12
       jest: 24.9.0
       jest-serializer-html: 7.0.0
-      lodash: 4.17.20
+      lodash: 4.17.21
       mini-css-extract-plugin: 1.3.8_webpack@4.44.2
       node-sass: 5.0.0
       optimize-css-assets-webpack-plugin: 5.0.4_webpack@4.44.2
@@ -17000,7 +16998,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-ORLp1zFJbIJsYcHElnWM2F3/ruAdOzWL4zM+lJ3bqha/c4IDBzRX4WED/MLpW1VFbVPMGOVjrYjupN1Vfj68Pg==
+      integrity: sha512-cXalNFUEfshyEN7CSZ+Y/MFoh56ySrlWcYhF0HTuVfc9JbQ4Cgt7N5abNQEmk70uau+G3uFY+pqU2aloQbFOOA==
       tarball: 'file:projects/misk-web-tab-palette-lts.tgz'
     version: 0.0.0
   'file:projects/misk-web-tab-starter-basic.tgz_react-is@17.0.1':
@@ -17053,7 +17051,7 @@ packages:
       jest: 24.9.0
       jest-emotion: 10.0.14
       jest-serializer-html: 7.0.0
-      lodash: 4.17.20
+      lodash: 4.17.21
       mini-css-extract-plugin: 1.3.8_webpack@4.44.2
       node-sass: 5.0.0
       optimize-css-assets-webpack-plugin: 5.0.4_webpack@4.44.2
@@ -17094,7 +17092,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-GGORKNvcPxstKekdpS28KvuqIVxuUU6eZqqvIYGwUtpjyJBunqb7o5e0+tS1aMpNWwy2jz8JuTKvIr0DYwDqZg==
+      integrity: sha512-ghGaNw5XbEux3pn02IWRwKXprUk5NjoVmUOrjVrNF/FYabZ8f6vxXhiAIxv8tqVev8kqMSPjUBQFmERBRhk7zg==
       tarball: 'file:projects/misk-web-tab-starter-basic.tgz'
     version: 0.0.0
   'file:projects/prettier.tgz':
@@ -17148,7 +17146,7 @@ packages:
       jest: 24.9.0
       jest-emotion: 10.0.14
       jest-serializer-html: 7.0.0
-      lodash: 4.17.20
+      lodash: 4.17.21
       mini-css-extract-plugin: 1.3.8_webpack@4.44.2
       node-sass: 5.0.0
       optimize-css-assets-webpack-plugin: 5.0.4_webpack@4.44.2
@@ -17189,7 +17187,7 @@ packages:
     peerDependencies:
       react-is: '*'
     resolution:
-      integrity: sha512-f/rn3rhdhb+1oG/BjS0uyMyX6PXOv7EyiZOo5Pa+7invJUK6aDWLQdN7HfcUqMOWfhvH91fFBMZNMtqnpyJGSw==
+      integrity: sha512-VO2LuXO23YTF0OFq2MtZQKQDzCm/HKespMNKBYMSqH1eKxIw2zQ9c15c28ldUUsdx9WHChWbXyj+jwlkkin2UQ==
       tarball: 'file:projects/simpleredux.tgz'
     version: 0.0.0
   'file:projects/storybook.tgz':
@@ -17243,7 +17241,7 @@ packages:
       jest: 24.9.0
       jest-emotion: 10.0.14
       jest-serializer-html: 7.0.0
-      lodash: 4.17.20
+      lodash: 4.17.21
       mini-css-extract-plugin: 1.3.8_webpack@4.44.2
       node-sass: 5.0.0
       optimize-css-assets-webpack-plugin: 5.0.4_webpack@4.44.2
@@ -17283,7 +17281,7 @@ packages:
     dev: false
     name: '@rush-temp/storybook'
     resolution:
-      integrity: sha512-oo9vNa2VT3d5aL3pKxmNEclhF1n58A43NJV+jZNEQ733pBwVL0R3evTpYh1H9UE6aRYc5UohHPJIT8L/cF00Rw==
+      integrity: sha512-DmSE8IL/zAiCMm4+pCdDJJVamWvfOgsAGpual1ej5lvFVIFEJtKQfwkwGMLjyr29dyEI2wVnqhB+mp9koVSAAw==
       tarball: 'file:projects/storybook.tgz'
     version: 0.0.0
   'file:projects/test.tgz_react-dom@17.0.1+react@17.0.1':
@@ -17336,12 +17334,6 @@ specifiers:
   '@blueprintjs/timezone': 3.8.8
   '@emotion/core': 10.0.28
   '@emotion/styled': 10.0.23
-  '@misk/common': 0.1.28-55
-  '@misk/core': 0.1.28-55
-  '@misk/dev': 0.1.28-55
-  '@misk/prettier': 0.1.28-55
-  '@misk/simpleredux': 0.1.28-55
-  '@misk/test': 0.1.28-55
   '@redux-saga/core': 1.1.3
   '@rush-temp/cli': 'file:./projects/cli.tgz'
   '@rush-temp/common': 'file:./projects/common.tgz'
@@ -17405,7 +17397,7 @@ specifiers:
   jest-emotion: 10.0.14
   jest-serializer-html: 7.0.0
   klaw: 3.0.0
-  lodash: 4.17.20
+  lodash: 4.17.21
   mini-css-extract-plugin: 1.3.8
   node-sass: 5.0.0
   optimize-css-assets-webpack-plugin: 5.0.4
