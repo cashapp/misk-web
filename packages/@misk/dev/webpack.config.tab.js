@@ -184,7 +184,8 @@ module.exports = (env, argv) => {
           ? [CopyRawIndexHtmlConfig]
           : [HTMLWebpackPluginConfig, HTMLWebpackHarddiskPluginConfig]
       ),
-    externals: useWebpackExternals
+    // TODO re-enable if externals works to provide tree-shaking without making tabs over reliant on having same dependency version as the broader dashboard that's providing the common libraries
+    externals: false && useWebpackExternals
       ? { ...vendorExternals, ...miskExternals }
       : {},
   }
