@@ -3,7 +3,7 @@ import {
   IAction,
   IRootState,
   defaultRootState,
-  SimpleReduxSaga
+  SimpleReduxSaga,
 } from "@misk/simpleredux"
 import axios from "axios"
 import { Map } from "immutable"
@@ -16,7 +16,7 @@ import { all, call, put, takeLatest } from "redux-saga/effects"
 export enum PALETTE {
   DINOSAUR = "PALETTE_DINOSAUR",
   SUCCESS = "PALETTE_SUCCESS",
-  FAILURE = "PALETTE_FAILURE"
+  FAILURE = "PALETTE_FAILURE",
 }
 
 /**
@@ -46,7 +46,7 @@ export const dispatchPalette: IDispatchPalette = {
     createAction(PALETTE.DINOSAUR, {
       error: null,
       loading: true,
-      success: false
+      success: false,
     }),
   paletteFailure: (error: any) =>
     createAction(PALETTE.FAILURE, { ...error, loading: false, success: false }),
@@ -55,8 +55,8 @@ export const dispatchPalette: IDispatchPalette = {
       ...data,
       error: null,
       loading: false,
-      success: true
-    })
+      success: true,
+    }),
 }
 
 /**

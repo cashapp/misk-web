@@ -6,5 +6,5 @@ export {
   ExampleFormContainer,
   ExampleMergeSagaContainer,
   ExampleNetworkContainer,
-  TabContainer
+  TabContainer,
 }

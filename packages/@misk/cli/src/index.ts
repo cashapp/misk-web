@@ -9,7 +9,7 @@ yargs
   .option("e", {
     alias: "each",
     describe: "run command in all subdirectories that have miskTab.json",
-    type: "boolean"
+    type: "boolean",
   })
   .help()
   .version()

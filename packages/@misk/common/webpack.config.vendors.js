@@ -7,7 +7,7 @@ module.exports = {
   name: "vendors",
   mode: "production",
   entry: {
-    vendors: path.resolve(__dirname, "src/vendors.js")
+    vendors: path.resolve(__dirname, "src/vendors.js"),
   },
   devtool: "source-map",
   output: {
@@ -20,7 +20,7 @@ module.exports = {
      * without below globalObject: library binding to browser `window`
      *    fails when run in Node or other non-browser
      */
-    globalObject: "typeof window !== 'undefined' ? window : this"
+    globalObject: "typeof window !== 'undefined' ? window : this",
   },
   plugins: bundleAnalyzer
     ? [
@@ -29,8 +29,8 @@ module.exports = {
           reportFilename: "bundle-analyzer-report-common.html",
           statsFilename: "bundle-analyzer-report-common.json",
           generateStatsFile: true,
-          openAnalyzer: false
-        })
+          openAnalyzer: false,
+        }),
       ]
-    : []
+    : [],
 }

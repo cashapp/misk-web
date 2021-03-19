@@ -1,7 +1,7 @@
 import {
   MiskNavbarContainer,
   testAdminDashboardTabsUrl,
-  testServiceMetadataUrl
+  testServiceMetadataUrl,
 } from "@misk/core"
 import * as React from "react"
 import { TestComponent } from "src/components"

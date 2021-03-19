@@ -17,7 +17,7 @@ export const createTsconfig = (miskTab: IMiskTabJSON) => ({
       "es2015.collection",
       "es2015.iterable",
       "es6",
-      "es2017"
+      "es2017",
     ],
     module: "commonjs",
     moduleResolution: "node",
@@ -33,7 +33,7 @@ export const createTsconfig = (miskTab: IMiskTabJSON) => ({
     target: "es5",
     typeRoots: ["node_modules/@types"],
     types: ["jest", "node"],
-    ...miskTab.rawTsconfig
+    ...miskTab.rawTsconfig,
   },
-  include: ["src/**/*", "tests/**/*", ...miskTab.rawTsconfigInclude]
+  include: ["src/**/*", "tests/**/*", ...miskTab.rawTsconfigInclude],
 })

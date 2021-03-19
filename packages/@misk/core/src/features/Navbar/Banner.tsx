@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/core"
+import { css, jsx } from "@emotion/react"
 import * as React from "react"
 import { TextHTMLOrElementComponent } from "../../components"
 import { FlexContainer, ResponsiveContainer } from "../../cssContainers"
@@ -50,7 +50,7 @@ export class Banner extends React.Component<IBannerExternalProps, {}> {
       environment,
       environmentBannerVisible,
       status,
-      theme = defaultTheme
+      theme = defaultTheme,
     } = this.props
     if (
       (environmentBannerVisible &&

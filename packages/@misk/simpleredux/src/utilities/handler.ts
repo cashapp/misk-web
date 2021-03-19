@@ -322,5 +322,5 @@ export const handler: IHandler = {
       url,
       parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
       options
-    )
+    ),
 }

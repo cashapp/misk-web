@@ -9,7 +9,7 @@ import {
   defaultEnvironmentIndicatorsVisible,
   defaultTheme,
   IServiceMetadata,
-  IDashboardMetadata
+  IDashboardMetadata,
 } from "src/utilities"
 
 export interface IMiskNavbarContainerProps {
@@ -58,7 +58,7 @@ export const MiskNavbarContainer = (
     navbar_items,
     navbarItemsToDisplay = null,
     status,
-    theme = defaultTheme
+    theme = defaultTheme,
   } = props
 
   // State initialization

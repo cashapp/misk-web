@@ -16,7 +16,7 @@ export const parseAtPkgVersionFromNpmUrl = (url: string) =>
 
 export enum PackageVersionStatus {
   "NOT_FOUND",
-  "OFFLINE"
+  "OFFLINE",
 }
 
 export const packageVersionExistsOnNPM = async (
@@ -42,22 +42,8 @@ export const packageVersionExistsOnNPM = async (
 }
 
 export const isSemVar = (version: string) =>
-  !isNaN(
-    parseInt(
-      chain(version)
-        .replace(".", "")
-        .replace("-", "")
-        .value()
-    )
-  ) &&
-  isNumber(
-    parseInt(
-      chain(version)
-        .replace(".", "")
-        .replace("-", "")
-        .value()
-    )
-  )
+  !isNaN(parseInt(chain(version).replace(".", "").replace("-", "").value())) &&
+  isNumber(parseInt(chain(version).replace(".", "").replace("-", "").value()))
 
 export const versionResolver = (
   version: string,

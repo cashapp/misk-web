@@ -6,7 +6,13 @@ import { cars } from "./testFixtures"
 describe("Table Row", () => {
   afterEach(cleanup)
   it("Row can render", () => {
-    const { asFragment } = render(<Row data={cars[0]} />)
+    const { asFragment } = render(
+      <table>
+        <tbody>
+          <Row data={cars[0]} />
+        </tbody>
+      </table>
+    )
     expect(asFragment()).toMatchSnapshot()
   })
 })

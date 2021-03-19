@@ -4,7 +4,7 @@ import {
   ISimpleReduxPayload,
   dispatchDefault,
   dispatchSimpleRedux,
-  privateDispatchSimpleRedux
+  privateDispatchSimpleRedux,
 } from "./dispatch"
 import { SimpleReduxReducer } from "./reducer"
 import { watchSimpleReduxSagas } from "./saga"
@@ -90,7 +90,7 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
       "simpleFailure(tag, error, options?)"
     )
     return privateDispatchSimpleRedux.simpleFailure(tag, error, {
-      requestConfig
+      requestConfig,
     })
   },
   simpleNetworkGet: (
@@ -120,7 +120,7 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
       "simpleHttpPatch(tag, url, data?, options?)"
     )
     return dispatchSimpleRedux.simpleHttpPatch(tag, url, data, {
-      requestConfig
+      requestConfig,
     })
   },
   simpleNetworkPost: (
@@ -162,11 +162,11 @@ export const dispatchSimpleNetwork: IDispatchSimpleNetwork = {
       {
         ...requestConfig,
         ...response,
-        url
+        url,
       },
       { requestConfig }
     )
-  }
+  },
 }
 
 /** DEPRECATED: Use [dispatchSimpleRedux] instead */
@@ -225,7 +225,7 @@ export const dispatchSimpleForm: IDispatchSimpleForm = {
       "simpleMergeToggle(tag, oldState, options?)"
     )
     return dispatchSimpleRedux.simpleMergeToggle(tag, oldState)
-  }
+  },
 }
 
 /** DEPRECATED: Use [SimpleReduxReducer] instead */

@@ -15,14 +15,14 @@ describe("dispatchSimpleNetwork", () => {
       dispatchSimpleNetwork.simpleNetworkSuccess(tag, url, {
         config: null,
         ...data,
-        headers: []
+        headers: [],
       })
     ).toEqual(
       dispatchSimpleRedux.simpleMerge(tag, {
         config: null,
         ...data,
         headers: [],
-        url
+        url,
       })
     )
   })
@@ -91,7 +91,7 @@ describe("dispatchSimpleForm", () => {
 
   it("simpleFormToggle: oldState = undefined", () => {
     const oldState = {
-      simpleTag: "simpleRedux"
+      simpleTag: "simpleRedux",
     }
     expect(dispatchSimpleForm.simpleFormToggle(tag, oldState)).toEqual(
       dispatchSimpleRedux.simpleMergeToggle(tag, oldState)
@@ -102,8 +102,8 @@ describe("dispatchSimpleForm", () => {
     const oldState = {
       simpleTag: "simpleRedux",
       [tag]: {
-        data: false
-      }
+        data: false,
+      },
     }
     expect(dispatchSimpleForm.simpleFormToggle(tag, oldState)).toEqual(
       dispatchSimpleRedux.simpleMergeToggle(tag, oldState)
@@ -114,8 +114,8 @@ describe("dispatchSimpleForm", () => {
     const oldState = {
       simpleTag: "simpleRedux",
       [tag]: {
-        data: true
-      }
+        data: true,
+      },
     }
     expect(dispatchSimpleForm.simpleFormToggle(tag, oldState)).toEqual(
       dispatchSimpleRedux.simpleMergeToggle(tag, oldState)

@@ -3,12 +3,12 @@
 exports[`css containers CodePreContainer can render 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  font-family: Fira Code,Menlo !important;
-  white-space: pre-wrap !important;
-  white-space: -moz-pre-wrap !important;
-  white-space: -pre-wrap !important;
-  white-space: -o-pre-wrap !important;
-  word-wrap: break-word !important;
+  font-family: Fira Code,Menlo!important;
+  white-space: pre-wrap!important;
+  white-space: -moz-pre-wrap!important;
+  white-space: -pre-wrap!important;
+  white-space: -o-pre-wrap!important;
+  word-wrap: break-word!important;
 }
 
 <pre
@@ -20,12 +20,12 @@ exports[`css containers CodePreContainer can render 1`] = `
 exports[`css containers CodePreContainer can render with children 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  font-family: Fira Code,Menlo !important;
-  white-space: pre-wrap !important;
-  white-space: -moz-pre-wrap !important;
-  white-space: -pre-wrap !important;
-  white-space: -o-pre-wrap !important;
-  word-wrap: break-word !important;
+  font-family: Fira Code,Menlo!important;
+  white-space: pre-wrap!important;
+  white-space: -moz-pre-wrap!important;
+  white-space: -pre-wrap!important;
+  white-space: -o-pre-wrap!important;
+  word-wrap: break-word!important;
 }
 
 <pre
@@ -86,7 +86,7 @@ exports[`css containers ColumnContainer can render with children 1`] = `
 
 exports[`css containers DesktopWideOnlyContainer can render 1`] = `
 <DocumentFragment>
-  @media (max-width:1200px) {
+  @media (max-width: 1200px) {
   .emotion-0 {
     display: none;
   }
@@ -100,7 +100,7 @@ exports[`css containers DesktopWideOnlyContainer can render 1`] = `
 
 exports[`css containers DesktopWideOnlyContainer can render with children 1`] = `
 <DocumentFragment>
-  @media (max-width:1200px) {
+  @media (max-width: 1200px) {
   .emotion-0 {
     display: none;
   }
@@ -128,6 +128,7 @@ exports[`css containers FlexContainer can render 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -159,6 +160,7 @@ exports[`css containers FlexContainer can render with children 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -188,7 +190,7 @@ exports[`css containers FlexContainer can render with children 1`] = `
 
 exports[`css containers MobileNeverContainer can render 1`] = `
 <DocumentFragment>
-  @media (max-width:768px) {
+  @media (max-width: 768px) {
   .emotion-0 {
     display: none;
   }
@@ -202,7 +204,7 @@ exports[`css containers MobileNeverContainer can render 1`] = `
 
 exports[`css containers MobileNeverContainer can render with children 1`] = `
 <DocumentFragment>
-  @media (max-width:768px) {
+  @media (max-width: 768px) {
   .emotion-0 {
     display: none;
   }
@@ -222,7 +224,7 @@ exports[`css containers MobileNeverContainer can render with children 1`] = `
 
 exports[`css containers MobileOnlyContainer can render 1`] = `
 <DocumentFragment>
-  @media (min-width:768px) {
+  @media (min-width: 768px) {
   .emotion-0 {
     display: none;
   }
@@ -236,7 +238,7 @@ exports[`css containers MobileOnlyContainer can render 1`] = `
 
 exports[`css containers MobileOnlyContainer can render with children 1`] = `
 <DocumentFragment>
-  @media (min-width:768px) {
+  @media (min-width: 768px) {
   .emotion-0 {
     display: none;
   }
@@ -263,19 +265,19 @@ exports[`css containers ResponsiveAppContainer can render with children 1`] = `
   margin: 0 auto;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .emotion-0 {
     width: 750px;
   }
 }
 
-@media (min-width:992px) {
+@media (min-width: 992px) {
   .emotion-0 {
     width: 970px;
   }
 }
 
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
   .emotion-0 {
     width: 1170px;
   }
@@ -299,19 +301,19 @@ exports[`css containers ResponsiveContainer can render 1`] = `
   margin: 0 auto;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .emotion-0 {
     width: 750px;
   }
 }
 
-@media (min-width:992px) {
+@media (min-width: 992px) {
   .emotion-0 {
     width: 970px;
   }
 }
 
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
   .emotion-0 {
     width: 1170px;
   }
@@ -329,19 +331,19 @@ exports[`css containers ResponsiveContainer can render with children 1`] = `
   margin: 0 auto;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
   .emotion-0 {
     width: 750px;
   }
 }
 
-@media (min-width:992px) {
+@media (min-width: 992px) {
   .emotion-0 {
     width: 970px;
   }
 }
 
-@media (min-width:1200px) {
+@media (min-width: 1200px) {
   .emotion-0 {
     width: 1170px;
   }
@@ -362,11 +364,11 @@ exports[`css containers ResponsiveContainer can render with children 1`] = `
 exports[`css containers WrapTextContainer can render 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  white-space: pre-wrap !important;
-  white-space: -moz-pre-wrap !important;
-  white-space: -pre-wrap !important;
-  white-space: -o-pre-wrap !important;
-  word-wrap: break-word !important;
+  white-space: pre-wrap!important;
+  white-space: -moz-pre-wrap!important;
+  white-space: -pre-wrap!important;
+  white-space: -o-pre-wrap!important;
+  word-wrap: break-word!important;
 }
 
 <span
@@ -378,11 +380,11 @@ exports[`css containers WrapTextContainer can render 1`] = `
 exports[`css containers WrapTextContainer can render with children 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  white-space: pre-wrap !important;
-  white-space: -moz-pre-wrap !important;
-  white-space: -pre-wrap !important;
-  white-space: -o-pre-wrap !important;
-  word-wrap: break-word !important;
+  white-space: pre-wrap!important;
+  white-space: -moz-pre-wrap!important;
+  white-space: -pre-wrap!important;
+  white-space: -o-pre-wrap!important;
+  word-wrap: break-word!important;
 }
 
 <span

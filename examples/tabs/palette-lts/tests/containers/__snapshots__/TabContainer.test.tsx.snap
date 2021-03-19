@@ -2,7 +2,34 @@
 
 exports[`TabContainer TabContainer can render with redux 1`] = `
 <DocumentFragment>
-  <div>
+  .emotion-0 {
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.emotion-0 * {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emotion-1 {
+  font-family: Fira Code,Menlo!important;
+  white-space: -o-pre-wrap!important;
+  word-wrap: break-word!important;
+}
+
+<div>
     <div>
       <h1
         class="bp3-heading"
@@ -136,7 +163,6 @@ exports[`TabContainer TabContainer can render with redux 1`] = `
         <input
           class="bp3-input"
           placeholder="Request URL: http://your.url.com/to/send/a/request/to/"
-          style="padding-right: 10px;"
           type="url"
         />
       </div>
@@ -233,7 +259,6 @@ exports[`TabContainer TabContainer can render with redux 1`] = `
               class="bp3-input"
               id="text-input"
               placeholder="Full Name"
-              style="padding-right: 10px;"
               type="text"
             />
           </div>
@@ -266,7 +291,6 @@ exports[`TabContainer TabContainer can render with redux 1`] = `
                 autocomplete="off"
                 class="bp3-input"
                 placeholder="Price"
-                style="padding-right: 10px;"
                 type="text"
                 value=""
               />
@@ -467,7 +491,6 @@ exports[`TabContainer TabContainer can render with redux 1`] = `
             <input
               class="bp3-input"
               placeholder="Form POST URL: http://your.url.com/to/send/a/request/to/"
-              style="padding-right: 10px;"
               type="url"
             />
           </div>

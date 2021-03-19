@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Collapse } from "@blueprintjs/core"
-import { css, jsx } from "@emotion/core"
+import { css, jsx } from "@emotion/react"
 import { chain, sortBy } from "lodash"
 import * as React from "react"
 import { Link } from "react-router-dom"
@@ -102,7 +102,7 @@ const MenuCategory = (
     categoryLinks,
     handleClick,
     LinkComponent,
-    theme = defaultTheme
+    theme = defaultTheme,
   } = props
   return (
     <div>
@@ -142,7 +142,7 @@ const MenuCategory = (
 
 export class Menu extends React.Component<IMenuProps, {}> {
   public state = {
-    isOpen: false
+    isOpen: false,
   }
 
   public render() {
@@ -156,7 +156,7 @@ export class Menu extends React.Component<IMenuProps, {}> {
       menuOpenIcon,
       menuButtonAsLink,
       menuShowButton,
-      theme = defaultTheme
+      theme = defaultTheme,
     } = this.props
     return (
       <div>

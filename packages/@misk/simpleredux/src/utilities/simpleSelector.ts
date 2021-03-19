@@ -100,7 +100,7 @@ export const enum simpleType {
   number,
   object,
   string,
-  tags
+  tags,
 }
 
 /** DEPRECATED */

@@ -3,7 +3,7 @@ import { event, tag, url } from "tests/testFixtures"
 import {
   handler,
   parseOnChangeArgs,
-  isSyntheticEvent
+  isSyntheticEvent,
 } from "src/utilities/handler"
 
 describe("isSyntheticEvent", () => {
@@ -23,7 +23,7 @@ describe("isSyntheticEvent", () => {
       isPropagationStopped: () => 0,
       persist: () => 0,
       timeStamp: 0,
-      type: 0
+      type: 0,
     }
     expect(isSyntheticEvent(syntheticEvent)).toBeTruthy()
   })
@@ -50,7 +50,7 @@ describe("parseOnChangeArgs handles all components onChange inputs", () => {
     expect(parseOnChangeArgs(["alpha", "bravo", "charlie"])).toEqual([
       "alpha",
       "bravo",
-      "charlie"
+      "charlie",
     ])
   })
   it("override input as array", () => {
@@ -84,7 +84,7 @@ describe("handleDispatch functions to handle onChange events", () => {
   })
   it("Handle event with simpleMergeToggle: oldState = false", () => {
     const oldState = {
-      simpleTag: "simpleRedux"
+      simpleTag: "simpleRedux",
     }
     expect(
       handler.simpleMergeToggle(
@@ -97,8 +97,8 @@ describe("handleDispatch functions to handle onChange events", () => {
     const oldState = {
       simpleTag: "simpleRedux",
       [tag]: {
-        data: true
-      }
+        data: true,
+      },
     }
     expect(
       handler.simpleMergeToggle(

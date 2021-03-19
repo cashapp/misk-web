@@ -6,7 +6,7 @@ import {
   IDispatchProps,
   IState,
   mapDispatchToProps,
-  mapStateToProps
+  mapStateToProps,
 } from "src/ducks"
 
 const TabContainer = (props: IState & IDispatchProps) => {
