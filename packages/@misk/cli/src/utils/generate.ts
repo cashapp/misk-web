@@ -6,7 +6,7 @@ import {
   logDebug,
   makePath,
   parseArgs,
-  getSemVarPackageVersionOnNPM,
+  getSemVerPackageVersionOnNPM,
 } from "../utils"
 import {
   createPackage,
@@ -62,7 +62,7 @@ export const generateBuildFiles = async (...args: any) => {
   })
   logDebug(
     tag,
-    `Up to date build files generated using Misk Web @ ${await getSemVarPackageVersionOnNPM(
+    `Up to date build files generated using Misk Web @ ${await getSemVerPackageVersionOnNPM(
       miskTab.version
     )}`,
     dir

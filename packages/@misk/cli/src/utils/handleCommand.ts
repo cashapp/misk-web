@@ -1,5 +1,6 @@
 import klaw from "klaw"
 import path from "path"
+import semver from "semver"
 const ProgressBar = require("progress")
 import { cd } from "shelljs"
 import yargs from "yargs"
@@ -55,12 +56,13 @@ export const handleCommand = async (
 ) => {
   // Node version check
   const { node: nodeVersion } = process.versions
-  if (parseInt(nodeVersion.split(".")[0]) < 10) {
+  if (!semver.satisfies(semver.coerce(nodeVersion), ">=12.0.0")) {
     formattedLog(
       "Warn",
-      `Node version is ${nodeVersion}. Recommended is 10.13 LTS or above.`,
+      `Incompatible node version: ${nodeVersion}. Recommended is 12.19 LTS or above.`,
       "Node"
     )
+    throw "Please update Node 12.19 LTS or above."
   }
   const latestOnlineVersion = await packageVersionExistsOnNPM()
 

@@ -9,6 +9,10 @@ exports[`Navbar Component Navbar can render 1`] = `
   position: fixed!important;
 }
 
+.emotion-1 {
+  margin: 0 auto;
+}
+
 @media (min-width: 768px) {
   .emotion-1 {
     width: 750px;
@@ -25,10 +29,6 @@ exports[`Navbar Component Navbar can render 1`] = `
   .emotion-1 {
     width: 1170px;
   }
-}
-
-.emotion-1 {
-  margin: 0 auto;
 }
 
 .emotion-2 {
@@ -246,6 +246,12 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
   margin: 0 auto;
 }
 
+@media (min-width: 768px) {
+  .emotion-1 {
+    width: 750px;
+  }
+}
+
 @media (min-width: 992px) {
   .emotion-1 {
     width: 970px;
@@ -255,12 +261,6 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
 @media (min-width: 1200px) {
   .emotion-1 {
     width: 1170px;
-  }
-}
-
-@media (min-width: 768px) {
-  .emotion-1 {
-    width: 750px;
   }
 }
 
@@ -290,19 +290,6 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
   }
 }
 
-.emotion-3 a {
-  color: #cecece!important;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-3 a:hover {
-  color: white!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 .emotion-3 {
   font-size: 24px!important;
   -webkit-text-decoration: none;
@@ -316,6 +303,19 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
   min-width: fit-content;
 }
 
+.emotion-3 a {
+  color: #cecece!important;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-3 a:hover {
+  color: white!important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .emotion-4 {
   background-color: #7250a1!important;
   box-shadow: none!important;
@@ -326,12 +326,12 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
   z-index: 1020;
 }
 
-.emotion-5:hover {
-  color: white;
-}
-
 .emotion-5 {
   color: #7a7e82!important;
+}
+
+.emotion-5:hover {
+  color: white;
 }
 
 .emotion-6 {
@@ -479,6 +479,12 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
   margin: 0 auto;
 }
 
+@media (min-width: 768px) {
+  .emotion-1 {
+    width: 750px;
+  }
+}
+
 @media (min-width: 992px) {
   .emotion-1 {
     width: 970px;
@@ -488,12 +494,6 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
 @media (min-width: 1200px) {
   .emotion-1 {
     width: 1170px;
-  }
-}
-
-@media (min-width: 768px) {
-  .emotion-1 {
-    width: 750px;
   }
 }
 
@@ -523,19 +523,6 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
   }
 }
 
-.emotion-3 a {
-  color: #cecece!important;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-3 a:hover {
-  color: white!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 .emotion-3 {
   font-size: 24px!important;
   -webkit-text-decoration: none;
@@ -549,6 +536,19 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
   min-width: fit-content;
 }
 
+.emotion-3 a {
+  color: #cecece!important;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-3 a:hover {
+  color: white!important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .emotion-4 {
   background-color: purple!important;
   box-shadow: none!important;
@@ -559,12 +559,12 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
   z-index: 1020;
 }
 
-.emotion-5:hover {
-  color: white;
-}
-
 .emotion-5 {
   color: #7a7e82!important;
+}
+
+.emotion-5:hover {
+  color: white;
 }
 
 .emotion-6 {
