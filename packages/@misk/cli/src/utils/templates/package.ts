@@ -5,7 +5,11 @@ import {
 } from "@misk/test"
 import { merge, reduce, unset } from "lodash"
 import semver from "semver"
-import { IMiskTabJSON, Files, getSemVarPackageVersionOnNPM } from "../../utils"
+import {
+  IMiskTabJSON,
+  Files,
+  getSemVerPackageVersionOnNPM as getSemVerPackageVersionOnNpm,
+} from "../../utils"
 import { generatedByCLI, prettier } from "../templates"
 import { MiskPkg } from "../../utils"
 
@@ -63,7 +67,7 @@ const createMiskPackageJson = async (
   miskTab: IMiskTabJSON
 ): Promise<{ [pkg in MiskPkg]?: string }> => {
   const pkgVersions = await Promise.all(
-    packages.map(pkg => getSemVarPackageVersionOnNPM(miskTab.version, pkg))
+    packages.map(pkg => getSemVerPackageVersionOnNpm(miskTab.version, pkg))
   )
   const pkgVersionMap = packages.map((pkg: string, index: number) => ({
     [pkg]: pkgVersions[index],
@@ -116,6 +120,10 @@ const jestConfiguration = (miskTab: IMiskTabJSON) =>
         jest: merge(miskTab.rawPackageJson.jest, testPackageJson.jest),
       }
 
+const enginesNodeVersionConfiguration = () => ({
+  engines: { node: ">=12.0.0", npm: ">=6.0.0" },
+})
+
 /**
  * Creates a package.json object with a default configuration.
  * Modifications to the user's miskTab will be merged with the defaults.
@@ -126,8 +134,9 @@ export const createPackage = async (miskTab: IMiskTabJSON, pkg: any) =>
     version:
       pkg.version && pkg.version.length > 0
         ? pkg.version
-        : await getSemVarPackageVersionOnNPM(miskTab.version),
+        : await getSemVerPackageVersionOnNpm(miskTab.version),
     ...header,
+    ...enginesNodeVersionConfiguration(),
     ...scripts(miskTab),
     ...(await dependencies(miskTab, pkg)),
     ...(await devDependencies(miskTab, pkg)),

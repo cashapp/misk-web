@@ -41,7 +41,7 @@ export const packageVersionExistsOnNPM = async (
   }
 }
 
-export const isSemVar = (version: string) =>
+export const isSemVer = (version: string) =>
   !isNaN(parseInt(chain(version).replace(".", "").replace("-", "").value())) &&
   isNumber(parseInt(chain(version).replace(".", "").replace("-", "").value()))
 
@@ -51,7 +51,7 @@ export const versionResolver = (
   packageVersion: string,
   packageName?: string
 ) => {
-  const resolvedVersion = isSemVar(version) ? version : packageVersion
+  const resolvedVersion = isSemVer(version) ? version : packageVersion
   const fallback = `\nFalling back to miskweb shipped version ${resolvedVersion}.`
   switch (onlineVersionResult) {
     case PackageVersionStatus.NOT_FOUND:
@@ -75,7 +75,7 @@ export const versionResolver = (
   }
 }
 
-export const getSemVarPackageVersionOnNPM = async (
+export const getSemVerPackageVersionOnNPM = async (
   version?: string,
   pkg: string = MiskPkg.core
 ): Promise<string> => {

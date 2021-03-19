@@ -12,7 +12,7 @@ import {
   remove,
   makePath,
   parseArgs,
-  getSemVarPackageVersionOnNPM,
+  getSemVerPackageVersionOnNPM,
 } from "../utils"
 
 const tag = "migrate"
@@ -39,7 +39,7 @@ export const defaultMiskTabJson = async (
   slug: "",
   useWebpackBundleAnalyzer: false,
   useWebpackExternals: true,
-  version: await getSemVarPackageVersionOnNPM(),
+  version: await getSemVerPackageVersionOnNPM(),
   zipOnBuild: false,
   ___DeprecatedKeys:
     "Any keys below this point in your miskTab.json are deprecated and can be safely removed.",
