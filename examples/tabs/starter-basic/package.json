@@ -19,9 +19,9 @@
     "zip": "tar --exclude='.gitignore' --exclude='.old_build_files' --exclude='package.json' --exclude='package-lock.json' --exclude='prettier.config.js' --exclude='tsconfig.json' --exclude='webpack.config.js' --exclude='yarn.lock' --exclude='demo' --exclude='lib' --exclude='.DS_Store' --exclude='*.log' --exclude='node_modules' --exclude='starter-basic.tgz' -czvf starter-basic.tgz ./"
   },
   "dependencies": {
-    "@misk/common": "0.2.0-13",
-    "@misk/core": "0.2.0-13",
-    "@misk/simpleredux": "0.2.0-13",
+    "@misk/common": "0.2.0-14",
+    "@misk/core": "0.2.0-14",
+    "@misk/simpleredux": "0.2.0-14",
     "@blueprintjs/core": "3.41.0",
     "@blueprintjs/datetime": "3.22.0",
     "@blueprintjs/icons": "3.26.0",
@@ -54,9 +54,9 @@
     "styled-components": "5.2.1"
   },
   "devDependencies": {
-    "@misk/dev": "0.2.0-13",
-    "@misk/prettier": "0.2.0-13",
-    "@misk/test": "0.2.0-13",
+    "@misk/dev": "0.2.0-14",
+    "@misk/prettier": "0.2.0-14",
+    "@misk/test": "0.2.0-14",
     "@emotion/jest": "11.2.1",
     "@testing-library/dom": "7.30.1",
     "@testing-library/react": "11.2.5",
