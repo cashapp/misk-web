@@ -113,11 +113,8 @@ module.exports = (env, argv) => {
       globalObject: "typeof self !== 'undefined' ? self : this",
     },
     devServer: {
-      host: "0.0.0.0",
+      contentPath: path.join(dirname, outputPath),
       port: port,
-      inline: true,
-      hot: true,
-      historyApiFallback: true,
     },
     module: {
       rules: [

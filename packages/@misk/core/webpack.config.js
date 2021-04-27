@@ -74,5 +74,6 @@ module.exports = {
         ]
       : []
   ),
-  externals: MiskDev.vendorExternals,
+  // TODO (re-enable after more thorough testing)
+  externals: false ? MiskDev.vendorExternals : {},
 }
