@@ -1,6 +1,6 @@
-import * as React from "react"
+import React, { createContext } from "react"
 import { Helmet } from "react-helmet"
-import { IWebTab } from "src/utilities"
+import { IAdminDashboardConfig, IWebTab } from "src/utilities"
 
 /**
  * <TabLoaderComponent
@@ -10,6 +10,7 @@ import { IWebTab } from "src/utilities"
 
 export interface ITabLoaderProps {
   tabs: IWebTab[]
+  config: IAdminDashboardConfig
 }
 
 const RenderTab = (props: IWebTab) => {
@@ -23,14 +24,16 @@ const RenderTab = (props: IWebTab) => {
   )
 }
 
+export const AdminDashboardContext = createContext(null)
+
 export const TabLoaderComponent = (props: ITabLoaderProps): JSX.Element => {
   if (props.tabs) {
     return (
-      <>
+      <AdminDashboardContext.Provider value={props.config}>
         {props.tabs.map(tab => (
           <RenderTab key={tab.slug} {...tab} />
         ))}
-      </>
+      </AdminDashboardContext.Provider>
     )
   } else {
     return <div />

@@ -17,11 +17,16 @@ export interface IDashboardTab extends IWebTab {
 
 export interface IAdminDashboardTab extends IDashboardTab {}
 
+export interface IAdminDashboardConfig {
+  protobuf_definition_url: string
+}
+
 export interface IDashboardMetadata {
   home_url: string
   navbar_items: Array<string | Element | JSX.Element>
   navbar_status: string | Element | JSX.Element
   tabs: IDashboardTab[]
+  admin_dashboard_config: IAdminDashboardConfig
 }
 
 export interface IServiceMetadata {

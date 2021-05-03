@@ -139,7 +139,9 @@ export const MiskNavbarContainer = (
       />
       <ResponsiveAppContainer>
         {loadingSpinner && loading && <Spinner />}
-        <TabLoaderComponent tabs={dashboardMetadata.tabs} />
+        <TabLoaderComponent
+          tabs={dashboardMetadata.tabs}
+          config={dashboardMetadata.admin_dashboard_config} />
         {children}
       </ResponsiveAppContainer>
     </>
