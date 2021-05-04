@@ -1,5 +1,7 @@
 ///<reference types="react" />
 
+import { IThemeApi } from "./theme"
+
 /**
  * Common Interfaces
  */
@@ -27,6 +29,8 @@ export interface IDashboardMetadata {
 export interface IServiceMetadata {
   app_name: string
   environment: Environment
+  /** Theme is an optional override from server, if null the default theme shipped in Misk-Web is used */
+  theme?: IThemeApi
 }
 
 /**
@@ -42,7 +46,6 @@ export const enum Environment {
 /**
  * Time
  */
-
 export const enum DateFormat {
   year = "YYYY",
   month = "YYYY-MM",

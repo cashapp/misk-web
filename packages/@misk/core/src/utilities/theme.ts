@@ -3,6 +3,7 @@ import { Environment } from "./interfaces"
 import {
   environmentToColor,
   defaultEnvironmentToColorLookup,
+  IEnvironmentToColorLookup,
 } from "./environment"
 
 /**
@@ -18,6 +19,21 @@ export interface ITheme {
   buttonHover: color | string
   categoryText: color | string
   environmentToColor: (environment: Environment) => color | string
+  navbarBackground: color | string
+  navbarLinkHover: color | string
+  navbarText: color | string
+}
+
+/**
+ * Over the wire version of ITheme
+ */
+export interface IThemeApi {
+  bannerLinkHover: color | string
+  bannerText: color | string
+  button: color | string
+  buttonHover: color | string
+  categoryText: color | string
+  environmentToColor: IEnvironmentToColorLookup
   navbarBackground: color | string
   navbarLinkHover: color | string
   navbarText: color | string

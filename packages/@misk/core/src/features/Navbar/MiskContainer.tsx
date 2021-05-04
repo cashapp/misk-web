@@ -10,6 +10,8 @@ import {
   defaultTheme,
   IServiceMetadata,
   IDashboardMetadata,
+  ITheme,
+  environmentToColor,
 } from "src/utilities"
 
 export interface IMiskNavbarContainerProps {
@@ -67,6 +69,7 @@ export const MiskNavbarContainer = (
     {} as IDashboardMetadata
   )
   const [serviceMetadata, setServiceMetadata] = useState({} as IServiceMetadata)
+  const [activeTheme, setActiveTheme] = useState({} as ITheme)
 
   // Network calls to get dashboardMetadata and serviceMetadata
   const getDashboardMetadata = async () => {
@@ -87,6 +90,14 @@ export const MiskNavbarContainer = (
       setLoading(true)
     } else {
       setServiceMetadata(data.serviceMetadata)
+      serviceMetadata.theme == null
+        ? setActiveTheme(theme)
+        : setActiveTheme({
+            ...serviceMetadata.theme,
+            environmentToColor: environmentToColor(
+              serviceMetadata.theme.environmentToColor
+            ),
+          })
     }
   }
 
@@ -135,7 +146,7 @@ export const MiskNavbarContainer = (
           status,
           dashboardMetadata.navbar_status
         )}
-        theme={theme}
+        theme={activeTheme}
       />
       <ResponsiveAppContainer>
         {loadingSpinner && loading && <Spinner />}
