@@ -39,7 +39,7 @@ const scripts = (miskTab: IMiskTabJSON) => ({
     prebuild: "npm run-script lint",
     reinstall: "rm -rf node_modules && npm run-script install",
     start:
-      "npm run-script prebuild && cross-env NODE_ENV=development webpack-dev-server",
+      "npm run-script prebuild && cross-env NODE_ENV=development webpack serve",
     ...testPackageScript,
     zip: `tar ${[
       Files.gitignore,

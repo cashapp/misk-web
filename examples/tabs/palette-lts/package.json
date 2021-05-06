@@ -14,7 +14,7 @@
     "lint": "mkdir -p src tests && prettier --write --config package.json \"{src/**/,tests/**/,.}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
     "prebuild": "npm run-script lint",
     "reinstall": "rm -rf node_modules && npm run-script install",
-    "start": "npm run-script prebuild && cross-env NODE_ENV=development webpack-dev-server",
+    "start": "npm run-script prebuild && cross-env NODE_ENV=development webpack serve",
     "test": "jest --passWithNoTests --maxWorkers=2",
     "zip": "tar --exclude='.gitignore' --exclude='.old_build_files' --exclude='package.json' --exclude='package-lock.json' --exclude='prettier.config.js' --exclude='tsconfig.json' --exclude='webpack.config.js' --exclude='yarn.lock' --exclude='demo' --exclude='lib' --exclude='.DS_Store' --exclude='*.log' --exclude='node_modules' --exclude='palette-lts.tgz' -czvf palette-lts.tgz ./"
   },
