@@ -1,0 +1,31 @@
+version: 2
+jobs:
+  java:
+    docker:
+      - image: circleci/openjdk:11-jdk
+    steps:
+      - checkout
+      - run:
+          name: Build Gradle Plugin
+          command: ./gradlew plugin
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - java:
+          filters:
+            branches:
+              ignore: gh-pages
+  continuous-testing:
+    jobs:
+      - java:
+          filters:
+            branches:
+              ignore: gh-pages
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
