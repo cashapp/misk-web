@@ -32,6 +32,7 @@ From `package.json`:
   tslint-eslint-rules
   tslint-immutable
   tslint-react
+  tslint-sonarts
 ```
 
 ## [Releasing](https://github.com/cashapp/misk-web/blob/master/RELEASING.md)
