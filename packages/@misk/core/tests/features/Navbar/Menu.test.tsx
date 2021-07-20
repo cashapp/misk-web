@@ -28,7 +28,7 @@ describe("Navbar Menu", () => {
         <Menu
           processedNavbarItems={[
             <span>{"Navbar Item Alpha"}</span>,
-            <span>{"Navbar Item Bravo"}</span>,
+            <span>{"Navbar Item Bravo"}</span>
           ]}
         />
       </BrowserRouter>
@@ -42,7 +42,7 @@ describe("Navbar Menu", () => {
           links={adminDashboardTabs}
           processedNavbarItems={[
             <span>{"Navbar Item Alpha"}</span>,
-            <span>{"Navbar Item Bravo"}</span>,
+            <span>{"Navbar Item Bravo"}</span>
           ]}
         />
       </BrowserRouter>

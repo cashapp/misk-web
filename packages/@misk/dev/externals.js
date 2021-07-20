@@ -8,7 +8,7 @@ const createExternals = inExternals => {
       amd: pkg,
       commonjs: pkg,
       commonjs2: pkg,
-      root: inExternals[pkg],
+      root: inExternals[pkg]
     }
   })
   return outExternals
@@ -32,13 +32,13 @@ const vendorExternals = createExternals({
   "redux-saga": "ReduxSaga",
   "redux-saga/effects": "ReduxSagaEffects",
   reselect: "Reselect",
-  "re-reselect": "ReReselect",
+  "re-reselect": "ReReselect"
 })
 
 const miskExternals = createExternals({
   "@misk/common": ["Misk", "Common"],
   "@misk/core": ["Misk", "Core"],
-  "@misk/simpleredux": ["Misk", "SimpleRedux"],
+  "@misk/simpleredux": ["Misk", "SimpleRedux"]
 })
 
 module.exports = { createExternals, vendorExternals, miskExternals }

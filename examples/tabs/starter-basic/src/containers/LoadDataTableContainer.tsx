@@ -7,7 +7,7 @@ import {
   IDispatchProps,
   IState,
   mapDispatchToProps,
-  mapStateToProps,
+  mapStateToProps
 } from "src/ducks"
 
 interface OwnProps {
@@ -23,7 +23,7 @@ export const LoadDataTableContainer = (
     [
       `${tag}::dataRequest`,
       "data",
-      simpleSelectorGet(props.simpleRedux, [`${tag}::dataKey`, "data"]),
+      simpleSelectorGet(props.simpleRedux, [`${tag}::dataKey`, "data"])
     ],
     []
   )
@@ -41,7 +41,7 @@ export const LoadDataTableContainer = (
           onRelease={handler.simpleMergeData(props, `${tag}::dataRange`)}
           value={simpleSelectorGet(props.simpleRedux, [
             `${tag}::dataRange`,
-            "data",
+            "data"
           ])}
         />
       )}
@@ -52,13 +52,13 @@ export const LoadDataTableContainer = (
           [
             `${tag}::dataRequest`,
             "data",
-            simpleSelectorGet(props.simpleRedux, [`${tag}::dataKey`, "data"]),
+            simpleSelectorGet(props.simpleRedux, [`${tag}::dataKey`, "data"])
           ],
           []
         )}
         range={simpleSelectorGet(props.simpleRedux, [
           `${tag}::dataRange`,
-          "data",
+          "data"
         ])}
       />
     </div>

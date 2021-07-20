@@ -10,7 +10,7 @@ export const HTTPMethodIntent: { [method in HTTPMethod]: Intent } = {
   [HTTPMethod.PATCH]: Intent.SUCCESS,
   [HTTPMethod.POST]: Intent.SUCCESS,
   [HTTPMethod.PUT]: Intent.SUCCESS,
-  [HTTPMethod.TRACE]: Intent.NONE,
+  [HTTPMethod.TRACE]: Intent.NONE
 }
 
 export const HTTPStatusCodeIntent = (code: number) => {

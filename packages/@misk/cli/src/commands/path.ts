@@ -3,7 +3,7 @@ import {
   generateMiskTabJson,
   handleCommand,
   parseArgs,
-  readMiskTabJson,
+  readMiskTabJson
 } from "../utils"
 export const command = "path <URLpath>"
 export const desc =
@@ -11,7 +11,7 @@ export const desc =
 export const positional = (yargs: any): any => {
   yargs.positional("URLpath", {
     describe: "set path where tab will be served in browser",
-    type: "string",
+    type: "string"
   })
 }
 export const handlerFn = async (...args: any) => {
@@ -34,7 +34,7 @@ Generate new ones with $ miskweb misk`
   generateMiskTabJson(dir, {
     ...miskTab,
     relative_path_prefix: `${normalizedPath}/`,
-    output_path: `lib/web/${normalizedPath}`,
+    output_path: `lib/web/${normalizedPath}`
   })
 }
 export const handler = async (yargs: any) =>

@@ -2,129 +2,135 @@
 
 exports[`Misk Navbar Container Container can render 1`] = `
 <DocumentFragment>
-  .emotion-0 {
-  background-color: !important;
-  padding-top: 10px!important;
-  padding-bottom: 60px!important;
-  position: fixed!important;
+  .emotion-10 {
+  background-color: #29333a !important;
+  padding-top: 10px !important;
+  padding-bottom: 60px !important;
+  position: fixed !important;
 }
 
-.emotion-1 {
+.emotion-2 {
   margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-  .emotion-1 {
+@media (min-width:768px) {
+  .emotion-2 {
     width: 750px;
   }
 }
 
-@media (min-width: 992px) {
-  .emotion-1 {
+@media (min-width:992px) {
+  .emotion-2 {
     width: 970px;
   }
 }
 
-@media (min-width: 1200px) {
-  .emotion-1 {
+@media (min-width:1200px) {
+  .emotion-2 {
     width: 1170px;
   }
 }
 
-.emotion-2 {
-  font-size: 13px!important;
-  font-weight: 600!important;
+.emotion-1 {
+  font-size: 13px !important;
+  font-weight: 600 !important;
   position: relative;
   padding-top: 25px;
   padding-bottom: 27px;
 }
 
-@media (max-width: 870px) {
-  .emotion-2 {
+@media (max-width:870px) {
+  .emotion-1 {
     padding-left: 60px;
   }
 }
 
-@media (min-width: 992px) and (max-width: 1085px) {
-  .emotion-2 {
+@media (min-width:992px) and (max-width:1085px) {
+  .emotion-1 {
     padding-left: 60px;
   }
 }
 
-@media (min-width: 1200px) and (max-width: 1285px) {
-  .emotion-2 {
+@media (min-width:1200px) and (max-width:1285px) {
+  .emotion-1 {
     padding-left: 60px;
   }
 }
 
-.emotion-3 {
-  font-size: 24px!important;
+.emotion-0 {
+  font-size: 24px !important;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
   letter-spacing: 0px;
   margin-right: 30px;
-  color: ;
+  color: #cecece;
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
 }
 
-.emotion-3 a {
-  color: !important;
+.emotion-0 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
   letter-spacing: 1px;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-3 a:hover {
-  color: !important;
+.emotion-0 a:hover {
+  color: white !important;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .emotion-4 {
-  background-color: !important;
-  box-shadow: none!important;
-  background-image: none!important;
+  background-color: #29333a !important;
+  box-shadow: none !important;
+  background-image: none !important;
   top: 15px;
   left: 15px;
   position: absolute;
   z-index: 1020;
 }
 
-.emotion-5 {
-  color: !important;
+.emotion-3 {
+  color: #7a7e82 !important;
 }
 
-.emotion-5:hover {
-  color: ;
+.emotion-3:hover {
+  color: white;
 }
 
-.emotion-6 {
-  background-color: ;
+.emotion-9 {
+  background-color: #29333a;
   display: block;
   margin: 60px -20px 0 -20px;
 }
 
-.emotion-7 {
+.emotion-8 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
   max-height: 100vh;
 }
 
-@media (max-width: 768px) {
-  .emotion-7 {
+@media (max-width:768px) {
+  .emotion-8 {
     padding: 50px 20px;
   }
 }
 
-.emotion-9 {
+.emotion-6 {
   display: inline-block;
 }
 
-.emotion-10 {
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -132,13 +138,12 @@ exports[`Misk Navbar Container Container can render 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
-.emotion-10 * {
+.emotion-5 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -149,16 +154,16 @@ exports[`Misk Navbar Container Container can render 1`] = `
 }
 
 <div
-    class="bp3-navbar emotion-0"
+    class="bp3-navbar emotion-10"
   >
     <div
-      class="emotion-1"
+      class="emotion-2"
     >
       <div
-        class="bp3-navbar-group bp3-align-left bp3-dark emotion-2"
+        class="bp3-navbar-group bp3-align-left bp3-dark emotion-1"
       >
         <span
-          class="emotion-3"
+          class="emotion-0"
         >
           Misk
         </span>
@@ -173,7 +178,7 @@ exports[`Misk Navbar Container Container can render 1`] = `
           class="bp3-button-text"
         >
           <span
-            class="bp3-icon bp3-icon-menu emotion-5"
+            class="bp3-icon bp3-icon-menu emotion-3"
             icon="menu"
           >
             <svg
@@ -194,27 +199,27 @@ exports[`Misk Navbar Container Container can render 1`] = `
         </span>
       </button>
       <div
-        class="emotion-6"
+        class="emotion-9"
       >
         <div
           class="bp3-collapse"
         >
           <div
             aria-hidden="true"
-            class="bp3-collapse-body bp3-fixed-positioning-containing-block"
-            style="transform: translateY(-undefinedpx);"
+            class="bp3-collapse-body"
+            style="transform: translateY(-0px);"
           >
             <div
-              class="emotion-7"
+              class="emotion-8"
             >
               <div
-                class="emotion-1"
+                class="emotion-2"
               >
                 <div
-                  class="emotion-9"
+                  class="emotion-6"
                 >
                   <div
-                    class="emotion-10"
+                    class="emotion-5"
                   >
                     <span>
                       <span />
@@ -237,19 +242,19 @@ exports[`Misk Navbar Container Container can render 1`] = `
   margin: 0 auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
   .emotion-0 {
     width: 750px;
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width:992px) {
   .emotion-0 {
     width: 970px;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width:1200px) {
   .emotion-0 {
     width: 1170px;
   }
@@ -265,129 +270,135 @@ exports[`Misk Navbar Container Container can render 1`] = `
 
 exports[`Misk Navbar Container Container renders with remote data 1`] = `
 <DocumentFragment>
-  .emotion-0 {
-  background-color: !important;
-  padding-top: 10px!important;
-  padding-bottom: 60px!important;
-  position: fixed!important;
+  .emotion-10 {
+  background-color: #29333a !important;
+  padding-top: 10px !important;
+  padding-bottom: 60px !important;
+  position: fixed !important;
 }
 
-.emotion-1 {
+.emotion-2 {
   margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-  .emotion-1 {
+@media (min-width:768px) {
+  .emotion-2 {
     width: 750px;
   }
 }
 
-@media (min-width: 992px) {
-  .emotion-1 {
+@media (min-width:992px) {
+  .emotion-2 {
     width: 970px;
   }
 }
 
-@media (min-width: 1200px) {
-  .emotion-1 {
+@media (min-width:1200px) {
+  .emotion-2 {
     width: 1170px;
   }
 }
 
-.emotion-2 {
-  font-size: 13px!important;
-  font-weight: 600!important;
+.emotion-1 {
+  font-size: 13px !important;
+  font-weight: 600 !important;
   position: relative;
   padding-top: 25px;
   padding-bottom: 27px;
 }
 
-@media (max-width: 870px) {
-  .emotion-2 {
+@media (max-width:870px) {
+  .emotion-1 {
     padding-left: 60px;
   }
 }
 
-@media (min-width: 992px) and (max-width: 1085px) {
-  .emotion-2 {
+@media (min-width:992px) and (max-width:1085px) {
+  .emotion-1 {
     padding-left: 60px;
   }
 }
 
-@media (min-width: 1200px) and (max-width: 1285px) {
-  .emotion-2 {
+@media (min-width:1200px) and (max-width:1285px) {
+  .emotion-1 {
     padding-left: 60px;
   }
 }
 
-.emotion-3 {
-  font-size: 24px!important;
+.emotion-0 {
+  font-size: 24px !important;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
   letter-spacing: 0px;
   margin-right: 30px;
-  color: ;
+  color: #cecece;
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
 }
 
-.emotion-3 a {
-  color: !important;
+.emotion-0 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
   letter-spacing: 1px;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-3 a:hover {
-  color: !important;
+.emotion-0 a:hover {
+  color: white !important;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .emotion-4 {
-  background-color: !important;
-  box-shadow: none!important;
-  background-image: none!important;
+  background-color: #29333a !important;
+  box-shadow: none !important;
+  background-image: none !important;
   top: 15px;
   left: 15px;
   position: absolute;
   z-index: 1020;
 }
 
-.emotion-5 {
-  color: !important;
+.emotion-3 {
+  color: #7a7e82 !important;
 }
 
-.emotion-5:hover {
-  color: ;
+.emotion-3:hover {
+  color: white;
 }
 
-.emotion-6 {
-  background-color: ;
+.emotion-9 {
+  background-color: #29333a;
   display: block;
   margin: 60px -20px 0 -20px;
 }
 
-.emotion-7 {
+.emotion-8 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
   max-height: 100vh;
 }
 
-@media (max-width: 768px) {
-  .emotion-7 {
+@media (max-width:768px) {
+  .emotion-8 {
     padding: 50px 20px;
   }
 }
 
-.emotion-9 {
+.emotion-6 {
   display: inline-block;
 }
 
-.emotion-10 {
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -395,13 +406,12 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
-.emotion-10 * {
+.emotion-5 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -412,16 +422,16 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
 }
 
 <div
-    class="bp3-navbar emotion-0"
+    class="bp3-navbar emotion-10"
   >
     <div
-      class="emotion-1"
+      class="emotion-2"
     >
       <div
-        class="bp3-navbar-group bp3-align-left bp3-dark emotion-2"
+        class="bp3-navbar-group bp3-align-left bp3-dark emotion-1"
       >
         <span
-          class="emotion-3"
+          class="emotion-0"
         >
           Misk
         </span>
@@ -436,7 +446,7 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
           class="bp3-button-text"
         >
           <span
-            class="bp3-icon bp3-icon-menu emotion-5"
+            class="bp3-icon bp3-icon-menu emotion-3"
             icon="menu"
           >
             <svg
@@ -457,27 +467,27 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
         </span>
       </button>
       <div
-        class="emotion-6"
+        class="emotion-9"
       >
         <div
           class="bp3-collapse"
         >
           <div
             aria-hidden="true"
-            class="bp3-collapse-body bp3-fixed-positioning-containing-block"
-            style="transform: translateY(-undefinedpx);"
+            class="bp3-collapse-body"
+            style="transform: translateY(-0px);"
           >
             <div
-              class="emotion-7"
+              class="emotion-8"
             >
               <div
-                class="emotion-1"
+                class="emotion-2"
               >
                 <div
-                  class="emotion-9"
+                  class="emotion-6"
                 >
                   <div
-                    class="emotion-10"
+                    class="emotion-5"
                   >
                     <span>
                       <span />
@@ -500,19 +510,19 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
   margin: 0 auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
   .emotion-0 {
     width: 750px;
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width:992px) {
   .emotion-0 {
     width: 970px;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width:1200px) {
   .emotion-0 {
     width: 1170px;
   }

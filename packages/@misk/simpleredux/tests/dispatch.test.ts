@@ -17,9 +17,9 @@ describe("dispatchSimpleRedux", () => {
           statusText: "",
           success: false,
           tag,
-          ...error,
-        },
-      },
+          ...error
+        }
+      }
     }
     expect(privateDispatchSimpleRedux.simpleFailure(tag, error)).toEqual(action)
   })
@@ -32,8 +32,8 @@ describe("dispatchSimpleRedux", () => {
         loading: false,
         options: {},
         success: true,
-        ...data,
-      },
+        ...data
+      }
     }
     expect(dispatchSimpleRedux.simpleMergeRaw(data)).toEqual(action)
   })
@@ -48,9 +48,9 @@ describe("dispatchSimpleRedux", () => {
           options: {},
           success: true,
           tag,
-          ...data,
-        },
-      },
+          ...data
+        }
+      }
     }
     expect(dispatchSimpleRedux.simpleMerge(tag, data)).toEqual(action)
   })
@@ -65,16 +65,16 @@ describe("dispatchSimpleRedux", () => {
           loading: false,
           options: {},
           success: true,
-          tag,
-        },
-      },
+          tag
+        }
+      }
     }
     expect(dispatchSimpleRedux.simpleMergeData(tag, data)).toEqual(action)
   })
 
   it("simpleMergeToggle: oldState = undefined", () => {
     const oldState = {
-      simpleTag: "simpleRedux",
+      simpleTag: "simpleRedux"
     }
     const action = {
       type: SIMPLEREDUX.MERGE,
@@ -85,9 +85,9 @@ describe("dispatchSimpleRedux", () => {
           loading: false,
           options: {},
           success: true,
-          tag,
-        },
-      },
+          tag
+        }
+      }
     }
     expect(dispatchSimpleRedux.simpleMergeToggle(tag, oldState)).toEqual(action)
   })
@@ -96,8 +96,8 @@ describe("dispatchSimpleRedux", () => {
     const oldState = {
       simpleTag: "simpleRedux",
       [tag]: {
-        data: false,
-      },
+        data: false
+      }
     }
     const action = {
       type: SIMPLEREDUX.MERGE,
@@ -108,9 +108,9 @@ describe("dispatchSimpleRedux", () => {
           loading: false,
           options: {},
           success: true,
-          tag,
-        },
-      },
+          tag
+        }
+      }
     }
     expect(dispatchSimpleRedux.simpleMergeToggle(tag, oldState)).toEqual(action)
   })
@@ -119,8 +119,8 @@ describe("dispatchSimpleRedux", () => {
     const oldState = {
       simpleTag: "simpleRedux",
       [tag]: {
-        data: true,
-      },
+        data: true
+      }
     }
     const action = {
       type: SIMPLEREDUX.MERGE,
@@ -131,9 +131,9 @@ describe("dispatchSimpleRedux", () => {
           loading: false,
           options: {},
           success: true,
-          tag,
-        },
-      },
+          tag
+        }
+      }
     }
     expect(dispatchSimpleRedux.simpleMergeToggle(tag, oldState)).toEqual(action)
   })
@@ -153,9 +153,9 @@ describe("dispatchSimpleRedux", () => {
           statusText: "",
           success: false,
           tag,
-          url,
-        },
-      },
+          url
+        }
+      }
     }
     expect(dispatchSimpleRedux.simpleHttpDelete(tag, url)).toEqual(action)
   })
@@ -175,9 +175,9 @@ describe("dispatchSimpleRedux", () => {
           statusText: "",
           success: false,
           tag,
-          url,
-        },
-      },
+          url
+        }
+      }
     }
     expect(dispatchSimpleRedux.simpleHttpGet(tag, url)).toEqual(action)
   })
@@ -197,9 +197,9 @@ describe("dispatchSimpleRedux", () => {
           statusText: "",
           success: false,
           tag,
-          url,
-        },
-      },
+          url
+        }
+      }
     }
     expect(dispatchSimpleRedux.simpleHttpHead(tag, url)).toEqual(action)
   })
@@ -219,9 +219,9 @@ describe("dispatchSimpleRedux", () => {
           statusText: "",
           success: false,
           tag,
-          url,
-        },
-      },
+          url
+        }
+      }
     }
     expect(dispatchSimpleRedux.simpleHttpPatch(tag, url, requestData)).toEqual(
       action
@@ -243,9 +243,9 @@ describe("dispatchSimpleRedux", () => {
           statusText: "",
           success: false,
           tag,
-          url,
-        },
-      },
+          url
+        }
+      }
     }
     expect(dispatchSimpleRedux.simpleHttpPost(tag, url, requestData)).toEqual(
       action
@@ -267,9 +267,9 @@ describe("dispatchSimpleRedux", () => {
           statusText: "",
           success: false,
           tag,
-          url,
-        },
-      },
+          url
+        }
+      }
     }
     expect(dispatchSimpleRedux.simpleHttpPut(tag, url, requestData)).toEqual(
       action

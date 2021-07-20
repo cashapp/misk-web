@@ -6,19 +6,11 @@ import { cars } from "./testFixtures"
 describe("Table Rows", () => {
   afterEach(cleanup)
   it("Rows can render", () => {
-    const { asFragment } = render(
-      <table>
-        <Rows data={cars} range={[0, cars.length]} />
-      </table>
-    )
+    const { asFragment } = render(<Rows data={cars} range={[0, cars.length]} />)
     expect(asFragment()).toMatchSnapshot()
   })
   it("Rows can render with maxRows = 2", () => {
-    const { asFragment } = render(
-      <table>
-        <Rows data={cars} range={[0, 2]} />
-      </table>
-    )
+    const { asFragment } = render(<Rows data={cars} range={[0, 2]} />)
     expect(asFragment()).toMatchSnapshot()
   })
 })

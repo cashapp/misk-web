@@ -5,7 +5,7 @@ import {
   createAction,
   IAction,
   IDefaultState,
-  simpleSelectorGet,
+  simpleSelectorGet
 } from "./utilities"
 
 /**
@@ -29,7 +29,7 @@ interface IDispatchDefault {
 export const dispatchDefault: IDispatchDefault = {
   data: {},
   error: {},
-  options: {},
+  options: {}
 }
 
 export interface ISimpleCachePayloadTag extends IDefaultState {
@@ -212,7 +212,7 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
       error: null,
       loading: false,
       options,
-      success: true,
+      success: true
     }),
   simpleMerge: (
     tag: string,
@@ -226,8 +226,8 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
         options,
         success: true,
         tag,
-        ...data,
-      },
+        ...data
+      }
     }),
   // Redux as UI / Field Input Cache
   simpleMergeData: (
@@ -242,8 +242,8 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
         loading: false,
         options,
         success: true,
-        tag,
-      },
+        tag
+      }
     }),
   simpleMergeToggle: (
     tag: string,
@@ -257,8 +257,8 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
         loading: false,
         options,
         success: true,
-        tag,
-      },
+        tag
+      }
     }),
   // Async HTTP Network Calls
   simpleHttpDelete: (
@@ -280,8 +280,8 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
           statusText: "",
           success: false,
           tag,
-          url,
-        },
+          url
+        }
       }
     ),
   simpleHttpGet: (
@@ -303,8 +303,8 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
           statusText: "",
           success: false,
           tag,
-          url,
-        },
+          url
+        }
       }
     ),
   simpleHttpHead: (
@@ -326,8 +326,8 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
           statusText: "",
           success: false,
           tag,
-          url,
-        },
+          url
+        }
       }
     ),
   simpleHttpPatch: (
@@ -350,8 +350,8 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
           statusText: "",
           success: false,
           tag,
-          url,
-        },
+          url
+        }
       }
     ),
   simpleHttpPost: (
@@ -374,8 +374,8 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
           statusText: "",
           success: false,
           tag,
-          url,
-        },
+          url
+        }
       }
     ),
   simpleHttpPut: (
@@ -398,10 +398,10 @@ export const dispatchSimpleRedux: IDispatchSimpleRedux = {
           statusText: "",
           success: false,
           tag,
-          url,
-        },
+          url
+        }
       }
-    ),
+    )
 }
 
 export const privateDispatchSimpleRedux: IPrivateDispatchSimpleRedux = {
@@ -424,8 +424,8 @@ export const privateDispatchSimpleRedux: IPrivateDispatchSimpleRedux = {
           statusText: "",
           success: false,
           tag,
-          ...error,
-        },
+          ...error
+        }
       }
-    ),
+    )
 }

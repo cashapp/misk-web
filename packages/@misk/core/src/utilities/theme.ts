@@ -2,8 +2,7 @@ import { color } from "./css"
 import { Environment } from "./interfaces"
 import {
   environmentToColor,
-  defaultEnvironmentToColorLookup,
-  IEnvironmentToColorLookup,
+  defaultEnvironmentToColorLookup
 } from "./environment"
 
 /**
@@ -25,21 +24,6 @@ export interface ITheme {
 }
 
 /**
- * Over the wire version of ITheme
- */
-export interface IThemeApi {
-  bannerLinkHover: color | string
-  bannerText: color | string
-  button: color | string
-  buttonHover: color | string
-  categoryText: color | string
-  environmentToColor: IEnvironmentToColorLookup
-  navbarBackground: color | string
-  navbarLinkHover: color | string
-  navbarText: color | string
-}
-
-/**
  * Default Theme used in absense of a theme provided in props
  */
 export const defaultTheme: ITheme = {
@@ -51,5 +35,5 @@ export const defaultTheme: ITheme = {
   environmentToColor: environmentToColor(defaultEnvironmentToColorLookup),
   navbarBackground: color.cadet,
   navbarLinkHover: color.white,
-  navbarText: color.platinum,
+  navbarText: color.platinum
 }

@@ -5,12 +5,12 @@ import {
   TextArea,
   H1,
   Intent,
-  Pre,
+  Pre
 } from "@blueprintjs/core"
 import {
   simpleSelectorGet,
   simpleSelectorPick,
-  handler,
+  handler
 } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
@@ -18,7 +18,7 @@ import {
   IDispatchProps,
   IState,
   mapDispatchToProps,
-  mapStateToProps,
+  mapStateToProps
 } from "src/ducks"
 
 export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
@@ -55,7 +55,7 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
           intent={Intent.DANGER}
           loading={simpleSelectorGet(props.simpleRedux, [
             `${NetworkTag}::DELETE`,
-            "loading",
+            "loading"
           ])}
           text={"DELETE"}
         />
@@ -68,7 +68,7 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
           intent={Intent.SUCCESS}
           loading={simpleSelectorGet(props.simpleRedux, [
             `${NetworkTag}::GET`,
-            "loading",
+            "loading"
           ])}
           text={"GET"}
         />
@@ -81,7 +81,7 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
           intent={Intent.NONE}
           loading={simpleSelectorGet(props.simpleRedux, [
             `${NetworkTag}::HEAD`,
-            "loading",
+            "loading"
           ])}
           text={"HEAD"}
         />
@@ -91,19 +91,19 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
             `${NetworkTag}::PATCH`,
             simpleSelectorGet(props.simpleRedux, [
               `${NetworkTag}::url`,
-              "data",
+              "data"
             ]),
             {
               overrideArgs: simpleSelectorGet(props.simpleRedux, [
                 `${NetworkTag}::data`,
-                "data",
-              ]),
+                "data"
+              ])
             }
           )}
           intent={Intent.PRIMARY}
           loading={simpleSelectorGet(props.simpleRedux, [
             `${NetworkTag}::PATCH`,
-            "loading",
+            "loading"
           ])}
           text={"PATCH"}
         />
@@ -113,19 +113,19 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
             `${NetworkTag}::POST`,
             simpleSelectorGet(props.simpleRedux, [
               `${NetworkTag}::url`,
-              "data",
+              "data"
             ]),
             {
               overrideArgs: simpleSelectorGet(props.simpleRedux, [
                 `${NetworkTag}::data`,
-                "data",
-              ]),
+                "data"
+              ])
             }
           )}
           intent={Intent.PRIMARY}
           loading={simpleSelectorGet(props.simpleRedux, [
             `${NetworkTag}::POST`,
-            "loading",
+            "loading"
           ])}
           text={"POST"}
         />
@@ -136,19 +136,19 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
 
             simpleSelectorGet(props.simpleRedux, [
               `${NetworkTag}::url`,
-              "data",
+              "data"
             ]),
             {
               overrideArgs: simpleSelectorGet(props.simpleRedux, [
                 `${NetworkTag}::data`,
-                "data",
-              ]),
+                "data"
+              ])
             }
           )}
           intent={Intent.WARNING}
           loading={simpleSelectorGet(props.simpleRedux, [
             `${NetworkTag}::PUT`,
-            "loading",
+            "loading"
           ])}
           text={"PUT"}
         />

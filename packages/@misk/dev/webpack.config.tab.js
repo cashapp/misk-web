@@ -8,7 +8,7 @@ const createStyledComponentsTransformer =
 const path = require("path")
 const webpack = require("webpack")
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
-const { merge } = require("webpack-merge")
+const merge = require("webpack-merge")
 
 module.exports = (env, argv) => {
   const { dirname, miskTab } = argv
@@ -41,7 +41,7 @@ module.exports = (env, argv) => {
     relative_path_prefix,
     slug,
     useWebpackBundleAnalyzer,
-    useWebpackExternals,
+    useWebpackExternals
   } = miskTab
   const relativePathPrefix = relative_path_prefix
     ? relative_path_prefix
@@ -49,7 +49,7 @@ module.exports = (env, argv) => {
   const outputPath = output_path ? output_path : `lib/web/_tab/${slug}`
 
   const DefinePluginConfig = new webpack.DefinePlugin({
-    "process.env.NODE_ENV": JSON.stringify("production"),
+    "process.env.NODE_ENV": JSON.stringify("production")
   })
 
   const BundleAnalyzerPluginConfig = new BundleAnalyzerPlugin({
@@ -57,24 +57,23 @@ module.exports = (env, argv) => {
     reportFilename: `bundle-analyzer-report-${slug}.html`,
     statsFilename: `bundle-analyzer-report-${slug}.json`,
     generateStatsFile: true,
-    openAnalyzer: false,
+    openAnalyzer: false
   })
 
-  const CopyWebpackPluginConfig = new CopyWebpackPlugin({
-    patterns: [
+  const CopyWebpackPluginConfig = new CopyWebpackPlugin(
+    [
       { from: "./node_modules/@misk/common/lib/web/" },
       { from: "./node_modules/@misk/core/lib/web/" },
       { from: "./node_modules/@misk/simpleredux/lib/web/" },
-      {
-        from: "./src/static/",
-        noErrorOnMissing: true,
-      },
+      { from: "./src/static/" }
     ],
-  })
+    { copyUnmodified: true }
+  )
 
-  const CopyRawIndexHtmlConfig = new CopyWebpackPlugin({
-    patterns: [{ from: "./src/index.html" }],
-  })
+  const CopyRawIndexHtmlConfig = new CopyWebpackPlugin(
+    [{ from: "./src/index.html" }],
+    { copyUnmodified: true }
+  )
 
   const HTMLWebpackHarddiskPluginConfig = new HTMLWebpackHarddiskPlugin()
 
@@ -83,7 +82,7 @@ module.exports = (env, argv) => {
     template: path.join(dirname, "/src/index.html"),
     filename: `index.html`,
     inject: "body",
-    alwaysWriteToDisk: true,
+    alwaysWriteToDisk: true
   })
 
   const StyledComponentsTransformer = createStyledComponentsTransformer()
@@ -92,12 +91,12 @@ module.exports = (env, argv) => {
     entry: {
       [`${relativePathPrefix}tab_${slug}`]: [
         "react-hot-loader/patch",
-        path.join(dirname, "/src/index.tsx"),
+        path.join(dirname, "/src/index.tsx")
       ], // two locations so local dev and through misk proxy works
       [`tab_${slug}`]: [
         "react-hot-loader/patch",
-        path.join(dirname, "/src/index.tsx"),
-      ],
+        path.join(dirname, "/src/index.tsx")
+      ]
     },
     output: {
       filename: `[name].js`,
@@ -110,65 +109,51 @@ module.exports = (env, argv) => {
        * without below globalObject: library binding to browser `window`
        *    fails when run in Node or other non-browser
        */
-      globalObject: "typeof self !== 'undefined' ? self : this",
+      globalObject: "typeof self !== 'undefined' ? self : this"
     },
     devServer: {
       host: "0.0.0.0",
       port: port,
       inline: true,
       hot: true,
-      historyApiFallback: true,
+      historyApiFallback: true
     },
     module: {
       rules: [
         {
           test: /\.(tsx|ts)$/,
           exclude: /node_modules/,
-          use: [
-            {
-              loader: "ts-loader",
-              options: {
-                getCustomTransformers: () => ({
-                  before: [StyledComponentsTransformer],
-                }),
-              },
-            },
-          ],
+          loader: "ts-loader",
+          options: {
+            getCustomTransformers: () => ({
+              before: [StyledComponentsTransformer]
+            })
+          }
         },
         {
           enforce: "pre",
           test: /\.js$/,
-          loader: "source-map-loader",
+          loader: "source-map-loader"
         },
         {
-          test: /\.(scss|sass|css)$/,
-          use: [
-            {
-              loader: "style-loader",
-            },
-            {
-              loader: "css-loader?minimize=true",
-            },
-            {
-              loader: "sass-loader",
-            },
-          ],
+          test: /\.scss$/,
+          loader: "style-loader!css-loader!sass-loader"
         },
         {
           test: /\.(jpe?g|png|gif|svg)$/i,
           loader: "url-loader",
           options: {
-            limit: 10000,
-          },
-        },
-      ],
+            limit: 10000
+          }
+        }
+      ]
     },
     resolve: {
       extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
       alias: {
         src: path.resolve(dirname, "./src/"),
-        tests: path.resolve(dirname, "./tests/"),
-      },
+        tests: path.resolve(dirname, "./tests/")
+      }
     },
     mode: env !== "production" ? "development" : "production",
     plugins: [CopyWebpackPluginConfig]
@@ -184,11 +169,9 @@ module.exports = (env, argv) => {
           ? [CopyRawIndexHtmlConfig]
           : [HTMLWebpackPluginConfig, HTMLWebpackHarddiskPluginConfig]
       ),
-    // TODO re-enable if externals works to provide tree-shaking without making tabs over reliant on having same dependency version as the broader dashboard that's providing the common libraries
-    externals:
-      false && useWebpackExternals
-        ? { ...vendorExternals, ...miskExternals }
-        : {},
+    externals: useWebpackExternals
+      ? { ...vendorExternals, ...miskExternals }
+      : {}
   }
 
   return merge(baseConfigFields, rawWebpackConfig)

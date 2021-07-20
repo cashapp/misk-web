@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  release:
+  build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -26,12 +26,9 @@ jobs:
       - name: Rush build
         run: node common/scripts/install-run-rush.js build --verbose
       - name: Configure git user
-        uses: oleksiyrudenko/gha-git-credentials@v2.1
-        with:
-          global: true
-          name: 'Misk-Web Alpha Release Bot'
-          email: 'misk-web+robots@squareup.com'
-          token: '${{ secrets.ACCESS_TOKEN }}'
+        run: |
+          sudo git config --global user.name "Misk-Web Alpha Release Bot"
+          sudo git config --global user.email "misk-web+robots@squareup.com"
       - name: Rush bump version
         run: node common/scripts/install-run-rush.js version --bump
       - name: Rush publish
