@@ -3,12 +3,12 @@ name: New
 on: [push]
 
 jobs:
-  build:
+  new:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [10, 12, 13]
+        node: [10, 12, 14]
 
     steps:
       - name: Install Misk-Web

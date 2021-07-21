@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [10, 12, 13]
+        node: [12, 14, 15]
 
     steps:
       - uses: actions/checkout@v2
@@ -18,7 +18,7 @@ jobs:
         run: miskweb prebuild -e
       - name: Rush check for inconsistent dependency versions
         run: node common/scripts/install-run-rush.js check
-      - name: Rush install
+      - name: Rush update
         run: node common/scripts/install-run-rush.js update
       - name: Rush build
         run: node common/scripts/install-run-rush.js build --verbose
