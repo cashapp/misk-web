@@ -16,7 +16,7 @@ export const parseAtPkgVersionFromNpmUrl = (url: string) =>
 
 export enum PackageVersionStatus {
   "NOT_FOUND",
-  "OFFLINE",
+  "OFFLINE"
 }
 
 export const packageVersionExistsOnNPM = async (
@@ -25,13 +25,11 @@ export const packageVersionExistsOnNPM = async (
 ) => {
   try {
     return parseAtPkgVersionFromNpmUrl(
-      (
-        await axios.get(
-          version
-            ? `https://unpkg.com/${pkg}@${version}`
-            : `https://unpkg.com/${pkg}`
-        )
-      ).request.path
+      (await axios.get(
+        version
+          ? `https://unpkg.com/${pkg}@${version}`
+          : `https://unpkg.com/${pkg}`
+      )).request.path
     )
   } catch (e) {
     if (e.code === "ENOTFOUND") {
@@ -41,9 +39,23 @@ export const packageVersionExistsOnNPM = async (
   }
 }
 
-export const isSemVer = (version: string) =>
-  !isNaN(parseInt(chain(version).replace(".", "").replace("-", "").value())) &&
-  isNumber(parseInt(chain(version).replace(".", "").replace("-", "").value()))
+export const isSemVar = (version: string) =>
+  !isNaN(
+    parseInt(
+      chain(version)
+        .replace(".", "")
+        .replace("-", "")
+        .value()
+    )
+  ) &&
+  isNumber(
+    parseInt(
+      chain(version)
+        .replace(".", "")
+        .replace("-", "")
+        .value()
+    )
+  )
 
 export const versionResolver = (
   version: string,
@@ -51,7 +63,7 @@ export const versionResolver = (
   packageVersion: string,
   packageName?: string
 ) => {
-  const resolvedVersion = isSemVer(version) ? version : packageVersion
+  const resolvedVersion = isSemVar(version) ? version : packageVersion
   const fallback = `\nFalling back to miskweb shipped version ${resolvedVersion}.`
   switch (onlineVersionResult) {
     case PackageVersionStatus.NOT_FOUND:
@@ -75,7 +87,7 @@ export const versionResolver = (
   }
 }
 
-export const getSemVerPackageVersionOnNPM = async (
+export const getSemVarPackageVersionOnNPM = async (
   version?: string,
   pkg: string = MiskPkg.core
 ): Promise<string> => {

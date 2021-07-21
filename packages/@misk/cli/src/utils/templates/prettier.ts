@@ -1,3 +1,3 @@
 export const prettier = {
-  prettier: "@misk/prettier",
+  "prettier": "@misk/prettier"
 }

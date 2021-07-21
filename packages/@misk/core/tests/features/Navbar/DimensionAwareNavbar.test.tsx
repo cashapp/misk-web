@@ -43,14 +43,7 @@ describe("Navbar DimensionAwareNavbar", () => {
         environmentBannerVisible={[Environment.DEVELOPMENT]}
         environmentNavbarVisible={[Environment.DEVELOPMENT]}
         width={200}
-        navbar_items={[
-          "Item 1",
-          "Item 2",
-          "Item 3",
-          "Item 4",
-          "Item 5",
-          "Item 6",
-        ]}
+        navbar_items={["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"]}
         navbarItemsToDisplay={5}
       />
     )
@@ -64,14 +57,7 @@ describe("Navbar DimensionAwareNavbar", () => {
         environmentBannerVisible={[Environment.DEVELOPMENT]}
         environmentNavbarVisible={[Environment.DEVELOPMENT]}
         width={1500}
-        navbar_items={[
-          "Item 1",
-          "Item 2",
-          "Item 3",
-          "Item 4",
-          "Item 5",
-          "Item 6",
-        ]}
+        navbar_items={["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"]}
       />
     )
     expect(asFragment()).toMatchSnapshot()

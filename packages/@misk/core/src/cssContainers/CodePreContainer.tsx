@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { IElementRefProps, Pre } from "@blueprintjs/core"
-import { css, jsx } from "@emotion/react"
+import { css, jsx } from "@emotion/core"
 import * as React from "react"
 
 /**

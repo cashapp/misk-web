@@ -18,7 +18,7 @@ import axios, { AxiosRequestConfig } from "axios"
 export const initialResponseState = () => {
   return {
     data: null as any,
-    error: null as any,
+    error: null as any
   }
 }
 

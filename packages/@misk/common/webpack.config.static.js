@@ -9,26 +9,26 @@ module.exports = {
   name: "static",
   mode: "production",
   entry: {
-    styles: path.resolve(__dirname, "src/styles.js"),
+    styles: path.resolve(__dirname, "src/styles.js")
   },
   output: {
-    path: path.resolve(__dirname, "./lib/web/@misk/common"),
+    path: path.resolve(__dirname, "./lib/web/@misk/common")
   },
   module: {
     rules: [
       {
         test: /\.(sa|sc|c)ss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      },
-    ],
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
+      }
+    ]
   },
   optimization: {
-    minimizer: [new OptimizeCssAssetsPlugin()],
+    minimizer: [new OptimizeCssAssetsPlugin()]
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-    }),
+      filename: "[name].css"
+    })
   ].concat(
     bundleAnalyzer
       ? [
@@ -37,9 +37,9 @@ module.exports = {
             reportFilename: "bundle-analyzer-report-common.html",
             statsFilename: "bundle-analyzer-report-common.json",
             generateStatsFile: true,
-            openAnalyzer: false,
-          }),
+            openAnalyzer: false
+          })
         ]
       : []
-  ),
+  )
 }

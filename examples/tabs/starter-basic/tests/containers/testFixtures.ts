@@ -6,14 +6,14 @@ export const stateWithData = {
       error: null as any,
       loading: false,
       success: true,
-      tag: "LoadData::dataRange",
+      tag: "LoadData::dataRange"
     },
     "LoadData::dataKey": {
       data: "cars",
       error: null as any,
       loading: false,
       success: true,
-      tag: "LoadData::dataKey",
+      tag: "LoadData::dataKey"
     },
     simpleTag: "simpleRedux",
     error: null as any,
@@ -39,7 +39,7 @@ export const stateWithData = {
               longitude: -8.4787949,
               manufactured_date: "4/17/2018",
               created_at: "3:19:26.000",
-              updated_at: "6:44:28.000",
+              updated_at: "6:44:28.000"
             },
             {
               id: "2545bae7-dcf7-4082-ad9c-9e68a68d579a",
@@ -53,7 +53,7 @@ export const stateWithData = {
               longitude: 30.3414908,
               manufactured_date: "3/21/2018",
               created_at: "15:11:57.000",
-              updated_at: "13:07:56.000",
+              updated_at: "13:07:56.000"
             },
             {
               id: "2f0909dd-1298-4469-ac86-e96269009ee8",
@@ -67,7 +67,7 @@ export const stateWithData = {
               longitude: -91.7270911,
               manufactured_date: "4/15/2018",
               created_at: "9:55:18.000",
-              updated_at: "2:45:01.000",
+              updated_at: "2:45:01.000"
             },
             {
               id: "e76594d6-e59c-4cec-ae98-560a41b7066e",
@@ -81,7 +81,7 @@ export const stateWithData = {
               longitude: 120.839842,
               manufactured_date: "4/4/2018",
               created_at: "5:22:24.000",
-              updated_at: "14:04:49.000",
+              updated_at: "14:04:49.000"
             },
             {
               id: "a4145f72-a953-4c1d-8cdd-1b4dd9fc7e1a",
@@ -95,7 +95,7 @@ export const stateWithData = {
               longitude: 29.2814687,
               manufactured_date: "11/11/2018",
               created_at: "4:55:37.000",
-              updated_at: "5:22:04.000",
+              updated_at: "5:22:04.000"
             },
             {
               id: "90688155-b258-408b-b5af-d1631101a119",
@@ -109,7 +109,7 @@ export const stateWithData = {
               longitude: 120.409835,
               manufactured_date: "5/29/2018",
               created_at: "11:54:06.000",
-              updated_at: "20:53:58.000",
+              updated_at: "20:53:58.000"
             },
             {
               id: "6faa8d74-ef65-4e9b-bcf3-410ec10da3ac",
@@ -123,7 +123,7 @@ export const stateWithData = {
               longitude: 112.548349,
               manufactured_date: "1/6/2018",
               created_at: "12:56:58.000",
-              updated_at: "21:59:14.000",
+              updated_at: "21:59:14.000"
             },
             {
               id: "4d833b1c-dc83-4063-ba80-7aacf0cde31a",
@@ -137,7 +137,7 @@ export const stateWithData = {
               longitude: 8.7756556,
               manufactured_date: "2/21/2018",
               created_at: "20:19:37.000",
-              updated_at: "2:32:30.000",
+              updated_at: "2:32:30.000"
             },
             {
               id: "639dbc68-9d99-4670-a6ac-8154b1b8f502",
@@ -151,7 +151,7 @@ export const stateWithData = {
               longitude: 22.7850797,
               manufactured_date: "3/10/2018",
               created_at: "19:02:30.000",
-              updated_at: "3:21:01.000",
+              updated_at: "3:21:01.000"
             },
             {
               id: "e1373313-621c-4802-861a-2a31866aa558",
@@ -165,7 +165,7 @@ export const stateWithData = {
               longitude: -93.75,
               manufactured_date: "10/6/2018",
               created_at: "4:16:15.000",
-              updated_at: "20:45:56.000",
+              updated_at: "20:45:56.000"
             },
             {
               id: "c1c223fd-f94d-40b8-bb2f-8c5353c0dcad",
@@ -179,7 +179,7 @@ export const stateWithData = {
               longitude: 39.7408655,
               manufactured_date: "9/17/2018",
               created_at: "13:19:14.000",
-              updated_at: "15:36:30.000",
+              updated_at: "15:36:30.000"
             },
             {
               id: "993d4d22-aef6-4ec7-95f2-951e7f5fb92d",
@@ -193,7 +193,7 @@ export const stateWithData = {
               longitude: "-112.65185",
               manufactured_date: "6/26/2018",
               created_at: "21:27:54.000",
-              updated_at: "12:55:31.000",
+              updated_at: "12:55:31.000"
             },
             {
               id: "4593210b-7227-4f01-be44-0e8ea068d5bb",
@@ -207,7 +207,7 @@ export const stateWithData = {
               longitude: 19.1332531,
               manufactured_date: "4/13/2018",
               created_at: "12:37:15.000",
-              updated_at: "5:07:23.000",
+              updated_at: "5:07:23.000"
             },
             {
               id: "14595c44-5b06-4d89-9298-690c48f250ae",
@@ -221,11 +221,11 @@ export const stateWithData = {
               longitude: 117.470597,
               manufactured_date: "5/9/2018",
               created_at: "1:07:05.000",
-              updated_at: "19:40:37.000",
-            },
-          ],
-        },
-      },
-    },
-  },
+              updated_at: "19:40:37.000"
+            }
+          ]
+        }
+      }
+    }
+  }
 }

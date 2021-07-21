@@ -1,29 +1,5 @@
 ## Changelog
 
-## 0.2.1
-
-DD Jan 2021 14:14:00 GMT
-
-Stable release including all the changes of `0.2.1-*` alpha releases.
-
-## 0.2.0
-
-22 Jan 2021 14:14:00 GMT
-
-Major upgrade to many dependencies including [Webpack (4 => 5)](https://webpack.js.org/migrate/5/) and [Emotion (10 => 11)](https://emotion.sh/docs/emotion-11). Automatic code migration has been added to the `$ miskweb` CLI to assist in migrating your tabs from `0.1.*` to `0.2.0` but you may need to lean into the above linked migration guides for more complex issues.
-
-## 0.1.28
-
-18 Jan 2021 14:14:00 GMT
-
-Stable release including all the changes of `0.1.28-*` alpha releases.
-
-## 0.1.27
-
-18 Jan 2021 14:14:00 GMT
-
-Stable release including all the changes of `0.1.27-*` alpha releases.
-
 ## 0.1.26
 
 28 Apr 2020 14:14:00 GMT
