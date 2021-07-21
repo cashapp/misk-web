@@ -23,6 +23,17 @@
       "ignoreDependencyOrder": false,
       "ignoreMissingScript": false,
       "allowWarningsInSuccessfulBuild": true
+    },
+    // Prebuild is needed for the example projects.
+    {
+      "commandKind": "bulk",
+      "name": "prebuild",
+      "summary": "Run pre-build steps on all projects",
+      "safeForSimultaneousRushProcesses": false,
+      "enableParallelism": true,
+      "ignoreDependencyOrder": false,
+      "ignoreMissingScript": true,
+      "allowWarningsInSuccessfulBuild": true
     }
     // {
     //   /**
