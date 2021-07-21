@@ -20,10 +20,8 @@ jobs:
         run: node common/scripts/install-run-rush.js check
       - name: Rush install
         run: node common/scripts/install-run-rush.js update
-      - name: Rush prebuild
-        run: node common/scripts/install-run-rush.js prebuild
       - name: Rush build
-        run: node common/scripts/install-run-rush.js build --verbose
+        run: node common/scripts/install-run-rush.js ci-build --verbose
       - name: miskweb new (using branch built CLI)
         run: |
           mkdir branch-cli-new-test && cd branch-cli-new-test
