@@ -3,7 +3,7 @@ import reduce from "lodash/reduce"
 import * as React from "react"
 import {
   defaultEnvironment,
-  defaultEnvironmentIndicatorsVisible,
+  defaultEnvironmentIndicatorsVisible
 } from "../../utilities"
 import { DimensionAwareNavbar, INavbarProps } from "../Navbar"
 import { defaultTheme } from "src/utilities/theme"
@@ -34,7 +34,7 @@ export interface IDimensionAwareProps {
 export class Navbar extends React.Component<INavbarProps, {}> {
   public state = {
     height: 0,
-    width: 0,
+    width: 0
   }
 
   handleResize = (entries: IResizeEntry[]) => {
@@ -43,7 +43,7 @@ export class Navbar extends React.Component<INavbarProps, {}> {
         entries,
         (dimension, e) => ({
           height: Math.max(dimension.height, e.contentRect.height),
-          width: Math.max(dimension.width, e.contentRect.width),
+          width: Math.max(dimension.width, e.contentRect.width)
         }),
         { height: 0, width: 0 }
       )
@@ -67,7 +67,7 @@ export class Navbar extends React.Component<INavbarProps, {}> {
       navbar_items,
       navbarItemsToDisplay = null,
       status,
-      theme = defaultTheme,
+      theme = defaultTheme
     } = this.props
     const { height, width } = this.state
     return (

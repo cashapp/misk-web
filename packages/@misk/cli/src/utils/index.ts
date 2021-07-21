@@ -14,7 +14,7 @@ export enum MiskPkg {
   "prettier" = "@misk/prettier",
   "simpleredux" = "@misk/simpleredux",
   "test" = "@misk/test",
-  "tslint" = "@misk/tslint",
+  "tslint" = "@misk/tslint"
 }
 
 export interface IMiskTabJSON {
@@ -24,8 +24,8 @@ export interface IMiskTabJSON {
   rawGitginore: string // prebuild permanent add to .gitignore file
   rawIndex: boolean // ignore Webpack injection of source links to index.html
   rawPackageJson: any // prebuild permanent add/override to package.json file
-  rawTsconfig: any // prebuild permanent add/override to tsconfig.json file compilerOptions key
-  rawTsconfigInclude: any // prebuild permanent add/override to tsconfig.json file include key
+  rawTsconfig: any // prebuild permanent add/override to tsconfig.json file
+  rawTslint: any // prebuild permanent add/override to tslint.json file
   rawWebpackConfig: any // prebuild permanent add to webpack.config.js file
   relative_path_prefix: string // override default URL for tab: /_tab/{slug}/
   slug: string // unique slug used in URL path
@@ -48,7 +48,7 @@ export enum Files {
   "tsconfig" = "tsconfig.json",
   "tslint" = "tslint.json",
   "webpack" = "webpack.config.js",
-  "yarnLock" = "yarn.lock",
+  "yarnLock" = "yarn.lock"
 }
 
 export const JsonOptions = { spaces: 2 }
@@ -57,7 +57,11 @@ export const logFormatter = (
   tag: string,
   msg?: string,
   dir: string = pwd().stdout
-) => `[${tag.toUpperCase()}][${dir.split("/").pop().toUpperCase()}] ${msg}`
+) =>
+  `[${tag.toUpperCase()}][${dir
+    .split("/")
+    .pop()
+    .toUpperCase()}] ${msg}`
 
 export const logDebug = (
   tag: string,
@@ -69,7 +73,7 @@ export const makePath = (...segments: string[]) => `${segments.join("/")}`
 
 export const parseArgs = (...args: any): { dir: string; rawArgs: any } => ({
   dir: pwd().stdout,
-  rawArgs: args,
+  rawArgs: args
 })
 
 export const remove = async (path: string) => {
@@ -86,9 +90,7 @@ export const execute = (cmd: string, ...args: any) => {
   const terminal = exec(cmd)
   terminal.stdout
   if (terminal.code) {
-    console.log(
-      `\n[ERROR][CODE] Shell command exited with code ${terminal.code}:\n\`${cmd}\``
-    )
+    console.log(`\n[ERROR][CODE] Shell command exited with code ${terminal.code}:\n\`${cmd}\``)
     exit(terminal.code)
   }
 }

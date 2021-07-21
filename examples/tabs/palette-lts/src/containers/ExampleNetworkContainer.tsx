@@ -5,14 +5,14 @@ import {
   TextArea,
   H1,
   Intent,
-  Pre,
+  Pre
 } from "@blueprintjs/core"
 import {
   onClickFnCall,
   onChangeFnCall,
   simpleSelect,
   simpleSelectorGet,
-  simpleSelectorPick,
+  simpleSelectorPick
 } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
@@ -20,7 +20,7 @@ import {
   IDispatchProps,
   IState,
   mapDispatchToProps,
-  mapStateToProps,
+  mapStateToProps
 } from "src/ducks"
 
 export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
@@ -64,7 +64,7 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
           intent={Intent.DANGER}
           loading={simpleSelectorGet(props.simpleNetwork, [
             "SampleNetwork::DELETE",
-            "loading",
+            "loading"
           ])}
           text={"DELETE"}
         />
@@ -77,7 +77,7 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
           intent={Intent.SUCCESS}
           loading={simpleSelectorGet(props.simpleNetwork, [
             "SampleNetwork::GET",
-            "loading",
+            "loading"
           ])}
           text={"GET"}
         />
@@ -90,7 +90,7 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
           intent={Intent.NONE}
           loading={simpleSelectorGet(props.simpleNetwork, [
             "SampleNetwork::HEAD",
-            "loading",
+            "loading"
           ])}
           text={"HEAD"}
         />
@@ -104,7 +104,7 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
           intent={Intent.PRIMARY}
           loading={simpleSelectorGet(props.simpleNetwork, [
             "SampleNetwork::PATCH",
-            "loading",
+            "loading"
           ])}
           text={"PATCH"}
         />
@@ -118,7 +118,7 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
           intent={Intent.PRIMARY}
           loading={simpleSelectorGet(props.simpleNetwork, [
             "SampleNetwork::POST",
-            "loading",
+            "loading"
           ])}
           text={"POST"}
         />
@@ -132,7 +132,7 @@ export const ExampleNetworkContainer = (props: IDispatchProps & IState) => {
           intent={Intent.WARNING}
           loading={simpleSelectorGet(props.simpleNetwork, [
             "SampleNetwork::PUT",
-            "loading",
+            "loading"
           ])}
           text={"PUT"}
         />

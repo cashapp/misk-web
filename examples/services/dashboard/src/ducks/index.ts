@@ -2,7 +2,7 @@ import { SimpleReduxSaga } from "@misk/simpleredux"
 import {
   connectRouter,
   LocationChangeAction,
-  RouterState,
+  RouterState
 } from "connected-react-router"
 import { History } from "history"
 import { AnyAction, combineReducers, Reducer } from "redux"
@@ -10,7 +10,7 @@ import { all, fork } from "redux-saga/effects"
 import {
   default as LoaderReducer,
   ILoaderState,
-  watchLoaderSagas,
+  watchLoaderSagas
 } from "./loader"
 export * from "./loader"
 
@@ -36,7 +36,7 @@ export const rootReducer = (
 > =>
   combineReducers({
     loader: LoaderReducer,
-    router: connectRouter(history),
+    router: connectRouter(history)
   })
 
 /**

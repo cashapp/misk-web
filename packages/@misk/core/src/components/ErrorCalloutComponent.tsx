@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Callout, ICalloutProps } from "@blueprintjs/core"
-import { css, jsx } from "@emotion/react"
+import { css, jsx } from "@emotion/core"
 import styled from "@emotion/styled"
 
 /**

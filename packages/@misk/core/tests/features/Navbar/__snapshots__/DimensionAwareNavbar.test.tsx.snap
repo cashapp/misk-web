@@ -2,66 +2,69 @@
 
 exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar can render 1`] = `
 <DocumentFragment>
-  .emotion-0 {
-  background-color: #29333a!important;
-  padding-top: 10px!important;
-  padding-bottom: 60px!important;
-  position: fixed!important;
+  .emotion-10 {
+  background-color: #29333a !important;
+  padding-top: 10px !important;
+  padding-bottom: 60px !important;
+  position: fixed !important;
 }
 
-.emotion-1 {
+.emotion-2 {
   margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-  .emotion-1 {
+@media (min-width:768px) {
+  .emotion-2 {
     width: 750px;
   }
 }
 
-@media (min-width: 992px) {
-  .emotion-1 {
+@media (min-width:992px) {
+  .emotion-2 {
     width: 970px;
   }
 }
 
-@media (min-width: 1200px) {
-  .emotion-1 {
+@media (min-width:1200px) {
+  .emotion-2 {
     width: 1170px;
   }
 }
 
-.emotion-2 {
-  font-size: 13px!important;
-  font-weight: 600!important;
+.emotion-1 {
+  font-size: 13px !important;
+  font-weight: 600 !important;
   position: relative;
   padding-top: 25px;
   padding-bottom: 27px;
 }
 
-@media (max-width: 870px) {
-  .emotion-2 {
+@media (max-width:870px) {
+  .emotion-1 {
     padding-left: 60px;
   }
 }
 
-@media (min-width: 992px) and (max-width: 1085px) {
-  .emotion-2 {
+@media (min-width:992px) and (max-width:1085px) {
+  .emotion-1 {
     padding-left: 60px;
   }
 }
 
-@media (min-width: 1200px) and (max-width: 1285px) {
-  .emotion-2 {
+@media (min-width:1200px) and (max-width:1285px) {
+  .emotion-1 {
     padding-left: 60px;
   }
 }
 
-.emotion-3 {
-  font-size: 24px!important;
+.emotion-0 {
+  font-size: 24px !important;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
   letter-spacing: 0px;
   margin-right: 30px;
   color: #cecece;
@@ -70,61 +73,64 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar can render 1`] = `
   min-width: fit-content;
 }
 
-.emotion-3 a {
-  color: #cecece!important;
+.emotion-0 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
   letter-spacing: 1px;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-3 a:hover {
-  color: white!important;
+.emotion-0 a:hover {
+  color: white !important;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .emotion-4 {
-  background-color: #29333a!important;
-  box-shadow: none!important;
-  background-image: none!important;
+  background-color: #29333a !important;
+  box-shadow: none !important;
+  background-image: none !important;
   top: 15px;
   left: 15px;
   position: absolute;
   z-index: 1020;
 }
 
-.emotion-5 {
-  color: #7a7e82!important;
+.emotion-3 {
+  color: #7a7e82 !important;
 }
 
-.emotion-5:hover {
+.emotion-3:hover {
   color: white;
 }
 
-.emotion-6 {
+.emotion-9 {
   background-color: #29333a;
   display: block;
   margin: 60px -20px 0 -20px;
 }
 
-.emotion-7 {
+.emotion-8 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
   max-height: 100vh;
 }
 
-@media (max-width: 768px) {
-  .emotion-7 {
+@media (max-width:768px) {
+  .emotion-8 {
     padding: 50px 20px;
   }
 }
 
-.emotion-9 {
+.emotion-6 {
   display: inline-block;
 }
 
-.emotion-10 {
+.emotion-5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -132,13 +138,12 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar can render 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
-.emotion-10 * {
+.emotion-5 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -149,16 +154,16 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar can render 1`] = `
 }
 
 <div
-    class="bp3-navbar emotion-0"
+    class="bp3-navbar emotion-10"
   >
     <div
-      class="emotion-1"
+      class="emotion-2"
     >
       <div
-        class="bp3-navbar-group bp3-align-left bp3-dark emotion-2"
+        class="bp3-navbar-group bp3-align-left bp3-dark emotion-1"
       >
         <span
-          class="emotion-3"
+          class="emotion-0"
         >
           Misk
         </span>
@@ -173,340 +178,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar can render 1`] = `
           class="bp3-button-text"
         >
           <span
-            class="bp3-icon bp3-icon-menu emotion-5"
-            icon="menu"
-          >
-            <svg
-              data-icon="menu"
-              height="32"
-              viewBox="0 0 20 20"
-              width="32"
-            >
-              <desc>
-                menu
-              </desc>
-              <path
-                d="M1 6h18c.55 0 1-.45 1-1s-.45-1-1-1H1c-.55 0-1 .45-1 1s.45 1 1 1zm18 3H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1zm0 5H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1z"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </span>
-        </span>
-      </button>
-      <div
-        class="emotion-6"
-      >
-        <div
-          class="bp3-collapse"
-        >
-          <div
-            aria-hidden="true"
-            class="bp3-collapse-body bp3-fixed-positioning-containing-block"
-            style="transform: translateY(-undefinedpx);"
-          >
-            <div
-              class="emotion-7"
-            >
-              <div
-                class="emotion-1"
-              >
-                <div
-                  class="emotion-9"
-                >
-                  <div
-                    class="emotion-10"
-                  >
-                    <span>
-                      <span />
-                    </span>
-                  </div>
-                </div>
-                <span />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div />
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount of navbar items 1`] = `
-<DocumentFragment>
-  .emotion-0 {
-  background-color: #29333a!important;
-  padding-top: 10px!important;
-  padding-bottom: 60px!important;
-  position: fixed!important;
-}
-
-.emotion-1 {
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .emotion-1 {
-    width: 750px;
-  }
-}
-
-@media (min-width: 992px) {
-  .emotion-1 {
-    width: 970px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .emotion-1 {
-    width: 1170px;
-  }
-}
-
-.emotion-2 {
-  font-size: 13px!important;
-  font-weight: 600!important;
-  position: relative;
-  padding-top: 25px;
-  padding-bottom: 27px;
-}
-
-@media (max-width: 870px) {
-  .emotion-2 {
-    padding-left: 60px;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1085px) {
-  .emotion-2 {
-    padding-left: 60px;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1285px) {
-  .emotion-2 {
-    padding-left: 60px;
-  }
-}
-
-.emotion-3 {
-  font-size: 24px!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0px;
-  margin-right: 30px;
-  color: #cecece;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-}
-
-.emotion-3 a {
-  color: #cecece!important;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-3 a:hover {
-  color: white!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-4 {
-  font-size: 24px!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0px;
-  margin-right: 30px;
-  color: #cecece;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  color: #49a4d5!important;
-  min-width: 0;
-}
-
-.emotion-4 a {
-  color: #cecece!important;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-4 a:hover {
-  color: white!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-5 {
-  font-size: 24px!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0px;
-  margin-right: 30px;
-  color: #cecece;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-}
-
-.emotion-5 a {
-  color: #cecece!important;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-5 a:hover {
-  color: white!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-7 {
-  background-color: #29333a!important;
-  box-shadow: none!important;
-  background-image: none!important;
-  top: 15px;
-  left: 15px;
-  position: absolute;
-  z-index: 1020;
-}
-
-.emotion-8 {
-  color: #7a7e82!important;
-}
-
-.emotion-8:hover {
-  color: white;
-}
-
-.emotion-9 {
-  background-color: #29333a;
-  display: block;
-  margin: 60px -20px 0 -20px;
-}
-
-.emotion-10 {
-  min-height: 250px;
-  padding: 50px 0px;
-  overflow-y: scroll;
-  max-height: 100vh;
-}
-
-@media (max-width: 768px) {
-  .emotion-10 {
-    padding: 50px 20px;
-  }
-}
-
-.emotion-12 {
-  display: inline-block;
-}
-
-.emotion-13 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.emotion-13 * {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.emotion-21 {
-  background-color: #49a4d5!important;
-  color: #eceef1!important;
-  text-align: center;
-  font-weight: 600;
-  padding: 5px 10px;
-  position: fixed!important;
-  width: 100%;
-  top: 70px;
-  left: 0px;
-  z-index: 1010!important;
-}
-
-.emotion-21 a {
-  font-weight: 300;
-  color: #eceef1;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  letter-spacing: 1px;
-}
-
-.emotion-21 a:hover {
-  color: white;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-<div
-    class="bp3-navbar emotion-0"
-  >
-    <div
-      class="emotion-1"
-    >
-      <div
-        class="bp3-navbar-group bp3-align-left bp3-dark emotion-2"
-      >
-        <span
-          class="emotion-3"
-        >
-          Misk
-        </span>
-        <span
-          class="emotion-4"
-        >
-          DEVELOPMENT
-        </span>
-        <span
-          class="emotion-5"
-        >
-          <span>
-            Item 1
-          </span>
-        </span>
-        <span
-          class="emotion-5"
-        >
-          <span>
-            Item 2
-          </span>
-        </span>
-      </div>
-    </div>
-    <div>
-      <button
-        class="bp3-button emotion-7"
-        type="button"
-      >
-        <span
-          class="bp3-button-text"
-        >
-          <span
-            class="bp3-icon bp3-icon-menu emotion-8"
+            class="bp3-icon bp3-icon-menu emotion-3"
             icon="menu"
           >
             <svg
@@ -534,31 +206,352 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount
         >
           <div
             aria-hidden="true"
-            class="bp3-collapse-body bp3-fixed-positioning-containing-block"
-            style="transform: translateY(-undefinedpx);"
+            class="bp3-collapse-body"
+            style="transform: translateY(-0px);"
           >
             <div
-              class="emotion-10"
+              class="emotion-8"
             >
               <div
-                class="emotion-1"
+                class="emotion-2"
               >
                 <div
-                  class="emotion-12"
+                  class="emotion-6"
                 >
                   <div
-                    class="emotion-13"
+                    class="emotion-5"
+                  >
+                    <span>
+                      <span />
+                    </span>
+                  </div>
+                </div>
+                <span />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount of navbar items 1`] = `
+<DocumentFragment>
+  .emotion-23 {
+  background-color: #29333a !important;
+  padding-top: 10px !important;
+  padding-bottom: 60px !important;
+  position: fixed !important;
+}
+
+.emotion-5 {
+  margin: 0 auto;
+}
+
+@media (min-width:768px) {
+  .emotion-5 {
+    width: 750px;
+  }
+}
+
+@media (min-width:992px) {
+  .emotion-5 {
+    width: 970px;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-5 {
+    width: 1170px;
+  }
+}
+
+.emotion-4 {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 27px;
+}
+
+@media (max-width:870px) {
+  .emotion-4 {
+    padding-left: 60px;
+  }
+}
+
+@media (min-width:992px) and (max-width:1085px) {
+  .emotion-4 {
+    padding-left: 60px;
+  }
+}
+
+@media (min-width:1200px) and (max-width:1285px) {
+  .emotion-4 {
+    padding-left: 60px;
+  }
+}
+
+.emotion-0 {
+  font-size: 24px !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+.emotion-0 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0 a:hover {
+  color: white !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-7 {
+  background-color: #29333a !important;
+  box-shadow: none !important;
+  background-image: none !important;
+  top: 15px;
+  left: 15px;
+  position: absolute;
+  z-index: 1020;
+}
+
+.emotion-6 {
+  color: #7a7e82 !important;
+}
+
+.emotion-6:hover {
+  color: white;
+}
+
+.emotion-19 {
+  background-color: #29333a;
+  display: block;
+  margin: 60px -20px 0 -20px;
+}
+
+.emotion-18 {
+  min-height: 250px;
+  padding: 50px 0px;
+  overflow-y: scroll;
+  max-height: 100vh;
+}
+
+@media (max-width:768px) {
+  .emotion-18 {
+    padding: 50px 20px;
+  }
+}
+
+.emotion-16 {
+  display: inline-block;
+}
+
+.emotion-15 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.emotion-15 * {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emotion-1 {
+  font-size: 24px !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  color: #49a4d5 !important;
+  min-width: 0;
+}
+
+.emotion-1 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-1 a:hover {
+  color: white !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-22 {
+  background-color: #49a4d5 !important;
+  color: #eceef1 !important;
+  text-align: center;
+  font-weight: 600;
+  padding: 5px 10px;
+  position: fixed !important;
+  width: 100%;
+  top: 70px;
+  left: 0px;
+  z-index: 1010 !important;
+}
+
+.emotion-22 a {
+  font-weight: 300;
+  color: #eceef1;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+}
+
+.emotion-22 a:hover {
+  color: white;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<div
+    class="bp3-navbar emotion-23"
+  >
+    <div
+      class="emotion-5"
+    >
+      <div
+        class="bp3-navbar-group bp3-align-left bp3-dark emotion-4"
+      >
+        <span
+          class="emotion-0"
+        >
+          Misk
+        </span>
+        <span
+          class="emotion-1"
+        >
+          DEVELOPMENT
+        </span>
+        <span
+          class="emotion-0"
+        >
+          <span>
+            Item 1
+          </span>
+        </span>
+        <span
+          class="emotion-0"
+        >
+          <span>
+            Item 2
+          </span>
+        </span>
+      </div>
+    </div>
+    <div>
+      <button
+        class="bp3-button emotion-7"
+        type="button"
+      >
+        <span
+          class="bp3-button-text"
+        >
+          <span
+            class="bp3-icon bp3-icon-menu emotion-6"
+            icon="menu"
+          >
+            <svg
+              data-icon="menu"
+              height="32"
+              viewBox="0 0 20 20"
+              width="32"
+            >
+              <desc>
+                menu
+              </desc>
+              <path
+                d="M1 6h18c.55 0 1-.45 1-1s-.45-1-1-1H1c-.55 0-1 .45-1 1s.45 1 1 1zm18 3H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1zm0 5H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+      <div
+        class="emotion-19"
+      >
+        <div
+          class="bp3-collapse"
+        >
+          <div
+            aria-hidden="true"
+            class="bp3-collapse-body"
+            style="transform: translateY(-0px);"
+          >
+            <div
+              class="emotion-18"
+            >
+              <div
+                class="emotion-5"
+              >
+                <div
+                  class="emotion-16"
+                >
+                  <div
+                    class="emotion-15"
                   >
                     <span>
                       <span
-                        class="emotion-4"
+                        class="emotion-1"
                       >
                         DEVELOPMENT
                       </span>
                     </span>
                     <span>
                       <span
-                        class="emotion-5"
+                        class="emotion-0"
                       >
                         <span>
                           Item 1
@@ -567,7 +560,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount
                     </span>
                     <span>
                       <span
-                        class="emotion-5"
+                        class="emotion-0"
                       >
                         <span>
                           Item 2
@@ -576,7 +569,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount
                     </span>
                     <span>
                       <span
-                        class="emotion-5"
+                        class="emotion-0"
                       >
                         <span>
                           Item 3
@@ -585,7 +578,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount
                     </span>
                     <span>
                       <span
-                        class="emotion-5"
+                        class="emotion-0"
                       >
                         <span>
                           Item 4
@@ -594,7 +587,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount
                     </span>
                     <span>
                       <span
-                        class="emotion-5"
+                        class="emotion-0"
                       >
                         <span>
                           Item 5
@@ -603,7 +596,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount
                     </span>
                     <span>
                       <span
-                        class="emotion-5"
+                        class="emotion-0"
                       >
                         <span>
                           Item 6
@@ -620,13 +613,13 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount
       </div>
     </div>
     <span
-      class="emotion-21"
+      class="emotion-22"
     >
       <div
-        class="emotion-1"
+        class="emotion-5"
       >
         <div
-          class="emotion-13"
+          class="emotion-15"
         >
           <span />
         </div>
@@ -638,66 +631,69 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders default amount
 
 exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`] = `
 <DocumentFragment>
-  .emotion-0 {
-  background-color: #29333a!important;
-  padding-top: 10px!important;
-  padding-bottom: 60px!important;
-  position: fixed!important;
+  .emotion-15 {
+  background-color: #29333a !important;
+  padding-top: 10px !important;
+  padding-bottom: 60px !important;
+  position: fixed !important;
 }
 
-.emotion-1 {
+.emotion-3 {
   margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-  .emotion-1 {
+@media (min-width:768px) {
+  .emotion-3 {
     width: 750px;
   }
 }
 
-@media (min-width: 992px) {
-  .emotion-1 {
+@media (min-width:992px) {
+  .emotion-3 {
     width: 970px;
   }
 }
 
-@media (min-width: 1200px) {
-  .emotion-1 {
+@media (min-width:1200px) {
+  .emotion-3 {
     width: 1170px;
   }
 }
 
 .emotion-2 {
-  font-size: 13px!important;
-  font-weight: 600!important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
   position: relative;
   padding-top: 25px;
   padding-bottom: 27px;
 }
 
-@media (max-width: 870px) {
+@media (max-width:870px) {
   .emotion-2 {
     padding-left: 60px;
   }
 }
 
-@media (min-width: 992px) and (max-width: 1085px) {
+@media (min-width:992px) and (max-width:1085px) {
   .emotion-2 {
     padding-left: 60px;
   }
 }
 
-@media (min-width: 1200px) and (max-width: 1285px) {
+@media (min-width:1200px) and (max-width:1285px) {
   .emotion-2 {
     padding-left: 60px;
   }
 }
 
-.emotion-3 {
-  font-size: 24px!important;
+.emotion-0 {
+  font-size: 24px !important;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
   letter-spacing: 0px;
   margin-right: 30px;
   color: #cecece;
@@ -706,89 +702,64 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   min-width: fit-content;
 }
 
-.emotion-3 a {
-  color: #cecece!important;
+.emotion-0 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
   letter-spacing: 1px;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-3 a:hover {
-  color: white!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-4 {
-  font-size: 24px!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0px;
-  margin-right: 30px;
-  color: #cecece;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  color: #49a4d5!important;
-  min-width: 0;
-}
-
-.emotion-4 a {
-  color: #cecece!important;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-4 a:hover {
-  color: white!important;
+.emotion-0 a:hover {
+  color: white !important;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
 .emotion-5 {
-  background-color: #29333a!important;
-  box-shadow: none!important;
-  background-image: none!important;
+  background-color: #29333a !important;
+  box-shadow: none !important;
+  background-image: none !important;
   top: 15px;
   left: 15px;
   position: absolute;
   z-index: 1020;
 }
 
-.emotion-6 {
-  color: #7a7e82!important;
+.emotion-4 {
+  color: #7a7e82 !important;
 }
 
-.emotion-6:hover {
+.emotion-4:hover {
   color: white;
 }
 
-.emotion-7 {
+.emotion-11 {
   background-color: #29333a;
   display: block;
   margin: 60px -20px 0 -20px;
 }
 
-.emotion-8 {
+.emotion-10 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
   max-height: 100vh;
 }
 
-@media (max-width: 768px) {
-  .emotion-8 {
+@media (max-width:768px) {
+  .emotion-10 {
     padding: 50px 20px;
   }
 }
 
-.emotion-10 {
+.emotion-8 {
   display: inline-block;
 }
 
-.emotion-11 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -796,13 +767,12 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
-.emotion-11 * {
+.emotion-7 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -812,742 +782,101 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 1`
   white-space: nowrap;
 }
 
-.emotion-13 {
-  background-color: #49a4d5!important;
-  color: #eceef1!important;
-  text-align: center;
-  font-weight: 600;
-  padding: 5px 10px;
-  position: fixed!important;
-  width: 100%;
-  top: 70px;
-  left: 0px;
-  z-index: 1010!important;
-}
-
-.emotion-13 a {
-  font-weight: 300;
-  color: #eceef1;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  letter-spacing: 1px;
-}
-
-.emotion-13 a:hover {
-  color: white;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-<div
-    class="bp3-navbar emotion-0"
-  >
-    <div
-      class="emotion-1"
-    >
-      <div
-        class="bp3-navbar-group bp3-align-left bp3-dark emotion-2"
-      >
-        <span
-          class="emotion-3"
-        >
-          Misk
-        </span>
-        <span
-          class="emotion-4"
-        >
-          DEVELOPMENT
-        </span>
-      </div>
-    </div>
-    <div>
-      <button
-        class="bp3-button emotion-5"
-        type="button"
-      >
-        <span
-          class="bp3-button-text"
-        >
-          <span
-            class="bp3-icon bp3-icon-menu emotion-6"
-            icon="menu"
-          >
-            <svg
-              data-icon="menu"
-              height="32"
-              viewBox="0 0 20 20"
-              width="32"
-            >
-              <desc>
-                menu
-              </desc>
-              <path
-                d="M1 6h18c.55 0 1-.45 1-1s-.45-1-1-1H1c-.55 0-1 .45-1 1s.45 1 1 1zm18 3H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1zm0 5H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1z"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </span>
-        </span>
-      </button>
-      <div
-        class="emotion-7"
-      >
-        <div
-          class="bp3-collapse"
-        >
-          <div
-            aria-hidden="true"
-            class="bp3-collapse-body bp3-fixed-positioning-containing-block"
-            style="transform: translateY(-undefinedpx);"
-          >
-            <div
-              class="emotion-8"
-            >
-              <div
-                class="emotion-1"
-              >
-                <div
-                  class="emotion-10"
-                >
-                  <div
-                    class="emotion-11"
-                  >
-                    <span>
-                      <span
-                        class="emotion-4"
-                      >
-                        DEVELOPMENT
-                      </span>
-                    </span>
-                    <span>
-                      <span />
-                    </span>
-                  </div>
-                </div>
-                <span />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <span
-      class="emotion-13"
-    >
-      <div
-        class="emotion-1"
-      >
-        <div
-          class="emotion-11"
-        >
-          <span />
-        </div>
-      </div>
-    </span>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`] = `
-<DocumentFragment>
-  .emotion-0 {
-  background-color: #29333a!important;
-  padding-top: 10px!important;
-  padding-bottom: 60px!important;
-  position: fixed!important;
-}
-
 .emotion-1 {
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .emotion-1 {
-    width: 750px;
-  }
-}
-
-@media (min-width: 992px) {
-  .emotion-1 {
-    width: 970px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .emotion-1 {
-    width: 1170px;
-  }
-}
-
-.emotion-2 {
-  font-size: 13px!important;
-  font-weight: 600!important;
-  position: relative;
-  padding-top: 25px;
-  padding-bottom: 27px;
-}
-
-@media (max-width: 870px) {
-  .emotion-2 {
-    padding-left: 60px;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1085px) {
-  .emotion-2 {
-    padding-left: 60px;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1285px) {
-  .emotion-2 {
-    padding-left: 60px;
-  }
-}
-
-.emotion-3 {
-  font-size: 24px!important;
+  font-size: 24px !important;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
   letter-spacing: 0px;
   margin-right: 30px;
   color: #cecece;
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
-}
-
-.emotion-3 a {
-  color: #cecece!important;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-3 a:hover {
-  color: white!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-4 {
-  font-size: 24px!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0px;
-  margin-right: 30px;
-  color: #cecece;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  color: #49a4d5!important;
+  color: #49a4d5 !important;
   min-width: 0;
 }
 
-.emotion-4 a {
-  color: #cecece!important;
+.emotion-1 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
   letter-spacing: 1px;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.emotion-4 a:hover {
-  color: white!important;
+.emotion-1 a:hover {
+  color: white !important;
   -webkit-text-decoration: none;
   text-decoration: none;
-}
-
-.emotion-5 {
-  background-color: #29333a!important;
-  box-shadow: none!important;
-  background-image: none!important;
-  top: 15px;
-  left: 15px;
-  position: absolute;
-  z-index: 1020;
-}
-
-.emotion-6 {
-  color: #7a7e82!important;
-}
-
-.emotion-6:hover {
-  color: white;
-}
-
-.emotion-7 {
-  background-color: #29333a;
-  display: block;
-  margin: 60px -20px 0 -20px;
-}
-
-.emotion-8 {
-  min-height: 250px;
-  padding: 50px 0px;
-  overflow-y: scroll;
-  max-height: 100vh;
-}
-
-@media (max-width: 768px) {
-  .emotion-8 {
-    padding: 50px 20px;
-  }
-}
-
-.emotion-10 {
-  display: inline-block;
-}
-
-.emotion-11 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.emotion-11 * {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.emotion-13 {
-  background-color: #49a4d5!important;
-  color: #eceef1!important;
-  text-align: center;
-  font-weight: 600;
-  padding: 5px 10px;
-  position: fixed!important;
-  width: 100%;
-  top: 70px;
-  left: 0px;
-  z-index: 1010!important;
-}
-
-.emotion-13 a {
-  font-weight: 300;
-  color: #eceef1;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  letter-spacing: 1px;
-}
-
-.emotion-13 a:hover {
-  color: white;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-<div
-    class="bp3-navbar emotion-0"
-  >
-    <div
-      class="emotion-1"
-    >
-      <div
-        class="bp3-navbar-group bp3-align-left bp3-dark emotion-2"
-      >
-        <span
-          class="emotion-3"
-        >
-          Misk
-        </span>
-        <span
-          class="emotion-4"
-        >
-          DEVELOPMENT
-        </span>
-      </div>
-    </div>
-    <div>
-      <button
-        class="bp3-button emotion-5"
-        type="button"
-      >
-        <span
-          class="bp3-button-text"
-        >
-          <span
-            class="bp3-icon bp3-icon-menu emotion-6"
-            icon="menu"
-          >
-            <svg
-              data-icon="menu"
-              height="32"
-              viewBox="0 0 20 20"
-              width="32"
-            >
-              <desc>
-                menu
-              </desc>
-              <path
-                d="M1 6h18c.55 0 1-.45 1-1s-.45-1-1-1H1c-.55 0-1 .45-1 1s.45 1 1 1zm18 3H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1zm0 5H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1z"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </span>
-        </span>
-      </button>
-      <div
-        class="emotion-7"
-      >
-        <div
-          class="bp3-collapse"
-        >
-          <div
-            aria-hidden="true"
-            class="bp3-collapse-body bp3-fixed-positioning-containing-block"
-            style="transform: translateY(-undefinedpx);"
-          >
-            <div
-              class="emotion-8"
-            >
-              <div
-                class="emotion-1"
-              >
-                <div
-                  class="emotion-10"
-                >
-                  <div
-                    class="emotion-11"
-                  >
-                    <span>
-                      <span
-                        class="emotion-4"
-                      >
-                        DEVELOPMENT
-                      </span>
-                    </span>
-                    <span>
-                      <span />
-                    </span>
-                  </div>
-                </div>
-                <span />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <span
-      class="emotion-13"
-    >
-      <div
-        class="emotion-1"
-      >
-        <div
-          class="emotion-11"
-        >
-          <span />
-        </div>
-      </div>
-    </span>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amount of navbar items 1`] = `
-<DocumentFragment>
-  .emotion-0 {
-  background-color: #29333a!important;
-  padding-top: 10px!important;
-  padding-bottom: 60px!important;
-  position: fixed!important;
-}
-
-.emotion-1 {
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .emotion-1 {
-    width: 750px;
-  }
-}
-
-@media (min-width: 992px) {
-  .emotion-1 {
-    width: 970px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .emotion-1 {
-    width: 1170px;
-  }
-}
-
-.emotion-2 {
-  font-size: 13px!important;
-  font-weight: 600!important;
-  position: relative;
-  padding-top: 25px;
-  padding-bottom: 27px;
-}
-
-@media (max-width: 870px) {
-  .emotion-2 {
-    padding-left: 60px;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1085px) {
-  .emotion-2 {
-    padding-left: 60px;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1285px) {
-  .emotion-2 {
-    padding-left: 60px;
-  }
-}
-
-.emotion-3 {
-  font-size: 24px!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0px;
-  margin-right: 30px;
-  color: #cecece;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-}
-
-.emotion-3 a {
-  color: #cecece!important;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-3 a:hover {
-  color: white!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-4 {
-  font-size: 24px!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0px;
-  margin-right: 30px;
-  color: #cecece;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  color: #49a4d5!important;
-  min-width: 0;
-}
-
-.emotion-4 a {
-  color: #cecece!important;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-4 a:hover {
-  color: white!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-5 {
-  font-size: 24px!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0px;
-  margin-right: 30px;
-  color: #cecece;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-}
-
-.emotion-5 a {
-  color: #cecece!important;
-  letter-spacing: 1px;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-5 a:hover {
-  color: white!important;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.emotion-9 {
-  background-color: #29333a!important;
-  box-shadow: none!important;
-  background-image: none!important;
-  top: 15px;
-  left: 15px;
-  position: absolute;
-  z-index: 1020;
-}
-
-.emotion-10 {
-  color: #7a7e82!important;
-}
-
-.emotion-10:hover {
-  color: white;
-}
-
-.emotion-11 {
-  background-color: #29333a;
-  display: block;
-  margin: 60px -20px 0 -20px;
-}
-
-.emotion-12 {
-  min-height: 250px;
-  padding: 50px 0px;
-  overflow-y: scroll;
-  max-height: 100vh;
-}
-
-@media (max-width: 768px) {
-  .emotion-12 {
-    padding: 50px 20px;
-  }
 }
 
 .emotion-14 {
-  display: inline-block;
-}
-
-.emotion-15 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.emotion-15 * {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.emotion-23 {
-  background-color: #49a4d5!important;
-  color: #eceef1!important;
+  background-color: #49a4d5 !important;
+  color: #eceef1 !important;
   text-align: center;
   font-weight: 600;
   padding: 5px 10px;
-  position: fixed!important;
+  position: fixed !important;
   width: 100%;
   top: 70px;
   left: 0px;
-  z-index: 1010!important;
+  z-index: 1010 !important;
 }
 
-.emotion-23 a {
+.emotion-14 a {
   font-weight: 300;
   color: #eceef1;
   -webkit-text-decoration: underline;
   text-decoration: underline;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
   letter-spacing: 1px;
 }
 
-.emotion-23 a:hover {
+.emotion-14 a:hover {
   color: white;
   -webkit-text-decoration: underline;
   text-decoration: underline;
 }
 
 <div
-    class="bp3-navbar emotion-0"
+    class="bp3-navbar emotion-15"
   >
     <div
-      class="emotion-1"
+      class="emotion-3"
     >
       <div
         class="bp3-navbar-group bp3-align-left bp3-dark emotion-2"
       >
         <span
-          class="emotion-3"
+          class="emotion-0"
         >
           Misk
         </span>
         <span
-          class="emotion-4"
+          class="emotion-1"
         >
           DEVELOPMENT
-        </span>
-        <span
-          class="emotion-5"
-        >
-          <span>
-            Item 1
-          </span>
-        </span>
-        <span
-          class="emotion-5"
-        >
-          <span>
-            Item 2
-          </span>
-        </span>
-        <span
-          class="emotion-5"
-        >
-          <span>
-            Item 3
-          </span>
-        </span>
-        <span
-          class="emotion-5"
-        >
-          <span>
-            Item 4
-          </span>
         </span>
       </div>
     </div>
     <div>
       <button
-        class="bp3-button emotion-9"
+        class="bp3-button emotion-5"
         type="button"
       >
         <span
           class="bp3-button-text"
         >
           <span
-            class="bp3-icon bp3-icon-menu emotion-10"
+            class="bp3-icon bp3-icon-menu emotion-4"
             icon="menu"
           >
             <svg
@@ -1575,31 +904,711 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amoun
         >
           <div
             aria-hidden="true"
-            class="bp3-collapse-body bp3-fixed-positioning-containing-block"
-            style="transform: translateY(-undefinedpx);"
+            class="bp3-collapse-body"
+            style="transform: translateY(-0px);"
           >
             <div
-              class="emotion-12"
+              class="emotion-10"
             >
               <div
-                class="emotion-1"
+                class="emotion-3"
               >
                 <div
-                  class="emotion-14"
+                  class="emotion-8"
                 >
                   <div
-                    class="emotion-15"
+                    class="emotion-7"
                   >
                     <span>
                       <span
-                        class="emotion-4"
+                        class="emotion-1"
+                      >
+                        DEVELOPMENT
+                      </span>
+                    </span>
+                    <span>
+                      <span />
+                    </span>
+                  </div>
+                </div>
+                <span />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span
+      class="emotion-14"
+    >
+      <div
+        class="emotion-3"
+      >
+        <div
+          class="emotion-7"
+        >
+          <span />
+        </div>
+      </div>
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders environment 2`] = `
+<DocumentFragment>
+  .emotion-15 {
+  background-color: #29333a !important;
+  padding-top: 10px !important;
+  padding-bottom: 60px !important;
+  position: fixed !important;
+}
+
+.emotion-3 {
+  margin: 0 auto;
+}
+
+@media (min-width:768px) {
+  .emotion-3 {
+    width: 750px;
+  }
+}
+
+@media (min-width:992px) {
+  .emotion-3 {
+    width: 970px;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-3 {
+    width: 1170px;
+  }
+}
+
+.emotion-2 {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 27px;
+}
+
+@media (max-width:870px) {
+  .emotion-2 {
+    padding-left: 60px;
+  }
+}
+
+@media (min-width:992px) and (max-width:1085px) {
+  .emotion-2 {
+    padding-left: 60px;
+  }
+}
+
+@media (min-width:1200px) and (max-width:1285px) {
+  .emotion-2 {
+    padding-left: 60px;
+  }
+}
+
+.emotion-0 {
+  font-size: 24px !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+.emotion-0 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0 a:hover {
+  color: white !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-5 {
+  background-color: #29333a !important;
+  box-shadow: none !important;
+  background-image: none !important;
+  top: 15px;
+  left: 15px;
+  position: absolute;
+  z-index: 1020;
+}
+
+.emotion-4 {
+  color: #7a7e82 !important;
+}
+
+.emotion-4:hover {
+  color: white;
+}
+
+.emotion-11 {
+  background-color: #29333a;
+  display: block;
+  margin: 60px -20px 0 -20px;
+}
+
+.emotion-10 {
+  min-height: 250px;
+  padding: 50px 0px;
+  overflow-y: scroll;
+  max-height: 100vh;
+}
+
+@media (max-width:768px) {
+  .emotion-10 {
+    padding: 50px 20px;
+  }
+}
+
+.emotion-8 {
+  display: inline-block;
+}
+
+.emotion-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.emotion-7 * {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emotion-1 {
+  font-size: 24px !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  color: #49a4d5 !important;
+  min-width: 0;
+}
+
+.emotion-1 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-1 a:hover {
+  color: white !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-14 {
+  background-color: #49a4d5 !important;
+  color: #eceef1 !important;
+  text-align: center;
+  font-weight: 600;
+  padding: 5px 10px;
+  position: fixed !important;
+  width: 100%;
+  top: 70px;
+  left: 0px;
+  z-index: 1010 !important;
+}
+
+.emotion-14 a {
+  font-weight: 300;
+  color: #eceef1;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+}
+
+.emotion-14 a:hover {
+  color: white;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<div
+    class="bp3-navbar emotion-15"
+  >
+    <div
+      class="emotion-3"
+    >
+      <div
+        class="bp3-navbar-group bp3-align-left bp3-dark emotion-2"
+      >
+        <span
+          class="emotion-0"
+        >
+          Misk
+        </span>
+        <span
+          class="emotion-1"
+        >
+          DEVELOPMENT
+        </span>
+      </div>
+    </div>
+    <div>
+      <button
+        class="bp3-button emotion-5"
+        type="button"
+      >
+        <span
+          class="bp3-button-text"
+        >
+          <span
+            class="bp3-icon bp3-icon-menu emotion-4"
+            icon="menu"
+          >
+            <svg
+              data-icon="menu"
+              height="32"
+              viewBox="0 0 20 20"
+              width="32"
+            >
+              <desc>
+                menu
+              </desc>
+              <path
+                d="M1 6h18c.55 0 1-.45 1-1s-.45-1-1-1H1c-.55 0-1 .45-1 1s.45 1 1 1zm18 3H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1zm0 5H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+      <div
+        class="emotion-11"
+      >
+        <div
+          class="bp3-collapse"
+        >
+          <div
+            aria-hidden="true"
+            class="bp3-collapse-body"
+            style="transform: translateY(-0px);"
+          >
+            <div
+              class="emotion-10"
+            >
+              <div
+                class="emotion-3"
+              >
+                <div
+                  class="emotion-8"
+                >
+                  <div
+                    class="emotion-7"
+                  >
+                    <span>
+                      <span
+                        class="emotion-1"
+                      >
+                        DEVELOPMENT
+                      </span>
+                    </span>
+                    <span>
+                      <span />
+                    </span>
+                  </div>
+                </div>
+                <span />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span
+      class="emotion-14"
+    >
+      <div
+        class="emotion-3"
+      >
+        <div
+          class="emotion-7"
+        >
+          <span />
+        </div>
+      </div>
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amount of navbar items 1`] = `
+<DocumentFragment>
+  .emotion-25 {
+  background-color: #29333a !important;
+  padding-top: 10px !important;
+  padding-bottom: 60px !important;
+  position: fixed !important;
+}
+
+.emotion-7 {
+  margin: 0 auto;
+}
+
+@media (min-width:768px) {
+  .emotion-7 {
+    width: 750px;
+  }
+}
+
+@media (min-width:992px) {
+  .emotion-7 {
+    width: 970px;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-7 {
+    width: 1170px;
+  }
+}
+
+.emotion-6 {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 27px;
+}
+
+@media (max-width:870px) {
+  .emotion-6 {
+    padding-left: 60px;
+  }
+}
+
+@media (min-width:992px) and (max-width:1085px) {
+  .emotion-6 {
+    padding-left: 60px;
+  }
+}
+
+@media (min-width:1200px) and (max-width:1285px) {
+  .emotion-6 {
+    padding-left: 60px;
+  }
+}
+
+.emotion-0 {
+  font-size: 24px !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
+.emotion-0 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0 a:hover {
+  color: white !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-9 {
+  background-color: #29333a !important;
+  box-shadow: none !important;
+  background-image: none !important;
+  top: 15px;
+  left: 15px;
+  position: absolute;
+  z-index: 1020;
+}
+
+.emotion-8 {
+  color: #7a7e82 !important;
+}
+
+.emotion-8:hover {
+  color: white;
+}
+
+.emotion-21 {
+  background-color: #29333a;
+  display: block;
+  margin: 60px -20px 0 -20px;
+}
+
+.emotion-20 {
+  min-height: 250px;
+  padding: 50px 0px;
+  overflow-y: scroll;
+  max-height: 100vh;
+}
+
+@media (max-width:768px) {
+  .emotion-20 {
+    padding: 50px 20px;
+  }
+}
+
+.emotion-18 {
+  display: inline-block;
+}
+
+.emotion-17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.emotion-17 * {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.emotion-1 {
+  font-size: 24px !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  color: #49a4d5 !important;
+  min-width: 0;
+}
+
+.emotion-1 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-1 a:hover {
+  color: white !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-24 {
+  background-color: #49a4d5 !important;
+  color: #eceef1 !important;
+  text-align: center;
+  font-weight: 600;
+  padding: 5px 10px;
+  position: fixed !important;
+  width: 100%;
+  top: 70px;
+  left: 0px;
+  z-index: 1010 !important;
+}
+
+.emotion-24 a {
+  font-weight: 300;
+  color: #eceef1;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+}
+
+.emotion-24 a:hover {
+  color: white;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<div
+    class="bp3-navbar emotion-25"
+  >
+    <div
+      class="emotion-7"
+    >
+      <div
+        class="bp3-navbar-group bp3-align-left bp3-dark emotion-6"
+      >
+        <span
+          class="emotion-0"
+        >
+          Misk
+        </span>
+        <span
+          class="emotion-1"
+        >
+          DEVELOPMENT
+        </span>
+        <span
+          class="emotion-0"
+        >
+          <span>
+            Item 1
+          </span>
+        </span>
+        <span
+          class="emotion-0"
+        >
+          <span>
+            Item 2
+          </span>
+        </span>
+        <span
+          class="emotion-0"
+        >
+          <span>
+            Item 3
+          </span>
+        </span>
+        <span
+          class="emotion-0"
+        >
+          <span>
+            Item 4
+          </span>
+        </span>
+      </div>
+    </div>
+    <div>
+      <button
+        class="bp3-button emotion-9"
+        type="button"
+      >
+        <span
+          class="bp3-button-text"
+        >
+          <span
+            class="bp3-icon bp3-icon-menu emotion-8"
+            icon="menu"
+          >
+            <svg
+              data-icon="menu"
+              height="32"
+              viewBox="0 0 20 20"
+              width="32"
+            >
+              <desc>
+                menu
+              </desc>
+              <path
+                d="M1 6h18c.55 0 1-.45 1-1s-.45-1-1-1H1c-.55 0-1 .45-1 1s.45 1 1 1zm18 3H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1zm0 5H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+      <div
+        class="emotion-21"
+      >
+        <div
+          class="bp3-collapse"
+        >
+          <div
+            aria-hidden="true"
+            class="bp3-collapse-body"
+            style="transform: translateY(-0px);"
+          >
+            <div
+              class="emotion-20"
+            >
+              <div
+                class="emotion-7"
+              >
+                <div
+                  class="emotion-18"
+                >
+                  <div
+                    class="emotion-17"
+                  >
+                    <span>
+                      <span
+                        class="emotion-1"
                       >
                         DEVELOPMENT
                       </span>
                     </span>
                     <span>
                       <span
-                        class="emotion-5"
+                        class="emotion-0"
                       >
                         <span>
                           Item 1
@@ -1608,7 +1617,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amoun
                     </span>
                     <span>
                       <span
-                        class="emotion-5"
+                        class="emotion-0"
                       >
                         <span>
                           Item 2
@@ -1617,7 +1626,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amoun
                     </span>
                     <span>
                       <span
-                        class="emotion-5"
+                        class="emotion-0"
                       >
                         <span>
                           Item 3
@@ -1626,7 +1635,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amoun
                     </span>
                     <span>
                       <span
-                        class="emotion-5"
+                        class="emotion-0"
                       >
                         <span>
                           Item 4
@@ -1635,7 +1644,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amoun
                     </span>
                     <span>
                       <span
-                        class="emotion-5"
+                        class="emotion-0"
                       >
                         <span>
                           Item 5
@@ -1644,7 +1653,7 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amoun
                     </span>
                     <span>
                       <span
-                        class="emotion-5"
+                        class="emotion-0"
                       >
                         <span>
                           Item 6
@@ -1661,13 +1670,13 @@ exports[`Navbar DimensionAwareNavbar DimensionAwareNavbar renders specific amoun
       </div>
     </div>
     <span
-      class="emotion-23"
+      class="emotion-24"
     >
       <div
-        class="emotion-1"
+        class="emotion-7"
       >
         <div
-          class="emotion-15"
+          class="emotion-17"
         >
           <span />
         </div>

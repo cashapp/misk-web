@@ -7,7 +7,7 @@ import {
   IDispatchProps,
   IState,
   mapDispatchToProps,
-  mapStateToProps,
+  mapStateToProps
 } from "src/ducks"
 import { HowToComponent, ExampleRouterComponent } from "src/components"
 

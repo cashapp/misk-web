@@ -12,7 +12,7 @@ import {
   RadioGroup,
   Radio,
   TagInput,
-  TextArea,
+  TextArea
 } from "@blueprintjs/core"
 import { IconNames } from "@blueprintjs/icons"
 import { FlexContainer } from "@misk/core"
@@ -23,7 +23,7 @@ import {
   onChangeToggleFnCall,
   onClickFnCall,
   simpleSelectorGet,
-  simpleSelectorPick,
+  simpleSelectorPick
 } from "@misk/simpleredux"
 import get from "lodash/get"
 import * as React from "react"
@@ -32,7 +32,7 @@ import {
   IDispatchProps,
   IState,
   mapDispatchToProps,
-  mapStateToProps,
+  mapStateToProps
 } from "src/ducks"
 
 export const ExampleFormContainer = (props: IState & IDispatchProps) => {
@@ -47,7 +47,7 @@ export const ExampleFormContainer = (props: IState & IDispatchProps) => {
     "CheckMallory",
     "CheckTrent",
     "Meal",
-    "Tags",
+    "Tags"
   ].map((f: string) => `${FormTag}::${f}.data`)
   const fieldsData = simpleSelectorPick(props.simpleForm, fields)
   return (
@@ -169,14 +169,14 @@ export const ExampleFormContainer = (props: IState & IDispatchProps) => {
             `${FormTag}::POST`,
             simpleSelectorGet(props.simpleForm, [
               `${FormTag}::POST_URL`,
-              "data",
+              "data"
             ]),
             fieldsData
           )}
           intent={Intent.PRIMARY}
           loading={simpleSelectorGet(props.simpleNetwork, [
             `${FormTag}::POST`,
-            "loading",
+            "loading"
           ])}
           text={"POST"}
         />

@@ -15,11 +15,11 @@ describe("mergeSaga", () => {
             delta: "delta",
             echo: "echo",
             foxtrot: "foxtrot",
-            gary: "gary",
-          },
-        },
+            gary: "gary"
+          }
+        }
       },
-      type: SIMPLEREDUX.MERGE,
+      type: SIMPLEREDUX.MERGE
     }
     expect(action).toBeDefined()
     const tag = "tag"
@@ -30,7 +30,7 @@ describe("mergeSaga", () => {
       delta: `${tag}::delta`,
       echo: `${tag}::echo`,
       foxtrot: `${tag}::foxtrot`,
-      gary: `${tag}::gary`,
+      gary: `${tag}::gary`
     }
     const payloadPath = "data.data"
     const saga = mergeSagaMapKeysToTags(

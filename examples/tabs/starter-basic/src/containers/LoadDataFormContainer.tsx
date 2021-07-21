@@ -2,7 +2,7 @@ import { Button, FormGroup, Intent, InputGroup } from "@blueprintjs/core"
 import {
   handler,
   mergeSagaMapKeysToTags,
-  simpleSelectorGet,
+  simpleSelectorGet
 } from "@misk/simpleredux"
 import * as React from "react"
 import { connect } from "react-redux"
@@ -10,7 +10,7 @@ import {
   IDispatchProps,
   IState,
   mapDispatchToProps,
-  mapStateToProps,
+  mapStateToProps
 } from "src/ducks"
 
 interface OwnProps {
@@ -24,12 +24,12 @@ export const LoadDataFormContainer = (
   const seedData = {
     key: "cars",
     range: [50, 75],
-    url: "https://cashapp.github.io/misk-web/examples/data/demo/cars.json",
+    url: "https://cashapp.github.io/misk-web/examples/data/demo/cars.json"
   }
   const keyTagLookup = {
     key: `${tag}::dataKey`,
     range: `${tag}::dataRange`,
-    url: `${tag}::dataUrl`,
+    url: `${tag}::dataUrl`
   }
   return (
     <div>
@@ -37,7 +37,7 @@ export const LoadDataFormContainer = (
         <Button
           onClick={handler.simpleMergeData(props, tag, {
             mergeSaga: mergeSagaMapKeysToTags(props, "data", keyTagLookup),
-            overrideArgs: seedData,
+            overrideArgs: seedData
           })}
           text={"Use Example Values"}
         />
@@ -71,7 +71,7 @@ export const LoadDataFormContainer = (
           intent={Intent.PRIMARY}
           loading={simpleSelectorGet(props.simpleRedux, [
             `${tag}::dataRequest`,
-            "loading",
+            "loading"
           ])}
           text={"GET Data"}
         />

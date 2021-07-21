@@ -29,16 +29,16 @@ describe("createPackage", () => {
     miskTab.rawPackageJson = {
       name: "I-will-be-overwritten",
       scripts: {
-        customScript: "./myCustomScript.sh",
+        customScript: "./myCustomScript.sh"
       },
       jest: {
         globalSetup: "<rootDir>/tests/jest.globalSetup.js",
-      },
+      }
     }
     const packageJson = await createPackage(miskTab, pkg)
     expect(packageJson.jest).toEqual({
       globalSetup: "<rootDir>/tests/jest.globalSetup.js",
-      ...testPackageJson.jest,
+      ...testPackageJson.jest
     })
     expect(packageJson.name).toEqual("I-will-be-overwritten")
     expect(packageJson.scripts).toHaveProperty("build")

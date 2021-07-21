@@ -10,7 +10,7 @@ import {
   packageVersionExistsOnNPM,
   offlineOrNotFoundMessage,
   npmRunScript,
-  execute,
+  execute
 } from "../utils"
 export const command = "auto-pin [filename]"
 export const desc =
@@ -19,7 +19,7 @@ export const positional = (yargs: any): any => {
   yargs.positional("filename", {
     describe:
       "JSON filename where a key miskWebNPM points to a published Misk Web version.",
-    type: "string",
+    type: "string"
   })
 }
 export const handlerFn = async (...args: any) => {

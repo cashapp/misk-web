@@ -7,12 +7,12 @@ import {
   IDispatchProps,
   IState,
   mapDispatchToProps,
-  mapStateToProps,
+  mapStateToProps
 } from "src/ducks"
 import {
   ExampleNetworkContainer,
   ExampleFormContainer,
-  ExampleMergeSagaContainer,
+  ExampleMergeSagaContainer
 } from "../containers"
 
 class TabContainer extends React.Component<IState & IDispatchProps, IState> {

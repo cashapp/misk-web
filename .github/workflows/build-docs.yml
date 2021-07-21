@@ -3,7 +3,7 @@ name: Build-Docs
 on: [push]
 
 jobs:
-  buildDocs:
+  build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:

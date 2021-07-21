@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { Alignment, Navbar, NavbarGroup } from "@blueprintjs/core"
-import { css, jsx } from "@emotion/react"
+import { css, jsx } from "@emotion/core"
 import * as React from "react"
 import { Link } from "react-router-dom"
 import { ResponsiveContainer } from "../../cssContainers"
@@ -12,7 +12,7 @@ import {
   IMenuExternalProps,
   Menu,
   processNavbarItems,
-  calculateNavbarItemsByScreenWidth,
+  calculateNavbarItemsByScreenWidth
 } from "../Navbar"
 import { Environment } from "../../utilities"
 import { ITheme, defaultTheme } from "src/utilities/theme"
@@ -79,7 +79,7 @@ export class DimensionAwareNavbar extends React.Component<
 > {
   // TODO see if this can be removed
   public state = {
-    isOpen: false,
+    isOpen: false
   }
 
   public render() {
@@ -100,7 +100,7 @@ export class DimensionAwareNavbar extends React.Component<
       navbarItemsToDisplay = null,
       status,
       theme = defaultTheme,
-      width,
+      width
     } = this.props
     const processedNavbarItems = processNavbarItems(
       theme,

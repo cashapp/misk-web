@@ -1,4 +1,4 @@
-import { css } from "@emotion/react"
+import { css } from "@emotion/core"
 import { defaultTheme, Environment, ITheme } from "src/utilities"
 
 export const cssNavbarHeading = (theme: ITheme) => css`

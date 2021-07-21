@@ -1,7 +1,5 @@
 ## Misk TsLint
 
-# Misk TsLint package is deprecated, a replacement using EsLint will be released soon
-
 ![](https://raw.githubusercontent.com/cashapp/misk/master/misk.png)
 This package provides shared TsLint linting across Misk tab repos.
 
@@ -34,6 +32,7 @@ From `package.json`:
   tslint-eslint-rules
   tslint-immutable
   tslint-react
+  tslint-sonarts
 ```
 
 ## [Releasing](https://github.com/cashapp/misk-web/blob/master/RELEASING.md)

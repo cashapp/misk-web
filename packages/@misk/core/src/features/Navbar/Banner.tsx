@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/react"
+import { css, jsx } from "@emotion/core"
 import * as React from "react"
 import { TextHTMLOrElementComponent } from "../../components"
 import { FlexContainer, ResponsiveContainer } from "../../cssContainers"
@@ -50,12 +50,11 @@ export class Banner extends React.Component<IBannerExternalProps, {}> {
       environment,
       environmentBannerVisible,
       status,
-      theme = defaultTheme,
+      theme = defaultTheme
     } = this.props
     if (
-      (environmentBannerVisible &&
-        environmentBannerVisible.includes(environment)) ||
-      (status && status != "")
+      environmentBannerVisible &&
+      environmentBannerVisible.includes(environment)
     ) {
       return (
         <span css={cssNavbarBanner(environment, theme)}>

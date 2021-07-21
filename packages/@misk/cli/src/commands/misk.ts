@@ -3,7 +3,7 @@ import {
   handleCommand,
   parseArgs,
   IMiskTabJSON,
-  readMiskTabJson,
+  readMiskTabJson
 } from "../utils"
 export const command = "misk"
 export const desc =

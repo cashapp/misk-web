@@ -7,12 +7,12 @@ import {
   dispatchSimpleRedux,
   ISimpleReduxImmutableState,
   SimpleReduxReducer,
-  watchSimpleReduxSagas,
+  watchSimpleReduxSagas
 } from "@misk/simpleredux"
 import {
   connectRouter,
   LocationChangeAction,
-  RouterState,
+  RouterState
 } from "connected-react-router"
 import { History } from "history"
 import { AnyAction, combineReducers, Reducer } from "redux"
@@ -23,7 +23,7 @@ import {
   IPaletteExemplarImmutableState,
   IPaletteExemplarState,
   PaletteExemplarReducer,
-  watchPaletteExemplarSagas,
+  watchPaletteExemplarSagas
 } from "./paletteExemplar"
 export * from "./paletteExemplar"
 
@@ -46,7 +46,7 @@ export interface IDispatchProps
 
 export const rootDispatcher: IDispatchProps = {
   ...dispatchSimpleRedux,
-  ...dispatchPaletteExemplar,
+  ...dispatchPaletteExemplar
 }
 
 /**
@@ -61,7 +61,7 @@ export const rootSelectors = (state: IState) => ({
   simpleRedux: simpleRootSelector<IState, ISimpleReduxImmutableState>(
     "simpleRedux",
     state
-  ),
+  )
 })
 
 /**
@@ -71,7 +71,7 @@ export const rootReducer = (history: History): Reducer<any, AnyAction> =>
   combineReducers({
     paletteExemplar: PaletteExemplarReducer,
     router: connectRouter(history),
-    simpleRedux: SimpleReduxReducer,
+    simpleRedux: SimpleReduxReducer
   })
 
 /**
@@ -87,5 +87,5 @@ export function* rootSaga(): SimpleReduxSaga {
 export const mapStateToProps = (state: IState) => rootSelectors(state)
 
 export const mapDispatchToProps: IDispatchProps = {
-  ...rootDispatcher,
+  ...rootDispatcher
 }

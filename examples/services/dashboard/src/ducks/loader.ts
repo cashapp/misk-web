@@ -4,7 +4,7 @@ import {
   defaultState,
   IAction,
   IRootState,
-  SimpleReduxSaga,
+  SimpleReduxSaga
 } from "@misk/simpleredux"
 import axios from "axios"
 import { fromJS } from "immutable"
@@ -22,7 +22,7 @@ export enum LOADER {
   GET_ALL_TABS = "LOADER_GET_ALL_TABS",
   GET_ONE_COMPONENT = "LOADER_GET_ONE_COMPONENT",
   GET_SERVICE_METADATA = "LOADER_GET_SERVICE_METADATA",
-  SUCCESS = "LOADER_SUCCESS",
+  SUCCESS = "LOADER_SUCCESS"
 }
 
 export const dispatchLoader = {
@@ -33,29 +33,29 @@ export const dispatchLoader = {
       url,
       loading: true,
       success: false,
-      error: null,
+      error: null
     }),
   getOneComponent: (tab: IDashboardTab) =>
     createAction(LOADER.GET_ONE_COMPONENT, {
       tab,
       loading: true,
       success: false,
-      error: null,
+      error: null
     }),
   getServiceMetadata: (url: string) =>
     createAction(LOADER.GET_SERVICE_METADATA, {
       url,
       loading: true,
       success: false,
-      error: null,
+      error: null
     }),
   success: (data: any) =>
     createAction(LOADER.SUCCESS, {
       ...data,
       loading: false,
       success: true,
-      error: null,
-    }),
+      error: null
+    })
 }
 
 /**
@@ -75,7 +75,7 @@ const initialState = fromJS({
   adminDashboardTabs: [],
   adminTabComponents: {},
   serviceMetadata: {},
-  ...defaultState.toJS(),
+  ...defaultState.toJS()
 })
 
 export default function loaderReducer(
@@ -141,6 +141,6 @@ export function* watchLoaderSagas(): SimpleReduxSaga {
   yield all([
     takeEvery(LOADER.GET_ONE_COMPONENT, handleGetOneComponent),
     takeLatest(LOADER.GET_ALL_TABS, handleGetAllTabs),
-    takeLatest(LOADER.GET_SERVICE_METADATA, handleGetServiceMetadata),
+    takeLatest(LOADER.GET_SERVICE_METADATA, handleGetServiceMetadata)
   ])
 }

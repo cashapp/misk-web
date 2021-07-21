@@ -3,7 +3,7 @@ import { CombinatorEffect } from "@misk/simpleredux"
 import {
   routerMiddleware,
   RouterState,
-  LocationChangeAction,
+  LocationChangeAction
 } from "connected-react-router"
 import { createBrowserHistory, History } from "history"
 import * as React from "react"
@@ -15,7 +15,7 @@ import {
   applyMiddleware,
   compose,
   createStore,
-  Reducer,
+  Reducer
 } from "redux"
 import createSagaMiddleware from "redux-saga"
 import { IWindow } from "../utilities"
@@ -33,7 +33,7 @@ export const createIndex = (
     rootSaga: () => IterableIterator<CombinatorEffect<"ALL", any>>
   }
 ) => {
-  const Window = (window as unknown) as IWindow
+  const Window = window as IWindow
 
   Window.Misk.History = Window.Misk.History || createBrowserHistory()
   const history = Window.Misk.History

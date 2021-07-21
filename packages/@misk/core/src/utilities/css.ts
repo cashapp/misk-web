@@ -17,5 +17,5 @@ export enum color {
   white = "white",
   cadet = "#29333a",
   silver = "#9da2a6",
-  platinum = "#cecece",
+  platinum = "#cecece"
 }

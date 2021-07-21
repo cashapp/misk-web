@@ -1,6 +1,5 @@
 import klaw from "klaw"
 import path from "path"
-import semver from "semver"
 const ProgressBar = require("progress")
 import { cd } from "shelljs"
 import yargs from "yargs"
@@ -8,7 +7,7 @@ const { version: packageVersion } = require("root-require")("package.json")
 import {
   packageVersionExistsOnNPM,
   logDebug as formattedLog,
-  execute,
+  execute
 } from "../utils"
 import { PackageVersionStatus } from "./resolveNpmVersion"
 
@@ -34,9 +33,8 @@ export const autoUpdate = async () => {
   ) {
     formattedLog(
       "Auto-Update",
-      `updating miskweb CLI from ${packageVersion} to ${
-        latestOnlineVersion || "latest"
-      }`,
+      `updating miskweb CLI from ${packageVersion} to ${latestOnlineVersion ||
+        "latest"}`,
       "NPM"
     )
     execute("npm install -g @misk/cli")
@@ -56,13 +54,12 @@ export const handleCommand = async (
 ) => {
   // Node version check
   const { node: nodeVersion } = process.versions
-  if (!semver.satisfies(semver.coerce(nodeVersion), ">=12.0.0")) {
+  if (parseInt(nodeVersion.split(".")[0]) < 10) {
     formattedLog(
       "Warn",
-      `Incompatible node version: ${nodeVersion}. Recommended is 12.19 LTS or above.`,
+      `Node version is ${nodeVersion}. Recommended is 10.13 LTS or above.`,
       "Node"
     )
-    throw "Please update Node 12.19 LTS or above."
   }
   const latestOnlineVersion = await packageVersionExistsOnNPM()
 
@@ -72,9 +69,8 @@ export const handleCommand = async (
     latestOnlineVersion !== PackageVersionStatus.OFFLINE
   ) {
     console.log(
-      `[ALERT] Upgrade miskweb CLI from ${packageVersion} to ${
-        latestOnlineVersion || "latest"
-      } with '$ miskweb update'`
+      `[ALERT] Upgrade miskweb CLI from ${packageVersion} to ${latestOnlineVersion ||
+        "latest"} with '$ miskweb update'`
     )
   }
 
@@ -93,7 +89,11 @@ export const handleCommand = async (
         opt => `-${opt} `
       )} option with command ${args._[0]}.`
     )
-    yargs.hide(invalidOptions[0]).hide("help").hide("version").showHelp()
+    yargs
+      .hide(invalidOptions[0])
+      .hide("help")
+      .hide("version")
+      .showHelp()
   } else if (args.each) {
     // Find all downstream tabs and execute command in that tab directory
     let bar: any = null
@@ -102,13 +102,13 @@ export const handleCommand = async (
         complete: "=",
         incomplete: " ",
         width: 80,
-        total: 10,
+        total: 10
       })
     }
 
     const tabs: string[] = []
     klaw(".", { filter: filterFunc })
-      .on("data", item => {
+      .on("data", (item: any) => {
         if (item.stats.isFile() && item.path.includes("/miskTab.json")) {
           if (!args.hideProgress && tabs.length < 10) bar.tick(1)
           tabs.push(item.path.split("/miskTab.json")[0])

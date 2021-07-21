@@ -1,7 +1,5 @@
 ///<reference types="react" />
 
-import { IThemeApi } from "./theme"
-
 /**
  * Common Interfaces
  */
@@ -29,8 +27,6 @@ export interface IDashboardMetadata {
 export interface IServiceMetadata {
   app_name: string
   environment: Environment
-  /** Theme is an optional override from server, if null the default theme shipped in Misk-Web is used */
-  theme?: IThemeApi
 }
 
 /**
@@ -40,12 +36,13 @@ export const enum Environment {
   TESTING = "TESTING",
   DEVELOPMENT = "DEVELOPMENT",
   STAGING = "STAGING",
-  PRODUCTION = "PRODUCTION",
+  PRODUCTION = "PRODUCTION"
 }
 
 /**
  * Time
  */
+
 export const enum DateFormat {
   year = "YYYY",
   month = "YYYY-MM",
@@ -55,7 +52,7 @@ export const enum DateFormat {
   millisecond = "YYYY-MM-DD HH:mm:ss:SSS",
   minuteAMPM = "YYYY-MM-DD hh:mm A",
   secondAMPM = "YYYY-MM-DD hh:mm:ss A",
-  millisecondAMPM = "YYYY-MM-DD hh:mm:ss:SSS A",
+  millisecondAMPM = "YYYY-MM-DD hh:mm:ss:SSS A"
 }
 
 /**
@@ -63,7 +60,7 @@ export const enum DateFormat {
  */
 export const enum IBinderKeys {
   NavNavbarMenu = "NavNavbarMenu",
-  TabEntry = "TabEntry",
+  TabEntry = "TabEntry"
 }
 
 export interface IBinder {

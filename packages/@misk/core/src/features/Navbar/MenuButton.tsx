@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Button, Classes, Icon, IconName } from "@blueprintjs/core"
 import { IconNames } from "@blueprintjs/icons"
-import { css, jsx } from "@emotion/react"
+import { css, jsx } from "@emotion/core"
 import { Link } from "react-router-dom"
 import { defaultTheme, ITheme } from "../../utilities"
 import { IThemeProps } from "./DimensionAwareNavbar"
@@ -89,7 +89,7 @@ export const MenuButton = (props: IMenuButtonProps) => {
     menuOpenIcon = IconNames.CROSS,
     menuButtonAsLink = false,
     menuShowButton = true,
-    theme = defaultTheme,
+    theme = defaultTheme
   } = props
   if (menuShowButton && !menuButtonAsLink) {
     return (
