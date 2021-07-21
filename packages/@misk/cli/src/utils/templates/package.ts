@@ -11,7 +11,7 @@ const header = {
 
 const scripts = (miskTab: IMiskTabJSON) => ({
   scripts: {
-    build: `npm run-script lib && npm run-script test ${
+    build: `npm run-script prebuild && npm run-script lib && npm run-script test ${
       miskTab.zipOnBuild ? "&& npm run-script zip" : ""
     }`,
     "ci-build": `npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib && npm run-script test ${
