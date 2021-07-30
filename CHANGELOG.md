@@ -1,5 +1,10 @@
 ## Changelog
 
+## 0.3.0
+Tue, 27 Jul 2021 00:04:10 GMT
+
+Release based on 0.1.27, but with non-major dependency updates applied.
+
 ## 0.2.1
 
 DD Jan 2021 14:14:00 GMT
