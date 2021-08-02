@@ -24,7 +24,7 @@ export type CombinatorEffectDescriptor<E> = { [key: string]: E } | E[]
 
 /** Type definition for SimpleRedux root Saga: [watchSimpleReduxSagas] */
 export type SimpleReduxSaga = IterableIterator<
-  CombinatorEffect<"ALL", SimpleEffect<"FORK", ForkEffectDescriptor>>
+  CombinatorEffect<"ALL", SimpleEffect<"FORK", ForkEffectDescriptor<any>>>
 >
 
 /**

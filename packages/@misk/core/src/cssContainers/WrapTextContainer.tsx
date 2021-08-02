@@ -13,7 +13,7 @@ export const WrapTextContainer: StyledComponent<
     any
   >,
   any
-> = styled.span`
+> = styled.div`
   white-space: pre-wrap !important; /* Since CSS 2.1 */
   white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
   white-space: -pre-wrap !important; /* Opera 4-6 */
