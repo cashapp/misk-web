@@ -2,36 +2,36 @@
 
 exports[`Navbar Component Navbar can render 1`] = `
 <DocumentFragment>
-  .emotion-10 {
+  .emotion-15 {
   background-color: #29333a !important;
   padding-top: 10px !important;
   padding-bottom: 60px !important;
   position: fixed !important;
 }
 
-.emotion-2 {
+.emotion-3 {
   margin: 0 auto;
 }
 
 @media (min-width:768px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 750px;
   }
 }
 
 @media (min-width:992px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 970px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 1170px;
   }
 }
 
-.emotion-1 {
+.emotion-2 {
   font-size: 13px !important;
   font-weight: 600 !important;
   position: relative;
@@ -40,19 +40,19 @@ exports[`Navbar Component Navbar can render 1`] = `
 }
 
 @media (max-width:870px) {
-  .emotion-1 {
+  .emotion-2 {
     padding-left: 60px;
   }
 }
 
 @media (min-width:992px) and (max-width:1085px) {
-  .emotion-1 {
+  .emotion-2 {
     padding-left: 60px;
   }
 }
 
 @media (min-width:1200px) and (max-width:1285px) {
-  .emotion-1 {
+  .emotion-2 {
     padding-left: 60px;
   }
 }
@@ -89,7 +89,41 @@ exports[`Navbar Component Navbar can render 1`] = `
   text-decoration: none;
 }
 
-.emotion-4 {
+.emotion-1 {
+  font-size: 24px !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  color: #df3320 !important;
+  min-width: 0;
+}
+
+.emotion-1 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-1 a:hover {
+  color: white !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-5 {
   background-color: #29333a !important;
   box-shadow: none !important;
   background-image: none !important;
@@ -99,21 +133,21 @@ exports[`Navbar Component Navbar can render 1`] = `
   z-index: 1020;
 }
 
-.emotion-3 {
+.emotion-4 {
   color: #7a7e82 !important;
 }
 
-.emotion-3:hover {
+.emotion-4:hover {
   color: white;
 }
 
-.emotion-9 {
+.emotion-11 {
   background-color: #29333a;
   display: block;
   margin: 60px -20px 0 -20px;
 }
 
-.emotion-8 {
+.emotion-10 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
@@ -121,16 +155,16 @@ exports[`Navbar Component Navbar can render 1`] = `
 }
 
 @media (max-width:768px) {
-  .emotion-8 {
+  .emotion-10 {
     padding: 50px 20px;
   }
 }
 
-.emotion-6 {
+.emotion-8 {
   display: inline-block;
 }
 
-.emotion-5 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -143,7 +177,7 @@ exports[`Navbar Component Navbar can render 1`] = `
   flex-wrap: wrap;
 }
 
-.emotion-5 * {
+.emotion-7 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -153,32 +187,67 @@ exports[`Navbar Component Navbar can render 1`] = `
   white-space: nowrap;
 }
 
+.emotion-14 {
+  background-color: #df3320 !important;
+  color: #eceef1 !important;
+  text-align: center;
+  font-weight: 600;
+  padding: 5px 10px;
+  position: fixed !important;
+  width: 100%;
+  top: 70px;
+  left: 0px;
+  z-index: 1010 !important;
+}
+
+.emotion-14 a {
+  font-weight: 300;
+  color: #eceef1;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+}
+
+.emotion-14 a:hover {
+  color: white;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
 <div
-    class="bp3-navbar emotion-10"
+    class="bp3-navbar emotion-15"
   >
     <div
-      class="emotion-2"
+      class="emotion-3"
     >
       <div
-        class="bp3-navbar-group bp3-align-left bp3-dark emotion-1"
+        class="bp3-navbar-group bp3-align-left bp3-dark emotion-2"
       >
         <span
           class="emotion-0"
         >
           Misk
         </span>
+        <span
+          class="emotion-1"
+        >
+          PRODUCTION
+        </span>
       </div>
     </div>
     <div>
       <button
-        class="bp3-button emotion-4"
+        class="bp3-button emotion-5"
         type="button"
       >
         <span
           class="bp3-button-text"
         >
           <span
-            class="bp3-icon bp3-icon-menu emotion-3"
+            class="bp3-icon bp3-icon-menu emotion-4"
             icon="menu"
           >
             <svg
@@ -199,7 +268,7 @@ exports[`Navbar Component Navbar can render 1`] = `
         </span>
       </button>
       <div
-        class="emotion-9"
+        class="emotion-11"
       >
         <div
           class="bp3-collapse"
@@ -210,17 +279,24 @@ exports[`Navbar Component Navbar can render 1`] = `
             style="transform: translateY(-0px);"
           >
             <div
-              class="emotion-8"
+              class="emotion-10"
             >
               <div
-                class="emotion-2"
+                class="emotion-3"
               >
                 <div
-                  class="emotion-6"
+                  class="emotion-8"
                 >
                   <div
-                    class="emotion-5"
+                    class="emotion-7"
                   >
+                    <span>
+                      <span
+                        class="emotion-1"
+                      >
+                        PRODUCTION
+                      </span>
+                    </span>
                     <span>
                       <span />
                     </span>
@@ -233,36 +309,48 @@ exports[`Navbar Component Navbar can render 1`] = `
         </div>
       </div>
     </div>
-    <div />
+    <span
+      class="emotion-14"
+    >
+      <div
+        class="emotion-3"
+      >
+        <div
+          class="emotion-7"
+        >
+          <span />
+        </div>
+      </div>
+    </span>
   </div>
 </DocumentFragment>
 `;
 
 exports[`Navbar Component Navbar can render with theme override using color 1`] = `
 <DocumentFragment>
-  .emotion-2 {
+  .emotion-3 {
   margin: 0 auto;
 }
 
 @media (min-width:768px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 750px;
   }
 }
 
 @media (min-width:992px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 970px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 1170px;
   }
 }
 
-.emotion-1 {
+.emotion-2 {
   font-size: 13px !important;
   font-weight: 600 !important;
   position: relative;
@@ -271,19 +359,19 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
 }
 
 @media (max-width:870px) {
-  .emotion-1 {
+  .emotion-2 {
     padding-left: 60px;
   }
 }
 
 @media (min-width:992px) and (max-width:1085px) {
-  .emotion-1 {
+  .emotion-2 {
     padding-left: 60px;
   }
 }
 
 @media (min-width:1200px) and (max-width:1285px) {
-  .emotion-1 {
+  .emotion-2 {
     padding-left: 60px;
   }
 }
@@ -320,15 +408,49 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
   text-decoration: none;
 }
 
-.emotion-3 {
+.emotion-1 {
+  font-size: 24px !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  color: #df3320 !important;
+  min-width: 0;
+}
+
+.emotion-1 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-1 a:hover {
+  color: white !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-4 {
   color: #7a7e82 !important;
 }
 
-.emotion-3:hover {
+.emotion-4:hover {
   color: white;
 }
 
-.emotion-8 {
+.emotion-10 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
@@ -336,16 +458,16 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
 }
 
 @media (max-width:768px) {
-  .emotion-8 {
+  .emotion-10 {
     padding: 50px 20px;
   }
 }
 
-.emotion-6 {
+.emotion-8 {
   display: inline-block;
 }
 
-.emotion-5 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -358,7 +480,7 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
   flex-wrap: wrap;
 }
 
-.emotion-5 * {
+.emotion-7 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -368,14 +490,44 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
   white-space: nowrap;
 }
 
-.emotion-10 {
+.emotion-14 {
+  background-color: #df3320 !important;
+  color: #eceef1 !important;
+  text-align: center;
+  font-weight: 600;
+  padding: 5px 10px;
+  position: fixed !important;
+  width: 100%;
+  top: 70px;
+  left: 0px;
+  z-index: 1010 !important;
+}
+
+.emotion-14 a {
+  font-weight: 300;
+  color: #eceef1;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+}
+
+.emotion-14 a:hover {
+  color: white;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-15 {
   background-color: #7250a1 !important;
   padding-top: 10px !important;
   padding-bottom: 60px !important;
   position: fixed !important;
 }
 
-.emotion-4 {
+.emotion-5 {
   background-color: #7250a1 !important;
   box-shadow: none !important;
   background-image: none !important;
@@ -385,38 +537,43 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
   z-index: 1020;
 }
 
-.emotion-9 {
+.emotion-11 {
   background-color: #7250a1;
   display: block;
   margin: 60px -20px 0 -20px;
 }
 
 <div
-    class="bp3-navbar emotion-10"
+    class="bp3-navbar emotion-15"
   >
     <div
-      class="emotion-2"
+      class="emotion-3"
     >
       <div
-        class="bp3-navbar-group bp3-align-left bp3-dark emotion-1"
+        class="bp3-navbar-group bp3-align-left bp3-dark emotion-2"
       >
         <span
           class="emotion-0"
         >
           Misk
         </span>
+        <span
+          class="emotion-1"
+        >
+          PRODUCTION
+        </span>
       </div>
     </div>
     <div>
       <button
-        class="bp3-button emotion-4"
+        class="bp3-button emotion-5"
         type="button"
       >
         <span
           class="bp3-button-text"
         >
           <span
-            class="bp3-icon bp3-icon-menu emotion-3"
+            class="bp3-icon bp3-icon-menu emotion-4"
             icon="menu"
           >
             <svg
@@ -437,7 +594,7 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
         </span>
       </button>
       <div
-        class="emotion-9"
+        class="emotion-11"
       >
         <div
           class="bp3-collapse"
@@ -448,17 +605,24 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
             style="transform: translateY(-0px);"
           >
             <div
-              class="emotion-8"
+              class="emotion-10"
             >
               <div
-                class="emotion-2"
+                class="emotion-3"
               >
                 <div
-                  class="emotion-6"
+                  class="emotion-8"
                 >
                   <div
-                    class="emotion-5"
+                    class="emotion-7"
                   >
+                    <span>
+                      <span
+                        class="emotion-1"
+                      >
+                        PRODUCTION
+                      </span>
+                    </span>
                     <span>
                       <span />
                     </span>
@@ -471,36 +635,48 @@ exports[`Navbar Component Navbar can render with theme override using color 1`] 
         </div>
       </div>
     </div>
-    <div />
+    <span
+      class="emotion-14"
+    >
+      <div
+        class="emotion-3"
+      >
+        <div
+          class="emotion-7"
+        >
+          <span />
+        </div>
+      </div>
+    </span>
   </div>
 </DocumentFragment>
 `;
 
 exports[`Navbar Component Navbar can render with theme override using string 1`] = `
 <DocumentFragment>
-  .emotion-2 {
+  .emotion-3 {
   margin: 0 auto;
 }
 
 @media (min-width:768px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 750px;
   }
 }
 
 @media (min-width:992px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 970px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-2 {
+  .emotion-3 {
     width: 1170px;
   }
 }
 
-.emotion-1 {
+.emotion-2 {
   font-size: 13px !important;
   font-weight: 600 !important;
   position: relative;
@@ -509,19 +685,19 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
 }
 
 @media (max-width:870px) {
-  .emotion-1 {
+  .emotion-2 {
     padding-left: 60px;
   }
 }
 
 @media (min-width:992px) and (max-width:1085px) {
-  .emotion-1 {
+  .emotion-2 {
     padding-left: 60px;
   }
 }
 
 @media (min-width:1200px) and (max-width:1285px) {
-  .emotion-1 {
+  .emotion-2 {
     padding-left: 60px;
   }
 }
@@ -558,15 +734,49 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
   text-decoration: none;
 }
 
-.emotion-3 {
+.emotion-1 {
+  font-size: 24px !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 0px;
+  -moz-letter-spacing: 0px;
+  -ms-letter-spacing: 0px;
+  letter-spacing: 0px;
+  margin-right: 30px;
+  color: #cecece;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  color: #df3320 !important;
+  min-width: 0;
+}
+
+.emotion-1 a {
+  color: #cecece !important;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-1 a:hover {
+  color: white !important;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-4 {
   color: #7a7e82 !important;
 }
 
-.emotion-3:hover {
+.emotion-4:hover {
   color: white;
 }
 
-.emotion-8 {
+.emotion-10 {
   min-height: 250px;
   padding: 50px 0px;
   overflow-y: scroll;
@@ -574,16 +784,16 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
 }
 
 @media (max-width:768px) {
-  .emotion-8 {
+  .emotion-10 {
     padding: 50px 20px;
   }
 }
 
-.emotion-6 {
+.emotion-8 {
   display: inline-block;
 }
 
-.emotion-5 {
+.emotion-7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -596,7 +806,7 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
   flex-wrap: wrap;
 }
 
-.emotion-5 * {
+.emotion-7 * {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -606,14 +816,44 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
   white-space: nowrap;
 }
 
-.emotion-10 {
+.emotion-14 {
+  background-color: #df3320 !important;
+  color: #eceef1 !important;
+  text-align: center;
+  font-weight: 600;
+  padding: 5px 10px;
+  position: fixed !important;
+  width: 100%;
+  top: 70px;
+  left: 0px;
+  z-index: 1010 !important;
+}
+
+.emotion-14 a {
+  font-weight: 300;
+  color: #eceef1;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+}
+
+.emotion-14 a:hover {
+  color: white;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.emotion-15 {
   background-color: purple !important;
   padding-top: 10px !important;
   padding-bottom: 60px !important;
   position: fixed !important;
 }
 
-.emotion-4 {
+.emotion-5 {
   background-color: purple !important;
   box-shadow: none !important;
   background-image: none !important;
@@ -623,38 +863,43 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
   z-index: 1020;
 }
 
-.emotion-9 {
+.emotion-11 {
   background-color: purple;
   display: block;
   margin: 60px -20px 0 -20px;
 }
 
 <div
-    class="bp3-navbar emotion-10"
+    class="bp3-navbar emotion-15"
   >
     <div
-      class="emotion-2"
+      class="emotion-3"
     >
       <div
-        class="bp3-navbar-group bp3-align-left bp3-dark emotion-1"
+        class="bp3-navbar-group bp3-align-left bp3-dark emotion-2"
       >
         <span
           class="emotion-0"
         >
           Misk
         </span>
+        <span
+          class="emotion-1"
+        >
+          PRODUCTION
+        </span>
       </div>
     </div>
     <div>
       <button
-        class="bp3-button emotion-4"
+        class="bp3-button emotion-5"
         type="button"
       >
         <span
           class="bp3-button-text"
         >
           <span
-            class="bp3-icon bp3-icon-menu emotion-3"
+            class="bp3-icon bp3-icon-menu emotion-4"
             icon="menu"
           >
             <svg
@@ -675,7 +920,7 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
         </span>
       </button>
       <div
-        class="emotion-9"
+        class="emotion-11"
       >
         <div
           class="bp3-collapse"
@@ -686,17 +931,24 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
             style="transform: translateY(-0px);"
           >
             <div
-              class="emotion-8"
+              class="emotion-10"
             >
               <div
-                class="emotion-2"
+                class="emotion-3"
               >
                 <div
-                  class="emotion-6"
+                  class="emotion-8"
                 >
                   <div
-                    class="emotion-5"
+                    class="emotion-7"
                   >
+                    <span>
+                      <span
+                        class="emotion-1"
+                      >
+                        PRODUCTION
+                      </span>
+                    </span>
                     <span>
                       <span />
                     </span>
@@ -709,7 +961,19 @@ exports[`Navbar Component Navbar can render with theme override using string 1`]
         </div>
       </div>
     </div>
-    <div />
+    <span
+      class="emotion-14"
+    >
+      <div
+        class="emotion-3"
+      >
+        <div
+          class="emotion-7"
+        >
+          <span />
+        </div>
+      </div>
+    </span>
   </div>
 </DocumentFragment>
 `;
