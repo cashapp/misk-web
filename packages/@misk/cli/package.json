@@ -10,7 +10,9 @@
   },
   "files": [
     "lib",
-    "miskweb"
+    "miskweb",
+    "plopfile.js",
+    "plop-templates"
   ],
   "engines": {
     "node": ">= 0.2.0"
@@ -39,8 +41,8 @@
     "fs-extra": "9.1.0",
     "klaw": "3.0.0",
     "lodash": "4.17.21",
+    "node-plop": "0.26.2",
     "pkg": "4.4.8",
-    "plop": "2.7.1",
     "prettier": "1.19.1",
     "progress": "2.0.3",
     "root-require": "0.3.1",
@@ -72,7 +74,7 @@
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "testRegex": "cli/tests/.*(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
