@@ -4,6 +4,7 @@ export const defaultEnvironment = Environment.PRODUCTION
 export const defaultEnvironmentIndicatorsVisible = [
   Environment.DEVELOPMENT,
   Environment.STAGING,
+  Environment.PRODUCTION,
   Environment.TESTING
 ]
 
