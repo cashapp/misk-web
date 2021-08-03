@@ -315,7 +315,7 @@ export declare type CombinatorEffectDescriptor<E> = {
     [key: string]: E;
 } | E[];
 /** Type definition for SimpleRedux root Saga: [watchSimpleReduxSagas] */
-export declare type SimpleReduxSaga = IterableIterator<CombinatorEffect<\\"ALL\\", SimpleEffect<\\"FORK\\", ForkEffectDescriptor>>>;
+export declare type SimpleReduxSaga = IterableIterator<CombinatorEffect<\\"ALL\\", SimpleEffect<\\"FORK\\", ForkEffectDescriptor<any>>>>;
 /**
  * Default React Router Props
  * These are injected in different conditions depending on if a component is
@@ -395,7 +395,7 @@ export declare const HTTPMethodDispatch: any;
 
 exports[`Dist bundle utilities/mergeSaga.d.ts is unchanged 1`] = `
 "import { SIMPLEREDUX } from \\"../action\\";
-import { IDispatchOptions, ISimpleReduxPayload } from \\"../dispatch\\";
+import { IDispatchOptions, IDispatchSimpleRedux, ISimpleReduxPayload } from \\"../dispatch\\";
 import { IAction } from \\"../utilities\\";
 /**
  * Factories for IDispatchOptions optional mergeSaga
@@ -432,10 +432,10 @@ import { IAction } from \\"../utilities\\";
  * @param options configure the dispatch with optional mergeSaga or requestConfig
  */
 export declare const mergeSagaMapKeysToTags: (connectedProps: {
-    simpleMergeData: (tag: string, data: any, options?: IDispatchOptions) => IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>;
+    simpleMergeData: IDispatchSimpleRedux[\\"simpleMergeData\\"];
 }, payloadPath: string | string[], keyTagLookup: {
     [key: string]: string;
-}, options?: IDispatchOptions) => (action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) => IterableIterator<IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>>;
+}, options?: IDispatchOptions) => (action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) => Generator<IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>, void, unknown>;
 "
 `;
 
@@ -479,7 +479,7 @@ export declare const simpleSelect: <IState extends {
     [key: string]: any;
 }, ISubPayload extends {
     [key: string]: any;
-}>(subState: any, tagFilter: string, tagKeysFilter?: string, returnType?: any, subStateSelector?: any) => any;
+}>(subState: any, tagFilter: string, tagKeysFilter?: string, returnType?: any, subStateSelector?: string | any) => any;
 /**
  * Cached Redux Selector using Lodash Get API to select parts of the state
  * https://lodash.com/docs#get
