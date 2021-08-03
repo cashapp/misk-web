@@ -1,5 +1,5 @@
 {
-  "name": "misk-web-tab-{{slugCase}}",
+  "name": "misk-web-tab-template-basic",
   "version": "0.3.0",
   "license": "SEE LICENSE IN https://github.com/cashapp/misk-web",
   "main": "src/index.tsx",
@@ -16,7 +16,7 @@
     "reinstall": "rm -rf node_modules && npm run-script install",
     "start": "npm run-script prebuild && cross-env NODE_ENV=development webpack-dev-server",
     "test": "jest --passWithNoTests --maxWorkers=2",
-    "zip": "tar --exclude='.gitignore' --exclude='.old_build_files' --exclude='package.json' --exclude='package-lock.json' --exclude='prettier.config.js' --exclude='tsconfig.json' --exclude='tslint.json' --exclude='webpack.config.js' --exclude='yarn.lock' --exclude='demo' --exclude='lib' --exclude='.DS_Store' --exclude='*.log' --exclude='node_modules' --exclude='{{slugCase}}.tgz' -czvf {{slugCase}}.tgz ./"
+    "zip": "tar --exclude='.gitignore' --exclude='.old_build_files' --exclude='package.json' --exclude='package-lock.json' --exclude='prettier.config.js' --exclude='tsconfig.json' --exclude='tslint.json' --exclude='webpack.config.js' --exclude='yarn.lock' --exclude='demo' --exclude='lib' --exclude='.DS_Store' --exclude='*.log' --exclude='node_modules' --exclude='{{name}}.tgz' -czvf {{name}}.tgz ./"
   },
   "dependencies": {
     "@misk/cli": "0.3.0",
