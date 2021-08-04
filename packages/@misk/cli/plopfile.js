@@ -8,6 +8,10 @@ module.exports = function (plop) {
             message: 'unused'
         },{
             type: 'input',
+            name: 'titleCaseName',
+            message: 'New tab name, in title case'
+        },{
+            type: 'input',
             name: 'name',
             message: 'New tab name, in slug case'
         }],
