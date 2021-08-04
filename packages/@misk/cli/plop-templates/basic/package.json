@@ -4,7 +4,7 @@
   "license": "SEE LICENSE IN https://github.com/cashapp/misk-web",
   "main": "src/index.tsx",
   "scripts": {
-    "build": "npm run-script prebuild && npm run-script lib && npm run-script test && npm run-script zip",
+    "build": "npm run-script prebuild && npm run-script lib && npm run-script test",
     "ci-build": "npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib && npm run-script test && npm run-script zip",
     "dev-build": "npm run-script dev-lib && npm run-script zip",
     "clean": "rm -rf demo lib",
@@ -15,8 +15,7 @@
     "prebuild": "miskweb prebuild && npm run-script lint",
     "reinstall": "rm -rf node_modules && npm run-script install",
     "start": "npm run-script prebuild && cross-env NODE_ENV=development webpack-dev-server",
-    "test": "jest --passWithNoTests --maxWorkers=2",
-    "zip": "tar --exclude='.gitignore' --exclude='.old_build_files' --exclude='package.json' --exclude='package-lock.json' --exclude='prettier.config.js' --exclude='tsconfig.json' --exclude='tslint.json' --exclude='webpack.config.js' --exclude='yarn.lock' --exclude='demo' --exclude='lib' --exclude='.DS_Store' --exclude='*.log' --exclude='node_modules' --exclude='template-basic.tgz' -czvf template-basic.tgz ./"
+    "test": "jest --passWithNoTests --maxWorkers=2"
   },
   "dependencies": {
     "@misk/cli": "0.3.0",
