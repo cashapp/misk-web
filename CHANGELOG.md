@@ -1,5 +1,10 @@
 ## Changelog
 
+## 0.3.3
+Thu, 05 Aug 2021 05:38:01 GMT
+
+Bug fixes for the 0.3.1 release.
+
 ## 0.3.1
 Thu, 05 Aug 2021 04:40:22 GMT
 

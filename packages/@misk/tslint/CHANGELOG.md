@@ -1,6 +1,16 @@
 # Change Log - @misk/tslint
 
-This log was last generated on Thu, 05 Aug 2021 04:40:22 GMT and should not be manually modified.
+This log was last generated on Thu, 05 Aug 2021 05:54:19 GMT and should not be manually modified.
+
+## 0.3.3
+Thu, 05 Aug 2021 05:54:19 GMT
+
+_Version update only_
+
+## 0.3.2
+Thu, 05 Aug 2021 05:38:01 GMT
+
+_Version update only_
 
 ## 0.3.1
 Thu, 05 Aug 2021 04:40:22 GMT
