@@ -1,6 +1,12 @@
 ## Changelog
 
 ## 0.3.0
+Thu, 05 Aug 2021 04:40:22 GMT
+
+* #1645 Add a red banner for production
+* #1649 Bundle new tab in CLI
+
+## 0.3.0
 Tue, 27 Jul 2021 00:04:10 GMT
 
 Release based on 0.1.27, but with non-major dependency updates applied.
