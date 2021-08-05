@@ -1,6 +1,6 @@
 ## Changelog
 
-## 0.3.0
+## 0.3.1
 Thu, 05 Aug 2021 04:40:22 GMT
 
 * #1645 Add a red banner for production
