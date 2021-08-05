@@ -1,3 +1,4 @@
+import path from "path"
 import nodePlop from "node-plop"
 import { handleCommand, logDebug, parseArgs } from "../utils"
 
@@ -11,7 +12,7 @@ export const handlerFn = async (...args: any) => {
 
   logDebug(cmd, desc)
   
-  const plop = nodePlop("plopfile.js")
+  const plop = nodePlop(path.join(__dirname, "../../../plopfile.js"))
   const generator = plop.getGenerator("basic");
   generator.runActions({
     // This isn't needed (we can title-case a name ourselves), but keeps the command's behaviour the 
