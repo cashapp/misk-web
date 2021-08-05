@@ -1,6 +1,11 @@
 # Change Log - @misk/cli
 
-This log was last generated on Tue, 27 Jul 2021 00:04:10 GMT and should not be manually modified.
+This log was last generated on Thu, 05 Aug 2021 04:40:22 GMT and should not be manually modified.
+
+## 0.3.1
+Thu, 05 Aug 2021 04:40:22 GMT
+
+_Version update only_
 
 ## 0.3.0
 Tue, 27 Jul 2021 00:04:10 GMT
