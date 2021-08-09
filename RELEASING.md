@@ -9,26 +9,9 @@ This outlines the steps necessary to manually release new `@misk` packages on NP
 - Create an NPM user at [npmjs.com](http://npmjs.com/) and request membership in the [`@Misk` organization ](https://www.npmjs.com/org/misk). Membership will give you publish permissions for `@Misk` scoped packages.
 - **Note:** member level may not actually be high enough to publish, needs further testing whether publish permissions are only available at Admin or Owner level.
 - On your development machine, run `$ npm login` to authorize your local environment with publish permissions.
-
-## Rush: Setup
-
-- `@misk` packages are in a directory managed by [Rush](https://rushjs.io/). This allows coordinated version releases and iterative builds among other headache saving features.
-- Developing `@misk` packages is different than regular Misk tabs in that all builds are not done in Docker, but locally with Rush. This is much faster and highly recommended.
-- Using Rush requires a working local Node `10.5+` Long Term Support (LTS) environment. Consider using [nvm](https://github.com/creationix/nvm) to ensure the latest `10.5+` LTS version is present.
-- Take the time to familiarize yourself with [Rush](https://rushjs.io/). They have [good documentation](https://rushjs.io/pages/intro/welcome/) and a quick start guide is below.
-
-## Rush: Quick Start Guide
-
-```Bash
-$ npm install -g @microsoft/rush
-$ cd </your/code/directory>/misk-web
-$ rush update
-$ rush build
-```
-
 ## Releasing
 
-- `@misk` packages in this repo are managed by [Rush](https://rushjs.io/), which allows easy coordinated releases of all packages (ie. release all with a common version number). [Read their docs](https://rushjs.io/pages/intro/welcome/) to understand how to develop using Rush and how to setup your environment.
+- `@misk` packages in this repo are managed by [Rush](https://rushjs.io/), which allows easy coordinated releases of all packages (ie. release all with a common version number). Make sure Rush is set up locally. A guide is available in the [README](README.md).
 - All commands below must be run from the `misk-web` root directory.
 - Use the command below to bump the version across all packages.
 
