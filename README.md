@@ -39,3 +39,34 @@ Misk-Web is still bleeding edge and may have breaking changes up until version `
 [testdocs]: https://cashapp.github.io/misk-web/docs/packages/test/
 [tslintdocs]: https://cashapp.github.io/misk-web/docs/packages/tslint/
 [componentsdocs]: https://cashapp.github.io/misk-web/docs/packages/components/
+
+## How to work with this repo
+
+misk-web manages its Node installation via [Hermit](https://cashapp.github.io/hermit/). Follow the
+Quickstart guide, then activate the hermit environment:
+
+```bash
+cd path/to/misk-web
+source bin/activate-hermit
+```
+
+Also consider enabling [Hermit shell hooks](https://cashapp.github.io/hermit/usage/shell/).
+
+This repo is a monorepo managed by [Rush](https://rushjs.io/). Using Rush allows coordinated version
+releases and iterative builds, among other headache-saving features. Please take time to read their
+documentation for other commands not described below.
+
+Set up rush:
+
+```bash
+npm i -g @microsoft/rush
+```
+
+Then build everything:
+
+```bash
+# Like `npm install`, but for all packages in the repo.
+rush update
+# Like `npm run build`, but for all of them.
+rush build
+```
