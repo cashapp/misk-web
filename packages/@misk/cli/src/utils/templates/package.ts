@@ -88,7 +88,7 @@ const devDependencies = async (miskTab: IMiskTabJSON, pkg: any) => ({
   devDependencies: {
     ...pkg.devDependencies,
     ...(await createMiskPackageJson(
-      [MiskPkg.dev, MiskPkg.prettier, MiskPkg.test, MiskPkg.tslint],
+      [MiskPkg.cli, MiskPkg.dev, MiskPkg.prettier, MiskPkg.test, MiskPkg.tslint],
       miskTab
     ))
   }
