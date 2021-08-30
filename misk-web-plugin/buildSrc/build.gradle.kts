@@ -12,7 +12,7 @@ gradlePlugin {
 }
 
 dependencies {
-  compile("com.squareup.okhttp3:okhttp:3.12.1")
+  compile("com.squareup.okhttp3:okhttp:3.14.9")
 }
 
 repositories {
