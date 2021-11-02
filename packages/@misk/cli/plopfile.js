@@ -1,5 +1,4 @@
 module.exports = function (plop) {
-    // controller generator
     plop.setGenerator('basic', {
         description: 'New basic misk-web tab',
         prompts: [{
@@ -29,7 +28,7 @@ module.exports = function (plop) {
             transform: (s, data) => {
                 // Handlebars handles most of these, but need to have a valid package name
                 // to test the template project, so do a custom find-and-replace here.
-                return s.replace("template-basic", data.name)
+                return s.replaceAll("template-basic", data.name)
             }
         }]
     });
