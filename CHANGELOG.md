@@ -1,5 +1,10 @@
 ## Changelog
 
+## 0.4.0
+Tue, 15 Feb 2022 04:27:39 GMT
+
+[#1798](https://github.com/cashapp/misk-web/pull/1798) Update dependencies to work with node 16
+
 ## 0.3.3
 Thu, 05 Aug 2021 05:38:01 GMT
 
