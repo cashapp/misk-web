@@ -13,7 +13,7 @@ if [ -z "${HERMIT_STATE_DIR}" ]; then
   esac
 fi
 
-export HERMIT_DIST_URL="${HERMIT_DIST_URL:-https://d1abdrezunyhdp.cloudfront.net/square}"
+export HERMIT_DIST_URL="${HERMIT_DIST_URL:-https://github.com/cashapp/hermit/releases/download/stable}"
 HERMIT_CHANNEL="$(basename "${HERMIT_DIST_URL}")"
 export HERMIT_CHANNEL
 export HERMIT_EXE=${HERMIT_EXE:-${HERMIT_STATE_DIR}/pkg/hermit@${HERMIT_CHANNEL}/hermit}
