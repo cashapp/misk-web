@@ -30,6 +30,9 @@ describe("isSyntheticEvent", () => {
   it("false if not SyntheticEvent", () => {
     expect(isSyntheticEvent(1234)).toBeFalsy()
   })
+  it("false if null", () => {
+    expect(isSyntheticEvent(null)).toBeFalsy()
+  })
 })
 
 describe("parseOnChangeArgs handles all components onChange inputs", () => {
@@ -45,6 +48,12 @@ describe("parseOnChangeArgs handles all components onChange inputs", () => {
   it("<DateInput /> onChange selectedDate, isUserChange", () => {
     const now = new Date()
     expect(parseOnChangeArgs([now, false])).toEqual(now)
+  })
+  it("<DateInput /> clear onChange selectedDate, isUserChange", () => {
+    expect(parseOnChangeArgs([null, true])).toEqual([null, true])
+  })
+  it("<DateInput /> null onChange selectedDate, isUserChange", () => {
+    expect(parseOnChangeArgs(null)).toEqual(null)
   })
   it("<TagInput /> onChange values: string[]", () => {
     expect(parseOnChangeArgs(["alpha", "bravo", "charlie"])).toEqual([

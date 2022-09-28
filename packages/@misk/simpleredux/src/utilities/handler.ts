@@ -25,6 +25,7 @@ export interface IHandlerOptions extends IDispatchOptions {
 export const isSyntheticEvent = (obj: any): boolean => {
   if (
     typeof obj === "object" &&
+    obj !== null &&
     "nativeEvent" in obj &&
     "currentTarget" in obj &&
     "target" in obj &&
@@ -52,10 +53,12 @@ export const isSyntheticEvent = (obj: any): boolean => {
  * @param args array of any event input from a component onChange function
  */
 export const parseOnChangeArgs = (args: any) => {
-  if (args[0] && args[0].target && args[0].target.value) {
+  if (!args) {
+    return null
+  } else if (args[0] && args[0].target && args[0].target.value) {
     // onChange=(event: [{ target: { value: any } }] ) => ... }
     return args[0].target.value
-  } else if (args && args.target && args.target.value) {
+  } else if (args.target && args.target.value) {
     // onChange={(value: number) => ... }
     return args.target.value
   } else if (
