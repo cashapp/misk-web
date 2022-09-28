@@ -31,8 +31,10 @@ const downloadUrlToFile = (url, filepath) => {
 fs.mkdir("cachedUrls", error => {
   if (error && !error.code === "EEXIST") console.log(error)
 })
-const miskCachedUrls = require(path.join(process.cwd(), "package.json"))
-  .miskCachedUrls
+const miskCachedUrls = require(path.join(
+  process.cwd(),
+  "package.json"
+)).miskCachedUrls
 Object.entries(miskCachedUrls).map(([taskname, { filepath, url }]) => {
   console.log("RefreshCachedUrl:", taskname)
   downloadUrlToFile(url, path.resolve(__dirname, "cachedUrls", filepath))

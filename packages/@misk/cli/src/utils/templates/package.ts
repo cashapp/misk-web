@@ -26,7 +26,7 @@ const scripts = (miskTab: IMiskTabJSON) => ({
     lib: "cross-env NODE_ENV=production webpack",
     "dev-lib": "cross-env NODE_ENV=development webpack",
     lint:
-      'prettier --write --config package.json ".{/src/**/,/}*.{md,css,scss,less,json,js,jsx,ts,tsx}"',
+      'prettier --write --config package.json .',
     prebuild: "miskweb prebuild && npm run-script lint",
     reinstall: "rm -rf node_modules && npm run-script install",
     start:

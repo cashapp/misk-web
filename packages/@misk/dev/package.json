@@ -14,7 +14,7 @@
     "clean": "rm -rf lib node_modules package-lock.json",
     "ci-build": "npm run-script clean && npm run-script lib",
     "lib": "mkdir -p lib/web/@misk/dev && cp *.json *.js *.md lib/web/@misk/dev",
-    "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
+    "lint": "prettier --write --config package.json .",
     "prepare": "npm run-script ci-build"
   },
   "dependencies": {
@@ -39,7 +39,7 @@
     "html-webpack-plugin": "3.2.0",
     "mini-css-extract-plugin": "0.12.0",
     "optimize-css-assets-webpack-plugin": "5.0.8",
-    "prettier": "1.19.1",
+    "prettier": "~2.7.1",
     "prop-types": "15.7.2",
     "sass": "1.43.4",
     "sass-loader": "10.1.1",

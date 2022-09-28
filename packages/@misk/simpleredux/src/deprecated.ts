@@ -269,10 +269,12 @@ export const watchSimpleNetworkSagas = watchSimpleReduxSagas
  * <Button onClick={onClickFnCall(props.simpleHttpPut, "PutTag", { ...requestBody })}
  * ```
  */
-export const onClickFnCall = (callFn: any, ...args: any) => (event: any) => {
-  deprecatedCall("onClickFnCall", `handler.simple...(props, tag, ...)`)
-  callFn(...args)
-}
+export const onClickFnCall =
+  (callFn: any, ...args: any) =>
+  (event: any) => {
+    deprecatedCall("onClickFnCall", `handler.simple...(props, tag, ...)`)
+    callFn(...args)
+  }
 
 /**
  * DEPRECATED
@@ -283,10 +285,12 @@ export const onClickFnCall = (callFn: any, ...args: any) => (event: any) => {
  * <InputGroup onChange={onChangeFnCall(props.simpleMerge, "FormInputTag")}
  * ```
  */
-export const onChangeFnCall = (callFn: any, ...args: any) => (event: any) => {
-  deprecatedCall("onChangeFnCall", `handler.simple...(props, tag, ...)`)
-  callFn(...args, event.target.value)
-}
+export const onChangeFnCall =
+  (callFn: any, ...args: any) =>
+  (event: any) => {
+    deprecatedCall("onChangeFnCall", `handler.simple...(props, tag, ...)`)
+    callFn(...args, event.target.value)
+  }
 
 /**
  * DEPRECATED
@@ -297,12 +301,12 @@ export const onChangeFnCall = (callFn: any, ...args: any) => (event: any) => {
  * <Checkbox onChange={onChangeToggleFnCall(props.simpleMergeToggle, "FormToggleTag", props.simpleRedux)}
  * ```
  */
-export const onChangeToggleFnCall = (callFn: any, ...args: any) => (
-  event: any
-) => {
-  deprecatedCall("onChangeToggleFnCall", `handler.simple...(props, tag, ...)`)
-  callFn(...args, event.target.value)
-}
+export const onChangeToggleFnCall =
+  (callFn: any, ...args: any) =>
+  (event: any) => {
+    deprecatedCall("onChangeToggleFnCall", `handler.simple...(props, tag, ...)`)
+    callFn(...args, event.target.value)
+  }
 
 /**
  * DEPRECATED
@@ -313,13 +317,12 @@ export const onChangeToggleFnCall = (callFn: any, ...args: any) => (
  * <NumberInput onChange={onChangeNumberFnCall(props.simpleMergeNumber, "FormNumberTag")}
  * ```
  */
-export const onChangeNumberFnCall = (callFn: any, ...args: any) => (
-  valueAsNumber: number,
-  valueAsString: string
-) => {
-  deprecatedCall("onChangeNumberFnCall", `handler.simple...(props, tag, ...)`)
-  callFn(...args, valueAsNumber, valueAsString)
-}
+export const onChangeNumberFnCall =
+  (callFn: any, ...args: any) =>
+  (valueAsNumber: number, valueAsString: string) => {
+    deprecatedCall("onChangeNumberFnCall", `handler.simple...(props, tag, ...)`)
+    callFn(...args, valueAsNumber, valueAsString)
+  }
 
 /**
  * DEPRECATED
@@ -330,9 +333,9 @@ export const onChangeNumberFnCall = (callFn: any, ...args: any) => (
  * <TagInput onChange={onChangeTagFnCall(props.simpleMerge, "FormTagsTag")}
  * ```
  */
-export const onChangeTagFnCall = (callFn: any, ...args: any) => (
-  values: string[]
-) => {
-  deprecatedCall("onChangeTagFnCall", `handler.simple...(props, tag, ...)`)
-  callFn(...args, values)
-}
+export const onChangeTagFnCall =
+  (callFn: any, ...args: any) =>
+  (values: string[]) => {
+    deprecatedCall("onChangeTagFnCall", `handler.simple...(props, tag, ...)`)
+    callFn(...args, values)
+  }

@@ -33,7 +33,7 @@ export const createIndex = (
     rootSaga: () => IterableIterator<CombinatorEffect<"ALL", any>>
   }
 ) => {
-  const Window = (window as unknown) as IWindow
+  const Window = window as unknown as IWindow
 
   Window.Misk.History = Window.Misk.History || createBrowserHistory()
   const history = Window.Misk.History

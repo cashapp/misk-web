@@ -238,92 +238,116 @@ export interface IHandler {
 }
 
 export const handler: IHandler = {
-  simpleMerge: (
-    connectedProps: IDispatchSimpleRedux,
-    tag: string,
-    options?: IHandlerOptions
-  ) => (...onChangeArgs: any) =>
-    connectedProps.simpleMerge(
-      tag,
-      parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
-      options
-    ),
-  simpleMergeRaw: (
-    connectedProps: IDispatchSimpleRedux,
-    options?: IHandlerOptions
-  ) => (...onChangeArgs: any) =>
-    connectedProps.simpleMergeRaw(
-      parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
-      options
-    ),
-  simpleMergeData: (
-    connectedProps: IDispatchSimpleRedux,
-    tag: string,
-    options?: IHandlerOptions
-  ) => (...onChangeArgs: any) =>
-    connectedProps.simpleMergeData(
-      tag,
-      parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
-      options
-    ),
-  simpleMergeToggle: (
-    connectedProps: IDispatchSimpleRedux & { simpleRedux: ISimpleReduxState },
-    tag: string,
-    options?: IDispatchOptions
-  ) => (_: any) =>
-    connectedProps.simpleMergeToggle(tag, connectedProps.simpleRedux, options),
-  simpleHttpDelete: (
-    connectedProps: IDispatchSimpleRedux,
-    tag: string,
-    url: string,
-    options?: IDispatchOptions
-  ) => (_: any) => connectedProps.simpleHttpDelete(tag, url, options),
-  simpleHttpGet: (
-    connectedProps: IDispatchSimpleRedux,
-    tag: string,
-    url: string,
-    options?: IDispatchOptions
-  ) => (_: any) => connectedProps.simpleHttpGet(tag, url, options),
-  simpleHttpHead: (
-    connectedProps: IDispatchSimpleRedux,
-    tag: string,
-    url: string,
-    options?: IDispatchOptions
-  ) => (_: any) => connectedProps.simpleHttpHead(tag, url, options),
-  simpleHttpPatch: (
-    connectedProps: IDispatchSimpleRedux,
-    tag: string,
-    url: string,
-    options?: IHandlerOptions
-  ) => (...onChangeArgs: any) =>
-    connectedProps.simpleHttpPatch(
-      tag,
-      url,
-      parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
-      options
-    ),
-  simpleHttpPost: (
-    connectedProps: IDispatchSimpleRedux,
-    tag: string,
-    url: string,
-    options?: IHandlerOptions
-  ) => (...onChangeArgs: any) =>
-    connectedProps.simpleHttpPost(
-      tag,
-      url,
-      parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
-      options
-    ),
-  simpleHttpPut: (
-    connectedProps: IDispatchSimpleRedux,
-    tag: string,
-    url: string,
-    options?: IHandlerOptions
-  ) => (...onChangeArgs: any) =>
-    connectedProps.simpleHttpPut(
-      tag,
-      url,
-      parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
-      options
-    )
+  simpleMerge:
+    (
+      connectedProps: IDispatchSimpleRedux,
+      tag: string,
+      options?: IHandlerOptions
+    ) =>
+    (...onChangeArgs: any) =>
+      connectedProps.simpleMerge(
+        tag,
+        parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
+        options
+      ),
+  simpleMergeRaw:
+    (connectedProps: IDispatchSimpleRedux, options?: IHandlerOptions) =>
+    (...onChangeArgs: any) =>
+      connectedProps.simpleMergeRaw(
+        parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
+        options
+      ),
+  simpleMergeData:
+    (
+      connectedProps: IDispatchSimpleRedux,
+      tag: string,
+      options?: IHandlerOptions
+    ) =>
+    (...onChangeArgs: any) =>
+      connectedProps.simpleMergeData(
+        tag,
+        parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
+        options
+      ),
+  simpleMergeToggle:
+    (
+      connectedProps: IDispatchSimpleRedux & { simpleRedux: ISimpleReduxState },
+      tag: string,
+      options?: IDispatchOptions
+    ) =>
+    (_: any) =>
+      connectedProps.simpleMergeToggle(
+        tag,
+        connectedProps.simpleRedux,
+        options
+      ),
+  simpleHttpDelete:
+    (
+      connectedProps: IDispatchSimpleRedux,
+      tag: string,
+      url: string,
+      options?: IDispatchOptions
+    ) =>
+    (_: any) =>
+      connectedProps.simpleHttpDelete(tag, url, options),
+  simpleHttpGet:
+    (
+      connectedProps: IDispatchSimpleRedux,
+      tag: string,
+      url: string,
+      options?: IDispatchOptions
+    ) =>
+    (_: any) =>
+      connectedProps.simpleHttpGet(tag, url, options),
+  simpleHttpHead:
+    (
+      connectedProps: IDispatchSimpleRedux,
+      tag: string,
+      url: string,
+      options?: IDispatchOptions
+    ) =>
+    (_: any) =>
+      connectedProps.simpleHttpHead(tag, url, options),
+  simpleHttpPatch:
+    (
+      connectedProps: IDispatchSimpleRedux,
+      tag: string,
+      url: string,
+      options?: IHandlerOptions
+    ) =>
+    (...onChangeArgs: any) =>
+      connectedProps.simpleHttpPatch(
+        tag,
+        url,
+        parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
+        options
+      ),
+  simpleHttpPost:
+    (
+      connectedProps: IDispatchSimpleRedux,
+      tag: string,
+      url: string,
+      options?: IHandlerOptions
+    ) =>
+    (...onChangeArgs: any) =>
+      connectedProps.simpleHttpPost(
+        tag,
+        url,
+        parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
+        options
+      ),
+  simpleHttpPut:
+    (
+      connectedProps: IDispatchSimpleRedux,
+      tag: string,
+      url: string,
+      options?: IHandlerOptions
+    ) =>
+    (...onChangeArgs: any) =>
+      connectedProps.simpleHttpPut(
+        tag,
+        url,
+        parseOnChangeArgs(get(options, "overrideArgs", onChangeArgs)),
+        options
+      )
 }

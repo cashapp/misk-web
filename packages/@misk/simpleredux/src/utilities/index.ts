@@ -139,7 +139,7 @@ export const getFirstTag = <
   [key: string]: UNIONED_TYPE
 }): T => {
   if (Object.keys(payload).length === 1) {
-    return (payload[Object.keys(payload)[0]] as unknown) as T
+    return payload[Object.keys(payload)[0]] as unknown as T
   }
   throw new Error(
     "@misk/simpleredux:getFirstTag unpredictable use with an object that has more than one key"
