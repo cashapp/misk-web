@@ -15,13 +15,13 @@ describe("dispatchSimpleNetwork", () => {
       dispatchSimpleNetwork.simpleNetworkSuccess(tag, url, {
         config: null,
         ...data,
-        headers: []
+        headers: {} 
       })
     ).toEqual(
       dispatchSimpleRedux.simpleMerge(tag, {
         config: null,
         ...data,
-        headers: [],
+        headers: {},
         url
       })
     )
