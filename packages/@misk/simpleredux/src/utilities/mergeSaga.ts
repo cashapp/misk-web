@@ -50,7 +50,7 @@ export const mergeSagaMapKeysToTags = (
   keyTagLookup: { [key: string]: string },
   options: IDispatchOptions = dispatchDefault.options
 ) =>
-  function*(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
+  function* (action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
     const payload = getFirstTag<ISimpleReduxPayloadTag>(action.payload)
     for (const key in get(payload, payloadPath)) {
       const tag = keyTagLookup[key]
