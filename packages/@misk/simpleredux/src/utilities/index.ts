@@ -1,6 +1,6 @@
 import { History, Location } from "history"
 import { HTTPMethod } from "http-method-enum"
-import { fromJS, List } from "immutable"
+import { List, Map } from "immutable"
 import { match } from "react-router"
 import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects"
 import { StatusCode } from "status-code-enum"
@@ -56,7 +56,7 @@ export interface IRootState {
 export interface IDefaultRootState extends IDefaultState, IRootState {}
 
 /** Initializes new default state with initial Redux metadata in an ImmutableJS object */
-export const defaultState = fromJS({
+export const defaultState = Map({
   data: List([]),
   error: null,
   loading: false,
@@ -74,10 +74,7 @@ export const defaultState = fromJS({
  * - Initialize: defaultRootState("simpleForm")
  */
 export const defaultRootState = (simpleTag: string) =>
-  fromJS({
-    simpleTag,
-    ...defaultState.toJS()
-  })
+  Map({ simpleTag }).merge(defaultState)
 
 /** Interface for read only Redux Action */
 export interface IAction<T, P> {

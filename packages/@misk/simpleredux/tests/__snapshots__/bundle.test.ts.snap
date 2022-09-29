@@ -148,24 +148,27 @@ export {};
 `;
 
 exports[`Dist bundle reducer.d.ts is unchanged 1`] = `
-"import { SIMPLEREDUX } from \\"./action\\";
-import { ISimpleReduxPayload } from \\"./dispatch\\";
-import { IAction, IRootState } from \\"./utilities\\";
+"import { SIMPLEREDUX } from \\"./action\\"
+import { ISimpleReduxPayload } from \\"./dispatch\\"
+import { IAction, IRootState } from \\"./utilities\\"
 /**
  * Merges dispatched action objects on to the existing (or initial) state to generate new state
  */
-export declare function SimpleReduxReducer(state: any, action: IAction<SIMPLEREDUX, {}>): any;
+export declare function SimpleReduxReducer(
+  state: any,
+  action: IAction<SIMPLEREDUX, {}>
+): any
 /**
  * Interface for the SimpleRedux state that is stored in Redux wrapped in an ImmutableJS object
  */
 export interface ISimpleReduxState extends IRootState {
-    [tag: string]: any | ISimpleReduxPayload;
+  [tag: string]: any | ISimpleReduxPayload
 }
 /**
  * Interface for a SimpleRedux state wrapped in an ImmutableJS object, as it is in Redux
  */
 export interface ISimpleReduxImmutableState {
-    toJS: () => ISimpleReduxState;
+  toJS: () => ISimpleReduxState
 }
 "
 `;
@@ -296,6 +299,7 @@ export declare const handler: IHandler;
 
 exports[`Dist bundle utilities/index.d.ts is unchanged 1`] = `
 "import { History, Location } from \\"history\\";
+import { List, Map } from \\"immutable\\";
 import { match } from \\"react-router\\";
 import { ForkEffectDescriptor, SimpleEffect } from \\"redux-saga/effects\\";
 export * from \\"./handler\\";
@@ -342,7 +346,7 @@ export interface IRootState {
 export interface IDefaultRootState extends IDefaultState, IRootState {
 }
 /** Initializes new default state with initial Redux metadata in an ImmutableJS object */
-export declare const defaultState: any;
+export declare const defaultState: Map<string, boolean | List<any>>;
 /**
  * @param simpleTag string identifier for the state domain
  * Used to initialize a top level domain of Redux state
@@ -353,7 +357,7 @@ export declare const defaultState: any;
  * - simpleTag: \\"simpleForm\\"
  * - Initialize: defaultRootState(\\"simpleForm\\")
  */
-export declare const defaultRootState: (simpleTag: string) => any;
+export declare const defaultRootState: (simpleTag: string) => Map<string, string | boolean | List<any>>;
 /** Interface for read only Redux Action */
 export interface IAction<T, P> {
     readonly type: T;
