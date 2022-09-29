@@ -7,7 +7,7 @@ dependencies:
   '@blueprintjs/timezone': 3.9.18_react-dom@16.13.1+react@16.13.1
   '@emotion/core': 10.0.28_react@16.13.1
   '@emotion/styled': 10.0.23_c989b1aa057905c7a8b69bf973f55a19
-  '@redux-saga/core': 1.1.3
+  '@redux-saga/core': 1.2.1
   '@rush-temp/cli': file:projects/cli.tgz_react-dom@16.13.1+react@16.13.1
   '@rush-temp/common': file:projects/common.tgz
   '@rush-temp/core': file:projects/core.tgz
@@ -77,7 +77,7 @@ dependencies:
   react-router-dom: 5.3.0_react@16.13.1
   react-transition-group: 4.4.1_react-dom@16.13.1+react@16.13.1
   redux: 4.1.2
-  redux-saga: 1.1.3
+  redux-saga: 1.2.1
   reselect: 4.1.2
   root-require: 0.3.1
   sass: 1.43.4
@@ -867,44 +867,44 @@ packages:
       node: '>= 8'
     resolution:
       integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==
-  /@redux-saga/core/1.1.3:
+  /@redux-saga/core/1.2.1:
     dependencies:
-      '@babel/runtime': 7.14.8
-      '@redux-saga/deferred': 1.1.2
-      '@redux-saga/delay-p': 1.1.2
-      '@redux-saga/is': 1.1.2
-      '@redux-saga/symbols': 1.1.2
-      '@redux-saga/types': 1.1.0
-      redux: 4.0.5
+      '@babel/runtime': 7.17.2
+      '@redux-saga/deferred': 1.2.1
+      '@redux-saga/delay-p': 1.2.1
+      '@redux-saga/is': 1.1.3
+      '@redux-saga/symbols': 1.1.3
+      '@redux-saga/types': 1.2.1
+      redux: 4.1.2
       typescript-tuple: 2.2.1
     dev: false
     resolution:
-      integrity: sha512-8tInBftak8TPzE6X13ABmEtRJGjtK17w7VUs7qV17S8hCO5S3+aUTWZ/DBsBJPdE8Z5jOPwYALyvofgq1Ws+kg==
-  /@redux-saga/deferred/1.1.2:
+      integrity: sha512-ABCxsZy9DwmNoYNo54ZlfuTvh77RXx8ODKpxOHeWam2dOaLGQ7vAktpfOtqSeTdYrKEORtTeWnxkGJMmPOoukg==
+  /@redux-saga/deferred/1.2.1:
     dev: false
     resolution:
-      integrity: sha512-908rDLHFN2UUzt2jb4uOzj6afpjgJe3MjICaUNO3bvkV/kN/cNeI9PMr8BsFXB/MR8WTAZQq/PlTq8Kww3TBSQ==
-  /@redux-saga/delay-p/1.1.2:
+      integrity: sha512-cmin3IuuzMdfQjA0lG4B+jX+9HdTgHZZ+6u3jRAOwGUxy77GSlTi4Qp2d6PM1PUoTmQUR5aijlA39scWWPF31g==
+  /@redux-saga/delay-p/1.2.1:
     dependencies:
-      '@redux-saga/symbols': 1.1.2
+      '@redux-saga/symbols': 1.1.3
     dev: false
     resolution:
-      integrity: sha512-ojc+1IoC6OP65Ts5+ZHbEYdrohmIw1j9P7HS9MOJezqMYtCDgpkoqB5enAAZrNtnbSL6gVCWPHaoaTY5KeO0/g==
-  /@redux-saga/is/1.1.2:
+      integrity: sha512-MdiDxZdvb1m+Y0s4/hgdcAXntpUytr9g0hpcOO1XFVyyzkrDu3SKPgBFOtHn7lhu7n24ZKIAT1qtKyQjHqRd+w==
+  /@redux-saga/is/1.1.3:
     dependencies:
-      '@redux-saga/symbols': 1.1.2
-      '@redux-saga/types': 1.1.0
+      '@redux-saga/symbols': 1.1.3
+      '@redux-saga/types': 1.2.1
     dev: false
     resolution:
-      integrity: sha512-OLbunKVsCVNTKEf2cH4TYyNbbPgvmZ52iaxBD4I1fTif4+MTXMa4/Z07L83zW/hTCXwpSZvXogqMqLfex2Tg6w==
-  /@redux-saga/symbols/1.1.2:
+      integrity: sha512-naXrkETG1jLRfVfhOx/ZdLj0EyAzHYbgJWkXbB3qFliPcHKiWbv/ULQryOAEKyjrhiclmr6AMdgsXFyx7/yE6Q==
+  /@redux-saga/symbols/1.1.3:
     dev: false
     resolution:
-      integrity: sha512-EfdGnF423glv3uMwLsGAtE6bg+R9MdqlHEzExnfagXPrIiuxwr3bdiAwz3gi+PsrQ3yBlaBpfGLtDG8rf3LgQQ==
-  /@redux-saga/types/1.1.0:
+      integrity: sha512-hCx6ZvU4QAEUojETnX8EVg4ubNLBFl1Lps4j2tX7o45x/2qg37m3c6v+kSp8xjDJY+2tJw4QB3j8o8dsl1FDXg==
+  /@redux-saga/types/1.2.1:
     dev: false
     resolution:
-      integrity: sha512-afmTuJrylUU/0OtqzaRkbyYFFNgCF73Bvel/sw90pvGrWIZ+vyoIJqA6eMSoA6+nb443kTmulmBtC9NerXboNg==
+      integrity: sha512-1dgmkh+3so0+LlBWRhGA33ua4MYr7tUOj+a9Si28vUi0IUFNbff1T3sgpeDJI/LaC75bBYnQ0A3wXjn0OrRNBA==
   /@sheerun/mutationobserver-shim/0.3.3:
     dev: false
     resolution:
@@ -8778,19 +8778,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-z5Fqsf1fHxbfsggi3W7H9zDCr94=
-  /redux-saga/1.1.3:
+  /redux-saga/1.2.1:
     dependencies:
-      '@redux-saga/core': 1.1.3
+      '@redux-saga/core': 1.2.1
     dev: false
     resolution:
-      integrity: sha512-RkSn/z0mwaSa5/xH/hQLo8gNf4tlvT18qXDNvedihLcfzh+jMchDgaariQoehCpgRltEm4zHKJyINEz6aqswTw==
-  /redux/4.0.5:
-    dependencies:
-      loose-envify: 1.4.0
-      symbol-observable: 1.2.0
-    dev: false
-    resolution:
-      integrity: sha512-VSz1uMAH24DM6MF72vcojpYPtrTUu3ByVWfPL1nPfVRb5mZVTve5GnNCUV53QM/BZ66xfWrm0CTWoM+Xlz8V1w==
+      integrity: sha512-fVCicLlf4hLP+KB6H7RHfZlZ8LdYckhaemXBB3wh//a2ESyz/z/l8ygxlm0OqPjS/PARdsQ2hIdAltxEB+NgvA==
   /redux/4.1.2:
     dependencies:
       '@babel/runtime': 7.14.8
@@ -9995,12 +9988,6 @@ packages:
     dev: false
     resolution:
       integrity: sha1-w5IDpFhzhfrTyFCgvRvK+ggZdOM=
-  /symbol-observable/1.2.0:
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==
   /symbol-tree/3.2.4:
     dev: false
     resolution:
@@ -11256,7 +11243,7 @@ packages:
       '@blueprintjs/timezone': 3.9.18_react-dom@16.13.1+react@16.13.1
       '@emotion/core': 10.0.28_react@16.13.1
       '@emotion/styled': 10.0.23_c989b1aa057905c7a8b69bf973f55a19
-      '@redux-saga/core': 1.1.3
+      '@redux-saga/core': 1.2.1
       '@types/history': 4.7.5
       '@types/lodash': 4.14.176
       '@types/node': 16.11.6
@@ -11300,7 +11287,7 @@ packages:
       react-router-dom: 5.3.0_react@16.13.1
       react-transition-group: 4.4.1_react-dom@16.13.1+react@16.13.1
       redux: 4.1.2
-      redux-saga: 1.1.3
+      redux-saga: 1.2.1
       reselect: 4.1.2
       sass: 1.43.4
       sass-loader: 10.1.1_sass@1.43.4+webpack@4.43.0
@@ -11321,7 +11308,7 @@ packages:
     dev: false
     name: '@rush-temp/common'
     resolution:
-      integrity: sha512-tU+gSYvZTj1AyaCyRNVQz0uy9y0PDV8TA9P2Rwv4x+i9OlQkhHjRYl1ghshbR4fqVji8511/wLlQF12LCcthPw==
+      integrity: sha512-ZNhDcgdw+81mod5P0JbQUGx6AoDGS51m0E7O7LaGRVWrjvxBdI8f49kzQxGuyFKI9XEfXPUYOp6amjAC5iaNzQ==
       tarball: file:projects/common.tgz
     version: 0.0.0
   file:projects/core.tgz:
@@ -11334,7 +11321,7 @@ packages:
       '@blueprintjs/timezone': 3.9.18_react-dom@16.13.1+react@16.13.1
       '@emotion/core': 10.0.28_react@16.13.1
       '@emotion/styled': 10.0.23_c989b1aa057905c7a8b69bf973f55a19
-      '@redux-saga/core': 1.1.3
+      '@redux-saga/core': 1.2.1
       '@testing-library/dom': 7.2.2
       '@testing-library/react': 9.1.1_react-dom@16.13.1+react@16.13.1
       '@types/history': 4.7.5
@@ -11384,7 +11371,7 @@ packages:
       react-router-dom: 5.3.0_react@16.13.1
       react-transition-group: 4.4.1_react-dom@16.13.1+react@16.13.1
       redux: 4.1.2
-      redux-saga: 1.1.3
+      redux-saga: 1.2.1
       reselect: 4.1.2
       sass: 1.43.4
       sass-loader: 10.1.1_sass@1.43.4+webpack@4.43.0
@@ -11404,7 +11391,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-x31a+bFQi0xlzCmHCOV4CEF1nK/moDL/36v75m3kt+ESF3pmbxCq8EGo/LGs+6RKN2Rh2uPnhypfrTypguKZbA==
+      integrity: sha512-1acYdVfDnzUDwrIAGytr5OPvgcizNrbGnY2N+GN6kmVU0ttOC4gBvYM51dMX3cWWXqIrRBTvC2iHy4K94hJk/A==
       tarball: file:projects/core.tgz
     version: 0.0.0
   file:projects/dev.tgz:
@@ -11525,7 +11512,7 @@ packages:
       react-router-dom: 5.3.0_react@16.13.1
       react-transition-group: 4.4.1_react-dom@16.13.1+react@16.13.1
       redux: 4.1.2
-      redux-saga: 1.1.3
+      redux-saga: 1.2.1
       reselect: 4.1.2
       sass: 1.43.4
       sass-loader: 10.1.1_sass@1.43.4+webpack@4.43.0
@@ -11547,7 +11534,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-dashboard'
     resolution:
-      integrity: sha512-7fwCjtjuIKvs8Ix+v0ZdqRr3UM8GtG3lAeK41s/wVKy3socBEVdrQ/Pj7TmxWRG2s7vjo9UpKcI2X+fjv87lIw==
+      integrity: sha512-ytgiExbJVY0ElHm3Jg1JpPjct/QxIfjENF3cVYpyoHnxZon3BpERjQyP/4qPuJkurRPEs2FEKiqdYCRX++R2HQ==
       tarball: file:projects/misk-web-tab-dashboard.tgz
     version: 0.0.0
   file:projects/misk-web-tab-palette-exemplar.tgz:
@@ -11558,7 +11545,7 @@ packages:
       '@blueprintjs/select': 3.18.10_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/table': 3.9.12_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/timezone': 3.9.18_react-dom@16.13.1+react@16.13.1
-      '@redux-saga/core': 1.1.3
+      '@redux-saga/core': 1.2.1
       '@testing-library/dom': 7.2.2
       '@testing-library/react': 9.1.1_react-dom@16.13.1+react@16.13.1
       '@types/history': 4.7.5
@@ -11609,7 +11596,7 @@ packages:
       react-router-dom: 5.3.0_react@16.13.1
       react-transition-group: 4.4.1_react-dom@16.13.1+react@16.13.1
       redux: 4.1.2
-      redux-saga: 1.1.3
+      redux-saga: 1.2.1
       reselect: 4.1.2
       sass: 1.43.4
       sass-loader: 10.1.1_sass@1.43.4+webpack@4.43.0
@@ -11631,7 +11618,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-yCU30Up7SiY6WurtGHie+5f+1C3L0i2PJtz7XfIpzxpUVyPhFXGBe3Jjvpu1hXpwL+RSy4A3lKJH4OgS6UVreg==
+      integrity: sha512-tSc9YEryrmnck15cWdkME6xjCPUkTcqsSl8b2hv2zNOiqM1Pwro6/sc8Stubtn+yYwOjr+9OQ8YH5cRi5/k4MQ==
       tarball: file:projects/misk-web-tab-palette-exemplar.tgz
     version: 0.0.0
   file:projects/misk-web-tab-palette-lts.tgz:
@@ -11642,7 +11629,7 @@ packages:
       '@blueprintjs/select': 3.18.10_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/table': 3.9.12_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/timezone': 3.9.18_react-dom@16.13.1+react@16.13.1
-      '@redux-saga/core': 1.1.3
+      '@redux-saga/core': 1.2.1
       '@testing-library/dom': 7.2.2
       '@testing-library/react': 9.1.1_react-dom@16.13.1+react@16.13.1
       '@types/history': 4.7.5
@@ -11692,7 +11679,7 @@ packages:
       react-router-dom: 5.3.0_react@16.13.1
       react-transition-group: 4.4.1_react-dom@16.13.1+react@16.13.1
       redux: 4.1.2
-      redux-saga: 1.1.3
+      redux-saga: 1.2.1
       reselect: 4.1.2
       sass: 1.43.4
       sass-loader: 10.1.1_sass@1.43.4+webpack@4.43.0
@@ -11714,7 +11701,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-lts'
     resolution:
-      integrity: sha512-aGmMiMFogTeZrX9BRsUwZHFZvhWXxs11uhuLwXOYNEppj/hdsKyH8hjQ1f6ynpwtqBFy5lySA465dXuys0GeKQ==
+      integrity: sha512-RFn3sXWDVhoFoGSMh5us4B6lP6e7+lZNGYa/64zGNc27tHvYQOvKfHKVWDExSgW85Gd6OwBYnACEPXgMMxz2vA==
       tarball: file:projects/misk-web-tab-palette-lts.tgz
     version: 0.0.0
   file:projects/misk-web-tab-starter-basic.tgz:
@@ -11725,7 +11712,7 @@ packages:
       '@blueprintjs/select': 3.18.10_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/table': 3.9.12_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/timezone': 3.9.18_react-dom@16.13.1+react@16.13.1
-      '@redux-saga/core': 1.1.3
+      '@redux-saga/core': 1.2.1
       '@testing-library/dom': 7.2.2
       '@testing-library/react': 9.1.1_react-dom@16.13.1+react@16.13.1
       '@types/history': 4.7.5
@@ -11776,7 +11763,7 @@ packages:
       react-router-dom: 5.3.0_react@16.13.1
       react-transition-group: 4.4.1_react-dom@16.13.1+react@16.13.1
       redux: 4.1.2
-      redux-saga: 1.1.3
+      redux-saga: 1.2.1
       reselect: 4.1.2
       sass: 1.43.4
       sass-loader: 10.1.1_sass@1.43.4+webpack@4.43.0
@@ -11798,7 +11785,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-starter-basic'
     resolution:
-      integrity: sha512-nwjXZjWO7g/I5Jt6ofgHrwj5iKY0J+WqJ1x9YbOI4GtlDly4Xae7y82ZtLksR3Aurnlc2UEFXAnO3mcFgnxxWQ==
+      integrity: sha512-0DqOVHLhpG4V9/zJiKDNNbXYXsfksvwm1S2L0tjCZX7gtPNHAieoCIASmnR6/3K9AkLnX066W25p7BelBIKhaQ==
       tarball: file:projects/misk-web-tab-starter-basic.tgz
     version: 0.0.0
   file:projects/misk-web-tab-template-basic.tgz:
@@ -11809,7 +11796,7 @@ packages:
       '@blueprintjs/select': 3.18.10_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/table': 3.9.12_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/timezone': 3.9.18_react-dom@16.13.1+react@16.13.1
-      '@redux-saga/core': 1.1.3
+      '@redux-saga/core': 1.2.1
       '@testing-library/dom': 7.2.2
       '@testing-library/react': 9.1.1_react-dom@16.13.1+react@16.13.1
       '@types/history': 4.7.5
@@ -11860,7 +11847,7 @@ packages:
       react-router-dom: 5.3.0_react@16.13.1
       react-transition-group: 4.4.1_react-dom@16.13.1+react@16.13.1
       redux: 4.1.2
-      redux-saga: 1.1.3
+      redux-saga: 1.2.1
       reselect: 4.1.2
       sass: 1.43.4
       sass-loader: 10.1.1_sass@1.43.4+webpack@4.43.0
@@ -11882,7 +11869,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-template-basic'
     resolution:
-      integrity: sha512-ysmPp/pA/0KF7YWSJTB/kF1J0wpxqUDB7xF65nyZ3OseoGIetoo96UBp5552tM+JMyfoCxX7DoQMGMBgwuUtiA==
+      integrity: sha512-mI/95v5X1GC2aRuQWpHHHe/FZonUEnLVsAUNjPuqzyf40On7KKQCoEuoE6g/L80iMNL0JsGJif5jh079ws94VQ==
       tarball: file:projects/misk-web-tab-template-basic.tgz
     version: 0.0.0
   file:projects/prettier.tgz:
@@ -11902,7 +11889,7 @@ packages:
       '@blueprintjs/select': 3.18.10_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/table': 3.9.12_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/timezone': 3.9.18_react-dom@16.13.1+react@16.13.1
-      '@redux-saga/core': 1.1.3
+      '@redux-saga/core': 1.2.1
       '@testing-library/dom': 7.2.2
       '@testing-library/react': 9.1.1_react-dom@16.13.1+react@16.13.1
       '@types/history': 4.7.5
@@ -11952,7 +11939,7 @@ packages:
       react-router-dom: 5.3.0_react@16.13.1
       react-transition-group: 4.4.1_react-dom@16.13.1+react@16.13.1
       redux: 4.1.2
-      redux-saga: 1.1.3
+      redux-saga: 1.2.1
       reselect: 4.1.2
       sass: 1.43.4
       sass-loader: 10.1.1_sass@1.43.4+webpack@4.43.0
@@ -11974,7 +11961,7 @@ packages:
     dev: false
     name: '@rush-temp/simpleredux'
     resolution:
-      integrity: sha512-fkNIhuiOlRrs/LRz7o7Zy7l9T5ODLJvsiS5oPvu1PzhxyRClEQjoYQ8ZsyEW4OE8/ag0HV7IhYaK83/vPqed9g==
+      integrity: sha512-f7Esiys9M/CefjpuFHn/W3btDyLLw5jQQf6g8H0mgWM9sMwKvhAnVry7I5hT9ejZqx8H/E2TXdJLlvDk2sDfjw==
       tarball: file:projects/simpleredux.tgz
     version: 0.0.0
   file:projects/test.tgz_react-dom@16.13.1+react@16.13.1:
@@ -12026,7 +12013,7 @@ specifiers:
   '@blueprintjs/timezone': 3.9.18
   '@emotion/core': 10.0.28
   '@emotion/styled': 10.0.23
-  '@redux-saga/core': 1.1.3
+  '@redux-saga/core': ~1.2.1
   '@rush-temp/cli': file:./projects/cli.tgz
   '@rush-temp/common': file:./projects/common.tgz
   '@rush-temp/core': file:./projects/core.tgz
@@ -12096,7 +12083,7 @@ specifiers:
   react-router-dom: 5.3.0
   react-transition-group: 4.4.1
   redux: 4.1.2
-  redux-saga: 1.1.3
+  redux-saga: ~1.2.1
   reselect: 4.1.2
   root-require: 0.3.1
   sass: 1.43.4
