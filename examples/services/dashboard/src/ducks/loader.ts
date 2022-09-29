@@ -7,7 +7,7 @@ import {
   SimpleReduxSaga
 } from "@misk/simpleredux"
 import axios from "axios"
-import { fromJS } from "immutable"
+import { Map } from "immutable"
 import { all, call, put, takeEvery, takeLatest } from "redux-saga/effects"
 
 /**
@@ -71,12 +71,11 @@ export interface ILoaderState extends IRootState {
   serviceMetadata: IServiceMetadata
 }
 
-const initialState = fromJS({
+const initialState = Map({
   adminDashboardTabs: [],
   adminTabComponents: {},
-  serviceMetadata: {},
-  ...defaultState.toJS()
-})
+  serviceMetadata: {}
+}).merge(defaultState)
 
 export default function loaderReducer(
   state = initialState,
