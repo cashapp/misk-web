@@ -14,7 +14,7 @@
     "clean": "rm -rf lib node_modules package-lock.json",
     "ci-build": "npm run-script clean && npm run-script lib",
     "lib": "mkdir -p lib/web/@misk/dev && cp *.json *.js *.md lib/web/@misk/dev",
-    "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
+    "lint": "prettier --write --config package.json .",
     "prepare": "npm run-script ci-build"
   },
   "dependencies": {

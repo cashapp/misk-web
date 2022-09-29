@@ -24,7 +24,7 @@
     "dev": "npm run-script build; npm run-script updateDevCache",
     "ci-build": "npm run-script clean && npm run-script lib",
     "lib": "npm run-script refresh; webpack --config webpack.config.js && webpack --config webpack.config.static.js && webpack --config webpack.config.vendors.js",
-    "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
+    "lint": "prettier --write --config package.json .",
     "gradle": "cd ../../../../../ && ./gradlew web -Pcmd='-ca' -Ptabs='@misk/common'",
     "prepare": "npm run-script ci-build",
     "refresh": "node refreshCachedUrls.js",

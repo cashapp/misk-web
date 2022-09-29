@@ -11,7 +11,7 @@
     "ci-build": "npm install && npm run-script build",
     "clean": "rm -rf demo dist",
     "test": "echo 'no tests'",
-    "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
+    "lint": "prettier --write --config package.json .",
     "prepare": "npm run-script build"
   },
   "dependencies": {

@@ -22,7 +22,7 @@
     "clean": "rm -rf lib",
     "ci-build": "npm run-script clean && npm run-script lib",
     "lib": "npm run-script build",
-    "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
+    "lint": "prettier --write --config package.json .",
     "start": "node lib/src/index.js",
     "watch": "./node_modules/.bin/tsc -w",
     "build": "npm run-script clean && npm run-script buildcli && npm run test",
