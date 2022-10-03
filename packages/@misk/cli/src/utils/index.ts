@@ -14,7 +14,6 @@ export enum MiskPkg {
   "prettier" = "@misk/prettier",
   "simpleredux" = "@misk/simpleredux",
   "test" = "@misk/test",
-  "tslint" = "@misk/tslint"
 }
 
 export interface IMiskTabJSON {
@@ -46,7 +45,6 @@ export enum Files {
   "prettier" = "prettier.config.js",
   "setupMiskTest" = "setupMiskTest.js",
   "tsconfig" = "tsconfig.json",
-  "tslint" = "tslint.json",
   "webpack" = "webpack.config.js",
   "yarnLock" = "yarn.lock"
 }

@@ -33,7 +33,6 @@ export const defaultMiskTabJson = async (
   rawIndex: false,
   rawPackageJson: {},
   rawTsconfig: {},
-  rawTslint: {},
   rawWebpackConfig: {},
   relative_path_prefix: "",
   slug: "",
@@ -42,7 +41,8 @@ export const defaultMiskTabJson = async (
   version: await getSemVarPackageVersionOnNPM(),
   zipOnBuild: false,
   ___DeprecatedKeys:
-    "Any keys below this point in your miskTab.json are deprecated and can be safely removed."
+    "Any keys below this point in your miskTab.json are deprecated and can be safely removed.",
+  rawTslint: {}
 })
 
 export const readMiskTabJson = (dir: string): IMiskTabJSON => {
@@ -123,7 +123,6 @@ export const migrateBuildFiles = (...args: any) => {
     moveOldBuildFile(dir, Files.gitignore)
     moveOldBuildFile(dir, Files.prettier)
     moveOldBuildFile(dir, Files.tsconfig)
-    moveOldBuildFile(dir, Files.tslint)
     moveOldBuildFile(dir, Files.webpack)
     remove(makePath(dir, Files.packageLock))
     remove(makePath(dir, Files.yarnLock))

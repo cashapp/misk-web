@@ -49,11 +49,6 @@ module.exports = {
               category: "Packages"
             },
             {
-              href: "/docs/packages/tslint",
-              label: "@misk/tslint",
-              category: "Packages"
-            },
-            {
               href: "/examples",
               label: "Examples",
               category: "Info"
