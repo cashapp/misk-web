@@ -12,7 +12,7 @@ import { IAction, IRootState } from "./utilities"
 
 /** All Deprecated APIs live here for long term compatability */
 
-const deprecatedCall = (oldName: String, newSignature: String) =>
+const deprecatedCall = (oldName: string, newSignature: string) =>
   console.warn(`@misk/simpleredux::${oldName} is deprecated and will be removed.
 Use @misk/simpleredux::${newSignature} instead.
 Migration instructions: https://cashapp.github.io/misk-web/docs/guides/changelog.`)

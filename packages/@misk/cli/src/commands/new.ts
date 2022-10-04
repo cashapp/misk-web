@@ -18,7 +18,7 @@ export const handlerFn = async (...args: any) => {
     force: false
   })
   const generator = plop.getGenerator("basic");
-  generator.runActions({
+  return generator.runActions({
     // This isn't needed (we can title-case a name ourselves), but keeps the command's behaviour the 
     // same. This should be removed in a future version.
     titleCaseName: titleCase,

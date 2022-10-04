@@ -17,8 +17,11 @@ const initialState = defaultRootState(simpleTag)
  */
 export function SimpleReduxReducer(
   state: any = initialState,
+  /* eslint-disable @typescript-eslint/ban-types */
   action: IAction<SIMPLEREDUX, {}>
+  /* eslint-enable @typescript-eslint/ban-types */
 ) {
+  /* eslint-disable no-fallthrough */
   switch (action.type) {
     // Lifecycle
     case SIMPLEREDUX.FAILURE:
@@ -34,6 +37,7 @@ export function SimpleReduxReducer(
     default:
       return state
   }
+  /* eslint-enable no-fallthrough */
 }
 
 /**

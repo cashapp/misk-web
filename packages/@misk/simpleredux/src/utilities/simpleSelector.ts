@@ -128,7 +128,7 @@ export const simpleSelect = <
 >(
   subState: any,
   tagFilter: string,
-  tagKeysFilter: string = "",
+  tagKeysFilter = "",
   returnType?: any,
   subStateSelector?: string | any
 ) => {
@@ -246,7 +246,7 @@ export const createSimpleSelectorPick: <
   subStateSelector: (state: any) => ISubState
 ) => ParametricSelector<
   ISubState,
-  string | String[],
+  string | string[],
   any | ISubPayload | ISubPayload[]
 > = <
   ISubState extends { [key: string]: any },
@@ -302,7 +302,7 @@ export const createSimpleSelectorPickTransform: <
   keyPathLookup: { [key: string]: string } | string
 ) => ParametricSelector<
   ISubState,
-  string | String[],
+  string | string[],
   any | ISubPayload | ISubPayload[]
 > = <
   ISubState extends { [key: string]: any },

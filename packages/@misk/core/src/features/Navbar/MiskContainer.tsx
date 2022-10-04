@@ -90,6 +90,7 @@ export const MiskNavbarContainer = (
     }
   }
 
+  /* eslint-disable @typescript-eslint/no-floating-promises */
   useEffect(() => {
     if (dashboardMetadataUrl) {
       setLoading(true)
@@ -100,6 +101,7 @@ export const MiskNavbarContainer = (
       getServiceMetadata()
     }
   }, [])
+  /* eslint-enable @typescript-eslint/no-floating-promises */
 
   return (
     <>

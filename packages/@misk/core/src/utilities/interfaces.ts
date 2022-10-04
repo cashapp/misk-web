@@ -15,6 +15,7 @@ export interface IDashboardTab extends IWebTab {
   category?: string
 }
 
+/* eslint-disable-next-line @typescript-eslint/no-empty-interface */
 export interface IAdminDashboardTab extends IDashboardTab {}
 
 export interface IDashboardMetadata {

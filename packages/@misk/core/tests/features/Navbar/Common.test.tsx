@@ -1,5 +1,8 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/core"
+import {
+  css,
+  jsx
+} from "@emotion/core" /* eslint-disable-line @typescript-eslint/no-unused-vars */
 import { Link } from "react-router-dom"
 import { BrowserRouter } from "react-router-dom"
 import { cleanup, render } from "@testing-library/react"

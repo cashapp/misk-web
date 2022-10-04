@@ -1,6 +1,9 @@
 /** @jsx jsx */
 import { IElementRefProps, Pre } from "@blueprintjs/core"
-import { css, jsx } from "@emotion/core"
+import {
+  css,
+  jsx /* eslint-disable-line @typescript-eslint/no-unused-vars */
+} from "@emotion/core"
 import * as React from "react"
 
 /**

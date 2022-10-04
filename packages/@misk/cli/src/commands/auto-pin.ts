@@ -55,7 +55,7 @@ export const handlerFn = async (...args: any) => {
           )
         )
       }
-      generateMiskTabJson(dir, { ...miskTab, version: masterDeps.miskWebNPM })
+      await generateMiskTabJson(dir, { ...miskTab, version: masterDeps.miskWebNPM })
       execute(npmRunScript("prebuild", true), ...args)
     } else {
       logDebug(

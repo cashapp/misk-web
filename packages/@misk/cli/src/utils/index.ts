@@ -76,7 +76,7 @@ export const parseArgs = (...args: any): { dir: string; rawArgs: any } => ({
 
 export const remove = async (path: string) => {
   try {
-    fs.remove(path)
+    await fs.remove(path)
   } catch (e) {
     console.log(`[ERROR] ${e}`)
   }
@@ -93,5 +93,5 @@ export const execute = (cmd: string, ...args: any) => {
   }
 }
 
-export const npmRunScript = (cmd: string, prebuild: boolean = false) =>
+export const npmRunScript = (cmd: string, prebuild = false) =>
   `${prebuild ? "miskweb prebuild && " : ""}npm run-script ${cmd}`

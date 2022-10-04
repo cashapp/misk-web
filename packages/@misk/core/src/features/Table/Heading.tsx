@@ -6,7 +6,7 @@ export const Heading = (props: { data: any }) => {
     <thead>
       <tr>
         <th key={"index"}>{""}</th>
-        {Object.entries(data).map(([k, v]) => (
+        {Object.entries(data).map(([k]) => (
           <th key={k}>{k}</th>
         ))}
       </tr>

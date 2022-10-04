@@ -31,7 +31,7 @@ export const handlerFn = async (...args: any) => {
 If using ${miskTab.slug} with Misk, make sure to update your multibindings.
 Generate new ones with $ miskweb misk`
   )
-  generateMiskTabJson(dir, {
+  await generateMiskTabJson(dir, {
     ...miskTab,
     relative_path_prefix: `${normalizedPath}/`,
     output_path: `lib/web/${normalizedPath}`

@@ -31,6 +31,7 @@ export interface IDimensionAwareProps {
   width: number
 }
 
+/* eslint-disable-next-line @typescript-eslint/ban-types */
 export class Navbar extends React.Component<INavbarProps, {}> {
   public state = {
     height: 0,

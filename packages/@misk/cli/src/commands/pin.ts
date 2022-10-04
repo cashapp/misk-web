@@ -22,7 +22,7 @@ export const handlerFn = async (...args: any) => {
   } else {
     logDebug("PIN", offlineOrNotFoundMessage("Pin to", pinnedVersion))
   }
-  generateMiskTabJson(dir, {
+  await generateMiskTabJson(dir, {
     ...miskTab,
     version: versionExistsOnNPM || pinnedVersion
   })
