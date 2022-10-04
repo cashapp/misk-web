@@ -1,5 +1,10 @@
 ## Changelog
 
+## 0.4.1
+Wed, 28 Sep 2022 17:07:22 GMT
+
+* #1828 Ensure parseOnChangeArgs handles null arguments
+
 ## 0.4.0
 Tue, 15 Feb 2022 04:27:39 GMT
 
