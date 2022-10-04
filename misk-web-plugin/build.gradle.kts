@@ -7,7 +7,7 @@ plugins {
 }
 
 dependencies {
-  compile("com.squareup.okhttp3:okhttp:3.14.9")
+  compile("com.squareup.okhttp3:okhttp:4.10.0")
 }
 
 pluginBundle {
