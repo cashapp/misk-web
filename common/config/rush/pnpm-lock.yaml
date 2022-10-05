@@ -48,7 +48,7 @@ dependencies:
   copy-webpack-plugin: 5.1.1_webpack@4.43.0
   cross-env: 7.0.2
   css-loader: 3.5.3_webpack@4.43.0
-  dayjs: 1.10.7
+  dayjs: 1.11.5
   enum-utils: 1.0.0
   file-loader: 6.0.0_webpack@4.43.0
   fs-extra: 9.1.0
@@ -85,7 +85,7 @@ dependencies:
   root-require: 0.3.1
   sass: 1.43.4
   sass-loader: 10.1.1_sass@1.43.4+webpack@4.43.0
-  shelljs: 0.8.3
+  shelljs: 0.8.5
   skeleton-css: 2.0.4
   source-map-loader: 0.2.4
   status-code-enum: 1.0.0
@@ -3206,10 +3206,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-YTWYI9se1P55u58gL5GkQHW4P6VJBJ5iBT+B5a7i2Tjadhv52paJG0qHX4A0OR6/t52odI64KP2YvFpkDOi3eQ==
-  /dayjs/1.10.7:
+  /dayjs/1.11.5:
     dev: false
     resolution:
-      integrity: sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig==
+      integrity: sha512-CAdX5Q3YW3Gclyo5Vpqkgpj8fSdLQcRuzfX6mC6Phy0nfJ0eGYOeS7m4mt2plDWLAtA4TqTakvbboHvUxfe4iA==
   /debug/2.6.9:
     dependencies:
       ms: 2.0.0
@@ -4350,7 +4350,7 @@ packages:
   /fs.realpath/1.0.0:
     dev: false
     resolution:
-      integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
+      integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==
   /fsevents/1.2.13:
     dependencies:
       bindings: 1.5.0
@@ -5107,7 +5107,7 @@ packages:
       wrappy: 1.0.2
     dev: false
     resolution:
-      integrity: sha1-Sb1jMdfQLQwJvJEKEHW6gWW1bfk=
+      integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==
   /inherits/2.0.1:
     dev: false
     resolution:
@@ -7308,7 +7308,7 @@ packages:
       wrappy: 1.0.2
     dev: false
     resolution:
-      integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
+      integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==
   /onetime/2.0.1:
     dependencies:
       mimic-fn: 1.2.0
@@ -7664,7 +7664,7 @@ packages:
     engines:
       node: '>=0.10.0'
     resolution:
-      integrity: sha1-F0uSaHNVNP+8es5r9TpanhtcX18=
+      integrity: sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg==
   /path-key/2.0.1:
     dev: false
     engines:
@@ -8749,7 +8749,7 @@ packages:
     engines:
       node: '>= 0.10'
     resolution:
-      integrity: sha1-hSBLVNuoLVdC4oyWdW70OvUOM4Q=
+      integrity: sha512-HFM8rkZ+i3zrV+4LQjwQ0W+ez98pApMGM3HUrN04j3CqzPOzl9nmP15Y8YXNm8QHGv/eacOVEjqhmWpkRV0NAw==
   /redent/1.0.0:
     dependencies:
       indent-string: 2.1.0
@@ -9391,7 +9391,7 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
-  /shelljs/0.8.3:
+  /shelljs/0.8.5:
     dependencies:
       glob: 7.1.7
       interpret: 1.4.0
@@ -9401,7 +9401,7 @@ packages:
       node: '>=4'
     hasBin: true
     resolution:
-      integrity: sha512-fc0BKlAWiLpwZljmOvAOTE/gXawtCoNrP5oaY7KIaQbbyHeQVg01pSEuEGvGh3HEdBU4baCD7wQBwADmM/7f7A==
+      integrity: sha512-TiwcRcrkhHvbrZbnRcFYMLl30Dfov3HKqzp5tO5b4pt6G/SezKcYhmDg15zXVBswHmctSAQKznqNW2LO5tTDow==
   /shellwords/0.1.1:
     dev: false
     resolution:
@@ -11049,7 +11049,7 @@ packages:
   /wrappy/1.0.2:
     dev: false
     resolution:
-      integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
+      integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==
   /write-file-atomic/2.4.1:
     dependencies:
       graceful-fs: 4.2.6
@@ -11199,7 +11199,7 @@ packages:
       '@types/shelljs': 0.8.7
       '@types/yargs': 15.0.4
       axios: 0.21.4
-      dayjs: 1.10.7
+      dayjs: 1.11.5
       fs-extra: 9.1.0
       jest: 24.9.0
       jest-emotion: 10.0.14
@@ -11212,7 +11212,7 @@ packages:
       prettier: 1.19.1
       progress: 2.0.3
       root-require: 0.3.1
-      shelljs: 0.8.3
+      shelljs: 0.8.5
       ts-jest: 24.3.0_jest@24.9.0
       tslib: 2.3.1
       typescript: 3.9.10
@@ -11224,7 +11224,7 @@ packages:
       react: '*'
       react-dom: '*'
     resolution:
-      integrity: sha512-QEpkTavmKYabCwO74RWGRUEnBG64TRCzIqWDuebNOkUDkrQDScCR14GwUGaKTO70OFwx1hv6He6KPcalid73pw==
+      integrity: sha512-wbRjPGd4VYd/5Yj0Ltk9KuW+8bootzJCyAOJ/IzsFgeCV06Y198x7uZA1q8UWGIe0m9zSfRjH61v8Q4SdmZbAA==
       tarball: file:projects/cli.tgz
     version: 0.0.0
   file:projects/common.tgz:
@@ -11256,7 +11256,7 @@ packages:
       copy-webpack-plugin: 5.1.1_webpack@4.43.0
       cross-env: 7.0.2
       css-loader: 3.5.3_webpack@4.43.0
-      dayjs: 1.10.7
+      dayjs: 1.11.5
       enum-utils: 1.0.0
       fibers: 5.0.0
       file-loader: 6.0.0_webpack@4.43.0
@@ -11302,7 +11302,7 @@ packages:
     dev: false
     name: '@rush-temp/common'
     resolution:
-      integrity: sha512-i0fJAdg0TZ1GmM4dykq5lMQ4FhDGori1b9E4qvS6xai6aAo8fuao2HNHS3fwBxhHaeDsydyDiNZgCQXFJA7PJQ==
+      integrity: sha512-jxp6Knery6RxbqzaHBuykpkjJE6IY/mWvLHlJZ3Gbei42BOJIpp2qcoyPFtm7KALcx2jIF91PE9yd9yFh6Quiw==
       tarball: file:projects/common.tgz
     version: 0.0.0
   file:projects/core.tgz:
@@ -11337,7 +11337,7 @@ packages:
       copy-webpack-plugin: 5.1.1_webpack@4.43.0
       cross-env: 7.0.2
       css-loader: 3.5.3_webpack@4.43.0
-      dayjs: 1.10.7
+      dayjs: 1.11.5
       enum-utils: 1.0.0
       fibers: 5.0.0
       file-loader: 6.0.0_webpack@4.43.0
@@ -11385,7 +11385,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-i8pGnzx6FXli8a0sDs65uqHohWlvhlIc5zmOjRHLiWJFnADXKXJTJB/IouyNT/zRw4V9XYm04aIOG7hVxfZjhw==
+      integrity: sha512-9fHOCQcRcIg6KVxjx5rNA1IT2w5m0Te0Xdy+ZXXAHSf024HmFdiQ6W+MwBZLwib/76WM6PCC/dpJvF/v8CpbBg==
       tarball: file:projects/core.tgz
     version: 0.0.0
   file:projects/dev.tgz:
@@ -11431,7 +11431,7 @@ packages:
     dev: false
     name: '@rush-temp/dev'
     resolution:
-      integrity: sha512-Ezz9xrA83khE0PV/6ADFql4xsN383FQmjz3l2eSaQBpmDJ6usv0hhqMqvELxVtdkYzN0zWrEtSexa+asECbp1Q==
+      integrity: sha512-r8tyiz1ey7IG3ZMepCmZZaxsBeCidzfOzWs5oWCfe7CbVVx9enN+Of/FQftnWh9RMDzc84C2mu3SajqZhI0URg==
       tarball: file:projects/dev.tgz
     version: 0.0.0
   file:projects/misk-web-examples-data.tgz:
@@ -11447,7 +11447,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-examples-data'
     resolution:
-      integrity: sha512-r7aW5MdXIVOFd7kKbsVlYj13UGwRBHjNyCw3uFM7FjcPmt9+YHP7nJQYhIDfyOdSJHRjuU39Lt52rs5c/12Zzw==
+      integrity: sha512-k2S8Gd6G8RS1gc71PrSGJB0MVP4QoPs18SOmNFGu6YKiN2d0M9A0qtIz0qKyNmp99dKZYcTAPlJvkwQLbt3dFQ==
       tarball: file:projects/misk-web-examples-data.tgz
     version: 0.0.0
   file:projects/misk-web-tab-dashboard.tgz:
@@ -11479,7 +11479,7 @@ packages:
       copy-webpack-plugin: 5.1.1_webpack@4.43.0
       cross-env: 7.0.2
       css-loader: 3.5.3_webpack@4.43.0
-      dayjs: 1.10.7
+      dayjs: 1.11.5
       enum-utils: 1.0.0
       fibers: 5.0.0
       file-loader: 6.0.0_webpack@4.43.0
@@ -11528,7 +11528,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-dashboard'
     resolution:
-      integrity: sha512-oZ2zrPr/wiG3as0U+tQskglQMtf8CLD6GznMe0ksyf6EE/VZKsVXAnEYPtCPizFMxtWzgOx884BxwWKFOqJHwg==
+      integrity: sha512-SHiloCK/xdf1lCn64Ydb5CKxFGHuclww9Lee1pSxr0O38I35LtBQJYYngWBv5AsbXkavQ/loV73L/PcsYTirSQ==
       tarball: file:projects/misk-web-tab-dashboard.tgz
     version: 0.0.0
   file:projects/misk-web-tab-palette-exemplar.tgz:
@@ -11561,7 +11561,7 @@ packages:
       copy-webpack-plugin: 5.1.1_webpack@4.43.0
       cross-env: 7.0.2
       css-loader: 3.5.3_webpack@4.43.0
-      dayjs: 1.10.7
+      dayjs: 1.11.5
       enum-utils: 1.0.0
       fibers: 5.0.0
       file-loader: 6.0.0_webpack@4.43.0
@@ -11612,7 +11612,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-YNP3TEtQfmoxfSBe/ePRIxAwZl/O2ydqtdhBEG82Xfal0k7s9YNjUs2RqM203BWyxgaa6dM7S0q7Z1UdAkZ6Gg==
+      integrity: sha512-1ogPPjyMd1PZAbAzl2ey2KKmmClRMH7u1gbtWzvaSRyTQm7rNXA/DBqrV6ezJGqiSVEdNCR8zMo4vseOHk1Ydw==
       tarball: file:projects/misk-web-tab-palette-exemplar.tgz
     version: 0.0.0
   file:projects/misk-web-tab-palette-lts.tgz:
@@ -11645,7 +11645,7 @@ packages:
       copy-webpack-plugin: 5.1.1_webpack@4.43.0
       cross-env: 7.0.2
       css-loader: 3.5.3_webpack@4.43.0
-      dayjs: 1.10.7
+      dayjs: 1.11.5
       enum-utils: 1.0.0
       fibers: 5.0.0
       file-loader: 6.0.0_webpack@4.43.0
@@ -11695,7 +11695,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-lts'
     resolution:
-      integrity: sha512-MbIZ1qaRIipIBYWZKyRhuHtBcHpyrx7xFLWNORxJs/1GGrTL/sXDpjl9ZChAXnGytcQD4xgjH8LDNPOJ0f6tTw==
+      integrity: sha512-OyI3kBg6fR8ofF98DV0YJ+rtZy+cP2XpH1W0m9YH+aRTJPR42B/jWkjVNCxpdlGDizWZpu/BNHhOFL3NlsLvsQ==
       tarball: file:projects/misk-web-tab-palette-lts.tgz
     version: 0.0.0
   file:projects/misk-web-tab-starter-basic.tgz:
@@ -11728,7 +11728,7 @@ packages:
       copy-webpack-plugin: 5.1.1_webpack@4.43.0
       cross-env: 7.0.2
       css-loader: 3.5.3_webpack@4.43.0
-      dayjs: 1.10.7
+      dayjs: 1.11.5
       enum-utils: 1.0.0
       fibers: 5.0.0
       file-loader: 6.0.0_webpack@4.43.0
@@ -11779,7 +11779,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-starter-basic'
     resolution:
-      integrity: sha512-vfCdRaBrptFYIdFIS+0RjFOvYA7MXf+3AGg2NbAy+ylFO2iJiSg/WwycM0dWNw0YuqdDPvuZNs/23Ak1RruCSQ==
+      integrity: sha512-ck51ZPHQUbX9x5jAkqFXvb8J6zLgJwniTV1ksOjFwSg1G0O8hp36x+uTu1xuwt2eIbcfD9ieTh5W4tHoPHT/yQ==
       tarball: file:projects/misk-web-tab-starter-basic.tgz
     version: 0.0.0
   file:projects/misk-web-tab-template-basic.tgz:
@@ -11812,7 +11812,7 @@ packages:
       copy-webpack-plugin: 5.1.1_webpack@4.43.0
       cross-env: 7.0.2
       css-loader: 3.5.3_webpack@4.43.0
-      dayjs: 1.10.7
+      dayjs: 1.11.5
       enum-utils: 1.0.0
       fibers: 5.0.0
       file-loader: 6.0.0_webpack@4.43.0
@@ -11863,7 +11863,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-template-basic'
     resolution:
-      integrity: sha512-/HIjNL7zkvyXMpZfZ0+/zgMgukpdd0I+cucFUxgfQlTCcMBgSPfABmHLy4rGgR6s8IpTo0sh7nomvmJywt7ltQ==
+      integrity: sha512-D6ayG8YQ7ocnglrCbGlBFOV7AYzdVKemvlUxJ0nD87nyKbjBLBTz+ulAfqpQsjW79iSO+/lie0t3lTIXNJ/Y4Q==
       tarball: file:projects/misk-web-tab-template-basic.tgz
     version: 0.0.0
   file:projects/prettier.tgz:
@@ -11905,7 +11905,7 @@ packages:
       copy-webpack-plugin: 5.1.1_webpack@4.43.0
       cross-env: 7.0.2
       css-loader: 3.5.3_webpack@4.43.0
-      dayjs: 1.10.7
+      dayjs: 1.11.5
       enum-utils: 1.0.0
       fibers: 5.0.0
       file-loader: 6.0.0_webpack@4.43.0
@@ -11955,7 +11955,7 @@ packages:
     dev: false
     name: '@rush-temp/simpleredux'
     resolution:
-      integrity: sha512-b9mTpQc51wVptvs0zvf+HrvDgYVMA0YR5LFWRaFVRJbAp6wnN6+yQTrjn+HPw9HosfVENIUkxShOl2Bh9QP4kA==
+      integrity: sha512-9AIaa6Ab/8zR7CSCNmSJz8fo3gvFf0pVAt+PKKqu7ZftrOVnmv0UwMGB2ADSctX8oXPWPZA3EKOL0jtm6aMPXg==
       tarball: file:projects/simpleredux.tgz
     version: 0.0.0
   file:projects/test.tgz_react-dom@16.13.1+react@16.13.1:
@@ -11977,7 +11977,7 @@ packages:
       react: '*'
       react-dom: '*'
     resolution:
-      integrity: sha512-7DmWRFwO9h6NsqXarw61tyMg1mxe1D/74z+/88J7DuWyuTnJt+efLN+4Hqx+cr5XJyfhtuv9UobVgXHVQJRmfw==
+      integrity: sha512-rSLWcIHJMlSnXoxE7Gn0QdJ3KgggP8BfLX/i+eKCjtuiDwVYTaB6fmfZl1EmCRimlNKcMZ4FiLGKuC0q5OFxWA==
       tarball: file:projects/test.tgz
     version: 0.0.0
   file:projects/tslint.tgz:
@@ -12048,7 +12048,7 @@ specifiers:
   copy-webpack-plugin: 5.1.1
   cross-env: 7.0.2
   css-loader: 3.5.3
-  dayjs: 1.10.7
+  dayjs: 1.11.5
   enum-utils: 1.0.0
   file-loader: 6.0.0
   fs-extra: 9.1.0
@@ -12085,7 +12085,7 @@ specifiers:
   root-require: 0.3.1
   sass: 1.43.4
   sass-loader: 10.1.1
-  shelljs: 0.8.3
+  shelljs: 0.8.5
   skeleton-css: 2.0.4
   source-map-loader: 0.2.4
   status-code-enum: 1.0.0
