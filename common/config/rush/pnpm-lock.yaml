@@ -38,7 +38,7 @@ dependencies:
   '@types/react-redux': 7.1.20
   '@types/react-router': 5.1.17
   '@types/react-router-dom': 5.3.2
-  '@types/shelljs': 0.8.7
+  '@types/shelljs': 0.8.11
   '@types/styled-components': 4.4.3
   '@types/webpack': 4.41.13
   '@types/webpack-env': 1.16.3
@@ -1006,7 +1006,7 @@ packages:
   /@types/glob/7.1.4:
     dependencies:
       '@types/minimatch': 3.0.5
-      '@types/node': 14.17.6
+      '@types/node': 16.11.6
     dev: false
     resolution:
       integrity: sha512-w+LsMxKyYQm347Otw+IfBXOv9UWVjpHpCDdbBMt8Kz/xbvCYNjP+0qPh91Km3iKfSRLBB0P7fAMf0KHrPu+MyA==
@@ -1208,13 +1208,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
-  /@types/shelljs/0.8.7:
+  /@types/shelljs/0.8.11:
     dependencies:
       '@types/glob': 7.1.4
-      '@types/node': 11.13.1
+      '@types/node': 16.11.6
     dev: false
     resolution:
-      integrity: sha512-Mg2qGjLIJIieeJ1/NjswAOY9qXDShLeh6JwpD1NZsvUvI0hxdUCNDpnBXv9YQeugKi2EHU+BqkbUE4jpY4GKmQ==
+      integrity: sha512-x9yaMvEh5BEaZKeVQC4vp3l+QoFj3BXcd4aYfuKSzIIyihjdVARAadYy3SMNIz0WCCdS2vB9JL/U6GQk5PaxQw==
   /@types/source-list-map/0.1.2:
     dev: false
     resolution:
@@ -11196,7 +11196,7 @@ packages:
       '@types/klaw': 3.0.3
       '@types/lodash': 4.14.176
       '@types/node': 16.11.6
-      '@types/shelljs': 0.8.7
+      '@types/shelljs': 0.8.11
       '@types/yargs': 15.0.4
       axios: 0.21.4
       dayjs: 1.11.5
@@ -11224,7 +11224,7 @@ packages:
       react: '*'
       react-dom: '*'
     resolution:
-      integrity: sha512-wbRjPGd4VYd/5Yj0Ltk9KuW+8bootzJCyAOJ/IzsFgeCV06Y198x7uZA1q8UWGIe0m9zSfRjH61v8Q4SdmZbAA==
+      integrity: sha512-5/WrJmx5sZuIc0HmcJTDVbOZ7+80ebZ8TmfHS5+Ft+DyQNg9z9/wMFmkD+td/3RSxFHMYF4dvq9yATu6+HZEdg==
       tarball: file:projects/cli.tgz
     version: 0.0.0
   file:projects/common.tgz:
@@ -12038,7 +12038,7 @@ specifiers:
   '@types/react-redux': 7.1.20
   '@types/react-router': 5.1.17
   '@types/react-router-dom': 5.3.2
-  '@types/shelljs': 0.8.7
+  '@types/shelljs': ~0.8.11
   '@types/styled-components': 4.4.3
   '@types/webpack': 4.41.13
   '@types/webpack-env': 1.16.3
@@ -12085,7 +12085,7 @@ specifiers:
   root-require: 0.3.1
   sass: 1.43.4
   sass-loader: 10.1.1
-  shelljs: 0.8.5
+  shelljs: ~0.8.5
   skeleton-css: 2.0.4
   source-map-loader: 0.2.4
   status-code-enum: 1.0.0
