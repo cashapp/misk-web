@@ -15,28 +15,29 @@ const selectSubState: <
   ISubState extends { [key: string]: any }
 >(
   domain: string
-) => (state: IState) => ISubState = <
-  IState extends { [key: string]: ISubState },
-  ISubState extends { [key: string]: any }
->(
-  domain: string
-) => (state: IState) => {
-  return state[domain]
-}
+) => (state: IState) => ISubState =
+  <
+    IState extends { [key: string]: ISubState },
+    ISubState extends { [key: string]: any }
+  >(
+    domain: string
+  ) =>
+  (state: IState) => {
+    return state[domain]
+  }
 
 const selectRawSubState: <
   IState extends Map<string, any>,
   ISubState extends { [key: string]: any }
 >(
   domain: string
-) => (state: IState) => ISubState = <
-  IState extends Map<string, any>,
-  ISubState extends { [key: string]: any }
->(
-  domain: string
-) => (state: IState) => {
-  return state.get(domain)
-}
+) => (state: IState) => ISubState =
+  <IState extends Map<string, any>, ISubState extends { [key: string]: any }>(
+    domain: string
+  ) =>
+  (state: IState) => {
+    return state.get(domain)
+  }
 
 const rawSubStateSelector: <IState extends Map<string, any>, ISubState>(
   domain: string

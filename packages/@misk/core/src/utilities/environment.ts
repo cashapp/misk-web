@@ -24,12 +24,11 @@ export const defaultEnvironmentToColorLookup: IEnvironmentToColorLookup = {
   PRODUCTION: color.red
 }
 
-export const environmentToColor = (colorLookup: IEnvironmentToColorLookup) => (
-  environment: Environment
-) => {
-  try {
-    return colorLookup[environment]
-  } catch (e) {
-    return colorLookup.default
+export const environmentToColor =
+  (colorLookup: IEnvironmentToColorLookup) => (environment: Environment) => {
+    try {
+      return colorLookup[environment]
+    } catch (e) {
+      return colorLookup.default
+    }
   }
-}

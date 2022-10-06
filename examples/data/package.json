@@ -11,7 +11,7 @@
     "ci-build": "npm install && npm run-script build",
     "clean": "rm -rf demo dist",
     "test": "echo 'no tests'",
-    "lint": "prettier --write --config package.json \".{/src/**/,/}*.{md,css,sass,less,json,js,jsx,ts,tsx}\"",
+    "lint": "prettier --write --config package.json .",
     "prepare": "npm run-script build"
   },
   "dependencies": {
@@ -26,7 +26,7 @@
     "@types/node": "16.11.6",
     "@types/prop-types": "15.7.3",
     "@types/react": "16.14.20",
-    "prettier": "1.19.1",
+    "prettier": "~2.7.1",
     "tslib": "2.3.1",
     "typescript": "3.9.10"
   },

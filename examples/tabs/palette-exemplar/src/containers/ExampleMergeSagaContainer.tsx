@@ -34,7 +34,7 @@ export const failureSagaMapKeysToTags = (
   keyTagLookup: { [key: string]: string },
   options: IDispatchOptions = dispatchDefault.options
 ) =>
-  function*(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
+  function* (action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
     for (const tag in keyTagLookup) {
       const value = "uh oh it didn't work!"
       yield connectedProps.simpleMergeData(keyTagLookup[tag], value, options)
