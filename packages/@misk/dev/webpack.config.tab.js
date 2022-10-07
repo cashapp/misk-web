@@ -137,7 +137,7 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.scss$/,
-          loader: "style-loader!css-loader!sass-loader"
+          use: ["style-loader", "css-loader", "!sass-loader"]
         },
         {
           test: /\.(jpe?g|png|gif|svg)$/i,
