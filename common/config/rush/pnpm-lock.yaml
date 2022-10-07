@@ -94,7 +94,7 @@ dependencies:
   style-loader: 1.2.1_webpack@4.43.0
   styled-components: 4.4.1_react-dom@16.13.1+react@16.13.1
   ts-jest: 24.3.0_jest@24.9.0
-  ts-loader: 7.0.5_typescript@4.8.4
+  ts-loader: 8.4.0_typescript@4.8.4+webpack@4.43.0
   tslib: 2.4.0
   typescript: 4.8.4
   typescript-plugin-styled-components: 2.0.0_typescript@4.8.4
@@ -9947,21 +9947,23 @@ packages:
       jest: '>=24 <25'
     resolution:
       integrity: sha512-Hb94C/+QRIgjVZlJyiWwouYUF+siNJHJHknyspaOcZ+OQAIdFG/UrdQVXw/0B8Z3No34xkUXZJpOTy9alOWdVQ==
-  /ts-loader/7.0.5_typescript@4.8.4:
+  /ts-loader/8.4.0_typescript@4.8.4+webpack@4.43.0:
     dependencies:
-      chalk: 2.4.2
+      chalk: 4.1.2
       enhanced-resolve: 4.5.0
-      loader-utils: 1.4.0
+      loader-utils: 2.0.2
       micromatch: 4.0.5
-      semver: 6.3.0
+      semver: 7.3.8
       typescript: 4.8.4
+      webpack: 4.43.0
     dev: false
     engines:
       node: '>=10.0.0'
     peerDependencies:
       typescript: '*'
+      webpack: '*'
     resolution:
-      integrity: sha512-zXypEIT6k3oTc+OZNx/cqElrsbBtYqDknf48OZos0NQ3RTt045fBIU8RRSu+suObBzYB355aIPGOe/3kj9h7Ig==
+      integrity: sha512-6nFY3IZ2//mrPc+ImY3hNWx1vCHyEhl6V+wLmL4CZcm6g1CqX7UKrkc6y0i4FwcfOhxyMPCfaEvh20f4r9GNpw==
   /tslib/1.9.3:
     dev: false
     resolution:
@@ -10864,7 +10866,7 @@ packages:
       sass-loader: 10.3.1_sass@1.55.0+webpack@4.43.0
       source-map-loader: 0.2.4
       styled-components: 4.4.1_react-dom@16.13.1+react@16.13.1
-      ts-loader: 7.0.5_typescript@4.8.4
+      ts-loader: 8.4.0_typescript@4.8.4+webpack@4.43.0
       tslib: 2.4.0
       typescript: 4.8.4
       typescript-plugin-styled-components: 2.0.0_typescript@4.8.4
@@ -10874,7 +10876,7 @@ packages:
     dev: false
     name: '@rush-temp/common'
     resolution:
-      integrity: sha512-bkUvffsFJhgQa/bHEILsRAsyZesWfXly4vqyhWdUfzg+axYuvgLWjgKewfEDKJ6y1oOgLZbtjJq0mr50IfqDjA==
+      integrity: sha512-F0vnXmYpHB1EvyjXhZjjrY/OkYtcW0p4kopz2CNHnQ0hWx8EJZfcaCtGuTyd14+DXcMBUXR1km957U87GkCQWw==
       tarball: file:projects/common.tgz
     version: 0.0.0
   file:projects/core.tgz:
@@ -10928,7 +10930,7 @@ packages:
       sass-loader: 10.3.1_sass@1.55.0+webpack@4.43.0
       style-loader: 1.2.1_webpack@4.43.0
       ts-jest: 24.3.0_jest@24.9.0
-      ts-loader: 7.0.5_typescript@4.8.4
+      ts-loader: 8.4.0_typescript@4.8.4+webpack@4.43.0
       tslib: 2.4.0
       typescript: 4.8.4
       webpack: 4.43.0
@@ -10938,7 +10940,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-hr0MxJV/gELVIzZX7XJuZQtOWlqtu+vQmGN87Gj6a3dxBq6ztPbyzY8sgiK1zk9hsqpLOGPqJVXgIuJP46RPdQ==
+      integrity: sha512-u1r+xVAkiOAcDKIDtbEouSVEGJBpxi5qhjXf0XSrfIXE5H7FyQ41ZY8cxwX1+VnTkRD0nAxRsYtfxQ/Ca59ugw==
       tarball: file:projects/core.tgz
     version: 0.0.0
   file:projects/dev.tgz:
@@ -10967,7 +10969,7 @@ packages:
       sass: 1.55.0
       sass-loader: 10.3.1_sass@1.55.0+webpack@4.43.0
       style-loader: 1.2.1_webpack@4.43.0
-      ts-loader: 7.0.5_typescript@4.8.4
+      ts-loader: 8.4.0_typescript@4.8.4+webpack@4.43.0
       tslib: 2.4.0
       typescript: 4.8.4
       typescript-plugin-styled-components: 2.0.0_typescript@4.8.4
@@ -10979,7 +10981,7 @@ packages:
     dev: false
     name: '@rush-temp/dev'
     resolution:
-      integrity: sha512-bx5qOAOsnLkdFXtju80Meetx6w0Mo3URgDJqGdQ1/4jdEnga8HxPGHGkA6NKiCON13Fpx6TwgQG52W0OwFfDUQ==
+      integrity: sha512-6sHmsND/BdQlZU62uXa0Qx1I7wgnC0i9HpjXFhichIwfiSw+6XoWhVd8lpWtvO2Qi8cY8zxwury0OKpJfu+yDQ==
       tarball: file:projects/dev.tgz
     version: 0.0.0
   file:projects/misk-web-examples-data.tgz:
@@ -11068,7 +11070,7 @@ packages:
       style-loader: 1.2.1_webpack@4.43.0
       styled-components: 4.4.1_react-dom@16.13.1+react@16.13.1
       ts-jest: 24.3.0_jest@24.9.0
-      ts-loader: 7.0.5_typescript@4.8.4
+      ts-loader: 8.4.0_typescript@4.8.4+webpack@4.43.0
       tslib: 2.4.0
       typescript: 4.8.4
       typescript-plugin-styled-components: 2.0.0_typescript@4.8.4
@@ -11080,7 +11082,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-dashboard'
     resolution:
-      integrity: sha512-ub5OEtOaEduuToCggJzWXLGNtJCvFe8gvd7+MlVsyTfrewhobIlA+OjA2APwaxQT0J+o4Gp1xk6xlEnGMqc8Ww==
+      integrity: sha512-jH+ZRfIriYHgiVbQlO4QJ4axpF2ECO/UQeaCLbQwdnhRy/Zw5OjDQEr4nn0ZSh4CJkwJ4i7S17n9sm5j9vdgdg==
       tarball: file:projects/misk-web-tab-dashboard.tgz
     version: 0.0.0
   file:projects/misk-web-tab-palette-exemplar.tgz:
@@ -11153,7 +11155,7 @@ packages:
       style-loader: 1.2.1_webpack@4.43.0
       styled-components: 4.4.1_react-dom@16.13.1+react@16.13.1
       ts-jest: 24.3.0_jest@24.9.0
-      ts-loader: 7.0.5_typescript@4.8.4
+      ts-loader: 8.4.0_typescript@4.8.4+webpack@4.43.0
       tslib: 2.4.0
       typescript: 4.8.4
       typescript-plugin-styled-components: 2.0.0_typescript@4.8.4
@@ -11165,7 +11167,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-21WaiGfvy8ZBgf1KWicWz1KDLPbCoZhlUnp0wCAR4n9pDLFKK8xmFJhVezyEp8XpVXqW1l7TctKxCLyHlWoQdQ==
+      integrity: sha512-DkkZZVbRDEIIm16mhYnlhhIP0BLfibOg4oLfbxfwLp+ebzY4KPf+KOBxHd+gtXIjEqcAfZFt8clbjxgxZ1W0mQ==
       tarball: file:projects/misk-web-tab-palette-exemplar.tgz
     version: 0.0.0
   file:projects/misk-web-tab-palette-lts.tgz:
@@ -11237,7 +11239,7 @@ packages:
       style-loader: 1.2.1_webpack@4.43.0
       styled-components: 4.4.1_react-dom@16.13.1+react@16.13.1
       ts-jest: 24.3.0_jest@24.9.0
-      ts-loader: 7.0.5_typescript@4.8.4
+      ts-loader: 8.4.0_typescript@4.8.4+webpack@4.43.0
       tslib: 2.4.0
       typescript: 4.8.4
       typescript-plugin-styled-components: 2.0.0_typescript@4.8.4
@@ -11249,7 +11251,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-lts'
     resolution:
-      integrity: sha512-gbOtM1jI2PcwEPa6Y5rStCZeCim2kqduTDVyrhK83xgtLxcHzcaaoXJhqXv8+klf3Ay1ELezQuGOnC+gs9dU8g==
+      integrity: sha512-uKaIrClfv80VHn4qy4ZKoLcSpLxHOTg9oJUmN+PNsLb78fZD4nN9d4jXQgSXOxY0IJYAw8+M7VSsa2rPu6xyaA==
       tarball: file:projects/misk-web-tab-palette-lts.tgz
     version: 0.0.0
   file:projects/misk-web-tab-starter-basic.tgz:
@@ -11322,7 +11324,7 @@ packages:
       style-loader: 1.2.1_webpack@4.43.0
       styled-components: 4.4.1_react-dom@16.13.1+react@16.13.1
       ts-jest: 24.3.0_jest@24.9.0
-      ts-loader: 7.0.5_typescript@4.8.4
+      ts-loader: 8.4.0_typescript@4.8.4+webpack@4.43.0
       tslib: 2.4.0
       typescript: 4.8.4
       typescript-plugin-styled-components: 2.0.0_typescript@4.8.4
@@ -11334,7 +11336,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-starter-basic'
     resolution:
-      integrity: sha512-YIo6qooBySSYjWT9YdVUJEADwteYWVCYiBtH00x5z9X3nrjMfE0Q4FCTSviGpEx+GL3DcgB+qdbDDqNaHUCQNw==
+      integrity: sha512-4n6z6NItX++Pb1gBqSbOgyn1k7m9SttwUDBF6BjYNVcWcOksbD7b2R/rzVLdDKYCNiJn9whumLOXNNyfnrvvJA==
       tarball: file:projects/misk-web-tab-starter-basic.tgz
     version: 0.0.0
   file:projects/misk-web-tab-template-basic.tgz:
@@ -11407,7 +11409,7 @@ packages:
       style-loader: 1.2.1_webpack@4.43.0
       styled-components: 4.4.1_react-dom@16.13.1+react@16.13.1
       ts-jest: 24.3.0_jest@24.9.0
-      ts-loader: 7.0.5_typescript@4.8.4
+      ts-loader: 8.4.0_typescript@4.8.4+webpack@4.43.0
       tslib: 2.4.0
       typescript: 4.8.4
       typescript-plugin-styled-components: 2.0.0_typescript@4.8.4
@@ -11419,7 +11421,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-template-basic'
     resolution:
-      integrity: sha512-jVSib3KQeTIa4j7LflNMs/69gLcKxfpVnEeySLQ30Kw2eAA0XZs/TMUy28310fa1ifj07tOiTNyhoYM5HLQ9Mg==
+      integrity: sha512-tQnjT9wARdnZoroxVrhIsLG+5RmPVTVBfUJBJCL2P9JTs2boj/yE8D3tJ43ac4k4BfTISEtDbWwerM8V7BDHsw==
       tarball: file:projects/misk-web-tab-template-basic.tgz
     version: 0.0.0
   file:projects/prettier.tgz_typescript@4.8.4:
@@ -11469,7 +11471,7 @@ packages:
       reselect: 4.1.6
       status-code-enum: 1.0.0
       ts-jest: 24.3.0_jest@24.9.0
-      ts-loader: 7.0.5_typescript@4.8.4
+      ts-loader: 8.4.0_typescript@4.8.4+webpack@4.43.0
       tslib: 2.4.0
       typescript: 4.8.4
       webpack: 4.43.0
@@ -11480,7 +11482,7 @@ packages:
     dev: false
     name: '@rush-temp/simpleredux'
     resolution:
-      integrity: sha512-V2ZfYbfeztEvSHXQLa9RjNDxWOhmTZUzUUShmlxFI0JoAHoQOsH9yMtVfIKAgQazcwQUsMsIOEye6oQr8B/tOg==
+      integrity: sha512-lTR02WV5+HLXdIJOIu8gDXybvoPpcnvLP1JFx+Cm7smc/FLQbzq40o9KhmaFyFX61iTmoVeRSDcaetmdrvDUnQ==
       tarball: file:projects/simpleredux.tgz
     version: 0.0.0
   file:projects/test.tgz_react-dom@16.13.1+react@16.13.1:
@@ -11604,7 +11606,7 @@ specifiers:
   style-loader: 1.2.1
   styled-components: 4.4.1
   ts-jest: 24.3.0
-  ts-loader: 7.0.5
+  ts-loader: 8.4.0
   tslib: 2.4.0
   typescript: 4.8.4
   typescript-plugin-styled-components: 2.0.0
