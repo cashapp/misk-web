@@ -18,7 +18,6 @@ lib
 .old_build_files
 prettier.config.js
 tsconfig.json
-tslint.json
 webpack.config.js
 *.js.map
 ${miskTab.rawGitginore}

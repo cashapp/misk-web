@@ -4,5 +4,6 @@ export const desc = "update test snapshots\n"
 export const handlerFn = async (...args: any) => {
   logDebug(command, desc)
   execute(npmRunScript("test -- -u", true), ...args)
+  return Promise.resolve()
 }
 export const handler = async (yargs: any) => handleCommand(yargs, handlerFn)

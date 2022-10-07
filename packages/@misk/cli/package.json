@@ -22,7 +22,8 @@
     "clean": "rm -rf lib",
     "ci-build": "npm run-script clean && npm run-script lib",
     "lib": "npm run-script build",
-    "lint": "prettier --write --config package.json .",
+    "lint": "prettier --write --config package.json . && npm run eslint",
+    "eslint": "eslint .",
     "start": "node lib/src/index.js",
     "watch": "./node_modules/.bin/tsc -w",
     "build": "npm run-script clean && npm run-script buildcli && npm run test",
@@ -52,7 +53,6 @@
   },
   "devDependencies": {
     "@misk/dev": "0.4.1",
-    "@misk/tslint": "0.4.1",
     "@testing-library/dom": "7.2.2",
     "@testing-library/react": "9.1.1",
     "@types/fs-extra": "9.0.13",
@@ -65,7 +65,10 @@
     "jest": "24.9.0",
     "jest-emotion": "10.0.14",
     "jest-serializer-html": "7.1.0",
-    "ts-jest": "24.3.0"
+    "ts-jest": "24.3.0",
+    "eslint": "~8.24.0",
+    "@typescript-eslint/eslint-plugin": "~5.39.0",
+    "@typescript-eslint/parser": "~5.39.0"
   },
   "jest": {
     "testEnvironment": "node",

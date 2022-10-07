@@ -1,8 +1,10 @@
 import klaw from "klaw"
 import path from "path"
+/* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const ProgressBar = require("progress")
 import { cd } from "shelljs"
 import yargs from "yargs"
+/* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const { version: packageVersion } = require("root-require")("package.json")
 import {
   packageVersionExistsOnNPM,
@@ -49,7 +51,7 @@ export const handleCommand = async (
     $0: string
     hideProgress: boolean
   },
-  handlerFn: (...args: any) => void,
+  handlerFn: (...args: any) => Promise<void>,
   blockedOptions: string[] = []
 ) => {
   // Node version check
@@ -75,7 +77,7 @@ export const handleCommand = async (
   }
 
   // Blocked options (ie. not allowing -e on miskweb start)
-  let invalidOptions: string[] = []
+  const invalidOptions: string[] = []
   blockedOptions.map((opt: string) => {
     if (opt in args) {
       invalidOptions.push(opt)
@@ -115,15 +117,17 @@ export const handleCommand = async (
         }
       })
       .on("error", (err: Error) => console.error(err))
-      .on("end", async () => {
-        if (!args.hideProgress) bar.tick(10 - tabs.length)
-        for (const tab in tabs) {
-          cd(tabs[tab])
-          handlerFn({ ...args, dir: tabs[tab] })
-        }
+      .on("end", () => { 
+        void (async () => {
+          if (!args.hideProgress) bar.tick(10 - tabs.length)
+          for (const tab of tabs) {
+            cd(tab)
+            await handlerFn({ ...args, dir: tab })
+          }
+        })()
       })
   } else {
     // Execute command in current directory
-    handlerFn(args)
+    await handlerFn(args)
   }
 }

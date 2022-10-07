@@ -1,5 +1,8 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/core"
+import {
+  css,
+  jsx /* eslint-disable-line @typescript-eslint/no-unused-vars */
+} from "@emotion/core"
 import * as React from "react"
 import { TextHTMLOrElementComponent } from "../../components"
 import { FlexContainer, ResponsiveContainer } from "../../cssContainers"
@@ -44,6 +47,7 @@ const cssNavbarBanner = (environment: Environment, theme: ITheme) => css`
   }
 `
 
+/* eslint-disable-next-line @typescript-eslint/ban-types */
 export class Banner extends React.Component<IBannerExternalProps, {}> {
   public render() {
     const {

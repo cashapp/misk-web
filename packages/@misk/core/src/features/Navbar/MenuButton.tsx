@@ -1,7 +1,10 @@
 /** @jsx jsx */
 import { Button, Classes, Icon, IconName } from "@blueprintjs/core"
 import { IconNames } from "@blueprintjs/icons"
-import { css, jsx } from "@emotion/core"
+import {
+  css,
+  jsx /* eslint-disable-line @typescript-eslint/no-unused-vars */
+} from "@emotion/core"
 import { Link } from "react-router-dom"
 import { defaultTheme, ITheme } from "../../utilities"
 import { IThemeProps } from "./DimensionAwareNavbar"
@@ -59,7 +62,7 @@ const ImgOrIcon = (
     typeof icon === "string" &&
     (icon.startsWith("/") || icon.startsWith("http"))
   ) {
-    return <img css={cssButtonImg} src={icon as string} />
+    return <img css={cssButtonImg} src={icon} />
   } else {
     return <Icon css={cssIcon(theme)} iconSize={32} icon={icon as IconName} />
   }

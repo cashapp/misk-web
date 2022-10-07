@@ -1,4 +1,6 @@
-const { getByText } = require("@testing-library/dom")
+const {
+  getByText
+} = require("@testing-library/dom") /* eslint-disable-line @typescript-eslint/no-var-requires */
 import { cleanup, render } from "@testing-library/react"
 import { matchers } from "jest-emotion"
 import React from "react"

@@ -22,7 +22,7 @@ const scripts = (miskTab: IMiskTabJSON) => ({
     }`,
     clean: "rm -rf demo lib",
     "clean-build-files":
-      "rm .hash package-lock.json package.json tsconfig.json tslint.json webpack.config.js",
+      "rm .hash package-lock.json package.json tsconfig.json webpack.config.js",
     lib: "cross-env NODE_ENV=production webpack",
     "dev-lib": "cross-env NODE_ENV=development webpack",
     lint:
@@ -39,7 +39,6 @@ const scripts = (miskTab: IMiskTabJSON) => ({
       Files.packageLock,
       Files.prettier,
       Files.tsconfig,
-      Files.tslint,
       Files.webpack,
       Files.yarnLock,
       "demo",
@@ -88,7 +87,7 @@ const devDependencies = async (miskTab: IMiskTabJSON, pkg: any) => ({
   devDependencies: {
     ...pkg.devDependencies,
     ...(await createMiskPackageJson(
-      [MiskPkg.cli, MiskPkg.dev, MiskPkg.prettier, MiskPkg.test, MiskPkg.tslint],
+      [MiskPkg.cli, MiskPkg.dev, MiskPkg.prettier, MiskPkg.test],
       miskTab
     ))
   }

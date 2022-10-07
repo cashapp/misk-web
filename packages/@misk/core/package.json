@@ -23,7 +23,8 @@
     "dev": "npm run-script build; npm run-script updateDevCache",
     "ci-build": "npm run-script clean && npm run-script lib",
     "lib": "webpack",
-    "lint": "prettier --write --config package.json .",
+    "lint": "prettier --write --config package.json . && npm run eslint",
+    "eslint": "eslint .",
     "gradle": "cd ../../../../../ && ./gradlew web -Pcmd='-ca' -Ptabs='@misk/core'",
     "prepare": "npm run-script ci-build",
     "reinstall": "rm -rf node_modules && npm install",
@@ -57,7 +58,6 @@
     "@misk/dev": "0.4.1",
     "@misk/prettier": "0.4.1",
     "@misk/test": "0.4.1",
-    "@misk/tslint": "0.4.1",
     "@testing-library/dom": "7.2.2",
     "@testing-library/react": "9.1.1",
     "@types/history": "4.7.11",
@@ -91,7 +91,10 @@
     "webpack": "4.43.0",
     "webpack-bundle-analyzer": "3.7.0",
     "webpack-cli": "3.3.11",
-    "webpack-dev-server": "4.11.1"
+    "webpack-dev-server": "4.11.1",
+    "eslint": "~8.24.0",
+    "@typescript-eslint/eslint-plugin": "~5.39.0",
+    "@typescript-eslint/parser": "~5.39.0"
   },
   "prettier": "@misk/prettier",
   "jest": {

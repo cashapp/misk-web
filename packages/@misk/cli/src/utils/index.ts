@@ -14,7 +14,6 @@ export enum MiskPkg {
   "prettier" = "@misk/prettier",
   "simpleredux" = "@misk/simpleredux",
   "test" = "@misk/test",
-  "tslint" = "@misk/tslint"
 }
 
 export interface IMiskTabJSON {
@@ -46,7 +45,6 @@ export enum Files {
   "prettier" = "prettier.config.js",
   "setupMiskTest" = "setupMiskTest.js",
   "tsconfig" = "tsconfig.json",
-  "tslint" = "tslint.json",
   "webpack" = "webpack.config.js",
   "yarnLock" = "yarn.lock"
 }
@@ -78,7 +76,7 @@ export const parseArgs = (...args: any): { dir: string; rawArgs: any } => ({
 
 export const remove = async (path: string) => {
   try {
-    fs.remove(path)
+    await fs.remove(path)
   } catch (e) {
     console.log(`[ERROR] ${e}`)
   }
@@ -95,5 +93,5 @@ export const execute = (cmd: string, ...args: any) => {
   }
 }
 
-export const npmRunScript = (cmd: string, prebuild: boolean = false) =>
+export const npmRunScript = (cmd: string, prebuild = false) =>
   `${prebuild ? "miskweb prebuild && " : ""}npm run-script ${cmd}`

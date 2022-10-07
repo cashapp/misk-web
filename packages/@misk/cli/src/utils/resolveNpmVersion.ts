@@ -1,12 +1,13 @@
 import axios from "axios"
 import { chain, isNaN, isNumber } from "lodash"
-const { version: packageVersion } = require("root-require")("package.json")
+/* eslint-disable-next-line @typescript-eslint/no-var-requires */
+const { version: packageVersion } = require("root-require")("package.json") 
 import { MiskPkg, logDebug } from "../utils"
 
 export const offlineOrNotFoundMessage = (
   verb: string,
   version: string,
-  fromLocation: string = ""
+  fromLocation = ""
 ) =>
   `\n[WARN] ${verb} unconfirmed Misk Web @ ${version} ${fromLocation}.\nmiskweb is offline or cannot find v(${version}) published on NPM.`
 

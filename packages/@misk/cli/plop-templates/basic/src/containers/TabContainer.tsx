@@ -9,6 +9,7 @@ import {
   mapStateToProps
 } from "src/ducks"
 
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 const TabContainer = (props: IState & IDispatchProps) => {
   const tag = "LoadData"
   return (

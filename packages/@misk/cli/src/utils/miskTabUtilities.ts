@@ -19,7 +19,7 @@ const tag = "migrate"
 
 const moveOldBuildFile = async (dir: string, filename: Files) => {
   if (fs.existsSync(makePath(dir, filename))) {
-    fs.move(makePath(dir, filename), makePath(dir, Files.old, filename))
+    await fs.move(makePath(dir, filename), makePath(dir, Files.old, filename))
   }
 }
 
@@ -33,7 +33,6 @@ export const defaultMiskTabJson = async (
   rawIndex: false,
   rawPackageJson: {},
   rawTsconfig: {},
-  rawTslint: {},
   rawWebpackConfig: {},
   relative_path_prefix: "",
   slug: "",
@@ -42,7 +41,8 @@ export const defaultMiskTabJson = async (
   version: await getSemVarPackageVersionOnNPM(),
   zipOnBuild: false,
   ___DeprecatedKeys:
-    "Any keys below this point in your miskTab.json are deprecated and can be safely removed."
+    "Any keys below this point in your miskTab.json are deprecated and can be safely removed.",
+  rawTslint: {}
 })
 
 export const readMiskTabJson = (dir: string): IMiskTabJSON => {
@@ -71,7 +71,7 @@ export const generateMiskTabJson = async (
   )
 }
 
-export const migrateBuildFiles = (...args: any) => {
+export const migrateBuildFiles = async (...args: any) => {
   const { dir } = parseArgs(...args)
   logDebug(tag, "", dir)
   // Verify valid build files or migrate old build files to new miskweb generated build files
@@ -110,23 +110,22 @@ export const migrateBuildFiles = (...args: any) => {
     )
   } else if (!pkgMiskTab && fs.existsSync(makePath(dir, Files.miskTab))) {
     // miskTab.json exists. Rewrite out with alphabetically sorted and up to date set of keys.
-    generateMiskTabJson(dir)
+    await generateMiskTabJson(dir)
   } else if (pkgMiskTab && !fs.existsSync(makePath(dir, Files.miskTab))) {
-    generateMiskTabJson(dir, pkgMiskTab)
+    await generateMiskTabJson(dir, pkgMiskTab)
     // move all build files to an .old-build-files folder
     logDebug(tag, `Stashing old build files in ${makePath(dir, Files.old)}`)
-    fs.mkdirp(makePath(dir, Files.old))
-    fs.copy(
+    await fs.mkdirp(makePath(dir, Files.old))
+    await fs.copy(
       makePath(dir, Files.package),
       makePath(dir, Files.old, Files.package)
     )
-    moveOldBuildFile(dir, Files.gitignore)
-    moveOldBuildFile(dir, Files.prettier)
-    moveOldBuildFile(dir, Files.tsconfig)
-    moveOldBuildFile(dir, Files.tslint)
-    moveOldBuildFile(dir, Files.webpack)
-    remove(makePath(dir, Files.packageLock))
-    remove(makePath(dir, Files.yarnLock))
+    await moveOldBuildFile(dir, Files.gitignore)
+    await moveOldBuildFile(dir, Files.prettier)
+    await moveOldBuildFile(dir, Files.tsconfig)
+    await moveOldBuildFile(dir, Files.webpack)
+    await remove(makePath(dir, Files.packageLock))
+    await remove(makePath(dir, Files.yarnLock))
   } else if (!pkgMiskTab && !fs.existsSync(makePath(dir, Files.miskTab))) {
     throw Error(
       logFormatter(

@@ -1,6 +1,9 @@
 /** @jsx jsx */
 import { Alignment, Navbar, NavbarGroup } from "@blueprintjs/core"
-import { css, jsx } from "@emotion/core"
+import {
+  css,
+  jsx /* eslint-disable-line @typescript-eslint/no-unused-vars */
+} from "@emotion/core"
 import * as React from "react"
 import { Link } from "react-router-dom"
 import { ResponsiveContainer } from "../../cssContainers"
@@ -56,7 +59,7 @@ const cssNavbar = (theme: ITheme) => css`
   position: fixed !important;
 `
 
-const cssNavbarGroup = (theme: ITheme) => css`
+const cssNavbarGroup = () => css`
   font-size: 13px !important;
   font-weight: 600 !important;
   position: relative;
@@ -75,7 +78,7 @@ const cssNavbarGroup = (theme: ITheme) => css`
 
 export class DimensionAwareNavbar extends React.Component<
   IDimensionAwareProps & INavbarProps,
-  {}
+  {} /* eslint-disable-line @typescript-eslint/ban-types */
 > {
   // TODO see if this can be removed
   public state = {
@@ -118,7 +121,7 @@ export class DimensionAwareNavbar extends React.Component<
           <NavbarGroup
             align={Alignment.LEFT}
             className="bp3-dark"
-            css={cssNavbarGroup(theme)}
+            css={cssNavbarGroup()}
           >
             <HomeLink
               linkComponent={linkComponent}

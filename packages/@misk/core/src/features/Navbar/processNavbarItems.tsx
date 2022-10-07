@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/core"
+import { jsx } from "@emotion/core" /* eslint-disable-line @typescript-eslint/no-unused-vars */
 import { TextHTMLOrElementComponent } from "../../components"
 import { Environment, ITheme } from "src/utilities"
 import { cssNavbarHeadingEnvironment, cssNavbarHeading } from "./Common"

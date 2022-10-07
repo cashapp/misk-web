@@ -15,6 +15,8 @@ import {
   SimpleReduxSaga
 } from "./utilities"
 
+/* eslint-disable @typescript-eslint/unbound-method */
+
 /** Map to lookup HTTP library function to handle the network related SimpleRedux action */
 const ActionTypeToHttpCall: { [key: string]: any } = {
   [SIMPLEREDUX.HTTP_DELETE]: axios.delete,
@@ -194,3 +196,4 @@ export function* watchSimpleReduxSagas(): SimpleReduxSaga {
     takeEvery(SIMPLEREDUX.MERGE, handleMerge)
   ])
 }
+/* eslint-enable @typescript-eslint/unbound-method */

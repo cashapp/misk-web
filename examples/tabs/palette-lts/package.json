@@ -8,7 +8,7 @@
     "ci-build": "npm install && npm run-script clean && npm run-script prebuild && cross-env NODE_ENV=production npm run-script lib && npm run-script test ",
     "dev-build": "npm run-script dev-lib ",
     "clean": "rm -rf demo lib",
-    "clean-build-files": "rm .hash package-lock.json package.json tsconfig.json tslint.json webpack.config.js",
+    "clean-build-files": "rm .hash package-lock.json package.json tsconfig.json webpack.config.js",
     "lib": "cross-env NODE_ENV=production webpack",
     "dev-lib": "cross-env NODE_ENV=development webpack",
     "lint": "prettier --write --config package.json .",
@@ -16,7 +16,7 @@
     "reinstall": "rm -rf node_modules && npm run-script install",
     "start": "npm run-script prebuild && cross-env NODE_ENV=development webpack-dev-server",
     "test": "jest --passWithNoTests --maxWorkers=2",
-    "zip": "tar --exclude='.gitignore' --exclude='.old_build_files' --exclude='package.json' --exclude='package-lock.json' --exclude='prettier.config.js' --exclude='tsconfig.json' --exclude='tslint.json' --exclude='webpack.config.js' --exclude='yarn.lock' --exclude='demo' --exclude='lib' --exclude='.DS_Store' --exclude='*.log' --exclude='node_modules' --exclude='palette-lts.tgz' -czvf palette-lts.tgz ./"
+    "zip": "tar --exclude='.gitignore' --exclude='.old_build_files' --exclude='package.json' --exclude='package-lock.json' --exclude='prettier.config.js' --exclude='tsconfig.json' --exclude='webpack.config.js' --exclude='yarn.lock' --exclude='demo' --exclude='lib' --exclude='.DS_Store' --exclude='*.log' --exclude='node_modules' --exclude='palette-lts.tgz' -czvf palette-lts.tgz ./"
   },
   "dependencies": {
     "@misk/common": "0.4.1",
@@ -58,7 +58,6 @@
     "@misk/dev": "0.4.1",
     "@misk/prettier": "0.4.1",
     "@misk/test": "0.4.1",
-    "@misk/tslint": "0.4.1",
     "@testing-library/dom": "7.2.2",
     "@testing-library/react": "9.1.1",
     "@types/history": "4.7.11",
@@ -101,7 +100,10 @@
     "webpack-cli": "3.3.11",
     "webpack-bundle-analyzer": "3.7.0",
     "webpack-dev-server": "4.11.1",
-    "webpack-merge": "4.2.2"
+    "webpack-merge": "4.2.2",
+    "eslint": "~8.24.0",
+    "@typescript-eslint/eslint-plugin": "~5.39.0",
+    "@typescript-eslint/parser": "~5.39.0"
   },
   "jest": {
     "testEnvironment": "jsdom",

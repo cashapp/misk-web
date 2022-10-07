@@ -92,6 +92,7 @@ sourceSets {
     http://localhost:8080/_admin/${miskTab.slug}/
 `
   console.log(multibindingsMessage)
+  return Promise.resolve()
 }
 export const handler = async (yargs: any) =>
   handleCommand(yargs, handlerFn, ["e", "each"])

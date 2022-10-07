@@ -1,6 +1,9 @@
 /** @jsx jsx */
 import { Collapse } from "@blueprintjs/core"
-import { css, jsx } from "@emotion/core"
+import {
+  css,
+  jsx /* eslint-disable-line @typescript-eslint/no-unused-vars */
+} from "@emotion/core"
 import { chain, sortBy } from "lodash"
 import * as React from "react"
 import { Link } from "react-router-dom"
@@ -140,6 +143,7 @@ const MenuCategory = (
   )
 }
 
+/* eslint-disable-next-line @typescript-eslint/ban-types */
 export class Menu extends React.Component<IMenuProps, {}> {
   public state = {
     isOpen: false

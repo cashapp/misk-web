@@ -1,5 +1,8 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/core"
+import {
+  css,
+  jsx /* eslint-disable-line @typescript-eslint/no-unused-vars */
+} from "@emotion/core"
 import { Link } from "react-router-dom"
 import { cssMiskLink, cssNavbarHeading } from "./Common"
 import { IThemeProps } from "./DimensionAwareNavbar"

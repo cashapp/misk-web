@@ -14,7 +14,8 @@
     "clean": "rm -rf lib node_modules package-lock.json",
     "ci-build": "npm run-script clean && npm run-script lib",
     "lib": "mkdir -p lib/web/@misk/dev && cp *.json *.js *.md lib/web/@misk/dev",
-    "lint": "prettier --write --config package.json .",
+    "lint": "prettier --write --config package.json . && npm run eslint",
+    "eslint": "eslint .",
     "prepare": "npm run-script ci-build"
   },
   "dependencies": {
@@ -50,7 +51,10 @@
     "webpack-merge": "4.2.2"
   },
   "devDependencies": {
-    "@misk/prettier": "0.4.1"
+    "@misk/prettier": "0.4.1",
+    "eslint": "~8.24.0",
+    "@typescript-eslint/eslint-plugin": "~5.39.0",
+    "@typescript-eslint/parser": "~5.39.0"
   },
   "prettier": "@misk/prettier"
 }
