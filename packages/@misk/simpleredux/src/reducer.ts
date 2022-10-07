@@ -16,7 +16,7 @@ const initialState = defaultRootState(simpleTag)
  * Merges dispatched action objects on to the existing (or initial) state to generate new state
  */
 export function SimpleReduxReducer(
-  state = initialState,
+  state: any = initialState,
   action: IAction<SIMPLEREDUX, {}>
 ) {
   switch (action.type) {

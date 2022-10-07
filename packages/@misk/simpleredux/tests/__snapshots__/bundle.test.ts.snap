@@ -296,6 +296,7 @@ export declare const handler: IHandler;
 
 exports[`Dist bundle utilities/index.d.ts is unchanged 1`] = `
 "import { History, Location } from \\"history\\";
+import { List, Map } from \\"immutable\\";
 import { match } from \\"react-router\\";
 import { ForkEffectDescriptor, SimpleEffect } from \\"redux-saga/effects\\";
 export * from \\"./handler\\";
@@ -342,7 +343,7 @@ export interface IRootState {
 export interface IDefaultRootState extends IDefaultState, IRootState {
 }
 /** Initializes new default state with initial Redux metadata in an ImmutableJS object */
-export declare const defaultState: any;
+export declare const defaultState: Map<string, boolean | List<any>>;
 /**
  * @param simpleTag string identifier for the state domain
  * Used to initialize a top level domain of Redux state
@@ -353,7 +354,7 @@ export declare const defaultState: any;
  * - simpleTag: \\"simpleForm\\"
  * - Initialize: defaultRootState(\\"simpleForm\\")
  */
-export declare const defaultRootState: (simpleTag: string) => any;
+export declare const defaultRootState: (simpleTag: string) => Map<string, string | boolean | List<any>>;
 /** Interface for read only Redux Action */
 export interface IAction<T, P> {
     readonly type: T;
