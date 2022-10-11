@@ -1,9 +1,6 @@
 import { IconNames } from "@blueprintjs/icons"
 import React from "react"
 import { BrowserRouter } from "react-router-dom"
-const {
-  getByText
-} = require("@testing-library/dom") /* eslint-disable-line @typescript-eslint/no-var-requires */
 import { cleanup, render } from "@testing-library/react"
 import { MenuButton } from "src/features/Navbar/MenuButton"
 
