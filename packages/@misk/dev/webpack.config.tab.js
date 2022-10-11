@@ -60,20 +60,18 @@ module.exports = (env, argv) => {
     openAnalyzer: false
   })
 
-  const CopyWebpackPluginConfig = new CopyWebpackPlugin(
-    [
+  const CopyWebpackPluginConfig = new CopyWebpackPlugin({
+    patterns: [
       { from: "./node_modules/@misk/common/lib/web/" },
       { from: "./node_modules/@misk/core/lib/web/" },
       { from: "./node_modules/@misk/simpleredux/lib/web/" },
       { from: "./src/static/" }
-    ],
-    { copyUnmodified: true }
-  )
+    ]
+  })
 
-  const CopyRawIndexHtmlConfig = new CopyWebpackPlugin(
-    [{ from: "./src/index.html" }],
-    { copyUnmodified: true }
-  )
+  const CopyRawIndexHtmlConfig = new CopyWebpackPlugin({
+    patterns: [{ from: "./src/index.html" }]
+  })
 
   const HTMLWebpackHarddiskPluginConfig = new HTMLWebpackHarddiskPlugin()
 
