@@ -13,7 +13,7 @@ export const handlerFn = async (...args: any) => {
 
   logDebug(cmd, desc)
   
-  const plop = nodePlop(path.join(__dirname, "../../../plopfile.js"), {
+  const plop = await nodePlop(path.join(__dirname, "../../../plopfile.js"), {
     destBasePath: cwd(),
     force: false
   })
