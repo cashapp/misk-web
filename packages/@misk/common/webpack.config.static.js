@@ -1,6 +1,6 @@
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const path = require("path")
 
 const bundleAnalyzer = false
@@ -23,7 +23,7 @@ module.exports = {
     ]
   },
   optimization: {
-    minimizer: [new OptimizeCssAssetsPlugin()]
+    minimizer: [new CssMinimizerPlugin()]
   },
   plugins: [
     new MiniCssExtractPlugin({
