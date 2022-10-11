@@ -35,7 +35,7 @@ dependencies:
   '@types/react-helmet': 6.0.0
   '@types/react-hot-loader': 4.1.0
   '@types/react-redux': 7.1.24
-  '@types/react-router': 5.1.17
+  '@types/react-router': 5.1.19
   '@types/react-router-dom': 5.3.3
   '@types/shelljs': 0.8.11
   '@types/styled-components': 4.4.3
@@ -1360,6 +1360,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-RNSXOyb3VyRs/EOGmjBhhGKTbnN6fHWvy5FNLzWfOWOGjgVUKqJZXfpKzLmgoU8h6Hj8mpALj/mbXQASOb92wQ==
+  /@types/react-router/5.1.19:
+    dependencies:
+      '@types/history': 4.7.11
+      '@types/react': 16.14.32
+    dev: false
+    resolution:
+      integrity: sha512-Fv/5kb2STAEMT3wHzdKQK2z8xKq38EDIGVrutYLmQVVLe+4orDFquU52hQrULnEHinMKv9FSA6lf9+uNT1ITtA==
   /@types/react/16.14.32:
     dependencies:
       '@types/prop-types': 15.7.5
@@ -10529,7 +10536,7 @@ packages:
       '@types/react-helmet': 6.0.0
       '@types/react-hot-loader': 4.1.0
       '@types/react-redux': 7.1.24
-      '@types/react-router': 5.1.17
+      '@types/react-router': 5.1.19
       '@types/react-router-dom': 5.3.3
       '@types/styled-components': 4.4.3
       '@types/webpack': 5.28.0_webpack-cli@4.10.0
@@ -10576,7 +10583,7 @@ packages:
     peerDependencies:
       webpack-dev-server: '*'
     resolution:
-      integrity: sha512-6C4gE8yEB+UoGEKnB6GD7MEelQIPGGHuSQNzYGXA0QvsNAeuzH4SQZF7FqKrBfuHhHOkCgEanHkEXUtfBevhLA==
+      integrity: sha512-n0bD5N4aUObTnuxX/ZIW4vVLRz0WVde22uEaFVTeFq0S/lIUHcvIn2Ws2qCtMXEkzfzWncjO+90uZbLucyJq/Q==
       tarball: file:projects/common.tgz
     version: 0.0.0
   file:projects/core.tgz:
@@ -10596,7 +10603,7 @@ packages:
       '@types/react-helmet': 6.0.0
       '@types/react-hot-loader': 4.1.0
       '@types/react-redux': 7.1.24
-      '@types/react-router': 5.1.17
+      '@types/react-router': 5.1.19
       '@types/react-router-dom': 5.3.3
       '@types/styled-components': 4.4.3
       '@types/webpack': 5.28.0_webpack-cli@4.10.0
@@ -10640,7 +10647,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-xaAd9yXWubMWt2G3pUvYT2f27S6MS+VDNm7vfG+C01Ecfbk0ywOiMSWpUmob5K+PGJYKBp374cGRZE5kKRaiAw==
+      integrity: sha512-FQGAOBulj/ApYX3WWe1hdzDMjM+81Qwe5X9+KWwoyprRO835/7lBpO6NqFZqsh1zv4SSRzlWXLr7kjv+NV2MmA==
       tarball: file:projects/core.tgz
     version: 0.0.0
   file:projects/dev.tgz:
@@ -10653,7 +10660,7 @@ packages:
       '@types/react-helmet': 6.0.0
       '@types/react-hot-loader': 4.1.0
       '@types/react-redux': 7.1.24
-      '@types/react-router': 5.1.17
+      '@types/react-router': 5.1.19
       '@types/react-router-dom': 5.3.3
       '@types/styled-components': 4.4.3
       '@types/webpack': 5.28.0_webpack-cli@4.10.0
@@ -10681,7 +10688,7 @@ packages:
     dev: false
     name: '@rush-temp/dev'
     resolution:
-      integrity: sha512-JWYLJcJCFKk7dyuqOb2Bd21F/W15W1t2PC2oNbI7ES6TRbF8wGRSaF8KSv7x3ePb49ylD/uZ8sO4twPuThdtQA==
+      integrity: sha512-gsvwzh0HGgyFSRGcQHtHgqo4EK1H1KZosEcLC7l5EbHPpRXtNw8Y5wukDTvgaLal7yYFIsz6URkxOt5dncxd7w==
       tarball: file:projects/dev.tgz
     version: 0.0.0
   file:projects/misk-web-examples-data.tgz:
@@ -10722,7 +10729,7 @@ packages:
       '@types/react-helmet': 6.0.0
       '@types/react-hot-loader': 4.1.0
       '@types/react-redux': 7.1.24
-      '@types/react-router': 5.1.17
+      '@types/react-router': 5.1.19
       '@types/react-router-dom': 5.3.3
       '@types/styled-components': 4.4.3
       '@types/webpack': 5.28.0_webpack-cli@4.10.0
@@ -10782,7 +10789,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-dashboard'
     resolution:
-      integrity: sha512-hMY4JZ5JMGv1IC9J7hwM4/wiLIc1Eusc9WuAxaoVruLPIzRfI8WHNy8zEWM+yi4+ZHpk8joP1XxHuot+NrcZ0Q==
+      integrity: sha512-Zhg/K34pa9vPKMk3QE6BFh9NBHqRNg4KnjD0UqqLeTxu+Wflxt20AGW+jHHoKa0AHj4MbI6vC7J83+MT8kUpRQ==
       tarball: file:projects/misk-web-tab-dashboard.tgz
     version: 0.0.0
   file:projects/misk-web-tab-palette-exemplar.tgz:
@@ -10805,7 +10812,7 @@ packages:
       '@types/react-helmet': 6.0.0
       '@types/react-hot-loader': 4.1.0
       '@types/react-redux': 7.1.24
-      '@types/react-router': 5.1.17
+      '@types/react-router': 5.1.19
       '@types/react-router-dom': 5.3.3
       '@types/styled-components': 4.4.3
       '@types/webpack': 5.28.0_webpack-cli@4.10.0
@@ -10867,7 +10874,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-eVWxab9N55G/PYC10nODRNkW6e4U+3MJaOYlKeYi6rNUOpBpyz1UdUVDsknp7IbVeVCmjL3HR1WvoaHAKFe+Vg==
+      integrity: sha512-FNkZ6FzjdwUTm2V+2lNKmZbN0M/+LmElBIiXYQ+l2E58UPn/bjwhH1I14VJkyHpE/leEJGlhSW2tFEN8bVx/Lg==
       tarball: file:projects/misk-web-tab-palette-exemplar.tgz
     version: 0.0.0
   file:projects/misk-web-tab-palette-lts.tgz:
@@ -10890,7 +10897,7 @@ packages:
       '@types/react-helmet': 6.0.0
       '@types/react-hot-loader': 4.1.0
       '@types/react-redux': 7.1.24
-      '@types/react-router': 5.1.17
+      '@types/react-router': 5.1.19
       '@types/react-router-dom': 5.3.3
       '@types/styled-components': 4.4.3
       '@types/webpack': 5.28.0_webpack-cli@4.10.0
@@ -10951,7 +10958,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-lts'
     resolution:
-      integrity: sha512-pMnUtNURSxOoeCAVlIq4sChT7dQRkkejkgmsHXTcWOVP4JhvtdF6zbag7GamBIj6IJeWqF9uEerxdrjwdas8Bg==
+      integrity: sha512-TMIsVni6TEAYzMrPdiyplREcXBQU+Uo2poSrpzA77JekvkHTlhjiz6w63LnDG1XF4SWdb+J7dzMd4K23WCIJlw==
       tarball: file:projects/misk-web-tab-palette-lts.tgz
     version: 0.0.0
   file:projects/misk-web-tab-starter-basic.tgz:
@@ -10974,7 +10981,7 @@ packages:
       '@types/react-helmet': 6.0.0
       '@types/react-hot-loader': 4.1.0
       '@types/react-redux': 7.1.24
-      '@types/react-router': 5.1.17
+      '@types/react-router': 5.1.19
       '@types/react-router-dom': 5.3.3
       '@types/styled-components': 4.4.3
       '@types/webpack': 5.28.0_webpack-cli@4.10.0
@@ -11036,7 +11043,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-starter-basic'
     resolution:
-      integrity: sha512-HLKEkFO5B4xxyVSEwExpn6OTHjizPlexKytGdR5mbbrb6xsERRJcGAx8SYZphDRfr61VcMbRtOLujEIFo0WEqg==
+      integrity: sha512-C47/Dv89sKs1fX+f9nH3348rNG6MdEbzsvnwef9Ru7HzefVcNfmFByLkcl47mTasjbPE892b7bxPK8v8PRNHiA==
       tarball: file:projects/misk-web-tab-starter-basic.tgz
     version: 0.0.0
   file:projects/misk-web-tab-template-basic.tgz:
@@ -11059,7 +11066,7 @@ packages:
       '@types/react-helmet': 6.0.0
       '@types/react-hot-loader': 4.1.0
       '@types/react-redux': 7.1.24
-      '@types/react-router': 5.1.17
+      '@types/react-router': 5.1.19
       '@types/react-router-dom': 5.3.3
       '@types/styled-components': 4.4.3
       '@types/webpack': 5.28.0_webpack-cli@4.10.0
@@ -11121,7 +11128,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-template-basic'
     resolution:
-      integrity: sha512-Eb4LjZ7JsdcXthAds2nhSzjVGbtIeBm9sCKqfkgL38BFvVZK1gaLRc2yZkX6S1HWYbdRKjCWikZcWM8eQxMNpA==
+      integrity: sha512-d1qDPgi7RFQchvI4k1R0iGv6n0Fle8QlDdDKxy7N1qrqcEVYWjfN8qaSCL5X1mZjH1pi6zQ2ZC1zGdjCi4SHFg==
       tarball: file:projects/misk-web-tab-template-basic.tgz
     version: 0.0.0
   file:projects/prettier.tgz_typescript@4.8.4:
@@ -11147,7 +11154,7 @@ packages:
       '@types/jest': 27.5.2
       '@types/lodash': 4.14.186
       '@types/node': 16.11.64
-      '@types/react-router': 5.1.17
+      '@types/react-router': 5.1.19
       '@types/webpack': 5.28.0_webpack-cli@4.10.0
       '@types/webpack-env': 1.18.0
       '@typescript-eslint/eslint-plugin': 5.39.0_be048b79d04b908735dc19ebba1dbd66
@@ -11182,7 +11189,7 @@ packages:
     dev: false
     name: '@rush-temp/simpleredux'
     resolution:
-      integrity: sha512-ZP6U8KiQPDFJ9T/MJMIN5JHNiXsQuP8ZtcRE22HLSVD0dAHmNxwJmtcyXtWRUsTMCmiM7QTKAa51OmQy5nW02A==
+      integrity: sha512-HBjGXBTC+XiIU8vPQZ/S1cGcH7CiTIn4B62kVqHvLdHR5VJaU13x4eR7BrYVIaGsGLv19INp9zvvw3SBjfd5EA==
       tarball: file:projects/simpleredux.tgz
     version: 0.0.0
   file:projects/test.tgz_react-dom@16.13.1+react@16.13.1:
@@ -11247,7 +11254,7 @@ specifiers:
   '@types/react-helmet': 6.0.0
   '@types/react-hot-loader': 4.1.0
   '@types/react-redux': 7.1.24
-  '@types/react-router': 5.1.17
+  '@types/react-router': 5.1.19
   '@types/react-router-dom': 5.3.3
   '@types/shelljs': ~0.8.11
   '@types/styled-components': 4.4.3
