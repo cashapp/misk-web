@@ -4,10 +4,9 @@ const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const bundleAnalyzer = false
 
-const CopyWebpackPluginConfig = new CopyWebpackPlugin(
-  [{ from: "./src/static/" }],
-  { copyUnmodified: true }
-)
+const CopyWebpackPluginConfig = new CopyWebpackPlugin({
+  patterns: [{ from: "./src/static/" }]
+})
 
 module.exports = {
   mode: "production",
