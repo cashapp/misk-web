@@ -1,7 +1,7 @@
 dependencies:
   '@blueprintjs/core': 3.19.1_react-dom@16.13.1+react@16.13.1
   '@blueprintjs/datetime': 3.13.0_react-dom@16.13.1+react@16.13.1
-  '@blueprintjs/icons': 3.13.0
+  '@blueprintjs/icons': 3.33.0
   '@blueprintjs/select': 4.8.2_2ca28fdd97f14474892abd82c45d8450
   '@blueprintjs/table': 4.7.2_2ca28fdd97f14474892abd82c45d8450
   '@blueprintjs/timezone': 4.5.2_2ca28fdd97f14474892abd82c45d8450
@@ -48,7 +48,7 @@ dependencies:
   connected-react-router: 6.9.3_cb73723aad97b48e175659ea57209601
   copy-webpack-plugin: 5.1.1_webpack@5.74.0
   cross-env: 7.0.3
-  css-loader: 3.6.0_webpack@5.74.0
+  css-loader: 6.7.1_webpack@5.74.0
   css-minimizer-webpack-plugin: 4.2.1_webpack@5.74.0
   dayjs: 1.11.5
   enum-utils: 1.0.0
@@ -66,7 +66,7 @@ dependencies:
   jest-serializer-html: 7.1.0
   klaw: 4.0.1
   lodash: 4.17.21
-  mini-css-extract-plugin: 0.12.0_webpack@5.74.0
+  mini-css-extract-plugin: 2.6.1_webpack@5.74.0
   node-plop: 0.26.3
   pkg: 4.5.1
   prettier: 2.7.1
@@ -89,7 +89,7 @@ dependencies:
   sass-loader: 10.3.1_sass@1.55.0+webpack@5.74.0
   shelljs: 0.8.5
   skeleton-css: 2.0.4
-  source-map-loader: 0.2.4
+  source-map-loader: 4.0.1_webpack@5.74.0
   status-code-enum: 1.0.0
   style-loader: 1.2.1_webpack@5.74.0
   styled-components: 4.4.1_react-dom@16.13.1+react@16.13.1
@@ -397,7 +397,7 @@ packages:
       integrity: sha512-4qmwwNabzJ6TbdWLjfVFqoCz6OPZpPDV6xvSmnEnS6tWSQ+bepi/ybzx3kKOGtNk1lu0tFDU6tnVti7uz23XaQ==
   /@blueprintjs/core/3.19.1_react-dom@16.13.1+react@16.13.1:
     dependencies:
-      '@blueprintjs/icons': 3.13.0
+      '@blueprintjs/icons': 3.33.0
       '@types/dom4': 2.0.2
       classnames: 2.3.2
       dom4: 2.1.6
@@ -458,13 +458,13 @@ packages:
       react-dom: ^15.3.0 || 16
     resolution:
       integrity: sha512-0MShc0IJo4rSdhzKkVS+tKGIV9d4ZS/hh4jAtxCsAC7/fBFJ++rUZ+1QpWeRzG9yXi52pNLBXZyx+xxN/Vptsw==
-  /@blueprintjs/icons/3.13.0:
+  /@blueprintjs/icons/3.33.0:
     dependencies:
       classnames: 2.3.2
-      tslib: 1.9.3
+      tslib: 2.3.1
     dev: false
     resolution:
-      integrity: sha512-fvXGsAJ66SSjeHv3OeXjLEdKdPJ3wVztjhJQCAd51uebhj3FJ16EDDvO7BqBw5FyVkLkU11KAxSoCFZt7TC9GA==
+      integrity: sha512-Q6qoSDIm0kRYQZISm59UUcDCpV3oeHulkLuh3bSlw0HhcSjvEQh2PSYbtaifM60Q4aK4PCd6bwJHg7lvF1x5fQ==
   /@blueprintjs/icons/4.7.0:
     dependencies:
       change-case: 4.1.2
@@ -1349,17 +1349,10 @@ packages:
     dependencies:
       '@types/history': 4.7.11
       '@types/react': 16.14.32
-      '@types/react-router': 5.1.17
+      '@types/react-router': 5.1.19
     dev: false
     resolution:
       integrity: sha512-kpqnYK4wcdm5UaWI3fLcELopqLrHgLqNsdpHauzlQktfkHL3npOSwtj1Uz9oKBAzs7lFtVkV8j83voAz2D8fhw==
-  /@types/react-router/5.1.17:
-    dependencies:
-      '@types/history': 4.7.11
-      '@types/react': 16.14.32
-    dev: false
-    resolution:
-      integrity: sha512-RNSXOyb3VyRs/EOGmjBhhGKTbnN6fHWvy5FNLzWfOWOGjgVUKqJZXfpKzLmgoU8h6Hj8mpALj/mbXQASOb92wQ==
   /@types/react-router/5.1.19:
     dependencies:
       '@types/history': 4.7.11
@@ -2099,12 +2092,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==
-  /async/2.6.4:
-    dependencies:
-      lodash: 4.17.21
-    dev: false
-    resolution:
-      integrity: sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA==
   /asynckit/0.4.0:
     dev: false
     resolution:
@@ -3026,29 +3013,24 @@ packages:
       postcss: ^8.0.9
     resolution:
       integrity: sha512-fBffmak0bPAnyqc/HO8C3n2sHrp9wcqQz6ES9koRF2/mLOVAx9zIQ3Y7R29sYCteTPqMCwns4WYQoCX91Xl3+w==
-  /css-loader/3.6.0_webpack@5.74.0:
+  /css-loader/6.7.1_webpack@5.74.0:
     dependencies:
-      camelcase: 5.3.1
-      cssesc: 3.0.0
-      icss-utils: 4.1.1
-      loader-utils: 1.4.0
-      normalize-path: 3.0.0
-      postcss: 7.0.39
-      postcss-modules-extract-imports: 2.0.0
-      postcss-modules-local-by-default: 3.0.3
-      postcss-modules-scope: 2.2.0
-      postcss-modules-values: 3.0.0
+      icss-utils: 5.1.0_postcss@8.4.17
+      postcss: 8.4.17
+      postcss-modules-extract-imports: 3.0.0_postcss@8.4.17
+      postcss-modules-local-by-default: 4.0.0_postcss@8.4.17
+      postcss-modules-scope: 3.0.0_postcss@8.4.17
+      postcss-modules-values: 4.0.0_postcss@8.4.17
       postcss-value-parser: 4.2.0
-      schema-utils: 2.7.1
-      semver: 6.3.0
+      semver: 7.3.8
       webpack: 5.74.0_webpack-cli@4.10.0
     dev: false
     engines:
-      node: '>= 8.9.0'
+      node: '>= 12.13.0'
     peerDependencies:
-      webpack: ^4.0.0 || ^5.0.0
+      webpack: ^5.0.0
     resolution:
-      integrity: sha512-M5lSukoWi1If8dhQAUCvj4H8vUt3vOnwbQBH9DdTm/s4Ym2B/3dPMtYZeJmq7Q3S3Pa+I94DcZ7pc9bP14cWIQ==
+      integrity: sha512-yB5CNFa14MbPJcomwNh3wLThtkZgcNyI2bNMRt8iE5Z8Vwl7f8vQXFAzn2HDOJvtDq2NTZBUGMSUNNyrv3/+cw==
   /css-minimizer-webpack-plugin/4.2.1_webpack@5.74.0:
     dependencies:
       cssnano: 5.1.13_postcss@8.4.17
@@ -4992,14 +4974,24 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==
-  /icss-utils/4.1.1:
+  /iconv-lite/0.6.3:
     dependencies:
-      postcss: 7.0.39
+      safer-buffer: 2.1.2
     dev: false
     engines:
-      node: '>= 6'
+      node: '>=0.10.0'
     resolution:
-      integrity: sha512-4aFq7wvWyMHKgxsH8QQtGpvbASCf+eM3wPRLI6R+MgAnTCZ6STYsRvttLvRWK0Nfif5piF394St3HeJDaljGPA==
+      integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==
+  /icss-utils/5.1.0_postcss@8.4.17:
+    dependencies:
+      postcss: 8.4.17
+    dev: false
+    engines:
+      node: ^10 || ^12 || >= 14
+    peerDependencies:
+      postcss: ^8.1.0
+    resolution:
+      integrity: sha512-soFhflCVWLfRNOPU3iv5Z9VUdT44xFRbzjLsEzSr5AQmgqPMTHdU3PMT1Cf1ssx8fLNJDA1juftYl+PUcv3MqA==
   /ieee754/1.2.1:
     dev: false
     resolution:
@@ -5389,12 +5381,6 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-Fd4gABb+ycGAmKou8eMftCupSir5lRxqf4aD/vd0cD2qc4HL07OjCeuHMr8Ro4CoMaeCKDB0/ECBOVWjTwUvPQ==
-  /is-plain-obj/1.1.0:
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha512-yvkRyxmFKEOQ4pNXCmJG5AEQNlXJS5LaONXo5/cLdTZdWvsZ1ioJEonLGAosKlMWE8lwUy/bJzMjcw8az73+Fg==
   /is-plain-obj/3.0.0:
     dev: false
     engines:
@@ -6541,20 +6527,17 @@ packages:
     dev: false
     resolution:
       integrity: sha512-9Wy1B3m3f66bPPmU5hdA4DR4PB2OfDU/+GS3yAB7IQozE3tqXaVv2zOjgla7MEGSRv95+ILmOuvhLkOK6wJtCQ==
-  /mini-css-extract-plugin/0.12.0_webpack@5.74.0:
+  /mini-css-extract-plugin/2.6.1_webpack@5.74.0:
     dependencies:
-      loader-utils: 1.4.0
-      normalize-url: 1.9.1
-      schema-utils: 1.0.0
+      schema-utils: 4.0.0
       webpack: 5.74.0_webpack-cli@4.10.0
-      webpack-sources: 1.4.3
     dev: false
     engines:
-      node: '>= 6.9.0'
+      node: '>= 12.13.0'
     peerDependencies:
-      webpack: ^4.4.0 || ^5.0.0
+      webpack: ^5.0.0
     resolution:
-      integrity: sha512-z6PQCe9rd1XUwZ8gMaEVwwRyZlrYy8Ba1gRjFP5HcV51HkXX+XlwZ+a1iAYTjSYwgNBXoNR7mhx79mDpOn5fdw==
+      integrity: sha512-wd+SD57/K6DiV7jIR34P+s3uckTRuQvx0tKPcvjFlrEylk6P4mQ2KSWk1hblj1Kxaqok7LogKOieygXqBczNlg==
   /minimalistic-assert/1.0.1:
     dev: false
     resolution:
@@ -6798,17 +6781,6 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
-  /normalize-url/1.9.1:
-    dependencies:
-      object-assign: 4.1.1
-      prepend-http: 1.0.4
-      query-string: 4.3.4
-      sort-keys: 1.1.2
-    dev: false
-    engines:
-      node: '>=4'
-    resolution:
-      integrity: sha512-A48My/mtCklowHBlI8Fq2jFWK4tX4lJ5E6ytFsSOq1fzpvT0SQSgKhSg7lN5c2uYFOrUAOQp6zhhJnpp1eMloQ==
   /normalize-url/6.1.0:
     dev: false
     engines:
@@ -7267,10 +7239,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-7EAHlyLHI56VEIdK57uwHdHKIaAGbnXPiw0yWbarQZOKaKpvUIgW0jWRVLiatnM+XXlSwsanIBH/hzGMJulMow==
-  /picocolors/0.2.1:
-    dev: false
-    resolution:
-      integrity: sha512-cMlDqaLEqfSaW8Z7N5Jw+lyIW869EzT73/F5lhtY9cLGoVxSXznfgfXMO0Z5K0o0Q2TkTXq+0KFsdnSe3jDViA==
   /picocolors/1.0.0:
     dev: false
     resolution:
@@ -7522,41 +7490,51 @@ packages:
       postcss: ^8.2.15
     resolution:
       integrity: sha512-nPJu7OjZJTsVUmPdm2TcaiohIwxP+v8ha9NehQ2ye9szv4orirRU3SDdtUmKH+10nzn0bAyOXZ0UEr7OpvLehg==
-  /postcss-modules-extract-imports/2.0.0:
+  /postcss-modules-extract-imports/3.0.0_postcss@8.4.17:
     dependencies:
-      postcss: 7.0.39
+      postcss: 8.4.17
     dev: false
     engines:
-      node: '>= 6'
+      node: ^10 || ^12 || >= 14
+    peerDependencies:
+      postcss: ^8.1.0
     resolution:
-      integrity: sha512-LaYLDNS4SG8Q5WAWqIJgdHPJrDDr/Lv775rMBFUbgjTz6j34lUznACHcdRWroPvXANP2Vj7yNK57vp9eFqzLWQ==
-  /postcss-modules-local-by-default/3.0.3:
+      integrity: sha512-bdHleFnP3kZ4NYDhuGlVK+CMrQ/pqUm8bx/oGL93K6gVwiclvX5x0n76fYMKuIGKzlABOy13zsvqjb0f92TEXw==
+  /postcss-modules-local-by-default/4.0.0_postcss@8.4.17:
     dependencies:
-      icss-utils: 4.1.1
-      postcss: 7.0.39
+      icss-utils: 5.1.0_postcss@8.4.17
+      postcss: 8.4.17
       postcss-selector-parser: 6.0.10
       postcss-value-parser: 4.2.0
     dev: false
     engines:
-      node: '>= 6'
+      node: ^10 || ^12 || >= 14
+    peerDependencies:
+      postcss: ^8.1.0
     resolution:
-      integrity: sha512-e3xDq+LotiGesympRlKNgaJ0PCzoUIdpH0dj47iWAui/kyTgh3CiAr1qP54uodmJhl6p9rN6BoNcdEDVJx9RDw==
-  /postcss-modules-scope/2.2.0:
+      integrity: sha512-sT7ihtmGSF9yhm6ggikHdV0hlziDTX7oFoXtuVWeDd3hHObNkcHRo9V3yg7vCAY7cONyxJC/XXCmmiHHcvX7bQ==
+  /postcss-modules-scope/3.0.0_postcss@8.4.17:
     dependencies:
-      postcss: 7.0.39
+      postcss: 8.4.17
       postcss-selector-parser: 6.0.10
     dev: false
     engines:
-      node: '>= 6'
+      node: ^10 || ^12 || >= 14
+    peerDependencies:
+      postcss: ^8.1.0
     resolution:
-      integrity: sha512-YyEgsTMRpNd+HmyC7H/mh3y+MeFWevy7V1evVhJWewmMbjDHIbZbOXICC2y+m1xI1UVfIT1HMW/O04Hxyu9oXQ==
-  /postcss-modules-values/3.0.0:
+      integrity: sha512-hncihwFA2yPath8oZ15PZqvWGkWf+XUfQgUGamS4LqoP1anQLOsOJw0vr7J7IwLpoY9fatA2qiGUGmuZL0Iqlg==
+  /postcss-modules-values/4.0.0_postcss@8.4.17:
     dependencies:
-      icss-utils: 4.1.1
-      postcss: 7.0.39
+      icss-utils: 5.1.0_postcss@8.4.17
+      postcss: 8.4.17
     dev: false
+    engines:
+      node: ^10 || ^12 || >= 14
+    peerDependencies:
+      postcss: ^8.1.0
     resolution:
-      integrity: sha512-1//E5jCBrZ9DmRX+zCtmQtRSV6PV42Ix7Bzj9GbwJceduuf7IqP8MgeTXuRDHOWj2m0VzZD5+roFWDuU8RQjcg==
+      integrity: sha512-RDxHkAiEGI78gS2ofyvCsu7iycRv7oqw5xMWn9iMoR0N/7mf9D50ecQqUo5BZ9Zh2vH4bCUR/ktCqbB9m8vJjQ==
   /postcss-normalize-charset/5.1.0_postcss@8.4.17:
     dependencies:
       postcss: 8.4.17
@@ -7732,15 +7710,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
-  /postcss/7.0.39:
-    dependencies:
-      picocolors: 0.2.1
-      source-map: 0.6.1
-    dev: false
-    engines:
-      node: '>=6.0.0'
-    resolution:
-      integrity: sha512-yioayjNbHn6z1/Bywyb2Y4s3yvDAeXGOyxqD+LnVOinq6Mdmd++SW2wUNVzavyyHxd6+DxzWGIuosg6P1Rj8uA==
   /postcss/8.4.17:
     dependencies:
       nanoid: 3.3.4
@@ -7786,12 +7755,6 @@ packages:
       node: '>= 0.8.0'
     resolution:
       integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
-  /prepend-http/1.0.4:
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha512-PhmXi5XmoyKw1Un4E+opM2KcsJInDvKyuOumcjjw3waw86ZNjHwVUOOWLc4bCzLdcKNaWBH9e99sbWzDQsVaYg==
   /prettier/2.7.1:
     dev: false
     engines:
@@ -7934,15 +7897,6 @@ packages:
       node: '>=0.6'
     resolution:
       integrity: sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA==
-  /query-string/4.3.4:
-    dependencies:
-      object-assign: 4.1.1
-      strict-uri-encode: 1.1.0
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha512-O2XLNDBIg1DnTOa+2XrIwSiXEV8h2KImXUnjhhn2+UsvZ+Es2uyd5CCRTNQlDGbzUQOW3aYCBx9rVA6dzsiY7Q==
   /queue-microtask/1.2.3:
     dev: false
     resolution:
@@ -8995,33 +8949,25 @@ packages:
     dev: false
     resolution:
       integrity: sha512-GJgLTZ7vYb/JtPSSZ10hsOYIvEYsjbNU+zPdIHcUaWVNUEPivzxku31865sSSud0Da0W4lEeOPlmw93zLQchuQ==
-  /sort-keys/1.1.2:
-    dependencies:
-      is-plain-obj: 1.1.0
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha512-vzn8aSqKgytVik0iwdBEi+zevbTYZogewTUM6dtpmGwEcdzbub/TX4bCzRhebDCRC3QzXgJsLRKB2V/Oof7HXg==
-  /source-list-map/2.0.1:
-    dev: false
-    resolution:
-      integrity: sha512-qnQ7gVMxGNxsiL4lEuJwe/To8UnK7fAnmbGEEH8RpLouuKbeEm0lhbQVFIrNSuB+G7tVrAlVsZgETT5nljf+Iw==
   /source-map-js/1.0.2:
     dev: false
     engines:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
-  /source-map-loader/0.2.4:
+  /source-map-loader/4.0.1_webpack@5.74.0:
     dependencies:
-      async: 2.6.4
-      loader-utils: 1.4.0
+      abab: 2.0.6
+      iconv-lite: 0.6.3
+      source-map-js: 1.0.2
+      webpack: 5.74.0_webpack-cli@4.10.0
     dev: false
     engines:
-      node: '>= 6'
+      node: '>= 14.15.0'
+    peerDependencies:
+      webpack: ^5.72.1
     resolution:
-      integrity: sha512-OU6UJUty+i2JDpTItnizPrlpOIBLmQbWMuBg9q5bVtnHACqw1tn9nNwqJLbv0/00JjnJb/Ee5g5WS5vrRv7zIQ==
+      integrity: sha512-oqXpzDIByKONVY8g1NUPOTQhe0UTU5bWUl32GSkqK2LjJj0HmwTMVKxcUip0RgAYhY1mqgOxjbQM48a0mmeNfA==
   /source-map-resolve/0.5.3:
     dependencies:
       atob: 2.1.2
@@ -9200,12 +9146,6 @@ packages:
     dev: false
     resolution:
       integrity: sha512-AiisoFqQ0vbGcZgQPY1cdP2I76glaVA/RauYR4G4thNFgkTqr90yXTo4LYX60Jl+sIlPNHHdGSwo01AvbKUSVQ==
-  /strict-uri-encode/1.1.0:
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    resolution:
-      integrity: sha512-R3f198pcvnB+5IpnBlRkphuE9n46WyVl8I39W/ZUTZLz4nqSP/oLYUrcnJrw462Ds8he4YKMov2efsTIw1BDGQ==
   /string-length/2.0.0:
     dependencies:
       astral-regex: 1.0.0
@@ -10185,13 +10125,6 @@ packages:
       node: '>=10.0.0'
     resolution:
       integrity: sha512-/SaI7xY0831XwP6kzuwhKWVKDP9t1QY1h65lAFLbZqMPIuYcD9QAW4u9STIbU9kaJbPBB/geU/gLr1wDjOhQ+Q==
-  /webpack-sources/1.4.3:
-    dependencies:
-      source-list-map: 2.0.1
-      source-map: 0.6.1
-    dev: false
-    resolution:
-      integrity: sha512-lgTS3Xhv1lCOKo7SA5TjKXMjpSM4sBjNV5+q2bqesbSPs5FjGmU6jjtBSkX9b4qW87vDIsCIlUPOEhbZrMdjeQ==
   /webpack-sources/3.2.3:
     dev: false
     engines:
@@ -10526,7 +10459,7 @@ packages:
     dependencies:
       '@blueprintjs/core': 3.19.1_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/datetime': 3.13.0_react-dom@16.13.1+react@16.13.1
-      '@blueprintjs/icons': 3.13.0
+      '@blueprintjs/icons': 3.33.0
       '@blueprintjs/select': 4.8.2_2ca28fdd97f14474892abd82c45d8450
       '@types/history': 4.7.11
       '@types/lodash': 4.14.186
@@ -10547,13 +10480,13 @@ packages:
       connected-react-router: 6.9.3_cb73723aad97b48e175659ea57209601
       copy-webpack-plugin: 5.1.1_webpack@5.74.0
       cross-env: 7.0.3
-      css-loader: 3.6.0_webpack@5.74.0
+      css-loader: 6.7.1_webpack@5.74.0
       css-minimizer-webpack-plugin: 4.2.1_webpack@5.74.0
       dayjs: 1.11.5
       eslint: 8.24.0
       history: 4.10.1
       immutable: 4.1.0
-      mini-css-extract-plugin: 0.12.0_webpack@5.74.0
+      mini-css-extract-plugin: 2.6.1_webpack@5.74.0
       prettier: 2.7.1
       re-reselect: 3.4.0_reselect@4.1.6
       react: 16.13.1
@@ -10568,7 +10501,7 @@ packages:
       reselect: 4.1.6
       sass: 1.55.0
       sass-loader: 10.3.1_sass@1.55.0+webpack@5.74.0
-      source-map-loader: 0.2.4
+      source-map-loader: 4.0.1_webpack@5.74.0
       styled-components: 4.4.1_react-dom@16.13.1+react@16.13.1
       ts-loader: 8.4.0_typescript@4.8.4+webpack@5.74.0
       tslib: 2.4.0
@@ -10583,13 +10516,13 @@ packages:
     peerDependencies:
       webpack-dev-server: '*'
     resolution:
-      integrity: sha512-n0bD5N4aUObTnuxX/ZIW4vVLRz0WVde22uEaFVTeFq0S/lIUHcvIn2Ws2qCtMXEkzfzWncjO+90uZbLucyJq/Q==
+      integrity: sha512-24ohWZhezeFkUpRengBKqiENw3Lnbw/gRiAQ4PWX4tIvz4uEQO2i7mh+iUgZ9cCNFkjPn4741SzTGD4t1+H0rw==
       tarball: file:projects/common.tgz
     version: 0.0.0
   file:projects/core.tgz:
     dependencies:
       '@blueprintjs/core': 3.19.1_react-dom@16.13.1+react@16.13.1
-      '@blueprintjs/icons': 3.13.0
+      '@blueprintjs/icons': 3.33.0
       '@emotion/core': 10.0.28_react@16.13.1
       '@emotion/styled': 10.0.23_c989b1aa057905c7a8b69bf973f55a19
       '@testing-library/dom': 7.2.2
@@ -10614,7 +10547,7 @@ packages:
       connected-react-router: 6.9.3_cb73723aad97b48e175659ea57209601
       copy-webpack-plugin: 5.1.1_webpack@5.74.0
       cross-env: 7.0.3
-      css-loader: 3.6.0_webpack@5.74.0
+      css-loader: 6.7.1_webpack@5.74.0
       eslint: 8.24.0
       history: 4.10.1
       http-method-enum: 1.0.0
@@ -10647,7 +10580,7 @@ packages:
     dev: false
     name: '@rush-temp/core'
     resolution:
-      integrity: sha512-FQGAOBulj/ApYX3WWe1hdzDMjM+81Qwe5X9+KWwoyprRO835/7lBpO6NqFZqsh1zv4SSRzlWXLr7kjv+NV2MmA==
+      integrity: sha512-HfU4OZQoTygOjzoy/ZXZhptLXb6RC/IvIE9d5HVXm+tq9Ox1GsQf8+ZvSAM/EC9W4nSRIR67SQ7fA0Qms1cYbw==
       tarball: file:projects/core.tgz
     version: 0.0.0
   file:projects/dev.tgz:
@@ -10668,7 +10601,7 @@ packages:
       '@typescript-eslint/eslint-plugin': 5.39.0_be048b79d04b908735dc19ebba1dbd66
       '@typescript-eslint/parser': 5.39.0_eslint@8.24.0+typescript@4.8.4
       copy-webpack-plugin: 5.1.1_webpack@5.74.0
-      css-loader: 3.6.0_webpack@5.74.0
+      css-loader: 6.7.1_webpack@5.74.0
       eslint: 8.24.0
       html-webpack-harddisk-plugin: 2.0.0_1c8909f8548e41e15a0bc0b6475a4d8d
       html-webpack-plugin: 5.5.0_webpack@5.74.0
@@ -10688,7 +10621,7 @@ packages:
     dev: false
     name: '@rush-temp/dev'
     resolution:
-      integrity: sha512-gsvwzh0HGgyFSRGcQHtHgqo4EK1H1KZosEcLC7l5EbHPpRXtNw8Y5wukDTvgaLal7yYFIsz6URkxOt5dncxd7w==
+      integrity: sha512-7jF49c+QxPAVsRmw+/MKjglw9uE01e/HMfATY5IYcib/rZAfAGRyp8rcIPogV8ZZnHcboXicLrSUYYw+ZLyNjQ==
       tarball: file:projects/dev.tgz
     version: 0.0.0
   file:projects/misk-web-examples-data.tgz:
@@ -10714,7 +10647,7 @@ packages:
     dependencies:
       '@blueprintjs/core': 3.19.1_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/datetime': 3.13.0_react-dom@16.13.1+react@16.13.1
-      '@blueprintjs/icons': 3.13.0
+      '@blueprintjs/icons': 3.33.0
       '@blueprintjs/select': 4.8.2_2ca28fdd97f14474892abd82c45d8450
       '@blueprintjs/table': 4.7.2_2ca28fdd97f14474892abd82c45d8450
       '@blueprintjs/timezone': 4.5.2_2ca28fdd97f14474892abd82c45d8450
@@ -10740,7 +10673,7 @@ packages:
       connected-react-router: 6.9.3_cb73723aad97b48e175659ea57209601
       copy-webpack-plugin: 5.1.1_webpack@5.74.0
       cross-env: 7.0.3
-      css-loader: 3.6.0_webpack@5.74.0
+      css-loader: 6.7.1_webpack@5.74.0
       css-minimizer-webpack-plugin: 4.2.1_webpack@5.74.0
       dayjs: 1.11.5
       enum-utils: 1.0.0
@@ -10754,7 +10687,7 @@ packages:
       immutable: 4.1.0
       jest: 24.9.0
       jest-serializer-html: 7.1.0
-      mini-css-extract-plugin: 0.12.0_webpack@5.74.0
+      mini-css-extract-plugin: 2.6.1_webpack@5.74.0
       prettier: 2.7.1
       prop-types: 15.8.1
       re-reselect: 3.4.0_reselect@4.1.6
@@ -10772,7 +10705,7 @@ packages:
       sass: 1.55.0
       sass-loader: 10.3.1_sass@1.55.0+webpack@5.74.0
       skeleton-css: 2.0.4
-      source-map-loader: 0.2.4
+      source-map-loader: 4.0.1_webpack@5.74.0
       status-code-enum: 1.0.0
       style-loader: 1.2.1_webpack@5.74.0
       styled-components: 4.4.1_react-dom@16.13.1+react@16.13.1
@@ -10789,14 +10722,14 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-dashboard'
     resolution:
-      integrity: sha512-Zhg/K34pa9vPKMk3QE6BFh9NBHqRNg4KnjD0UqqLeTxu+Wflxt20AGW+jHHoKa0AHj4MbI6vC7J83+MT8kUpRQ==
+      integrity: sha512-UI5UdjSN/0/MuyoRjH5dC8+ly8V5uwc2avu1tup1zsGcUGQOVo+IUzSed9b4UJVKwfGmprVxl88x9Bsg/P9LKw==
       tarball: file:projects/misk-web-tab-dashboard.tgz
     version: 0.0.0
   file:projects/misk-web-tab-palette-exemplar.tgz:
     dependencies:
       '@blueprintjs/core': 3.19.1_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/datetime': 3.13.0_react-dom@16.13.1+react@16.13.1
-      '@blueprintjs/icons': 3.13.0
+      '@blueprintjs/icons': 3.33.0
       '@blueprintjs/select': 4.8.2_2ca28fdd97f14474892abd82c45d8450
       '@blueprintjs/table': 4.7.2_2ca28fdd97f14474892abd82c45d8450
       '@blueprintjs/timezone': 4.5.2_2ca28fdd97f14474892abd82c45d8450
@@ -10823,7 +10756,7 @@ packages:
       connected-react-router: 6.9.3_cb73723aad97b48e175659ea57209601
       copy-webpack-plugin: 5.1.1_webpack@5.74.0
       cross-env: 7.0.3
-      css-loader: 3.6.0_webpack@5.74.0
+      css-loader: 6.7.1_webpack@5.74.0
       css-minimizer-webpack-plugin: 4.2.1_webpack@5.74.0
       dayjs: 1.11.5
       enum-utils: 1.0.0
@@ -10839,7 +10772,7 @@ packages:
       jest-emotion: 10.0.14
       jest-serializer-html: 7.1.0
       lodash: 4.17.21
-      mini-css-extract-plugin: 0.12.0_webpack@5.74.0
+      mini-css-extract-plugin: 2.6.1_webpack@5.74.0
       prettier: 2.7.1
       prop-types: 15.8.1
       re-reselect: 3.4.0_reselect@4.1.6
@@ -10857,7 +10790,7 @@ packages:
       sass: 1.55.0
       sass-loader: 10.3.1_sass@1.55.0+webpack@5.74.0
       skeleton-css: 2.0.4
-      source-map-loader: 0.2.4
+      source-map-loader: 4.0.1_webpack@5.74.0
       status-code-enum: 1.0.0
       style-loader: 1.2.1_webpack@5.74.0
       styled-components: 4.4.1_react-dom@16.13.1+react@16.13.1
@@ -10874,14 +10807,14 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-exemplar'
     resolution:
-      integrity: sha512-FNkZ6FzjdwUTm2V+2lNKmZbN0M/+LmElBIiXYQ+l2E58UPn/bjwhH1I14VJkyHpE/leEJGlhSW2tFEN8bVx/Lg==
+      integrity: sha512-xCsJnCbIgCujoDnDgeR/3rIcAAe5Ectk77itt7r/5D9lFHWIinfaQXeViBmsBgnB1+OZCSJUmf1nhiiA+ZOp1Q==
       tarball: file:projects/misk-web-tab-palette-exemplar.tgz
     version: 0.0.0
   file:projects/misk-web-tab-palette-lts.tgz:
     dependencies:
       '@blueprintjs/core': 3.19.1_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/datetime': 3.13.0_react-dom@16.13.1+react@16.13.1
-      '@blueprintjs/icons': 3.13.0
+      '@blueprintjs/icons': 3.33.0
       '@blueprintjs/select': 4.8.2_2ca28fdd97f14474892abd82c45d8450
       '@blueprintjs/table': 4.7.2_2ca28fdd97f14474892abd82c45d8450
       '@blueprintjs/timezone': 4.5.2_2ca28fdd97f14474892abd82c45d8450
@@ -10908,7 +10841,7 @@ packages:
       connected-react-router: 6.9.3_cb73723aad97b48e175659ea57209601
       copy-webpack-plugin: 5.1.1_webpack@5.74.0
       cross-env: 7.0.3
-      css-loader: 3.6.0_webpack@5.74.0
+      css-loader: 6.7.1_webpack@5.74.0
       css-minimizer-webpack-plugin: 4.2.1_webpack@5.74.0
       dayjs: 1.11.5
       enum-utils: 1.0.0
@@ -10923,7 +10856,7 @@ packages:
       jest: 24.9.0
       jest-serializer-html: 7.1.0
       lodash: 4.17.21
-      mini-css-extract-plugin: 0.12.0_webpack@5.74.0
+      mini-css-extract-plugin: 2.6.1_webpack@5.74.0
       prettier: 2.7.1
       prop-types: 15.8.1
       re-reselect: 3.4.0_reselect@4.1.6
@@ -10941,7 +10874,7 @@ packages:
       sass: 1.55.0
       sass-loader: 10.3.1_sass@1.55.0+webpack@5.74.0
       skeleton-css: 2.0.4
-      source-map-loader: 0.2.4
+      source-map-loader: 4.0.1_webpack@5.74.0
       status-code-enum: 1.0.0
       style-loader: 1.2.1_webpack@5.74.0
       styled-components: 4.4.1_react-dom@16.13.1+react@16.13.1
@@ -10958,14 +10891,14 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-palette-lts'
     resolution:
-      integrity: sha512-TMIsVni6TEAYzMrPdiyplREcXBQU+Uo2poSrpzA77JekvkHTlhjiz6w63LnDG1XF4SWdb+J7dzMd4K23WCIJlw==
+      integrity: sha512-GY8uoJgIymfsM21X56GyFKpgo96K+mlaLxAbijAYqZvsITB5qEY7VWqfrTXL94LRhCPd4pSQoGC6tBjIfDq4pg==
       tarball: file:projects/misk-web-tab-palette-lts.tgz
     version: 0.0.0
   file:projects/misk-web-tab-starter-basic.tgz:
     dependencies:
       '@blueprintjs/core': 3.19.1_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/datetime': 3.13.0_react-dom@16.13.1+react@16.13.1
-      '@blueprintjs/icons': 3.13.0
+      '@blueprintjs/icons': 3.33.0
       '@blueprintjs/select': 4.8.2_2ca28fdd97f14474892abd82c45d8450
       '@blueprintjs/table': 4.7.2_2ca28fdd97f14474892abd82c45d8450
       '@blueprintjs/timezone': 4.5.2_2ca28fdd97f14474892abd82c45d8450
@@ -10992,7 +10925,7 @@ packages:
       connected-react-router: 6.9.3_cb73723aad97b48e175659ea57209601
       copy-webpack-plugin: 5.1.1_webpack@5.74.0
       cross-env: 7.0.3
-      css-loader: 3.6.0_webpack@5.74.0
+      css-loader: 6.7.1_webpack@5.74.0
       css-minimizer-webpack-plugin: 4.2.1_webpack@5.74.0
       dayjs: 1.11.5
       enum-utils: 1.0.0
@@ -11008,7 +10941,7 @@ packages:
       jest-emotion: 10.0.14
       jest-serializer-html: 7.1.0
       lodash: 4.17.21
-      mini-css-extract-plugin: 0.12.0_webpack@5.74.0
+      mini-css-extract-plugin: 2.6.1_webpack@5.74.0
       prettier: 2.7.1
       prop-types: 15.8.1
       re-reselect: 3.4.0_reselect@4.1.6
@@ -11026,7 +10959,7 @@ packages:
       sass: 1.55.0
       sass-loader: 10.3.1_sass@1.55.0+webpack@5.74.0
       skeleton-css: 2.0.4
-      source-map-loader: 0.2.4
+      source-map-loader: 4.0.1_webpack@5.74.0
       status-code-enum: 1.0.0
       style-loader: 1.2.1_webpack@5.74.0
       styled-components: 4.4.1_react-dom@16.13.1+react@16.13.1
@@ -11043,14 +10976,14 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-starter-basic'
     resolution:
-      integrity: sha512-C47/Dv89sKs1fX+f9nH3348rNG6MdEbzsvnwef9Ru7HzefVcNfmFByLkcl47mTasjbPE892b7bxPK8v8PRNHiA==
+      integrity: sha512-eLySfWvJ1x4rMJMM9NsufZ94q5xtzYuGLcYAZ5he3mRK3t+TDAOn74IE/35H2/kDP59s07SAvY4uvWJzejHlqA==
       tarball: file:projects/misk-web-tab-starter-basic.tgz
     version: 0.0.0
   file:projects/misk-web-tab-template-basic.tgz:
     dependencies:
       '@blueprintjs/core': 3.19.1_react-dom@16.13.1+react@16.13.1
       '@blueprintjs/datetime': 3.13.0_react-dom@16.13.1+react@16.13.1
-      '@blueprintjs/icons': 3.13.0
+      '@blueprintjs/icons': 3.33.0
       '@blueprintjs/select': 4.8.2_2ca28fdd97f14474892abd82c45d8450
       '@blueprintjs/table': 4.7.2_2ca28fdd97f14474892abd82c45d8450
       '@blueprintjs/timezone': 4.5.2_2ca28fdd97f14474892abd82c45d8450
@@ -11077,7 +11010,7 @@ packages:
       connected-react-router: 6.9.3_cb73723aad97b48e175659ea57209601
       copy-webpack-plugin: 5.1.1_webpack@5.74.0
       cross-env: 7.0.3
-      css-loader: 3.6.0_webpack@5.74.0
+      css-loader: 6.7.1_webpack@5.74.0
       css-minimizer-webpack-plugin: 4.2.1_webpack@5.74.0
       dayjs: 1.11.5
       enum-utils: 1.0.0
@@ -11093,7 +11026,7 @@ packages:
       jest-emotion: 10.0.14
       jest-serializer-html: 7.1.0
       lodash: 4.17.21
-      mini-css-extract-plugin: 0.12.0_webpack@5.74.0
+      mini-css-extract-plugin: 2.6.1_webpack@5.74.0
       prettier: 2.7.1
       prop-types: 15.8.1
       re-reselect: 3.4.0_reselect@4.1.6
@@ -11111,7 +11044,7 @@ packages:
       sass: 1.55.0
       sass-loader: 10.3.1_sass@1.55.0+webpack@5.74.0
       skeleton-css: 2.0.4
-      source-map-loader: 0.2.4
+      source-map-loader: 4.0.1_webpack@5.74.0
       status-code-enum: 1.0.0
       style-loader: 1.2.1_webpack@5.74.0
       styled-components: 4.4.1_react-dom@16.13.1+react@16.13.1
@@ -11128,7 +11061,7 @@ packages:
     dev: false
     name: '@rush-temp/misk-web-tab-template-basic'
     resolution:
-      integrity: sha512-d1qDPgi7RFQchvI4k1R0iGv6n0Fle8QlDdDKxy7N1qrqcEVYWjfN8qaSCL5X1mZjH1pi6zQ2ZC1zGdjCi4SHFg==
+      integrity: sha512-ZIQf6PdLbJSy8Sk88R6mevHv8F82KhBErg1lkPKkrnW/MvCbYksw8/kR2Q+WvoHJU0q0zxQtTm24FCNw8yqGVA==
       tarball: file:projects/misk-web-tab-template-basic.tgz
     version: 0.0.0
   file:projects/prettier.tgz_typescript@4.8.4:
@@ -11220,7 +11153,7 @@ packages:
 specifiers:
   '@blueprintjs/core': 3.19.1
   '@blueprintjs/datetime': 3.13.0
-  '@blueprintjs/icons': 3.13.0
+  '@blueprintjs/icons': 3.33.0
   '@blueprintjs/select': 4.8.2
   '@blueprintjs/table': 4.7.2
   '@blueprintjs/timezone': 4.5.2
@@ -11267,7 +11200,7 @@ specifiers:
   connected-react-router: 6.9.3
   copy-webpack-plugin: 5.1.1
   cross-env: 7.0.3
-  css-loader: 3.6.0
+  css-loader: 6.7.1
   css-minimizer-webpack-plugin: 4.2.1
   dayjs: 1.11.5
   enum-utils: 1.0.0
@@ -11285,7 +11218,7 @@ specifiers:
   jest-serializer-html: 7.1.0
   klaw: 4.0.1
   lodash: 4.17.21
-  mini-css-extract-plugin: 0.12.0
+  mini-css-extract-plugin: 2.6.1
   node-plop: 0.26.3
   pkg: 4.5.1
   prettier: ~2.7.1
@@ -11308,7 +11241,7 @@ specifiers:
   sass-loader: 10.3.1
   shelljs: ~0.8.5
   skeleton-css: 2.0.4
-  source-map-loader: 0.2.4
+  source-map-loader: 4.0.1
   status-code-enum: 1.0.0
   style-loader: 1.2.1
   styled-components: 4.4.1
