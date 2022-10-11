@@ -6,22 +6,22 @@ exports[`Dist bundle action.d.ts is unchanged 1`] = `
  * string enum of the defined actions that is used as type enforcement for Reducer and Sagas arguments
  */
 export declare enum SIMPLEREDUX {
-    MERGE = \\"SIMPLEREDUX_MERGE\\",
-    FAILURE = \\"SIMPLEREDUX_FAILURE\\",
-    HTTP_DELETE = \\"SIMPLEREDUX_HTTP_DELETE\\",
-    HTTP_GET = \\"SIMPLEREDUX_HTTP_GET\\",
-    HTTP_HEAD = \\"SIMPLEREDUX_HTTP_HEAD\\",
-    HTTP_PATCH = \\"SIMPLEREDUX_HTTP_PATCH\\",
-    HTTP_POST = \\"SIMPLEREDUX_HTTP_POST\\",
-    HTTP_PUT = \\"SIMPLEREDUX_HTTP_PUT\\"
+    MERGE = "SIMPLEREDUX_MERGE",
+    FAILURE = "SIMPLEREDUX_FAILURE",
+    HTTP_DELETE = "SIMPLEREDUX_HTTP_DELETE",
+    HTTP_GET = "SIMPLEREDUX_HTTP_GET",
+    HTTP_HEAD = "SIMPLEREDUX_HTTP_HEAD",
+    HTTP_PATCH = "SIMPLEREDUX_HTTP_PATCH",
+    HTTP_POST = "SIMPLEREDUX_HTTP_POST",
+    HTTP_PUT = "SIMPLEREDUX_HTTP_PUT"
 }
 "
 `;
 
 exports[`Dist bundle dispatch.d.ts is unchanged 1`] = `
-"import { AxiosResponse, AxiosRequestConfig } from \\"axios\\";
-import { SIMPLEREDUX } from \\"./action\\";
-import { IAction, IDefaultState } from \\"./utilities\\";
+"import { AxiosResponse, AxiosRequestConfig } from "axios";
+import { SIMPLEREDUX } from "./action";
+import { IAction, IDefaultState } from "./utilities";
 /**
  * Configurable options for each Dispatch function
  * @param failureSaga: optional saga to run after the handled failure action to yield more actions
@@ -148,9 +148,9 @@ export {};
 `;
 
 exports[`Dist bundle reducer.d.ts is unchanged 1`] = `
-"import { SIMPLEREDUX } from \\"./action\\";
-import { ISimpleReduxPayload } from \\"./dispatch\\";
-import { IAction, IRootState } from \\"./utilities\\";
+"import { SIMPLEREDUX } from "./action";
+import { ISimpleReduxPayload } from "./dispatch";
+import { IAction, IRootState } from "./utilities";
 /**
  * Merges dispatched action objects on to the existing (or initial) state to generate new state
  */
@@ -171,19 +171,19 @@ export interface ISimpleReduxImmutableState {
 `;
 
 exports[`Dist bundle saga.d.ts is unchanged 1`] = `
-"import { SimpleReduxSaga } from \\"./utilities\\";
+"import { SimpleReduxSaga } from "./utilities";
 /** Root Saga for SimpleRedux */
 export declare function watchSimpleReduxSagas(): SimpleReduxSaga;
 "
 `;
 
 exports[`Dist bundle utilities/handler.d.ts is unchanged 1`] = `
-"import { IDispatchOptions, IDispatchSimpleRedux } from \\"../dispatch\\";
-import { ISimpleReduxState } from \\"../reducer\\";
+"import { IDispatchOptions, IDispatchSimpleRedux } from "../dispatch";
+import { ISimpleReduxState } from "../reducer";
 /**
  * Handler functions to make provide event handlers for components in props
  *
- * <InputGroup onChange={handler.simpleMergeData(\\"my-tag\\", options)} />
+ * <InputGroup onChange={handler.simpleMergeData("my-tag", options)} />
  *
  * Note:
  * - Options and ...options.overrideArgs values are optional
@@ -295,19 +295,19 @@ export declare const handler: IHandler;
 `;
 
 exports[`Dist bundle utilities/index.d.ts is unchanged 1`] = `
-"import { History, Location } from \\"history\\";
-import { List, Map } from \\"immutable\\";
-import { match } from \\"react-router\\";
-import { ForkEffectDescriptor, SimpleEffect } from \\"redux-saga/effects\\";
-export * from \\"./handler\\";
-export * from \\"./mergeSaga\\";
-export * from \\"./simpleSelector\\";
+"import { History, Location } from "history";
+import { List, Map } from "immutable";
+import { match } from "react-router";
+import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects";
+export * from "./handler";
+export * from "./mergeSaga";
+export * from "./simpleSelector";
 /**
  * redux-sagas types copied manually in since they are not yet exported
  * @todo remove once https://github.com/redux-saga/redux-saga/pull/1890 is merged
  */
 export interface CombinatorEffect<T, E> {
-    \\"@@redux-saga/IO\\": true;
+    "@@redux-saga/IO": true;
     combinator: true;
     type: T;
     payload: CombinatorEffectDescriptor<E>;
@@ -316,7 +316,7 @@ export declare type CombinatorEffectDescriptor<E> = {
     [key: string]: E;
 } | E[];
 /** Type definition for SimpleRedux root Saga: [watchSimpleReduxSagas] */
-export declare type SimpleReduxSaga = IterableIterator<CombinatorEffect<\\"ALL\\", SimpleEffect<\\"FORK\\", ForkEffectDescriptor<any>>>>;
+export declare type SimpleReduxSaga = IterableIterator<CombinatorEffect<"ALL", SimpleEffect<"FORK", ForkEffectDescriptor<any>>>>;
 /**
  * Default React Router Props
  * These are injected in different conditions depending on if a component is
@@ -351,8 +351,8 @@ export declare const defaultState: Map<string, boolean | List<any>>;
  * Example
  * - Domain: simpleForm
  * - Access: this.state.simpleForm
- * - simpleTag: \\"simpleForm\\"
- * - Initialize: defaultRootState(\\"simpleForm\\")
+ * - simpleTag: "simpleForm"
+ * - Initialize: defaultRootState("simpleForm")
  */
 export declare const defaultRootState: (simpleTag: string) => Map<string, string | boolean | List<any>>;
 /** Interface for read only Redux Action */
@@ -395,9 +395,9 @@ export declare const HTTPMethodDispatch: any;
 `;
 
 exports[`Dist bundle utilities/mergeSaga.d.ts is unchanged 1`] = `
-"import { SIMPLEREDUX } from \\"../action\\";
-import { IDispatchOptions, IDispatchSimpleRedux, ISimpleReduxPayload } from \\"../dispatch\\";
-import { IAction } from \\"../utilities\\";
+"import { SIMPLEREDUX } from "../action";
+import { IDispatchOptions, IDispatchSimpleRedux, ISimpleReduxPayload } from "../dispatch";
+import { IAction } from "../utilities";
 /**
  * Factories for IDispatchOptions optional mergeSaga
  */
@@ -423,17 +423,17 @@ import { IAction } from \\"../utilities\\";
  * }
  * \`\`\`
  *
- * Note that the initial calling tag will have been \\"AlphaTag\\" but to keep
+ * Note that the initial calling tag will have been "AlphaTag" but to keep
  * sagas generic, we use \`getFirstTag\` to pull the tagged object out of
  * payload.
  *
- * Thus for this example, the \`payloadPath\` is just \\"data\\".
+ * Thus for this example, the \`payloadPath\` is just "data".
  *
  * @param keyTagLookup: object that maps from action payload keys to the new Redux tags
  * @param options configure the dispatch with optional mergeSaga or requestConfig
  */
 export declare const mergeSagaMapKeysToTags: (connectedProps: {
-    simpleMergeData: IDispatchSimpleRedux[\\"simpleMergeData\\"];
+    simpleMergeData: IDispatchSimpleRedux["simpleMergeData"];
 }, payloadPath: string | string[], keyTagLookup: {
     [key: string]: string;
 }, options?: IDispatchOptions) => (action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) => Generator<IAction<SIMPLEREDUX.MERGE, ISimpleReduxPayload>, void, unknown>;
@@ -441,9 +441,9 @@ export declare const mergeSagaMapKeysToTags: (connectedProps: {
 `;
 
 exports[`Dist bundle utilities/simpleSelector.d.ts is unchanged 1`] = `
-"import { Map } from \\"immutable\\";
-import { ParametricSelector } from \\"reselect\\";
-import { IRootState } from \\"../utilities\\";
+"import { Map } from "immutable";
+import { ParametricSelector } from "reselect";
+import { IRootState } from "../utilities";
 /**
  * simpleRootRawSelector is a Redux selector of a subState based on a domain string
  * @param domain
