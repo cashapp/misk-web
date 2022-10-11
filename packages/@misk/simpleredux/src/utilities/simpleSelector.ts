@@ -41,7 +41,7 @@ const selectRawSubState: <
 
 const rawSubStateSelector: <IState extends Map<string, any>, ISubState>(
   domain: string
-) => OutputSelector<IState, any, (res: ISubState) => any> = <
+) => OutputSelector<any, any, (res: ISubState) => any> = <
   IState extends Map<string, any>,
   ISubState
 >(
@@ -54,7 +54,7 @@ const immutableSubStateSelector: <
   ISubState extends { toJS: () => IRootState }
 >(
   domain: string
-) => OutputSelector<IState, any, (res: ISubState) => any> = <
+) => OutputSelector<any, any, (res: ISubState) => any> = <
   IState extends { [key: string]: ISubState },
   ISubState extends { toJS: () => IRootState }
 >(

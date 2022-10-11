@@ -78,7 +78,7 @@ function* handlePatch(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
     const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
       action.payload
     )
-    const response = yield call(
+    const response: AxiosResponse = yield call(
       axios.patch,
       url,
       updateData,
@@ -106,13 +106,13 @@ function* handlePost(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
     const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
       action.payload
     )
-    const response = yield call(
+    const response: AxiosResponse = yield call(
       axios.post,
       url,
       saveData,
       options.requestConfig
     )
-    const data = responseAndData(response as AxiosResponse)
+    const data = responseAndData(response)
     yield put(dispatchSimpleRedux.simpleMerge(tag, { url, data }, options))
   } catch (e) {
     const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
@@ -134,7 +134,7 @@ function* handlePut(action: IAction<SIMPLEREDUX, ISimpleReduxPayload>) {
     const { options, tag, url } = getFirstTag<ISimpleHttpPayloadTag>(
       action.payload
     )
-    const response = yield call(
+    const response: AxiosResponse = yield call(
       axios.put,
       url,
       updateData,

@@ -6,7 +6,7 @@ describe("components", () => {
   afterEach(cleanup)
   it("TextHTMLOrElementComponent can render empty children", () => {
     const { asFragment } = render(
-      <TextHTMLOrElementComponent>{}</TextHTMLOrElementComponent>
+      <TextHTMLOrElementComponent>{""}</TextHTMLOrElementComponent>
     )
     expect(asFragment()).toMatchSnapshot()
   })
