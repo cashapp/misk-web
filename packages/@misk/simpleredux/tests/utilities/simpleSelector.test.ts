@@ -48,7 +48,7 @@ describe("Test simpleSelector functions mirror equivalent lodash functions", () 
     const expected = get(state.playground, path)
     expect(matched).toEqual(expected)
     expect(matched).toMatchInlineSnapshot(`
-      Object {
+      {
         "data": "John Doe",
         "loading": "maybe",
       }
@@ -77,7 +77,7 @@ describe("Test simpleSelector functions mirror equivalent lodash functions", () 
     const matched = simpleSelectorGet(state.playground, path, defaultValue)
     const expected = get(state.playground, path, defaultValue)
     expect(matched).toEqual(expected)
-    expect(matched).toMatchInlineSnapshot(`Array []`)
+    expect(matched).toMatchInlineSnapshot(`[]`)
   })
 
   it("simpleSelectorPick happy path", () => {
@@ -86,15 +86,15 @@ describe("Test simpleSelector functions mirror equivalent lodash functions", () 
     const expected = pick(state.playground, paths)
     expect(matched).toEqual(expected)
     expect(matched).toMatchInlineSnapshot(`
-      Object {
-        "alpha": Object {
-          "bravo": Object {
+      {
+        "alpha": {
+          "bravo": {
             "data": "John Doe",
             "loading": "maybe",
           },
         },
-        "charlie": Object {
-          "delta": Object {
+        "charlie": {
+          "delta": {
             "data": "Jane Bond",
             "loading": "maybe not",
           },
@@ -109,14 +109,14 @@ describe("Test simpleSelector functions mirror equivalent lodash functions", () 
     const expected = pick(state.playground, paths)
     expect(matched).toEqual(expected)
     expect(matched).toMatchInlineSnapshot(`
-      Object {
-        "alpha": Object {
-          "bravo": Object {
+      {
+        "alpha": {
+          "bravo": {
             "data": "John Doe",
           },
         },
-        "charlie": Object {
-          "delta": Object {
+        "charlie": {
+          "delta": {
             "data": "Jane Bond",
           },
         },
