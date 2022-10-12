@@ -1,9 +1,6 @@
 import { IconNames } from "@blueprintjs/icons"
 import React from "react"
 import { BrowserRouter } from "react-router-dom"
-const {
-  getByText
-} = require("@testing-library/dom") /* eslint-disable-line @typescript-eslint/no-var-requires */
 import { cleanup, render } from "@testing-library/react"
 import { MenuButton } from "src/features/Navbar/MenuButton"
 
@@ -19,7 +16,9 @@ describe("Navbar MenuButton", () => {
         />
       </BrowserRouter>
     )
-    expect(getByText(container, IconNames.MENU)).toBeDefined()
+    expect(
+      container.querySelector('span[icon="' + IconNames.MENU + '"]')
+    ).toBeDefined()
     expect(asFragment()).toMatchSnapshot()
   })
   it("MenuButton can render open", () => {
@@ -32,7 +31,9 @@ describe("Navbar MenuButton", () => {
         />
       </BrowserRouter>
     )
-    expect(getByText(container, IconNames.CROSS)).toBeDefined()
+    expect(
+      container.querySelector('span[icon="' + IconNames.CROSS + '"]')
+    ).toBeDefined()
     expect(asFragment()).toMatchSnapshot()
   })
   it("MenuButton doesn't render when menuShowButton = false", () => {
@@ -59,7 +60,9 @@ describe("Navbar MenuButton", () => {
         />
       </BrowserRouter>
     )
-    expect(getByText(container, IconNames.FOLDER_CLOSE)).toBeDefined()
+    expect(
+      container.querySelector('span[icon="' + IconNames.FOLDER_CLOSE + '"]')
+    ).toBeDefined()
     expect(asFragment()).toMatchSnapshot()
   })
   it("MenuButton can render as a link", () => {
@@ -75,7 +78,9 @@ describe("Navbar MenuButton", () => {
         />
       </BrowserRouter>
     )
-    expect(getByText(container, IconNames.FOLDER_CLOSE)).toBeDefined()
+    expect(
+      container.querySelector('span[icon="' + IconNames.FOLDER_CLOSE + '"]')
+    ).toBeDefined()
     expect(container.querySelector('a[href="/test-home-url"]')).toBeDefined()
     expect(asFragment()).toMatchSnapshot()
   })

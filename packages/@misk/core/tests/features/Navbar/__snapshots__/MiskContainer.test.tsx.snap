@@ -247,6 +247,7 @@ exports[`Misk Navbar Container Container can render 1`] = `
           class="bp3-button-text"
         >
           <span
+            aria-hidden="true"
             class="bp3-icon bp3-icon-menu emotion-4"
             icon="menu"
           >
@@ -256,9 +257,6 @@ exports[`Misk Navbar Container Container can render 1`] = `
               viewBox="0 0 20 20"
               width="32"
             >
-              <desc>
-                menu
-              </desc>
               <path
                 d="M1 6h18c.55 0 1-.45 1-1s-.45-1-1-1H1c-.55 0-1 .45-1 1s.45 1 1 1zm18 3H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1zm0 5H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1z"
                 fill-rule="evenodd"
@@ -276,7 +274,7 @@ exports[`Misk Navbar Container Container can render 1`] = `
           <div
             aria-hidden="true"
             class="bp3-collapse-body"
-            style="transform: translateY(-0px);"
+            style="transform: translateY(-undefinedpx);"
           >
             <div
               class="emotion-10"
@@ -603,6 +601,7 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
           class="bp3-button-text"
         >
           <span
+            aria-hidden="true"
             class="bp3-icon bp3-icon-menu emotion-4"
             icon="menu"
           >
@@ -612,9 +611,6 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
               viewBox="0 0 20 20"
               width="32"
             >
-              <desc>
-                menu
-              </desc>
               <path
                 d="M1 6h18c.55 0 1-.45 1-1s-.45-1-1-1H1c-.55 0-1 .45-1 1s.45 1 1 1zm18 3H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1zm0 5H1c-.55 0-1 .45-1 1s.45 1 1 1h18c.55 0 1-.45 1-1s-.45-1-1-1z"
                 fill-rule="evenodd"
@@ -632,7 +628,7 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
           <div
             aria-hidden="true"
             class="bp3-collapse-body"
-            style="transform: translateY(-0px);"
+            style="transform: translateY(-undefinedpx);"
           >
             <div
               class="emotion-10"
@@ -709,6 +705,7 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
   >
     <div
       class="bp3-spinner"
+      role="progressbar"
     >
       <div
         class="bp3-spinner-animation"

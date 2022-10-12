@@ -74,7 +74,6 @@ exports[`TabContainer TabContainer can render with redux 1`] = `
             <input
               class="bp3-input"
               placeholder="data endpoint URL (example: https://cashapp.github.io/misk-web/examples/data/demo/cars.json"
-              style="padding-right: 10px;"
               type="url"
               value=""
             />
@@ -85,7 +84,6 @@ exports[`TabContainer TabContainer can render with redux 1`] = `
             <input
               class="bp3-input"
               placeholder="network response data object key (example: cars)"
-              style="padding-right: 10px;"
               type="text"
               value=""
             />
@@ -105,7 +103,10 @@ exports[`TabContainer TabContainer can render with redux 1`] = `
     </div>
     <div>
       <div
+        aria-valuemax="100"
+        aria-valuemin="0"
         class="bp3-progress-bar bp3-no-animation"
+        role="progressbar"
       >
         <div
           class="bp3-progress-meter"
