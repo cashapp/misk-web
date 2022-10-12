@@ -218,13 +218,13 @@ exports[`Misk Navbar Container Container can render 1`] = `
 }
 
 <div
-    class="bp3-navbar emotion-15"
+    class="bp4-navbar emotion-15"
   >
     <div
       class="emotion-3"
     >
       <div
-        class="bp3-navbar-group bp3-align-left bp3-dark emotion-2"
+        class="bp4-navbar-group bp4-align-left bp3-dark emotion-2"
       >
         <span
           class="emotion-0"
@@ -240,20 +240,21 @@ exports[`Misk Navbar Container Container can render 1`] = `
     </div>
     <div>
       <button
-        class="bp3-button emotion-5"
+        class="bp4-button emotion-5"
         type="button"
       >
         <span
-          class="bp3-button-text"
+          class="bp4-button-text"
         >
           <span
             aria-hidden="true"
-            class="bp3-icon bp3-icon-menu emotion-4"
+            class="bp4-icon bp4-icon-menu emotion-4"
             icon="menu"
           >
             <svg
               data-icon="menu"
               height="32"
+              role="img"
               viewBox="0 0 20 20"
               width="32"
             >
@@ -269,11 +270,11 @@ exports[`Misk Navbar Container Container can render 1`] = `
         class="emotion-11"
       >
         <div
-          class="bp3-collapse"
+          class="bp4-collapse"
         >
           <div
             aria-hidden="true"
-            class="bp3-collapse-body"
+            class="bp4-collapse-body"
             style="transform: translateY(-undefinedpx);"
           >
             <div
@@ -572,13 +573,13 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
 }
 
 <div
-    class="bp3-navbar emotion-15"
+    class="bp4-navbar emotion-15"
   >
     <div
       class="emotion-3"
     >
       <div
-        class="bp3-navbar-group bp3-align-left bp3-dark emotion-2"
+        class="bp4-navbar-group bp4-align-left bp3-dark emotion-2"
       >
         <span
           class="emotion-0"
@@ -594,20 +595,21 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
     </div>
     <div>
       <button
-        class="bp3-button emotion-5"
+        class="bp4-button emotion-5"
         type="button"
       >
         <span
-          class="bp3-button-text"
+          class="bp4-button-text"
         >
           <span
             aria-hidden="true"
-            class="bp3-icon bp3-icon-menu emotion-4"
+            class="bp4-icon bp4-icon-menu emotion-4"
             icon="menu"
           >
             <svg
               data-icon="menu"
               height="32"
+              role="img"
               viewBox="0 0 20 20"
               width="32"
             >
@@ -623,11 +625,11 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
         class="emotion-11"
       >
         <div
-          class="bp3-collapse"
+          class="bp4-collapse"
         >
           <div
             aria-hidden="true"
-            class="bp3-collapse-body"
+            class="bp4-collapse-body"
             style="transform: translateY(-undefinedpx);"
           >
             <div
@@ -704,11 +706,13 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
     class="emotion-0"
   >
     <div
-      class="bp3-spinner"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      class="bp4-spinner"
       role="progressbar"
     >
       <div
-        class="bp3-spinner-animation"
+        class="bp4-spinner-animation"
       >
         <svg
           height="50"
@@ -717,11 +721,11 @@ exports[`Misk Navbar Container Container renders with remote data 1`] = `
           width="50"
         >
           <path
-            class="bp3-spinner-track"
+            class="bp4-spinner-track"
             d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
           />
           <path
-            class="bp3-spinner-head"
+            class="bp4-spinner-head"
             d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
             pathLength="280"
             stroke-dasharray="280 280"

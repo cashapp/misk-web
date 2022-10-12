@@ -4,46 +4,47 @@ exports[`ExampleFormContainer ExampleFormContainer can render with redux 1`] = `
 <DocumentFragment>
   <div>
     <h1
-      class="bp3-heading"
+      class="bp4-heading"
     >
       Example Form Container :: ExampleForm
     </h1>
     <pre
-      class="bp3-code-block"
+      class="bp4-code-block"
     >
       simpleRedux: {}
     </pre>
     <div
-      class="bp3-form-group"
+      class="bp4-form-group"
     >
       <div
-        class="bp3-form-content"
+        class="bp4-form-content"
       >
         <div
-          class="bp3-input-group"
+          class="bp4-input-group"
         >
           <input
-            class="bp3-input"
+            class="bp4-input"
             id="text-input"
             placeholder="Full Name"
             type="text"
           />
         </div>
         <div
-          class="bp3-control-group bp3-numeric-input"
+          class="bp4-control-group bp4-numeric-input"
         >
           <div
-            class="bp3-input-group"
+            class="bp4-input-group"
           >
             <span
               aria-hidden="true"
-              class="bp3-icon bp3-icon-dollar"
+              class="bp4-icon bp4-icon-dollar"
               icon="dollar"
               tabindex="-1"
             >
               <svg
                 data-icon="dollar"
                 height="16"
+                role="img"
                 viewBox="0 0 16 16"
                 width="16"
               >
@@ -54,30 +55,34 @@ exports[`ExampleFormContainer ExampleFormContainer can render with redux 1`] = `
               </svg>
             </span>
             <input
+              aria-valuenow="0"
               autocomplete="off"
-              class="bp3-input"
+              class="bp4-input"
+              id="numericInput-0"
               placeholder="Price"
+              role="spinbutton"
               type="text"
               value=""
             />
           </div>
           <div
-            class="bp3-button-group bp3-vertical bp3-fixed"
+            class="bp4-button-group bp4-vertical bp4-fixed"
           >
             <button
+              aria-controls="numericInput-0"
               aria-label="increment"
-              class="bp3-button"
+              class="bp4-button"
               type="button"
             >
               <span
                 aria-hidden="true"
-                class="bp3-icon bp3-icon-chevron-up"
+                class="bp4-icon bp4-icon-chevron-up"
                 icon="chevron-up"
-                tabindex="0"
               >
                 <svg
                   data-icon="chevron-up"
                   height="16"
+                  role="img"
                   viewBox="0 0 16 16"
                   width="16"
                 >
@@ -89,19 +94,20 @@ exports[`ExampleFormContainer ExampleFormContainer can render with redux 1`] = `
               </span>
             </button>
             <button
+              aria-controls="numericInput-0"
               aria-label="decrement"
-              class="bp3-button"
+              class="bp4-button"
               type="button"
             >
               <span
                 aria-hidden="true"
-                class="bp3-icon bp3-icon-chevron-down"
+                class="bp4-icon bp4-icon-chevron-down"
                 icon="chevron-down"
-                tabindex="0"
               >
                 <svg
                   data-icon="chevron-down"
                   height="16"
+                  role="img"
                   viewBox="0 0 16 16"
                   width="16"
                 >
@@ -135,127 +141,127 @@ exports[`ExampleFormContainer ExampleFormContainer can render with redux 1`] = `
           </span>
         </span>
         <textarea
-          class="bp3-input bp3-intent-primary bp3-fill"
+          class="bp4-input bp4-intent-primary bp4-fill"
           placeholder="Itemized Receipt"
         />
         <div
           class="emotion-0"
         >
           <h5
-            class="bp3-heading"
+            class="bp4-heading"
           >
             Bill Splitting
           </h5>
           <label
-            class="bp3-control bp3-checkbox"
+            class="bp4-control bp4-checkbox"
           >
             <input
               type="checkbox"
             />
             <span
-              class="bp3-control-indicator"
+              class="bp4-control-indicator"
             />
             Alice
           </label>
           <label
-            class="bp3-control bp3-checkbox"
+            class="bp4-control bp4-checkbox"
           >
             <input
               type="checkbox"
             />
             <span
-              class="bp3-control-indicator"
+              class="bp4-control-indicator"
             />
             Bob
           </label>
           <label
-            class="bp3-control bp3-checkbox"
+            class="bp4-control bp4-checkbox"
           >
             <input
               type="checkbox"
             />
             <span
-              class="bp3-control-indicator"
+              class="bp4-control-indicator"
             />
             Eve
           </label>
           <label
-            class="bp3-control bp3-checkbox"
+            class="bp4-control bp4-checkbox"
           >
             <input
               type="checkbox"
             />
             <span
-              class="bp3-control-indicator"
+              class="bp4-control-indicator"
             />
             Mallory
           </label>
           <label
-            class="bp3-control bp3-checkbox"
+            class="bp4-control bp4-checkbox"
           >
             <input
               type="checkbox"
             />
             <span
-              class="bp3-control-indicator"
+              class="bp4-control-indicator"
             />
             Trent
           </label>
         </div>
         <div>
           <label
-            class="bp3-label"
+            class="bp4-label"
           >
             Meal
           </label>
           <label
-            class="bp3-control bp3-radio bp3-inline"
+            class="bp4-control bp4-radio bp4-inline"
           >
             <input
-              name="Blueprint3.RadioGroup-0"
+              name="Blueprint4.RadioGroup-0"
               type="radio"
               value="breakfast"
             />
             <span
-              class="bp3-control-indicator"
+              class="bp4-control-indicator"
             />
             Breakfast
           </label>
           <label
-            class="bp3-control bp3-radio bp3-inline"
+            class="bp4-control bp4-radio bp4-inline"
           >
             <input
-              name="Blueprint3.RadioGroup-0"
+              name="Blueprint4.RadioGroup-0"
               type="radio"
               value="lunch"
             />
             <span
-              class="bp3-control-indicator"
+              class="bp4-control-indicator"
             />
             Lunch
           </label>
           <label
-            class="bp3-control bp3-radio bp3-inline"
+            class="bp4-control bp4-radio bp4-inline"
           >
             <input
-              name="Blueprint3.RadioGroup-0"
+              name="Blueprint4.RadioGroup-0"
               type="radio"
               value="dinner"
             />
             <span
-              class="bp3-control-indicator"
+              class="bp4-control-indicator"
             />
             Dinner
           </label>
         </div>
         <div
-          class="bp3-input bp3-tag-input"
+          class="bp4-input bp4-tag-input"
         >
           <div
-            class="bp3-tag-input-values"
+            class="bp4-tag-input-values"
           >
             <input
-              class="bp3-input-ghost"
+              class="bp4-input-ghost"
               placeholder="Tags"
               value=""
             />
@@ -263,30 +269,30 @@ exports[`ExampleFormContainer ExampleFormContainer can render with redux 1`] = `
         </div>
         <br />
         <h3
-          class="bp3-heading"
+          class="bp4-heading"
         >
           Form Submission
         </h3>
         <pre
-          class="bp3-code-block"
+          class="bp4-code-block"
         >
           submit form network request: 
         </pre>
         <div
-          class="bp3-input-group"
+          class="bp4-input-group"
         >
           <input
-            class="bp3-input"
+            class="bp4-input"
             placeholder="Form POST URL: http://your.url.com/to/send/a/request/to/"
             type="url"
           />
         </div>
         <button
-          class="bp3-button bp3-intent-primary"
+          class="bp4-button bp4-intent-primary"
           type="button"
         >
           <span
-            class="bp3-button-text"
+            class="bp4-button-text"
           >
             POST
           </span>
