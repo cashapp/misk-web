@@ -118,6 +118,7 @@ exports[`ExampleFormContainer ExampleFormContainer can render with redux 1`] = `
           class="bp3-popover-wrapper"
         >
           <span
+            aria-haspopup="true"
             class="bp3-popover-target"
           >
             <div
@@ -127,7 +128,6 @@ exports[`ExampleFormContainer ExampleFormContainer can render with redux 1`] = `
                 autocomplete="off"
                 class="bp3-input"
                 placeholder="YYYY/MM/DD"
-                style="padding-right: 10px;"
                 type="text"
                 value=""
               />
