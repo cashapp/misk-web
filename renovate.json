@@ -19,11 +19,14 @@
   ],
   "stabilityDays": 3,
   "postUpgradeTasks": {
-        "commands": [
-            "node common/scripts/install-run-rush.js update"
-        ],
-        "fileFilters": [
-            "common/config/rush/pnpm-lock.yaml"
-        ]
-    }
+    "commands": [
+      "node common/scripts/install-run-rush.js update"
+    ],
+    "fileFilters": [
+      "common/config/rush/pnpm-lock.yaml"
+    ]
+  },
+  "allowedPostUpgradeCommands": [
+    "node common/scripts/install-run-rush.js update"
+  ]
 }
