@@ -17,16 +17,5 @@
     "**/__tests__/**",
     "**/tests/**"
   ],
-  "stabilityDays": 3,
-  "postUpgradeTasks": {
-    "commands": [
-      "node common/scripts/install-run-rush.js update"
-    ],
-    "fileFilters": [
-      "common/config/rush/pnpm-lock.yaml"
-    ]
-  },
-  "allowedPostUpgradeCommands": [
-    "node common/scripts/install-run-rush.js update"
-  ]
+  "stabilityDays": 3
 }
