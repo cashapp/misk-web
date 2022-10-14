@@ -2,9 +2,6 @@ const { vendorExternals, miskExternals } = require("./externals")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const HTMLWebpackPlugin = require("html-webpack-plugin")
 const HTMLWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin")
-const StyledComponentsTransformerPlugin = require("typescript-plugin-styled-components")
-const createStyledComponentsTransformer =
-  StyledComponentsTransformerPlugin.default
 const path = require("path")
 const webpack = require("webpack")
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
@@ -83,8 +80,6 @@ module.exports = (env, argv) => {
     alwaysWriteToDisk: true
   })
 
-  const StyledComponentsTransformer = createStyledComponentsTransformer()
-
   const baseConfigFields = {
     entry: {
       [`${relativePathPrefix}tab_${slug}`]: [
@@ -121,12 +116,7 @@ module.exports = (env, argv) => {
         {
           test: /\.(tsx|ts)$/,
           exclude: /node_modules/,
-          loader: "ts-loader",
-          options: {
-            getCustomTransformers: () => ({
-              before: [StyledComponentsTransformer]
-            })
-          }
+          loader: "ts-loader"
         },
         {
           enforce: "pre",

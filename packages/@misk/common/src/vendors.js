@@ -17,9 +17,3 @@ window.ReduxSaga = require("redux-saga")
 window.ReduxSagaEffects = require("redux-saga/effects")
 window.Reselect = require("reselect")
 window.ReReselect = require("re-reselect")
-
-//  Will be removed in next major release to thin out Vendors
-window.Dayjs = require("dayjs")
-window.Immutable = require("immutable")
-window.ReactHotLoader = require("react-hot-loader")
-window.StyledComponents = require("styled-components")
