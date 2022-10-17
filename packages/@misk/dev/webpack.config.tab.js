@@ -107,7 +107,6 @@ module.exports = (env, argv) => {
     devServer: {
       host: "0.0.0.0",
       port: port,
-      inline: true,
       hot: true,
       historyApiFallback: true
     },
