@@ -1,6 +1,16 @@
 # Change Log - @misk/cli
 
-This log was last generated on Wed, 28 Sep 2022 18:02:06 GMT and should not be manually modified.
+This log was last generated on Mon, 17 Oct 2022 14:42:43 GMT and should not be manually modified.
+
+## 0.5.0
+Mon, 17 Oct 2022 14:42:43 GMT
+
+_Version update only_
+
+## 0.4.2
+Mon, 17 Oct 2022 14:40:24 GMT
+
+_Version update only_
 
 ## 0.4.1
 Wed, 28 Sep 2022 18:02:06 GMT

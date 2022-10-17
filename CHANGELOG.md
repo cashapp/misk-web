@@ -1,5 +1,10 @@
 ## Changelog
 
+# 0.5
+Mon, 18 Oct 2022 14:53:00 GMT
+
+This release includes major upgrades to many dependencies including Webpack (4 -> 5), typescript (3.9.x -> 4.8.x). tslint has been migrated to eslint, meaning `@misk/tslint` has been removed. dayjs, immutable, react-hot-loader, styled-components have been removed as vendored packages.
+
 ## 0.4.1
 Wed, 28 Sep 2022 17:07:22 GMT
 
