@@ -36,6 +36,11 @@ export const generateBuildFiles = async (...args: any) => {
       JsonOptions
     ),
     fs.writeJson(
+      makePath(dir, Files.eslintrc),
+      createEslintConfig(),
+      JsonOptions
+    ),
+    fs.writeJson(
       makePath(dir, Files.package),
       await createPackage(miskTab, pkg),
       JsonOptions

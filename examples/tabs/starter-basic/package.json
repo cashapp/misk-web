@@ -11,12 +11,13 @@
     "clean-build-files": "rm .hash package-lock.json package.json tsconfig.json webpack.config.js",
     "lib": "cross-env NODE_ENV=production webpack",
     "dev-lib": "cross-env NODE_ENV=development webpack",
-    "lint": "prettier --write --config package.json .",
+    "lint": "prettier --write --config package.json . && npm run eslint",
     "prebuild": "miskweb prebuild && npm run-script lint",
     "reinstall": "rm -rf node_modules && npm run-script install",
     "start": "npm run-script prebuild && cross-env NODE_ENV=development webpack-dev-server",
     "test": "jest --passWithNoTests --maxWorkers=2",
-    "zip": "tar --exclude='.gitignore' --exclude='.old_build_files' --exclude='package.json' --exclude='package-lock.json' --exclude='prettier.config.js' --exclude='tsconfig.json' --exclude='webpack.config.js' --exclude='yarn.lock' --exclude='demo' --exclude='lib' --exclude='.DS_Store' --exclude='*.log' --exclude='node_modules' --exclude='starter-basic.tgz' -czvf starter-basic.tgz ./"
+    "zip": "tar --exclude='.gitignore' --exclude='.old_build_files' --exclude='package.json' --exclude='package-lock.json' --exclude='prettier.config.js' --exclude='tsconfig.json' --exclude='webpack.config.js' --exclude='yarn.lock' --exclude='demo' --exclude='lib' --exclude='.DS_Store' --exclude='*.log' --exclude='node_modules' --exclude='starter-basic.tgz' -czvf starter-basic.tgz ./",
+    "eslint": "eslint ."
   },
   "dependencies": {
     "@misk/cli": "0.4.1",
