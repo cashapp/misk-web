@@ -1,5 +1,10 @@
 ## Changelog
 
+# 0.5.1
+Mon, 18 Oct 2022 20:23:00 GMT
+
+Includes a bug fix to the development webpack config in order to remove the deprecated `inline` argument.
+
 # 0.5
 Mon, 18 Oct 2022 14:53:00 GMT
 
