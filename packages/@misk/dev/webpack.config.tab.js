@@ -107,7 +107,6 @@ module.exports = (env, argv) => {
     devServer: {
       host: "0.0.0.0",
       port: port,
-      inline: true,
       hot: true,
       historyApiFallback: true
     },
@@ -125,7 +124,7 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.scss$/,
-          use: ["style-loader", "css-loader", "!sass-loader"]
+          use: ["style-loader", "css-loader", "sass-loader"]
         },
         {
           test: /\.(jpe?g|png|gif|svg)$/i,
