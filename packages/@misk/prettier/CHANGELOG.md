@@ -1,6 +1,11 @@
 # Change Log - @misk/prettier
 
-This log was last generated on Mon, 17 Oct 2022 14:42:43 GMT and should not be manually modified.
+This log was last generated on Tue, 18 Oct 2022 00:14:38 GMT and should not be manually modified.
+
+## 0.5.1
+Tue, 18 Oct 2022 00:14:38 GMT
+
+_Version update only_
 
 ## 0.5.0
 Mon, 17 Oct 2022 14:42:43 GMT
