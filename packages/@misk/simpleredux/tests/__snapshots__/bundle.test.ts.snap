@@ -297,7 +297,6 @@ export declare const handler: IHandler;
 exports[`Dist bundle utilities/index.d.ts is unchanged 1`] = `
 "import { History, Location } from "history";
 import { List, Map } from "immutable";
-import { match } from "react-router";
 import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects";
 export * from "./handler";
 export * from "./mergeSaga";
@@ -326,7 +325,6 @@ export declare type SimpleReduxSaga = IterableIterator<CombinatorEffect<"ALL", S
 export interface IRouterProvidedProps {
     history?: History;
     location?: Location;
-    match?: match;
 }
 /** Default State with Redux flow metadata */
 export interface IDefaultState {

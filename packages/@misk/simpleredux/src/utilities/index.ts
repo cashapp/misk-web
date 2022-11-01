@@ -1,7 +1,6 @@
 import { History, Location } from "history"
 import { HTTPMethod } from "http-method-enum"
 import { List, Map } from "immutable"
-import { match } from "react-router"
 import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects"
 import { StatusCode } from "status-code-enum"
 import { IDispatchSimpleRedux } from "../dispatch"
@@ -36,7 +35,6 @@ export type SimpleReduxSaga = IterableIterator<
 export interface IRouterProvidedProps {
   history?: History
   location?: Location
-  match?: match
 }
 
 /** Default State with Redux flow metadata */

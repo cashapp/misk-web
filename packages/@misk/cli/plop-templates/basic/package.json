@@ -11,7 +11,7 @@
     "clean-build-files": "rm .hash package-lock.json package.json tsconfig.json webpack.config.js",
     "lib": "cross-env NODE_ENV=production webpack",
     "dev-lib": "cross-env NODE_ENV=development webpack",
-    "lint": "prettier --write --config package.json . && npm run eslint",
+    "lint": "prettier --write --config package.json .",
     "eslint": "eslint .",
     "prebuild": "miskweb prebuild && npm run-script lint",
     "reinstall": "rm -rf node_modules && npm run-script install",

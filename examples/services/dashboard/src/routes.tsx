@@ -1,13 +1,13 @@
 import * as React from "react"
-import { Route, Switch } from "react-router"
+import { Route, Routes } from "react-router"
 import { DashboardContainer } from "./containers"
 
 const routes = (
-  <span>
-    <Switch>
-      <Route component={DashboardContainer} />
-    </Switch>
-  </span>
+  <Routes>
+    <Route>
+      <DashboardContainer />
+    </Route>
+  </Routes>
 )
 
 export default routes
