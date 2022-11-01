@@ -1,9 +1,9 @@
-import { ConnectedRouter } from "connected-react-router"
 import { History } from "history"
 import * as React from "react"
+import { Router } from "react-router-dom"
 
 export const createApp = (routes: JSX.Element) => {
   return ({ history }: { history: History }) => (
-    <ConnectedRouter history={history}>{routes}</ConnectedRouter>
+    <Router history={history}>{routes}</Router>
   )
 }

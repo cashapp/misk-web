@@ -4,6 +4,11 @@ import { Provider } from "react-redux"
 import { render } from "@testing-library/react"
 import { createStore } from "redux"
 import { rootReducer } from "src/ducks"
+import { createReduxHistoryContext } from "redux-first-history"
+
+const { routerReducer } = createReduxHistoryContext({
+  history: createBrowserHistory()
+})
 
 // this is a handy function that I normally make available for all my tests
 // that deal with connected components.
@@ -25,7 +30,7 @@ export const renderWithRedux: (
   ui,
   {
     initialState,
-    store = createStore(rootReducer(createBrowserHistory()), initialState)
+    store = createStore(rootReducer(routerReducer), initialState)
   }: any = {}
 ) => {
   return {

@@ -9,20 +9,15 @@ import {
   SimpleReduxReducer,
   watchSimpleReduxSagas
 } from "@misk/simpleredux"
-import {
-  connectRouter,
-  LocationChangeAction,
-  RouterState
-} from "connected-react-router"
-import { History } from "history"
-import { AnyAction, combineReducers, Reducer } from "redux"
+import { RouterState } from "redux-first-history"
+import { combineReducers, Reducer } from "redux"
 import { all, fork } from "redux-saga/effects"
 
 /**
  * Redux Store State
  */
 export interface IState {
-  router: Reducer<RouterState, LocationChangeAction>
+  router: Reducer<RouterState>
   simpleRedux: ISimpleReduxState
 }
 
@@ -51,9 +46,9 @@ export const rootSelectors = (state: IState) => ({
 /**
  * Reducers
  */
-export const rootReducer = (history: History): Reducer<any, AnyAction> =>
+export const rootReducer = (routerReducer: Reducer<RouterState>): Reducer =>
   combineReducers({
-    router: connectRouter(history),
+    router: routerReducer,
     simpleRedux: SimpleReduxReducer
   })
 

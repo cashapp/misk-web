@@ -15,14 +15,9 @@ import {
   watchSimpleFormSagas,
   watchSimpleNetworkSagas
 } from "@misk/simpleredux"
-import {
-  connectRouter,
-  LocationChangeAction,
-  RouterState
-} from "connected-react-router"
-import { History } from "history"
-import { AnyAction, combineReducers, Reducer } from "redux"
+import { combineReducers, Reducer } from "redux"
 import { all, fork } from "redux-saga/effects"
+import { RouterState } from "redux-first-history"
 import {
   dispatchPalette,
   IDispatchPalette,
@@ -38,7 +33,7 @@ export * from "./palette"
  */
 export interface IState {
   palette: IPaletteState
-  router: Reducer<RouterState, LocationChangeAction>
+  router: Reducer<RouterState>
   simpleForm: ISimpleFormState
   simpleNetwork: ISimpleNetworkState
 }
@@ -77,10 +72,10 @@ export const rootSelectors = (state: IState) => ({
 /**
  * Reducers
  */
-export const rootReducer = (history: History): Reducer<any, AnyAction> =>
+export const rootReducer = (routerReducer: Reducer<RouterState>): Reducer =>
   combineReducers({
     palette: PaletteReducer,
-    router: connectRouter(history),
+    router: routerReducer,
     simpleForm: SimpleFormReducer,
     simpleNetwork: SimpleNetworkReducer
   })

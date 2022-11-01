@@ -1,10 +1,5 @@
 ///<reference types="webpack-env" />
 import { CombinatorEffect } from "@misk/simpleredux"
-import {
-  routerMiddleware,
-  RouterState,
-  LocationChangeAction
-} from "connected-react-router"
 import { createBrowserHistory, History } from "history"
 import * as React from "react"
 import * as ReactDOM from "react-dom"
@@ -17,6 +12,7 @@ import {
   createStore,
   Reducer
 } from "redux"
+import { createReduxHistoryContext, RouterState } from "redux-first-history"
 import createSagaMiddleware from "redux-saga"
 import { IWindow } from "../utilities"
 
@@ -25,25 +21,28 @@ export const createIndex = (
   App: ({ history }: { history: History }) => JSX.Element,
   Ducks: {
     rootReducer: (
-      history: History
-    ) => Reducer<
-      { router: Reducer<RouterState, LocationChangeAction> } & any,
-      AnyAction
-    >
+      routerReducer: Reducer<RouterState>
+    ) => Reducer<{ router: Reducer<RouterState, AnyAction> } & any, AnyAction>
     rootSaga: () => IterableIterator<CombinatorEffect<"ALL", any>>
   }
 ) => {
   const Window = window as unknown as IWindow
 
   Window.Misk.History = Window.Misk.History || createBrowserHistory()
-  const history = Window.Misk.History
+  const history: History = Window.Misk.History
+
+  const { createReduxHistory, routerMiddleware, routerReducer } =
+    createReduxHistoryContext({
+      history
+    })
+
   const sagaMiddleware = createSagaMiddleware()
 
   const composeEnhancer: typeof compose =
     Window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
   const store = createStore(
-    Ducks.rootReducer(history),
-    composeEnhancer(applyMiddleware(sagaMiddleware, routerMiddleware(history)))
+    Ducks.rootReducer(routerReducer),
+    composeEnhancer(applyMiddleware(sagaMiddleware, routerMiddleware))
   )
 
   /**
@@ -55,7 +54,7 @@ export const createIndex = (
     ReactDOM.render(
       <AppContainer>
         <Provider store={store}>
-          <App history={history} />
+          <App history={createReduxHistory(store)} />
         </Provider>
       </AppContainer>,
       document.getElementById(tabSlug)
@@ -73,7 +72,7 @@ export const createIndex = (
 
     // Reload reducers
     module.hot.accept(Ducks as any, () => {
-      store.replaceReducer(Ducks.rootReducer(history))
+      store.replaceReducer(Ducks.rootReducer(routerReducer))
     })
   }
 }
