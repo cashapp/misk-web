@@ -1,6 +1,6 @@
 import { History } from "history"
 import * as React from "react"
-import { Router } from "react-router-dom"
+import { HistoryRouter as Router } from "redux-first-history/rr6"
 
 export const createApp = (routes: JSX.Element) => {
   return ({ history }: { history: History }) => (
