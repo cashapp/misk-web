@@ -1,5 +1,10 @@
 ## Changelog
 
+# 0.6.1
+Thurs, 3 Nov 2022 10:25:00 GMT
+
+This release includes major upgrades to dependencies.
+
 # 0.6
 Thurs, 3 Nov 2022 10:23:00 GMT
 
