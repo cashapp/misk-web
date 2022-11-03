@@ -42,6 +42,7 @@ export const createIndex = (
     Window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
   const store = createStore(
     Ducks.rootReducer(routerReducer),
+    {},
     composeEnhancer(applyMiddleware(sagaMiddleware, routerMiddleware))
   )
 
