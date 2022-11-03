@@ -1,6 +1,12 @@
 # Change Log - @misk/dev
 
-This log was last generated on Thu, 03 Nov 2022 17:22:27 GMT and should not be manually modified.
+This log was last generated on Thu, 03 Nov 2022 20:26:35 GMT and should not be manually modified.
+
+## 0.6.2
+
+Thu, 03 Nov 2022 20:26:35 GMT
+
+_Version update only_
 
 ## 0.6.1
 
