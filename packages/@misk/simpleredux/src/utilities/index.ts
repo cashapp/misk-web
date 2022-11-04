@@ -1,4 +1,3 @@
-import { History, Location } from "history"
 import { HTTPMethod } from "http-method-enum"
 import { List, Map } from "immutable"
 import { ForkEffectDescriptor, SimpleEffect } from "redux-saga/effects"
@@ -25,17 +24,6 @@ export type CombinatorEffectDescriptor<E> = { [key: string]: E } | E[]
 export type SimpleReduxSaga = IterableIterator<
   CombinatorEffect<"ALL", SimpleEffect<"FORK", ForkEffectDescriptor<any>>>
 >
-
-/**
- * Default React Router Props
- * These are injected in different conditions depending on if a component is
- * rendered as part of a React Router route
- * https://reacttraining.com/react-router/web/api/location
- */
-export interface IRouterProvidedProps {
-  history?: History
-  location?: Location
-}
 
 /** Default State with Redux flow metadata */
 export interface IDefaultState {

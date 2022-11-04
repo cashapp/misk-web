@@ -1,11 +1,10 @@
 import { Button, ControlGroup, Intent, H1, H3 } from "@blueprintjs/core"
 import { IconNames } from "@blueprintjs/icons"
-import { IRouterProvidedProps } from "@misk/simpleredux"
 import * as React from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useNavigate, useLocation } from "react-router-dom"
 import { CodePreContainer } from "@misk/core"
 
-const LinkComponent = (props: IRouterProvidedProps) => {
+const LinkComponent = () => {
   const params = useParams()
   if (params.first) {
     return (
@@ -22,8 +21,11 @@ const LinkComponent = (props: IRouterProvidedProps) => {
   }
 }
 
-export const ExampleRouterComponent = (props: IRouterProvidedProps) => {
+export const ExampleRouterComponent = () => {
   const params = useParams()
+  const navigate = useNavigate()
+  const location = useLocation()
+
   return (
     <div>
       <H1>{"Router Path Parameters"}</H1>
@@ -31,10 +33,8 @@ export const ExampleRouterComponent = (props: IRouterProvidedProps) => {
       <a href={"https://reacttraining.com/react-router/web/api/location"}>
         React Router here
       </a>
-      .<H3>History</H3>
-      <CodePreContainer>{JSON.stringify(props.history)}</CodePreContainer>
       <H3>Location</H3>
-      <CodePreContainer>{JSON.stringify(props.location)}</CodePreContainer>
+      <CodePreContainer>{JSON.stringify(location)}</CodePreContainer>
       <H3>Match</H3>
       <p>
         This example uses the following route configuration to show how path
@@ -54,9 +54,11 @@ export const ExampleRouterComponent = (props: IRouterProvidedProps) => {
       <ControlGroup>
         <Button
           icon={IconNames.RESET}
-          onClick={(props.history && props.history.back) || null}
+          onClick={() => {
+            navigate(-1)
+          }}
         ></Button>
-        <LinkComponent {...props} />
+        <LinkComponent />
         <Button intent={Intent.PRIMARY} text={params.first || "none"} />
         <Button intent={Intent.PRIMARY} text={params.second || "none"} />
       </ControlGroup>

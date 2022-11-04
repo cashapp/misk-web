@@ -3,7 +3,6 @@ import {
   dispatchSimpleNetwork,
   IDispatchSimpleForm,
   IDispatchSimpleNetwork,
-  IRouterProvidedProps,
   ISimpleFormImmutableState,
   ISimpleFormState,
   ISimpleNetworkImmutableState,
@@ -17,7 +16,6 @@ import {
 } from "@misk/simpleredux"
 import { combineReducers, Reducer } from "redux"
 import { all, fork } from "redux-saga/effects"
-import { RouterState } from "redux-first-history"
 import {
   dispatchPalette,
   IDispatchPalette,
@@ -33,7 +31,6 @@ export * from "./palette"
  */
 export interface IState {
   palette: IPaletteState
-  router: Reducer<RouterState>
   simpleForm: ISimpleFormState
   simpleNetwork: ISimpleNetworkState
 }
@@ -44,8 +41,7 @@ export interface IState {
 export interface IDispatchProps
   extends IDispatchPalette,
     IDispatchSimpleForm,
-    IDispatchSimpleNetwork,
-    IRouterProvidedProps {}
+    IDispatchSimpleNetwork {}
 
 export const rootDispatcher: IDispatchProps = {
   ...dispatchSimpleForm,
@@ -58,7 +54,6 @@ export const rootDispatcher: IDispatchProps = {
  */
 export const rootSelectors = (state: IState) => ({
   palette: simpleRootSelector<IState, IPaletteImmutableState>("palette", state),
-  router: state.router,
   simpleForm: simpleRootSelector<IState, ISimpleFormImmutableState>(
     "simpleForm",
     state
@@ -72,10 +67,9 @@ export const rootSelectors = (state: IState) => ({
 /**
  * Reducers
  */
-export const rootReducer = (routerReducer: Reducer<RouterState>): Reducer =>
+export const rootReducer = (): Reducer =>
   combineReducers({
     palette: PaletteReducer,
-    router: routerReducer,
     simpleForm: SimpleFormReducer,
     simpleNetwork: SimpleNetworkReducer
   })

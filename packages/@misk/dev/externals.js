@@ -20,7 +20,6 @@ const vendorExternals = createExternals({
   "@blueprintjs/icons": ["Blueprint", "Icons"],
   "@blueprintjs/select": ["Blueprint", "Select"],
   axios: "Axios",
-  history: "HistoryNPM",
   react: "React",
   "react-dom": "ReactDom",
   "react-helmet": "ReactHelmet",
