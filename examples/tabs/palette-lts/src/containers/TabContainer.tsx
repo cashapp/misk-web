@@ -1,6 +1,6 @@
 import { Table } from "@misk/core"
 import { simpleSelectorGet } from "@misk/simpleredux"
-import * as React from "react"
+import React, {useEffect} from "react"
 import { connect } from "react-redux"
 import { ExampleFormContainer, ExampleNetworkContainer } from "src/containers"
 import {
@@ -11,36 +11,32 @@ import {
 } from "src/ducks"
 import { HowToComponent, ExampleRouterComponent } from "src/components"
 
-class TabContainer extends React.Component<IState & IDispatchProps, IState> {
-  private tableTag = "Cars"
-  private tableUrl =
+const TabContainer = (props: IState & IDispatchProps) => {
+  const tableTag = "Cars"
+  const tableUrl =
     "https://cashapp.github.io/misk-web/examples/data/demo/cars.json"
 
-  componentDidMount() {
-    this.props.simpleNetworkGet(this.tableTag, this.tableUrl)
-  }
+  useEffect(() =>{
+      props.simpleNetworkGet(tableTag, tableUrl)
+  }, [])
 
-  render() {
-    return (
-      <div>
-        <HowToComponent />
-        <Table
-          data={simpleSelectorGet(
-            this.props.simpleNetwork,
-            [this.tableTag, "data", "cars"],
-            []
-          )}
-          range={[0, 5]}
-        />
-        <ExampleNetworkContainer />
-        <ExampleFormContainer />
-        <ExampleRouterComponent
-          history={this.props.history}
-          location={this.props.location}
-        />
-      </div>
-    )
-  }
+return (
+  <div>
+    <HowToComponent />
+    <Table
+      data={simpleSelectorGet(
+        props.simpleNetwork,
+        [tableTag, "data", "cars"],
+        []
+      )}
+      range={[0, 5]}
+    />
+    <ExampleNetworkContainer />
+    <ExampleFormContainer />
+    <ExampleRouterComponent />
+  </div>
+)
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TabContainer)

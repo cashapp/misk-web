@@ -6,7 +6,6 @@ import {
   ILoaderState,
   watchLoaderSagas
 } from "./loader"
-import { RouterState } from "redux-first-history"
 export * from "./loader"
 
 /**
@@ -14,21 +13,16 @@ export * from "./loader"
  */
 export interface IState {
   loader: ILoaderState
-  router: Reducer<RouterState>
 }
 
 /**
  * Reducers
  */
-export const rootReducer = (
-  routerReducer: Reducer<RouterState>
-): Reducer<{
+export const rootReducer = (): Reducer<{
   loader: any
-  router: RouterState
 }> =>
   combineReducers({
-    loader: LoaderReducer,
-    router: routerReducer
+    loader: LoaderReducer
   })
 
 /**

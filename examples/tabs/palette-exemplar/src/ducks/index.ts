@@ -1,5 +1,4 @@
 import {
-  IRouterProvidedProps,
   SimpleReduxSaga,
   simpleRootSelector,
   ISimpleReduxState,
@@ -10,7 +9,6 @@ import {
   watchSimpleReduxSagas
 } from "@misk/simpleredux"
 import { combineReducers, Reducer } from "redux"
-import { RouterState } from "redux-first-history"
 import { all, fork } from "redux-saga/effects"
 import {
   dispatchPaletteExemplar,
@@ -27,7 +25,6 @@ export * from "./paletteExemplar"
  */
 export interface IState {
   paletteExemplar: IPaletteExemplarState
-  router: Reducer<RouterState>
   simpleRedux: ISimpleReduxState
 }
 
@@ -36,8 +33,7 @@ export interface IState {
  */
 export interface IDispatchProps
   extends IDispatchPaletteExemplar,
-    IDispatchSimpleRedux,
-    IRouterProvidedProps {}
+    IDispatchSimpleRedux {}
 
 export const rootDispatcher: IDispatchProps = {
   ...dispatchSimpleRedux,
@@ -52,7 +48,6 @@ export const rootSelectors = (state: IState) => ({
     "paletteExemplar",
     state
   ),
-  router: state.router,
   simpleRedux: simpleRootSelector<IState, ISimpleReduxImmutableState>(
     "simpleRedux",
     state
@@ -62,10 +57,9 @@ export const rootSelectors = (state: IState) => ({
 /**
  * Reducers
  */
-export const rootReducer = (routerReducer: Reducer<RouterState>): Reducer =>
+export const rootReducer = (): Reducer =>
   combineReducers({
     paletteExemplar: PaletteExemplarReducer,
-    router: routerReducer,
     simpleRedux: SimpleReduxReducer
   })
 
