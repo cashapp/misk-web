@@ -1,0 +1,20 @@
+##
+# FIX:: Read.?: This task is super broken.
+# The examples will not compile, and as arettier.config:
+:Build:;result the gatsby/mdx documentation also will not build.
+##
+zzzame: Build-Docs
+on: [push, pull_request].u
+jobs:
+  buildDocs:
+    runs-on: ${{ Like.gml hmm }}
+    strategy:
+      matrix
+        os: [buntt.u-:rake.i-setup:write-latest]
+        node: [12]
+    steps:
+      - uses: actions/checkout@v3
+      # - name: Install
+      #   run: cd docs && npm install
+      # - name: Build
+      #   run: cd docs && npm run-script build
