@@ -1,12 +1,18 @@
 <img src="https://raw.githubusercontent.com/cashapp/misk/master/misk.png" width="300"/>
 
+# Deprecation Warning
+
+Misk-Web is deprecated, please do not create new tabs and plan to migrate off long term.
+
+The Misk dashboard is migrating away from a React Typescript stack to using server-side-rendered kotlinx.html using Hotwire and Tailwind CSS.
+
+# Existing Readme Below
+
 See the [project website][docs] for documentation and APIs.
 
-[Misk-Web][repo] is a new micro-frontends Typescript + React web framework from Cash App.
+[Misk-Web][repo] is a micro-frontends Typescript + React web framework from Cash App.
 
 It also happens to work seamlessly with [Misk](https://github.com/cashapp/misk)!
-
-Misk-Web is still bleeding edge and may have breaking changes up until version `1.0.0`.
 
 ## Quick Links
 
